@@ -1,0 +1,59 @@
+{
+  "name": "@resolid/config",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "description": "Resolid 通用配置",
+  "author": "Huijie Wei",
+  "license": "MIT",
+  "keywords": [
+    "resolid",
+    "eslint",
+    "typescript"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "files": [
+    "src",
+    "tsconfig.base.json",
+    "tsconfig.react.json"
+  ],
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "exports": {
+    "./tsconfig.base": "./tsconfig.base.json",
+    "./tsconfig.react": "./tsconfig.react.json",
+    "./*": "./src/*.js"
+  },
+  "dependencies": {
+    "@eslint/js": "^8.56.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "globals": "^14.0.0",
+    "typescript-eslint": "^7.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "homepage": "https://resolid.tech",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huijiewei/resolid.git",
+    "directory": "packages/config"
+  }
+}
