@@ -1,0 +1,41 @@
+{
+  "name": "@resolid/utils",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "description": "Resolid 基础工具",
+  "author": "Huijie Wei",
+  "license": "MIT",
+  "keywords": [
+    "resolid"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsup"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@resolid/config": "workspace:^",
+    "tsup": "^8.0.2"
+  },
+  "peerDependencies": {},
+  "homepage": "https://resolid.tech",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huijiewei/resolid",
+    "directory": "packages/utils"
+  }
+}
