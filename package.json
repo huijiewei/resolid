@@ -8,12 +8,14 @@
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "lefthook install"
+    "postinstall": "lefthook install",
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "@commitlint/cli": "^18.6.1",
     "@commitlint/config-conventional": "^18.6.2",
-    "lefthook": "^1.6.1"
+    "lefthook": "^1.6.1",
+    "prettier": "^3.2.5"
   },
   "engines": {
     "node": "20.x",

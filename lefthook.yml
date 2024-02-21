@@ -1,3 +1,10 @@
+pre-commit:
+  parallel: true
+  commands:
+    prettier:
+      glob: "*.{js,jsx,ts,tsx,json,html,css,yml,md,mdx}"
+      run: npx --no prettier --write {staged_files}
+
 commit-msg:
   parallel: true
   commands:
