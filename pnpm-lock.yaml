@@ -125,6 +125,21 @@ importers:
         specifier: ^5.1.4
         version: 5.1.4(@types/node@20.11.19)
 
+  packages/remix-utils:
+    devDependencies:
+      '@remix-run/node':
+        specifier: ^2.7.2
+        version: 2.7.2(typescript@5.3.3)
+      '@remix-run/server-runtime':
+        specifier: ^2.7.2
+        version: 2.7.2(typescript@5.3.3)
+      '@resolid/config':
+        specifier: workspace:^
+        version: link:../config
+      tsup:
+        specifier: ^8.0.2
+        version: 8.0.2(postcss@8.4.35)(typescript@5.3.3)
+
   packages/utils:
     devDependencies:
       '@resolid/config':
