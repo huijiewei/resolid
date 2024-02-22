@@ -1,6 +1,6 @@
 /** @type {import('prettier').Options} */
 const config = {
-  plugins: [],
+  plugins: ["prettier-plugin-organize-imports"],
 };
 
 export default config;
