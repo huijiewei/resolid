@@ -1,0 +1,33 @@
+{
+  "name": "Resolid",
+  "short_name": "resolid",
+  "start_url": "/",
+  "theme_color": "#0969da",
+  "background_color": "#ffffff",
+  "description": "一个引人入胜的 React 全栈框架，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay"],
+  "icons": [
+    {
+      "src": "icons/pwa-64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
