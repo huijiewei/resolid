@@ -32,6 +32,7 @@
   },
   "pnpm": {
     "overrides": {
+      "esbuild": "^0.20.1",
       "hasown": "npm:@nolyfill/hasown@latest",
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
@@ -43,7 +44,13 @@
       "object.fromentries": "npm:@nolyfill/object.fromentries@latest",
       "object.hasown": "npm:@nolyfill/object.hasown@latest",
       "object.values": "npm:@nolyfill/object.values@latest",
-      "string.prototype.matchall": "npm:@nolyfill/string.prototype.matchall@latest"
+      "string.prototype.matchall": "npm:@nolyfill/string.prototype.matchall@latest",
+      "is-arguments": "npm:@nolyfill/is-arguments@latest",
+      "is-generator-function": "npm:@nolyfill/is-generator-function@latest",
+      "is-typed-array": "npm:@nolyfill/is-typed-array@latest",
+      "isarray": "npm:@nolyfill/isarray@latest",
+      "side-channel": "npm:@nolyfill/side-channel@latest",
+      "which-typed-array": "npm:@nolyfill/which-typed-array@latest"
     }
   }
 }

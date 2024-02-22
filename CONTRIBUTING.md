@@ -5,13 +5,27 @@
 ## 步骤
 
 1. 克隆存储库
-   `git clone https://github.com/huijiewei/resolid.git`
+
+   ```bash
+   git clone https://github.com/huijiewei/resolid.git
+   ```
 
 2. 安装依赖
-   `pnpm install`
 
-3. 本地运行
-   `pnpm run --filter website dev`
+   ```bash
+   pnpm install
+   ```
+
+3. 构建 Remix 插件包
+
+   ```bash
+   pnpm run --filter @resolid/remix-plugins build
+   ```
+
+4. 本地运行
+   ```bash
+   pnpm run --filter website dev
+   ```
 
 ## Git 提交规范
 

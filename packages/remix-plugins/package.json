@@ -1,0 +1,70 @@
+{
+  "name": "@resolid/remix-plugins",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "description": "Resolid Remix 扩展插件",
+  "author": "Huijie Wei",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsup"
+  },
+  "exports": {
+    "./flex-routes": {
+      "import": "./dist/flex-routes.js",
+      "types": "./dist/flex-routes.d.ts"
+    },
+    "./node-hono": {
+      "import": "./dist/node-hono.js",
+      "types": "./dist/node-hono.d.ts"
+    },
+    "./vercel-serverless": {
+      "import": "./dist/vercel-serverless.js",
+      "types": "./dist/vercel-serverless.d.ts"
+    }
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.8.1",
+    "@remix-run/server-runtime": "^2.7.2",
+    "hono": "^4.0.5"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^2.7.2",
+    "@resolid/config": "workspace:^",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@vercel/nft": "^0.26.4",
+    "minimatch": "^9.0.3",
+    "rollup": "^4.12.0",
+    "tsup": "^8.0.2",
+    "type-fest": "^4.10.2",
+    "vite": "^5.1.4"
+  },
+  "peerDependencies": {
+    "@remix-run/dev": "^2.7.2",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@vercel/nft": "^0.26.4",
+    "rollup": "^4.12.0",
+    "vite": "^5.1.4"
+  },
+  "engines": {
+    "node": "20.x"
+  },
+  "homepage": "https://resolid.tech",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huijiewei/resolid",
+    "directory": "packages/remix-plugins"
+  }
+}
