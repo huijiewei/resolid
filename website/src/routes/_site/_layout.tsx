@@ -18,7 +18,7 @@ export default function SiteLayout() {
       <div className={"min-h-[calc(100vh-10rem)] p-4 pt-16"}>
         <Outlet />
       </div>
-      <footer className={"mt-12 border-t py-4 text-center text-sm"}>
+      <footer className={"text-fg-muted mt-12 border-t py-4 text-center text-sm"}>
         <p>Released under the MIT License</p>
         <p className={"mt-1"}>
           Proudly made in
@@ -34,7 +34,7 @@ export default function SiteLayout() {
 
 const NavMenu = ({ onClick }: { onClick?: MouseEventHandler<HTMLAnchorElement> }) => {
   return (
-    <ul className={"inline-flex list-none font-medium tracking-wide"}>
+    <ul className={"inline-flex list-none font-medium"}>
       {[
         { name: "主页", href: "", end: true },
         { name: "关于", href: "about" },
@@ -43,7 +43,9 @@ const NavMenu = ({ onClick }: { onClick?: MouseEventHandler<HTMLAnchorElement> }
           <li key={menu.name}>
             <HistoryNavLink
               className={({ isActive }) => {
-                return ["block p-2 hover:text-blue-500 md:px-4", isActive && "text-blue-600"].filter(Boolean).join(" ");
+                return ["hover:text-link-hovered block p-2 md:px-4", isActive && "text-link-pressed"]
+                  .filter(Boolean)
+                  .join(" ");
               }}
               onClick={onClick}
               to={menu.href}
