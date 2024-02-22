@@ -1,4 +1,5 @@
 import { Link, Outlet } from "@remix-run/react";
+import { clsx } from "@resolid/react-ui";
 import type { MouseEventHandler } from "react";
 import { HistoryNavLink } from "~/components/HistoryLink";
 
@@ -18,7 +19,7 @@ export default function SiteLayout() {
       <div className={"min-h-[calc(100vh-10rem)] p-4 pt-16"}>
         <Outlet />
       </div>
-      <footer className={"text-fg-muted mt-12 border-t py-4 text-center text-sm"}>
+      <footer className={"mt-12 border-t py-4 text-center text-sm text-fg-muted"}>
         <p>Released under the MIT License</p>
         <p className={"mt-1"}>
           Proudly made in
@@ -42,11 +43,9 @@ const NavMenu = ({ onClick }: { onClick?: MouseEventHandler<HTMLAnchorElement> }
         return (
           <li key={menu.name}>
             <HistoryNavLink
-              className={({ isActive }) => {
-                return ["hover:text-link-hovered block p-2 md:px-4", isActive && "text-link-pressed"]
-                  .filter(Boolean)
-                  .join(" ");
-              }}
+              className={({ isActive }) =>
+                clsx("block p-2 hover:text-link-hovered md:px-4", isActive && "text-link-pressed")
+              }
               onClick={onClick}
               to={menu.href}
               end={menu.end}

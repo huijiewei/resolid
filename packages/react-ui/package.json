@@ -1,0 +1,55 @@
+{
+  "name": "@resolid/react-ui",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "description": "Resolid React UI 组件",
+  "author": "Huijie Wei",
+  "license": "MIT",
+  "keywords": [
+    "resolid",
+    "react",
+    "react-hook",
+    "tailwindcss"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsup"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "dependencies": {
+    "@resolid/utils": "workspace:^",
+    "@tw-classed/core": "^1.7.0",
+    "clsx": "^2.1.0"
+  },
+  "devDependencies": {
+    "@resolid/config": "workspace:^",
+    "@resolid/tailwind": "workspace:^",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsup": "^8.0.2"
+  },
+  "peerDependencies": {
+    "@resolid/tailwind": "workspace:^",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "homepage": "https://resolid.tech",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huijiewei/resolid",
+    "directory": "packages/react-ui"
+  }
+}
