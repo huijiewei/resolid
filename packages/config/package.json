@@ -53,7 +53,7 @@
   "homepage": "https://resolid.tech",
   "repository": {
     "type": "git",
-    "url": "https://github.com/huijiewei/resolid.git",
+    "url": "git+https://github.com/huijiewei/resolid.git",
     "directory": "packages/config"
   }
 }
