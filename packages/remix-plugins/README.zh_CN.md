@@ -77,8 +77,6 @@ export default {
 
 ## Vercel Serverless 适配器
 
-> Vercel Serverless 适配器尚不支持 `Server Bundles` 功能
-
 ### 需先安装相关依赖
 
 ```bash
@@ -103,6 +101,12 @@ export default {
       cacheFiles: ["favicon.svg", "apple-touch-icon.png", "manifest.webmanifest"],
       // 需要缓存的 public 目录下的文件夹, 缓存一年, 默认会缓存 assets
       cacheFolders: ["icons", "images"],
+      // Vercel 路由, Remix 的 Server Bundles 功能是并行构建的, 所以插件无法正确写入路由到 Vercel 的 config 文件
+      // 需要自己定义路由, path 是路由的路径, dest 是 serverless 的 function name, 规则是 serverBundleId 前加一个下划线
+      serverRoutes: [
+        { path: "admin", dest: "_admin" },
+        { path: "", dest: "_site" },
+      ],
     }),
   ],
 };

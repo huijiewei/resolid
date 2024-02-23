@@ -77,8 +77,6 @@ export default {
 
 ## Vercel Serverless Adapter
 
-> ⚠️ Vercel Serverless Adapter does not yet support the `Server Bundles` feature
-
 ### Need to install related dependencies first
 
 ```bash
@@ -103,6 +101,12 @@ export default {
       cacheFiles: ["favicon.svg", "apple-touch-icon.png", "manifest.webmanifest"],
       // The folders in the public directory that need to be cached are cached for one year. By default, assets will be cached.
       cacheFolders: ["icons", "images"],
+      // Vercel routing, Remix's Server Bundles feature is built in parallel, so the plug-in cannot correctly write the config file routing to Vercel's config file
+      // You need to define the route yourself, path is the path of the route, dest is the function name of serverless, the rule is to add an underscore before serverBundleId
+      serverRoutes: [
+        { path: "admin", dest: "_admin" },
+        { path: "", dest: "_site" },
+      ],
     }),
   ],
 };
