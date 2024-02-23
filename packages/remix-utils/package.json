@@ -6,6 +6,10 @@
   "description": "Resolid Remix 增强工具",
   "author": "Huijie Wei",
   "license": "MIT",
+  "keywords": [
+    "resolid",
+    "remix"
+  ],
   "publishConfig": {
     "access": "public",
     "provenance": true
