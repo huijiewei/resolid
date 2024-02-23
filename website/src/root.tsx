@@ -1,5 +1,6 @@
 import type { LinksFunction, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import { trimEnd } from "@resolid/utils";
 import type { PropsWithChildren } from "react";
 
 import icons from "~/assets/icons/common.svg";
@@ -29,7 +30,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const ogImage = new URL("/images/og-image-v1.png", data?.url).toString();
-  const ogUrl = new URL("", data?.url).toString();
+  const ogUrl = trimEnd(new URL("", data?.url).toString(), "/");
   const siteName = "Resolid";
   const title = siteName;
   const description =
@@ -90,7 +91,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
 export const Layout = ({ children }: PropsWithChildren) => {
   return (
-    <html lang="zh-CN">
+    <html lang="zh">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

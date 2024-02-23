@@ -83,7 +83,6 @@ export default defineConfig(({ command }) => {
     },
     optimizeDeps: {
       holdUntilCrawlEnd: false,
-      include: ["@tw-classed/core", "clsx"],
     },
   };
 
