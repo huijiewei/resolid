@@ -77,6 +77,8 @@ export default {
 
 ## Vercel Serverless Adapter
 
+> ⚠️ Vercel Serverless Adapter does not yet support the `Server Bundles` feature
+
 ### Need to install related dependencies first
 
 ```bash
@@ -108,7 +110,7 @@ export default {
 
 > Vercel project Framework Preset needs to be set to Vite, Node.js Version needs to be set to 20.x
 >
-> If you are using a monorepo structure, please set the Root Directory to the project directory that needs to be deployed, and then customize the relevant commands. The configuration of [Resolid Remix](https://github.com/huijiewei/resolid-remix) is as shown below
+> If you are using a monorepo structure, please set the Root Directory to the project directory that needs to be deployed, and then customize the relevant commands. The configuration of [Resolid](https://github.com/huijiewei/resolid) is as shown below
 > ![Vercel related settings](.github/assets/vercel-settings.png)
 
 ## Acknowledgment
