@@ -1,7 +1,10 @@
 {
   "extends": "@resolid/config/tsconfig.react",
-  "include": ["src", "tsup.config.ts"],
+  "include": ["src", "tsup.config.ts", "vitest.config.ts"],
   "compilerOptions": {
-    "baseUrl": "./src"
+    "baseUrl": ".",
+    "paths": {
+      "@resolid/utils": ["../utils/src"]
+    }
   }
 }

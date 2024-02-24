@@ -19,6 +19,7 @@
   ],
   "scripts": {
     "lint": "eslint .",
+    "test": "vitest --run",
     "build": "tsup"
   },
   "exports": {
@@ -32,7 +33,8 @@
     "@remix-run/node": "^2.7.2",
     "@remix-run/server-runtime": "^2.7.2",
     "@resolid/config": "workspace:^",
-    "tsup": "^8.0.2"
+    "tsup": "^8.0.2",
+    "vitest": "^1.3.1"
   },
   "peerDependencies": {
     "@remix-run/node": "^2.7.2",

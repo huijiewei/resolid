@@ -11,6 +11,7 @@
     "postinstall": "lefthook install",
     "lint": "pnpm run -r --if-present lint",
     "format": "prettier --write .",
+    "test": "pnpm test -r --if-present",
     "website:build": "pnpm --filter website... run build",
     "website:vercel": "BUILD_ENV=vercel pnpm --filter website... run build",
     "drizzle": "pnpm --filter website run drizzle"
@@ -55,7 +56,8 @@
       "is-typed-array": "npm:@nolyfill/is-typed-array@latest",
       "isarray": "npm:@nolyfill/isarray@latest",
       "side-channel": "npm:@nolyfill/side-channel@latest",
-      "which-typed-array": "npm:@nolyfill/which-typed-array@latest"
+      "which-typed-array": "npm:@nolyfill/which-typed-array@latest",
+      "deep-equal": "npm:@nolyfill/deep-equal@latest"
     }
   }
 }
