@@ -29,7 +29,7 @@
     "./*": "./src/*.js"
   },
   "dependencies": {
-    "@eslint/js": "^8.56.0",
+    "@eslint/js": "^8.57.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-react": "^7.33.2",
@@ -38,11 +38,11 @@
     "typescript-eslint": "^7.0.2"
   },
   "devDependencies": {
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "typescript": "^5.3.3"
   },
   "peerDependenciesMeta": {
