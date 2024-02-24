@@ -23,6 +23,7 @@ const copyStaticFiles = async (outDir: string, vercelOutDir: string) => {
   await mkdir(vercelStaticDir, { recursive: true });
   await cp(outDir, vercelStaticDir, {
     recursive: true,
+    force: true,
   });
   await rm(join(vercelStaticDir, ".vite"), { recursive: true });
 };
@@ -216,9 +217,12 @@ const vercelServerlessBuild = (options: VercelServerlessBuildOptions): Plugin =>
         await rm(vercelRoot, { recursive: true, force: true });
         await mkdir(vercelRoot, { recursive: true });
         await mkdir(vercelOutput, { recursive: true });
-        await copyStaticFiles(outDir, vercelOutput);
         await initConfigJson(options.cleanUrls, cacheFiles, cacheFolders, serverRoutes, vercelConfigFile);
       } else {
+        const clientPath = serverBundleBuildConfig ? join(outDir, "..", "..", "client") : join(outDir, "..", "client");
+
+        await copyStaticFiles(clientPath, vercelOutput);
+
         const [entryFile, defaultHandler] = await buildEntry(
           outDir,
           join(__dirname, "vercel-serverless-entry.js"),
