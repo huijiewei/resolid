@@ -2,9 +2,13 @@
 
 [简体中文](README.zh_CN.md)
 
-Resolid Remix extension package
+Resolid Remix extension package, mainly some plug-ins to enhance Remix and needs to be used with Vite
 
-This package is mainly some plug-ins to enhance Remix and needs to be used with Vite
+## Feature
+
+- [Routing enhancement](#routing-enhancement)
+- [Node.js Hono Adapter](#nodejs-hono-adapter)
+- [Vercel Serverless Adapter](#vercel-serverless-adapter)
 
 ## Install
 
@@ -12,11 +16,11 @@ This package is mainly some plug-ins to enhance Remix and needs to be used with 
 pnpm add -D @resolid/remix-plugins
 ```
 
-## Routing enhancement
+### Routing enhancement
 
 Remix uses flat file routing by default, using `.` to split URLs. This method is fine for small projects, but it is not comfortable once it encounters large projects, so I developed a routing system that mixes directories and files.
 
-### Configuration
+#### Configuration
 
 Edit `vite.config.ts` file
 
@@ -38,7 +42,7 @@ export default {
 };
 ```
 
-### Router Rules
+#### Router Rules
 
 - Routes are defined and nested using folders, very similar to how HTML files are laid out on the nginx server
 - The `_layout` file wraps all downstream routes, which require an `<Outlet />` to render sub-routes
@@ -51,17 +55,50 @@ export default {
 
 > Most of the routing rules are compatible with Remix's routing, but the folder structure is added
 
-## Node.js Hono Adapter
+## Adapter
+
+Adapters are all run based on [hono](https://hono.dev/) middleware. The default remixHandler is:
+
+```js
+import { createRequestHandler } from "@remix-run/server-runtime";
+
+export default function remixHandler(build, c) {
+  const requestHandler = createRequestHandler(build, "production");
+
+  return requestHandler(c.req.raw);
+}
+```
+
+You can create a new `remix.handler.ts` or `remix.handler.js` file in the Remix App directory to change the default handler behavior, such as adding an IP address to the Remix loadContext
+
+```ts
+import { createRequestHandler, type ServerBuild } from "@remix-run/server-runtime";
+import type { Context } from "hono";
+
+export default function remixHandler(build: ServerBuild, c: Context) {
+  const requestHandler = createRequestHandler(build, "production");
+
+  const remoteAddress = c.req.header("x-vercel-deployment-url")
+    ? c.req.header("x-forwarded-for")
+    : c.env.incoming.socket.remoteAddress;
+
+  return requestHandler(c.req.raw, {
+    remoteAddress: remoteAddress,
+  });
+}
+```
+
+### Node.js Hono Adapter
 
 Package the Remix application into a single server file running on hono, which can be run autonomously on VPS using pm2
 
-### Need to install related dependencies first
+#### Need to install related dependencies first
 
 ```bash
 pnpm add hono @hono/node-server
 ```
 
-### Configuration
+#### Configuration
 
 Modify the `vite.config.ts` file
 
@@ -69,21 +106,26 @@ Modify the `vite.config.ts` file
 import nodeHonoBuild from "@resolid/remix-plugins/node-hono";
 
 export default {
-  plugins: [nodeHonoBuild()],
+  plugins: [
+    nodeHonoBuild({
+      // Remix App directory, the default is app which is the same as Remix
+      appDir: "app",
+    }),
+  ],
 };
 ```
 
 > After running build, `server.mjs` and `package.json` files will be automatically generated in the `build/server` directory. The `package.json` file defines the `ssr.external` set by Vite in the server directory. Run `npm install` to install dependencies excluded during build
 
-## Vercel Serverless Adapter
+### Vercel Serverless Adapter
 
-### Need to install related dependencies first
+#### Need to install related dependencies first
 
 ```bash
 pnpm add hono @hono/node-server
 ```
 
-### Configuration
+#### Configuration
 
 Edit the `vite.config.ts` file
 
@@ -93,6 +135,8 @@ import vercelServerlessBuild from "@resolid/remix-plugins/vercel-serverless";
 export default {
   plugins: [
     vercelServerlessBuild({
+      // Remix App directory, the default is app which is the same as Remix
+      appDir: "app",
       // Deployment area
       regions: "sin1",
       // Whether to use clean URL

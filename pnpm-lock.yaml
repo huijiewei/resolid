@@ -149,6 +149,9 @@ importers:
       '@vercel/nft':
         specifier: ^0.26.4
         version: 0.26.4
+      esbuild:
+        specifier: ^0.20.1
+        version: 0.20.1
       minimatch:
         specifier: ^9.0.3
         version: 9.0.3

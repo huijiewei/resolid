@@ -2,9 +2,13 @@
 
 [English](README.md)
 
-Resolid Remix 扩展插件包
+Resolid Remix 扩展插件包, 主要是对 Remix 进行强化的一些插件, 需配合 Vite 使用
 
-这个包主要是对 Remix 进行强化的一些插件, 需配合 Vite 使用
+## 功能
+
+- [路由增强](#路由增强)
+- [Node.js Hono 适配器](#nodejs-hono-适配器)
+- [Vercel Serverless 适配器](#vercel-serverless-适配器)
 
 ## 安装
 
@@ -12,11 +16,11 @@ Resolid Remix 扩展插件包
 pnpm add -D @resolid/remix-plugins
 ```
 
-## 路由增强
+### 路由增强
 
 Remix 默认使用的是平面文件路由,用 `.` 来分割 URL, 这种形式小项目还好, 一旦遇到大的项目就不太舒服了, 所以我开发了混合目录和文件的路由系统
 
-### 配置
+#### 配置
 
 编辑 `vite.config.ts` 文件
 
@@ -38,7 +42,7 @@ export default {
 };
 ```
 
-### 规则
+#### 规则
 
 - 路由是使用文件夹定义和嵌套的, 与在 nginx 服务器上布局 HTML 文件的方式非常相似
 - `_layout` 文件包装了下游的所有路由, 这些需要一个 `<Outlet />` 来渲染子路由
@@ -51,17 +55,50 @@ export default {
 
 > 路由规则大部分和 Remix 的路由兼容, 只是增加了文件夹结构
 
-## Node.js Hono 适配器
+## 适配器
+
+适配器都是基于 [hono](https://hono.dev/) 中间件运行, 默认 remixHandler 为:
+
+```js
+import { createRequestHandler } from "@remix-run/server-runtime";
+
+export default function remixHandler(build, c) {
+  const requestHandler = createRequestHandler(build, "production");
+
+  return requestHandler(c.req.raw);
+}
+```
+
+你可以在 Remix App 目录下新建 `remix.handler.ts` 或者 `remix.handler.js` 文件来更改默认 handler 行为, 比如给 Remix loadContext 增加 IP 地址
+
+```ts
+import { createRequestHandler, type ServerBuild } from "@remix-run/server-runtime";
+import type { Context } from "hono";
+
+export default function remixHandler(build: ServerBuild, c: Context) {
+  const requestHandler = createRequestHandler(build, "production");
+
+  const remoteAddress = c.req.header("x-vercel-deployment-url")
+    ? c.req.header("x-forwarded-for")
+    : c.env.incoming.socket.remoteAddress;
+
+  return requestHandler(c.req.raw, {
+    remoteAddress: remoteAddress,
+  });
+}
+```
+
+### Node.js Hono 适配器
 
 将 Remix 应用打包成基于 hono 运行的服务器单文件, 可以使用 pm2 在 VPS 上自主运行
 
-### 需先安装相关依赖
+#### 需先安装相关依赖
 
 ```bash
 pnpm add hono @hono/node-server
 ```
 
-### 配置
+#### 配置
 
 编辑 `vite.config.ts` 文件
 
@@ -69,21 +106,26 @@ pnpm add hono @hono/node-server
 import nodeHonoBuild from "@resolid/remix-plugins/node-hono";
 
 export default {
-  plugins: [nodeHonoBuild()],
+  plugins: [
+    nodeHonoBuild({
+      // Remix App 目录, 默认和 Remix 一致为 app
+      appDir: "app",
+    }),
+  ],
 };
 ```
 
 > 运行 build 以后自动会在 `build/server` 目录下生成 `server.mjs` 和 `package.json` 文件, `package.json` 文件里面定义了 Vite 设置的 `ssr.external`, 在服务器目录下运行 `npm install` 即可安装构建时排除的依赖
 
-## Vercel Serverless 适配器
+### Vercel Serverless 适配器
 
-### 需先安装相关依赖
+#### 需先安装相关依赖
 
 ```bash
 pnpm add hono @hono/node-server
 ```
 
-### 配置
+#### 配置
 
 编辑 `vite.config.ts` 文件
 
@@ -93,6 +135,8 @@ import vercelServerlessBuild from "@resolid/remix-plugins/vercel-serverless";
 export default {
   plugins: [
     vercelServerlessBuild({
+      // Remix App 目录, 默认和 Remix 一致为 app
+      appDir: "app",
       // 部署区域
       regions: "sin1",
       // 是否使用清洁 URL

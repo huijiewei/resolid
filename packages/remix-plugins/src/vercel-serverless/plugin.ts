@@ -5,11 +5,11 @@ import { join, relative } from "node:path";
 import { cwd } from "node:process";
 import { fileURLToPath } from "node:url";
 import type { ConfigEnv, Plugin, ResolvedConfig, RollupCommonJSOptions, UserConfig } from "vite";
-import { bundleServer, type SsrExternal } from "../base/build-utils";
+import { buildEntry, bundleServer, type BuildOptions, type SsrExternal } from "../base/build-utils";
 
 type ServerRoute = { path: string; dest: string };
 
-export type VercelServerlessBuildOptions = {
+export type VercelServerlessBuildOptions = BuildOptions & {
   regions: string | string[];
   cleanUrls?: boolean;
   cacheFiles?: string[];
@@ -150,6 +150,7 @@ type RemixViteResolvedConfig = ResolvedConfig & {
 
 const vercelServerlessBuild = (options: VercelServerlessBuildOptions): Plugin => {
   const __dirname = fileURLToPath(new URL(".", import.meta.url));
+  const appDir = options.appDir || "app";
 
   let root = "";
   let outDir = "";
@@ -218,9 +219,11 @@ const vercelServerlessBuild = (options: VercelServerlessBuildOptions): Plugin =>
         await copyStaticFiles(outDir, vercelOutput);
         await initConfigJson(options.cleanUrls, cacheFiles, cacheFolders, serverRoutes, vercelConfigFile);
       } else {
-        const entryFile = "vercel-serverless-entry.js";
-
-        await cp(join(__dirname, entryFile), join(outDir, entryFile));
+        const [entryFile, defaultHandler] = await buildEntry(
+          outDir,
+          join(__dirname, "vercel-serverless-entry.js"),
+          join(root, appDir),
+        );
 
         const bundleFile = await bundleServer(
           outDir,
@@ -229,6 +232,10 @@ const vercelServerlessBuild = (options: VercelServerlessBuildOptions): Plugin =>
           commonjsOptions,
           ssrExternal,
         );
+
+        if (defaultHandler) {
+          await rm(defaultHandler, { force: true });
+        }
 
         await copyFunctionsFiles(
           root,

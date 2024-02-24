@@ -1,12 +1,14 @@
-import { cp } from "node:fs/promises";
+import { rm } from "node:fs/promises";
 import { join } from "node:path";
 import { cwd } from "node:process";
 import { fileURLToPath } from "node:url";
 import type { Plugin, RollupCommonJSOptions } from "vite";
-import { bundleServer, type SsrExternal } from "../base/build-utils";
+import { buildEntry, bundleServer, type BuildOptions, type SsrExternal } from "../base/build-utils";
 
-const nodeHonoBuild = (): Plugin => {
+const nodeHonoBuild = (options: BuildOptions = {}): Plugin => {
   const __dirname = fileURLToPath(new URL(".", import.meta.url));
+
+  const appDir = options.appDir || "app";
 
   let root = "";
   let outDir = "";
@@ -28,11 +30,17 @@ const nodeHonoBuild = (): Plugin => {
     async closeBundle() {
       console.log("bundle Node Hono Server for production...");
 
-      const entryFile = "node-hono-entry.js";
-
-      await cp(join(__dirname, entryFile), join(outDir, entryFile));
+      const [entryFile, defaultHandler] = await buildEntry(
+        outDir,
+        join(__dirname, "node-hono-entry.js"),
+        join(root, appDir),
+      );
 
       await bundleServer(outDir, entryFile, join(root, "package.json"), commonjsOptions, ssrExternal);
+
+      if (defaultHandler) {
+        await rm(defaultHandler, { force: true });
+      }
     },
   };
 };

@@ -1,10 +1,11 @@
-import { createRequestHandler, type ServerBuild } from "@remix-run/server-runtime";
+import type { ServerBuild } from "@remix-run/server-runtime";
 import type { MiddlewareHandler } from "hono";
+
+// @ts-expect-error Cannot find module
+import remixHandler from "~resolid-remix/handler";
 
 export const remix = (build: ServerBuild): MiddlewareHandler => {
   return async (c) => {
-    const requestHandler = createRequestHandler(build, "production");
-
-    return requestHandler(c.req.raw);
+    return remixHandler(build, c);
   };
 };

@@ -35,11 +35,9 @@ serve(
   async (info) => {
     console.log(`🚀 Hono Server started on port ${info.port}`);
 
-    const address =
-      env.HOST ||
-      Object.values(networkInterfaces())
-        .flat()
-        .find((ip) => String(ip?.family).includes("4") && !ip?.internal)?.address;
+    const address = Object.values(networkInterfaces())
+      .flat()
+      .find((ip) => String(ip?.family).includes("4") && !ip?.internal)?.address;
 
     if (!address) {
       console.log(`[remix-hono-server] http://localhost:${info.port}`);

@@ -34,10 +34,11 @@ export default defineConfig(({ command }) => {
       splitVendorChunkPlugin(),
       !isBuild && tsconfigPaths(),
       !isBuild && viteInspect(),
-      isBuild && !buildEnv && nodeHonoBuild(),
+      isBuild && !buildEnv && nodeHonoBuild({ appDir: appDirectory }),
       isBuild &&
         buildEnv == "vercel" &&
         vercelServerlessBuild({
+          appDir: appDirectory,
           regions: "sin1",
           cleanUrls: true,
           cacheFiles: ["favicon.svg", "apple-touch-icon.png", "manifest.webmanifest"],
