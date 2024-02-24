@@ -1,14 +1,15 @@
 import { format } from "@formkit/tempo";
+import type { LoaderFunctionArgs } from "@remix-run/node";
 import { Await, defer, useLoaderData } from "@remix-run/react";
 import { clsx } from "@resolid/react-ui";
 import { mergeMeta } from "@resolid/remix-utils";
-import { wait } from "@resolid/utils";
 import { Suspense } from "react";
+import { getStatus } from "~/modules/system/systemService.server";
 
-export const loader = async () => {
+export const loader = async ({ context }: LoaderFunctionArgs) => {
   const status = async () => {
     try {
-      await wait(200);
+      await getStatus();
 
       return { success: true, message: "数据库访问正常" };
     } catch {
@@ -21,6 +22,7 @@ export const loader = async () => {
       success: true,
       message: "服务器渲染正常",
       now: format(new Date(), "YYYY-MM-DD HH:mm"),
+      ip: context.remoteAddress,
     },
     db: status(),
   });
@@ -58,7 +60,11 @@ export default function Status() {
           )}
         </Await>
       </Suspense>
-      <p className={"bg-blue-50/60 p-4"}>服务器时间: {ssr.now}</p>
+      <p className={"rounded-lg bg-blue-50/60 p-4"}>
+        客户端地址：<span className={"font-mono"}>{ssr.ip}</span>
+        <br />
+        服务器时间：<span className={"font-mono"}>{ssr.now}</span>
+      </p>
     </div>
   );
 }
