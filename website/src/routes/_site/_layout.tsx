@@ -1,9 +1,78 @@
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Link, Outlet } from "@remix-run/react";
 import { clsx } from "@resolid/react-ui";
+import { trimEnd } from "@resolid/utils";
 import type { MouseEventHandler } from "react";
 import { HistoryNavLink } from "~/components/HistoryLink";
 
 import resolidSvg from "~/assets/images/resolid.svg";
+
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  return {
+    url: request.url,
+  };
+};
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const ogImage = new URL("/images/og-image-v1.png", data?.url).toString();
+  const ogUrl = trimEnd(new URL("", data?.url).toString(), "/");
+  const siteName = "Resolid";
+  const title = siteName;
+  const description =
+    "使用 Remix 驱动的全栈网站，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。";
+
+  return [
+    { title: title },
+    {
+      name: "description",
+      content: description,
+    },
+    {
+      property: "og:site_name",
+      content: siteName,
+    },
+    {
+      property: "og:title",
+      content: title,
+    },
+    {
+      property: "og:description",
+      content: description,
+    },
+    {
+      property: "og:url",
+      content: ogUrl,
+    },
+    {
+      property: "og:image",
+      content: ogImage,
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "twitter:title",
+      content: title,
+    },
+    {
+      property: "twitter:description",
+      content: description,
+    },
+    {
+      property: "twitter:image",
+      content: ogImage,
+    },
+    {
+      property: "twitter:url",
+      content: ogUrl,
+    },
+    {
+      property: "twitter:card",
+      content: "summary_large_image",
+    },
+  ].filter(Boolean);
+};
 
 export default function SiteLayout() {
   return (

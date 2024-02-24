@@ -1,6 +1,7 @@
 import { format } from "@formkit/tempo";
 import { Await, defer, useLoaderData } from "@remix-run/react";
 import { clsx } from "@resolid/react-ui";
+import { mergeMeta } from "@resolid/remix-utils";
 import { wait } from "@resolid/utils";
 import { Suspense } from "react";
 
@@ -25,12 +26,20 @@ export const loader = async () => {
   });
 };
 
+export const meta = mergeMeta(() => {
+  return [
+    {
+      title: "状态",
+    },
+  ];
+});
+
 export default function Status() {
   const { ssr, db } = useLoaderData<typeof loader>();
 
   return (
     <div className={"prose mx-auto mt-8 dark:prose-invert"}>
-      <h1 className={"text-center"}>状态页面</h1>
+      <h1 className={"text-center"}>状态</h1>
       <p className={"rounded-lg bg-green-50/60 p-4 font-bold text-fg-success"}>静态页面访问正常</p>
       <p className={"rounded-lg bg-green-50/60 p-4 font-bold text-fg-success"}>{ssr.message}</p>
       <Suspense
