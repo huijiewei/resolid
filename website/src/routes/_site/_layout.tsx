@@ -3,7 +3,7 @@ import { Link, Outlet } from "@remix-run/react";
 import { clsx } from "@resolid/react-ui";
 import { trimEnd } from "@resolid/utils";
 import type { MouseEventHandler } from "react";
-import { HistoryNavLink } from "~/components/HistoryLink";
+import { HistoryNavLink } from "~/components/base/HistoryLink";
 
 import resolidSvg from "~/assets/images/resolid.svg";
 

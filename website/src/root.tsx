@@ -1,9 +1,9 @@
 import type { LinksFunction } from "@remix-run/node";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 import type { PropsWithChildren } from "react";
+import { ErrorComponent } from "~/components/base/ErrorComponent";
 
 import icons from "~/assets/icons/common.svg";
-import { ErrorComponent } from "~/components/ErrorComponent";
 import styles from "~/root.css?url";
 
 export const links: LinksFunction = () => {

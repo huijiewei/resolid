@@ -1,4 +1,4 @@
-const spriteIcons = import.meta.glob("../assets/icons/*.svg", { query: "?url", import: "default", eager: true });
+const spriteIcons = import.meta.glob("../../assets/icons/*.svg", { query: "?url", import: "default", eager: true });
 
 type SpriteIconProps = {
   name: string;
@@ -11,7 +11,7 @@ type SpriteIconProps = {
 export const SpriteIcon = (props: SpriteIconProps) => {
   const { name, group = "common", size, color, className } = props;
 
-  const groupModule = `../assets/icons/${group}.svg`;
+  const groupModule = `../../assets/icons/${group}.svg`;
 
   const sizeValue = size ?? "1.1em";
 

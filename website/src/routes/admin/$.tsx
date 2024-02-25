@@ -1,5 +1,5 @@
 import { mergeMeta } from "@resolid/remix-utils";
-import { ErrorComponent } from "~/components/ErrorComponent";
+import { ErrorComponent } from "~/components/base/ErrorComponent";
 
 export const loader = async () => {
   throw new Response("Not Found", { status: 404 });

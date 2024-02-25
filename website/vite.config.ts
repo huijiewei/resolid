@@ -56,6 +56,10 @@ export default defineConfig(({ command }) => {
         },
         output: {
           manualChunks(id) {
+            if (id.includes("/src/components/base/")) {
+              return "components";
+            }
+
             if (
               id.includes("/node_modules/react/") ||
               id.includes("/node_modules/react-dom/") ||
@@ -66,12 +70,12 @@ export default defineConfig(({ command }) => {
               return "react";
             }
 
-            if (id.includes("/node_modules/")) {
-              return "vendor";
-            }
-
             if (id.includes("/node_modules/@resolid/") || id.includes("/packages/")) {
               return "resolid";
+            }
+
+            if (id.includes("/node_modules/")) {
+              return "vendor";
             }
           },
         },

@@ -1,6 +1,6 @@
 import { mergeMeta } from "@resolid/remix-utils";
 
-import { SpriteIcon } from "~/components/SpriteIcon";
+import { SpriteIcon } from "~/components/base/SpriteIcon";
 
 export const meta = mergeMeta(() => {
   return [{ title: "关于" }];
