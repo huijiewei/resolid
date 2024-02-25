@@ -1,14 +1,14 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
-import type { HtmlProps } from "../slot/Slot";
+import type { BaseProps } from "../slot/Slot";
 
 export type CloseButtonProps = {
   textClassName?: string;
   statusClassName?: string;
 };
 
-export const CloseButton = forwardRef<HTMLButtonElement, HtmlProps<"button", CloseButtonProps, "type">>(
+export const CloseButton = forwardRef<HTMLButtonElement, BaseProps<"button", CloseButtonProps, "type">>(
   (props, ref) => {
     const {
       className,

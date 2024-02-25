@@ -4,6 +4,7 @@ import type { PropsWithChildren } from "react";
 import { ErrorComponent } from "~/components/base/ErrorComponent";
 
 import icons from "~/assets/icons/common.svg";
+import { RouteProcessBar } from "~/components/base/RouteProcessBar";
 import styles from "~/root.css?url";
 
 export const links: LinksFunction = () => {
@@ -37,6 +38,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
         <Links />
       </head>
       <body className={"min-h-screen overflow-y-scroll antialiased"}>
+        <RouteProcessBar />
         {children}
         <ScrollRestoration />
         <Scripts />

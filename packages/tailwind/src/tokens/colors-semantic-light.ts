@@ -56,9 +56,9 @@ export const colorsSemanticLight = {
       hovered: colorsPalette.gray[100],
       pressed: colorsPalette.gray[200],
       emphasis: {
-        DEFAULT: colorsPalette.gray[500],
-        hovered: colorsPalette.gray[600],
-        pressed: colorsPalette.gray[700],
+        DEFAULT: colorsPalette.gray[900],
+        hovered: colorsPalette.gray[800],
+        pressed: colorsPalette.gray[900],
       },
     },
 

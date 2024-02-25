@@ -14,7 +14,7 @@ import { mergeRefs } from "../../hooks";
 
 export type EmptyProps = Record<never, never>;
 
-export type HtmlProps<
+export type BaseProps<
   T extends keyof JSX.IntrinsicElements,
   P extends object = EmptyProps,
   O extends string | number | symbol = never,
@@ -24,7 +24,7 @@ export type AsChildProps<
   T extends keyof JSX.IntrinsicElements,
   P extends object = EmptyProps,
   O extends string | number | symbol = never,
-> = HtmlProps<T, P, O> & {
+> = BaseProps<T, P, O> & {
   asChild?: boolean;
 };
 

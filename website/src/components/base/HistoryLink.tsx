@@ -7,7 +7,9 @@ import {
   type NavLinkProps,
   type Path,
 } from "@remix-run/react";
-import { forwardRef, type HTMLAttributes } from "react";
+import { Button, type BaseProps, type ButtonProps } from "@resolid/react-ui";
+import { __DEV__ } from "@resolid/utils";
+import { forwardRef } from "react";
 
 export const HistoryLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   const { state, to, ...rest } = props;
@@ -15,7 +17,9 @@ export const HistoryLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref)
   return <Link to={to} state={{ ...state, previous: true }} ref={ref} {...rest} />;
 });
 
-HistoryLink.displayName = "HistoryLink";
+if (__DEV__) {
+  HistoryLink.displayName = "HistoryLink";
+}
 
 export const HistoryNavLink = forwardRef<HTMLAnchorElement, NavLinkProps>((props, ref) => {
   const { state, to, ...rest } = props;
@@ -23,11 +27,13 @@ export const HistoryNavLink = forwardRef<HTMLAnchorElement, NavLinkProps>((props
   return <NavLink to={to} state={{ ...state, previous: true }} ref={ref} {...rest} />;
 });
 
-HistoryNavLink.displayName = "HistoryLink";
+if (__DEV__) {
+  HistoryNavLink.displayName = "HistoryLink";
+}
 
-export type HistoryBackProps = { backTo?: string | Partial<Path> };
+export type HistoryBackProps = ButtonProps & { backTo?: string | Partial<Path> };
 
-export const HistoryBack = (props: Omit<HTMLAttributes<HTMLButtonElement> & HistoryBackProps, "children">) => {
+export const HistoryBack = (props: BaseProps<"button", HistoryBackProps, "children">) => {
   const { onClick, backTo = "/", ...rest } = props;
 
   const navigate = useNavigate();
@@ -42,8 +48,7 @@ export const HistoryBack = (props: Omit<HTMLAttributes<HTMLButtonElement> & Hist
   };
 
   return (
-    <button
-      className={""}
+    <Button
       onClick={(e) => {
         onClick && onClick(e);
         historyBack();
@@ -51,6 +56,6 @@ export const HistoryBack = (props: Omit<HTMLAttributes<HTMLButtonElement> & Hist
       {...rest}
     >
       点击返回
-    </button>
+    </Button>
   );
 };
