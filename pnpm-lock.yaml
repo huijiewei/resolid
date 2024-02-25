@@ -154,8 +154,8 @@ importers:
         specifier: ^2.7.2
         version: 2.7.2(typescript@5.3.3)
       hono:
-        specifier: ^4.0.6
-        version: 4.0.6
+        specifier: ^4.0.7
+        version: 4.0.7
     devDependencies:
       '@remix-run/dev':
         specifier: ^2.7.2
@@ -242,8 +242,8 @@ importers:
   website:
     dependencies:
       '@formkit/tempo':
-        specifier: ^0.0.11
-        version: 0.0.11
+        specifier: ^0.0.12
+        version: 0.0.12
       '@hono/node-server':
         specifier: ^1.8.1
         version: 1.8.1
@@ -272,8 +272,8 @@ importers:
         specifier: ^0.29.4
         version: 0.29.4(@types/react@18.2.58)(react@18.3.0-canary-98b8359f6-20240223)
       hono:
-        specifier: ^4.0.6
-        version: 4.0.6
+        specifier: ^4.0.7
+        version: 4.0.7
       isbot:
         specifier: ^5.1.0
         version: 5.1.0
@@ -1120,8 +1120,8 @@ packages:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  /@formkit/tempo@0.0.11:
-    resolution: {integrity: sha512-6eI3cn4T4tKPH9LLzXPZcvJRuscW/DzbEbv4VfG3bxcyGz9ayBqphY4CIqP640TO+jhckD/+NfViublpf3gLFA==}
+  /@formkit/tempo@0.0.12:
+    resolution: {integrity: sha512-16fs+6KTCaKMUadn6rQ4NwXssyTZd4Ps5K3Yrw1UqT+30kV6Euw6ndR02rxT0TJnpqzlDfvJJx0Dgh0dI29ZEA==}
     dev: false
 
   /@hono/node-server@1.8.1:
@@ -4476,8 +4476,8 @@ packages:
     resolution: {integrity: sha512-2bsegYkkHO+h/9MGbn6KWcE45cHZgPANo5LXF7EvWdT0yT2EguSVO1nDgU5c8+ZOPwp2vMNa7YFsJhVcDR9Sdg==}
     dev: true
 
-  /hono@4.0.6:
-    resolution: {integrity: sha512-yL8Dp4mNscQj3zqMsmuHRoDoJlbP/3Jjz5HrIcd8a7MEWDr/O8oPgEQx2saVG+NX8mgEeEDQOuG2cgXCc9VuoA==}
+  /hono@4.0.7:
+    resolution: {integrity: sha512-1fhi9MUzMIXWqPWA7OGPTpzjQupT78rf+U6N+2vxwy7U76jUX0dmkUtp572gR+dbGR1YugLYvyg/JrgPOSoutw==}
     engines: {node: '>=16.0.0'}
     dev: false
 
@@ -6471,7 +6471,7 @@ packages:
     dependencies:
       lilconfig: 3.1.1
       postcss: 8.4.35
-      yaml: 2.3.4
+      yaml: 2.4.0
     dev: true
 
   /postcss-load-config@5.0.3(postcss@8.4.35):
@@ -6488,7 +6488,7 @@ packages:
     dependencies:
       lilconfig: 3.1.1
       postcss: 8.4.35
-      yaml: 2.3.4
+      yaml: 2.4.0
     dev: true
 
   /postcss-merge-longhand@6.0.3(postcss@8.4.35):
@@ -8588,9 +8588,10 @@ packages:
   /yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
-  /yaml@2.3.4:
-    resolution: {integrity: sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==}
+  /yaml@2.4.0:
+    resolution: {integrity: sha512-j9iR8g+/t0lArF4V6NE/QCfT+CO7iLqrXAHZbJdo+LfjqP1vR8Fg5bSiaq6Q2lOD1AUEVrEVIgABvBFYojJVYQ==}
     engines: {node: '>= 14'}
+    hasBin: true
     dev: true
 
   /yargs-parser@20.2.9:

@@ -12,7 +12,7 @@
     "drizzle": "drizzle-kit"
   },
   "dependencies": {
-    "@formkit/tempo": "^0.0.11",
+    "@formkit/tempo": "^0.0.12",
     "@hono/node-server": "^1.8.1",
     "@remix-run/node": "^2.7.2",
     "@remix-run/react": "^2.7.2",
@@ -22,7 +22,7 @@
     "@resolid/remix-utils": "workspace:^",
     "@resolid/utils": "workspace:^",
     "drizzle-orm": "^0.29.4",
-    "hono": "^4.0.6",
+    "hono": "^4.0.7",
     "isbot": "^5.1.0",
     "react": "18.3.0-canary-98b8359f6-20240223",
     "react-dom": "18.3.0-canary-98b8359f6-20240223"
