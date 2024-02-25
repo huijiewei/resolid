@@ -1,22 +1,16 @@
-import { drizzle } from "drizzle-orm/postgres-js";
+import { resolidDatabase } from "@resolid/framework";
 import { env } from "node:process";
-import postgres from "postgres";
 
-import * as systemSchema from "~/modules/system/systemSchema.server";
+import * as systemSchema from "~/modules/system/schema.server";
 
 env.TZ = "UTC";
 
-const pg = postgres(
-  `postgres://${env.RX_DB_USER}:${env.RX_DB_PASSWORD}@${env.RX_DB_HOST}/${env.RX_DB_DATABASE}?sslmode=require`,
-  {
+export const db = resolidDatabase({
+  pgOptions: {
     max: env.RX_RUNTIME == "vercel" ? 1 : 10,
-    transform: {
-      undefined: null,
-    },
   },
-);
-
-export const db = drizzle(pg, {
-  schema: { ...systemSchema },
-  logger: env.NODE_ENV == "development",
+  drizzleOptions: {
+    schema: { ...systemSchema },
+    logger: env.NODE_ENV == "development",
+  },
 });

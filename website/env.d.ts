@@ -1,5 +1,6 @@
 /// <reference types="vite/client" />
 /// <reference types="@remix-run/node/globals" />
+/// <reference types="@resolid/framework/env" />
 
 interface ImportMetaEnv {
   readonly VITE_TURNSTILE_KEY: string;
@@ -11,18 +12,14 @@ interface ImportMeta {
 
 declare global {
   namespace NodeJS {
-    // noinspection JSUnusedGlobalSymbols
     interface ProcessEnv {
       NODE_ENV: "development" | "production";
 
       BUILD_ENV: "vercel" | undefined;
       RX_RUNTIME: "vercel" | "node" | undefined;
 
-      RX_DB_HOST: string;
-      RX_DB_PORT: number;
-      RX_DB_USER: string;
-      RX_DB_PASSWORD: string;
-      RX_DB_DATABASE: string;
+      RX_DB_URL: string;
+      RX_DB_TABLE_PREFIX?: string;
 
       RX_COOKIE_SECRET: string;
 
@@ -38,7 +35,6 @@ declare global {
 import "@remix-run/server-runtime";
 
 declare module "@remix-run/server-runtime" {
-  // noinspection JSUnusedGlobalSymbols
   interface AppLoadContext {
     readonly remoteAddress: string;
   }

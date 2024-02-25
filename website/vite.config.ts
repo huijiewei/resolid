@@ -8,11 +8,11 @@ import { defineConfig, splitVendorChunkPlugin, type AliasOptions, type UserConfi
 import viteInspect from "vite-plugin-inspect";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-const appDirectory = "src";
-
 export default defineConfig(({ command }) => {
   const isBuild = command == "build";
   const buildEnv = env.BUILD_ENV;
+
+  const appDirectory = "src";
 
   const config: UserConfig = {
     plugins: [
@@ -83,6 +83,10 @@ export default defineConfig(({ command }) => {
     },
     resolve: {
       alias: [
+        {
+          find: "@dbInstance",
+          replacement: fileURLToPath(new URL(`./${appDirectory}/foundation/database.ts`, import.meta.url)),
+        },
         isBuild && { find: "~", replacement: fileURLToPath(new URL(`./${appDirectory}`, import.meta.url)) },
       ].filter(Boolean) as AliasOptions,
     },

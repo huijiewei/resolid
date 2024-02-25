@@ -1,0 +1,7 @@
+{
+  "extends": "@resolid/config/tsconfig.base",
+  "include": ["src", "env.d.ts", "tsup.config.ts", "vitest.config.ts"],
+  "compilerOptions": {
+    "baseUrl": "."
+  }
+}
