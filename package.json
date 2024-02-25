@@ -30,7 +30,7 @@
     "node": "20.x",
     "pnpm": "8.x"
   },
-  "packageManager": "pnpm@8.15.3",
+  "packageManager": "pnpm@8.15.4",
   "homepage": "https://resolid.tech",
   "repository": {
     "type": "git",
