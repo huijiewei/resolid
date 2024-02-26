@@ -5,6 +5,7 @@ export default [
   {
     ignores: [
       "**/node_modules",
+      "**/build",
       "**/dist",
       "**/package-lock.json",
       "**/pnpm-lock.yaml",
@@ -12,6 +13,7 @@ export default [
       "**/.changeset",
       "**/.idea",
       "**/.cache",
+      "**/.output",
       "**/.resolid",
       "**/.vite-inspect",
       "**/*.min.*",
