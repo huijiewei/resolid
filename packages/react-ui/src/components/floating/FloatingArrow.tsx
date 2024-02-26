@@ -4,7 +4,7 @@ import { clsx } from "../../utils/classed";
 import { useFloatingArrow } from "./FloatingArrowContext";
 
 export const FloatingArrow = (props: Omit<FloatingArrowProps, "context" | "stroke" | "fill">) => {
-  const { className, width = 11, height = 6, tipRadius = 0.1, strokeWidth = 1, ...rest } = props;
+  const { className, width = 8, height = 4, tipRadius = 0.1, strokeWidth = 1, ...rest } = props;
 
   const arrow = useFloatingArrow();
 
