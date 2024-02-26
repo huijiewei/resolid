@@ -10,6 +10,7 @@ import { fontFamily } from "./tokens/font-family";
 import { fontSize } from "./tokens/font-size";
 import { fontWeight } from "./tokens/font-weight";
 import { screens } from "./tokens/screens";
+import { zIndex } from "./tokens/z-index";
 import { flattenColorPalette, rgbFromHex } from "./utils/color";
 
 type DefaultThemeType = "light" | "dark";
@@ -88,6 +89,7 @@ const preset = (options: PresetOptions | undefined = {}): Partial<Config> => {
       }),
       borderWidth,
       borderRadius,
+      zIndex,
     },
     plugins: [
       plugin(({ addBase, addUtilities, theme }) => {

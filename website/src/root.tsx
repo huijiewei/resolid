@@ -1,7 +1,6 @@
 import type { LinksFunction } from "@remix-run/node";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 import type { PropsWithChildren } from "react";
-import { ErrorComponent } from "~/components/base/ErrorComponent";
 
 import icons from "~/assets/icons/common.svg";
 import { RouteProcessBar } from "~/components/base/RouteProcessBar";
@@ -50,9 +49,5 @@ export const Layout = ({ children }: PropsWithChildren) => {
 export default function Root() {
   return <Outlet />;
 }
-
-export const ErrorBoundary = () => {
-  return <ErrorComponent />;
-};
 
 export const HydrateFallback = () => <p className={"p-20 text-center"}>正在加载</p>;
