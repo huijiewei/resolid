@@ -7,7 +7,6 @@ import { renderToPipeableStream } from "react-dom/server";
 
 const ABORT_DELAY = 10_000;
 
-// noinspection JSUnusedGlobalSymbols
 export default function handleRequest(
   request: Request,
   responseStatusCode: number,

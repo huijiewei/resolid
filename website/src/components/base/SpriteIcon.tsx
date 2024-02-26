@@ -1,3 +1,5 @@
+import { clsx } from "@resolid/react-ui";
+
 const spriteIcons = import.meta.glob("../../assets/icons/*.svg", { query: "?url", import: "default", eager: true });
 
 type SpriteIconProps = {
@@ -13,10 +15,10 @@ export const SpriteIcon = (props: SpriteIconProps) => {
 
   const groupModule = `../../assets/icons/${group}.svg`;
 
-  const sizeValue = size ?? "1.1em";
+  const sizeValue = size ?? "1.5rem";
 
   return (
-    <svg width={sizeValue} height={sizeValue} className={className}>
+    <svg width={sizeValue} height={sizeValue} className={clsx("aspect-square", className)}>
       <use color={color} href={`${spriteIcons[groupModule]}#${name}`} />
     </svg>
   );

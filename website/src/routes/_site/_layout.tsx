@@ -3,7 +3,7 @@ import { Link, Outlet } from "@remix-run/react";
 import { Button, clsx } from "@resolid/react-ui";
 import { trimEnd } from "@resolid/utils";
 import { useState, type MouseEventHandler } from "react";
-import { HistoryNavLink } from "~/components/base/HistoryLink";
+import { HistoryLink, HistoryNavLink } from "~/components/base/HistoryLink";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
 
 import resolidSvg from "~/assets/images/resolid.svg";
@@ -81,7 +81,7 @@ export default function SiteLayout() {
       <header className={"fixed inset-x-0 z-20 w-full border-b bg-bg-normal"}>
         <NavBar />
       </header>
-      <div className={"min-h-[calc(100vh-10rem)] p-4 pt-16"}>
+      <div className={"min-h-[calc(100vh-9.55rem)] p-4 pt-16"}>
         <Outlet />
       </div>
       <footer className={"mt-12 border-t py-4 text-center text-sm text-fg-muted"}>
@@ -92,6 +92,22 @@ export default function SiteLayout() {
             🇨🇳
           </span>
           by Resolid Tech, 2024
+        </p>
+        <p className={"mt-1 inline-flex items-center justify-center gap-2 text-[0.813rem]"}>
+          <HistoryLink
+            to={"status"}
+            className={"inline-flex items-center gap-1 rounded bg-bg-success-emphasis px-1.5 py-0.5 text-fg-emphasized"}
+          >
+            <SpriteIcon size={"0.813rem"} name={"status"} />
+            运行状态
+          </HistoryLink>
+          <span
+            className={
+              "pointer-events-none inline-flex items-center gap-1 rounded bg-black px-1.5 py-0.5 text-fg-emphasized"
+            }
+          >
+            由 Vercel 部署
+          </span>
         </p>
       </footer>
     </>
@@ -118,14 +134,14 @@ const NavBar = () => {
         </div>
         <div className={"inline-flex items-center gap-1 text-fg-muted"}>
           <Button aria-label={"用户登录"} color={"neutral"} variant={"ghost"} size={"sm"} square>
-            <SpriteIcon size={"1.125rem"} name={"user"} />
+            <SpriteIcon name={"user"} />
           </Button>
           <Button aria-label={"颜色模式"} color={"neutral"} variant={"ghost"} size={"sm"} square>
-            <SpriteIcon size={"1.125rem"} name={"auto"} />
+            <SpriteIcon name={"auto"} />
           </Button>
           <Button aria-label={"Github 上的 Resolid"} asChild color={"neutral"} variant={"ghost"} size={"sm"} square>
             <a href={"https://github.com/huijiewei/resolid"} target={"_blank"} rel={"noreferrer"}>
-              <SpriteIcon size={"1.125rem"} name={"github"} />
+              <SpriteIcon name={"github"} />
             </a>
           </Button>
           <Button
@@ -137,7 +153,7 @@ const NavBar = () => {
             className={"md:hidden"}
             onClick={() => setOpened((prev) => !prev)}
           >
-            {opened ? <SpriteIcon name={"close"} size={"1.5rem"} /> : <SpriteIcon name={"menu"} size={"1.5rem"} />}
+            {opened ? <SpriteIcon name={"close"} /> : <SpriteIcon name={"menu"} />}
           </Button>
         </div>
       </div>
