@@ -92,7 +92,7 @@ const preset = (options: PresetOptions | undefined = {}): Partial<Config> => {
       zIndex,
     },
     plugins: [
-      plugin(({ addBase, addUtilities, theme }) => {
+      plugin(({ addBase, addUtilities, addVariant, theme }) => {
         addBase({
           body: {
             fontSize: theme("fontSize.base"),
@@ -102,6 +102,8 @@ const preset = (options: PresetOptions | undefined = {}): Partial<Config> => {
           },
         });
         addUtilities(resolved.utilities);
+        addVariant("active", ["&[data-active]", "&:active"]);
+        addVariant("opened", "&[data-opened]");
       }),
       scrollbar(cssVarPrefix),
     ],
