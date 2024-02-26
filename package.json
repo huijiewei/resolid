@@ -39,6 +39,9 @@
   "pnpm": {
     "overrides": {
       "esbuild": "^0.20.1",
+      "react": "18.3.0-canary-98b8359f6-20240223",
+      "react-dom": "18.3.0-canary-98b8359f6-20240223",
+      "react-is": "18.3.0-canary-98b8359f6-20240223",
       "hasown": "npm:@nolyfill/hasown@latest",
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",

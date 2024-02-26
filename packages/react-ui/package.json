@@ -31,6 +31,7 @@
     }
   },
   "dependencies": {
+    "@floating-ui/react": "^0.26.9",
     "@resolid/utils": "workspace:^",
     "@tw-classed/core": "^1.7.0",
     "clsx": "^2.1.0"
@@ -45,7 +46,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tsup": "^8.0.2",
-    "vitest": "^1.3.1"
+    "vitest": "^1.3.1",
+    "vite-tsconfig-paths": "^4.3.1"
   },
   "peerDependencies": {
     "@resolid/tailwind": "workspace:^",

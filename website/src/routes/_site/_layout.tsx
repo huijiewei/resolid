@@ -1,6 +1,6 @@
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Link, Outlet } from "@remix-run/react";
-import { Button, clsx } from "@resolid/react-ui";
+import { Button, Tooltip, clsx } from "@resolid/react-ui";
 import { trimEnd } from "@resolid/utils";
 import { useState, type MouseEventHandler } from "react";
 import { HistoryLink, HistoryNavLink } from "~/components/base/HistoryLink";
@@ -133,17 +133,33 @@ const NavBar = () => {
           <NavMenu onClick={() => setOpened(false)} />
         </div>
         <div className={"inline-flex items-center gap-1 text-fg-muted"}>
-          <Button aria-label={"用户登录"} color={"neutral"} variant={"ghost"} size={"sm"} square>
-            <SpriteIcon name={"user"} />
-          </Button>
+          <Tooltip.Root placement={"bottom"}>
+            <Tooltip.Trigger asChild>
+              <Button aria-label={"用户登录"} color={"neutral"} variant={"ghost"} size={"sm"} square>
+                <SpriteIcon name={"user"} />
+              </Button>
+            </Tooltip.Trigger>
+            <Tooltip.Content>
+              <Tooltip.Arrow />
+              用户登录
+            </Tooltip.Content>
+          </Tooltip.Root>
           <Button aria-label={"颜色模式"} color={"neutral"} variant={"ghost"} size={"sm"} square>
             <SpriteIcon name={"auto"} />
           </Button>
-          <Button aria-label={"Github 上的 Resolid"} asChild color={"neutral"} variant={"ghost"} size={"sm"} square>
-            <a href={"https://github.com/huijiewei/resolid"} target={"_blank"} rel={"noreferrer"}>
-              <SpriteIcon name={"github"} />
-            </a>
-          </Button>
+          <Tooltip.Root placement={"bottom"}>
+            <Tooltip.Trigger asChild>
+              <Button aria-label={"Github 上的 Resolid"} asChild color={"neutral"} variant={"ghost"} size={"sm"} square>
+                <a href={"https://github.com/huijiewei/resolid"} target={"_blank"} rel={"noreferrer"}>
+                  <SpriteIcon name={"github"} />
+                </a>
+              </Button>
+            </Tooltip.Trigger>
+            <Tooltip.Content>
+              <Tooltip.Arrow />
+              Github 上的 Resolid
+            </Tooltip.Content>
+          </Tooltip.Root>
           <Button
             aria-label={"导航菜单"}
             color={"neutral"}
