@@ -72,6 +72,7 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<"button", Butto
     variant = group?.variant ?? "solid",
     type,
     disabled = false,
+    active = false,
     block = false,
     square = false,
     padded = true,
@@ -100,6 +101,7 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<"button", Butto
       type={type ?? asChild ? undefined : "button"}
       ref={ref}
       disabled={Boolean(disabled) || loading}
+      data-active={active ? "" : undefined}
       {...rest}
     >
       {loading ? (
