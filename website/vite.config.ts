@@ -2,6 +2,7 @@ import { vitePlugin as remix } from "@remix-run/dev";
 import remixFlexRoutes from "@resolid/remix-plugins/flex-routes";
 import nodeHonoBuild from "@resolid/remix-plugins/node-hono";
 import vercelServerlessBuild from "@resolid/remix-plugins/vercel-serverless";
+import { join } from "node:path";
 import { env } from "node:process";
 import { fileURLToPath } from "node:url";
 import { defineConfig, splitVendorChunkPlugin, type AliasOptions, type UserConfig } from "vite";
@@ -12,6 +13,7 @@ export default defineConfig(({ command }) => {
   const isBuild = command == "build";
   const buildEnv = env.BUILD_ENV;
 
+  const __dirname = fileURLToPath(new URL(".", import.meta.url));
   const appDirectory = "src";
 
   const config: UserConfig = {
@@ -65,7 +67,8 @@ export default defineConfig(({ command }) => {
               id.includes("/node_modules/react-dom/") ||
               id.includes("/node_modules/react-is/") ||
               id.includes("/node_modules/scheduler/") ||
-              id.includes("/node_modules/prop-types/")
+              id.includes("/node_modules/prop-types/") ||
+              id.includes("/node_modules/loose-envify/")
             ) {
               return "react";
             }
@@ -85,9 +88,9 @@ export default defineConfig(({ command }) => {
       alias: [
         {
           find: "@dbInstance",
-          replacement: fileURLToPath(new URL(`./${appDirectory}/foundation/database.ts`, import.meta.url)),
+          replacement: join(__dirname, `./${appDirectory}/foundation/db.server.ts`),
         },
-        isBuild && { find: "~", replacement: fileURLToPath(new URL(`./${appDirectory}`, import.meta.url)) },
+        isBuild && { find: "~", replacement: join(__dirname, `./${appDirectory}`) },
       ].filter(Boolean) as AliasOptions,
     },
     optimizeDeps: {
