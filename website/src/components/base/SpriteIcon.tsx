@@ -4,11 +4,11 @@ import { isString } from "@resolid/utils";
 const spriteIcons = import.meta.glob("../../assets/icons/*.svg", { query: "?url", import: "default", eager: true });
 
 const iconSizes = {
-  xs: "0.813rem",
-  sm: "1rem",
+  xs: "0.875rem",
+  sm: "1.125rem",
   md: "1.5rem",
-  lg: "2rem",
-  xl: "3rem",
+  lg: "1.75rem",
+  xl: "2rem",
 };
 
 type IconSizes = keyof typeof iconSizes;

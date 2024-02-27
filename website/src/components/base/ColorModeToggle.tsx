@@ -32,7 +32,7 @@ export const ColorModeToggle = () => {
 
           return (
             <DropdownMenuItem key={key} onClick={() => {}}>
-              <SpriteIcon size={"sm"} name={mode.icon} className={"me-1.5"} />
+              <SpriteIcon size={"xs"} name={mode.icon} className={"me-1.5"} />
               <span>{mode.label}</span>
             </DropdownMenuItem>
           );

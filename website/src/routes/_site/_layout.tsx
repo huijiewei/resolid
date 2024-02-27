@@ -1,23 +1,25 @@
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Link, Outlet } from "@remix-run/react";
 import { Badge, Button, Tooltip, TooltipArrow, TooltipContent, TooltipTrigger, clsx } from "@resolid/react-ui";
+import { getRequestOrigin } from "@resolid/remix-utils";
 import { trimEnd } from "@resolid/utils";
+import { env } from "node:process";
 import { useState, type MouseEventHandler } from "react";
+import { ColorModeToggle } from "~/components/base/ColorModeToggle";
 import { HistoryLink, HistoryNavLink } from "~/components/base/HistoryLink";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
 
 import resolidSvg from "~/assets/images/resolid.svg";
-import { ColorModeToggle } from "~/components/base/ColorModeToggle";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   return {
-    url: request.url,
+    requestOrigin: getRequestOrigin(request, env.RX_PROXY == 1),
   };
 };
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  const ogImage = new URL("/images/og-image-v1.png", data?.url).toString();
-  const ogUrl = trimEnd(new URL("", data?.url).toString(), "/");
+  const ogImage = new URL("/images/og-image-v1.png", data?.requestOrigin).toString();
+  const ogUrl = trimEnd(new URL("", data?.requestOrigin).toString(), "/");
   const siteName = "Resolid";
   const title = siteName;
   const description =
@@ -184,6 +186,7 @@ const NavMenu = ({ onClick }: { onClick?: MouseEventHandler<HTMLAnchorElement> }
         { name: "博客", href: "blog" },
         { name: "论坛", href: "forum" },
         { name: "动弹", href: "tweet" },
+        { name: "组件", href: "ui" },
         { name: "关于", href: "about" },
       ].map((menu) => {
         return (

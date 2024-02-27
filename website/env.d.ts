@@ -16,7 +16,10 @@ declare global {
       NODE_ENV: "development" | "production";
 
       BUILD_ENV: "vercel" | undefined;
+
       RX_RUNTIME: "vercel" | "node" | undefined;
+      RX_PROXY: number;
+      RX_PROXY_COUNT: number;
 
       RX_DB_URL: string;
       RX_DB_TABLE_PREFIX?: string;

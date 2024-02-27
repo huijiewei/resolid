@@ -3,7 +3,7 @@ import { SpriteIcon } from "~/components/base/SpriteIcon";
 
 export default function SiteIndex() {
   return (
-    <main className={"prose mx-auto max-w-3xl dark:prose-invert"}>
+    <div className={"prose mx-auto max-w-3xl dark:prose-invert"}>
       <h1 className={"mt-24 text-center text-[3rem] font-[800] leading-normal md:text-[4rem]"}>Resolid Remix</h1>
       <p className={"text-center"}>
         Resolid Remix 是使用 Remix 驱动的全栈网站，旨在展示使用 Remix、React、Tailwind CSS、Vite、Drizzle
@@ -20,6 +20,6 @@ export default function SiteIndex() {
           </a>
         </Button>
       </div>
-    </main>
+    </div>
   );
 }
