@@ -1,9 +1,7 @@
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Link, Outlet } from "@remix-run/react";
 import { Badge, Button, Tooltip, TooltipArrow, TooltipContent, TooltipTrigger, clsx } from "@resolid/react-ui";
-import { getRequestOrigin } from "@resolid/remix-utils";
 import { trimEnd } from "@resolid/utils";
-import { env } from "node:process";
 import { useState, type MouseEventHandler } from "react";
 import { ColorModeToggle } from "~/components/base/ColorModeToggle";
 import { HistoryLink, HistoryNavLink } from "~/components/base/HistoryLink";
@@ -11,9 +9,9 @@ import { SpriteIcon } from "~/components/base/SpriteIcon";
 
 import resolidSvg from "~/assets/images/resolid.svg";
 
-export const loader = async ({ request }: LoaderFunctionArgs) => {
+export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   return {
-    requestOrigin: getRequestOrigin(request, env.RX_PROXY == 1),
+    requestOrigin: context.requestOrigin ?? request.url,
   };
 };
 

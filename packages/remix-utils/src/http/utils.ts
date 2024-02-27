@@ -16,7 +16,11 @@ export const getClientIp = (req: Request, socket: Socket, options?: GetClientIpO
   return ips[0] || socket.remoteAddress || "";
 };
 
-export const getRequestProtocol = (req: Request, proxy = false) => {
+export const getRequestProtocol = (req: Request, socket: Socket, proxy = false) => {
+  if ((socket as Socket & { encrypted?: boolean }).encrypted) {
+    return "https";
+  }
+
   if (!proxy) {
     return "http";
   }
@@ -32,8 +36,8 @@ export const getRequestHost = (req: Request, proxy = false) => {
   return host ? host.split(/\s*,\s*/, 1)[0] : req.headers.get("host");
 };
 
-export const getRequestOrigin = (req: Request, proxy = false) => {
-  const protocol = getRequestProtocol(req, proxy);
+export const getRequestOrigin = (req: Request, socket: Socket, proxy = false) => {
+  const protocol = getRequestProtocol(req, socket, proxy);
   const host = getRequestHost(req, proxy);
 
   return `${protocol}://${host}`;
