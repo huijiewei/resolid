@@ -18,9 +18,9 @@ export const buttonStyles = classed(
       },
       variant: {
         solid: "border-transparent text-fg-emphasized",
-        outline: "border-current bg-bg-normal",
+        outline: "border-current",
         soft: "border-transparent",
-        ghost: "border-transparent bg-bg-normal",
+        ghost: "border-transparent",
         link: "border-transparent underline underline-offset-2",
       },
       size: {
@@ -46,7 +46,7 @@ export const buttonStyles = classed(
       },
       padded: {
         true: "",
-        false: "",
+        false: "p-0",
       },
     },
     defaultVariants: {
@@ -120,11 +120,6 @@ export const buttonStyles = classed(
         disabled: false,
         loading: false,
         className: "hover:bg-bg-neutral-emphasis-hovered active:bg-bg-neutral-emphasis-pressed",
-      },
-      {
-        color: "neutral",
-        variant: ["outline", "ghost", "soft"],
-        className: "text-fg-normal",
       },
       {
         color: "neutral",
