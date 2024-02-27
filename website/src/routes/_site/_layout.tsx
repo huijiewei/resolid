@@ -1,6 +1,6 @@
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Link, Outlet } from "@remix-run/react";
-import { Button, Tooltip, TooltipArrow, TooltipContent, TooltipTrigger, clsx } from "@resolid/react-ui";
+import { Badge, Button, Tooltip, TooltipArrow, TooltipContent, TooltipTrigger, clsx } from "@resolid/react-ui";
 import { trimEnd } from "@resolid/utils";
 import { useState, type MouseEventHandler } from "react";
 import { HistoryLink, HistoryNavLink } from "~/components/base/HistoryLink";
@@ -82,7 +82,7 @@ export default function SiteLayout() {
       <header className={"z-nav fixed inset-x-0 w-full border-b bg-bg-normal/80 backdrop-blur-md"}>
         <NavBar />
       </header>
-      <div className={"min-h-[calc(100vh-9.55rem)] p-4 pt-16"}>
+      <div className={"min-h-[calc(100vh-9.68rem)] p-4 pt-16"}>
         <Outlet />
       </div>
       <footer className={"mt-12 border-t py-4 text-center text-sm text-fg-muted"}>
@@ -94,21 +94,16 @@ export default function SiteLayout() {
           </span>
           by Resolid Tech, 2024
         </p>
-        <p className={"mt-1 inline-flex items-center justify-center gap-2 text-[0.813rem]"}>
-          <HistoryLink
-            to={"status"}
-            className={"inline-flex items-center gap-1 rounded bg-bg-success-emphasis px-1.5 py-0.5 text-fg-emphasized"}
-          >
-            <SpriteIcon size={"0.813rem"} name={"status"} />
-            运行状态
-          </HistoryLink>
-          <span
-            className={
-              "pointer-events-none inline-flex items-center gap-1 rounded bg-black px-1.5 py-0.5 text-fg-emphasized"
-            }
-          >
+        <p className={"mt-1 inline-flex items-center justify-center gap-2"}>
+          <Badge asChild color={"success"}>
+            <HistoryLink to={"status"}>
+              <SpriteIcon className={"me-1"} size={"xs"} name={"status"} />
+              运行状态
+            </HistoryLink>
+          </Badge>
+          <Badge className={"pointer-events-none"} color={"neutral"}>
             由 Vercel 部署
-          </span>
+          </Badge>
         </p>
       </footer>
     </>

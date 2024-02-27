@@ -1,3 +1,4 @@
+export * from "./badge/Badge";
 export * from "./button/Button";
 export * from "./button/ButtonGroup";
 export * from "./close-button/CloseButton";
