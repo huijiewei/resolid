@@ -7,6 +7,7 @@ import { HistoryLink, HistoryNavLink } from "~/components/base/HistoryLink";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
 
 import resolidSvg from "~/assets/images/resolid.svg";
+import { ColorModeToggle } from "~/components/base/ColorModeToggle";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   return {
@@ -144,9 +145,7 @@ const NavBar = () => {
               用户登录
             </TooltipContent>
           </Tooltip>
-          <Button active={true} aria-label={"颜色模式"} color={"neutral"} variant={"ghost"} size={"sm"} square>
-            <SpriteIcon name={"auto"} />
-          </Button>
+          <ColorModeToggle />
           <Tooltip placement={"bottom"}>
             <TooltipTrigger asChild>
               <Button aria-label={"Github 上的 Resolid"} asChild color={"neutral"} variant={"ghost"} size={"sm"} square>
@@ -193,11 +192,9 @@ const NavMenu = ({ onClick }: { onClick?: MouseEventHandler<HTMLAnchorElement> }
         { name: "关于", href: "about" },
       ].map((menu) => {
         return (
-          <li key={menu.name}>
+          <li className={"p-2.5 md:px-4"} key={menu.name}>
             <HistoryNavLink
-              className={({ isActive }) =>
-                clsx("block p-2.5 hover:text-link-hovered md:px-4", isActive && "text-link-pressed")
-              }
+              className={({ isActive }) => clsx("block hover:text-link-hovered", isActive && "text-link-pressed")}
               onClick={onClick}
               to={menu.href}
               end={menu.end}

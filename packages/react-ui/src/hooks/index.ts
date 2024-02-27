@@ -1,3 +1,4 @@
+export * from "./use-allow-hover";
 export * from "./use-callback-ref";
 export * from "./use-controllable-state";
 export * from "./use-disclosure";
