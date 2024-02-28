@@ -24,7 +24,7 @@ export const CloseButton = forwardRef<HTMLButtonElement, BaseProps<"button", Clo
         disabled={disabled}
         ref={ref}
         className={clsx(
-          "flex shrink-0 appearance-none items-center justify-center outline-none transition-colors",
+          "flex shrink-0 appearance-none items-center justify-center rounded outline-none transition-colors",
           textClassName,
           !disabled && `focus-visible:ring ${statusClassName}`,
           className,
@@ -33,8 +33,8 @@ export const CloseButton = forwardRef<HTMLButtonElement, BaseProps<"button", Clo
       >
         {children || (
           <svg
-            width={"1em"}
-            height={"1em"}
+            width={"1.5em"}
+            height={"1.5em"}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
