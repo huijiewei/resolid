@@ -1,6 +1,7 @@
 export const zIndex = {
   none: "0",
   base: "10",
+  aside: "15",
   nav: "20",
   popup: "30",
   overlay: "50",
