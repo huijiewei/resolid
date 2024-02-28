@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@formkit/tempo": "^0.0.13",
-    "@hono/node-server": "^1.8.1",
+    "@hono/node-server": "^1.8.2",
     "@remix-run/node": "^2.7.2",
     "@remix-run/react": "^2.7.2",
     "@remix-run/server-runtime": "^2.7.2",
@@ -23,7 +23,7 @@
     "@resolid/utils": "workspace:^",
     "drizzle-orm": "^0.29.4",
     "hono": "^4.0.7",
-    "isbot": "^5.1.0",
+    "isbot": "^5.1.1",
     "react": "18.3.0-canary-6c3b8dbfe-20240226",
     "react-dom": "18.3.0-canary-6c3b8dbfe-20240226"
   },
@@ -34,7 +34,7 @@
     "@resolid/remix-plugins": "workspace:^",
     "@resolid/tailwind": "workspace:^",
     "@tailwindcss/typography": "^0.5.10",
-    "@types/react": "^18.2.59",
+    "@types/react": "^18.2.60",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.17",
     "cssnano": "^6.0.5",
