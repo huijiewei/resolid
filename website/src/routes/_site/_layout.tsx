@@ -79,13 +79,13 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 export default function SiteLayout() {
   return (
     <>
-      <header className={"z-nav fixed inset-x-0 w-full border-b bg-bg-normal/80 backdrop-blur-md"}>
+      <header className={"z-nav sticky top-0 w-full border-b bg-bg-normal"}>
         <NavBar />
       </header>
-      <div className={"min-h-[calc(100vh-9.68rem)] p-4 pt-16"}>
+      <div className={"min-h-[calc(100vh-10.765rem)]"}>
         <Outlet />
       </div>
-      <footer className={"mt-12 border-t py-4 text-center text-sm text-fg-muted"}>
+      <footer className={"border-t p-4 text-center text-sm text-fg-muted"}>
         <p>Released under the MIT License</p>
         <p className={"mt-1"}>
           Proudly made in

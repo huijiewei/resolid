@@ -40,7 +40,7 @@ export default function Status() {
   const { ssr, db } = useLoaderData<typeof loader>();
 
   return (
-    <div className={"prose mx-auto mt-8 dark:prose-invert"}>
+    <div className={"prose mx-auto px-4 py-8 dark:prose-invert"}>
       <h1 className={"text-center"}>运行状态</h1>
       <p className={"rounded-lg bg-green-50/60 p-4 font-bold text-fg-success"}>静态页面访问正常</p>
       <p className={"rounded-lg bg-green-50/60 p-4 font-bold text-fg-success"}>{ssr.message}</p>
