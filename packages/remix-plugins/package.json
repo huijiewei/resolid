@@ -38,11 +38,11 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.8.2",
-    "@remix-run/server-runtime": "^2.7.2",
-    "hono": "^4.0.7"
+    "@remix-run/server-runtime": "^2.8.0",
+    "hono": "^4.0.8"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.7.2",
+    "@remix-run/dev": "^2.8.0",
     "@resolid/config": "workspace:^",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
@@ -56,7 +56,7 @@
     "vite": "^5.1.4"
   },
   "peerDependencies": {
-    "@remix-run/dev": "^2.7.2",
+    "@remix-run/dev": "^2.8.0",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",

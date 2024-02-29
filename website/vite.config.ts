@@ -72,12 +72,6 @@ export default defineConfig(({ command }) => {
     build: {
       minify: true,
       rollupOptions: {
-        onwarn(warning, defaultHandler) {
-          if (warning.code === "MODULE_LEVEL_DIRECTIVE" && warning.message.includes("use client")) {
-            return;
-          }
-          defaultHandler(warning);
-        },
         output: {
           manualChunks(id) {
             if (id.includes("/src/components/base/")) {
@@ -117,6 +111,7 @@ export default defineConfig(({ command }) => {
     },
     optimizeDeps: {
       holdUntilCrawlEnd: false,
+      include: ["@mdx-js/react"],
     },
   };
 
