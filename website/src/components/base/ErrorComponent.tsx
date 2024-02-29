@@ -30,12 +30,12 @@ export const ErrorComponent = () => {
 
   if (error instanceof Error) {
     return (
-      <div className={"prose dark:prose-invert"}>
-        <h1>发生了错误</h1>
+      <div className={"prose mx-auto max-w-2xl px-4 py-8 dark:prose-invert"}>
+        <h1 className={"text-center"}>发生了错误</h1>
         <p>{error.message}</p>
         <p>堆栈跟踪:</p>
-        <pre>{error.stack}</pre>
-        <div className={"not-prose"}>
+        <pre className={"scrollbar scrollbar-base"}>{error.stack}</pre>
+        <div className={"not-prose mt-12 text-center"}>
           <HistoryBack />
         </div>
       </div>
@@ -43,10 +43,10 @@ export const ErrorComponent = () => {
   }
 
   return (
-    <div className={"prose dark:prose-invert"}>
-      <h1>未知错误</h1>
+    <div className={"prose mx-auto max-w-2xl px-4 py-8 dark:prose-invert"}>
+      <h1 className={"text-center"}>未知错误</h1>
       <p>您尝试打开的页面发生了未知的错误，请联系支持。</p>
-      <div className={"not-prose"}>
+      <div className={"not-prose mt-12 text-center"}>
         <HistoryBack />
       </div>
     </div>
