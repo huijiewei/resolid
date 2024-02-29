@@ -1,0 +1,183 @@
+import { MDXProvider } from "@mdx-js/react";
+import { Outlet, useLocation } from "@remix-run/react";
+import { clsx } from "@resolid/react-ui";
+import { debounce, isBrowser } from "@resolid/utils";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { components } from "~/routes/_site/ui/_mdx/_components";
+
+type TocItem = {
+  id: string;
+  level: number;
+  slugElement: Element;
+  topOffset: number;
+  text: string | null;
+};
+
+const Toc = () => {
+  const [headingElements, setHeadingElements] = useState<Element[]>([]);
+
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (!isBrowser()) {
+      return;
+    }
+
+    setHeadingElements(Array.from(document.querySelectorAll(".reHeadings")));
+  }, [pathname]);
+
+  const items = useMemo(() => {
+    if (!headingElements) {
+      return [];
+    }
+
+    return headingElements
+      .map((element) => {
+        const slugElement = element.querySelector(".reHeadingsSlug");
+
+        if (!slugElement?.id) {
+          return null;
+        }
+
+        const box = slugElement.getBoundingClientRect();
+
+        const id = slugElement.id;
+        const level = Number(element.tagName[1]);
+        const text = element.textContent?.replace("#", "");
+        const topOffset = window.scrollY + box.top;
+
+        if (level < 2 || level > 4) {
+          return null;
+        }
+
+        return {
+          id,
+          level,
+          slugElement,
+          text,
+          topOffset,
+        };
+      })
+      .filter(Boolean) as TocItem[];
+  }, [headingElements]);
+
+  const active = useRef(true);
+  const [activeId, setActiveId] = useState<string | null>(hash.replace("#", ""));
+
+  useEffect(() => {
+    if (!isBrowser()) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!active.current) {
+          return;
+        }
+
+        const id = entry.target.id;
+
+        if (entry.isIntersecting) {
+          setActiveId(id);
+        } else {
+          const box = entry.target.getBoundingClientRect();
+          const isVisible = box.top > 0;
+
+          if (!isVisible) {
+            return;
+          }
+
+          const activeIndex = items.findIndex((item) => item.id === activeId);
+          const previousId = items[activeIndex - 1]?.id;
+          setActiveId(previousId);
+        }
+      },
+      {
+        rootMargin: "15% 0px -95% 0px",
+      },
+    );
+
+    for (const item of items) {
+      observer.observe(item.slugElement);
+    }
+
+    return () => observer.disconnect();
+  }, [activeId, items]);
+
+  useEffect(() => {
+    if (!isBrowser()) {
+      return;
+    }
+
+    const callback = debounce(() => {
+      if (!active.current) {
+        return;
+      }
+
+      if (window.scrollY === 0) {
+        setActiveId(items[0].id);
+        return;
+      }
+
+      if (window.scrollY + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+        setActiveId(items[items.length - 1]?.id);
+        return;
+      }
+
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        if (window.scrollY < item.topOffset) {
+          setActiveId(items[i - 1]?.id);
+          break;
+        }
+      }
+    }, 100);
+
+    window.addEventListener("scroll", callback);
+    return () => window.removeEventListener("scroll", callback);
+  }, [items]);
+
+  if (items.length === 0) {
+    return null;
+  }
+
+  return items.map(({ id, level, text }) => (
+    <li key={id}>
+      <a
+        className={clsx(
+          "-ml-px block border-s py-1",
+          level == 2 ? "ps-4" : "ps-8",
+          activeId === id ? "border-link text-link" : "text-fg-muted hover:border-fg-subtle hover:text-fg-subtle",
+        )}
+        onClick={() => {
+          setActiveId(id);
+
+          active.current = false;
+          setTimeout(() => {
+            active.current = true;
+          }, 500);
+        }}
+        href={`${pathname}#${id}`}
+      >
+        {text}
+      </a>
+    </li>
+  ));
+};
+
+export default function Layout() {
+  return (
+    <>
+      <article className={"prose w-full max-w-none p-6 dark:prose-invert lg:max-w-[calc(100%-theme(spacing.48))]"}>
+        <MDXProvider disableParentContext components={components}>
+          <Outlet />
+        </MDXProvider>
+      </article>
+      <nav className={"hidden w-48 shrink-0 lg:block"}>
+        <ul className={"sticky top-16 p-4 text-sm"}>
+          <Toc />
+        </ul>
+      </nav>
+    </>
+  );
+}

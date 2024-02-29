@@ -1,9 +1,8 @@
 import type { LinksFunction } from "@remix-run/node";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 import type { PropsWithChildren } from "react";
-
-import icons from "~/assets/icons/common.svg";
 import { RouteProcessBar } from "~/components/base/RouteProcessBar";
+
 import styles from "~/root.css?url";
 
 export const links: LinksFunction = () => {
@@ -12,12 +11,6 @@ export const links: LinksFunction = () => {
       rel: "stylesheet",
       href: styles,
       precedence: "high",
-    },
-    {
-      rel: "prefetch",
-      href: icons,
-      as: "image",
-      type: "image/svg+xml",
     },
   ];
 };

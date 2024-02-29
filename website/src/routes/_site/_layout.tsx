@@ -85,26 +85,28 @@ export default function SiteLayout() {
       <div className={"min-h-[calc(100vh-10.765rem)]"}>
         <Outlet />
       </div>
-      <footer className={"border-t p-4 text-center text-sm text-fg-muted"}>
-        <p>Released under the MIT License</p>
-        <p className={"mt-1"}>
-          Proudly made in
-          <span className={"mx-1"} aria-label="中国" role="img">
-            🇨🇳
-          </span>
-          by Resolid Tech, 2024
-        </p>
-        <p className={"mt-1 inline-flex items-center justify-center gap-2"}>
-          <Badge asChild color={"success"}>
-            <HistoryLink to={"status"}>
-              <SpriteIcon className={"me-1"} size={"xs"} name={"status"} />
-              运行状态
-            </HistoryLink>
-          </Badge>
-          <Badge className={"pointer-events-none"} color={"neutral"}>
-            由 Vercel 部署
-          </Badge>
-        </p>
+      <footer className={"border-t"}>
+        <div className={"mx-auto flex max-w-6xl flex-col gap-1 p-4 text-center text-sm text-fg-muted"}>
+          <p>Released under the MIT License</p>
+          <p>
+            Proudly made in
+            <span className={"mx-1"} aria-label="中国" role="img">
+              🇨🇳
+            </span>
+            by Resolid Tech, 2024
+          </p>
+          <p className={"inline-flex items-center justify-center gap-2"}>
+            <Badge asChild color={"success"}>
+              <HistoryLink to={"status"}>
+                <SpriteIcon className={"me-1"} size={"xs"} name={"status"} />
+                运行状态
+              </HistoryLink>
+            </Badge>
+            <Badge className={"pointer-events-none"} color={"neutral"}>
+              由 Vercel 部署
+            </Badge>
+          </p>
+        </div>
       </footer>
     </>
   );
@@ -114,58 +116,56 @@ const NavBar = () => {
   const [opened, setOpened] = useState(false);
 
   return (
-    <nav className={"mx-auto flex h-16 items-center justify-between px-4 xl:max-w-6xl"}>
+    <nav className={"mx-auto flex h-16 items-center justify-between gap-3 px-4 xl:max-w-6xl"}>
       <Link to={"/"}>
         <img width={150} height={23} alt={"Resolid"} src={resolidSvg} />
       </Link>
-      <div className={"inline-flex items-center gap-2"}>
-        <div
-          className={clsx(
-            "z-nav absolute inset-x-0 top-[calc(4rem+1px)] h-screen bg-bg-normal p-0",
-            "md:relative md:top-0 md:block md:h-auto md:bg-inherit",
-            opened ? "block" : "hidden",
-          )}
+      <div
+        className={clsx(
+          "z-nav absolute inset-x-0 top-[calc(theme(spacing.16)+1px)] h-screen bg-bg-normal p-0",
+          "md:relative md:top-0 md:block md:h-auto md:bg-inherit",
+          opened ? "block" : "hidden",
+        )}
+      >
+        <NavMenu onClick={() => setOpened(false)} />
+      </div>
+      <div className={"inline-flex items-center gap-1 text-fg-muted"}>
+        <Tooltip placement={"bottom"}>
+          <TooltipTrigger asChild>
+            <Button aria-label={"用户登录"} color={"neutral"} variant={"ghost"} size={"sm"} square>
+              <SpriteIcon name={"user"} />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <TooltipArrow />
+            用户登录
+          </TooltipContent>
+        </Tooltip>
+        <ColorModeToggle />
+        <Tooltip placement={"bottom"}>
+          <TooltipTrigger asChild>
+            <Button aria-label={"Github 上的 Resolid"} asChild color={"neutral"} variant={"ghost"} size={"sm"} square>
+              <a href={"https://github.com/huijiewei/resolid"} target={"_blank"} rel={"noreferrer"}>
+                <SpriteIcon name={"github"} />
+              </a>
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <TooltipArrow />
+            Github 上的 Resolid
+          </TooltipContent>
+        </Tooltip>
+        <Button
+          aria-label={"导航菜单"}
+          color={"neutral"}
+          variant={"ghost"}
+          size={"sm"}
+          square
+          className={"md:hidden"}
+          onClick={() => setOpened((prev) => !prev)}
         >
-          <NavMenu onClick={() => setOpened(false)} />
-        </div>
-        <div className={"inline-flex items-center gap-1 text-fg-muted"}>
-          <Tooltip placement={"bottom"}>
-            <TooltipTrigger asChild>
-              <Button aria-label={"用户登录"} color={"neutral"} variant={"ghost"} size={"sm"} square>
-                <SpriteIcon name={"user"} />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <TooltipArrow />
-              用户登录
-            </TooltipContent>
-          </Tooltip>
-          <ColorModeToggle />
-          <Tooltip placement={"bottom"}>
-            <TooltipTrigger asChild>
-              <Button aria-label={"Github 上的 Resolid"} asChild color={"neutral"} variant={"ghost"} size={"sm"} square>
-                <a href={"https://github.com/huijiewei/resolid"} target={"_blank"} rel={"noreferrer"}>
-                  <SpriteIcon name={"github"} />
-                </a>
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <TooltipArrow />
-              Github 上的 Resolid
-            </TooltipContent>
-          </Tooltip>
-          <Button
-            aria-label={"导航菜单"}
-            color={"neutral"}
-            variant={"ghost"}
-            size={"sm"}
-            square
-            className={"md:hidden"}
-            onClick={() => setOpened((prev) => !prev)}
-          >
-            {opened ? <SpriteIcon name={"close"} /> : <SpriteIcon name={"menu"} />}
-          </Button>
-        </div>
+          {opened ? <SpriteIcon name={"close"} /> : <SpriteIcon name={"menu"} />}
+        </Button>
       </div>
     </nav>
   );

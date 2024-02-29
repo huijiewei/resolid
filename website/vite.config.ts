@@ -1,10 +1,16 @@
+import mdx from "@mdx-js/rollup";
 import { vitePlugin as remix } from "@remix-run/dev";
 import remixFlexRoutes from "@resolid/remix-plugins/flex-routes";
 import nodeHonoBuild from "@resolid/remix-plugins/node-hono";
 import vercelServerlessBuild from "@resolid/remix-plugins/vercel-serverless";
+import rehypeShiki from "@shikijs/rehype";
 import { join } from "node:path";
 import { env } from "node:process";
 import { fileURLToPath } from "node:url";
+import rehypeSlug from "rehype-slug";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkGfm from "remark-gfm";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import { defineConfig, splitVendorChunkPlugin, type AliasOptions, type UserConfig } from "vite";
 import viteInspect from "vite-plugin-inspect";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -18,6 +24,22 @@ export default defineConfig(({ command }) => {
 
   const config: UserConfig = {
     plugins: [
+      mdx({
+        providerImportSource: "@mdx-js/react",
+        rehypePlugins: [
+          rehypeSlug,
+          [
+            rehypeShiki,
+            {
+              themes: {
+                light: "github-light",
+                dark: "github-dark",
+              },
+            },
+          ],
+        ],
+        remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
+      }),
       remix({
         appDirectory: appDirectory,
         future: {
