@@ -9,3 +9,13 @@ export const hasOwnProperty = <T extends object>(object: T, prop: string | numbe
 
   return Object.prototype.hasOwnProperty.call(object, prop);
 };
+
+export const omit = <T extends object, K extends keyof T>(object: T, keys: K[]) => {
+  return keys.reduce(
+    (acc, key) => {
+      delete acc[key];
+      return acc;
+    },
+    { ...object },
+  ) as Omit<T, K>;
+};
