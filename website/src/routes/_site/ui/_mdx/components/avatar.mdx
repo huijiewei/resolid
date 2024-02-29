@@ -1,0 +1,176 @@
+---
+title: 头像
+description: 头像组件用于表示用户，显示个人资料图片、首字母或备用内容。
+---
+
+import { Avatar, AvatarGroup, AvatarBadge } from '@resolid/react-ui';
+import { mergeFrontmatter } from "@resolid/remix-utils";
+
+export const meta = mergeFrontmatter(frontmatter);
+
+# {frontmatter.title}
+
+{frontmatter.description}
+
+## 导入
+
+```javascript
+import { Avatar, AvatarGroup, AvatarBadge } from '@resolid/react-ui';
+```
+
+- `Avatar`: 代表用户的图片。
+- `AvatarBadge`: 一个包装器，将其内容显示在头像的右上角。
+- `AvatarGroup`: 一个用于将多个头像堆叠在一起的包装器。
+
+## 基础
+
+<section className={'demo group'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+    <Avatar name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
+    <Avatar name={'Alex Suprun'} src={''} />
+    <Avatar src={'https://file.resolid.tech/images%2Fa004.jpg'} />
+    <Avatar name={'Linh Le'} src={''} />
+    <Avatar src={'https://file.resolid.tech/images%2Fa003.jpg'} />
+    <Avatar src={''} />
+  </div>
+
+  ```tsx
+  <Avatar name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
+  <Avatar name={'Alex Suprun'} src={''} />
+  <Avatar src={'https://file.resolid.tech/images%2Fa004.jpg'} />
+  <Avatar name={'Linh Le'} src={''} />
+  <Avatar src={'https://file.resolid.tech/images%2Fa003.jpg'} />
+  <Avatar src={''} />
+  ```
+
+</section>
+
+## 大小
+
+<section className={'demo group'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+    <Avatar size={'xs'} name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
+    <Avatar size={'sm'} name={'Alex Suprun'} src={''} />
+    <Avatar src={'https://file.resolid.tech/images%2Fa004.jpg'} />
+    <Avatar size={'lg'} src={''} />
+    <Avatar size={'xl'} name={'Linh Le'} src={''} />
+    <Avatar size={128} src={'https://file.resolid.tech/images%2Fa002.jpg'} />
+  </div>
+
+  ```tsx
+  <Avatar size={'xs'} name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
+  <Avatar size={'sm'} name={'Alex Suprun'} src={''} />
+  <Avatar src={'https://file.resolid.tech/images%2Fa004.jpg'} />
+  <Avatar size={'lg'} src={''} />
+  <Avatar size={'xl'} name={'Linh Le'} src={''} />
+  <Avatar size={128} src={'https://file.resolid.tech/images%2Fa002.jpg'} />
+  ```
+
+</section>
+
+## 圆角
+
+<section className={'demo group'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+    <Avatar radius={'sm'} name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
+    <Avatar radius name={'Alex Suprun'} src={''} />
+    <Avatar radius={'lg'} src={'https://file.resolid.tech/images%2Fa004.jpg'} />
+    <Avatar radius={'xl'} name={'Linh Le'} src={''} />
+    <Avatar radius={10} src={'https://file.resolid.tech/images%2Fa003.jpg'} />
+    <Avatar src={''} />
+  </div>
+
+  ```tsx
+  <Avatar radius={'sm'} name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
+  <Avatar radius name={'Alex Suprun'} src={''} />
+  <Avatar radius={'lg'} src={'https://file.resolid.tech/images%2Fa004.jpg'} />
+  <Avatar radius={'xl'} name={'Linh Le'} src={''} />
+  <Avatar radius={10} src={'https://file.resolid.tech/images%2Fa003.jpg'} />
+  <Avatar src={''} />
+  ```
+
+</section>
+
+## 徽标
+
+<section className={'demo group'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+    <Avatar name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'}>
+      <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-success-emphasis'} />
+    </Avatar>
+    <Avatar name={'Linh Le'} src={''}>
+      <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-warning-emphasis'} />
+    </Avatar>
+    <Avatar src={'https://file.resolid.tech/images%2Fa004.jpg'}>
+      <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-danger-emphasis'} />
+    </Avatar>
+    <Avatar src={''}>
+      <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-primary-emphasis'} />
+    </Avatar>
+  </div>
+
+  ```tsx
+  <Avatar name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'}>
+    <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-success-emphasis'} />
+  </Avatar>
+  <Avatar name={'Linh Le'} src={''}>
+    <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-warning-emphasis'} />
+  </Avatar>
+  <Avatar src={'https://file.resolid.tech/images%2Fa004.jpg'}>
+    <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-danger-emphasis'} />
+  </Avatar>
+  <Avatar src={''}>
+    <AvatarBadge className={'border-3 h-5 w-5 border-bg-subtle bg-bg-primary-emphasis'} />
+  </Avatar>
+  ```
+
+</section>
+
+## 头像组
+
+<section className={'demo group'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+    <AvatarGroup limit={5}>
+      <Avatar name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
+      <Avatar name={'Alex Suprun'} src={''} />
+      <Avatar src={'https://file.resolid.tech/images%2Fa004.jpg'} />
+      <Avatar name={'Linh Le'} src={''} />
+      <Avatar src={'https://file.resolid.tech/images%2Fa003.jpg'} />
+      <Avatar src={''} />
+      <Avatar src={''} />
+      <Avatar src={''} />
+    </AvatarGroup>
+    <AvatarGroup size={'lg'} limit={3}>
+      <Avatar name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
+      <Avatar name={'Alex Suprun'} src={''} />
+      <Avatar src={'https://file.resolid.tech/images%2Fa004.jpg'} />
+      <Avatar name={'Linh Le'} src={''} />
+      <Avatar src={'https://file.resolid.tech/images%2Fa003.jpg'} />
+      <Avatar src={''} />
+    </AvatarGroup>
+  </div>
+
+  ```tsx
+  <AvatarGroup limit={5}>
+    <Avatar name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
+    <Avatar name={'Alex Suprun'} src={''} />
+    <Avatar src={'https://file.resolid.tech/images%2Fa004.jpg'} />
+    <Avatar name={'Linh Le'} src={''} />
+    <Avatar src={'https://file.resolid.tech/images%2Fa003.jpg'} />
+    <Avatar src={''} />
+    <Avatar src={''} />
+    <Avatar src={''} />
+  </AvatarGroup>
+  <AvatarGroup size={'lg'} limit={3}>
+    <Avatar name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
+    <Avatar name={'Alex Suprun'} src={''} />
+    <Avatar src={'https://file.resolid.tech/images%2Fa004.jpg'} />
+    <Avatar name={'Linh Le'} src={''} />
+    <Avatar src={'https://file.resolid.tech/images%2Fa003.jpg'} />
+    <Avatar src={''} />
+  </AvatarGroup>
+  ```
+
+</section>
+
+## 属性
