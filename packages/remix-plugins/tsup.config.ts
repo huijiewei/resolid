@@ -19,7 +19,7 @@ export default defineConfig([
   {
     ...baseConfig,
     entry: {
-      "node-hono": "src/node-hono/plugin.ts",
+      "node-hono": "src/node-hono/preset.ts",
     },
   },
   {
@@ -27,13 +27,13 @@ export default defineConfig([
     entry: {
       "node-hono-entry": "src/node-hono/entry.ts",
     },
-    external: ["./index.js", "~resolid-remix/handler"],
+    external: ["~resolid-remix/server", "~resolid-remix/handler"],
     dts: false,
   },
   {
     ...baseConfig,
     entry: {
-      "vercel-serverless": "src/vercel-serverless/plugin.ts",
+      "vercel-serverless": "src/vercel-serverless/preset.ts",
     },
   },
   {
@@ -41,7 +41,7 @@ export default defineConfig([
     entry: {
       "vercel-serverless-entry": "src/vercel-serverless/entry.ts",
     },
-    external: ["./index.js", "~resolid-remix/handler"],
+    external: ["~resolid-remix/server", "~resolid-remix/handler"],
     dts: false,
   },
 ]);

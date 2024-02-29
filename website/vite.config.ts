@@ -1,8 +1,8 @@
 import mdx from "@mdx-js/rollup";
 import { vitePlugin as remix } from "@remix-run/dev";
 import remixFlexRoutes from "@resolid/remix-plugins/flex-routes";
-import nodeHonoBuild from "@resolid/remix-plugins/node-hono";
-import vercelServerlessBuild from "@resolid/remix-plugins/vercel-serverless";
+import { nodeHonoPreset } from "@resolid/remix-plugins/node-hono";
+import { vercelServerlessPreset } from "@resolid/remix-plugins/vercel-serverless";
 import rehypeShiki from "@shikijs/rehype";
 import { join } from "node:path";
 import { env } from "node:process";
@@ -42,6 +42,16 @@ export default defineConfig(({ command }) => {
       }),
       remix({
         appDirectory: appDirectory,
+        presets: [
+          buildEnv == "vercel"
+            ? vercelServerlessPreset({
+                regions: "sin1",
+                cleanUrls: true,
+                cacheFiles: ["favicon.svg", "apple-touch-icon.png", "manifest.webmanifest"],
+                cacheFolders: ["icons", "images"],
+              })
+            : nodeHonoPreset(),
+        ],
         future: {
           v3_fetcherPersist: true,
           v3_relativeSplatPath: true,
@@ -58,16 +68,6 @@ export default defineConfig(({ command }) => {
       splitVendorChunkPlugin(),
       !isBuild && tsconfigPaths(),
       !isBuild && viteInspect(),
-      isBuild && !buildEnv && nodeHonoBuild({ appDir: appDirectory }),
-      isBuild &&
-        buildEnv == "vercel" &&
-        vercelServerlessBuild({
-          appDir: appDirectory,
-          regions: "sin1",
-          cleanUrls: true,
-          cacheFiles: ["favicon.svg", "apple-touch-icon.png", "manifest.webmanifest"],
-          cacheFolders: ["icons", "images"],
-        }),
     ].filter(Boolean),
     build: {
       minify: true,

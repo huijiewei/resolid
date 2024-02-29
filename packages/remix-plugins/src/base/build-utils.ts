@@ -10,7 +10,6 @@ import { rollup } from "rollup";
 import type { PackageJson } from "type-fest";
 import type { ResolvedConfig, RollupCommonJSOptions } from "vite";
 
-export type BuildOptions = { appDir?: string };
 export type SsrExternal = ResolvedConfig["ssr"]["external"];
 
 const getPackageDependencies = (dependencies: Record<string, string | undefined>, ssrExternal: SsrExternal) => {
@@ -45,15 +44,16 @@ const writePackageJson = async (pkg: PackageJson, outputFile: string, dependenci
 };
 
 export const buildEntry = async (
-  outDir: string,
+  appPath: string,
   entryFile: string,
-  appDir: string,
+  buildPath: string,
+  buildFile: string,
 ): Promise<[string, string | null]> => {
-  const outfile = join(outDir, "remix-entry.js");
+  const outfile = join(buildPath, "remix-entry.js");
 
-  let handler = [".ts", ".js"].map((ext) => join(appDir, "remix.handler" + ext)).find((file) => existsSync(file));
+  let handler = [".ts", ".js"].map((ext) => join(appPath, "remix.handler" + ext)).find((file) => existsSync(file));
 
-  let defaultHandler: string | null = join(outDir, "remix.handler.js");
+  let defaultHandler: string | null = join(buildPath, "remix.handler.js");
 
   if (handler == undefined) {
     await writeFile(
@@ -81,8 +81,8 @@ export default function remixHandler(build, c) {
       define: {
         "process.env.NODE_ENV": '"production"',
       },
-      external: ["./index.js"],
       alias: {
+        "~resolid-remix/server": buildFile,
         "~resolid-remix/handler": handler,
       },
       platform: "node",
@@ -100,7 +100,7 @@ export default function remixHandler(build, c) {
 };
 
 export const bundleServer = async (
-  outDir: string,
+  buildPath: string,
   entryFile: string,
   packageFile: string,
   commonjsOptions: RollupCommonJSOptions,
@@ -110,7 +110,7 @@ export const bundleServer = async (
 
   const packageDependencies = getPackageDependencies({ ...pkg.dependencies, ...pkg.devDependencies }, ssrExternal);
 
-  await writePackageJson(pkg, join(outDir, "package.json"), packageDependencies);
+  await writePackageJson(pkg, join(buildPath, "package.json"), packageDependencies);
 
   const bundle = await rollup({
     input: entryFile,
@@ -127,7 +127,7 @@ export const bundleServer = async (
     logLevel: "silent",
   });
 
-  const bundleFile = join(outDir, "serve.mjs");
+  const bundleFile = join(buildPath, "serve.mjs");
 
   await bundle.write({
     format: "esm",

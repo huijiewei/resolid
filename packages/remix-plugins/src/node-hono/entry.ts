@@ -6,7 +6,7 @@ import { env } from "node:process";
 import { remix } from "../base/remix-middleware";
 
 // @ts-expect-error Cannot find module
-import * as build from "./index.js";
+import * as build from "~resolid-remix/server";
 
 const cache = (seconds: number, immutable = false): MiddlewareHandler => {
   return async (c, next) => {

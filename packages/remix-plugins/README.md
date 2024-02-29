@@ -57,6 +57,8 @@ export default {
 
 ## Adapter
 
+> The adapter of version 2.0 plug-in uses the Preset function of Remix, so it is only compatible with Remix version 2.8.0 or above.
+
 Adapters are all run based on [hono](https://hono.dev/) middleware. The default remixHandler is:
 
 ```js
@@ -103,21 +105,20 @@ pnpm add hono @hono/node-server
 Modify the `vite.config.ts` file
 
 ```ts
-import nodeHonoBuild from "@resolid/remix-plugins/node-hono";
+import { nodeHonoPreset } from "@resolid/remix-plugins/node-hono";
 
 export default {
-  plugins: [
-    nodeHonoBuild({
-      // Remix App directory, the default is app which is the same as Remix
-      appDir: "app",
-    }),
-  ],
+  remix: {
+    presets: [nodeHonoPreset()]
+  },
 };
 ```
 
 > After running build, `server.mjs` and `package.json` files will be automatically generated in the `build/server` directory. The `package.json` file defines the `ssr.external` set by Vite in the server directory. Run `npm install` to install dependencies excluded during build
 
 ### Vercel Serverless Adapter
+
+> You can use https://github.com/huijiewei/remix-vite-vercel-template to quick start deploy to vercel.
 
 #### Need to install related dependencies first
 
@@ -130,13 +131,11 @@ pnpm add hono @hono/node-server
 Edit the `vite.config.ts` file
 
 ```ts
-import vercelServerlessBuild from "@resolid/remix-plugins/vercel-serverless";
+import { vercelServerlessPreset } from "@resolid/remix-plugins/vercel-serverless";
 
 export default {
-  plugins: [
-    vercelServerlessBuild({
-      // Remix App directory, the default is app which is the same as Remix
-      appDir: "app",
+  remix: {
+    presets: [vercelServerlessPreset({
       // Deployment area
       regions: "sin1",
       // Whether to use clean URL
@@ -144,15 +143,9 @@ export default {
       // The files in the public directory that need to be cached will be cached for one day. By default, favicon.ico will be cached.
       cacheFiles: ["favicon.svg", "apple-touch-icon.png", "manifest.webmanifest"],
       // The folders in the public directory that need to be cached are cached for one year. By default, assets will be cached.
-      cacheFolders: ["icons", "images"],
-      // Vercel routing, Remix's Server Bundles feature is built in parallel, so the plug-in cannot correctly write the config file routing to Vercel's config file
-      // You need to define the route yourself, path is the path of the route, dest is the function name of serverless, the rule is to add an underscore before serverBundleId
-      serverRoutes: [
-        { path: "admin", dest: "_admin" },
-        { path: "", dest: "_site" },
-      ],
-    }),
-  ],
+      cacheFolders: ["icons", "images"]
+    })]
+  }
 };
 ```
 

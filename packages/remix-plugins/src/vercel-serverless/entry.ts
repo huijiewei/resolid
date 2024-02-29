@@ -3,7 +3,7 @@ import { Hono } from "hono";
 import { remix } from "../base/remix-middleware";
 
 // @ts-expect-error Cannot find module
-import * as build from "./index.js";
+import * as build from "~resolid-remix/server";
 
 const app = new Hono();
 

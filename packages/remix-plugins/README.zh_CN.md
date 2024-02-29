@@ -57,6 +57,8 @@ export default {
 
 ## 适配器
 
+> 2.0 版本插件的适配器使用了 Remix 的 Preset 功能, 所以只能兼容 2.8.0 以上版本的 Remix
+
 适配器都是基于 [hono](https://hono.dev/) 中间件运行, 默认 remixHandler 为:
 
 ```js
@@ -103,21 +105,20 @@ pnpm add hono @hono/node-server
 编辑 `vite.config.ts` 文件
 
 ```ts
-import nodeHonoBuild from "@resolid/remix-plugins/node-hono";
+import { nodeHonoPreset } from "@resolid/remix-plugins/node-hono";
 
 export default {
-  plugins: [
-    nodeHonoBuild({
-      // Remix App 目录, 默认和 Remix 一致为 app
-      appDir: "app",
-    }),
-  ],
+  remix: {
+    presets: [nodeHonoPreset()]
+  },
 };
 ```
 
 > 运行 build 以后自动会在 `build/server` 目录下生成 `server.mjs` 和 `package.json` 文件, `package.json` 文件里面定义了 Vite 设置的 `ssr.external`, 在服务器目录下运行 `npm install` 即可安装构建时排除的依赖
 
 ### Vercel Serverless 适配器
+
+> 你可以使用 https://github.com/huijiewei/remix-vite-vercel-template 模版快速部署到 Vercel.
 
 #### 需先安装相关依赖
 
@@ -130,13 +131,11 @@ pnpm add hono @hono/node-server
 编辑 `vite.config.ts` 文件
 
 ```ts
-import vercelServerlessBuild from "@resolid/remix-plugins/vercel-serverless";
+import { vercelServerlessPreset } from "@resolid/remix-plugins/vercel-serverless";
 
 export default {
-  plugins: [
-    vercelServerlessBuild({
-      // Remix App 目录, 默认和 Remix 一致为 app
-      appDir: "app",
+  remix: {
+    presets: [vercelServerlessPreset({
       // 部署区域
       regions: "sin1",
       // 是否使用清洁 URL
@@ -144,15 +143,9 @@ export default {
       // 需要缓存的 public 目录下文件, 缓存一天, 默认会缓存 favicon.ico
       cacheFiles: ["favicon.svg", "apple-touch-icon.png", "manifest.webmanifest"],
       // 需要缓存的 public 目录下的文件夹, 缓存一年, 默认会缓存 assets
-      cacheFolders: ["icons", "images"],
-      // Vercel 路由, Remix 的 Server Bundles 功能是并行构建的, 所以插件无法正确写入路由到 Vercel 的 config 文件
-      // 需要自己定义路由, path 是路由的路径, dest 是 serverless 的 function name, 规则是 serverBundleId 前加一个下划线
-      serverRoutes: [
-        { path: "admin", dest: "_admin" },
-        { path: "", dest: "_site" },
-      ],
-    }),
-  ],
+      cacheFolders: ["icons", "images"]
+    })]
+  }
 };
 ```
 
