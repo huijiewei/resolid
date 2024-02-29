@@ -26,11 +26,10 @@ export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): 
         buildEnd: async ({ buildManifest, remixConfig, viteConfig }) => {
           const rootPath = viteConfig.root;
           const appPath = remixConfig.appDirectory;
-          const buildPath = remixConfig.buildDirectory;
           const serverBuildFile = remixConfig.serverBuildFile;
 
-          const clientBuildPath = join(buildPath, "client");
-          const serverBuildPath = join(buildPath, "server");
+          const clientBuildPath = join(remixConfig.buildDirectory, "client");
+          const serverBuildPath = join(remixConfig.buildDirectory, "server");
 
           const ssrExternal = viteConfig.ssr.external;
           const commonjsOptions = viteConfig.build.commonjsOptions;

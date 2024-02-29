@@ -14,10 +14,8 @@ export const nodeHonoPreset = (): Preset => {
         buildEnd: async ({ buildManifest, remixConfig, viteConfig }) => {
           const rootPath = viteConfig.root;
           const appPath = remixConfig.appDirectory;
-          const buildPath = remixConfig.buildDirectory;
           const serverBuildFile = remixConfig.serverBuildFile;
-
-          const serverBuildPath = join(buildPath, "server");
+          const serverBuildPath = join(remixConfig.buildDirectory, "server");
 
           const ssrExternal = viteConfig.ssr.external;
           const commonjsOptions = viteConfig.build.commonjsOptions;
