@@ -19,7 +19,7 @@
   "devDependencies": {
     "@commitlint/cli": "^18.6.1",
     "@commitlint/config-conventional": "^18.6.2",
-    "@types/node": "^20.11.22",
+    "@types/node": "^20.11.24",
     "lefthook": "^1.6.4",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
@@ -39,9 +39,9 @@
   "pnpm": {
     "overrides": {
       "esbuild": "^0.20.1",
-      "react": "18.3.0-canary-6c3b8dbfe-20240226",
-      "react-dom": "18.3.0-canary-6c3b8dbfe-20240226",
-      "react-is": "18.3.0-canary-6c3b8dbfe-20240226",
+      "react": "18.3.0-canary-01ab35a9a-20240228",
+      "react-dom": "18.3.0-canary-01ab35a9a-20240228",
+      "react-is": "18.3.0-canary-01ab35a9a-20240228",
       "hasown": "npm:@nolyfill/hasown@latest",
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",

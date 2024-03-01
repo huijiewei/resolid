@@ -25,8 +25,8 @@
     "drizzle-orm": "^0.29.4",
     "hono": "^4.0.8",
     "isbot": "^5.1.1",
-    "react": "18.3.0-canary-6c3b8dbfe-20240226",
-    "react-dom": "18.3.0-canary-6c3b8dbfe-20240226"
+    "react": "18.3.0-canary-01ab35a9a-20240228",
+    "react-dom": "18.3.0-canary-01ab35a9a-20240228"
   },
   "devDependencies": {
     "@mdx-js/rollup": "^3.0.1",
@@ -37,7 +37,7 @@
     "@resolid/tailwind": "workspace:^",
     "@shikijs/rehype": "^1.1.7",
     "@tailwindcss/typography": "^0.5.10",
-    "@types/react": "^18.2.60",
+    "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.17",
     "cssnano": "^6.0.5",

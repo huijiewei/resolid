@@ -100,6 +100,7 @@ export default defineConfig(({ command }) => {
         },
       },
     },
+    esbuild: { legalComments: "none" },
     resolve: {
       alias: [
         {
