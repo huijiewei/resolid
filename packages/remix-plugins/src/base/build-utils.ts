@@ -22,7 +22,7 @@ const getPackageDependencies = (dependencies: Record<string, string | undefined>
       return ssrExternal.includes(key);
     })
     .reduce((obj: Record<string, string>, key) => {
-      obj[key] = packageDependencies[key] ?? "";
+      obj[key] = dependencies[key] ?? "";
 
       return obj;
     }, {});
