@@ -2,7 +2,7 @@ import type { BuildManifest, Preset } from "@remix-run/dev";
 import type { RouteManifest } from "@remix-run/dev/dist/config/routes";
 import { nodeFileTrace } from "@vercel/nft";
 import { cp, mkdir, readdir, realpath, rm, writeFile } from "node:fs/promises";
-import { dirname, join, relative } from "node:path";
+import { basename, dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildEntry, bundleServer } from "../base/build-utils";
 
@@ -83,10 +83,11 @@ export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): 
             await copyFunctionsFiles(
               rootPath,
               vercelOutput,
+              buildPath,
+              serverBuildFile,
               bundleFile,
               `_${serverBundleId}`,
               options.regions,
-              join(buildPath, "package.json"),
             );
           }
         },
@@ -96,28 +97,29 @@ export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): 
 };
 
 const copyFunctionsFiles = async (
-  root: string,
+  rootPath: string,
   vercelOutDir: string,
+  buildPath: string,
+  serverBuildFile: string,
   bundleFile: string,
   functionName: string,
   functionRegions: string | string[],
-  packageFile: string,
 ) => {
   const vercelFunctionDir = join(vercelOutDir, "functions", `${functionName}.func`);
   await mkdir(vercelFunctionDir, { recursive: true });
 
   const traced = await nodeFileTrace([bundleFile], {
-    base: root,
+    base: rootPath,
   });
 
   for (const file of traced.fileList) {
-    const source = join(root, file);
+    const source = join(rootPath, file);
 
     if (source == bundleFile) {
       continue;
     }
 
-    const dest = join(vercelFunctionDir, relative(root, source));
+    const dest = join(vercelFunctionDir, relative(rootPath, source));
     const real = await realpath(source);
 
     if (real.endsWith("@node-rs/bcrypt")) {
@@ -150,9 +152,13 @@ const copyFunctionsFiles = async (
     "utf8",
   );
 
-  await cp(packageFile, join(vercelFunctionDir, "package.json"));
-
   await cp(bundleFile, join(vercelFunctionDir, "index.mjs"));
+
+  for (const file of (await readdir(buildPath)).filter(
+    (file) => file != basename(bundleFile) && file != serverBuildFile,
+  )) {
+    await cp(join(buildPath, file), join(vercelFunctionDir, file), { recursive: true });
+  }
 };
 
 const copyStaticFiles = async (outDir: string, vercelOutDir: string) => {
