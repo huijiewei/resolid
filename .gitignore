@@ -3,6 +3,7 @@
 .eslintcache
 .env
 .vercel
+.resolid
 build
 dist
 
