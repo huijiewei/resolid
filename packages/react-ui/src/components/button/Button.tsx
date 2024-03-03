@@ -32,6 +32,12 @@ export type ButtonProps = ButtonBaseProps & {
   square?: boolean;
 
   /**
+   * 是否圆形按钮
+   * @default false
+   */
+  circle?: boolean;
+
+  /**
    * 是否方形按钮
    * @default false
    */
@@ -76,6 +82,7 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<"button", Butto
     block = false,
     square = false,
     padded = true,
+    circle = false,
     loading = false,
     loadingText,
     spinner,
@@ -95,7 +102,9 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<"button", Butto
           ? group.vertical
             ? "border-y-[0.5px] first:rounded-t first:border-t last:rounded-b last:border-b"
             : "border-x-[0.5px] first:rounded-s first:border-s last:rounded-e last:border-e"
-          : "rounded",
+          : circle
+            ? "rounded-full"
+            : "rounded",
         className,
       )}
       type={type ?? asChild ? undefined : "button"}
