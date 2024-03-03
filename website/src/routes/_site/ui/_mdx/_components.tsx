@@ -2,6 +2,7 @@ import { clsx } from "@resolid/react-ui";
 import { isExternalUrl } from "@resolid/utils";
 import type { ComponentPropsWithoutRef } from "react";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
+import { ClipboardButton } from "~/components/ClipboardButton";
 
 export const components = {
   h2: ({ id, children, className, ...rest }: ComponentPropsWithoutRef<"h2">) => {
@@ -50,7 +51,9 @@ export const components = {
         >
           {children}
         </pre>
-        <div className={"absolute right-1.5 top-1.5"}></div>
+        <div className={"absolute right-1.5 top-1.5"}>
+          <ClipboardButton content={children} />
+        </div>
       </div>
     );
   },
