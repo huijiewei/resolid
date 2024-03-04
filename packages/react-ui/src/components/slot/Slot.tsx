@@ -25,6 +25,10 @@ export type AsChildProps<
   P extends object = EmptyProps,
   O extends string | number | symbol = never,
 > = BaseProps<T, P, O> & {
+  /**
+   * 渲染为子组件
+   * @default false
+   */
   asChild?: boolean;
 };
 
