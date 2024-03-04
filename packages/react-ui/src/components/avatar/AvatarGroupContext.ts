@@ -4,19 +4,18 @@ import type { Size, Styled } from "../../utils/types";
 
 type AvatarGroupContext = {
   /**
-   * Size
+   * 头像大小
    * @default 'md'
    */
   size: number | Size;
 
   /**
-   * Rounded
+   * 头像圆角
    * @default 'full'
    */
   radius: Radius;
 
   rounded: Styled;
-
   sized: Styled;
 };
 

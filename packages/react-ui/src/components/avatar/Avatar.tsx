@@ -10,40 +10,40 @@ import { AvatarImage } from "./AvatarImage";
 
 export type AvatarProps = AvatarBaseProps & {
   /**
-   * The image url of the Avatar
+   * 头像图片的 URL
    */
   src?: string;
 
   /**
-   * List of sources to use for different screen resolutions
+   * 以逗号分隔的一个或多个字符串列表表明一系列用户代理使用的可能的图片
+   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#srcset
    */
   srcSet?: string;
 
   /**
-   * Avatar name
+   * 头像的名称
    */
   name?: string;
 
   /**
-   * Defines loading strategy
+   * 指示浏览器应当如何加载该头像图片
+   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#loading
    */
   loading?: "eager" | "lazy";
 
   /**
    * 未指定 name 和 src 时的回退
    * @default 'DefaultIcon'
-   * @type ReactElement
    */
   fallback?: ReactElement;
 
   /**
-   * Defining which referrer is sent when fetching the resource.
-   * @type HTMLAttributeReferrerPolicy
+   * 一个字符串，指示在获取头像图片时使用的来源地址
    */
   referrerPolicy?: HTMLAttributeReferrerPolicy;
 
   /**
-   * Function called when image failed to load
+   * 头像图片加载失败回调
    */
   onError?: () => void;
 };
