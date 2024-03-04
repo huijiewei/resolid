@@ -5,13 +5,13 @@ import { shouldShowFallback, useImage, type FallbackStrategy, type UseImageProps
 
 export type ImageProps = UseImageProps & {
   /**
-   * Fallback element or string to show if image is loading or image fails.
+   * 图片加载的后备显示, 可以是 URL 或者 ReactElement
    */
   fallback?: string | ReactElement;
 
   /**
-   * - beforeOrError(default): loads the fallback while loading the src
-   * - onError: loads the fallback only if there is an error fetching the src
+   * - beforeOrError(默认): 图片加载前或者加载错误都进行后备显示
+   * - onError: 图片加载失败才进行后备显示
    *
    * @default "beforeOrError"
    */

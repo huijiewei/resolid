@@ -1,59 +1,59 @@
-import { useCallback, useEffect, useRef, useState, type ImgHTMLAttributes, type SyntheticEvent } from 'react';
-import { useIsomorphicEffect } from '../../hooks';
+import { useCallback, useEffect, useRef, useState, type ImgHTMLAttributes, type SyntheticEvent } from "react";
+import { useIsomorphicEffect } from "../../hooks";
 
 type NativeImageProps = ImgHTMLAttributes<HTMLImageElement>;
 
 export type UseImageProps = {
   /**
-   * The image URL
+   * 图片的 URL
    */
   src?: string;
 
   /**
-   * One or more strings separated by commas, indicating possible image sources for the user agent to use
-   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-srcset
+   * 以逗号分隔的一个或多个字符串列表表明一系列用户代理使用的可能的图片
+   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#srcset
    */
   srcSet?: string;
 
   /**
-   * One or more strings separated by commas, indicating a set of source sizes
-   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-sizes
+   * 表示资源大小的、以逗号隔开的一个或多个字符串
+   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#sizes
    */
   sizes?: string;
 
   /**
-   * Indicates how the browser should load the image
-   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-loading
+   * 指示浏览器应当如何加载该图片
+   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#loading
    */
-  loading?: NativeImageProps['loading'];
+  loading?: NativeImageProps["loading"];
 
   /**
-   * Indicates if the fetching of the image must be done using a CORS request
-   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#attr-crossorigin
+   * 表明是否必须使用 CORS 完成相关图片的抓取
+   * @link https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img#crossorigin
    */
-  crossOrigin?: NativeImageProps['crossOrigin'];
+  crossOrigin?: NativeImageProps["crossOrigin"];
 
   /**
-   * A callback for when the image `src` has been loaded
+   * 图片加载成功回调
    */
   onLoad?: (event: ImageEvent) => void;
 
   /**
-   * A callback for when there was an error loading the image `src`
+   * 图片加载失败回调
    */
   onError?: (event: ImageEvent) => void;
 };
 
-type Status = 'loading' | 'failed' | 'pending' | 'loaded';
+type Status = "loading" | "failed" | "pending" | "loaded";
 type ImageEvent = SyntheticEvent<HTMLImageElement, Event>;
 
 export const useImage = (props: UseImageProps) => {
   const { loading, crossOrigin, src, srcSet, onLoad, onError, sizes } = props;
 
-  const [status, setStatus] = useState<Status>('pending');
+  const [status, setStatus] = useState<Status>("pending");
 
   useEffect(() => {
-    setStatus(src ? 'loading' : 'pending');
+    setStatus(src ? "loading" : "pending");
   }, [src]);
 
   const imageRef = useRef<HTMLImageElement | null>();
@@ -86,13 +86,13 @@ export const useImage = (props: UseImageProps) => {
 
     img.onload = (event) => {
       flush();
-      setStatus('loaded');
+      setStatus("loaded");
       onLoad?.(event as unknown as ImageEvent);
     };
 
     img.onerror = (error) => {
       flush();
-      setStatus('failed');
+      setStatus("failed");
       onError?.(error as unknown as ImageEvent);
     };
 
@@ -108,7 +108,7 @@ export const useImage = (props: UseImageProps) => {
   };
 
   useIsomorphicEffect(() => {
-    if (status === 'loading') {
+    if (status === "loading") {
       load();
     }
 
@@ -120,8 +120,8 @@ export const useImage = (props: UseImageProps) => {
   return status;
 };
 
-export type FallbackStrategy = 'onError' | 'beforeOrError';
+export type FallbackStrategy = "onError" | "beforeOrError";
 
 export const shouldShowFallback = (status: Status, fallbackStrategy: FallbackStrategy) =>
-  (status !== 'loaded' && fallbackStrategy === 'beforeOrError') ||
-  (status === 'failed' && fallbackStrategy === 'onError');
+  (status !== "loaded" && fallbackStrategy === "beforeOrError") ||
+  (status === "failed" && fallbackStrategy === "onError");
