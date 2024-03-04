@@ -38,8 +38,8 @@ export type ButtonProps = ButtonBaseProps & {
   circle?: boolean;
 
   /**
-   * 是否方形按钮
-   * @default false
+   * 是否有内边距
+   * @default true
    */
   padded?: boolean;
 
