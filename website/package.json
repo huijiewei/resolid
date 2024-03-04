@@ -23,10 +23,10 @@
     "@resolid/remix-utils": "workspace:^",
     "@resolid/utils": "workspace:^",
     "drizzle-orm": "^0.29.4",
-    "hono": "^4.0.8",
+    "hono": "^4.0.9",
     "isbot": "^5.1.1",
-    "react": "18.3.0-canary-01ab35a9a-20240228",
-    "react-dom": "18.3.0-canary-01ab35a9a-20240228"
+    "react": "18.3.0-canary-2f8f77602-20240229",
+    "react-dom": "18.3.0-canary-2f8f77602-20240229"
   },
   "devDependencies": {
     "@mdx-js/rollup": "^3.0.1",
