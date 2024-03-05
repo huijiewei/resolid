@@ -16,10 +16,10 @@
    pnpm install
    ```
 
-3. 构建 Remix 插件包
+3. 构建插件包
 
    ```bash
-   pnpm run --filter @resolid/remix-plugins build
+   pnpm run --parallel --filter @resolid/remix-plugins --filter @resolid/mdx-plugins build
    ```
 
 4. 本地运行
