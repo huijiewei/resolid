@@ -6,6 +6,7 @@ description: 按钮组件用于触发动作或事件，例如提交表单、打�
 import { Button, ButtonGroup } from "@resolid/react-ui";
 import { mergeFrontmatter } from "@resolid/remix-utils";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
+import { ComponentProps, ComponentUsage } from "../__components";
 
 export const meta = mergeFrontmatter(frontmatter);
 
@@ -24,6 +25,8 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 
 ## 用法
 
+<ComponentUsage preview={(props) => <Button {...props}>按钮</Button>} component={"Button"} />
+
 ## 变体
 
 按钮有四种不同的样式变体可供使用。通过传递 `variant` 属性，可以选择使用 `solid`、`outline`、`soft`、`ghost` 或 `link` 中的任意一种。
@@ -38,7 +41,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     <Button variant={'link'}>Link</Button>
   </div>
 
-  ```tsx
+  ```jsx
   <Button>Solid</Button>
   <Button variant={'outline'}>Outline</Button>
   <Button variant={'soft'}>Soft</Button>
@@ -61,7 +64,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     <Button color={'neutral'}>Neutral</Button>
   </div>
 
-  ```tsx
+  ```jsx
   <Button>Primary</Button>
   <Button color={'success'}>Success</Button>
   <Button color={'warning'}>Warning</Button>
@@ -84,7 +87,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     <Button size={'xl'}>Button</Button>
   </div>
 
-  ```tsx
+  ```jsx
   <Button size={'xs'}>Button</Button>
   <Button size={'sm'}>Button</Button>
   <Button>Button</Button>
@@ -124,7 +127,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     </Button>
   </div>
 
-  ```tsx
+  ```jsx
   <Button>
     <SpriteIcon size={'sm'} className={'me-1.5'} name={'sun'} />
     亮色模式
@@ -166,7 +169,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     <Button block>Full Width</Button>
   </div>
 
-  ```tsx
+  ```jsx
   <Button disabled>Disabled</Button>
   <Button loading>Loading</Button>
   <Button loading loadingText={'Loading'}>
@@ -238,7 +241,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     </ButtonGroup>
   </div>
 
-  ```tsx
+  ```jsx
   <ButtonGroup>
     <Button>保存</Button>
     <Button square>
@@ -298,3 +301,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 </section>
 
 ## 属性
+
+<ComponentProps title={"按钮"} component={"Button"} />
+
+<ComponentProps title={"按钮组"} component={"ButtonGroup"} />

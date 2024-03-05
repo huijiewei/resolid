@@ -1,5 +1,6 @@
 import mdx from "@mdx-js/rollup";
 import { vitePlugin as remix } from "@remix-run/dev";
+import { remarkDocgen } from "@resolid/mdx-plugins";
 import remixFlexRoutes from "@resolid/remix-plugins/flex-routes";
 import { nodeHonoPreset } from "@resolid/remix-plugins/node-hono";
 import { vercelServerlessPreset } from "@resolid/remix-plugins/vercel-serverless";
@@ -38,7 +39,12 @@ export default defineConfig(({ command }) => {
             },
           ],
         ],
-        remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
+        remarkPlugins: [
+          remarkFrontmatter,
+          remarkMdxFrontmatter,
+          remarkGfm,
+          [remarkDocgen, { sourceRoot: join(__dirname, "../packages/react-ui/src/components") }],
+        ],
       }),
       remix({
         appDirectory: appDirectory,

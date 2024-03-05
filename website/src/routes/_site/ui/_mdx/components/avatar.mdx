@@ -5,6 +5,7 @@ description: 头像组件用于表示用户，显示个人资料图片、首字�
 
 import { Avatar, AvatarGroup, AvatarBadge } from '@resolid/react-ui';
 import { mergeFrontmatter } from "@resolid/remix-utils";
+import { ComponentProps } from "../__components";
 
 export const meta = mergeFrontmatter(frontmatter);
 
@@ -14,7 +15,7 @@ export const meta = mergeFrontmatter(frontmatter);
 
 ## 导入
 
-```javascript
+```js
 import { Avatar, AvatarGroup, AvatarBadge } from '@resolid/react-ui';
 ```
 
@@ -34,7 +35,7 @@ import { Avatar, AvatarGroup, AvatarBadge } from '@resolid/react-ui';
     <Avatar src={''} />
   </div>
 
-  ```tsx
+  ```jsx
   <Avatar name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
   <Avatar name={'Alex Suprun'} src={''} />
   <Avatar src={'https://file.resolid.tech/images%2Fa004.jpg'} />
@@ -57,7 +58,7 @@ import { Avatar, AvatarGroup, AvatarBadge } from '@resolid/react-ui';
     <Avatar size={128} src={'https://file.resolid.tech/images%2Fa002.jpg'} />
   </div>
 
-  ```tsx
+  ```jsx
   <Avatar size={'xs'} name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
   <Avatar size={'sm'} name={'Alex Suprun'} src={''} />
   <Avatar src={'https://file.resolid.tech/images%2Fa004.jpg'} />
@@ -80,7 +81,7 @@ import { Avatar, AvatarGroup, AvatarBadge } from '@resolid/react-ui';
     <Avatar src={''} />
   </div>
 
-  ```tsx
+  ```jsx
   <Avatar radius={'sm'} name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
   <Avatar radius name={'Alex Suprun'} src={''} />
   <Avatar radius={'lg'} src={'https://file.resolid.tech/images%2Fa004.jpg'} />
@@ -150,7 +151,7 @@ import { Avatar, AvatarGroup, AvatarBadge } from '@resolid/react-ui';
     </AvatarGroup>
   </div>
 
-  ```tsx
+  ```jsx
   <AvatarGroup limit={5}>
     <Avatar name={'Alexander Hipp'} src={'https://file.resolid.tech/images%2Fa001.jpg'} />
     <Avatar name={'Alex Suprun'} src={''} />
@@ -174,3 +175,5 @@ import { Avatar, AvatarGroup, AvatarBadge } from '@resolid/react-ui';
 </section>
 
 ## 属性
+
+<ComponentProps component={"Avatar"} />

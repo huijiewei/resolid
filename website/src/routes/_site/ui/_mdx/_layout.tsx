@@ -1,9 +1,10 @@
 import { MDXProvider } from "@mdx-js/react";
 import { Outlet, useLocation } from "@remix-run/react";
 import { clsx } from "@resolid/react-ui";
-import { debounce, isBrowser } from "@resolid/utils";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { components } from "~/routes/_site/ui/_mdx/_components";
+import { debounce, isBrowser, isExternalUrl } from "@resolid/utils";
+import { useEffect, useMemo, useRef, useState, type ComponentPropsWithoutRef } from "react";
+import { ClipboardButton } from "~/components/ClipboardButton";
+import { SpriteIcon } from "~/components/base/SpriteIcon";
 
 type TocItem = {
   id: string;
@@ -11,6 +12,79 @@ type TocItem = {
   slugElement: Element;
   topOffset: number;
   text: string | null;
+};
+
+const mdxComponents = {
+  h2: ({ id, children, className, ...rest }: ComponentPropsWithoutRef<"h2">) => {
+    return (
+      <h2 className={clsx("reHeadings group relative flex items-center", className)} {...rest}>
+        <span id={id} className={"reHeadingsSlug invisible absolute top-[calc(-1*88px)]"} />
+        {children}
+        <a
+          tabIndex={-1}
+          className={"ml-1 opacity-0 transition-opacity group-hover:opacity-100"}
+          aria-hidden={true}
+          href={`#${id}`}
+        >
+          <SpriteIcon size={"sm"} name={"link"} />
+        </a>
+      </h2>
+    );
+  },
+  h3: ({ id, children, className, ...rest }: ComponentPropsWithoutRef<"h3">) => {
+    return (
+      <h3 className={clsx("reHeadings group relative flex items-center", className)} {...rest}>
+        <span id={id} className={"reHeadingsSlug invisible absolute top-[calc(-1*88px)]"} />
+        {children}
+        <a
+          tabIndex={-1}
+          className={"ml-1 opacity-0 transition-opacity group-hover:opacity-100"}
+          aria-hidden={true}
+          href={`#${id}`}
+        >
+          <SpriteIcon size={"sm"} name={"link"} />
+        </a>
+      </h3>
+    );
+  },
+  pre: ({ children, className, ...rest }: ComponentPropsWithoutRef<"pre">) => {
+    return (
+      <div className={"relative"}>
+        <pre
+          translate={"no"}
+          className={clsx(
+            "overflow-x-auto rounded border scrollbar scrollbar-thin group-[.demo]:mt-0 group-[.demo]:rounded-t-none group-[.demo]:border-t-0",
+            className,
+          )}
+          tabIndex={-1}
+          {...rest}
+        >
+          {children}
+        </pre>
+        <div className={"absolute right-1.5 top-1.5"}>
+          <ClipboardButton content={children} />
+        </div>
+      </div>
+    );
+  },
+  a: ({ children, href = "", className, ...rest }: ComponentPropsWithoutRef<"a">) => {
+    const external = isExternalUrl(href);
+
+    return (
+      <a
+        href={href}
+        className={clsx(
+          "inline-flex items-center text-link no-underline hover:text-link-hovered hover:underline active:text-link-pressed",
+          className,
+        )}
+        {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+        {...rest}
+      >
+        {children}
+        {external && <SpriteIcon size={"xs"} className={"ml-1"} name={"external-link"} />}
+      </a>
+    );
+  },
 };
 
 const Toc = () => {
@@ -169,7 +243,7 @@ export default function Layout() {
   return (
     <>
       <article className={"prose w-full max-w-none p-6 dark:prose-invert lg:max-w-[calc(100%-theme(spacing.48))]"}>
-        <MDXProvider disableParentContext components={components}>
+        <MDXProvider disableParentContext components={mdxComponents}>
           <Outlet />
         </MDXProvider>
       </article>

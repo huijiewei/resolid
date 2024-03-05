@@ -17,16 +17,16 @@ export default function About() {
       <h2>技术栈</h2>
       <div className={"flex justify-center"}>
         <div className={"inline-flex flex-wrap items-center justify-center gap-5"}>
-          <SpriteIcon name={"react"} group={"brands"} size={"3rem"} />
-          <SpriteIcon name={"remix"} group={"brands"} size={"3rem"} />
-          <SpriteIcon name={"tailwindcss"} group={"brands"} size={"3rem"} />
-          <SpriteIcon name={"typescript"} group={"brands"} size={"3rem"} />
-          <SpriteIcon name={"vite"} group={"brands"} size={"3rem"} />
-          <SpriteIcon name={"nodejs"} group={"brands"} size={"3rem"} />
-          <SpriteIcon name={"drizzle-orm"} group={"brands"} size={"3rem"} />
-          <SpriteIcon name={"postgresql"} group={"brands"} size={"3rem"} />
-          <SpriteIcon name={"hono"} group={"brands"} size={"3rem"} />
-          <SpriteIcon name={"vercel"} group={"brands"} size={"3rem"} />
+          <SpriteIcon name={"react"} size={"3rem"} />
+          <SpriteIcon name={"remix"} size={"3rem"} />
+          <SpriteIcon name={"tailwindcss"} size={"3rem"} />
+          <SpriteIcon name={"typescript"} size={"3rem"} />
+          <SpriteIcon name={"vite"} size={"3rem"} />
+          <SpriteIcon name={"nodejs"} size={"3rem"} />
+          <SpriteIcon name={"drizzle-orm"} size={"3rem"} />
+          <SpriteIcon name={"postgresql"} size={"3rem"} />
+          <SpriteIcon name={"hono"} size={"3rem"} />
+          <SpriteIcon name={"vercel"} size={"3rem"} />
         </div>
       </div>
       <h3>React</h3>

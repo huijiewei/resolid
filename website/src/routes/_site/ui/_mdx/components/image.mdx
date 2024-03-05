@@ -6,6 +6,7 @@ description: 图片组件用于显示带有备用内容的图片。
 import { Image } from '@resolid/react-ui';
 import { mergeFrontmatter } from "@resolid/remix-utils";
 import { BlurhashCanvas } from '~/components/BlurhashCanvas';
+import { ComponentProps } from "../__components";
 
 export const meta = mergeFrontmatter(frontmatter);
 
@@ -15,7 +16,7 @@ export const meta = mergeFrontmatter(frontmatter);
 
 ## 导入
 
-```javascript
+```js
 import { Image } from '@resolid/react-ui';
 ```
 
@@ -77,7 +78,7 @@ import { Image } from '@resolid/react-ui';
     />} className={'w-auto rounded grayscale'} src={'https://file.resolid.tech/images%2F05.jpg'} />
   </div>
 
-```tsx
+```jsx
 <Image className={'w-auto'} src={'https://file.resolid.tech/images%2F01.jpg'} />
 <Image className={'w-auto rounded'} src={'https://file.resolid.tech/images%2F02.jpg'} />
 <Image className={'w-auto rounded-lg'} src={'https://file.resolid.tech/images%2F03.jpg'} />
@@ -97,7 +98,7 @@ import { Image } from '@resolid/react-ui';
     <Image
       className={'w-auto'}
       fallback={'https://img.temp.im/199x132'}
-      src={'https://mix.resolid.tech/images/012.jpg'}
+      src={'https://file.resolid.tech/images/012.jpg'}
     />
     <Image
       className={'w-auto'}
@@ -115,7 +116,7 @@ import { Image } from '@resolid/react-ui';
     />
   </div>
 
-```tsx
+```jsx
 <Image
   className={'w-auto'}
   fallback={'https://img.temp.im/199x132'}
@@ -140,3 +141,5 @@ import { Image } from '@resolid/react-ui';
 </section>
 
 ## 属性
+
+<ComponentProps component={"Image"} />
