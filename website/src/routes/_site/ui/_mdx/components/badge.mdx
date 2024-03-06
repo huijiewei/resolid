@@ -1,0 +1,72 @@
+---
+title: 徽标
+description: 一般出现在图标或文字的右上角。提供及时、重要的信息提示。
+---
+
+import { Badge } from '@resolid/react-ui';
+import { mergeFrontmatter } from "@resolid/remix-utils";
+import { ComponentProps, ComponentUsage } from "../__components";
+
+export const meta = mergeFrontmatter(frontmatter);
+
+# {frontmatter.title}
+
+{frontmatter.description}
+
+## 导入
+
+```js
+import { Badge } from '@resolid/react-ui';
+```
+
+## 用法
+
+<ComponentUsage preview={(props) => <Badge {...props}>徽标</Badge>} componentFile={"./badge/Badge.tsx"} />
+
+## 外观
+
+徽标有四种不同的外观可供使用。通过传递 `variant` 属性，可以选择使用 `solid`、`outline`、`soft`、`subtle` 中的任意一种。
+
+<section className={'demo group'}>
+  <div
+    className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+    <Badge>Solid</Badge>
+    <Badge variant={'outline'}>Outline</Badge>
+    <Badge variant={'soft'}>Soft</Badge>
+    <Badge variant={'subtle'}>Subtle</Badge>
+  </div>
+
+  ```jsx
+  <Badge>Solid</Badge>
+  <Badge variant={'outline'}>Outline</Badge>
+  <Badge variant={'soft'}>Soft</Badge>
+  <Badge variant={'subtle'}>Ghost</Badge>
+  ```
+</section>
+
+## 颜色
+
+通过传递 `color` 属性来更改徽标的颜色。徽标支持 `primary`、`success`、`warning`、`danger` 和 `neutral` 这些颜色。
+
+<section className={'demo group'}>
+  <div
+    className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+    <Badge>Primary</Badge>
+    <Badge color={'success'}>Success</Badge>
+    <Badge color={'warning'}>Warning</Badge>
+    <Badge color={'danger'}>Danger</Badge>
+    <Badge color={'neutral'}>Neutral</Badge>
+  </div>
+
+  ```jsx
+  <Badge>Primary</Badge>
+  <Badge color={'success'}>Success</Badge>
+  <Badge color={'warning'}>Warning</Badge>
+  <Badge color={'danger'}>Danger</Badge>
+  <Badge color={'neutral'}>Neutral</Badge>
+  ```
+</section>
+
+## 属性
+
+<ComponentProps componentFile={"./badge/Badge.tsx"} />
