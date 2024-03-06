@@ -1,8 +1,7 @@
 import { fromJs } from "esast-util-from-js";
-import fg from "fast-glob";
 import type { MdxJsxAttribute, MdxJsxFlowElement } from "mdast-util-mdx-jsx";
-import { parse } from "node:path";
-import { withCustomConfig, type ComponentDoc, type PropItem } from "react-docgen-typescript";
+import { join, parse } from "node:path";
+import { withCustomConfig, type PropItem } from "react-docgen-typescript";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
@@ -23,36 +22,31 @@ export const remarkDocgen: Plugin<[RemarkDocgenOptions]> = ({ sourceRoot }) => {
     throw new Error(`Please set sourceRoot.`);
   }
 
-  return (tree, vfile) => {
-    const componentName = parse(vfile.path).name;
+  const propsTables: Record<string, ComponentProp[]> = {};
 
-    const propsTables: Record<string, ComponentProp[]> = {};
-    const componentDoc = getComponentDoc(sourceRoot, componentName);
-
-    if (componentDoc) {
-      propsTables[componentName] = componentDoc.propsTable;
-    }
-
+  return (tree) => {
     visit(tree, "mdxJsxFlowElement", (node) => {
       const elem = node as MdxJsxFlowElement;
 
       if (elem.name == "ComponentProps" || elem.name == "ComponentUsage") {
-        const nodeComponentName = getNodeComponentName(elem);
+        const componentFile = getElementAttrValue(elem, "componentFile");
 
-        if (nodeComponentName == "") {
-          throw new Error(`Invalid component prop for ${elem.name}.`);
+        if (componentFile == "") {
+          throw new Error(`Invalid componentFile prop for ${elem.name}.`);
         }
 
-        if (!propsTables[nodeComponentName]) {
-          const nodeComponentDoc = getComponentDoc(sourceRoot, nodeComponentName);
+        const componentName = parse(componentFile).name;
 
-          if (nodeComponentDoc) {
-            propsTables[nodeComponentName] = nodeComponentDoc.propsTable;
+        if (!propsTables[componentName]) {
+          const componentProps = getComponentProps(join(sourceRoot, componentFile), componentName);
+
+          if (componentProps) {
+            propsTables[componentName] = componentProps;
           }
         }
 
-        if (propsTables[nodeComponentName]) {
-          const propsJSON = JSON.stringify(propsTables[nodeComponentName]);
+        if (propsTables[componentName]) {
+          const propsJSON = JSON.stringify(propsTables[componentName]);
 
           elem.attributes.push({
             type: "mdxJsxAttribute",
@@ -96,8 +90,8 @@ const tsParser = withCustomConfig("tsconfig.json", {
   },
 });
 
-const getNodeComponentName = (elem: MdxJsxFlowElement) => {
-  const attr = elem.attributes.find((attr) => "name" in attr && attr["name"] == "component");
+const getElementAttrValue = (elem: MdxJsxFlowElement, attrName: string) => {
+  const attr = elem.attributes.find((attr) => "name" in attr && attr["name"] == attrName);
 
   if (attr) {
     if (typeof attr.value == "string") {
@@ -110,58 +104,46 @@ const getNodeComponentName = (elem: MdxJsxFlowElement) => {
   return "";
 };
 
-const getComponentDoc = (
-  sourceRoot: string,
-  componentName: string,
-): { sourcePath: string; propsTable: ComponentProp[] } | null => {
-  const files = fg.globSync(`${sourceRoot}/**/${componentName}.tsx`);
+const getComponentProps = (componentFile: string, componentName: string): ComponentProp[] | null => {
+  const componentDoc = tsParser.parse(componentFile).find((c) => c.displayName == componentName);
 
-  for (const file of files) {
-    const componentDoc = tsParser.parse(file).find((item: ComponentDoc) => {
-      return item.displayName == componentName;
-    });
+  if (componentDoc) {
+    return Object.entries(componentDoc.props).map(([key, value]) => {
+      let typeText = "";
 
-    if (componentDoc) {
+      if (value.type.name == "enum") {
+        if (!value.type.raw) {
+          typeText = value.type.name;
+        } else if (
+          value.type.raw.includes(" | ") ||
+          ["string", "number", "boolean", "ReactNode"].includes(value.type.raw)
+        ) {
+          typeText = value.type.raw;
+        } else {
+          typeText = value.type.value.map((item: { value: string }) => item.value).join(" | ");
+        }
+      }
+
+      if (!value.required) {
+        typeText = typeText.replace(" | undefined", "");
+      }
+
+      if (typeText.startsWith("NonNullable<")) {
+        typeText = typeText.slice(12, -1);
+        typeText = typeText.replace(" | null", "");
+        typeText = typeText.replace(" | undefined", "");
+      }
+
+      typeText = typeText.replace("React.", "").replace(/ReactElement<.*>/g, "ReactElement");
+
       return {
-        sourcePath: componentDoc.filePath.replace(sourceRoot, ""),
-        propsTable: Object.entries(componentDoc.props).map(([key, value]) => {
-          let typeText = "";
-
-          if (value.type.name == "enum") {
-            if (!value.type.raw) {
-              typeText = value.type.name;
-            } else if (
-              value.type.raw.includes(" | ") ||
-              ["string", "number", "boolean", "ReactNode"].includes(value.type.raw)
-            ) {
-              typeText = value.type.raw;
-            } else {
-              typeText = value.type.value.map((item: { value: string }) => item.value).join(" | ");
-            }
-          }
-
-          if (!value.required) {
-            typeText = typeText.replace(" | undefined", "");
-          }
-
-          if (typeText.startsWith("NonNullable<")) {
-            typeText = typeText.slice(12, -1);
-            typeText = typeText.replace(" | null", "");
-            typeText = typeText.replace(" | undefined", "");
-          }
-
-          typeText = typeText.replace("React.", "").replace(/ReactElement<.*>/g, "ReactElement");
-
-          return {
-            name: key,
-            type: typeText,
-            required: value.required,
-            description: value.description,
-            defaultValue: value.defaultValue?.value ?? "",
-          };
-        }),
+        name: key,
+        type: typeText,
+        required: value.required,
+        description: value.description,
+        defaultValue: value.defaultValue?.value ?? "",
       };
-    }
+    });
   }
 
   return null;

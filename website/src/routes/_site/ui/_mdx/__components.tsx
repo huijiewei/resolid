@@ -1,6 +1,5 @@
 import type { ComponentProp } from "@resolid/mdx-plugins";
 import { Checkbox, Popover, PopoverArrow, PopoverBody, PopoverContent, PopoverTrigger } from "@resolid/react-ui";
-import { isString } from "@resolid/utils";
 import { useMemo, useState, type FunctionComponent } from "react";
 
 export const ComponentUsage = ({
@@ -8,7 +7,7 @@ export const ComponentUsage = ({
   componentProps = [],
 }: {
   preview: FunctionComponent;
-  component: string;
+  componentFile: string;
   componentProps?: ComponentProp[];
 }) => {
   const filteredProps = useMemo(() => {
@@ -89,19 +88,13 @@ export const ComponentUsage = ({
 };
 
 export const ComponentProps = ({
-  title = false,
-  component,
   componentProps = [],
 }: {
-  title?: boolean | string;
-  component: string;
+  componentFile: string;
   componentProps?: ComponentProp[];
 }) => {
   return (
     <table className={"my-4 w-full table-auto border-separate rounded border border-bg-subtle"}>
-      {title && (
-        <caption className={"mb-1.5 text-left font-bold text-fg-muted"}>{isString(title) ? title : component}</caption>
-      )}
       <thead>
         <tr className={"bg-bg-subtle"}>
           <th className={"hidden whitespace-nowrap p-2 text-left md:table-cell"}>属性</th>
