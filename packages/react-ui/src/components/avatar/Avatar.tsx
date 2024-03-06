@@ -59,15 +59,15 @@ export const Avatar = forwardRef<HTMLDivElement, BaseProps<"div", AvatarProps>>(
     srcSet,
     loading,
     referrerPolicy,
-    radius = group?.radius ?? "full",
-    size = group?.size ?? "md",
-    onError,
+    radius = "full",
+    size = "md",
     style,
+    onError,
     ...rest
   } = props;
 
-  const rounded = group ? group.rounded : toRounded(radius);
-  const sized = group ? group.sized : toSized(size);
+  const sized = group?.sized ?? toSized(size);
+  const rounded = group?.rounded ?? toRounded(radius);
   const colored = toColored(name);
 
   return (
@@ -76,8 +76,8 @@ export const Avatar = forwardRef<HTMLDivElement, BaseProps<"div", AvatarProps>>(
       style={
         {
           ...style,
-          "--rounded-var": !group ? rounded.value : undefined,
-          "--size-var": !group ? sized.value : undefined,
+          "--rounded-var": !group && rounded?.value,
+          "--size-var": !group && sized?.value,
           "--color-bg-var": colored.value?.split(",")[0],
           "--color-text-var": colored.value?.split(",")[1],
         } as CSSProperties
@@ -85,9 +85,9 @@ export const Avatar = forwardRef<HTMLDivElement, BaseProps<"div", AvatarProps>>(
       className={clsx(
         "relative inline-flex shrink-0 items-center justify-center text-center align-top font-medium uppercase",
         colored.style,
-        rounded.style,
-        sized.style,
-        group && "border-bg-default border-2 [&:not(:first-child)]:mr-[--spacing-var]",
+        sized?.style,
+        rounded?.style,
+        group && "border-2 border-bg-normal [&:not(:first-child)]:mr-[--spacing-var]",
         className,
       )}
       {...rest}

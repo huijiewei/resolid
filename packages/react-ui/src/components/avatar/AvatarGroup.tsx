@@ -8,13 +8,13 @@ import { AvatarGroupProvider, type AvatarBaseProps } from "./AvatarGroupContext"
 
 export type AvatarGroupProps = AvatarBaseProps & {
   /**
-   * The limit number of visible avatars
+   * 可见头像数量限制
    * @default 3
    */
   limit?: number | null;
 
   /**
-   * The space between the avatars in the group.
+   * 组中头像之间的空间
    * @default '-0.75em'
    */
   spacing?: string;
@@ -28,8 +28,8 @@ export const AvatarGroup = (props: BaseProps<"div", AvatarGroupProps>) => {
   const economy = limit ? validChildren.slice(0, limit) : validChildren;
   const excess = limit != null ? validChildren.length - limit : 0;
 
-  const rounded = toRounded(radius);
   const sized = toSized(size);
+  const rounded = toRounded(radius);
 
   return (
     <div
@@ -48,13 +48,13 @@ export const AvatarGroup = (props: BaseProps<"div", AvatarGroupProps>) => {
       {excess > 0 && (
         <span
           className={clsx(
-            "text-fg-default relative inline-flex shrink-0 items-center justify-center bg-bg-subtle text-center font-medium uppercase",
+            "relative inline-flex shrink-0 items-center justify-center bg-bg-subtle text-center font-medium uppercase text-fg-normal",
             sized.style,
             rounded.style,
           )}
         >{`+${excess}`}</span>
       )}
-      <AvatarGroupProvider value={{ size, radius, rounded, sized }}>{economy.reverse()}</AvatarGroupProvider>
+      <AvatarGroupProvider value={{ sized, rounded }}>{economy.reverse()}</AvatarGroupProvider>
     </div>
   );
 };
