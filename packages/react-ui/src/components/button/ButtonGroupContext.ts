@@ -1,24 +1,24 @@
-import { createContext } from '../../utils/context';
-import type { ButtonStyleProps } from './Button.styles';
+import { createContext } from "../../utils/context";
+import type { ButtonStyleProps } from "./Button.styles";
 
 export type ButtonBaseProps = {
   /**
    * 大小
    * @default 'md'
    */
-  size?: ButtonStyleProps['size'];
+  size?: ButtonStyleProps["size"];
 
   /**
    * 颜色
    * @default 'primary'
    */
-  color?: ButtonStyleProps['color'];
+  color?: ButtonStyleProps["color"];
 
   /**
-   * 形式
+   * 外观
    * @default 'solid'
    */
-  variant?: ButtonStyleProps['variant'];
+  variant?: ButtonStyleProps["variant"];
 };
 
 export type ButtonGroupContext = ButtonBaseProps & {
@@ -31,7 +31,7 @@ export type ButtonGroupContext = ButtonBaseProps & {
 
 const [ButtonGroupProvider, useButtonGroup] = createContext<ButtonGroupContext>({
   strict: false,
-  name: 'ButtonGroupContext',
+  name: "ButtonGroupContext",
 });
 
 export { ButtonGroupProvider, useButtonGroup };

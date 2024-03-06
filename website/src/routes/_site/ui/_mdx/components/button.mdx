@@ -25,11 +25,11 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 
 ## 用法
 
-<ComponentUsage componentFile={"./button/Button.tsx"} preview={(props) => <Button {...props}>按钮</Button>} />
+<ComponentUsage preview={(props) => <Button {...props}>按钮</Button>} componentFile={"./button/Button.tsx"} />
 
-## 变体
+## 外观
 
-按钮有四种不同的样式变体可供使用。通过传递 `variant` 属性，可以选择使用 `solid`、`outline`、`soft`、`ghost` 或 `link` 中的任意一种。
+按钮有五种不同的外观可供使用。通过传递 `variant` 属性，可以选择使用 `solid`、`outline`、`soft`、`ghost` 或 `link` 中的任意一种。
 
 <section className={'demo group'}>
   <div
@@ -80,19 +80,48 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 <section className={'demo group'}>
   <div
     className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
-    <Button size={'xs'}>Button</Button>
-    <Button size={'sm'}>Button</Button>
-    <Button>Button</Button>
-    <Button size={'lg'}>Button</Button>
-    <Button size={'xl'}>Button</Button>
+    <Button size={'xs'}>XS</Button>
+    <Button size={'sm'}>SM</Button>
+    <Button>MD</Button>
+    <Button size={'lg'}>LG</Button>
+    <Button size={'xl'}>XL</Button>
   </div>
 
   ```jsx
-  <Button size={'xs'}>Button</Button>
-  <Button size={'sm'}>Button</Button>
-  <Button>Button</Button>
-  <Button size={'lg'}>Button</Button>
-  <Button size={'xl'}>Button</Button>
+  <Button size={'xs'}>XS</Button>
+  <Button size={'sm'}>SM</Button>
+  <Button>MD</Button>
+  <Button size={'lg'}>LG</Button>
+  <Button size={'xl'}>XL</Button>
+  ```
+</section>
+
+## 圆角
+
+按钮圆角可以设置为 `false`、`xs`、`sm`、`lg`、`xl`、`full` 以及数字
+
+<section className={'demo group'}>
+  <div
+    className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+    <Button radius={false}>按钮</Button>
+    <Button radius={'xs'}>按钮</Button>
+    <Button radius={'sm'}>按钮</Button>
+    <Button>按钮</Button>
+    <Button radius={'lg'}>按钮</Button>
+    <Button radius={'xl'}>按钮</Button>
+    <Button radius={'full'}>按钮</Button>
+    <Button radius={11}>按钮</Button>
+  </div>
+
+  ```jsx
+  <Button radius={false}>按钮</Button>
+  <Button radius={'xs'}>按钮</Button>
+  <Button radius={'sm'}>按钮</Button>
+  <Button>按钮</Button>
+  <Button radius={'lg'}>按钮</Button>
+  <Button radius={'xl'}>按钮</Button>
+  <Button radius={'full'}>按钮</Button>
+  <Button radius={11}>按钮</Button>
   ```
 </section>
 
@@ -109,7 +138,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
       <SpriteIcon size={'sm'} className={'me-1.5'} name={'moon'} />
       暗色模式
     </Button>
-    <Button variant={'light'}>
+    <Button variant={'soft'}>
       菜单
       <SpriteIcon size={'sm'} className={'ms-1.5'} name={'menu'} />
     </Button>
@@ -119,10 +148,10 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     <Button square variant={'outline'} color={'neutral'}>
       <SpriteIcon size={'sm'} name={'dashboard'} />
     </Button>
-    <Button square variant={'light'} color={'warning'}>
+    <Button square variant={'soft'} color={'warning'}>
       <SpriteIcon size={'sm'} name={'logout'} />
     </Button>
-    <Button square variant={'subtle'} color={'success'}>
+    <Button square variant={'ghost'} color={'success'}>
       <SpriteIcon size={'sm'} name={'auto'} />
     </Button>
   </div>

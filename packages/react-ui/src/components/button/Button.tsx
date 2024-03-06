@@ -1,6 +1,7 @@
 import { __DEV__ } from "@resolid/utils";
-import { forwardRef, type JSX } from "react";
+import { forwardRef, type CSSProperties, type JSX } from "react";
 import { clsx } from "../../utils/classed";
+import { toRounded, type Radius } from "../../utils/radius";
 import { Slot, type AsChildProps } from "../slot/Slot";
 import { buttonStyles } from "./Button.styles";
 import { useButtonGroup, type ButtonBaseProps } from "./ButtonGroupContext";
@@ -32,10 +33,10 @@ export type ButtonProps = ButtonBaseProps & {
   square?: boolean;
 
   /**
-   * 是否圆形按钮
-   * @default false
+   * 按钮圆角
+   * @default true
    */
-  circle?: boolean;
+  radius?: Radius;
 
   /**
    * 是否有内边距
@@ -82,29 +83,30 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<"button", Butto
     block = false,
     square = false,
     padded = true,
-    circle = false,
+    radius = true,
     loading = false,
     loadingText,
     spinner,
     spinnerPlacement = "start",
     className,
+    style,
     children,
     ...rest
   } = props;
 
   const Comp = asChild ? Slot : "button";
+  const rounded = toRounded(radius);
 
   return (
     <Comp
+      style={{ ...style, "--rounded-var": rounded.value } as CSSProperties}
       className={clsx(
         buttonStyles({ variant, size, color, disabled, loading, square, block, padded }),
         group
           ? group.vertical
             ? "border-y-[0.5px] first:rounded-t first:border-t last:rounded-b last:border-b"
             : "border-x-[0.5px] first:rounded-s first:border-s last:rounded-e last:border-e"
-          : circle
-            ? "rounded-full"
-            : "rounded",
+          : rounded.style,
         className,
       )}
       type={type ?? asChild ? undefined : "button"}
