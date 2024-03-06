@@ -163,11 +163,11 @@ importers:
         specifier: ^14.2.1
         version: 14.2.1(react-dom@18.3.0-canary-2f8f77602-20240229)(react@18.3.0-canary-2f8f77602-20240229)
       '@types/react':
-        specifier: ^18.2.62
-        version: 18.2.62
+        specifier: ^18.2.63
+        version: 18.2.63
       '@types/react-dom':
-        specifier: ^18.2.19
-        version: 18.2.19
+        specifier: ^18.2.20
+        version: 18.2.20
       jsdom:
         specifier: ^24.0.0
         version: 24.0.0
@@ -196,8 +196,8 @@ importers:
         specifier: ^2.8.0
         version: 2.8.0(typescript@5.3.3)
       hono:
-        specifier: ^4.0.9
-        version: 4.0.9
+        specifier: ^4.0.10
+        version: 4.0.10
     devDependencies:
       '@remix-run/dev':
         specifier: ^2.8.0
@@ -230,8 +230,8 @@ importers:
         specifier: ^8.0.2
         version: 8.0.2(postcss@8.4.35)(typescript@5.3.3)
       type-fest:
-        specifier: ^4.11.0
-        version: 4.11.0
+        specifier: ^4.11.1
+        version: 4.11.1
       vite:
         specifier: ^5.1.5
         version: 5.1.5(@types/node@20.11.24)
@@ -291,7 +291,7 @@ importers:
         version: 1.8.2
       '@mdx-js/react':
         specifier: ^3.0.1
-        version: 3.0.1(@types/react@18.2.62)(react@18.3.0-canary-2f8f77602-20240229)
+        version: 3.0.1(@types/react@18.2.63)(react@18.3.0-canary-2f8f77602-20240229)
       '@remix-run/node':
         specifier: ^2.8.0
         version: 2.8.0(typescript@5.3.3)
@@ -315,10 +315,10 @@ importers:
         version: link:../packages/utils
       drizzle-orm:
         specifier: ^0.29.4
-        version: 0.29.4(@types/react@18.2.62)(react@18.3.0-canary-2f8f77602-20240229)
+        version: 0.29.4(@types/react@18.2.63)(react@18.3.0-canary-2f8f77602-20240229)
       hono:
-        specifier: ^4.0.9
-        version: 4.0.9
+        specifier: ^4.0.10
+        version: 4.0.10
       isbot:
         specifier: ^5.1.1
         version: 5.1.1
@@ -357,11 +357,11 @@ importers:
         specifier: ^0.5.10
         version: 0.5.10(tailwindcss@3.4.1)
       '@types/react':
-        specifier: ^18.2.62
-        version: 18.2.62
+        specifier: ^18.2.63
+        version: 18.2.63
       '@types/react-dom':
-        specifier: ^18.2.19
-        version: 18.2.19
+        specifier: ^18.2.20
+        version: 18.2.20
       autoprefixer:
         specifier: ^10.4.18
         version: 10.4.18(postcss@8.4.35)
@@ -1378,14 +1378,14 @@ packages:
       - supports-color
     dev: true
 
-  /@mdx-js/react@3.0.1(@types/react@18.2.62)(react@18.3.0-canary-2f8f77602-20240229):
+  /@mdx-js/react@3.0.1(@types/react@18.2.63)(react@18.3.0-canary-2f8f77602-20240229):
     resolution: {integrity: sha512-9ZrPIU4MGf6et1m1ov3zKf+q9+deetI51zprKB1D/z3NOb+rUxxtEl3mCjW5wTGh6VhRdwPueh1oRzi6ezkA8A==}
     peerDependencies:
       '@types/react': '>=16'
       react: 18.3.0-canary-2f8f77602-20240229
     dependencies:
       '@types/mdx': 2.0.11
-      '@types/react': 18.2.62
+      '@types/react': 18.2.63
       react: 18.3.0-canary-2f8f77602-20240229
     dev: false
 
@@ -2081,7 +2081,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.24.0
       '@testing-library/dom': 9.3.4
-      '@types/react-dom': 18.2.19
+      '@types/react-dom': 18.2.20
       react: 18.3.0-canary-2f8f77602-20240229
       react-dom: 18.3.0-canary-2f8f77602-20240229(react@18.3.0-canary-2f8f77602-20240229)
     dev: true
@@ -2170,14 +2170,14 @@ packages:
   /@types/prop-types@15.7.11:
     resolution: {integrity: sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==}
 
-  /@types/react-dom@18.2.19:
-    resolution: {integrity: sha512-aZvQL6uUbIJpjZk4U8JZGbau9KDeAwMfmhyWorxgBkqDIEf6ROjRozcmPIicqsUwPUjbkDfHKgGee1Lq65APcA==}
+  /@types/react-dom@18.2.20:
+    resolution: {integrity: sha512-HXN/biJY8nv20Cn9ZbCFq3liERd4CozVZmKbaiZ9KiKTrWqsP7eoGDO6OOGvJQwoVFuiXaiJ7nBBjiFFbRmQMQ==}
     dependencies:
-      '@types/react': 18.2.62
+      '@types/react': 18.2.63
     dev: true
 
-  /@types/react@18.2.62:
-    resolution: {integrity: sha512-l3f57BbaEKP0xcFzf+5qRG8/PXykZiuVM6eEoPtqBPCp6dxO3HhDkLIgIyXPhPKNAeXn3KO2pEaNgzaEo/asaw==}
+  /@types/react@18.2.63:
+    resolution: {integrity: sha512-ppaqODhs15PYL2nGUOaOu2RSCCB4Difu4UFrP4I3NHLloXC/ESQzQMi9nvjfT1+rudd0d2L3fQPJxRSey+rGlQ==}
     dependencies:
       '@types/prop-types': 15.7.11
       '@types/scheduler': 0.16.8
@@ -2674,7 +2674,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.23.0
-      caniuse-lite: 1.0.30001593
+      caniuse-lite: 1.0.30001594
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -2782,8 +2782,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001593
-      electron-to-chromium: 1.4.692
+      caniuse-lite: 1.0.30001594
+      electron-to-chromium: 1.4.693
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
     dev: true
@@ -2889,13 +2889,13 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.23.0
-      caniuse-lite: 1.0.30001593
+      caniuse-lite: 1.0.30001594
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: true
 
-  /caniuse-lite@1.0.30001593:
-    resolution: {integrity: sha512-UWM1zlo3cZfkpBysd7AS+z+v007q9G1+fLTUU42rQnY6t2axoogPW/xol6T7juU5EUoOhML4WgBIdG+9yYqAjQ==}
+  /caniuse-lite@1.0.30001594:
+    resolution: {integrity: sha512-VblSX6nYqyJVs8DKFMldE2IVCJjZ225LW00ydtUWwh5hk9IfkTOffO6r8gJNsH0qqqeAF8KrbMYA2VEwTlGW5g==}
     dev: true
 
   /ccount@2.0.1:
@@ -3614,7 +3614,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.29.4(@types/react@18.2.62)(react@18.3.0-canary-2f8f77602-20240229):
+  /drizzle-orm@0.29.4(@types/react@18.2.63)(react@18.3.0-canary-2f8f77602-20240229):
     resolution: {integrity: sha512-ZnSM8TAxFhzH7p1s3+w3pRE/eKaOeNkH9SKitm717pubDVVcV2I0BCDBPGKV+pe02+wMfw37ntlTcCyo2rA3IA==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -3685,7 +3685,7 @@ packages:
       sqlite3:
         optional: true
     dependencies:
-      '@types/react': 18.2.62
+      '@types/react': 18.2.63
       react: 18.3.0-canary-2f8f77602-20240229
     dev: false
 
@@ -3780,8 +3780,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
-  /electron-to-chromium@1.4.692:
-    resolution: {integrity: sha512-d5rZRka9n2Y3MkWRN74IoAsxR0HK3yaAt7T50e3iT9VZmCCQDT3geXUO5ZRMhDToa1pkCeQXuNo+0g+NfDOVPA==}
+  /electron-to-chromium@1.4.693:
+    resolution: {integrity: sha512-/if4Ueg0GUQlhCrW2ZlXwDAm40ipuKo+OgeHInlL8sbjt+hzISxZK949fZeJaVsheamrzANXvw1zQTvbxTvSHw==}
     dev: true
 
   /emoji-regex@8.0.0:
@@ -4822,8 +4822,8 @@ packages:
     resolution: {integrity: sha512-2bsegYkkHO+h/9MGbn6KWcE45cHZgPANo5LXF7EvWdT0yT2EguSVO1nDgU5c8+ZOPwp2vMNa7YFsJhVcDR9Sdg==}
     dev: true
 
-  /hono@4.0.9:
-    resolution: {integrity: sha512-XkFx6y6jAl08bGmoy53oGtHl8eHUixvmBulfcghrSySoJD3cW4UfFUa7JDGLOsIeJUv/a9d2pBFQUX7rzRnjvA==}
+  /hono@4.0.10:
+    resolution: {integrity: sha512-sq0RFAC3Ij+bkhZu90EGAQnVI1EhohRsjo9BU+BjXLbC71GSy41JjsFqCeg8MRpO2Gdu0A4MXF5licO89tn/rw==}
     engines: {node: '>=16.0.0'}
     dev: false
 
@@ -8972,8 +8972,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /type-fest@4.11.0:
-    resolution: {integrity: sha512-DPsoHKtnCUqqoB5Y4OPyat7ObSLz1XOkhHTmz+gOkz2p1xs+BBneTvHWriTwc313eozfBWh8b45EpaV3ZrrPPQ==}
+  /type-fest@4.11.1:
+    resolution: {integrity: sha512-MFMf6VkEVZAETidGGSYW2B1MjXbGX+sWIywn2QPEaJ3j08V+MwVRHMXtf2noB8ENJaD0LIun9wh5Z6OPNf1QzQ==}
     engines: {node: '>=16'}
     dev: true
 
