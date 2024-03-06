@@ -21,7 +21,7 @@ export const ComponentUsage = ({
       return {
         ...obj,
         [item["name"]]:
-          item.type == "boolean"
+          item["defaultValue"] == "true" || item["defaultValue"] == "false"
             ? item["defaultValue"] == "true"
             : item["defaultValue"]
               ? item["defaultValue"].substring(1, item["defaultValue"].length - 1)
@@ -31,7 +31,7 @@ export const ComponentUsage = ({
   );
 
   return (
-    <div className={"not-prose flex min-h-[20em] w-full flex-col rounded border lg:flex-row"}>
+    <div className={"not-prose flex min-h-60 w-full flex-col rounded border lg:flex-row"}>
       <div className={"flex flex-1 flex-col p-5"}>
         <div className={"flex flex-grow items-center justify-center"}>{preview(state)}</div>
       </div>
@@ -65,11 +65,23 @@ export const ComponentUsage = ({
                     className={"rounded border p-1"}
                     value={String(state[prop.name])}
                     onChange={(e) => {
-                      setState((prev) => ({ ...prev, [prop.name]: e.target.value }));
+                      setState((prev) => ({
+                        ...prev,
+                        [prop.name]:
+                          e.target.value == "true" || e.target.value == "false"
+                            ? e.target.value == "true"
+                            : e.target.value,
+                      }));
                     }}
                   >
                     {prop.type.split(" | ").map((item) => {
-                      const option = item.trim().substring(1, item.length - 1);
+                      if (item == "number") {
+                        return null;
+                      }
+
+                      const option =
+                        item != "true" && item != "false" ? item.trim().substring(1, item.length - 1) : item;
+
                       return (
                         <option key={option} value={option}>
                           {option}
