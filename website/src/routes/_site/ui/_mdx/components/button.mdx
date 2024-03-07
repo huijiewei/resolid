@@ -6,7 +6,7 @@ description: 按钮组件用于触发动作或事件，例如提交表单、打�
 import { Button, ButtonGroup } from "@resolid/react-ui";
 import { mergeFrontmatter } from "@resolid/remix-utils";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
-import { ComponentProps, ComponentUsage } from "../__components";
+import { ComponentExample, ComponentProps, ComponentUsage } from "../__components";
 
 export const meta = mergeFrontmatter(frontmatter);
 
@@ -31,15 +31,14 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 
 按钮有五种不同的外观可供使用。通过传递 `variant` 属性，可以选择使用 `solid`、`outline`、`soft`、`ghost` 或 `link` 中的任意一种。
 
-<section className={'demo group'}>
-  <div
-    className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center'}>
     <Button>Solid</Button>
     <Button variant={'outline'}>Outline</Button>
     <Button variant={'soft'}>Soft</Button>
     <Button variant={'ghost'}>Ghost</Button>
     <Button variant={'link'}>Link</Button>
-  </div>
+  </ComponentExample>
 
   ```jsx
   <Button>Solid</Button>
@@ -54,15 +53,14 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 
 通过传递 `color` 属性来更改按钮的颜色。按钮支持 `primary`、`success`、`warning`、`danger` 和 `neutral` 这些颜色。
 
-<section className={'demo group'}>
-  <div
-    className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center'}>
     <Button>Primary</Button>
     <Button color={'success'}>Success</Button>
     <Button color={'warning'}>Warning</Button>
     <Button color={'danger'}>Danger</Button>
     <Button color={'neutral'}>Neutral</Button>
-  </div>
+  </ComponentExample>
 
   ```jsx
   <Button>Primary</Button>
@@ -77,15 +75,14 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 
 按钮有五种可用的尺寸。通过传递 `size` 属性，可以选择使用 `xs`、`sm`、`md`、`lg` 或 `xl` 中的任意一种。
 
-<section className={'demo group'}>
-  <div
-    className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center'}>
     <Button size={'xs'}>XS</Button>
     <Button size={'sm'}>SM</Button>
     <Button>MD</Button>
     <Button size={'lg'}>LG</Button>
     <Button size={'xl'}>XL</Button>
-  </div>
+  </ComponentExample>
 
   ```jsx
   <Button size={'xs'}>XS</Button>
@@ -100,9 +97,8 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 
 按钮圆角可以设置为 `false`、`xs`、`sm`、`lg`、`xl`、`full` 以及数字
 
-<section className={'demo group'}>
-  <div
-    className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center'}>
     <Button radius={false}>按钮</Button>
     <Button radius={'xs'}>按钮</Button>
     <Button radius={'sm'}>按钮</Button>
@@ -111,7 +107,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     <Button radius={'xl'}>按钮</Button>
     <Button radius={'full'}>按钮</Button>
     <Button radius={11}>按钮</Button>
-  </div>
+  </ComponentExample>
 
   ```jsx
   <Button radius={false}>按钮</Button>
@@ -127,9 +123,8 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 
 ## 图标
 
-<section className={'demo group'}>
-  <div
-    className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center'}>
     <Button>
       <SpriteIcon size={'sm'} className={'me-1.5'} name={'sun'} />
       亮色模式
@@ -154,7 +149,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     <Button square variant={'ghost'} color={'success'}>
       <SpriteIcon size={'sm'} name={'auto'} />
     </Button>
-  </div>
+  </ComponentExample>
 
   ```jsx
   <Button>
@@ -186,9 +181,8 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 
 ## 加载状态
 
-<section className={'demo group'}>
-  <div
-    className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center'}>
     <Button disabled>Disabled</Button>
     <Button loading>Loading</Button>
     <Button loading loadingText={'Loading'}>
@@ -196,7 +190,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     </Button>
     <Button active>Active</Button>
     <Button block>Full Width</Button>
-  </div>
+  </ComponentExample>
 
   ```jsx
   <Button disabled>Disabled</Button>
@@ -211,9 +205,8 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 
 ## 按钮组
 
-<section className={'demo group'}>
-  <div
-    className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center'}>
     <ButtonGroup>
       <Button>保存</Button>
       <Button square>
@@ -268,7 +261,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
         <SpriteIcon name={'plus'} size={'sm'} />
       </Button>
     </ButtonGroup>
-  </div>
+  </ComponentExample>
 
   ```jsx
   <ButtonGroup>
@@ -326,7 +319,6 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     </Button>
   </ButtonGroup>
   ```
-
 </section>
 
 ## 属性

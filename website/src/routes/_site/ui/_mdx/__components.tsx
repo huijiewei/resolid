@@ -1,20 +1,28 @@
 import type { ComponentProp } from "@resolid/mdx-plugins";
-import { Checkbox, Popover, PopoverArrow, PopoverBody, PopoverContent, PopoverTrigger } from "@resolid/react-ui";
-import { useMemo, useState, type FunctionComponent } from "react";
+import { Checkbox, clsx, Popover, PopoverArrow, PopoverBody, PopoverContent, PopoverTrigger } from "@resolid/react-ui";
+import { isFunction } from "@resolid/utils";
+import { useMemo, useState, type FunctionComponent, type ReactNode } from "react";
 
 export const ComponentUsage = ({
   preview,
   componentProps = [],
+  ignoreProps = [],
 }: {
   preview: FunctionComponent;
   componentFile: string;
   componentProps?: ComponentProp[];
+  ignoreProps?: string[];
 }) => {
   const filteredProps = useMemo(() => {
     return componentProps.filter((prop) => {
-      return prop.name != "asChild" && prop.type != "Element";
+      return (
+        prop.name != "asChild" &&
+        prop.type != "Element" &&
+        !/^on[A-Z]/.test(prop.name) &&
+        !ignoreProps.includes(prop.name)
+      );
     });
-  }, [componentProps]);
+  }, [componentProps, ignoreProps]);
 
   const [state, setState] = useState<Record<string, string | boolean | number>>(
     filteredProps.reduce((obj, item) => {
@@ -31,7 +39,7 @@ export const ComponentUsage = ({
   );
 
   return (
-    <div className={"not-prose flex min-h-60 w-full flex-col rounded border lg:flex-row"}>
+    <div className={"not-prose flex min-h-52 w-full flex-col rounded border lg:flex-row"}>
       <div className={"flex flex-1 flex-col p-5"}>
         <div className={"flex flex-grow items-center justify-center"}>{preview(state)}</div>
       </div>
@@ -45,6 +53,7 @@ export const ComponentUsage = ({
                 <div className={"capitalize"}>{prop.description}</div>
                 {controlType == "checkbox" && (
                   <Checkbox
+                    size={"sm"}
                     checked={Boolean(state[prop.name])}
                     onChange={(value) => {
                       setState((prev) => ({ ...prev, [prop.name]: value }));
@@ -182,5 +191,19 @@ export const ComponentProps = ({
         ))}
       </tbody>
     </table>
+  );
+};
+
+export const ComponentExample = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: (() => ReactNode) | ReactNode;
+}) => {
+  return (
+    <div className={clsx("not-prose overflow-x-auto rounded-t border p-3 scrollbar scrollbar-thin", className)}>
+      {isFunction(children) ? children() : children}
+    </div>
   );
 };

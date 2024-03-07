@@ -19,7 +19,7 @@ export const meta = mergeFrontmatter(frontmatter);
 
 1. 图像 + SVG
 
-```jsx
+```html
 <img src='icon.svg' />
 ```
 
@@ -90,7 +90,7 @@ const icon = (
 
 您可以继续将所有图标定义为该文件中的符号（尽管要注意文件大小，即保持在 125kb 以下）。接下来，我们将创建一个引用我们的精灵的 React 组件。
 
-```tsx
+```jsx
 import { render } from "react-dom";
 
 // keep a list of the icon ids we put in the symbol

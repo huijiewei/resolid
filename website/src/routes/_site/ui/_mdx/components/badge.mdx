@@ -5,7 +5,7 @@ description: 一般出现在图标或文字的右上角。提供及时、重要�
 
 import { Badge } from '@resolid/react-ui';
 import { mergeFrontmatter } from "@resolid/remix-utils";
-import { ComponentProps, ComponentUsage } from "../__components";
+import { ComponentExample, ComponentProps, ComponentUsage } from "../__components";
 
 export const meta = mergeFrontmatter(frontmatter);
 
@@ -27,14 +27,13 @@ import { Badge } from '@resolid/react-ui';
 
 徽标有四种不同的外观可供使用。通过传递 `variant` 属性，可以选择使用 `solid`、`outline`、`soft`、`subtle` 中的任意一种。
 
-<section className={'demo group'}>
-  <div
-    className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center'}>
     <Badge>Solid</Badge>
     <Badge variant={'outline'}>Outline</Badge>
     <Badge variant={'soft'}>Soft</Badge>
     <Badge variant={'subtle'}>Subtle</Badge>
-  </div>
+  </ComponentExample>
 
   ```jsx
   <Badge>Solid</Badge>
@@ -48,15 +47,14 @@ import { Badge } from '@resolid/react-ui';
 
 通过传递 `color` 属性来更改徽标的颜色。徽标支持 `primary`、`success`、`warning`、`danger` 和 `neutral` 这些颜色。
 
-<section className={'demo group'}>
-  <div
-    className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center'}>
     <Badge>Primary</Badge>
     <Badge color={'success'}>Success</Badge>
     <Badge color={'warning'}>Warning</Badge>
     <Badge color={'danger'}>Danger</Badge>
     <Badge color={'neutral'}>Neutral</Badge>
-  </div>
+  </ComponentExample>
 
   ```jsx
   <Badge>Primary</Badge>
