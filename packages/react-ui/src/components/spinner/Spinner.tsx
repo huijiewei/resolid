@@ -3,8 +3,7 @@ import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/Slot";
 import { VisuallyHidden } from "../visually-hidden/VisuallyHidden";
-import type { SpinnerStyles } from "./Spinner.style";
-import { spinnerStyles } from "./Spinner.style";
+import { spinnerStyles, type SpinnerStyles } from "./Spinner.styles";
 
 export type SpinnerProps = {
   /**

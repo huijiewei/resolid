@@ -3,7 +3,7 @@ import { forwardRef, type CSSProperties, type HTMLAttributeReferrerPolicy, type 
 import { clsx } from "../../utils/classed";
 import { toRounded } from "../../utils/radius";
 import type { BaseProps } from "../slot/Slot";
-import { toColored, toSized } from "./Avatar.style";
+import { toColored, toSized } from "./Avatar.styles";
 import type { AvatarBaseProps } from "./AvatarGroupContext";
 import { useAvatarGroup } from "./AvatarGroupContext";
 import { AvatarImage } from "./AvatarImage";
