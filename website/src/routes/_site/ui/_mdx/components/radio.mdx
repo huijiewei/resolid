@@ -1,0 +1,156 @@
+---
+title: 单选框
+description: 在一组相关且互斥数据中，用户仅能选择一个选项。
+---
+
+import { Checkbox, CheckboxGroup, Radio, RadioGroup } from '@resolid/react-ui';
+import { mergeFrontmatter } from "@resolid/remix-utils";
+import { useState } from "react";
+import { ComponentExample, ComponentProps, ComponentUsage } from "../__components";
+
+export const meta = mergeFrontmatter(frontmatter);
+
+# {frontmatter.title}
+
+{frontmatter.description}
+
+## 导入
+
+```js
+import { Radio, RadioGroup } from '@resolid/react-ui';
+```
+
+## 用法
+
+<ComponentUsage preview={(props) => <Radio {...props}>单选框</Radio>} componentFile={"./radio/Radio.tsx"} ignoreProps={["icon","value","spacing"]} />
+
+## 大小
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+    <RadioGroup defaultValue={"md"} name="radioSizes">
+      <Radio size={"xs"} value={"xs"}>XS</Radio>
+      <Radio size={"sm"} value={"sm"}>SM</Radio>
+      <Radio value={"md"}>MD</Radio>
+      <Radio size={"lg"} value={"lg"}>LG</Radio>
+      <Radio size={"xl"} value={"xl"}>XL</Radio>
+    </RadioGroup>
+  </ComponentExample>
+
+  ```jsx
+  <RadioGroup defaultValue={"md"} name="radioSizes">
+    <Radio size={"xs"} value={"xs"}>XS</Radio>
+    <Radio size={"sm"} value={"sm"}>SM</Radio>
+    <Radio value={"md"}>MD</Radio>
+    <Radio size={"lg"} value={"lg"}>LG</Radio>
+    <Radio size={"xl"} value={"xl"}>XL</Radio>
+  </RadioGroup>
+  ```
+</section>
+
+## 颜色
+
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center'}>
+    <RadioGroup defaultValue={"primary"} name="radioColors">
+      <Radio value={"primary"}>Primary</Radio>
+      <Radio color={'success'} value={'success'}>Success</Radio>
+      <Radio color={'warning'} value={'warning'}>Warning</Radio>
+      <Radio color={'danger'} value={"danger"}>Danger</Radio>
+      <Radio color={'neutral'} value={"neutral"}>Neutral</Radio>
+    </RadioGroup>
+  </ComponentExample>
+
+  ```jsx
+  <RadioGroup defaultValue={"primary"} name="radioColors">
+    <Radio value={"primary"}>Primary</Radio>
+    <Radio color={'success'} value={'success'}>Success</Radio>
+    <Radio color={'warning'} value={'warning'}>Warning</Radio>
+    <Radio color={'danger'} value={"danger"}>Danger</Radio>
+    <Radio color={'neutral'} value={"neutral"}>Neutral</Radio>
+  </RadioGroup>
+  ```
+</section>
+
+## 单选框组
+
+<section className={'example group'}>
+  <ComponentExample>
+    {() => {
+      const [checkedValue, setCheckedValue] = useState('');
+
+      return (
+        <div className={'flex flex-col gap-2'}>
+          <RadioGroup
+            name={"radioGroup"}
+            value={checkedValue}
+            onChange={(value) => {
+              setCheckedValue(value);
+            }}
+          >
+            <div className={'flex flex-row gap-5'}>
+              <Radio value={'选择框一'}>选择框一</Radio>
+              <Radio value={'选择框二'}>选择框二</Radio>
+              <Radio value={'选择框三'}>选择框三</Radio>
+              <Radio value={'选择框四'}>选择框四</Radio>
+            </div>
+          </RadioGroup>
+          <div>你选中的值: {checkedValue}</div>
+        </div>
+      );
+    }}
+  </ComponentExample>
+
+  ```jsx
+  const [checkedValue, setCheckedValue] = useState('');
+
+  return (
+    <div className={'flex flex-col gap-2'}>
+      <RadioGroup
+        name={"radioGroup"}
+        value={checkedValue}
+        onChange={(value) => {
+          setCheckedValue(value);
+        }}
+      >
+        <div className={'flex flex-row gap-5'}>
+          <Radio value={'选择框一'}>选择框一</Radio>
+          <Radio value={'选择框二'}>选择框二</Radio>
+          <Radio value={'选择框三'}>选择框三</Radio>
+          <Radio value={'选择框四'}>选择框四</Radio>
+        </div>
+      </RadioGroup>
+      <div>你选中的值: {checkedValue}</div>
+    </div>
+  );
+  ```
+</section>
+
+## 关于名称的注意事项
+
+我们建议把名字道具传给 RadioGroup 组件，而不是传给每个 Radio 组件。默认情况下，RadioGroup 的名称道具是优先的。
+
+```jsx
+// 应该这样做 ✅
+<RadioGroup name="form-name">
+  <Radio value={1}>Radio 1</Radio>
+  <Radio value={2}>Radio 2</Radio>
+</RadioGroup>
+
+
+// 不要这样做 ❌
+<RadioGroup >
+  <Radio name="form-name">Radio 1</Radio>
+  <Radio name="form-name">Radio 2</Radio>
+</RadioGroup>
+```
+
+## 属性
+
+### 单选框
+
+<ComponentProps componentFile={"./radio/Radio.tsx"} />
+
+### 单选框组
+
+<ComponentProps componentFile={"./radio/RadioGroup.tsx"} />
