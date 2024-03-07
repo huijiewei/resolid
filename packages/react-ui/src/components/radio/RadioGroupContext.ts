@@ -1,22 +1,22 @@
-import { type ChangeEvent } from 'react';
-import { createContext } from '../../utils/context';
-import type { Color, Size } from '../../utils/types';
+import { type ChangeEvent } from "react";
+import { createContext } from "../../utils/context";
+import type { Color, Size } from "../../utils/types";
 
 export type RadioBaseProps = {
   /**
-   * Size
+   * 大小
    * @default 'md'
    */
   size?: Size;
 
   /**
-   * Color
+   * 颜色
    * @default 'primary'
    */
   color?: Color;
 
   /**
-   * Disabled
+   * 是否禁用
    * @default false
    */
   disabled?: boolean;
@@ -24,12 +24,12 @@ export type RadioBaseProps = {
 
 export type RadioGroupBaseProps = RadioBaseProps & {
   /**
-   * The name of the input field in a radio
+   * 单选中输入字段的名称
    */
   name?: string;
 
   /**
-   * Value
+   * 值
    */
   value?: string | number;
 };
@@ -40,7 +40,7 @@ export type RadioGroupContext = RadioGroupBaseProps & {
 };
 
 const [RadioGroupProvider, useRadioGroup] = createContext<RadioGroupContext | undefined>({
-  name: 'RadioGroupContext',
+  name: "RadioGroupContext",
   strict: false,
 });
 

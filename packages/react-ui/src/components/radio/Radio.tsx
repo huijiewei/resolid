@@ -36,11 +36,11 @@ export type RadioProps = RadioBaseProps & {
 };
 
 const radioSizeStyles = {
-  xs: { control: "h-3 w-3", label: "text-xs" },
-  sm: { control: "h-3.5 w-3.5", label: "text-sm" },
-  md: { control: "h-4 w-4", label: "" },
-  lg: { control: "h-5 w-5", label: "text-lg" },
-  xl: { control: "h-6 w-6", label: "text-xl" },
+  xs: { control: "h-3.5 w-3.5", label: "text-xs" },
+  sm: { control: "h-4 w-4", label: "text-sm" },
+  md: { control: "h-5 w-5", label: "" },
+  lg: { control: "h-6 w-6", label: "text-lg" },
+  xl: { control: "h-7 w-7", label: "text-xl" },
 };
 
 const radioColorStyles = {
@@ -142,7 +142,7 @@ export const Radio = forwardRef<HTMLInputElement, BaseProps<"input", RadioProps,
           "inline-flex shrink-0 select-none items-center justify-center rounded-full border-2",
           "peer-focus-visible:ring",
           invalid ? "border-border-invalid" : state ? colorStyle.border : "border-bg-muted",
-          state ? `${colorStyle.checked} text-fg-emphasized` : "bg-bg-default",
+          state ? `${colorStyle.checked} text-fg-emphasized` : "bg-bg-normal",
           disabled && "opacity-50",
           sizeStyle.control,
           state &&

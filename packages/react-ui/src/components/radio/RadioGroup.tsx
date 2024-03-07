@@ -6,12 +6,12 @@ import { RadioGroupProvider, type RadioGroupBaseProps } from "./RadioGroupContex
 
 type RadioGroupProps = RadioGroupBaseProps & {
   /**
-   * Default value
+   * 默认值
    */
   defaultValue?: string | number;
 
   /**
-   * onChange callback
+   * onChange 回调
    */
   onChange?: (value: string | number) => void;
 };
