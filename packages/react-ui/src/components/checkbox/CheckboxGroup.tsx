@@ -7,12 +7,12 @@ import { CheckboxGroupProvider, type CheckboxGroupBaseProps } from "./CheckboxGr
 
 export type CheckboxGroupProps = CheckboxGroupBaseProps & {
   /**
-   * Default value
+   * 默认值
    */
   defaultValue?: (string | number)[];
 
   /**
-   * onChange callback
+   * onChange 回调
    */
   onChange?: (value: (string | number)[]) => void;
 };

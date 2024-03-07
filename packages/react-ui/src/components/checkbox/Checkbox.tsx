@@ -39,7 +39,7 @@ export type CheckboxProps = CheckboxBaseProps & {
   spacing?: string | number;
 
   /**
-   * Indeterminate
+   * 部分选中
    * @default false
    */
   indeterminate?: boolean;
@@ -57,11 +57,11 @@ export type CheckboxProps = CheckboxBaseProps & {
 };
 
 const checkboxSizeStyles = {
-  xs: { control: "h-3 w-3", label: "text-xs", icon: "text-[0.45rem]" },
-  sm: { control: "h-3.5 w-3.5", label: "text-sm", icon: "text-[0.5rem]" },
-  md: { control: "h-4 w-4", label: "", icon: "text-[0.625rem]" },
-  lg: { control: "h-5 w-5", label: "text-lg", icon: "text-[0.75rem]" },
-  xl: { control: "h-6 w-6", label: "text-xl", icon: "text-[0.875rem]" },
+  xs: { control: "h-3.5 w-3.5", label: "text-xs", icon: "text-[0.45rem]" },
+  sm: { control: "h-4 w-4", label: "text-sm", icon: "text-[0.5rem]" },
+  md: { control: "h-5 w-5", label: "", icon: "text-[0.625rem]" },
+  lg: { control: "h-6 w-6", label: "text-lg", icon: "text-[0.75rem]" },
+  xl: { control: "h-7 w-7", label: "text-xl", icon: "text-[0.875rem]" },
 };
 
 const checkboxColorStyles = {
@@ -191,8 +191,8 @@ export const Checkbox = forwardRef<HTMLInputElement, BaseProps<"input", Checkbox
             "inline-flex shrink-0 select-none items-center justify-center rounded border-2 transition-colors",
             "peer-focus-visible:ring",
             invalid ? "border-border-invalid" : state || indeterminate ? colorStyle.border : "border-bg-muted",
-            state || indeterminate ? `${colorStyle.checked} text-fg-emphasized` : "bg-bg-default",
-            disabled && "opacity-50",
+            state || indeterminate ? `${colorStyle.checked} text-fg-emphasized` : "bg-bg-normal",
+            disabled && "opacity-80 grayscale-[20%]",
             sizeStyle.control,
           )}
         >

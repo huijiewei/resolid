@@ -1,22 +1,22 @@
-import { type ChangeEvent } from 'react';
-import { createContext } from '../../utils/context';
-import type { Color, Size } from '../../utils/types';
+import { type ChangeEvent } from "react";
+import { createContext } from "../../utils/context";
+import type { Color, Size } from "../../utils/types";
 
 export type CheckboxBaseProps = {
   /**
-   * Size
+   * 大小
    * @default 'md'
    */
   size?: Size;
 
   /**
-   * Color
+   * 颜色
    * @default 'primary'
    */
   color?: Color;
 
   /**
-   * Disabled
+   * 禁用
    * @default false
    */
   disabled?: boolean;
@@ -24,7 +24,7 @@ export type CheckboxBaseProps = {
 
 export type CheckboxGroupBaseProps = CheckboxBaseProps & {
   /**
-   * Checked value
+   * 选中的值
    */
   value?: (string | number)[];
 };
@@ -35,7 +35,7 @@ export type CheckboxGroupContext = CheckboxGroupBaseProps & {
 };
 
 const [CheckboxGroupProvider, useCheckboxGroup] = createContext<CheckboxGroupContext | undefined>({
-  name: 'CheckboxGroupContext',
+  name: "CheckboxGroupContext",
   strict: false,
 });
 
