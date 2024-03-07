@@ -27,7 +27,7 @@ export const buttonStyles = classed(
         xs: "text-xs",
         sm: "text-sm",
         md: "text-sm",
-        lg: "text-sm",
+        lg: "text-md",
         xl: "text-md",
       },
       disabled: {
