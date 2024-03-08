@@ -14,7 +14,7 @@ import {
   type Placement,
 } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
-import { useMemo, useRef, type ReactNode } from "react";
+import { useMemo, useRef, type PropsWithChildren } from "react";
 import { useDisclosure } from "../../hooks";
 import type { Color } from "../../utils/types";
 import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/FloatingArrowContext";
@@ -23,32 +23,27 @@ import { TooltipFloatingProvider, type TooltipContext } from "./TooltipContext";
 
 export type TooltipProps = {
   /**
-   * Color
+   * 颜色
    * @default 'neutral'
    */
   color?: Color;
 
   /**
-   * Placement
+   * 放置位置
    * @default 'auto'
    */
   placement?: "auto" | Placement;
 
   /**
-   * Opened
+   * 控制打开状态
    */
   opened?: boolean;
 
   /**
-   * Animation Duration
+   * 动画持续时间
    * @default '250'
    */
   duration?: number;
-
-  /**
-   * @ignore
-   */
-  children?: ReactNode;
 };
 
 const tooltipColorStyles = {
@@ -74,7 +69,7 @@ const tooltipColorStyles = {
   },
 };
 
-export const TooltipRoot = (props: TooltipProps) => {
+export const TooltipRoot = (props: PropsWithChildren<TooltipProps>) => {
   const { children, opened, duration = 250, placement = "auto", color = "neutral" } = props;
 
   const { opened: openedState, open, close } = useDisclosure({ opened });

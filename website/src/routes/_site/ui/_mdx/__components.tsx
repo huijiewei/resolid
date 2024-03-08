@@ -1,5 +1,14 @@
 import type { ComponentProp } from "@resolid/mdx-plugins";
-import { Checkbox, clsx, Popover, PopoverArrow, PopoverBody, PopoverContent, PopoverTrigger } from "@resolid/react-ui";
+import {
+  Button,
+  Checkbox,
+  clsx,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverContent,
+  PopoverTrigger,
+} from "@resolid/react-ui";
 import { isFunction } from "@resolid/utils";
 import { useMemo, useState, type FunctionComponent, type ReactNode } from "react";
 
@@ -46,7 +55,14 @@ export const ComponentUsage = ({
       <div className={"min-w-[15em] flex-shrink-0 border-t p-3 lg:border-s lg:border-t-0"}>
         <div className={"flex flex-col text-sm"}>
           {filteredProps.map((prop) => {
-            const controlType = prop.type.includes("|") ? "select" : prop.type == "boolean" ? "checkbox" : "input";
+            const controlType =
+              prop.name == "color"
+                ? "color"
+                : prop.type.includes("|")
+                  ? "select"
+                  : prop.type == "boolean"
+                    ? "checkbox"
+                    : "input";
 
             return (
               <label className={"flex h-9 items-center justify-between"} key={prop.name}>
@@ -68,6 +84,36 @@ export const ComponentUsage = ({
                       setState((prev) => ({ ...prev, [prop.name]: e.target.value }));
                     }}
                   />
+                )}
+                {controlType == "color" && (
+                  <div className={"inline-flex w-auto justify-between gap-1"}>
+                    {prop.type.split(" | ").map((option) => {
+                      const color = option.toString().substring(1, option.length - 1);
+
+                      return (
+                        <Button
+                          square
+                          padded={false}
+                          className={"h-6"}
+                          key={`${prop.name}-${color}`}
+                          title={color}
+                          color={color as never}
+                          onClick={() => {
+                            setState((prev) => ({ ...prev, [prop.name]: color }));
+                          }}
+                        >
+                          {state[prop.name] == color && (
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                              <path
+                                fill="currentColor"
+                                d="M18.71 7.21a1 1 0 0 0-1.42 0l-7.45 7.46l-3.13-3.14A1 1 0 1 0 5.29 13l3.84 3.84a1 1 0 0 0 1.42 0l8.16-8.16a1 1 0 0 0 0-1.47"
+                              />
+                            </svg>
+                          )}
+                        </Button>
+                      );
+                    })}
+                  </div>
                 )}
                 {controlType == "select" && (
                   <select

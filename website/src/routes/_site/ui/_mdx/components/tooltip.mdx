@@ -1,0 +1,236 @@
+---
+title: 工具提示
+description: 工具提示是用户与元素交互时出现的简短、信息丰富的消息。工具提示通常以两种方式之一启动：通过鼠标悬停手势或通过键盘悬停手势。
+---
+
+import { Tooltip, TooltipTrigger, TooltipArrow, TooltipContent, Button, useDisclosure } from '@resolid/react-ui';
+import { mergeFrontmatter } from "@resolid/remix-utils";
+import { ComponentProps, ComponentExample, ComponentUsage } from "../__components";
+
+export const meta = mergeFrontmatter(frontmatter);
+
+# {frontmatter.title}
+
+{frontmatter.description}
+
+## 导入
+
+```js
+import { Tooltip, TooltipTrigger, TooltipArrow, TooltipContent } from '@resolid/react-ui';
+```
+
+- `Tooltip`: 为其子级提供上下文的包装器。
+- `TooltipTrigger`: 用于包装引用或触发元素。
+- `TooltipContent`: 工具提示内容。
+- `TooltipArrow`: 指向引用或触发元素的视觉箭头。
+
+## 用法
+
+<ComponentUsage componentFile={"./tooltip/Tooltip.tsx"} ignoreProps={["opened", "duration"]}
+  preview={(props) => (<Tooltip {...props}>
+  <TooltipTrigger asChild>
+    <Button>
+      带有工具提示的按钮
+    </Button>
+  </TooltipTrigger>
+  <TooltipContent>
+    <TooltipArrow />
+    工具提示内容
+  </TooltipContent>
+</Tooltip>)} />
+
+## 可控
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3"}>
+    {() => {
+      const { opened, toggle } = useDisclosure();
+
+      return (
+        <Tooltip opened={opened}>
+          <TooltipTrigger asChild>
+            <Button variant={'outline'} onClick={toggle}>
+              点击切换工具提示显示
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>可控的工具提示</TooltipContent>
+        </Tooltip>
+      );
+    }}
+  </ComponentExample>
+
+  ```jsx
+  const { opened, toggle } = useDisclosure();
+
+  return (
+  <Tooltip opened={opened}>
+    <TooltipTrigger asChild>
+      <Button variant={'outline'} onClick={toggle}>
+        点击切换
+      </Button>
+    </TooltipTrigger>
+    <TooltipContent>可控的工具提示</TooltipContent>
+  </Tooltip>
+  );
+  ```
+</section>
+
+## 动画持续时间
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3"}>
+    <Tooltip duration={3000}>
+      <TooltipTrigger asChild>
+        <Button>动画持续时间</Button>
+      </TooltipTrigger>
+      <TooltipContent>
+        <TooltipArrow />
+        持续时间很长
+      </TooltipContent>
+    </Tooltip>
+  </ComponentExample>
+
+  ```jsx
+  <Tooltip duration={3000}>
+    <TooltipTrigger asChild>
+      <Button>动画持续时间</Button>
+    </TooltipTrigger>
+    <TooltipContent>
+      <TooltipArrow />
+      持续时间很长
+    </TooltipContent>
+  </Tooltip>
+  ```
+</section>
+
+## 颜色
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3"}>
+      {["primary", "neutral", "success", "warning", "danger"].map((color) => (
+        <Tooltip placement={"bottom"} key={color} color={color}>
+          <TooltipTrigger asChild>
+            <Button className={"capitalize"} color={color} variant={"soft"}>{color}</Button>
+          </TooltipTrigger>
+          <TooltipContent className={"capitalize"}>
+            <TooltipArrow />
+            {color} 消息提示
+          </TooltipContent>
+        </Tooltip>
+      ))}
+  </ComponentExample>
+  
+  ```jsx
+  {["primary", "neutral", "success", "warning", "danger"].map((color) => (
+    <Tooltip placement={"bottom"} key={color} color={color}>
+      <TooltipTrigger asChild>
+        <Button className={"capitalize"} color={color} variant={"soft"}>{color}</Button>
+      </TooltipTrigger>
+      <TooltipContent className={"capitalize"}>
+        <TooltipArrow />
+        {color} 消息提示
+      </TooltipContent>
+    </Tooltip>
+  ))}
+  ```
+</section>
+
+## 放置位置
+
+<section className={'example group'}>
+  <ComponentExample>
+    <div className={'mx-auto grid w-fit gap-2'}
+      style={{
+        gridTemplateAreas:
+          '".           top-start     top         top-end       .            "' +
+          '"left-start  .             .           .             right-start  "' +
+          '"left        .             center      .             right        "' +
+          '"left-end    .             .           .             right-end    "' +
+          '".           bottom-start  bottom      bottom-end    .            "',
+      }}
+    >
+      {[
+        ['top-start', '上左'],
+        ['top', '上'],
+        ['top-end', '上右'],
+        ['left-start', '左上'],
+        ['left', '左'],
+        ['left-end', '左下'],
+        ['auto', '自动'],
+        ['right-start', '右上'],
+        ['right', '右'],
+        ['right-end', '右下'],
+        ['bottom-start', '下左'],
+        ['bottom', '下'],
+        ['bottom-end', '下右'],
+      ].map(([placement, name]) => (
+        <Tooltip key={placement} placement={placement}>
+          <TooltipTrigger asChild>
+            <span
+              style={{ gridArea: placement == 'auto' ? 'center' : placement }}
+              className={
+                'flex h-12 w-12 text-center leading-tight text-sm cursor-default items-center justify-center rounded bg-bg-muted'
+              }
+            >
+            {name}
+          </span>
+          </TooltipTrigger>
+          <TooltipContent>
+            <TooltipArrow />
+            {name}位置消息提示
+          </TooltipContent>
+        </Tooltip>
+      ))}
+    </div>
+  </ComponentExample>
+
+  ```jsx
+  <div className={'mx-auto grid w-fit gap-2'}
+       style={{
+         gridTemplateAreas:
+           '".           top-start     top         top-end       .            "' +
+           '"left-start  .             .           .             right-start  "' +
+           '"left        .             center      .             right        "' +
+           '"left-end    .             .           .             right-end    "' +
+           '".           bottom-start  bottom      bottom-end    .            "',
+       }}
+  >
+    {[
+      ['top-start', '上左'],
+      ['top', '上'],
+      ['top-end', '上右'],
+      ['left-start', '左上'],
+      ['left', '左'],
+      ['left-end', '左下'],
+      ['auto', '自动'],
+      ['right-start', '右上'],
+      ['right', '右'],
+      ['right-end', '右下'],
+      ['bottom-start', '下左'],
+      ['bottom', '下'],
+      ['bottom-end', '下右'],
+    ].map(([placement, name]) => (
+      <Tooltip key={placement} placement={placement}>
+        <TooltipTrigger asChild>
+            <span
+              style={{ gridArea: placement == 'auto' ? 'center' : placement }}
+              className={
+                'flex h-12 w-12 text-center leading-tight text-sm cursor-default items-center justify-center rounded bg-bg-muted'
+              }
+            >
+            {name}
+          </span>
+        </TooltipTrigger>
+        <TooltipContent>
+          <TooltipArrow />
+          {name}位置消息提示
+        </TooltipContent>
+      </Tooltip>
+    ))}
+  </div>
+  ```
+</section>
+
+## 属性
+
+<ComponentProps componentFile={"./tooltip/Tooltip.tsx"} />
+
