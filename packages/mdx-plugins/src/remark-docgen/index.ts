@@ -12,6 +12,8 @@ export type RemarkDocgenOptions = {
 export type ComponentProp = {
   name: string;
   type: string;
+  control: string;
+  typeValues: null | string[];
   description: string;
   defaultValue?: string;
   required: boolean;
@@ -109,36 +111,49 @@ const getComponentProps = (componentFile: string, componentName: string): Compon
 
   if (componentDoc) {
     return Object.entries(componentDoc.props).map(([key, value]) => {
-      let typeText = "";
+      const type: { type: string; control: string; typeValues: null | string[] } = {
+        type: value.type.name,
+        control: value.type.name,
+        typeValues: null,
+      };
 
       if (value.type.name == "enum") {
         if (!value.type.raw) {
-          typeText = value.type.name;
+          type.type = value.type.name;
         } else if (
           value.type.raw.includes(" | ") ||
           ["string", "number", "boolean", "ReactNode"].includes(value.type.raw)
         ) {
-          typeText = value.type.raw;
+          type.type = value.type.raw;
+          type.control = value.type.raw;
+
+          if (value.type.raw.includes(" | ")) {
+            type.control = "select";
+            type.typeValues = value.type.value
+              .map((item: { value: string }) => item.value)
+              .filter((v: string) => v != "number" && v != "string");
+          }
         } else {
-          typeText = value.type.value.map((item: { value: string }) => item.value).join(" | ");
+          const typeValues = value.type.value.map((item: { value: string }) => item.value);
+          type.type = typeValues.join(" | ");
+          type.control = "select";
+          type.typeValues = typeValues.filter((v: string) => v != "number" && v != "string");
         }
       }
 
       if (!value.required) {
-        typeText = typeText.replace(" | undefined", "");
+        type.type = type.type.replace(" | undefined", "");
       }
 
-      if (typeText.startsWith("NonNullable<")) {
-        typeText = typeText.slice(12, -1);
-        typeText = typeText.replace(" | null", "");
-        typeText = typeText.replace(" | undefined", "");
+      if (type.type.startsWith("NonNullable<")) {
+        type.type = type.type.slice(12, -1).replace(" | null", "").replace(" | undefined", "");
       }
 
-      typeText = typeText.replace("React.", "").replace(/ReactElement<.*>/g, "ReactElement");
+      type.type = type.type.replace("React.", "").replace(/ReactElement<.*>/g, "ReactElement");
 
       return {
         name: key,
-        type: typeText,
+        ...type,
         required: value.required,
         description: value.description,
         defaultValue: value.defaultValue?.value ?? "",
