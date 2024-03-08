@@ -24,46 +24,46 @@ import { PopoverFloatingProvider, type PopoverContext } from "./PopoverContext";
 
 export type PopoverProps = {
   /**
-   * Opened
+   * 控制打开状态
    */
   opened?: boolean;
 
   /**
-   * onClose callback
+   * 关闭时的回调
    */
   onClose?: () => void;
 
   /**
-   * Initial Focus
+   * 开启后焦点目标
    */
   initialFocus?: number | RefObject<HTMLElement>;
 
   /**
-   * Is Modal
+   * 是否 Modal
    * @default true
    */
   modal?: boolean;
 
   /**
-   * Close when the Esc key is pressed
+   * 按下 Esc 键时, 弹出框将关闭
    * @default true
    */
   closeOnEsc?: boolean;
 
   /**
-   * Close when you click outside the popover
+   * 单击外部时, 弹出框将关闭
    * @default true
    */
   closeOnBlur?: boolean;
 
   /**
-   * Placement
+   * 放置位置
    * @default 'auto'
    */
   placement?: "auto" | Placement;
 
   /**
-   * Animation Duration
+   * 动画持续时间
    * @default '250'
    */
   duration?: number;
