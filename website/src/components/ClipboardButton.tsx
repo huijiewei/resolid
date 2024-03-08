@@ -1,4 +1,4 @@
-import { Tooltip, TooltipArrow, TooltipContent, TooltipTrigger, useClipboard } from "@resolid/react-ui";
+import { Button, Tooltip, TooltipArrow, TooltipContent, TooltipTrigger, useClipboard } from "@resolid/react-ui";
 import { isNumber, isString } from "@resolid/utils";
 import { isValidElement, useMemo, type ReactNode } from "react";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
@@ -13,17 +13,13 @@ export const ClipboardButton = ({ content }: { content: ReactNode }) => {
   return (
     <Tooltip color={copied ? "success" : undefined}>
       <TooltipTrigger asChild>
-        <button
-          onClick={() => copy(code)}
-          type={"button"}
-          className={"relative appearance-none p-1 font-medium leading-none"}
-        >
+        <Button square={true} padded={false} color={"neutral"} variant={"ghost"} onClick={() => copy(code)}>
           {copied ? (
-            <SpriteIcon size={"xs"} className={"text-fg-success"} name={"clipboard-check"} />
+            <SpriteIcon size={"1rem"} className={"text-fg-success"} name={"clipboard-check"} />
           ) : (
-            <SpriteIcon size={"xs"} className={"text-fg-muted hover:text-link-hovered"} name={"clipboard"} />
+            <SpriteIcon size={"1rem"} className={"text-fg-muted hover:text-link-hovered"} name={"clipboard"} />
           )}
-        </button>
+        </Button>
       </TooltipTrigger>
       <TooltipContent>
         <TooltipArrow />
