@@ -4,9 +4,6 @@ on:
   release:
     types: [created]
 
-env:
-  PACKAGE_PATH: ./packages/remix-plugins
-
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -41,13 +38,11 @@ jobs:
       - name: Build
         run: |
           cd $GITHUB_WORKSPACE
-          cd $PACKAGE_PATH
-          pnpm run build
+          pnpm run --filter @resolid/remix-plugins build
 
       - name: Publish
         run: |
           cd $GITHUB_WORKSPACE
-          cd $PACKAGE_PATH
-          pnpm publish --no-git-checks --provenance --access public
+          pnpm publish --filter @resolid/remix-plugins --no-git-checks --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
