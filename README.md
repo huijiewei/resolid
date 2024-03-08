@@ -15,14 +15,15 @@
 
 ## 子项目
 
-| 包名                                               | 介绍               |
-| -------------------------------------------------- | ------------------ |
-| [@resolid/config](./packages/config)               | 通用配置包         |
+| 包名                                                 | 介绍              |
+|----------------------------------------------------|-----------------|
+| [@resolid/config](./packages/config)               | 通用配置包           |
 | [@resolid/react-ui](./packages/react-ui)           | React UI 组件包    |
-| [@resolid/remix-plugins](./packages/remix-plugins) | Remix 插件扩展包   |
-| [@resolid/remix-utils](./packages/remix-utils)     | Remix 增强工具包   |
+| [@resolid/mdx-plugins](./packages/mdx-plugins)     | MDX 插件扩展包       |
+| [@resolid/remix-plugins](./packages/remix-plugins) | Remix 插件扩展包     |
+| [@resolid/remix-utils](./packages/remix-utils)     | Remix 增强工具包     |
 | [@resolid/tailwind](./packages/tailwind)           | TailwindCSS 预设包 |
-| [@resolid/utils](./packages/utils)                 | 基础工具包         |
+| [@resolid/utils](./packages/utils)                 | 基础工具包           |
 
 ## 贡献指南
 
