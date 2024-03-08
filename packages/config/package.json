@@ -1,6 +1,6 @@
 {
   "name": "@resolid/config",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "type": "module",
   "sideEffects": false,
   "description": "Resolid 通用配置",
@@ -53,7 +53,6 @@
   "homepage": "https://resolid.tech",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/huijiewei/resolid.git",
-    "directory": "packages/config"
+    "url": "git+https://github.com/huijiewei/resolid-config.git"
   }
 }
