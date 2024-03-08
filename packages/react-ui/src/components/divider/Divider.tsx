@@ -6,31 +6,31 @@ import { dividerStyles, type DividerStyleProps } from "./Divider.styles";
 
 export type DividerProps = {
   /**
-   * Color
+   * 颜色
    * @default "neutral"
    */
   color?: DividerStyleProps["color"];
 
   /**
-   * Variant
+   * 外观
    * @default "solid"
    */
   variant?: DividerStyleProps["variant"];
 
   /**
-   * Size
+   * 大小
    * @default 1
    */
   size?: number;
 
   /**
-   * Vertical
+   * 垂直分割线
    * @default false
    */
   vertical?: boolean;
 
   /**
-   * Label Position
+   * 分割线文字位置
    * @default "center"
    */
   position?: "left" | "right" | "center";
