@@ -55,19 +55,10 @@ export const ComponentUsage = ({
       <div className={"min-w-[15em] flex-shrink-0 border-t p-3 lg:border-s lg:border-t-0"}>
         <div className={"flex flex-col text-sm"}>
           {filteredProps.map((prop) => {
-            const controlType =
-              prop.name == "color"
-                ? "color"
-                : prop.type.includes("|")
-                  ? "select"
-                  : prop.type == "boolean"
-                    ? "checkbox"
-                    : "input";
-
             return (
               <label className={"flex h-9 items-center justify-between"} key={prop.name}>
                 <div className={"capitalize"}>{prop.description}</div>
-                {controlType == "checkbox" && (
+                {prop.control == "boolean" && (
                   <Checkbox
                     size={"sm"}
                     checked={Boolean(state[prop.name])}
@@ -76,7 +67,7 @@ export const ComponentUsage = ({
                     }}
                   />
                 )}
-                {controlType == "input" && (
+                {prop.control == "string" && (
                   <input
                     className={"w-1/2 rounded border p-1"}
                     value={String(state[prop.name])}
@@ -85,66 +76,61 @@ export const ComponentUsage = ({
                     }}
                   />
                 )}
-                {controlType == "color" && (
-                  <div className={"inline-flex w-auto justify-between gap-1"}>
-                    {prop.type.split(" | ").map((option) => {
-                      const color = option.toString().substring(1, option.length - 1);
+                {prop.control == "select" &&
+                  (prop.name == "color" ? (
+                    <div className={"inline-flex w-auto justify-between gap-1"}>
+                      {prop.typeValues?.map((option) => {
+                        const color = option.toString().slice(1, -1);
 
-                      return (
-                        <Button
-                          square
-                          padded={false}
-                          className={"h-6"}
-                          key={`${prop.name}-${color}`}
-                          title={color}
-                          color={color as never}
-                          onClick={() => {
-                            setState((prev) => ({ ...prev, [prop.name]: color }));
-                          }}
-                        >
-                          {state[prop.name] == color && (
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                              <path
-                                fill="currentColor"
-                                d="M18.71 7.21a1 1 0 0 0-1.42 0l-7.45 7.46l-3.13-3.14A1 1 0 1 0 5.29 13l3.84 3.84a1 1 0 0 0 1.42 0l8.16-8.16a1 1 0 0 0 0-1.47"
-                              />
-                            </svg>
-                          )}
-                        </Button>
-                      );
-                    })}
-                  </div>
-                )}
-                {controlType == "select" && (
-                  <select
-                    className={"rounded border p-1"}
-                    value={String(state[prop.name])}
-                    onChange={(e) => {
-                      setState((prev) => ({
-                        ...prev,
-                        [prop.name]:
-                          e.target.value == "true" || e.target.value == "false"
-                            ? e.target.value == "true"
-                            : e.target.value,
-                      }));
-                    }}
-                  >
-                    {prop.type.split(" | ").map((item) => {
-                      if (item == "number") {
-                        return null;
-                      }
+                        return (
+                          <Button
+                            square
+                            padded={false}
+                            className={"h-6"}
+                            key={`${prop.name}-${color}`}
+                            title={color}
+                            color={color as never}
+                            onClick={() => {
+                              setState((prev) => ({ ...prev, [prop.name]: color }));
+                            }}
+                          >
+                            {state[prop.name] == color && (
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                  fill="currentColor"
+                                  d="M18.71 7.21a1 1 0 0 0-1.42 0l-7.45 7.46l-3.13-3.14A1 1 0 1 0 5.29 13l3.84 3.84a1 1 0 0 0 1.42 0l8.16-8.16a1 1 0 0 0 0-1.47"
+                                />
+                              </svg>
+                            )}
+                          </Button>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <select
+                      className={"rounded border p-1"}
+                      value={String(state[prop.name])}
+                      onChange={(e) => {
+                        setState((prev) => ({
+                          ...prev,
+                          [prop.name]:
+                            e.target.value == "true" || e.target.value == "false"
+                              ? e.target.value == "true"
+                              : e.target.value,
+                        }));
+                      }}
+                    >
+                      {prop.typeValues?.map((item) => {
+                        const option = item != "true" && item != "false" ? item.trim().slice(1, -1) : item;
 
-                      const option =
-                        item != "true" && item != "false" ? item.trim().substring(1, item.length - 1) : item;
-
-                      return (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      );
-                    })}
-                  </select>
-                )}
+                        return (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  ))}
               </label>
             );
           })}
