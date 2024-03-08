@@ -12,7 +12,7 @@ export type BadgeProps = {
   color?: BadgeStyleProps["color"];
 
   /**
-   * 形式
+   * 外观
    * @default 'solid'
    */
   variant?: BadgeStyleProps["variant"];
