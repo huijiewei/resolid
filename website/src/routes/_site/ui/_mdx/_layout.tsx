@@ -47,7 +47,16 @@ const mdxComponents = {
       </h3>
     );
   },
-  pre: ({ children, className, ...rest }: ComponentPropsWithoutRef<"pre">) => {
+  pre: ({ children, className, ...rest }: ComponentPropsWithoutRef<"pre"> & { ["data-inline"]?: boolean }) => {
+    if (rest["data-inline"]) {
+      delete rest["data-inline"];
+      return (
+        <pre className={className} {...rest}>
+          {children}
+        </pre>
+      );
+    }
+
     return (
       <div className={"relative"}>
         <pre
