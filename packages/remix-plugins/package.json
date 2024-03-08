@@ -52,7 +52,7 @@
     "minimatch": "^9.0.3",
     "rollup": "^4.12.1",
     "tsup": "^8.0.2",
-    "type-fest": "^4.11.1",
+    "type-fest": "^4.12.0",
     "vite": "^5.1.5"
   },
   "peerDependencies": {
