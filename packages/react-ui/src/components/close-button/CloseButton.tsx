@@ -1,4 +1,4 @@
-import { __DEV__ } from "@resolid/utils";
+import { __DEV__, isNumber } from "@resolid/utils";
 import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/Slot";
@@ -6,6 +6,7 @@ import type { BaseProps } from "../slot/Slot";
 export type CloseButtonProps = {
   textClassName?: string;
   statusClassName?: string;
+  size?: string | number;
 };
 
 export const CloseButton = forwardRef<HTMLButtonElement, BaseProps<"button", CloseButtonProps, "type">>(
@@ -15,9 +16,13 @@ export const CloseButton = forwardRef<HTMLButtonElement, BaseProps<"button", Clo
       disabled,
       textClassName = "text-fg-muted",
       statusClassName = "hover:bg-bg-subtle active:bg-bg-muted",
+      size = "1.5rem",
       children,
       ...rest
     } = props;
+
+    const sizeValue = isNumber(size) ? `${size}px` : size;
+
     return (
       <button
         type={"button"}
@@ -33,8 +38,8 @@ export const CloseButton = forwardRef<HTMLButtonElement, BaseProps<"button", Clo
       >
         {children || (
           <svg
-            width={"1.5em"}
-            height={"1.5em"}
+            width={sizeValue}
+            height={sizeValue}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
