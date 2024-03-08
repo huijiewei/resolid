@@ -48,7 +48,7 @@ export const ComponentUsage = ({
   );
 
   return (
-    <div className={"not-prose flex min-h-52 w-full flex-col rounded border lg:flex-row"}>
+    <div className={"not-prose flex min-h-28 w-full flex-col rounded border lg:flex-row"}>
       <div className={"flex flex-1 flex-col p-5"}>
         <div className={"flex flex-grow items-center justify-center"}>{preview(state)}</div>
       </div>
@@ -69,6 +69,16 @@ export const ComponentUsage = ({
                 )}
                 {prop.control == "string" && (
                   <input
+                    className={"w-1/2 rounded border p-1"}
+                    value={String(state[prop.name])}
+                    onChange={(e) => {
+                      setState((prev) => ({ ...prev, [prop.name]: e.target.value }));
+                    }}
+                  />
+                )}
+                {prop.control == "number" && (
+                  <input
+                    type={"number"}
                     className={"w-1/2 rounded border p-1"}
                     value={String(state[prop.name])}
                     onChange={(e) => {
