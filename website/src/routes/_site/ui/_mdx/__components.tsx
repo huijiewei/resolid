@@ -157,7 +157,7 @@ export const ComponentProps = ({
   componentProps?: ComponentProp[];
 }) => {
   return (
-    <table className={"my-4 w-full table-auto border-separate rounded border border-bg-subtle"}>
+    <table className={"not-prose my-4 w-full table-auto border-separate rounded border border-bg-subtle text-sm"}>
       <thead>
         <tr className={"bg-bg-subtle"}>
           <th className={"hidden whitespace-nowrap p-2 text-left md:table-cell"}>属性</th>

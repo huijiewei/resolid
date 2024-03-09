@@ -251,7 +251,11 @@ const Toc = () => {
 export default function Layout() {
   return (
     <>
-      <article className={"prose w-full max-w-none p-6 dark:prose-invert lg:max-w-[calc(100%-theme(spacing.48))]"}>
+      <article
+        className={
+          "prose w-full max-w-none px-4 py-6 dark:prose-invert md:px-6 lg:max-w-[calc(100%-theme(spacing.48))]"
+        }
+      >
         <MDXProvider disableParentContext components={mdxComponents}>
           <Outlet />
         </MDXProvider>
