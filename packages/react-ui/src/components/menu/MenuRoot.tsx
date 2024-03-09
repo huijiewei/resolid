@@ -68,6 +68,8 @@ export type MenuProps = {
    * @default '250'
    */
   duration?: number;
+
+  lockScroll?: boolean;
 };
 
 export const MenuRoot = (props: PropsWithChildren<MenuProps>) => {
@@ -98,6 +100,7 @@ const MenuTree = (props: PropsWithChildren<MenuProps>) => {
     duration = 250,
     placement = "bottom-start",
     onClose,
+    lockScroll = false,
   } = props;
 
   const tree = useFloatingTree();
@@ -170,6 +173,7 @@ const MenuTree = (props: PropsWithChildren<MenuProps>) => {
   const floatingContext = useMemo<MenuFloatingContext>(
     () => ({
       nested,
+      lockScroll,
       duration,
       tree,
       floatingStyles,
@@ -180,7 +184,18 @@ const MenuTree = (props: PropsWithChildren<MenuProps>) => {
       getItemProps,
       activeIndex,
     }),
-    [nested, duration, tree, floatingStyles, context, refs.setFloating, getFloatingProps, getItemProps, activeIndex],
+    [
+      nested,
+      lockScroll,
+      duration,
+      tree,
+      floatingStyles,
+      context,
+      refs.setFloating,
+      getFloatingProps,
+      getItemProps,
+      activeIndex,
+    ],
   );
 
   const arrowContext = useMemo<FloatingArrowContext>(

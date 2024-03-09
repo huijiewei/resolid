@@ -14,9 +14,11 @@ import { MenuRadioGroup } from "../menu/MenuRadioGroup";
 import { MenuRadioItem } from "../menu/MenuRadioItem";
 import { MenuRoot, type MenuProps } from "../menu/MenuRoot";
 
-export type DropdownMenuProps = MenuProps;
+export type DropdownMenuProps = Omit<MenuProps, "lockScroll">;
 
-export const DropdownMenu = MenuRoot;
+export const DropdownMenu = (props: DropdownMenuProps) => {
+  return <MenuRoot {...props} />;
+};
 
 export const DropdownMenuTrigger = forwardRef<HTMLButtonElement, Omit<FloatingTriggerProps, "active">>((props, ref) => (
   <FloatingTrigger ref={ref} active={true} {...props} />

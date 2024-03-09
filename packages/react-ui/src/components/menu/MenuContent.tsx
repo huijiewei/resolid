@@ -1,6 +1,7 @@
 import { FloatingFocusManager, FloatingList, useTransitionStatus } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef, type CSSProperties } from "react";
+import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import { Portal } from "../portal/Portal";
@@ -12,6 +13,7 @@ export const MenuContent = forwardRef<HTMLDivElement, BaseProps<"div">>((props, 
 
   const {
     nested,
+    lockScroll,
     tree,
     duration,
     floatingStyles,
@@ -33,6 +35,7 @@ export const MenuContent = forwardRef<HTMLDivElement, BaseProps<"div">>((props, 
     <>
       {isMounted && (
         <Portal>
+          {!nested && lockScroll && <RemoveScrollBar />}
           <FloatingFocusManager modal={false} initialFocus={nested ? -1 : 0} returnFocus={!nested} context={context}>
             <div
               className={clsx(
