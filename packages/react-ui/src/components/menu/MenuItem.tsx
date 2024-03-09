@@ -11,7 +11,7 @@ export type MenuItemProps = {
 };
 
 export const menuItemStyles =
-  "flex items-center rounded outline-none transition-colors px-2 py-1.5 focus:bg-bg-subtle disabled:text-fg-muted";
+  "flex w-full items-center select-none rounded outline-none transition-colors px-2 py-1.5 focus:bg-bg-subtle disabled:text-fg-muted disabled:pointer-events-none";
 
 export const MenuItem = forwardRef<HTMLButtonElement, AsChildProps<"button", MenuItemProps, "type" | "tabIndex">>(
   (props, ref) => {

@@ -35,7 +35,7 @@ export const MenuItemTrigger = forwardRef<HTMLButtonElement, AsChildProps<"butto
         data-opened={opened ? "" : undefined}
         className={clsx(
           menuItemStyles,
-          "cursor-default justify-between pe-0",
+          "cursor-default justify-between pe-0.5",
           "opened:[&:not(:focus)]:bg-bg-subtlest",
           className,
         )}
@@ -54,7 +54,7 @@ export const MenuItemTrigger = forwardRef<HTMLButtonElement, AsChildProps<"butto
         })}
       >
         {children}
-        <span className={clsx("ml-3", disabled ? "text-fg-subtle" : "text-fg-muted")}>
+        <span className={clsx("ms-5", disabled ? "text-fg-subtle" : "text-fg-muted")}>
           <svg
             className={"h-4 w-4"}
             xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ export const MenuItemTrigger = forwardRef<HTMLButtonElement, AsChildProps<"butto
             stroke="currentColor"
             strokeWidth="2"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            <path d="m9 18 6-6-6-6" />
           </svg>
         </span>
       </Comp>

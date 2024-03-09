@@ -1,13 +1,13 @@
-import type { Placement } from "@floating-ui/react";
 import {
+  FloatingNode,
+  FloatingTree,
   arrow,
   autoUpdate,
   flip,
-  FloatingNode,
-  FloatingTree,
   offset,
   safePolygon,
   shift,
+  size,
   useClick,
   useDismiss,
   useFloating,
@@ -18,6 +18,7 @@ import {
   useInteractions,
   useListNavigation,
   useRole,
+  type Placement,
 } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
 import { useEffect, useMemo, useRef, useState, type PropsWithChildren } from "react";
@@ -29,41 +30,41 @@ import { MenuFloatingProvider, type MenuFloatingContext } from "./MenuContext";
 
 export type MenuProps = {
   /**
-   * Opened
+   * 控制打开状态
    */
   opened?: boolean;
 
   /**
-   * onClose callback
+   * 关闭时的回调
    */
   onClose?: () => void;
 
   /**
-   * Close when press esc key
+   * 按下 Esc 键时, 菜单将关闭
    * @default true
    */
   closeOnEsc?: boolean;
 
   /**
-   * Close when you click outside the menu list
+   * 单击外部时, 菜单将关闭
    * @default true
    */
   closeOnBlur?: boolean;
 
   /**
-   * Close when a menu item is clicked
+   * 选择项目后, 菜单将关闭
    * @default true
    */
   closeOnSelect?: boolean;
 
   /**
-   * Placement
+   * 放置位置
    * @default 'bottom-start'
    */
   placement?: Placement;
 
   /**
-   * Animation Duration
+   * 动画持续时间
    * @default '250'
    */
   duration?: number;
@@ -112,14 +113,22 @@ const MenuTree = (props: PropsWithChildren<MenuProps>) => {
 
   const { floatingStyles, refs, context } = useFloating({
     middleware: [
-      offset({ mainAxis: 8, alignmentAxis: nested ? -5 : 0 }),
+      offset({ mainAxis: nested ? 0 : 8, alignmentAxis: nested ? -5 : 0 }),
       flip(),
       shift({ padding: 8 }),
       arrow({
         element: arrowRef,
         padding: 4,
       }),
-    ],
+      !nested &&
+        size({
+          apply({ rects, elements }) {
+            Object.assign(elements.floating.style, {
+              minWidth: `${rects.reference.width}px`,
+            });
+          },
+        }),
+    ].filter(Boolean),
     open: openedState,
     onOpenChange: (opened) => {
       opened ? open() : close();
@@ -178,7 +187,7 @@ const MenuTree = (props: PropsWithChildren<MenuProps>) => {
     () => ({
       context,
       setArrow: arrowRef,
-      className: "fill-bg-default [&>path:first-of-type]:stroke-bg-muted",
+      className: "fill-bg-normal [&>path:first-of-type]:stroke-bg-muted",
     }),
     [context],
   );
