@@ -7,19 +7,19 @@ import { spinnerStyles, type SpinnerStyles } from "./Spinner.styles";
 
 export type SpinnerProps = {
   /**
-   * Size
+   * 大小
    * @default 'md'
    */
   size?: SpinnerStyles["size"];
 
   /**
-   * Color
+   * 颜色
    * @default 'primary'
    */
   color?: SpinnerStyles["color"];
   /**
-   * Label
-   * @default 'Loading…'
+   * 标签
+   * @default '加载中'
    */
   label?: string;
 };
