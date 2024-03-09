@@ -158,7 +158,7 @@ import {
       const focusRef = useRef();
       
       return (
-        <Popover placement={"right-start"} initialFocus={focusRef} closeOnBlur={false}>
+        <Popover initialFocus={focusRef} closeOnBlur={false}>
         {({opened, close})=> (
           <>
             <PopoverTrigger asChild>
