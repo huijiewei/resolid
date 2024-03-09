@@ -1,6 +1,8 @@
 import { fromJs } from "esast-util-from-js";
 import type { MdxJsxAttribute, MdxJsxFlowElement } from "mdast-util-mdx-jsx";
+import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join, parse } from "node:path";
+import { cwd } from "node:process";
 import { withCustomConfig, type PropItem } from "react-docgen-typescript";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
@@ -19,12 +21,12 @@ export type ComponentProp = {
   required: boolean;
 };
 
+const propsTables: Record<string, ComponentProp[]> = {};
+
 export const remarkDocgen: Plugin<[RemarkDocgenOptions]> = ({ sourceRoot }) => {
   if (!sourceRoot) {
     throw new Error(`Please set sourceRoot.`);
   }
-
-  const propsTables: Record<string, ComponentProp[]> = {};
 
   return (tree) => {
     visit(tree, "mdxJsxFlowElement", (node) => {
@@ -106,60 +108,72 @@ const getElementAttrValue = (elem: MdxJsxFlowElement, attrName: string) => {
   return "";
 };
 
+const componentPropsCachePath = join(cwd(), ".resolid", "component-props-cache");
+
+mkdirSync(componentPropsCachePath, { recursive: true });
+
 const getComponentProps = (componentFile: string, componentName: string): ComponentProp[] | null => {
-  const componentDoc = tsParser.parse(componentFile).find((c) => c.displayName == componentName);
+  const componentPropsFile = join(componentPropsCachePath, `${componentName}.json`);
 
-  if (componentDoc) {
-    return Object.entries(componentDoc.props).map(([key, value]) => {
-      const type: { type: string; control: string; typeValues: null | string[] } = {
-        type: value.type.name,
-        control: value.type.name,
-        typeValues: null,
-      };
+  if (existsSync(componentPropsFile) && statSync(componentPropsFile).mtimeMs > statSync(componentFile).mtimeMs) {
+    return JSON.parse(readFileSync(componentPropsFile, "utf8"));
+  } else {
+    const componentDoc = tsParser.parse(componentFile).find((c) => c.displayName == componentName);
 
-      if (value.type.name == "enum") {
-        if (!value.type.raw) {
-          type.type = value.type.name;
-        } else if (
-          value.type.raw.includes(" | ") ||
-          ["string", "number", "boolean", "ReactNode"].includes(value.type.raw)
-        ) {
-          type.type = value.type.raw;
-          type.control = value.type.raw;
+    const props = componentDoc
+      ? Object.entries(componentDoc.props).map(([key, value]) => {
+          const type: { type: string; control: string; typeValues: null | string[] } = {
+            type: value.type.name,
+            control: value.type.name,
+            typeValues: null,
+          };
 
-          if (value.type.raw.includes(" | ")) {
-            type.control = "select";
-            type.typeValues = value.type.value
-              .map((item: { value: string }) => item.value)
-              .filter((v: string) => v != "number" && v != "string");
+          if (value.type.name == "enum") {
+            if (!value.type.raw) {
+              type.type = value.type.name;
+            } else if (
+              value.type.raw.includes(" | ") ||
+              ["string", "number", "boolean", "ReactNode"].includes(value.type.raw)
+            ) {
+              type.type = value.type.raw;
+              type.control = value.type.raw;
+
+              if (value.type.raw.includes(" | ")) {
+                type.control = "select";
+                type.typeValues = value.type.value
+                  .map((item: { value: string }) => item.value)
+                  .filter((v: string) => v != "number" && v != "string");
+              }
+            } else {
+              const typeValues = value.type.value.map((item: { value: string }) => item.value);
+              type.type = typeValues.join(" | ");
+              type.control = "select";
+              type.typeValues = typeValues.filter((v: string) => v != "number" && v != "string");
+            }
           }
-        } else {
-          const typeValues = value.type.value.map((item: { value: string }) => item.value);
-          type.type = typeValues.join(" | ");
-          type.control = "select";
-          type.typeValues = typeValues.filter((v: string) => v != "number" && v != "string");
-        }
-      }
 
-      if (!value.required) {
-        type.type = type.type.replace(" | undefined", "");
-      }
+          if (!value.required) {
+            type.type = type.type.replace(" | undefined", "");
+          }
 
-      if (type.type.startsWith("NonNullable<")) {
-        type.type = type.type.slice(12, -1).replace(" | null", "").replace(" | undefined", "");
-      }
+          if (type.type.startsWith("NonNullable<")) {
+            type.type = type.type.slice(12, -1).replace(" | null", "").replace(" | undefined", "");
+          }
 
-      type.type = type.type.replace("React.", "").replace(/ReactElement<.*>/g, "ReactElement");
+          type.type = type.type.replace("React.", "").replace(/ReactElement<.*>/g, "ReactElement");
 
-      return {
-        name: key,
-        ...type,
-        required: value.required,
-        description: value.description,
-        defaultValue: value.defaultValue?.value ?? "",
-      };
-    });
+          return {
+            name: key,
+            ...type,
+            required: value.required,
+            description: value.description,
+            defaultValue: value.defaultValue?.value ?? "",
+          };
+        })
+      : null;
+
+    writeFileSync(componentPropsFile, JSON.stringify(props), "utf8");
+
+    return props;
   }
-
-  return null;
 };
