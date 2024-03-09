@@ -7,6 +7,7 @@ export * from "./button/ButtonGroup";
 export * from "./checkbox/Checkbox";
 export * from "./checkbox/CheckboxGroup";
 export * from "./close-button/CloseButton";
+export * from "./context-menu/ContextMenu";
 export * from "./divider/Divider";
 export * from "./dropdown-menu/DropdownMenu";
 export * from "./image/Image";
