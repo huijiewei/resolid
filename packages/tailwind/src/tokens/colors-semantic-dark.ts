@@ -58,8 +58,8 @@ export const colorsSemanticDark = {
       pressed: colorsPalette.gray[600],
       emphasis: {
         DEFAULT: colorsPalette.gray[100],
-        hovered: colorsPalette.gray[200],
-        pressed: colorsPalette.gray[100],
+        hovered: colorsPalette.gray[50],
+        pressed: colorsPalette.white,
       },
     },
 
