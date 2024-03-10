@@ -57,7 +57,7 @@ import {
 - `ContextMenuRadioGroup`: 用于对多个 `ContextMenuRadioItem` 进行分组。
 - `ContextMenuRadioItem`: 一个可以像单选按钮一样进行控制和渲染的项目。
 - `ContextMenuCheckboxItem`: 一个可以像复选框一样进行控制和渲染的项目。
-- `ContextMenuItemIndicator`: 在父级的 `ContextMenuCheckboxItem` 或 `ContextMenuRadioItem` 被选中时渲染。您可以直接对该元素进行样式设置，也可以将其用作包装器来放置图标，或同时使用两种方式。
+- `ContextMenuItemIndicator`: 在父级 `ContextMenuCheckboxItem` 或 `ContextMenuRadioItem` 被选中时呈现的视觉指示器。
 
 
 ## 普通菜单
@@ -65,7 +65,7 @@ import {
 <section className={'example group'}>
   <ComponentExample className={'flex items-center justify-center'}>
     <ContextMenu>
-      <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center"}>右键点击显示菜单</ContextMenuTrigger>
+      <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
       <ContextMenuContent className={"text-sm"}>
         <ContextMenuItem>新标签页<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+T</span></ContextMenuItem>
         <ContextMenuItem>打开新窗口<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+N</span></ContextMenuItem>
@@ -97,7 +97,7 @@ import {
 <section className={'example group'}>
   <ComponentExample className={'flex items-center justify-center'}>
     <ContextMenu>
-      <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center"}>右键点击显示菜单</ContextMenuTrigger>
+      <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
       <ContextMenuContent className={"text-sm"}>
         <ContextMenuItem>新建</ContextMenuItem>
         <ContextMenuItem>打开</ContextMenuItem>
@@ -130,7 +130,7 @@ import {
 
   ```jsx
   <ContextMenu>
-    <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center"}>右键点击显示菜单</ContextMenuTrigger>
+    <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
     <ContextMenuContent className={"text-sm"}>
       <ContextMenuItem>新建</ContextMenuItem>
       <ContextMenuItem>打开</ContextMenuItem>
@@ -165,14 +165,14 @@ import {
 ## 复选框菜单
 
 <section className={'example group'}>
-  <ComponentExample className={'flex flex-row gap-3 items-center'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center justify-center'}>
     {()=>{
       const [bookmarksChecked, setBookmarksChecked] = useState(true);
       const [urlsChecked, setUrlsChecked] = useState(false);
       
       return (
         <ContextMenu>
-          <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center"}>右键点击显示菜单</ContextMenuTrigger>
+          <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
           <ContextMenuContent className={"text-sm"}>
             <ContextMenuGroup>
               <ContextMenuGroupLabel>选项</ContextMenuGroupLabel>
@@ -198,7 +198,7 @@ import {
 
   return (
   <ContextMenu>
-    <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center"}>右键点击显示菜单</ContextMenuTrigger>
+    <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
     <ContextMenuContent className={"text-sm"}>
       <ContextMenuGroup>
         <ContextMenuGroupLabel>选项</ContextMenuGroupLabel>
@@ -221,14 +221,14 @@ import {
 ## 单选组菜单
 
 <section className={'example group'}>
-  <ComponentExample className={'flex flex-row gap-3 items-center'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center justify-center'}>
     {()=>{
       const [account, setAccount] = useState('张三');
 
       return (
         <ContextMenu>
-          <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center"}>右键点击显示菜单</ContextMenuTrigger>
-          <ContextMenuContent className={"text-sm"}>
+          <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
+          <ContextMenuContent className={"text-sm w-20"}>
             <ContextMenuRadioGroup value={account} onChange={setAccount}>
               <ContextMenuGroupLabel>账号</ContextMenuGroupLabel>
               <ContextMenuRadioItem value={"张三"}>
@@ -256,7 +256,7 @@ import {
 
   return (
   <ContextMenu>
-    <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center"}>右键点击显示菜单</ContextMenuTrigger>
+    <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
     <ContextMenuContent className={"text-sm"}>
       <ContextMenuGroup>
         <ContextMenuGroupLabel>选项</ContextMenuGroupLabel>
@@ -279,7 +279,7 @@ import {
 ## 复杂菜单
 
 <section className={'example group'}>
-  <ComponentExample className={'flex flex-row gap-3 items-center'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center justify-center'}>
     {()=>{
       const [bookmarksChecked, setBookmarksChecked] = useState(true);
       const [urlsChecked, setUrlsChecked] = useState(false);
@@ -287,7 +287,7 @@ import {
 
       return (
         <ContextMenu>
-          <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center"}>右键点击显示菜单</ContextMenuTrigger>
+          <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
           <ContextMenuContent className={"text-sm"}>
             <ContextMenuItem>新标签页<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+T</span></ContextMenuItem>
             <ContextMenuItem>打开新窗口<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+N</span>
@@ -352,7 +352,7 @@ import {
 
   return (
   <ContextMenu>
-    <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center"}>右键点击显示菜单</ContextMenuTrigger>
+    <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
     <ContextMenuContent className={"text-sm"}>
       <ContextMenuItem>新标签页<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+T</span></ContextMenuItem>
       <ContextMenuItem>打开新窗口<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+N</span>
