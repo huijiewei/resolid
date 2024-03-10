@@ -14,6 +14,7 @@ export * from "./image/Image";
 export * from "./input/Input";
 export * from "./input/InputAddon";
 export * from "./input/InputGroup";
+export * from "./modal/Modal";
 export * from "./popover/Popover";
 export * from "./portal/Portal";
 export * from "./radio/Radio";
