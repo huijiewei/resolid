@@ -56,44 +56,6 @@ import { Input, InputAddon, InputGroup } from '@resolid/react-ui';
   ```
 </section>
 
-## 事件
-
-<section className={'example group'}>
-  <ComponentExample className={"flex"}>
-    {() => {
-      const [value, setValue] = useState([]);
-
-      return (
-        <div className={"flex flex-col gap-2"}>
-          <Input clearable placeholder="输入框"
-                 onChange={(v) => setValue(prev => [...prev, `onChange: "${v}"`])}
-                 onClear={(v) => setValue(prev => [...prev, `onClear`])}/>
-          <div className={"flex gap-2"}>
-            <span>事件: </span>
-            <pre className={"text-xs p-1"} data-inline={true}>{value.join('\n')}</pre>
-          </div>
-        </div>
-      );
-    }}
-  </ComponentExample>
-
-  ```jsx
-  const [value, setValue] = useState([]);
-
-  return (
-    <div className={"flex flex-col gap-2"}>
-      <Input clearable placeholder="输入框"
-             onChange={(v) => setValue(prev => [...prev, `onChange: "${v}"`])}
-             onClear={(v) => setValue(prev => [...prev, `onClear`])}/>
-      <div className={"flex gap-2"}>
-        <span>事件: </span>
-        <pre className={"text-xs p-1"} data-inline={true}>{value.join('\n')}</pre>
-      </div>
-    </div>
-  );
-  ```
-</section>
-
 ## 大小
 
 <section className={'example group'}>
@@ -123,7 +85,7 @@ import { Input, InputAddon, InputGroup } from '@resolid/react-ui';
       <Input trailing={'RMB'} trailingWidth={50} placeholder={"金额"} />
       <Input leading={<Button variant={"ghost"} color={"neutral"} size={"xs"} square={true}><SpriteIcon
         size={"sm"} name={"search"} /></Button>} leadingPointer={true} placeholder={"搜索..."} />
-      <Input clearable placeholder={"邮件地址"}
+      <Input placeholder={"邮件地址"}
              trailing={<Button size={"xs"}>订阅</Button>} trailingWidth={56} trailingPointer={true} />
     </div>
   </ComponentExample>
@@ -137,7 +99,7 @@ import { Input, InputAddon, InputGroup } from '@resolid/react-ui';
                     <SpriteIcon size={"sm"} name={"search"} />
                   </Button>} 
          leadingPointer={true} />
-  <Input clearable placeholder={"邮件地址"} 
+  <Input placeholder={"邮件地址"} 
          trailing={<Button size={"xs"}>订阅</Button>} 
          trailingWidth={56} trailingPointer={true} />
   ```
@@ -162,7 +124,7 @@ import { Input, InputAddon, InputGroup } from '@resolid/react-ui';
         <InputAddon>.00</InputAddon>
       </InputGroup>
       <InputGroup size={"sm"}>
-        <Input clearable placeholder={"用户名"} />
+        <Input placeholder={"用户名"} />
         <InputAddon>@</InputAddon>
         <Input placeholder={"服务器"} />
       </InputGroup>
