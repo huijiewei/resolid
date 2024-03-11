@@ -1,13 +1,14 @@
 import type { ComponentProp } from "@resolid/mdx-plugins";
 import {
   Button,
-  Checkbox,
   clsx,
+  Input,
   Popover,
   PopoverArrow,
   PopoverBody,
   PopoverContent,
   PopoverTrigger,
+  Switch,
 } from "@resolid/react-ui";
 import { isFunction } from "@resolid/utils";
 import { useMemo, useState, type FunctionComponent, type ReactNode } from "react";
@@ -23,14 +24,16 @@ export const ComponentUsage = ({
   ignoreProps?: string[];
 }) => {
   const filteredProps = useMemo(() => {
-    return componentProps.filter((prop) => {
-      return (
-        prop.name != "asChild" &&
-        prop.type != "Element" &&
-        !/^on[A-Z]/.test(prop.name) &&
-        !ignoreProps.includes(prop.name)
-      );
-    });
+    return componentProps
+      .filter((prop) => {
+        return (
+          prop.name != "asChild" &&
+          prop.type != "Element" &&
+          !/^on[A-Z]/.test(prop.name) &&
+          !ignoreProps.includes(prop.name)
+        );
+      })
+      .sort((a, b) => (a.control.length > b.control.length ? 1 : -1));
   }, [componentProps, ignoreProps]);
 
   const [state, setState] = useState<Record<string, string | boolean | number>>(
@@ -53,95 +56,118 @@ export const ComponentUsage = ({
         <div className={"flex flex-grow items-center justify-center"}>{preview(state)}</div>
       </div>
       <div className={"min-w-[15em] flex-shrink-0 border-t p-3 lg:border-s lg:border-t-0"}>
-        <div className={"flex flex-col text-sm"}>
+        <div className={"flex flex-col gap-3 text-sm"}>
           {filteredProps.map((prop) => {
+            const propInputId = `prop-${prop.name}`;
+
             return (
-              <label className={"flex h-9 items-center justify-between"} key={prop.name}>
-                <div className={"capitalize"}>{prop.description}</div>
+              <div className={"flex items-center justify-between"} key={propInputId}>
                 {prop.control == "boolean" && (
-                  <Checkbox
+                  <Switch
                     size={"sm"}
                     checked={Boolean(state[prop.name])}
                     onChange={(value) => {
                       setState((prev) => ({ ...prev, [prop.name]: value }));
                     }}
-                  />
+                  >
+                    {prop.description}
+                  </Switch>
                 )}
                 {prop.control == "string" && (
-                  <input
-                    className={"w-1/2 rounded border p-1"}
-                    value={String(state[prop.name])}
-                    onChange={(e) => {
-                      setState((prev) => ({ ...prev, [prop.name]: e.target.value }));
-                    }}
-                  />
+                  <>
+                    <label htmlFor={propInputId}>{prop.description}</label>
+                    <Input
+                      id={propInputId}
+                      className={"w-1/2"}
+                      value={String(state[prop.name])}
+                      onChange={(value) => {
+                        setState((prev) => ({ ...prev, [prop.name]: value }));
+                      }}
+                    />
+                  </>
                 )}
                 {prop.control == "number" && (
-                  <input
-                    type={"number"}
-                    className={"w-1/2 rounded border p-1"}
-                    value={String(state[prop.name])}
-                    onChange={(e) => {
-                      setState((prev) => ({ ...prev, [prop.name]: e.target.value }));
-                    }}
-                  />
+                  <>
+                    <label htmlFor={propInputId}>{prop.description}</label>
+                    <input
+                      id={propInputId}
+                      type={"number"}
+                      className={"w-1/2 rounded border p-1"}
+                      value={String(state[prop.name])}
+                      onChange={(e) => {
+                        setState((prev) => ({ ...prev, [prop.name]: e.target.value }));
+                      }}
+                    />
+                  </>
                 )}
                 {prop.control == "select" &&
                   (prop.name == "color" ? (
-                    <div className={"inline-flex w-auto justify-between gap-1"}>
-                      {prop.typeValues?.map((option) => {
-                        const color = option.toString().slice(1, -1);
+                    <>
+                      <span>{prop.description}</span>
+                      <div className={"inline-flex w-auto justify-between gap-1"}>
+                        {prop.typeValues?.map((option) => {
+                          const color = option.toString().slice(1, -1);
 
-                        return (
-                          <Button
-                            square
-                            padded={false}
-                            className={"h-6"}
-                            key={`${prop.name}-${color}`}
-                            title={color}
-                            color={color as never}
-                            onClick={() => {
-                              setState((prev) => ({ ...prev, [prop.name]: color }));
-                            }}
-                          >
-                            {state[prop.name] == color && (
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path
-                                  fill="currentColor"
-                                  d="M18.71 7.21a1 1 0 0 0-1.42 0l-7.45 7.46l-3.13-3.14A1 1 0 1 0 5.29 13l3.84 3.84a1 1 0 0 0 1.42 0l8.16-8.16a1 1 0 0 0 0-1.47"
-                                />
-                              </svg>
-                            )}
-                          </Button>
-                        );
-                      })}
-                    </div>
+                          return (
+                            <Button
+                              square
+                              padded={false}
+                              className={"h-6"}
+                              key={`${prop.name}-${color}`}
+                              title={color}
+                              color={color as never}
+                              onClick={() => {
+                                setState((prev) => ({ ...prev, [prop.name]: color }));
+                              }}
+                            >
+                              {state[prop.name] == color && (
+                                <svg
+                                  height="1.25rem"
+                                  width="1.25rem"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    fill="currentColor"
+                                    d="M18.71 7.21a1 1 0 0 0-1.42 0l-7.45 7.46l-3.13-3.14A1 1 0 1 0 5.29 13l3.84 3.84a1 1 0 0 0 1.42 0l8.16-8.16a1 1 0 0 0 0-1.47"
+                                  />
+                                </svg>
+                              )}
+                            </Button>
+                          );
+                        })}
+                      </div>
+                    </>
                   ) : (
-                    <select
-                      className={"rounded border p-1"}
-                      value={String(state[prop.name])}
-                      onChange={(e) => {
-                        setState((prev) => ({
-                          ...prev,
-                          [prop.name]:
-                            e.target.value == "true" || e.target.value == "false"
-                              ? e.target.value == "true"
-                              : e.target.value,
-                        }));
-                      }}
-                    >
-                      {prop.typeValues?.map((item) => {
-                        const option = item != "true" && item != "false" ? item.trim().slice(1, -1) : item;
+                    <>
+                      <label htmlFor={propInputId}>{prop.description}</label>
+                      <select
+                        id={propInputId}
+                        className={"rounded border p-1"}
+                        value={String(state[prop.name])}
+                        onChange={(e) => {
+                          setState((prev) => ({
+                            ...prev,
+                            [prop.name]:
+                              e.target.value == "true" || e.target.value == "false"
+                                ? e.target.value == "true"
+                                : e.target.value,
+                          }));
+                        }}
+                      >
+                        {prop.typeValues?.map((item) => {
+                          const option = item != "true" && item != "false" ? item.trim().slice(1, -1) : item;
 
-                        return (
-                          <option key={option} value={option}>
-                            {option}
-                          </option>
-                        );
-                      })}
-                    </select>
+                          return (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </>
                   ))}
-              </label>
+              </div>
             );
           })}
         </div>
