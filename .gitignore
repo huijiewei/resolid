@@ -4,6 +4,7 @@
 .env
 .vercel
 .resolid
+.vite-inspect
 build
 dist
 

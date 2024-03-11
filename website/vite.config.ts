@@ -79,6 +79,7 @@ export default defineConfig(({ command }) => {
       minify: true,
       rollupOptions: {
         output: {
+          hoistTransitiveImports: false,
           manualChunks(id) {
             if (id.includes("/src/components/base/")) {
               return "components";
@@ -117,7 +118,6 @@ export default defineConfig(({ command }) => {
       ].filter(Boolean) as AliasOptions,
     },
     optimizeDeps: {
-      holdUntilCrawlEnd: false,
       include: ["@mdx-js/react"],
     },
   };
