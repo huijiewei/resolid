@@ -16,7 +16,7 @@ export type CheckboxBaseProps = {
   color?: Color;
 
   /**
-   * 禁用
+   * 是否禁用
    * @default false
    */
   disabled?: boolean;

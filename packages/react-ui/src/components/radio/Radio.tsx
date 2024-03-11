@@ -39,8 +39,8 @@ const radioSizeStyles = {
   xs: { control: "h-3.5 w-3.5", label: "text-xs" },
   sm: { control: "h-4 w-4", label: "text-sm" },
   md: { control: "h-5 w-5", label: "" },
-  lg: { control: "h-6 w-6", label: "text-lg" },
-  xl: { control: "h-7 w-7", label: "text-xl" },
+  lg: { control: "h-6 w-6", label: "" },
+  xl: { control: "h-7 w-7", label: "text-lg" },
 };
 
 const radioColorStyles = {

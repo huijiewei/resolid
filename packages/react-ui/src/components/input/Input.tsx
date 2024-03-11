@@ -8,7 +8,7 @@ import { useInputGroup, type InputGroupContext } from "./InputGroupContext";
 
 export type InputProps = Partial<InputGroupContext> & {
   /**
-   * 值
+   * 可控值
    */
   value?: string | number;
 
@@ -18,37 +18,37 @@ export type InputProps = Partial<InputGroupContext> & {
   defaultValue?: string | number;
 
   /**
-   * 禁用
+   * 是否禁用
    * @default false
    */
   disabled?: boolean;
 
   /**
-   * 必须
+   * 是否必须
    * @default false
    */
   required?: boolean;
 
   /**
-   * 无效
+   * 是否无效
    * @default false
    */
   invalid?: boolean;
 
   /**
-   * 只读
+   * 是否只读
    * @default false
    */
   readOnly?: boolean;
 
   /**
-   * 全宽度
+   * 是否全宽度
    * @default false
    */
   block?: boolean;
 
   /**
-   * 值改变时触发回调
+   * onChange 回调
    */
   onChange?: (value: string | number) => void;
 
@@ -141,7 +141,7 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>
 
   return (
     <div
-      className={clsx("relative", block && "w-full", group && "group/input [&:not(:first-child)]:-ms-px")}
+      className={clsx("relative", block && "w-full", group && "group/input [&:not(:first-child)]:-ms-px", className)}
       style={
         {
           "--leading-width": leading ? (leadingWidth ? `${leadingWidth}px` : adornmentSize) : undefined,
@@ -157,7 +157,7 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>
         className={clsx(
           "w-full resize-none appearance-none text-left align-middle outline-none",
           "rounded border bg-bg-normal transition-colors",
-          "disabled:cursor-not-allowed disabled:bg-bg-subtlest disabled:opacity-50",
+          "disabled:cursor-not-allowed disabled:bg-bg-subtlest disabled:opacity-60",
           "focus:border-bg-primary-emphasis focus:ring-1 focus:ring-bg-primary-emphasis",
           inputSizeStyles[size],
           leading && "ps-[var(--leading-width)]",
@@ -166,7 +166,6 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>
           group &&
             "group-first/input:rounded-br-none group-first/input:rounded-tr-none group-last/input:rounded-bl-none group-last/input:rounded-tl-none group-[&:not(:first-child,:last-child)]/input:rounded-none",
           !disabled && !invalid && "hover:border-border-hovered",
-          className,
         )}
         size={htmlSize}
         placeholder={placeholder}

@@ -31,7 +31,7 @@ export const buttonStyles = classed(
         xl: "text-md",
       },
       disabled: {
-        true: "cursor-not-allowed opacity-80 grayscale-[20%]",
+        true: "cursor-not-allowed opacity-70 grayscale-[30%]",
       },
       loading: {
         true: "cursor-wait opacity-80 grayscale-[20%]",
