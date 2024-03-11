@@ -1,4 +1,4 @@
-import { type ChangeEvent } from "react";
+import type { ChangeEvent } from "react";
 import { createContext } from "../../utils/context";
 import type { Color, Size } from "../../utils/types";
 

@@ -1,5 +1,5 @@
-import { type FloatingContext } from '@floating-ui/react';
-import { type CSSProperties, type HTMLProps } from 'react';
+import type { FloatingContext } from "@floating-ui/react";
+import type { CSSProperties, HTMLProps } from "react";
 
 export type FloatingFloatingContext = {
   context: FloatingContext;

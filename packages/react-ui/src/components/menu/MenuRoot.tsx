@@ -21,7 +21,7 @@ import {
   type Placement,
 } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
-import { useEffect, useMemo, useRef, useState, type PropsWithChildren } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactElement } from "react";
 import { useAllowHover, useDisclosure } from "../../hooks";
 import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/FloatingArrowContext";
 import { FloatingDispatchProvider } from "../floating/FloatingDispatchContext";
@@ -69,10 +69,14 @@ export type MenuProps = {
    */
   duration?: number;
 
+  /* @ignore */
   lockScroll?: boolean;
+
+  /* @ignore */
+  children?: ReactElement[];
 };
 
-export const MenuRoot = (props: PropsWithChildren<MenuProps>) => {
+export const MenuRoot = (props: MenuProps) => {
   const parentId = useFloatingParentNodeId();
 
   if (parentId == null) {
@@ -90,7 +94,7 @@ if (__DEV__) {
   MenuRoot.displayName = "Menu";
 }
 
-const MenuTree = (props: PropsWithChildren<MenuProps>) => {
+const MenuTree = (props: MenuProps) => {
   const {
     children,
     closeOnEsc = true,

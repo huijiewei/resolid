@@ -1,5 +1,5 @@
 import type { FloatingContext } from "@floating-ui/react";
-import { type HTMLProps, type RefObject } from "react";
+import type { HTMLProps, RefObject } from "react";
 import { createContext } from "../../utils/context";
 
 export type ModalBaseProps = {

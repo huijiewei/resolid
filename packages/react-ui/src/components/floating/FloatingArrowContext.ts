@@ -1,6 +1,6 @@
-import { type FloatingContext } from '@floating-ui/react';
-import { type RefObject } from 'react';
-import { createContext } from '../../utils/context';
+import type { FloatingContext } from "@floating-ui/react";
+import type { RefObject } from "react";
+import { createContext } from "../../utils/context";
 
 export type FloatingArrowContext = {
   context: FloatingContext;
@@ -10,7 +10,7 @@ export type FloatingArrowContext = {
 
 const [FloatingArrowProvider, useFloatingArrow] = createContext<FloatingArrowContext>({
   strict: true,
-  name: 'FloatingArrowContext',
+  name: "FloatingArrowContext",
 });
 
 export { FloatingArrowProvider, useFloatingArrow };

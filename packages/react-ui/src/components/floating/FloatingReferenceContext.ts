@@ -1,6 +1,6 @@
-import type { ReferenceType } from '@floating-ui/react';
-import { type HTMLProps } from 'react';
-import { createContext } from '../../utils/context';
+import type { ReferenceType } from "@floating-ui/react";
+import type { HTMLProps } from "react";
+import { createContext } from "../../utils/context";
 
 export type FloatingReferenceContext = {
   opened: boolean;
@@ -11,7 +11,7 @@ export type FloatingReferenceContext = {
 
 const [FloatingReferenceProvider, useFloatingReference] = createContext<FloatingReferenceContext>({
   strict: true,
-  name: 'FloatingReferenceContext',
+  name: "FloatingReferenceContext",
 });
 
 export { FloatingReferenceProvider, useFloatingReference };
