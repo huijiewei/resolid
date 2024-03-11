@@ -1,5 +1,4 @@
 import { mergeMeta } from "@resolid/remix-utils";
-
 import { SpriteIcon } from "~/components/base/SpriteIcon";
 
 export const meta = mergeMeta(() => {
