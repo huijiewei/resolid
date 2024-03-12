@@ -48,8 +48,10 @@ import {
       <PopoverTrigger asChild>
         <Button>打开弹出框</Button>
       </PopoverTrigger>
-      <PopoverContent>
-        <PopoverBody>弹出框内容</PopoverBody>
+      <PopoverContent className={"max-w-96"}>
+        <PopoverCloseButton />
+        <PopoverHeader>关于 Resolid Remix</PopoverHeader>
+        <PopoverBody>使用 Remix 驱动的全栈网站，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。</PopoverBody>
       </PopoverContent>
     </Popover>
     <Popover placement={"bottom"}>
@@ -81,46 +83,6 @@ import {
       <PopoverBody>有箭头的弹出框内容</PopoverBody>
     </PopoverContent>
   </Popover>
-  ```
-</section>
-
-## 可控
-
-<section className={'example group'}>
-  <ComponentExample className={"flex flex-row gap-3"}>
-    {() => {
-      const { opened, open, close } = useDisclosure();
-
-      return (
-        <Popover opened={opened}>
-          <PopoverTrigger asChild>
-            <Button variant={'outline'} onMouseEnter={open} onMouseLeave={close}>
-              鼠标移动上去控制
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent>
-            <PopoverBody>可控的弹出框</PopoverBody>
-          </PopoverContent>
-        </Popover>
-      );
-    }}
-  </ComponentExample>
-
-  ```jsx
-  const { opened, open, close } = useDisclosure();
-
-  return (
-    <Popover opened={opened}>
-      <PopoverTrigger asChild>
-        <Button variant={'outline'} onMouseEnter={open} onMouseLeave={close}>
-          鼠标移动上去控制
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent>
-        <PopoverBody>可控的弹出框</PopoverBody>
-      </PopoverContent>
-    </Popover>
-  );
   ```
 </section>
 
