@@ -19,7 +19,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
-    "@types/node": "^20.11.25",
+    "@types/node": "^20.11.26",
     "lefthook": "^1.6.5",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
