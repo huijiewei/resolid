@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export const useClipboard = (timeout = 2000, onError: (error: Error) => void = () => {}) => {
   const [copied, setCopied] = useState(false);

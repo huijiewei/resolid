@@ -17,7 +17,7 @@ export const meta = mergeFrontmatter(frontmatter);
 ## 导入
 
 ```js
-import { Button, ButtonGroup } from '@resolid/mix-ui';
+import { Button, ButtonGroup } from "@resolid/react-ui";
 ```
 
 - `Button`: 具有自定义图标、加载指示器等功能的按钮组件。
@@ -40,13 +40,14 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     <Button variant={'link'}>Link</Button>
   </ComponentExample>
 
-  ```jsx
-  <Button>Solid</Button>
-  <Button variant={'outline'}>Outline</Button>
-  <Button variant={'soft'}>Soft</Button>
-  <Button variant={'ghost'}>Ghost</Button>
-  <Button variant={'link'}>Link</Button>
-  ```
+```jsx
+<Button>Solid</Button>
+<Button variant={'outline'}>Outline</Button>
+<Button variant={'soft'}>Soft</Button>
+<Button variant={'ghost'}>Ghost</Button>
+<Button variant={'link'}>Link</Button>
+```
+
 </section>
 
 ## 颜色
@@ -62,13 +63,14 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     <Button color={'neutral'}>Neutral</Button>
   </ComponentExample>
 
-  ```jsx
-  <Button>Primary</Button>
-  <Button color={'success'}>Success</Button>
-  <Button color={'warning'}>Warning</Button>
-  <Button color={'danger'}>Danger</Button>
-  <Button color={'neutral'}>Neutral</Button>
-  ```
+```jsx
+<Button>Primary</Button>
+<Button color={'success'}>Success</Button>
+<Button color={'warning'}>Warning</Button>
+<Button color={'danger'}>Danger</Button>
+<Button color={'neutral'}>Neutral</Button>
+```
+
 </section>
 
 ## 大小
@@ -84,13 +86,14 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     <Button size={'xl'}>XL</Button>
   </ComponentExample>
 
-  ```jsx
-  <Button size={'xs'}>XS</Button>
-  <Button size={'sm'}>SM</Button>
-  <Button>MD</Button>
-  <Button size={'lg'}>LG</Button>
-  <Button size={'xl'}>XL</Button>
-  ```
+```jsx
+<Button size={'xs'}>XS</Button>
+<Button size={'sm'}>SM</Button>
+<Button>MD</Button>
+<Button size={'lg'}>LG</Button>
+<Button size={'xl'}>XL</Button>
+```
+
 </section>
 
 ## 圆角
@@ -109,16 +112,17 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     <Button radius={11}>按钮</Button>
   </ComponentExample>
 
-  ```jsx
-  <Button radius={false}>按钮</Button>
-  <Button radius={'xs'}>按钮</Button>
-  <Button radius={'sm'}>按钮</Button>
-  <Button>按钮</Button>
-  <Button radius={'lg'}>按钮</Button>
-  <Button radius={'xl'}>按钮</Button>
-  <Button radius={'full'}>按钮</Button>
-  <Button radius={11}>按钮</Button>
-  ```
+```jsx
+<Button radius={false}>按钮</Button>
+<Button radius={'xs'}>按钮</Button>
+<Button radius={'sm'}>按钮</Button>
+<Button>按钮</Button>
+<Button radius={'lg'}>按钮</Button>
+<Button radius={'xl'}>按钮</Button>
+<Button radius={'full'}>按钮</Button>
+<Button radius={11}>按钮</Button>
+```
+
 </section>
 
 ## 图标
@@ -151,32 +155,33 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     </Button>
   </ComponentExample>
 
-  ```jsx
-  <Button>
-    <SpriteIcon size={'sm'} className={'me-1.5'} name={'sun'} />
-    亮色模式
-  </Button>
-  <Button variant={'outline'}>
-    <SpriteIcon size={'sm'} className={'me-1.5'} name={'moon'} />
-    暗色模式
-  </Button>
-  <Button variant={'light'}>
-    菜单
-    <SpriteIcon size={'sm'} className={'ms-1.5'} name={'menu'} />
-  </Button>
-  <Button square>
-    <SpriteIcon size={'sm'} name={'setting'} />
-  </Button>
-  <Button square variant={'outline'} color={'neutral'}>
-    <SpriteIcon size={'sm'} name={'dashboard'} />
-  </Button>
-  <Button square variant={'light'} color={'warning'}>
-    <SpriteIcon size={'sm'} name={'logout'} />
-  </Button>
-  <Button square variant={'subtle'} color={'success'}>
-    <SpriteIcon size={'sm'} name={'auto'} />
-  </Button>
-  ```
+```jsx
+<Button>
+  <SpriteIcon size={'sm'} className={'me-1.5'} name={'sun'} />
+  亮色模式
+</Button>
+<Button variant={'outline'}>
+  <SpriteIcon size={'sm'} className={'me-1.5'} name={'moon'} />
+  暗色模式
+</Button>
+<Button variant={'light'}>
+  菜单
+  <SpriteIcon size={'sm'} className={'ms-1.5'} name={'menu'} />
+</Button>
+<Button square>
+  <SpriteIcon size={'sm'} name={'setting'} />
+</Button>
+<Button square variant={'outline'} color={'neutral'}>
+  <SpriteIcon size={'sm'} name={'dashboard'} />
+</Button>
+<Button square variant={'light'} color={'warning'}>
+  <SpriteIcon size={'sm'} name={'logout'} />
+</Button>
+<Button square variant={'subtle'} color={'success'}>
+  <SpriteIcon size={'sm'} name={'auto'} />
+</Button>
+```
+
 </section>
 
 ## 加载状态
@@ -192,15 +197,16 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     <Button block>Full Width</Button>
   </ComponentExample>
 
-  ```jsx
-  <Button disabled>Disabled</Button>
-  <Button loading>Loading</Button>
-  <Button loading loadingText={'Loading'}>
-    Loading
-  </Button>
-  <Button active>Active</Button>
-  <Button block>Full Width</Button>
-  ```
+```jsx
+<Button disabled>Disabled</Button>
+<Button loading>Loading</Button>
+<Button loading loadingText={'Loading'}>
+  Loading
+</Button>
+<Button active>Active</Button>
+<Button block>Full Width</Button>
+```
+
 </section>
 
 ## 按钮组
@@ -263,68 +269,71 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
     </ButtonGroup>
   </ComponentExample>
 
-  ```jsx
-  <ButtonGroup>
-    <Button>保存</Button>
-    <Button square>
-      <SpriteIcon name={'plus'} size={'sm'} />
-    </Button>
-  </ButtonGroup>
-  <ButtonGroup disabled>
-    <Button>保存</Button>
-    <Button square>
-      <SpriteIcon name={'plus'} size={'sm'} />
-    </Button>
-  </ButtonGroup>
-  <ButtonGroup>
-    <Button>保存</Button>
-    <Button variant="outline" square>
-      <SpriteIcon name={'plus'} size={'sm'} />
-    </Button>
-  </ButtonGroup>
-  <ButtonGroup>
-    <Button>保存</Button>
-    <Button color={'neutral'} square>
-      <SpriteIcon name={'plus'} size={'sm'} />
-    </Button>
-  </ButtonGroup>
-  <ButtonGroup variant="outline">
-    <Button>保存</Button>
-    <Button square>
-      <SpriteIcon name={'plus'} size={'sm'} />
-    </Button>
-  </ButtonGroup>
-  <ButtonGroup variant="light">
-    <Button>保存</Button>
-    <Button square>
-      <SpriteIcon name={'plus'} size={'sm'} />
-    </Button>
-  </ButtonGroup>
-  <ButtonGroup vertical>
-    <Button>保存</Button>
-    <Button color={'success'} square>
-      <SpriteIcon name={'plus'} size={'sm'} />
-    </Button>
-  </ButtonGroup>
-  <ButtonGroup vertical variant="outline">
-    <Button>保存</Button>
-    <Button square>
-      <SpriteIcon name={'plus'} size={'sm'} />
-    </Button>
-  </ButtonGroup>
-  <ButtonGroup vertical variant="light">
-    <Button>保存</Button>
-    <Button square>
-      <SpriteIcon name={'plus'} size={'sm'} />
-    </Button>
-  </ButtonGroup>
-  ```
+```jsx
+<ButtonGroup>
+  <Button>保存</Button>
+  <Button square>
+    <SpriteIcon name={'plus'} size={'sm'} />
+  </Button>
+</ButtonGroup>
+<ButtonGroup disabled>
+  <Button>保存</Button>
+  <Button square>
+    <SpriteIcon name={'plus'} size={'sm'} />
+  </Button>
+</ButtonGroup>
+<ButtonGroup>
+  <Button>保存</Button>
+  <Button variant="outline" square>
+    <SpriteIcon name={'plus'} size={'sm'} />
+  </Button>
+</ButtonGroup>
+<ButtonGroup>
+  <Button>保存</Button>
+  <Button color={'neutral'} square>
+    <SpriteIcon name={'plus'} size={'sm'} />
+  </Button>
+</ButtonGroup>
+<ButtonGroup variant="outline">
+  <Button>保存</Button>
+  <Button square>
+    <SpriteIcon name={'plus'} size={'sm'} />
+  </Button>
+</ButtonGroup>
+<ButtonGroup variant="light">
+  <Button>保存</Button>
+  <Button square>
+    <SpriteIcon name={'plus'} size={'sm'} />
+  </Button>
+</ButtonGroup>
+<ButtonGroup vertical>
+  <Button>保存</Button>
+  <Button color={'success'} square>
+    <SpriteIcon name={'plus'} size={'sm'} />
+  </Button>
+</ButtonGroup>
+<ButtonGroup vertical variant="outline">
+  <Button>保存</Button>
+  <Button square>
+    <SpriteIcon name={'plus'} size={'sm'} />
+  </Button>
+</ButtonGroup>
+<ButtonGroup vertical variant="light">
+  <Button>保存</Button>
+  <Button square>
+    <SpriteIcon name={'plus'} size={'sm'} />
+  </Button>
+</ButtonGroup>
+```
+
 </section>
 
 ## 属性
 
 ### 按钮
+
 <ComponentProps componentFile={"./button/Button.tsx"} />
 
 ### 按钮组
+
 <ComponentProps componentFile={"./button/ButtonGroup.tsx"} />

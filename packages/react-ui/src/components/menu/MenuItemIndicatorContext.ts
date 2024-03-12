@@ -1,6 +1,6 @@
-import { createContext } from '../../utils/context';
+import { createContext } from "../../utils/context";
 
-export type CheckedState = boolean | 'indeterminate';
+export type CheckedState = boolean | "indeterminate";
 
 type MenuItemIndicatorContext = {
   checked: CheckedState;
@@ -8,7 +8,7 @@ type MenuItemIndicatorContext = {
 
 const [MenuItemIndicatorProvider, useMenuItemIndicator] = createContext<MenuItemIndicatorContext>({
   strict: true,
-  name: 'MenuItemIndicatorContext',
+  name: "MenuItemIndicatorContext",
 });
 
 export { MenuItemIndicatorProvider, useMenuItemIndicator };

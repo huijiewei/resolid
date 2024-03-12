@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export const useAllowHover = () => {
   const [allowHover, setAllowHover] = useState(false);
 
   useEffect(() => {
     const handlePointerMove = (e: PointerEvent) => {
-      if (e.pointerType != 'touch') {
+      if (e.pointerType != "touch") {
         setAllowHover(true);
       }
     };
@@ -14,12 +14,12 @@ export const useAllowHover = () => {
       setAllowHover(false);
     };
 
-    window.addEventListener('pointermove', handlePointerMove, { capture: true, once: true });
-    window.addEventListener('keydown', handleKeyDown, true);
+    window.addEventListener("pointermove", handlePointerMove, { capture: true, once: true });
+    window.addEventListener("keydown", handleKeyDown, true);
 
     return () => {
-      window.removeEventListener('pointermove', handlePointerMove, { capture: true });
-      window.removeEventListener('keydown', handleKeyDown, true);
+      window.removeEventListener("pointermove", handlePointerMove, { capture: true });
+      window.removeEventListener("keydown", handleKeyDown, true);
     };
   }, [allowHover]);
 

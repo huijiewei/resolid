@@ -3,7 +3,7 @@ title: 分割线
 description: 分隔内容区域并分离模块。
 ---
 
-import { Divider } from '@resolid/react-ui';
+import { Divider } from "@resolid/react-ui";
 import { mergeFrontmatter } from "@resolid/remix-utils";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
 import { ComponentExample, ComponentProps, ComponentUsage } from "../__components";
@@ -17,12 +17,16 @@ export const meta = mergeFrontmatter(frontmatter);
 ## 导入
 
 ```js
-import { Divider } from '@resolid/react-ui';
+import { Divider } from "@resolid/react-ui";
 ```
 
 ## 用法
 
-<ComponentUsage preview={(props) => <Divider {...props} />} componentFile={"./divider/Divider.tsx"} ignoreProps={["position"]} />
+<ComponentUsage
+  preview={(props) => <Divider {...props} />}
+  componentFile={"./divider/Divider.tsx"}
+  ignoreProps={["position"]}
+/>
 
 ## 外观
 
@@ -35,11 +39,12 @@ import { Divider } from '@resolid/react-ui';
     <Divider variant={"dashed"} />
   </ComponentExample>
 
-  ```jsx
-  <Divider variant={"solid"} />
-  <Divider variant={"dotted"} />
-  <Divider variant={"dashed"} />
-  ```
+```jsx
+<Divider variant={"solid"} />
+<Divider variant={"dotted"} />
+<Divider variant={"dashed"} />
+```
+
 </section>
 
 ## 颜色
@@ -55,13 +60,14 @@ import { Divider } from '@resolid/react-ui';
     <Divider color={"neutral"} />
   </ComponentExample>
 
-  ```jsx
-  <Divider color={"primary"} />
-  <Divider color={"success"} />
-  <Divider color={"warning"} />
-  <Divider color={"danger"} />
-  <Divider color={"neutral"} />
-  ```
+```jsx
+<Divider color={"primary"} />
+<Divider color={"success"} />
+<Divider color={"warning"} />
+<Divider color={"danger"} />
+<Divider color={"neutral"} />
+```
+
 </section>
 
 ## 大小
@@ -75,11 +81,12 @@ import { Divider } from '@resolid/react-ui';
     <Divider size={5} />
   </ComponentExample>
 
-  ```jsx
-  <Divider size={2} />
-  <Divider size={3} />
-  <Divider size={5} />
-  ```
+```jsx
+<Divider size={2} />
+<Divider size={3} />
+<Divider size={5} />
+```
+
 </section>
 
 ## 垂直分割线
@@ -101,21 +108,22 @@ import { Divider } from '@resolid/react-ui';
     <span>文字</span>
   </ComponentExample>
 
-  ```jsx
-  <span>文字</span>
-  <Divider vertical/>
-  <span>文字</span>
-  <Divider vertical variant="dashed"/>
-  <span>文字</span>
-  <Divider vertical variant="dotted"/>
-  <span>文字</span>
-  <Divider vertical color={'primary'}/>
-  <span>文字</span>
-  <Divider vertical size={3} color={'success'} variant="dotted"/>
-  <span>文字</span>
-  <Divider vertical size={2} color={'danger'} variant="dashed"/>
-  <span>文字</span>
-  ```
+```jsx
+<span>文字</span>
+<Divider vertical/>
+<span>文字</span>
+<Divider vertical variant="dashed"/>
+<span>文字</span>
+<Divider vertical variant="dotted"/>
+<span>文字</span>
+<Divider vertical color={'primary'}/>
+<span>文字</span>
+<Divider vertical size={3} color={'success'} variant="dotted"/>
+<span>文字</span>
+<Divider vertical size={2} color={'danger'} variant="dashed"/>
+<span>文字</span>
+```
+
 </section>
 
 ## 文本标签
@@ -138,22 +146,23 @@ import { Divider } from '@resolid/react-ui';
     </Divider>
   </ComponentExample>
 
-  ```jsx
-  <Divider>分割线</Divider>
-  <Divider position={'left'} variant="dashed">
-    分割线
-  </Divider>
-  <Divider variant="dotted">分割线</Divider>
-  <Divider color={'primary'}><SpriteIcon size={"0.813rem"} className={'mr-1'} name={"search"} /> 分割线</Divider>
-  <Divider position={'right'} size={3} color={'success'} variant="dotted">
-    分割线
-  </Divider>
-  <Divider size={2} color={'danger'} variant="dashed">
-    <a href={'#text-label'} className={'text-link hover:text-link-hovered hover:underline'}>
-      链接分割线
-    </a>
-  </Divider>
-  ```
+```jsx
+<Divider>分割线</Divider>
+<Divider position={'left'} variant="dashed">
+  分割线
+</Divider>
+<Divider variant="dotted">分割线</Divider>
+<Divider color={'primary'}><SpriteIcon size={"0.813rem"} className={'mr-1'} name={"search"} /> 分割线</Divider>
+<Divider position={'right'} size={3} color={'success'} variant="dotted">
+  分割线
+</Divider>
+<Divider size={2} color={'danger'} variant="dashed">
+  <a href={'#text-label'} className={'text-link hover:text-link-hovered hover:underline'}>
+    链接分割线
+  </a>
+</Divider>
+```
+
 </section>
 
 ## 属性

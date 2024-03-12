@@ -4,8 +4,17 @@ description: 模态框是一种对话框，通过覆盖在主要内容上的窗�
 ---
 
 import {
-  Button, RadioGroup, Radio, Input,
-  Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton
+  Button,
+  RadioGroup,
+  Radio,
+  Input,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
 } from "@resolid/react-ui";
 import { mergeFrontmatter } from "@resolid/remix-utils";
 import { useState, useRef } from "react";
@@ -20,15 +29,15 @@ export const meta = mergeFrontmatter(frontmatter);
 ## 导入
 
 ```javascript
-import { 
-  Modal, 
-  ModalOverlay, 
-  ModalContent, 
-  ModalHeader, 
-  ModalFooter, 
-  ModalBody, 
-  ModalCloseButton 
-} from '@resolid/mix-ui';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from "@resolid/mix-ui";
 ```
 
 - `Modal`: 为其子级提供上下文的包装器。
@@ -63,76 +72,79 @@ import {
         </>
       );
     }}
+
   </ComponentExample>
   
   ```jsx
   const [opened, setOpened] = useState(false);
 
-  return (
-    <>
-      <Button onClick={() => setOpened(true)}>打开模态框</Button>
-      <Modal opened={opened} onClose={() => setOpened(false)}>
-        <ModalOverlay />
-        <ModalContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-          <ModalHeader>模态框标题</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody className={'p-4'}>模态框内容</ModalBody>
-          <ModalFooter className={'flex items-center justify-center gap-5'}>
-            <Button onClick={() => setOpened(false)}>关闭</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </>
-  );
-  ```
+return (
+<>
+<Button onClick={() => setOpened(true)}>打开模态框</Button>
+<Modal opened={opened} onClose={() => setOpened(false)}>
+<ModalOverlay />
+<ModalContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
+<ModalHeader>模态框标题</ModalHeader>
+<ModalCloseButton />
+<ModalBody className={'p-4'}>模态框内容</ModalBody>
+<ModalFooter className={'flex items-center justify-center gap-5'}>
+<Button onClick={() => setOpened(false)}>关闭</Button>
+</ModalFooter>
+</ModalContent>
+</Modal>
+</>
+);
+
+````
 </section>
 
 ## 居中
 
 <section className={'example group'}>
-  <ComponentExample className={"flex flex-row gap-3"}>
-    {() => {
-      const [opened, setOpened] = useState(false);
+<ComponentExample className={"flex flex-row gap-3"}>
+  {() => {
+    const [opened, setOpened] = useState(false);
 
-      return (
-        <>
-          <Button onClick={() => setOpened(true)}>打开模态框</Button>
-          <Modal centered opened={opened} onClose={() => setOpened(false)}>
-            <ModalOverlay />
-            <ModalContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-              <ModalHeader>模态框标题</ModalHeader>
-              <ModalCloseButton />
-              <ModalBody className={'p-4'}>模态框内容</ModalBody>
-              <ModalFooter className={'flex items-center justify-center gap-5'}>
-                <Button onClick={() => setOpened(false)}>关闭</Button>
-              </ModalFooter>
-            </ModalContent>
-          </Modal>
-        </>
-      );
-    }}
-  </ComponentExample>
+    return (
+      <>
+        <Button onClick={() => setOpened(true)}>打开模态框</Button>
+        <Modal centered opened={opened} onClose={() => setOpened(false)}>
+          <ModalOverlay />
+          <ModalContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
+            <ModalHeader>模态框标题</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody className={'p-4'}>模态框内容</ModalBody>
+            <ModalFooter className={'flex items-center justify-center gap-5'}>
+              <Button onClick={() => setOpened(false)}>关闭</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </>
+    );
+  }}
+</ComponentExample>
 
-  ```jsx
-  const [opened, setOpened] = useState(false);
+```jsx
+const [opened, setOpened] = useState(false);
 
-  return (
-  <>
-    <Button onClick={() => setOpened(true)}>打开模态框</Button>
-    <Modal centered opened={opened} onClose={() => setOpened(false)}>
-      <ModalOverlay />
-      <ModalContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-        <ModalHeader>模态框标题</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody className={'p-4'}>模态框内容</ModalBody>
-        <ModalFooter className={'flex items-center justify-center gap-5'}>
-          <Button onClick={() => setOpened(false)}>关闭</Button>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
-  </>
-  );
-  ```
+return (
+<>
+  <Button onClick={() => setOpened(true)}>打开模态框</Button>
+  <Modal centered opened={opened} onClose={() => setOpened(false)}>
+    <ModalOverlay />
+    <ModalContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
+      <ModalHeader>模态框标题</ModalHeader>
+      <ModalCloseButton />
+      <ModalBody className={'p-4'}>模态框内容</ModalBody>
+      <ModalFooter className={'flex items-center justify-center gap-5'}>
+        <Button onClick={() => setOpened(false)}>关闭</Button>
+      </ModalFooter>
+    </ModalContent>
+  </Modal>
+</>
+);
+````
+
 </section>
 
 ## 解锁页面滚动条
@@ -159,28 +171,30 @@ import {
         </>
       );
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const [opened, setOpened] = useState(false);
+```jsx
+const [opened, setOpened] = useState(false);
 
-  return (
+return (
   <>
     <Button onClick={() => setOpened(true)}>打开模态框</Button>
     <Modal lockScroll={false} opened={opened} onClose={() => setOpened(false)}>
       <ModalOverlay />
-      <ModalContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
+      <ModalContent className={"w-11/12 md:w-3/5 lg:w-1/3"}>
         <ModalHeader>模态框标题</ModalHeader>
         <ModalCloseButton />
-        <ModalBody className={'p-4'}>模态框内容</ModalBody>
-        <ModalFooter className={'flex items-center justify-center gap-5'}>
+        <ModalBody className={"p-4"}>模态框内容</ModalBody>
+        <ModalFooter className={"flex items-center justify-center gap-5"}>
           <Button onClick={() => setOpened(false)}>关闭</Button>
         </ModalFooter>
       </ModalContent>
     </Modal>
   </>
-  );
-  ```
+);
+```
+
 </section>
 
 ## 滚动行为
@@ -278,16 +292,17 @@ import {
         </>
       );
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const [opened, setOpened] = useState(false);
-  const [scrollBehavior, setScrollBehavior] = useState('inside');
+```jsx
+const [opened, setOpened] = useState(false);
+const [scrollBehavior, setScrollBehavior] = useState("inside");
 
-  return (
+return (
   <>
     <RadioGroup value={scrollBehavior} onChange={setScrollBehavior}>
-      <div className={'flex flex-row gap-5'}>
+      <div className={"flex flex-row gap-5"}>
         <Radio value="inside">内部</Radio>
         <Radio value="outside">外部</Radio>
       </div>
@@ -295,18 +310,19 @@ import {
     <Button onClick={() => setOpened(true)}>打开模态框</Button>
     <Modal scrollBehavior={scrollBehavior} opened={opened} onClose={() => setOpened(false)}>
       <ModalOverlay />
-      <ModalContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
+      <ModalContent className={"w-11/12 md:w-3/5 lg:w-1/3"}>
         <ModalHeader>模态框标题</ModalHeader>
         <ModalCloseButton />
-        <ModalBody className={'p-4'}>模态框内部大量内容</ModalBody>
-        <ModalFooter className={'flex items-center justify-center gap-5'}>
+        <ModalBody className={"p-4"}>模态框内部大量内容</ModalBody>
+        <ModalFooter className={"flex items-center justify-center gap-5"}>
           <Button onClick={() => setOpened(false)}>关闭</Button>
         </ModalFooter>
       </ModalContent>
     </Modal>
   </>
-  );
-  ```
+);
+```
+
 </section>
 
 ## 焦点管理
@@ -353,46 +369,48 @@ import {
         </>
       );
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const [opened, setOpened] = useState(false);
-  const initialRef = useRef(null);
-  const finalRef = useRef(null);
+```jsx
+const [opened, setOpened] = useState(false);
+const initialRef = useRef(null);
+const finalRef = useRef(null);
 
-  return (
-    <>
-      <Button onClick={() => setOpened(true)}>打开模态框</Button>
-      <Button color={'neutral'} ref={finalRef}>
-        键盘关闭模态框后获得焦点
-      </Button>
-      <Modal initialFocus={initialRef} finalFocus={finalRef} opened={opened} onClose={() => setOpened(false)}>
-        <ModalOverlay />
-        <ModalContent className={'w-fit'}>
-          <ModalHeader>模态框标题</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody className={'p-4 flex flex-col gap-3'}>
-            <div className={'flex flex-row items-center'}>
-              <label htmlFor={'username'} className={'w-28'}>
-                用户名 <span className={'text-red-500'}>*</span>
-              </label>
-              <Input ref={initialRef} placeholder={'用户名'} id={'username'} />
-            </div>
-            <div className={'flex flex-row items-center'}>
-              <label htmlFor={'email'} className={'w-28'}>
-                电子邮箱 <span className={'text-red-500'}>*</span>
-              </label>
-              <Input placeholder={'电子邮箱'} id={'email'} />
-            </div>
-          </ModalBody>
-          <ModalFooter className={'flex items-center justify-center gap-5'}>
-            <Button onClick={() => setOpened(false)}>关闭</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </>
-  );
-  ```
+return (
+  <>
+    <Button onClick={() => setOpened(true)}>打开模态框</Button>
+    <Button color={"neutral"} ref={finalRef}>
+      键盘关闭模态框后获得焦点
+    </Button>
+    <Modal initialFocus={initialRef} finalFocus={finalRef} opened={opened} onClose={() => setOpened(false)}>
+      <ModalOverlay />
+      <ModalContent className={"w-fit"}>
+        <ModalHeader>模态框标题</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody className={"flex flex-col gap-3 p-4"}>
+          <div className={"flex flex-row items-center"}>
+            <label htmlFor={"username"} className={"w-28"}>
+              用户名 <span className={"text-red-500"}>*</span>
+            </label>
+            <Input ref={initialRef} placeholder={"用户名"} id={"username"} />
+          </div>
+          <div className={"flex flex-row items-center"}>
+            <label htmlFor={"email"} className={"w-28"}>
+              电子邮箱 <span className={"text-red-500"}>*</span>
+            </label>
+            <Input placeholder={"电子邮箱"} id={"email"} />
+          </div>
+        </ModalBody>
+        <ModalFooter className={"flex items-center justify-center gap-5"}>
+          <Button onClick={() => setOpened(false)}>关闭</Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  </>
+);
+```
+
 </section>
 
 ## 自定义背景样式
@@ -428,37 +446,49 @@ import {
         </>
       );
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const OverlayBlur = () => <ModalOverlay className="backdrop-blur-sm" />;
-  const OverlayHueRotate = () => <ModalOverlay className="backdrop-hue-rotate-30" />;
+```jsx
+const OverlayBlur = () => <ModalOverlay className="backdrop-blur-sm" />;
+const OverlayHueRotate = () => <ModalOverlay className="backdrop-hue-rotate-30" />;
 
-  const [opened, setOpened] = useState(false);
-  const [overlay, setOverlay] = useState(<OverlayBlur />);
+const [opened, setOpened] = useState(false);
+const [overlay, setOverlay] = useState(<OverlayBlur />);
 
-  return (
-    <>
-      <Button onClick={() => { setOverlay(<OverlayBlur />); setOpened(true); }}>
-        模糊样式
-      </Button>
-      <Button onClick={() => { setOverlay(<OverlayHueRotate />); setOpened(true); }}>
-        色相变换样式
-      </Button>
-      <Modal opened={opened} onClose={() => setOpened(false)}>
-        {overlay}
-        <ModalContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-          <ModalHeader>模态框标题</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody className={'p-4'}>模态框内容</ModalBody>
-          <ModalFooter className={'flex items-center justify-center gap-5'}>
-            <Button onClick={() => setOpened(false)}>关闭</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </>
-  );
-  ```
+return (
+  <>
+    <Button
+      onClick={() => {
+        setOverlay(<OverlayBlur />);
+        setOpened(true);
+      }}
+    >
+      模糊样式
+    </Button>
+    <Button
+      onClick={() => {
+        setOverlay(<OverlayHueRotate />);
+        setOpened(true);
+      }}
+    >
+      色相变换样式
+    </Button>
+    <Modal opened={opened} onClose={() => setOpened(false)}>
+      {overlay}
+      <ModalContent className={"w-11/12 md:w-3/5 lg:w-1/3"}>
+        <ModalHeader>模态框标题</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody className={"p-4"}>模态框内容</ModalBody>
+        <ModalFooter className={"flex items-center justify-center gap-5"}>
+          <Button onClick={() => setOpened(false)}>关闭</Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  </>
+);
+```
+
 </section>
 
 ## 属性

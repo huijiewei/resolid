@@ -3,9 +3,9 @@ title: 图片
 description: 图片组件用于显示带有备用内容的图片。
 ---
 
-import { Image } from '@resolid/react-ui';
+import { Image } from "@resolid/react-ui";
 import { mergeFrontmatter } from "@resolid/remix-utils";
-import { BlurhashCanvas } from '~/components/BlurhashCanvas';
+import { BlurhashCanvas } from "~/components/BlurhashCanvas";
 import { ComponentProps } from "../__components";
 
 export const meta = mergeFrontmatter(frontmatter);
@@ -17,7 +17,7 @@ export const meta = mergeFrontmatter(frontmatter);
 ## 导入
 
 ```js
-import { Image } from '@resolid/react-ui';
+import { Image } from "@resolid/react-ui";
 ```
 
 ## 基础
@@ -78,16 +78,17 @@ import { Image } from '@resolid/react-ui';
     />} className={'w-auto rounded grayscale'} src={'https://file.resolid.tech/images%2F05.jpg'} />
   </div>
 
-  ```jsx
-  <Image className={'w-auto'} src={'https://file.resolid.tech/images%2F01.jpg'} />
-  <Image className={'w-auto rounded'} src={'https://file.resolid.tech/images%2F02.jpg'} />
-  <Image className={'w-auto rounded-lg'} src={'https://file.resolid.tech/images%2F03.jpg'} />
-  <Image className={'w-auto rounded'} src={'https://file.resolid.tech/images%2F04.jpg'} />
-  <Image className={'w-auto rounded'} src={'https://file.resolid.tech/images%2F05.jpg'} />
-  <Image className={'w-auto rounded blur-sm'} src={'https://file.resolid.tech/images%2F05.jpg'} />
-  <Image className={'w-auto rounded sepia'} src={'https://file.resolid.tech/images%2F05.jpg'} />
-  <Image className={'w-auto rounded grayscale'} src={'https://file.resolid.tech/images%2F05.jpg'} />
-  ```
+```jsx
+<Image className={'w-auto'} src={'https://file.resolid.tech/images%2F01.jpg'} />
+<Image className={'w-auto rounded'} src={'https://file.resolid.tech/images%2F02.jpg'} />
+<Image className={'w-auto rounded-lg'} src={'https://file.resolid.tech/images%2F03.jpg'} />
+<Image className={'w-auto rounded'} src={'https://file.resolid.tech/images%2F04.jpg'} />
+<Image className={'w-auto rounded'} src={'https://file.resolid.tech/images%2F05.jpg'} />
+<Image className={'w-auto rounded blur-sm'} src={'https://file.resolid.tech/images%2F05.jpg'} />
+<Image className={'w-auto rounded sepia'} src={'https://file.resolid.tech/images%2F05.jpg'} />
+<Image className={'w-auto rounded grayscale'} src={'https://file.resolid.tech/images%2F05.jpg'} />
+```
+
 </section>
 
 ## 备用
@@ -115,27 +116,28 @@ import { Image } from '@resolid/react-ui';
     />
   </div>
 
-  ```jsx
-  <Image
-    className={'w-auto'}
-    fallback={'https://img.temp.im/199x132'}
-    src={'https://file.resolid.tech/images/012.jpg'}
-  />
-  <Image
-    className={'w-auto'}
-    fallback={
-      <div className={'flex h-auto w-auto items-center justify-center border border-gray-200 bg-gray-50 text-gray-400'}>
-        加载失败
-      </div>
-    }
-    src={'https://file.resolid.tech/images/012.jpg'}
-  />
-  <Image
-    className={'w-auto'}
-    fallback={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMcAAACECAMAAAATF882AAAAOVBMVEXc4+ifsb2nuMPJ09vU3OKtvMfX3+Xa4uepusWktcGis7/P2d/F0NiywMq9ytLBzdW6x9C2xM2vvshvkV5dAAAB3klEQVR42u3V3Y6kIBQE4FOAgCD+9Ps/7HoaXcI4M9nNJMxNfRdYsTGhJLRCRERERERERERERERERERERERERERERP/NH6uobTLT6qXL31kOVx+Pc9yDqLDqc5rHcwlGl2OgZtflb+yAPS8Zb0nnurlmL8PlCXj3KDBOQsHc5S+tCe8eIaGEYA3ieTMiejnzJMMdMIv28ICXk4Ht8leAPerPFinUXdGh5dEWK0572OslbihdvpSSz9GX4u/+XibtsaZVTgEIf+cneBmv9ljwqr0Qu3zZMQeR6SzYaI/bhnQOcdHsx+9H65Gvw1Awd/kWUXSx/rMedo3QfHmNPx+tR0jY31uA1OWbT1iBLJ/1SAA2uYQCOBms9RALzC+DA6bPN3sv9tkjLyXhqNkZbTtc6yHZAPPuMHW5MUjy7NG2K9QjBeNkvNZDBV3I0efbBuB49jiivw7FUr+Nu4zWn4/ZhHqec5fbJNgE++gxYREV9bpBx9H6/Zix6lt/5CroLQu4Dz3u/zALeHHjazx7LEDcJyB3+VYQ68f/cT5MnavN1zNWTkZr52PFac7S52oBfN2V/WMP/8Ipbe+yNye/KGTru/yPfLZOiIiIiIiIiIiIiIiIiIiIiIiIiIiIiOhH/gDRLw2Nq8xTsAAAAABJRU5ErkJggg=='}
-    src={'https://file.resolid.tech/images/012.jpg'}
-  />
-  ```
+```jsx
+<Image
+  className={'w-auto'}
+  fallback={'https://img.temp.im/199x132'}
+  src={'https://file.resolid.tech/images/012.jpg'}
+/>
+<Image
+  className={'w-auto'}
+  fallback={
+    <div className={'flex h-auto w-auto items-center justify-center border border-gray-200 bg-gray-50 text-gray-400'}>
+      加载失败
+    </div>
+  }
+  src={'https://file.resolid.tech/images/012.jpg'}
+/>
+<Image
+  className={'w-auto'}
+  fallback={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMcAAACECAMAAAATF882AAAAOVBMVEXc4+ifsb2nuMPJ09vU3OKtvMfX3+Xa4uepusWktcGis7/P2d/F0NiywMq9ytLBzdW6x9C2xM2vvshvkV5dAAAB3klEQVR42u3V3Y6kIBQE4FOAgCD+9Ps/7HoaXcI4M9nNJMxNfRdYsTGhJLRCRERERERERERERERERERERERERERERP/NH6uobTLT6qXL31kOVx+Pc9yDqLDqc5rHcwlGl2OgZtflb+yAPS8Zb0nnurlmL8PlCXj3KDBOQsHc5S+tCe8eIaGEYA3ieTMiejnzJMMdMIv28ICXk4Ht8leAPerPFinUXdGh5dEWK0572OslbihdvpSSz9GX4u/+XibtsaZVTgEIf+cneBmv9ljwqr0Qu3zZMQeR6SzYaI/bhnQOcdHsx+9H65Gvw1Awd/kWUXSx/rMedo3QfHmNPx+tR0jY31uA1OWbT1iBLJ/1SAA2uYQCOBms9RALzC+DA6bPN3sv9tkjLyXhqNkZbTtc6yHZAPPuMHW5MUjy7NG2K9QjBeNkvNZDBV3I0efbBuB49jiivw7FUr+Nu4zWn4/ZhHqec5fbJNgE++gxYREV9bpBx9H6/Zix6lt/5CroLQu4Dz3u/zALeHHjazx7LEDcJyB3+VYQ68f/cT5MnavN1zNWTkZr52PFac7S52oBfN2V/WMP/8Ipbe+yNye/KGTru/yPfLZOiIiIiIiIiIiIiIiIiIiIiIiIiIiIiOhH/gDRLw2Nq8xTsAAAAABJRU5ErkJggg=='}
+  src={'https://file.resolid.tech/images/012.jpg'}
+/>
+```
+
 </section>
 
 ## 属性

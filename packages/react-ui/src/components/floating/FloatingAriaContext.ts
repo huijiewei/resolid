@@ -1,4 +1,4 @@
-import { createContext } from '../../utils/context';
+import { createContext } from "../../utils/context";
 
 export type FloatingAriaContext = {
   labelId: string;
@@ -7,7 +7,7 @@ export type FloatingAriaContext = {
 
 const [FloatingAriaProvider, useFloatingAria] = createContext<FloatingAriaContext>({
   strict: true,
-  name: 'FloatingAriaContext',
+  name: "FloatingAriaContext",
 });
 
 export { FloatingAriaProvider, useFloatingAria };

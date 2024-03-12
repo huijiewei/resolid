@@ -1,4 +1,4 @@
-import { createContext as ReactCreateContext, useContext as ReactUseContext, type Context, type Provider } from 'react';
+import { createContext as ReactCreateContext, useContext as ReactUseContext, type Context, type Provider } from "react";
 
 export type CreateContextOptions = {
   name: string;
@@ -22,12 +22,12 @@ export const createContext = <T>(options: CreateContextOptions) => {
       const error = new Error(
         errorMessage ||
           `use${name.replace(
-            'Context',
-            '',
-          )} returned \`undefined\`. Seems you forgot to wrap component within ${name.replace('Context', 'Provider')}`,
+            "Context",
+            "",
+          )} returned \`undefined\`. Seems you forgot to wrap component within ${name.replace("Context", "Provider")}`,
       );
 
-      error.name = 'ContextError';
+      error.name = "ContextError";
       Error.captureStackTrace?.(error, useContext);
 
       throw error;

@@ -1,4 +1,4 @@
-import { createContext } from '../../utils/context';
+import { createContext } from "../../utils/context";
 
 export type MenuRadioGroupContext = {
   value?: string | number;
@@ -7,7 +7,7 @@ export type MenuRadioGroupContext = {
 
 const [MenuRadioGroupProvider, useMenuRadioGroup] = createContext<MenuRadioGroupContext>({
   strict: true,
-  name: 'MenuRadioGroupContext',
+  name: "MenuRadioGroupContext",
 });
 
 export { MenuRadioGroupProvider, useMenuRadioGroup };

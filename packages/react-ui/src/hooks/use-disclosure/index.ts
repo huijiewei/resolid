@@ -1,4 +1,4 @@
-import { useControllableState } from '../use-controllable-state';
+import { useControllableState } from "../use-controllable-state";
 
 export type UseDisclosureProps = {
   opened?: boolean;

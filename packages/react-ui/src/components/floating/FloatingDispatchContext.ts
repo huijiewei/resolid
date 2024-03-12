@@ -1,4 +1,4 @@
-import { createContext } from '../../utils/context';
+import { createContext } from "../../utils/context";
 
 export type FloatingDispatchContext = {
   open?: () => void;
@@ -7,7 +7,7 @@ export type FloatingDispatchContext = {
 
 const [FloatingDispatchProvider, useFloatingDispatch] = createContext<FloatingDispatchContext>({
   strict: true,
-  name: 'FloatingDispatchContext',
+  name: "FloatingDispatchContext",
 });
 
 export { FloatingDispatchProvider, useFloatingDispatch };

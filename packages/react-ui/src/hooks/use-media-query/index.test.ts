@@ -1,13 +1,13 @@
-import { renderHook } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
-import { useMediaQuery } from './index';
+import { renderHook } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
+import { useMediaQuery } from "./index";
 
 type MediaQueryList = {
   readonly matches: boolean;
   readonly media: string;
   onchange: MediaQueryListener | null;
-  addEventListener(type: 'change', listener: MediaQueryListener): void;
-  removeEventListener(type: 'change', listener: MediaQueryListener): void;
+  addEventListener(type: "change", listener: MediaQueryListener): void;
+  removeEventListener(type: "change", listener: MediaQueryListener): void;
   dispatchEvent(event: Event): boolean;
 };
 
@@ -23,7 +23,7 @@ class MatchMediaMock {
   private currentMediaQuery!: string;
 
   constructor() {
-    Object.defineProperty(window, 'matchMedia', {
+    Object.defineProperty(window, "matchMedia", {
       writable: true,
       configurable: true,
       value: (query: string): MediaQueryList => {
@@ -32,12 +32,12 @@ class MatchMediaMock {
           media: query,
           onchange: null,
           addEventListener: (type, listener) => {
-            if (type !== 'change') return;
+            if (type !== "change") return;
 
             this.addListener(query, listener);
           },
           removeEventListener: (type, listener) => {
-            if (type !== 'change') return;
+            if (type !== "change") return;
 
             this.removeListener(query, listener);
           },
@@ -106,7 +106,7 @@ class MatchMediaMock {
   }
 }
 
-describe('useMediaQuery', () => {
+describe("useMediaQuery", () => {
   let matchMedia: MatchMediaMock;
 
   beforeEach(() => {
@@ -117,8 +117,8 @@ describe('useMediaQuery', () => {
     matchMedia.clear();
   });
 
-  test('should return true when the media query matches', () => {
-    const query = '(min-width: 500px)';
+  test("should return true when the media query matches", () => {
+    const query = "(min-width: 500px)";
 
     matchMedia.useMediaQuery(query);
 
@@ -127,20 +127,20 @@ describe('useMediaQuery', () => {
     expect(result.current).toBe(true);
   });
 
-  test('should return false when the media query does not match', () => {
-    const query = '(max-width: 1000px)';
+  test("should return false when the media query does not match", () => {
+    const query = "(max-width: 1000px)";
 
-    matchMedia.useMediaQuery('(max-width: 500px)');
+    matchMedia.useMediaQuery("(max-width: 500px)");
 
     const { result } = renderHook(() => useMediaQuery(query));
 
     expect(result.current).toBe(false);
   });
 
-  test('should update the result when the media query changes', () => {
-    matchMedia.useMediaQuery('(max-width: 500px)');
+  test("should update the result when the media query changes", () => {
+    matchMedia.useMediaQuery("(max-width: 500px)");
 
-    const query = '(min-width: 768px)';
+    const query = "(min-width: 768px)";
 
     matchMedia.useMediaQuery(query);
 

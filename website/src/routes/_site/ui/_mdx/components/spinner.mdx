@@ -3,7 +3,7 @@ title: 加载器
 description: 用于页面和区块的加载中状态 - 页面局部处于等待异步数据或正在渲染过程时，合适的加载动效会有效缓解用户的焦虑。
 ---
 
-import { Spinner } from '@resolid/react-ui';
+import { Spinner } from "@resolid/react-ui";
 import { mergeFrontmatter } from "@resolid/remix-utils";
 import { ComponentExample, ComponentProps, ComponentUsage } from "../__components";
 
@@ -16,12 +16,16 @@ export const meta = mergeFrontmatter(frontmatter);
 ## 导入
 
 ```js
-import { Spinner } from '@resolid/react-ui';
+import { Spinner } from "@resolid/react-ui";
 ```
 
 ## 用法
 
-<ComponentUsage preview={(props) => <Spinner {...props} />} componentFile={"./spinner/Spinner.tsx"} ignoreProps={["label"]} />
+<ComponentUsage
+  preview={(props) => <Spinner {...props} />}
+  componentFile={"./spinner/Spinner.tsx"}
+  ignoreProps={["label"]}
+/>
 
 ## 颜色
 
@@ -36,13 +40,14 @@ import { Spinner } from '@resolid/react-ui';
     <Spinner color={"neutral"} />
   </ComponentExample>
 
-  ```jsx
-  <Spinner color={"primary"} />
-  <Spinner color={"success"} />
-  <Spinner color={"warning"} />
-  <Spinner color={"danger"} />
-  <Spinner color={"neutral"} />
-  ```
+```jsx
+<Spinner color={"primary"} />
+<Spinner color={"success"} />
+<Spinner color={"warning"} />
+<Spinner color={"danger"} />
+<Spinner color={"neutral"} />
+```
+
 </section>
 
 ## 大小
@@ -56,13 +61,14 @@ import { Spinner } from '@resolid/react-ui';
     <Spinner size={"xl"} />
   </ComponentExample>
 
-  ```jsx
-  <Spinner size={"xs"} />
-  <Spinner size={"sm"} />
-  <Spinner size={"md"} />
-  <Spinner size={"lg"} />
-  <Spinner size={"xl"} />
-  ```
+```jsx
+<Spinner size={"xs"} />
+<Spinner size={"sm"} />
+<Spinner size={"md"} />
+<Spinner size={"lg"} />
+<Spinner size={"xl"} />
+```
+
 </section>
 
 ## 属性

@@ -79,7 +79,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 export default function SiteLayout() {
   return (
     <>
-      <header className={"z-nav sticky top-0 w-full border-b bg-bg-normal"}>
+      <header className={"sticky top-0 z-nav w-full border-b bg-bg-normal"}>
         <NavBar />
       </header>
       <div className={"min-h-[calc(100vh-10.765rem)]"}>
@@ -122,7 +122,7 @@ const NavBar = () => {
       </Link>
       <div
         className={clsx(
-          "z-nav absolute inset-x-0 top-[calc(theme(spacing.16)+1px)] h-screen bg-bg-normal p-0",
+          "absolute inset-x-0 top-[calc(theme(spacing.16)+1px)] z-nav h-screen bg-bg-normal p-0",
           "md:relative md:top-0 md:block md:h-auto md:bg-inherit",
           opened ? "block" : "hidden",
         )}

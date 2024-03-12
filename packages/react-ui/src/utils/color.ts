@@ -26,7 +26,7 @@ export const randomColor = (str: string) => {
     hash = hash & hash;
   }
 
-  let color = '#';
+  let color = "#";
 
   for (let j = 0; j < 3; j += 1) {
     const value = (hash >> (j * 8)) & 255;

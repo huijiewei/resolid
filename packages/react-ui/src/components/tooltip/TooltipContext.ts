@@ -1,5 +1,5 @@
-import { createContext } from '../../utils/context';
-import type { FloatingFloatingContext } from '../floating/FloatingFloatingContext';
+import { createContext } from "../../utils/context";
+import type { FloatingFloatingContext } from "../floating/FloatingFloatingContext";
 
 export { TooltipFloatingProvider, useTooltipFloating };
 
@@ -10,5 +10,5 @@ export type TooltipContext = FloatingFloatingContext & {
 
 const [TooltipFloatingProvider, useTooltipFloating] = createContext<TooltipContext>({
   strict: true,
-  name: 'TooltipFloatingContext',
+  name: "TooltipFloatingContext",
 });

@@ -1,6 +1,6 @@
-import type { MutableRefObject } from 'react';
-import { createContext } from '../../utils/context';
-import type { FloatingFloatingContext } from '../floating/FloatingFloatingContext';
+import type { MutableRefObject } from "react";
+import { createContext } from "../../utils/context";
+import type { FloatingFloatingContext } from "../floating/FloatingFloatingContext";
 
 export { PopoverFloatingProvider, usePopoverFloating };
 
@@ -12,5 +12,5 @@ export type PopoverContext = FloatingFloatingContext & {
 
 const [PopoverFloatingProvider, usePopoverFloating] = createContext<PopoverContext>({
   strict: true,
-  name: 'PopoverFloatingContext',
+  name: "PopoverFloatingContext",
 });

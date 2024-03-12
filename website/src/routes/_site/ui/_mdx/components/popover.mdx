@@ -3,9 +3,19 @@ title: 弹出框
 description: 鼠标点击在某个组件时，弹出的气泡式的卡片浮层。可以对卡片上的元素进行操作。
 ---
 
-import { Popover, PopoverTrigger, PopoverArrow, PopoverCloseButton,
-  PopoverContent, PopoverHeader, PopoverBody, PopoverFooter,
-  Input, Button, useDisclosure } from '@resolid/react-ui';
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  Input,
+  Button,
+  useDisclosure,
+} from "@resolid/react-ui";
 import { mergeFrontmatter } from "@resolid/remix-utils";
 import { useRef } from "react";
 import { ComponentProps, ComponentExample } from "../__components";
@@ -19,7 +29,7 @@ export const meta = mergeFrontmatter(frontmatter);
 ## 导入
 
 ```js
-import { 
+import {
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -27,8 +37,8 @@ import {
   PopoverBody,
   PopoverFooter,
   PopoverArrow,
-  PopoverCloseButton
-} from '@resolid/react-ui';
+  PopoverCloseButton,
+} from "@resolid/react-ui";
 ```
 
 - `Popover`: 为其子级提供上下文的包装器。
@@ -65,25 +75,26 @@ import {
     </Popover>
   </ComponentExample>
 
-  ```jsx
-  <Popover placement={"bottom"}>
-    <PopoverTrigger asChild>
-      <Button>打开弹出框</Button>
-    </PopoverTrigger>
-    <PopoverContent>
-      <PopoverBody>弹出框内容</PopoverBody>
-    </PopoverContent>
-  </Popover>
-  <Popover placement={"bottom"}>
-    <PopoverTrigger asChild>
-      <Button>打开带有箭头的弹出框</Button>
-    </PopoverTrigger>
-    <PopoverContent>
-      <PopoverArrow />
-      <PopoverBody>有箭头的弹出框内容</PopoverBody>
-    </PopoverContent>
-  </Popover>
-  ```
+```jsx
+<Popover placement={"bottom"}>
+  <PopoverTrigger asChild>
+    <Button>打开弹出框</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverBody>弹出框内容</PopoverBody>
+  </PopoverContent>
+</Popover>
+<Popover placement={"bottom"}>
+  <PopoverTrigger asChild>
+    <Button>打开带有箭头的弹出框</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverArrow />
+    <PopoverBody>有箭头的弹出框内容</PopoverBody>
+  </PopoverContent>
+</Popover>
+```
+
 </section>
 
 ## 动画持续时间
@@ -100,16 +111,17 @@ import {
     </Popover>
   </ComponentExample>
 
-  ```jsx
-  <Popover duration={3000}>
-    <PopoverTrigger asChild>
-      <Button>动画持续时间</Button>
-    </PopoverTrigger>
-    <PopoverContent>
-      <PopoverBody>持续时间很长</PopoverBody>
-    </PopoverContent>
-  </Popover>
-  ```
+```jsx
+<Popover duration={3000}>
+  <PopoverTrigger asChild>
+    <Button>动画持续时间</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverBody>持续时间很长</PopoverBody>
+  </PopoverContent>
+</Popover>
+```
+
 </section>
 
 ## 初始焦点
@@ -155,43 +167,44 @@ import {
     }}
   </ComponentExample>
 
-  ```jsx
-  const focusRef = useRef();
+```jsx
+const focusRef = useRef();
 
-  return (
-    <Popover initialFocus={focusRef} closeOnBlur={false}>
-      {({opened, close})=> (
-        <>
-          <PopoverTrigger asChild>
-            <Button>{opened?"关闭":"打开"}弹出框</Button>
-          </PopoverTrigger>
-          <PopoverContent>
-            <PopoverCloseButton />
-            <PopoverHeader>表单弹出框</PopoverHeader>
-            <form>
-              <PopoverBody className={"flex flex-col gap-2"}>
-                <div className={'flex gap-5 items-center justify-between'}>
-                  <label htmlFor={'username'}>用户名</label>
-                  <Input ref={focusRef} id={'username'} />
-                </div>
-                <div className={'flex gap-5 items-center justify-between'}>
-                  <label htmlFor={'email'}>电子邮件</label>
-                  <Input id={'email'} />
-                </div>
-              </PopoverBody>
-              <PopoverFooter className={"flex flex-row justify-end gap-5"}>
-                <Button variant={"soft"} color={'neutral'} onClick={close}>
-                  关闭
-                </Button>
-                <Button>确定</Button>
-              </PopoverFooter>
-            </form>
-          </PopoverContent>
-        </>
-      )}
-    </Popover>
-  );
-  ```
+return (
+  <Popover initialFocus={focusRef} closeOnBlur={false}>
+    {({ opened, close }) => (
+      <>
+        <PopoverTrigger asChild>
+          <Button>{opened ? "关闭" : "打开"}弹出框</Button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <PopoverCloseButton />
+          <PopoverHeader>表单弹出框</PopoverHeader>
+          <form>
+            <PopoverBody className={"flex flex-col gap-2"}>
+              <div className={"flex items-center justify-between gap-5"}>
+                <label htmlFor={"username"}>用户名</label>
+                <Input ref={focusRef} id={"username"} />
+              </div>
+              <div className={"flex items-center justify-between gap-5"}>
+                <label htmlFor={"email"}>电子邮件</label>
+                <Input id={"email"} />
+              </div>
+            </PopoverBody>
+            <PopoverFooter className={"flex flex-row justify-end gap-5"}>
+              <Button variant={"soft"} color={"neutral"} onClick={close}>
+                关闭
+              </Button>
+              <Button>确定</Button>
+            </PopoverFooter>
+          </form>
+        </PopoverContent>
+      </>
+    )}
+  </Popover>
+);
+```
+
 </section>
 
 ## 访问内部状态
@@ -219,27 +232,26 @@ import {
     </Popover>
   </ComponentExample>
 
-  ```jsx
-  <Popover closeOnBlur={false}>
-    {({opened, close})=> (
-      <>
-        <PopoverTrigger asChild>
-          <Button>{opened?"关闭":"打开"}弹出框</Button>
-        </PopoverTrigger>
-        <PopoverContent>
-          <PopoverBody>
-            弹出框内容
-          </PopoverBody>
-          <PopoverFooter className={"flex justify-center"}>
-            <Button variant={"soft"} color={'neutral'} onClick={close}>
-              关闭
-            </Button>
-          </PopoverFooter>
-        </PopoverContent>
-      </>
-    )}
-  </Popover>
-  ```
+```jsx
+<Popover closeOnBlur={false}>
+  {({ opened, close }) => (
+    <>
+      <PopoverTrigger asChild>
+        <Button>{opened ? "关闭" : "打开"}弹出框</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <PopoverBody>弹出框内容</PopoverBody>
+        <PopoverFooter className={"flex justify-center"}>
+          <Button variant={"soft"} color={"neutral"} onClick={close}>
+            关闭
+          </Button>
+        </PopoverFooter>
+      </PopoverContent>
+    </>
+  )}
+</Popover>
+```
+
 </section>
 
 ## 嵌套弹出框
@@ -270,16 +282,17 @@ import {
     </Popover>
   </ComponentExample>
 
-  ```jsx
-  <Popover duration={3000}>
-    <PopoverTrigger asChild>
-      <Button>动画持续时间</Button>
-    </PopoverTrigger>
-    <PopoverContent>
-      <PopoverBody>持续时间很长</PopoverBody>
-    </PopoverContent>
-  </Popover>
-  ```
+```jsx
+<Popover duration={3000}>
+  <PopoverTrigger asChild>
+    <Button>动画持续时间</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverBody>持续时间很长</PopoverBody>
+  </PopoverContent>
+</Popover>
+```
+
 </section>
 
 ## 放置位置
@@ -334,57 +347,58 @@ import {
     </div>
   </ComponentExample>
 
-  ```jsx
-  <div className={'mx-auto grid w-fit gap-2'}
-       style={{
-         gridTemplateAreas:
-           '".           top-start     top         top-end       .            "' +
-           '"left-start  .             .           .             right-start  "' +
-           '"left        .             center      .             right        "' +
-           '"left-end    .             .           .             right-end    "' +
-           '".           bottom-start  bottom      bottom-end    .            "',
-       }}
-  >
-    {[
-      ['top-start', '上左'],
-      ['top', '上'],
-      ['top-end', '上右'],
-      ['left-start', '左上'],
-      ['left', '左'],
-      ['left-end', '左下'],
-      ['auto', '自动'],
-      ['right-start', '右上'],
-      ['right', '右'],
-      ['right-end', '右下'],
-      ['bottom-start', '下左'],
-      ['bottom', '下'],
-      ['bottom-end', '下右'],
-    ].map(([placement, name]) => (
-      <Popover key={placement} placement={placement}>
-        <PopoverTrigger asChild>
-            <span
-              style={{ gridArea: placement == 'auto' ? 'center' : placement }}
-              className={
-                'flex h-12 w-12 text-center leading-tight text-sm cursor-default items-center justify-center rounded bg-bg-muted'
-              }
-            >
-            {name}
-          </span>
-        </PopoverTrigger>
-        <PopoverContent>
-          <PopoverArrow />
-          <PopoverCloseButton />
-          <PopoverHeader>弹出框头部</PopoverHeader>
-          <PopoverBody>{name}位置弹出框</PopoverBody>
-          <PopoverFooter>弹出框底部</PopoverFooter>
-        </PopoverContent>
-      </Popover>
-    ))}
-  </div>
-  ```
+```jsx
+<div
+  className={"mx-auto grid w-fit gap-2"}
+  style={{
+    gridTemplateAreas:
+      '".           top-start     top         top-end       .            "' +
+      '"left-start  .             .           .             right-start  "' +
+      '"left        .             center      .             right        "' +
+      '"left-end    .             .           .             right-end    "' +
+      '".           bottom-start  bottom      bottom-end    .            "',
+  }}
+>
+  {[
+    ["top-start", "上左"],
+    ["top", "上"],
+    ["top-end", "上右"],
+    ["left-start", "左上"],
+    ["left", "左"],
+    ["left-end", "左下"],
+    ["auto", "自动"],
+    ["right-start", "右上"],
+    ["right", "右"],
+    ["right-end", "右下"],
+    ["bottom-start", "下左"],
+    ["bottom", "下"],
+    ["bottom-end", "下右"],
+  ].map(([placement, name]) => (
+    <Popover key={placement} placement={placement}>
+      <PopoverTrigger asChild>
+        <span
+          style={{ gridArea: placement == "auto" ? "center" : placement }}
+          className={
+            "flex h-12 w-12 cursor-default items-center justify-center rounded bg-bg-muted text-center text-sm leading-tight"
+          }
+        >
+          {name}
+        </span>
+      </PopoverTrigger>
+      <PopoverContent>
+        <PopoverArrow />
+        <PopoverCloseButton />
+        <PopoverHeader>弹出框头部</PopoverHeader>
+        <PopoverBody>{name}位置弹出框</PopoverBody>
+        <PopoverFooter>弹出框底部</PopoverFooter>
+      </PopoverContent>
+    </Popover>
+  ))}
+</div>
+```
+
 </section>
 
 ## 属性
 
 <ComponentProps componentFile={"./popover/Popover.tsx"} />
-

@@ -3,7 +3,7 @@ title: 单选框
 description: 在一组相关且互斥数据中，用户仅能选择一个选项。
 ---
 
-import { Radio, RadioGroup } from '@resolid/react-ui';
+import { Radio, RadioGroup } from "@resolid/react-ui";
 import { mergeFrontmatter } from "@resolid/remix-utils";
 import { useState } from "react";
 import { ComponentExample, ComponentProps, ComponentUsage } from "../__components";
@@ -17,12 +17,16 @@ export const meta = mergeFrontmatter(frontmatter);
 ## 导入
 
 ```js
-import { Radio, RadioGroup } from '@resolid/react-ui';
+import { Radio, RadioGroup } from "@resolid/react-ui";
 ```
 
 ## 用法
 
-<ComponentUsage preview={(props) => <Radio {...props}>单选框</Radio>} componentFile={"./radio/Radio.tsx"} ignoreProps={["icon","value","spacing"]} />
+<ComponentUsage
+  preview={(props) => <Radio {...props}>单选框</Radio>}
+  componentFile={"./radio/Radio.tsx"}
+  ignoreProps={["icon", "value", "spacing"]}
+/>
 
 ## 大小
 
@@ -37,15 +41,24 @@ import { Radio, RadioGroup } from '@resolid/react-ui';
     </RadioGroup>
   </ComponentExample>
 
-  ```jsx
-  <RadioGroup defaultValue={"md"} name="radioSizes">
-    <Radio size={"xs"} value={"xs"}>XS</Radio>
-    <Radio size={"sm"} value={"sm"}>SM</Radio>
-    <Radio value={"md"}>MD</Radio>
-    <Radio size={"lg"} value={"lg"}>LG</Radio>
-    <Radio size={"xl"} value={"xl"}>XL</Radio>
-  </RadioGroup>
-  ```
+```jsx
+<RadioGroup defaultValue={"md"} name="radioSizes">
+  <Radio size={"xs"} value={"xs"}>
+    XS
+  </Radio>
+  <Radio size={"sm"} value={"sm"}>
+    SM
+  </Radio>
+  <Radio value={"md"}>MD</Radio>
+  <Radio size={"lg"} value={"lg"}>
+    LG
+  </Radio>
+  <Radio size={"xl"} value={"xl"}>
+    XL
+  </Radio>
+</RadioGroup>
+```
+
 </section>
 
 ## 颜色
@@ -61,15 +74,24 @@ import { Radio, RadioGroup } from '@resolid/react-ui';
     </RadioGroup>
   </ComponentExample>
 
-  ```jsx
-  <RadioGroup defaultValue={"primary"} name="radioColors">
-    <Radio value={"primary"}>Primary</Radio>
-    <Radio color={'success'} value={'success'}>Success</Radio>
-    <Radio color={'warning'} value={'warning'}>Warning</Radio>
-    <Radio color={'danger'} value={"danger"}>Danger</Radio>
-    <Radio color={'neutral'} value={"neutral"}>Neutral</Radio>
-  </RadioGroup>
-  ```
+```jsx
+<RadioGroup defaultValue={"primary"} name="radioColors">
+  <Radio value={"primary"}>Primary</Radio>
+  <Radio color={"success"} value={"success"}>
+    Success
+  </Radio>
+  <Radio color={"warning"} value={"warning"}>
+    Warning
+  </Radio>
+  <Radio color={"danger"} value={"danger"}>
+    Danger
+  </Radio>
+  <Radio color={"neutral"} value={"neutral"}>
+    Neutral
+  </Radio>
+</RadioGroup>
+```
+
 </section>
 
 ## 单选框组
@@ -99,31 +121,33 @@ import { Radio, RadioGroup } from '@resolid/react-ui';
         </div>
       );
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const [checkedValue, setCheckedValue] = useState('');
+```jsx
+const [checkedValue, setCheckedValue] = useState("");
 
-  return (
-    <div className={'flex flex-col gap-2'}>
-      <RadioGroup
-        name={"radioGroup"}
-        value={checkedValue}
-        onChange={(value) => {
-          setCheckedValue(value);
-        }}
-      >
-        <div className={'flex flex-row gap-5'}>
-          <Radio value={'选择框一'}>选择框一</Radio>
-          <Radio value={'选择框二'}>选择框二</Radio>
-          <Radio value={'选择框三'}>选择框三</Radio>
-          <Radio value={'选择框四'}>选择框四</Radio>
-        </div>
-      </RadioGroup>
-      <div>你选中的值: {checkedValue}</div>
-    </div>
-  );
-  ```
+return (
+  <div className={"flex flex-col gap-2"}>
+    <RadioGroup
+      name={"radioGroup"}
+      value={checkedValue}
+      onChange={(value) => {
+        setCheckedValue(value);
+      }}
+    >
+      <div className={"flex flex-row gap-5"}>
+        <Radio value={"选择框一"}>选择框一</Radio>
+        <Radio value={"选择框二"}>选择框二</Radio>
+        <Radio value={"选择框三"}>选择框三</Radio>
+        <Radio value={"选择框四"}>选择框四</Radio>
+      </div>
+    </RadioGroup>
+    <div>你选中的值: {checkedValue}</div>
+  </div>
+);
+```
+
 </section>
 
 ## 关于名称的注意事项
