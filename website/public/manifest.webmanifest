@@ -4,7 +4,7 @@
   "start_url": "/",
   "theme_color": "#0969da",
   "background_color": "#ffffff",
-  "description": "一个引人入胜的 React 全栈框架，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。",
+  "description": "使用 Remix 驱动的全栈网站，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。",
   "display": "standalone",
   "display_override": ["window-controls-overlay"],
   "icons": [
@@ -28,6 +28,22 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "screenshots" : [
+    {
+      "src": "/images/s-desktop-v1.webp",
+      "sizes": "1503x1080",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "Resolid 主页"
+    },
+    {
+      "src": "/images/s-mobile-v1.webp",
+      "sizes": "577x1080",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Resolid 移动主页"
     }
   ]
 }
