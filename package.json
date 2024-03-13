@@ -17,8 +17,8 @@
     "drizzle": "pnpm --filter website run drizzle"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.0.3",
-    "@commitlint/config-conventional": "^19.0.3",
+    "@commitlint/cli": "^19.1.0",
+    "@commitlint/config-conventional": "^19.1.0",
     "@types/node": "^20.11.26",
     "lefthook": "^1.6.5",
     "prettier": "^3.2.5",
@@ -39,9 +39,10 @@
   "pnpm": {
     "overrides": {
       "esbuild": "^0.20.1",
-      "react": "18.3.0-canary-338dddc08-20240307",
-      "react-dom": "18.3.0-canary-338dddc08-20240307",
-      "react-is": "18.3.0-canary-338dddc08-20240307",
+      "rollup": "^4.13.0",
+      "react": "18.3.0-canary-eb33bd747-20240312",
+      "react-dom": "18.3.0-canary-eb33bd747-20240312",
+      "react-is": "18.3.0-canary-eb33bd747-20240312",
       "hasown": "npm:@nolyfill/hasown@latest",
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
