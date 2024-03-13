@@ -2,10 +2,6 @@
   "name": "resolid",
   "private": true,
   "type": "module",
-  "workspaces": [
-    "packages/*",
-    "website"
-  ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "lefthook install",
@@ -14,7 +10,7 @@
     "test": "pnpm test -r --if-present",
     "website:build": "pnpm --filter website... run build",
     "website:vercel": "BUILD_ENV=vercel pnpm --filter website... run build",
-    "drizzle": "pnpm --filter website run drizzle"
+    "resolid": "pnpm --filter website run resolid"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.1.0",

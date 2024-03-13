@@ -2,9 +2,9 @@
 
 Resolid 核心框架
 
-本框架依赖 `drizzle-orm`, 所以要使用需先安装
+## 基本用法
 
-### 定义数据库
+### 设置数据库
 
 新建文件 `src/db.server.ts`
 
@@ -24,21 +24,83 @@ export const db = resolidDatabase({
 ```
 {
   find: "@dbInstance",
-  replacement: fileURLToPath(new URL(`./src/database.ts`, import.meta.url)),
+  replacement: fileURLToPath(new URL(`./src/db.server.ts`, import.meta.url)),
 }
 ```
 
-如果需要使用 `drizzle-kit` 命令来进行数据库 `push`, 需要修改 `drizzle.config.ts` 文件
+### 定义数据架构
+
+```js
+import { resolidTable } from "@resolid/framework";
+import { users } from "@resolid/framework/modules";
+import { serial, text, integer, relations } from "@resolid/framework/drizzle";
+
+// 定义博客文章, 请使用 resolidTable 定义
+export const blogPosts = resolidTable("blog_post", {
+    id: serial("id").primaryKey(),
+    userId: integer("userId").notNull().default(0),
+    slug: text("slug").notNull().default(""),
+    title: text("title").notNull().default(""),
+    content: text("content").notNull().default(""), 
+    createdAt: timestamp("createdAt").notNull().defaultNow()
+  },
+  (blogPosts) => ({
+    slugIndex: uniqueIndex("slugIndex").on(blogPosts.slug),
+    userIdIndex: index("userIdIndex").on(blogPosts.userId),
+    createdAtIndex: index("createdAtIndex").on(blogPosts.createdAt)
+  })
+);
+
+// 建立关联
+export const blogPostsRelations = relations(users, ({ one }) => ({
+  user: one(users, {
+    fields: [blogPosts.userId],
+    references: [users.id]
+  })
+}));
+```
+
+> 更多内容可以查看 https://orm.drizzle.team/docs/column-types/pg
+
+### 查询数据
+
+```js
+import { eq } from "@resolid/framework/drizzle";
+
+const posts = db.query.blogPosts
+  .findMany({
+    where: eq(blogPosts.userId, 1),
+    orderBy: [desc(blogPosts.createdAt)],
+    with: {
+      users: true,
+    },
+  });
+```
+
+> 更多内容可以查看 https://orm.drizzle.team/docs/rqb
+
+## 命令行工具
+
+命令行工具依赖 `drizzle-kit`
+
+```bash
+pnpm add -D drizzle-kit
+```
+
+编辑 `drizzle.config.ts` 文件
 
 ```ts
-export default {
-  // 在 schema 里面增加很核心库的 schema
-  schema: ["./node_modules/@resolid/framework/src/schemas.ts"],
-  driver: "pg",
-  dbCredentials: {
-    connectionString: env.RX_DB_URL,
-  },
-};
+import { drizzleKitConfig } from "@resolid/framework";
+
+export default drizzleKitConfig({
+  schema: ["./src/modules/*/schema.server.ts"], // 这里定义本地项目的 schema
+});
+```
+
+### 数据库 Push
+
+```shell
+resolid db push
 ```
 
 ## 感谢

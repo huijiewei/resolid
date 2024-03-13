@@ -1,7 +1,2 @@
-import { createClassed, type VariantProps } from "@tw-classed/core";
-
-export type { VariantProps };
-
-export const { classed } = createClassed();
-
+export { classed, type VariantProps } from "@tw-classed/core";
 export { clsx } from "clsx";

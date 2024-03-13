@@ -2,6 +2,8 @@ import { desc, eq, sql } from "drizzle-orm";
 import { db } from "../../foundation/alias";
 import { userGroups, users } from "./schema";
 
+export { userGroups, users };
+
 export type UserSelect = typeof users.$inferSelect;
 export type UserSelectWithGroup = UserSelect & { userGroup: UserGroupSelect };
 export type UserInsert = typeof users.$inferInsert;
@@ -12,7 +14,7 @@ export type UserGroupInsert = typeof userGroups.$inferInsert;
 export const getUserByLast = async (): Promise<UserSelect | undefined> => {
   return await db.query.users
     .findFirst({
-      orderBy: desc(users.id),
+      orderBy: [desc(users.id)],
     })
     .execute();
 };

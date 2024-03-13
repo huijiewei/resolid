@@ -14,15 +14,19 @@
     "provenance": true
   },
   "files": [
+    "cli",
     "src",
     "env.d.ts"
   ],
+  "bin": {
+    "resolid": "./cli/bin.js"
+  },
   "scripts": {
-    "lint": "eslint .",
-    "test": "vitest --run"
+    "lint": "eslint ."
   },
   "exports": {
     ".": "./src/index.ts",
+    "./drizzle": "./src/export/drizzle.ts",
     "./modules": "./src/modules.ts"
   },
   "dependencies": {
@@ -31,6 +35,7 @@
   },
   "devDependencies": {
     "@resolid/config": "workspace:^",
+    "commander": "^12.0.0",
     "vitest": "^1.3.1"
   },
   "peerDependencies": {
