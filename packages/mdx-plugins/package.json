@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "esast-util-from-js": "^2.0.1",
-    "mdast-util-mdx-jsx": "^3.1.1",
+    "mdast-util-mdx-jsx": "^3.1.2",
     "react-docgen-typescript": "^2.2.2",
     "unist-util-visit": "^5.0.0"
   },

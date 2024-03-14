@@ -15,7 +15,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.1.0",
     "@commitlint/config-conventional": "^19.1.0",
-    "@types/node": "^20.11.26",
+    "@types/node": "^20.11.27",
     "lefthook": "^1.6.5",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
@@ -36,9 +36,9 @@
     "overrides": {
       "esbuild": "^0.20.1",
       "rollup": "^4.13.0",
-      "react": "18.3.0-canary-eb33bd747-20240312",
-      "react-dom": "18.3.0-canary-eb33bd747-20240312",
-      "react-is": "18.3.0-canary-eb33bd747-20240312",
+      "react": "18.3.0-canary-bb0944fe5-20240313",
+      "react-dom": "18.3.0-canary-bb0944fe5-20240313",
+      "react-is": "18.3.0-canary-bb0944fe5-20240313",
       "hasown": "npm:@nolyfill/hasown@latest",
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",

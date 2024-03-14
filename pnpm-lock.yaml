@@ -7,9 +7,9 @@ settings:
 overrides:
   esbuild: ^0.20.1
   rollup: ^4.13.0
-  react: 18.3.0-canary-eb33bd747-20240312
-  react-dom: 18.3.0-canary-eb33bd747-20240312
-  react-is: 18.3.0-canary-eb33bd747-20240312
+  react: 18.3.0-canary-bb0944fe5-20240313
+  react-dom: 18.3.0-canary-bb0944fe5-20240313
+  react-is: 18.3.0-canary-bb0944fe5-20240313
   hasown: npm:@nolyfill/hasown@latest
   array-includes: npm:@nolyfill/array-includes@latest
   array.prototype.flat: npm:@nolyfill/array.prototype.flat@latest
@@ -38,13 +38,13 @@ importers:
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.1.0
-        version: 19.1.0(@types/node@20.11.26)(typescript@5.4.2)
+        version: 19.1.0(@types/node@20.11.27)(typescript@5.4.2)
       '@commitlint/config-conventional':
         specifier: ^19.1.0
         version: 19.1.0
       '@types/node':
-        specifier: ^20.11.26
-        version: 20.11.26
+        specifier: ^20.11.27
+        version: 20.11.27
       lefthook:
         specifier: ^1.6.5
         version: 1.6.5
@@ -109,7 +109,7 @@ importers:
         version: 12.0.0
       vitest:
         specifier: ^1.3.1
-        version: 1.3.1(@types/node@20.11.26)(jsdom@24.0.0)
+        version: 1.3.1(@types/node@20.11.27)(jsdom@24.0.0)
 
   packages/mdx-plugins:
     dependencies:
@@ -117,8 +117,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       mdast-util-mdx-jsx:
-        specifier: ^3.1.1
-        version: 3.1.1
+        specifier: ^3.1.2
+        version: 3.1.2
       react-docgen-typescript:
         specifier: ^2.2.2
         version: 2.2.2(typescript@5.4.2)
@@ -143,7 +143,7 @@ importers:
     dependencies:
       '@floating-ui/react':
         specifier: ^0.26.9
-        version: 0.26.9(react-dom@18.3.0-canary-eb33bd747-20240312)(react@18.3.0-canary-eb33bd747-20240312)
+        version: 0.26.9(react-dom@18.3.0-canary-bb0944fe5-20240313)(react@18.3.0-canary-bb0944fe5-20240313)
       '@resolid/utils':
         specifier: workspace:^
         version: link:../utils
@@ -155,7 +155,7 @@ importers:
         version: 2.1.0
       react-remove-scroll-bar:
         specifier: ^2.3.5
-        version: 2.3.5(@types/react@18.2.65)(react@18.3.0-canary-eb33bd747-20240312)
+        version: 2.3.5(@types/react@18.2.65)(react@18.3.0-canary-bb0944fe5-20240313)
     devDependencies:
       '@resolid/config':
         specifier: workspace:^
@@ -165,31 +165,31 @@ importers:
         version: link:../tailwind
       '@testing-library/react':
         specifier: ^14.2.1
-        version: 14.2.1(react-dom@18.3.0-canary-eb33bd747-20240312)(react@18.3.0-canary-eb33bd747-20240312)
+        version: 14.2.1(react-dom@18.3.0-canary-bb0944fe5-20240313)(react@18.3.0-canary-bb0944fe5-20240313)
       '@types/react':
         specifier: ^18.2.65
         version: 18.2.65
       '@types/react-dom':
-        specifier: ^18.2.21
-        version: 18.2.21
+        specifier: ^18.2.22
+        version: 18.2.22
       jsdom:
         specifier: ^24.0.0
         version: 24.0.0
       react:
-        specifier: 18.3.0-canary-eb33bd747-20240312
-        version: 18.3.0-canary-eb33bd747-20240312
+        specifier: 18.3.0-canary-bb0944fe5-20240313
+        version: 18.3.0-canary-bb0944fe5-20240313
       react-dom:
-        specifier: 18.3.0-canary-eb33bd747-20240312
-        version: 18.3.0-canary-eb33bd747-20240312(react@18.3.0-canary-eb33bd747-20240312)
+        specifier: 18.3.0-canary-bb0944fe5-20240313
+        version: 18.3.0-canary-bb0944fe5-20240313(react@18.3.0-canary-bb0944fe5-20240313)
       tsup:
         specifier: ^8.0.2
         version: 8.0.2(postcss@8.4.35)(typescript@5.4.2)
       vite-tsconfig-paths:
-        specifier: ^4.3.1
-        version: 4.3.1(typescript@5.4.2)(vite@5.1.6)
+        specifier: ^4.3.2
+        version: 4.3.2(typescript@5.4.2)(vite@5.1.6)
       vitest:
         specifier: ^1.3.1
-        version: 1.3.1(@types/node@20.11.26)(jsdom@24.0.0)
+        version: 1.3.1(@types/node@20.11.27)(jsdom@24.0.0)
 
   packages/remix-plugins:
     dependencies:
@@ -205,7 +205,7 @@ importers:
     devDependencies:
       '@remix-run/dev':
         specifier: ^2.8.1
-        version: 2.8.1(@remix-run/serve@2.8.1)(@types/node@20.11.26)(typescript@5.4.2)(vite@5.1.6)
+        version: 2.8.1(@remix-run/serve@2.8.1)(@types/node@20.11.27)(typescript@5.4.2)(vite@5.1.6)
       '@resolid/config':
         specifier: workspace:^
         version: link:../config
@@ -238,7 +238,7 @@ importers:
         version: 4.12.0
       vite:
         specifier: ^5.1.6
-        version: 5.1.6(@types/node@20.11.26)
+        version: 5.1.6(@types/node@20.11.27)
 
   packages/remix-utils:
     devDependencies:
@@ -256,7 +256,7 @@ importers:
         version: 8.0.2(postcss@8.4.35)(typescript@5.4.2)
       vitest:
         specifier: ^1.3.1
-        version: 1.3.1(@types/node@20.11.26)(jsdom@24.0.0)
+        version: 1.3.1(@types/node@20.11.27)(jsdom@24.0.0)
 
   packages/tailwind:
     devDependencies:
@@ -283,7 +283,7 @@ importers:
         version: 8.0.2(postcss@8.4.35)(typescript@5.4.2)
       vitest:
         specifier: ^1.3.1
-        version: 1.3.1(@types/node@20.11.26)(jsdom@24.0.0)
+        version: 1.3.1(@types/node@20.11.27)(jsdom@24.0.0)
 
   website:
     dependencies:
@@ -295,13 +295,13 @@ importers:
         version: 1.8.2
       '@mdx-js/react':
         specifier: ^3.0.1
-        version: 3.0.1(@types/react@18.2.65)(react@18.3.0-canary-eb33bd747-20240312)
+        version: 3.0.1(@types/react@18.2.65)(react@18.3.0-canary-bb0944fe5-20240313)
       '@remix-run/node':
         specifier: ^2.8.1
         version: 2.8.1(typescript@5.4.2)
       '@remix-run/react':
         specifier: ^2.8.1
-        version: 2.8.1(react-dom@18.3.0-canary-eb33bd747-20240312)(react@18.3.0-canary-eb33bd747-20240312)(typescript@5.4.2)
+        version: 2.8.1(react-dom@18.3.0-canary-bb0944fe5-20240313)(react@18.3.0-canary-bb0944fe5-20240313)(typescript@5.4.2)
       '@remix-run/server-runtime':
         specifier: ^2.8.1
         version: 2.8.1(typescript@5.4.2)
@@ -324,18 +324,18 @@ importers:
         specifier: ^5.1.1
         version: 5.1.1
       react:
-        specifier: 18.3.0-canary-eb33bd747-20240312
-        version: 18.3.0-canary-eb33bd747-20240312
+        specifier: 18.3.0-canary-bb0944fe5-20240313
+        version: 18.3.0-canary-bb0944fe5-20240313
       react-dom:
-        specifier: 18.3.0-canary-eb33bd747-20240312
-        version: 18.3.0-canary-eb33bd747-20240312(react@18.3.0-canary-eb33bd747-20240312)
+        specifier: 18.3.0-canary-bb0944fe5-20240313
+        version: 18.3.0-canary-bb0944fe5-20240313(react@18.3.0-canary-bb0944fe5-20240313)
     devDependencies:
       '@mdx-js/rollup':
         specifier: ^3.0.1
         version: 3.0.1(rollup@4.13.0)
       '@remix-run/dev':
         specifier: ^2.8.1
-        version: 2.8.1(@remix-run/serve@2.8.1)(@types/node@20.11.26)(typescript@5.4.2)(vite@5.1.6)
+        version: 2.8.1(@remix-run/serve@2.8.1)(@types/node@20.11.27)(typescript@5.4.2)(vite@5.1.6)
       '@remix-run/serve':
         specifier: ^2.8.1
         version: 2.8.1(typescript@5.4.2)
@@ -361,8 +361,8 @@ importers:
         specifier: ^18.2.65
         version: 18.2.65
       '@types/react-dom':
-        specifier: ^18.2.21
-        version: 18.2.21
+        specifier: ^18.2.22
+        version: 18.2.22
       autoprefixer:
         specifier: ^10.4.18
         version: 10.4.18(postcss@8.4.35)
@@ -398,13 +398,13 @@ importers:
         version: 4.7.1
       vite:
         specifier: ^5.1.6
-        version: 5.1.6(@types/node@20.11.26)
+        version: 5.1.6(@types/node@20.11.27)
       vite-plugin-inspect:
         specifier: ^0.8.3
         version: 0.8.3(rollup@4.13.0)(vite@5.1.6)
       vite-tsconfig-paths:
-        specifier: ^4.3.1
-        version: 4.3.1(typescript@5.4.2)(vite@5.1.6)
+        specifier: ^4.3.2
+        version: 4.3.2(typescript@5.4.2)(vite@5.1.6)
 
 packages:
 
@@ -758,14 +758,14 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@commitlint/cli@19.1.0(@types/node@20.11.26)(typescript@5.4.2):
+  /@commitlint/cli@19.1.0(@types/node@20.11.27)(typescript@5.4.2):
     resolution: {integrity: sha512-SYGm8HGbVzrlSYeB6oo6pG1Ec6bOMJcDsXgNGa4vgZQsPj6nJkcbTWlIRmtmIk0tHi0d5sCljGuQ+g/0NCPv7w==}
     engines: {node: '>=v18'}
     hasBin: true
     dependencies:
       '@commitlint/format': 19.0.3
       '@commitlint/lint': 19.1.0
-      '@commitlint/load': 19.1.0(@types/node@20.11.26)(typescript@5.4.2)
+      '@commitlint/load': 19.1.0(@types/node@20.11.27)(typescript@5.4.2)
       '@commitlint/read': 19.0.3
       '@commitlint/types': 19.0.3
       execa: 8.0.1
@@ -834,7 +834,7 @@ packages:
       '@commitlint/types': 19.0.3
     dev: true
 
-  /@commitlint/load@19.1.0(@types/node@20.11.26)(typescript@5.4.2):
+  /@commitlint/load@19.1.0(@types/node@20.11.27)(typescript@5.4.2):
     resolution: {integrity: sha512-rWqnvNDpeshX8JfUC/qjpDkQB78qF+4uHcJmIRJMwvlj6zWce08SP/TPKN3GlNKgXhAawwcAPxXL9qOTTdiOBA==}
     engines: {node: '>=v18'}
     dependencies:
@@ -844,7 +844,7 @@ packages:
       '@commitlint/types': 19.0.3
       chalk: 5.3.0
       cosmiconfig: 8.3.6(typescript@5.4.2)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.11.26)(cosmiconfig@8.3.6)(typescript@5.4.2)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.11.27)(cosmiconfig@8.3.6)(typescript@5.4.2)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -1197,27 +1197,27 @@ packages:
       '@floating-ui/utils': 0.2.1
     dev: false
 
-  /@floating-ui/react-dom@2.0.8(react-dom@18.3.0-canary-eb33bd747-20240312)(react@18.3.0-canary-eb33bd747-20240312):
+  /@floating-ui/react-dom@2.0.8(react-dom@18.3.0-canary-bb0944fe5-20240313)(react@18.3.0-canary-bb0944fe5-20240313):
     resolution: {integrity: sha512-HOdqOt3R3OGeTKidaLvJKcgg75S6tibQ3Tif4eyd91QnIJWr0NLvoXFpJA/j8HqkFSL68GDca9AuyWEHlhyClw==}
     peerDependencies:
-      react: 18.3.0-canary-eb33bd747-20240312
-      react-dom: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
+      react-dom: 18.3.0-canary-bb0944fe5-20240313
     dependencies:
       '@floating-ui/dom': 1.6.3
-      react: 18.3.0-canary-eb33bd747-20240312
-      react-dom: 18.3.0-canary-eb33bd747-20240312(react@18.3.0-canary-eb33bd747-20240312)
+      react: 18.3.0-canary-bb0944fe5-20240313
+      react-dom: 18.3.0-canary-bb0944fe5-20240313(react@18.3.0-canary-bb0944fe5-20240313)
     dev: false
 
-  /@floating-ui/react@0.26.9(react-dom@18.3.0-canary-eb33bd747-20240312)(react@18.3.0-canary-eb33bd747-20240312):
+  /@floating-ui/react@0.26.9(react-dom@18.3.0-canary-bb0944fe5-20240313)(react@18.3.0-canary-bb0944fe5-20240313):
     resolution: {integrity: sha512-p86wynZJVEkEq2BBjY/8p2g3biQ6TlgT4o/3KgFKyTWoJLU1GZ8wpctwRqtkEl2tseYA+kw7dBAIDFcednfI5w==}
     peerDependencies:
-      react: 18.3.0-canary-eb33bd747-20240312
-      react-dom: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
+      react-dom: 18.3.0-canary-bb0944fe5-20240313
     dependencies:
-      '@floating-ui/react-dom': 2.0.8(react-dom@18.3.0-canary-eb33bd747-20240312)(react@18.3.0-canary-eb33bd747-20240312)
+      '@floating-ui/react-dom': 2.0.8(react-dom@18.3.0-canary-bb0944fe5-20240313)(react@18.3.0-canary-bb0944fe5-20240313)
       '@floating-ui/utils': 0.2.1
-      react: 18.3.0-canary-eb33bd747-20240312
-      react-dom: 18.3.0-canary-eb33bd747-20240312(react@18.3.0-canary-eb33bd747-20240312)
+      react: 18.3.0-canary-bb0944fe5-20240313
+      react-dom: 18.3.0-canary-bb0944fe5-20240313(react@18.3.0-canary-bb0944fe5-20240313)
       tabbable: 6.2.0
     dev: false
 
@@ -1376,15 +1376,15 @@ packages:
       - supports-color
     dev: true
 
-  /@mdx-js/react@3.0.1(@types/react@18.2.65)(react@18.3.0-canary-eb33bd747-20240312):
+  /@mdx-js/react@3.0.1(@types/react@18.2.65)(react@18.3.0-canary-bb0944fe5-20240313):
     resolution: {integrity: sha512-9ZrPIU4MGf6et1m1ov3zKf+q9+deetI51zprKB1D/z3NOb+rUxxtEl3mCjW5wTGh6VhRdwPueh1oRzi6ezkA8A==}
     peerDependencies:
       '@types/react': '>=16'
-      react: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
     dependencies:
       '@types/mdx': 2.0.11
       '@types/react': 18.2.65
-      react: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
     dev: false
 
   /@mdx-js/rollup@3.0.1(rollup@4.13.0):
@@ -1626,7 +1626,7 @@ packages:
     resolution: {integrity: sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==}
     dev: true
 
-  /@remix-run/dev@2.8.1(@remix-run/serve@2.8.1)(@types/node@20.11.26)(typescript@5.4.2)(vite@5.1.6):
+  /@remix-run/dev@2.8.1(@remix-run/serve@2.8.1)(@types/node@20.11.27)(typescript@5.4.2)(vite@5.1.6):
     resolution: {integrity: sha512-qFt4jAsAJeIOyg6ngeSnTG/9Z5N9QJfeThP/8wRHc1crqYgTiEtcI3DZ8WlAXjVSF5emgn/ZZKqzLAI02OgMfQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
@@ -1660,7 +1660,7 @@ packages:
       '@remix-run/serve': 2.8.1(typescript@5.4.2)
       '@remix-run/server-runtime': 2.8.1(typescript@5.4.2)
       '@types/mdx': 2.0.11
-      '@vanilla-extract/integration': 6.5.0(@types/node@20.11.26)
+      '@vanilla-extract/integration': 6.5.0(@types/node@20.11.27)
       arg: 5.0.2
       cacache: 17.1.4
       chalk: 4.1.2
@@ -1699,7 +1699,7 @@ packages:
       tar-fs: 2.1.1
       tsconfig-paths: 4.2.0
       typescript: 5.4.2
-      vite: 5.1.6(@types/node@20.11.26)
+      vite: 5.1.6(@types/node@20.11.27)
       ws: 7.5.9
     transitivePeerDependencies:
       - '@types/node'
@@ -1750,12 +1750,12 @@ packages:
       stream-slice: 0.1.2
       typescript: 5.4.2
 
-  /@remix-run/react@2.8.1(react-dom@18.3.0-canary-eb33bd747-20240312)(react@18.3.0-canary-eb33bd747-20240312)(typescript@5.4.2):
+  /@remix-run/react@2.8.1(react-dom@18.3.0-canary-bb0944fe5-20240313)(react@18.3.0-canary-bb0944fe5-20240313)(typescript@5.4.2):
     resolution: {integrity: sha512-HTPm1U8+xz2jPaVjZnssrckfmFMA8sUZUdaWnoF5lmLWdReqcQv+XlBhIrQQ3jO9L8iYYdnzaSZZcRFYSdpTYg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      react: 18.3.0-canary-eb33bd747-20240312
-      react-dom: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
+      react-dom: 18.3.0-canary-bb0944fe5-20240313
       typescript: ^5.1.0
     peerDependenciesMeta:
       typescript:
@@ -1763,10 +1763,10 @@ packages:
     dependencies:
       '@remix-run/router': 1.15.3
       '@remix-run/server-runtime': 2.8.1(typescript@5.4.2)
-      react: 18.3.0-canary-eb33bd747-20240312
-      react-dom: 18.3.0-canary-eb33bd747-20240312(react@18.3.0-canary-eb33bd747-20240312)
-      react-router: 6.22.3(react@18.3.0-canary-eb33bd747-20240312)
-      react-router-dom: 6.22.3(react-dom@18.3.0-canary-eb33bd747-20240312)(react@18.3.0-canary-eb33bd747-20240312)
+      react: 18.3.0-canary-bb0944fe5-20240313
+      react-dom: 18.3.0-canary-bb0944fe5-20240313(react@18.3.0-canary-bb0944fe5-20240313)
+      react-router: 6.22.3(react@18.3.0-canary-bb0944fe5-20240313)
+      react-router-dom: 6.22.3(react-dom@18.3.0-canary-bb0944fe5-20240313)(react@18.3.0-canary-bb0944fe5-20240313)
       typescript: 5.4.2
     dev: false
 
@@ -2075,18 +2075,18 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@testing-library/react@14.2.1(react-dom@18.3.0-canary-eb33bd747-20240312)(react@18.3.0-canary-eb33bd747-20240312):
+  /@testing-library/react@14.2.1(react-dom@18.3.0-canary-bb0944fe5-20240313)(react@18.3.0-canary-bb0944fe5-20240313):
     resolution: {integrity: sha512-sGdjws32ai5TLerhvzThYFbpnF9XtL65Cjf+gB0Dhr29BGqK+mAeN7SURSdu+eqgET4ANcWoC7FQpkaiGvBr+A==}
     engines: {node: '>=14'}
     peerDependencies:
-      react: 18.3.0-canary-eb33bd747-20240312
-      react-dom: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
+      react-dom: 18.3.0-canary-bb0944fe5-20240313
     dependencies:
       '@babel/runtime': 7.24.0
       '@testing-library/dom': 9.3.4
-      '@types/react-dom': 18.2.21
-      react: 18.3.0-canary-eb33bd747-20240312
-      react-dom: 18.3.0-canary-eb33bd747-20240312(react@18.3.0-canary-eb33bd747-20240312)
+      '@types/react-dom': 18.2.22
+      react: 18.3.0-canary-bb0944fe5-20240313
+      react-dom: 18.3.0-canary-bb0944fe5-20240313(react@18.3.0-canary-bb0944fe5-20240313)
     dev: true
 
   /@trysound/sax@0.2.0:
@@ -2111,7 +2111,7 @@ packages:
   /@types/conventional-commits-parser@5.0.0:
     resolution: {integrity: sha512-loB369iXNmAZglwWATL+WRe+CRMmmBPtpolYzIebFaX4YA3x+BEfLqhUAV9WanycKI3TG1IMr5bMJDajDKLlUQ==}
     dependencies:
-      '@types/node': 20.11.26
+      '@types/node': 20.11.27
     dev: true
 
   /@types/cookie@0.6.0:
@@ -2162,8 +2162,8 @@ packages:
   /@types/ms@0.7.34:
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  /@types/node@20.11.26:
-    resolution: {integrity: sha512-YwOMmyhNnAWijOBQweOJnQPl068Oqd4K3OFbTc6AHJwzweUwwWG3GIFY74OKks2PJUDkQPeddOQES9mLn1CTEQ==}
+  /@types/node@20.11.27:
+    resolution: {integrity: sha512-qyUZfMnCg1KEz57r7pzFtSGt49f6RPkPBis3Vo4PbS7roQEDn22hiHzl/Lo1q4i4hDEgBJmBF/NTNg2XR0HbFg==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -2171,8 +2171,8 @@ packages:
   /@types/prop-types@15.7.11:
     resolution: {integrity: sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==}
 
-  /@types/react-dom@18.2.21:
-    resolution: {integrity: sha512-gnvBA/21SA4xxqNXEwNiVcP0xSGHh/gi1VhWv9Bl46a0ItbTT5nFY+G9VSQpaG/8N/qdJpJ+vftQ4zflTtnjLw==}
+  /@types/react-dom@18.2.22:
+    resolution: {integrity: sha512-fHkBXPeNtfvri6gdsMYyW+dW7RXFo6Ad09nLFK0VQWR7yGLai/Cyvyj696gbwYvBnhGtevUG9cET0pmUbMtoPQ==}
     dependencies:
       '@types/react': 18.2.65
     dev: true
@@ -2360,7 +2360,7 @@ packages:
       outdent: 0.8.0
     dev: true
 
-  /@vanilla-extract/integration@6.5.0(@types/node@20.11.26):
+  /@vanilla-extract/integration@6.5.0(@types/node@20.11.27):
     resolution: {integrity: sha512-E2YcfO8vA+vs+ua+gpvy1HRqvgWbI+MTlUpxA8FvatOvybuNcWAY0CKwQ/Gpj7rswYKtC6C7+xw33emM6/ImdQ==}
     dependencies:
       '@babel/core': 7.24.0
@@ -2374,8 +2374,8 @@ packages:
       lodash: 4.17.21
       mlly: 1.6.1
       outdent: 0.8.0
-      vite: 5.1.6(@types/node@20.11.26)
-      vite-node: 1.3.1(@types/node@20.11.26)
+      vite: 5.1.6(@types/node@20.11.27)
+      vite-node: 1.3.1(@types/node@20.11.27)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -2779,7 +2779,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001597
-      electron-to-chromium: 1.4.702
+      electron-to-chromium: 1.4.704
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
     dev: true
@@ -3178,7 +3178,7 @@ packages:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
     dev: true
 
-  /cosmiconfig-typescript-loader@5.0.0(@types/node@20.11.26)(cosmiconfig@8.3.6)(typescript@5.4.2):
+  /cosmiconfig-typescript-loader@5.0.0(@types/node@20.11.27)(cosmiconfig@8.3.6)(typescript@5.4.2):
     resolution: {integrity: sha512-+8cK7jRAReYkMwMiG+bxhcNKiHJDM6bR9FD/nGBXOWdMLuYawjF5cGrtLilJ+LGd3ZjCXnJjR5DkfWPoIVlqJA==}
     engines: {node: '>=v16'}
     peerDependencies:
@@ -3186,7 +3186,7 @@ packages:
       cosmiconfig: '>=8.2'
       typescript: '>=4'
     dependencies:
-      '@types/node': 20.11.26
+      '@types/node': 20.11.27
       cosmiconfig: 8.3.6(typescript@5.4.2)
       jiti: 1.21.0
       typescript: 5.4.2
@@ -3612,7 +3612,7 @@ packages:
       mysql2: '>=2'
       pg: '>=8'
       postgres: '>=3'
-      react: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
       sql.js: '>=1'
       sqlite3: '>=5'
     peerDependenciesMeta:
@@ -3683,8 +3683,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
-  /electron-to-chromium@1.4.702:
-    resolution: {integrity: sha512-LYLXyEUsZ3nNSwiOWjI88N1PJUAMU2QphQSgGLVkFnb3FxZxNui2Vzi2PaKPgPWbsWbZstZnh6BMf/VQJamjiQ==}
+  /electron-to-chromium@1.4.704:
+    resolution: {integrity: sha512-OK01+86Qvby1V6cTiowVbhp25aX4DLZnwar+NocAOXdzKAByd+jq5156bmo4kHwevWMknznW18Y/Svfk2dU91A==}
     dev: true
 
   /emoji-regex@8.0.0:
@@ -4165,7 +4165,7 @@ packages:
     resolution: {integrity: sha512-EzV94NYKoO09GLXGjXj9JIlXijVck4ONSr5wiCWDvhsvj5jxSrzTmRU/9C1DyB6uToszLs8aifA6NQ7lEQdvFw==}
     engines: {node: '>= 0.8'}
     dependencies:
-      '@types/node': 20.11.26
+      '@types/node': 20.11.27
       require-like: 0.1.2
     dev: true
 
@@ -4671,7 +4671,7 @@ packages:
       estree-util-is-identifier-name: 3.0.0
       hast-util-whitespace: 3.0.0
       mdast-util-mdx-expression: 2.0.0
-      mdast-util-mdx-jsx: 3.1.1
+      mdast-util-mdx-jsx: 3.1.2
       mdast-util-mdxjs-esm: 2.0.1
       property-information: 6.4.1
       space-separated-tokens: 2.0.2
@@ -4693,7 +4693,7 @@ packages:
       estree-util-is-identifier-name: 3.0.0
       hast-util-whitespace: 3.0.0
       mdast-util-mdx-expression: 2.0.0
-      mdast-util-mdx-jsx: 3.1.1
+      mdast-util-mdx-jsx: 3.1.2
       mdast-util-mdxjs-esm: 2.0.1
       property-information: 6.4.1
       space-separated-tokens: 2.0.2
@@ -5684,8 +5684,8 @@ packages:
       - supports-color
     dev: true
 
-  /mdast-util-mdx-jsx@3.1.1:
-    resolution: {integrity: sha512-Di63TQEHbiApe6CFp/qQXCORHMHnmW2JFdr5PYH57LuEIPjijRHicAmL5wQu+B0/Q4p0qJaEOE1EkhiwxiNmAQ==}
+  /mdast-util-mdx-jsx@3.1.2:
+    resolution: {integrity: sha512-eKMQDeywY2wlHc97k5eD8VC+9ASMjN8ItEZQNGwJ6E0XWKiW/Z0V5/H8pvoXUf+y+Mj0VIgeRRbujBmFn4FTyA==}
     dependencies:
       '@types/estree-jsx': 1.0.5
       '@types/hast': 3.0.4
@@ -5720,7 +5720,7 @@ packages:
     dependencies:
       mdast-util-from-markdown: 2.0.0
       mdast-util-mdx-expression: 2.0.0
-      mdast-util-mdx-jsx: 3.1.1
+      mdast-util-mdx-jsx: 3.1.2
       mdast-util-mdxjs-esm: 2.0.1
       mdast-util-to-markdown: 2.1.0
     transitivePeerDependencies:
@@ -7069,7 +7069,7 @@ packages:
       postcss: ^8.2.2
     dependencies:
       postcss: 8.4.35
-      postcss-selector-parser: 6.0.15
+      postcss-selector-parser: 6.0.16
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -7219,7 +7219,7 @@ packages:
       caniuse-api: 3.0.0
       cssnano-utils: 4.0.2(postcss@8.4.35)
       postcss: 8.4.35
-      postcss-selector-parser: 6.0.15
+      postcss-selector-parser: 6.0.16
     dev: true
 
   /postcss-minify-font-values@6.0.3(postcss@8.4.35):
@@ -7263,7 +7263,7 @@ packages:
       postcss: ^8.4.31
     dependencies:
       postcss: 8.4.35
-      postcss-selector-parser: 6.0.15
+      postcss-selector-parser: 6.0.16
     dev: true
 
   /postcss-modules-extract-imports@3.0.0(postcss@8.4.35):
@@ -7283,7 +7283,7 @@ packages:
     dependencies:
       icss-utils: 5.1.0(postcss@8.4.35)
       postcss: 8.4.35
-      postcss-selector-parser: 6.0.15
+      postcss-selector-parser: 6.0.16
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -7294,7 +7294,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       postcss: 8.4.35
-      postcss-selector-parser: 6.0.15
+      postcss-selector-parser: 6.0.16
     dev: true
 
   /postcss-modules-values@4.0.0(postcss@8.4.35):
@@ -7330,7 +7330,7 @@ packages:
       postcss: ^8.2.14
     dependencies:
       postcss: 8.4.35
-      postcss-selector-parser: 6.0.15
+      postcss-selector-parser: 6.0.16
     dev: true
 
   /postcss-normalize-charset@6.0.2(postcss@8.4.35):
@@ -7463,8 +7463,8 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /postcss-selector-parser@6.0.15:
-    resolution: {integrity: sha512-rEYkQOMUCEMhsKbK66tbEU9QVIxbhN18YiniAwA7XQYTVBqrBy+P2p5JcdqsHgKM2zWylp8d7J6eszocfds5Sw==}
+  /postcss-selector-parser@6.0.16:
+    resolution: {integrity: sha512-A0RVJrX+IUkVZbW3ClroRWurercFhieevHB38sr2+l9eUClMqome3LmEmnhlNy+5Mr2EYN6B2Kaw9wYdd+VHiw==}
     engines: {node: '>=4'}
     dependencies:
       cssesc: 3.0.0
@@ -7489,7 +7489,7 @@ packages:
       postcss: ^8.4.31
     dependencies:
       postcss: 8.4.35
-      postcss-selector-parser: 6.0.15
+      postcss-selector-parser: 6.0.16
     dev: true
 
   /postcss-value-parser@4.2.0:
@@ -7605,7 +7605,7 @@ packages:
     dependencies:
       ansi-regex: 5.0.1
       ansi-styles: 5.2.0
-      react-is: 18.3.0-canary-eb33bd747-20240312
+      react-is: 18.3.0-canary-bb0944fe5-20240313
     dev: true
 
   /pretty-format@29.7.0:
@@ -7614,7 +7614,7 @@ packages:
     dependencies:
       '@jest/schemas': 29.6.3
       ansi-styles: 5.2.0
-      react-is: 18.3.0-canary-eb33bd747-20240312
+      react-is: 18.3.0-canary-bb0944fe5-20240313
     dev: true
 
   /pretty-ms@7.0.1:
@@ -7655,7 +7655,7 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
-      react-is: 18.3.0-canary-eb33bd747-20240312
+      react-is: 18.3.0-canary-bb0944fe5-20240313
     dev: false
 
   /property-information@6.4.1:
@@ -7737,67 +7737,67 @@ packages:
       typescript: 5.4.2
     dev: false
 
-  /react-dom@18.3.0-canary-eb33bd747-20240312(react@18.3.0-canary-eb33bd747-20240312):
-    resolution: {integrity: sha512-YXA1R+vHww4PyRUd5MhP+Y5Q4Z3CzCz70GGIkhk8k0EXG9zoTn9ClKBIuXXINEY9UeUJP6O+Guc0HdYOxADZmg==}
+  /react-dom@18.3.0-canary-bb0944fe5-20240313(react@18.3.0-canary-bb0944fe5-20240313):
+    resolution: {integrity: sha512-0EJ2antXt72Il1JhflpQgR7l+oaylFOOS61aZFcdH68PeyZenFHYJDsXbuU2oKMQaCNdwIGubl8Et8BGxZx7og==}
     peerDependencies:
-      react: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
     dependencies:
-      react: 18.3.0-canary-eb33bd747-20240312
-      scheduler: 0.24.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
+      scheduler: 0.24.0-canary-bb0944fe5-20240313
 
-  /react-is@18.3.0-canary-eb33bd747-20240312:
-    resolution: {integrity: sha512-zuWQoleEAUmVmTcgUfhZxiR2sCJMDG4JcOYXti/0JNulsyrr7Kpr3riXzgz2MX80yAMmI24liXmomUcwKfEDeA==}
+  /react-is@18.3.0-canary-bb0944fe5-20240313:
+    resolution: {integrity: sha512-66fPn2e3OpqUZH5RECICCyQ8ZwgfSrbrogyqMkYu7Us9EpRSYE8BhJUMP0hWB6KQU0DZcYafA+bgDW5ohYNB5A==}
 
   /react-refresh@0.14.0:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-remove-scroll-bar@2.3.5(@types/react@18.2.65)(react@18.3.0-canary-eb33bd747-20240312):
+  /react-remove-scroll-bar@2.3.5(@types/react@18.2.65)(react@18.3.0-canary-bb0944fe5-20240313):
     resolution: {integrity: sha512-3cqjOqg6s0XbOjWvmasmqHch+RLxIEk2r/70rzGXuz3iIGQsQheEQyqYCBb5EECoD01Vo2SIbDqW4paLeLTASw==}
     engines: {node: '>=10'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
-      react: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
     peerDependenciesMeta:
       '@types/react':
         optional: true
     dependencies:
       '@types/react': 18.2.65
-      react: 18.3.0-canary-eb33bd747-20240312
-      react-style-singleton: 2.2.1(@types/react@18.2.65)(react@18.3.0-canary-eb33bd747-20240312)
+      react: 18.3.0-canary-bb0944fe5-20240313
+      react-style-singleton: 2.2.1(@types/react@18.2.65)(react@18.3.0-canary-bb0944fe5-20240313)
       tslib: 2.6.2
     dev: false
 
-  /react-router-dom@6.22.3(react-dom@18.3.0-canary-eb33bd747-20240312)(react@18.3.0-canary-eb33bd747-20240312):
+  /react-router-dom@6.22.3(react-dom@18.3.0-canary-bb0944fe5-20240313)(react@18.3.0-canary-bb0944fe5-20240313):
     resolution: {integrity: sha512-7ZILI7HjcE+p31oQvwbokjk6OA/bnFxrhJ19n82Ex9Ph8fNAq+Hm/7KchpMGlTgWhUxRHMMCut+vEtNpWpowKw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: 18.3.0-canary-eb33bd747-20240312
-      react-dom: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
+      react-dom: 18.3.0-canary-bb0944fe5-20240313
     dependencies:
       '@remix-run/router': 1.15.3
-      react: 18.3.0-canary-eb33bd747-20240312
-      react-dom: 18.3.0-canary-eb33bd747-20240312(react@18.3.0-canary-eb33bd747-20240312)
-      react-router: 6.22.3(react@18.3.0-canary-eb33bd747-20240312)
+      react: 18.3.0-canary-bb0944fe5-20240313
+      react-dom: 18.3.0-canary-bb0944fe5-20240313(react@18.3.0-canary-bb0944fe5-20240313)
+      react-router: 6.22.3(react@18.3.0-canary-bb0944fe5-20240313)
     dev: false
 
-  /react-router@6.22.3(react@18.3.0-canary-eb33bd747-20240312):
+  /react-router@6.22.3(react@18.3.0-canary-bb0944fe5-20240313):
     resolution: {integrity: sha512-dr2eb3Mj5zK2YISHK++foM9w4eBnO23eKnZEDs7c880P6oKbrjz/Svg9+nxqtHQK+oMW4OtjZca0RqPglXxguQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
     dependencies:
       '@remix-run/router': 1.15.3
-      react: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
     dev: false
 
-  /react-style-singleton@2.2.1(@types/react@18.2.65)(react@18.3.0-canary-eb33bd747-20240312):
+  /react-style-singleton@2.2.1(@types/react@18.2.65)(react@18.3.0-canary-bb0944fe5-20240313):
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
     engines: {node: '>=10'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
-      react: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -7805,12 +7805,12 @@ packages:
       '@types/react': 18.2.65
       get-nonce: 1.0.1
       invariant: 2.2.4
-      react: 18.3.0-canary-eb33bd747-20240312
+      react: 18.3.0-canary-bb0944fe5-20240313
       tslib: 2.6.2
     dev: false
 
-  /react@18.3.0-canary-eb33bd747-20240312:
-    resolution: {integrity: sha512-1e7sUcI27oJuYH/ebZsbkdCiDWUez4daFTzAQn6O4HISyApORV5FBqTeCv1w3NZxBVu1JJvzKBWACST3kNUA9w==}
+  /react@18.3.0-canary-bb0944fe5-20240313:
+    resolution: {integrity: sha512-aXSmXz8j7ltVSSHGRfgNc1KN7Z3xlsqFIeaV3vuInbuUBei4V4qN7gIBuSG8dea7EM6AEy30FUGmsBve5TDxPQ==}
     engines: {node: '>=0.10.0'}
 
   /read-cache@1.0.0:
@@ -8118,8 +8118,8 @@ packages:
       xmlchars: 2.2.0
     dev: true
 
-  /scheduler@0.24.0-canary-eb33bd747-20240312:
-    resolution: {integrity: sha512-GydyhmyhpvnWanDXzJfUg1BM3bvB8C6uQE8xOBM8UY08/dxfq24fbtiELG0Tpo4Z+VAOiAZITgTytQPuBL0UXA==}
+  /scheduler@0.24.0-canary-bb0944fe5-20240313:
+    resolution: {integrity: sha512-g7BRRKdmvHUwRt6DZqxILBQd2plDzkJCARzkYEOPQjQrPYL2uy34uWhx75yT9khNeIsSNoR7SCfxp5pAAl8b2g==}
 
   /semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -8404,7 +8404,7 @@ packages:
     dependencies:
       browserslist: 4.23.0
       postcss: 8.4.35
-      postcss-selector-parser: 6.0.15
+      postcss-selector-parser: 6.0.16
     dev: true
 
   /sucrase@3.35.0:
@@ -8491,7 +8491,7 @@ packages:
       postcss-js: 4.0.1(postcss@8.4.35)
       postcss-load-config: 4.0.2(postcss@8.4.35)
       postcss-nested: 6.0.1(postcss@8.4.35)
-      postcss-selector-parser: 6.0.15
+      postcss-selector-parser: 6.0.16
       resolve: 1.22.8
       sucrase: 3.35.0
     transitivePeerDependencies:
@@ -9050,7 +9050,7 @@ packages:
       vfile-message: 4.0.2
     dev: true
 
-  /vite-node@1.3.1(@types/node@20.11.26):
+  /vite-node@1.3.1(@types/node@20.11.27):
     resolution: {integrity: sha512-azbRrqRxlWTJEVbzInZCTchx0X69M/XPTCz4H+TLvlTcR/xH/3hkRqhOakT41fMJCMzXTu4UvegkZiEoJAWvng==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -9059,7 +9059,7 @@ packages:
       debug: 4.3.4
       pathe: 1.1.2
       picocolors: 1.0.0
-      vite: 5.1.6(@types/node@20.11.26)
+      vite: 5.1.6(@types/node@20.11.27)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -9090,14 +9090,14 @@ packages:
       perfect-debounce: 1.0.0
       picocolors: 1.0.0
       sirv: 2.0.4
-      vite: 5.1.6(@types/node@20.11.26)
+      vite: 5.1.6(@types/node@20.11.27)
     transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
 
-  /vite-tsconfig-paths@4.3.1(typescript@5.4.2)(vite@5.1.6):
-    resolution: {integrity: sha512-cfgJwcGOsIxXOLU/nELPny2/LUD/lcf1IbfyeKTv2bsupVbTH/xpFtdQlBmIP1GEK2CjjLxYhFfB+QODFAx5aw==}
+  /vite-tsconfig-paths@4.3.2(typescript@5.4.2)(vite@5.1.6):
+    resolution: {integrity: sha512-0Vd/a6po6Q+86rPlntHye7F31zA2URZMbH8M3saAZ/xR9QoGN/L21bxEGfXdWmFdNkqPpRdxFT7nmNe12e9/uA==}
     peerDependencies:
       vite: '*'
     peerDependenciesMeta:
@@ -9107,13 +9107,13 @@ packages:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 3.0.3(typescript@5.4.2)
-      vite: 5.1.6(@types/node@20.11.26)
+      vite: 5.1.6(@types/node@20.11.27)
     transitivePeerDependencies:
       - supports-color
       - typescript
     dev: true
 
-  /vite@5.1.6(@types/node@20.11.26):
+  /vite@5.1.6(@types/node@20.11.27):
     resolution: {integrity: sha512-yYIAZs9nVfRJ/AiOLCA91zzhjsHUgMjB+EigzFb6W2XTLO8JixBCKCjvhKZaye+NKYHCrkv3Oh50dH9EdLU2RA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -9141,7 +9141,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.11.26
+      '@types/node': 20.11.27
       esbuild: 0.20.1
       postcss: 8.4.35
       rollup: 4.13.0
@@ -9149,7 +9149,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@1.3.1(@types/node@20.11.26)(jsdom@24.0.0):
+  /vitest@1.3.1(@types/node@20.11.27)(jsdom@24.0.0):
     resolution: {integrity: sha512-/1QJqXs8YbCrfv/GPQ05wAZf2eakUPLPa18vkJAKE7RXOKfVHqMZZ1WlTjiwl6Gcn65M5vpNUB6EFLnEdRdEXQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -9174,7 +9174,7 @@ packages:
       jsdom:
         optional: true
     dependencies:
-      '@types/node': 20.11.26
+      '@types/node': 20.11.27
       '@vitest/expect': 1.3.1
       '@vitest/runner': 1.3.1
       '@vitest/snapshot': 1.3.1
@@ -9193,8 +9193,8 @@ packages:
       strip-literal: 2.0.0
       tinybench: 2.6.0
       tinypool: 0.8.2
-      vite: 5.1.6(@types/node@20.11.26)
-      vite-node: 1.3.1(@types/node@20.11.26)
+      vite: 5.1.6(@types/node@20.11.27)
+      vite-node: 1.3.1(@types/node@20.11.27)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
