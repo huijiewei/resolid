@@ -52,9 +52,6 @@ export default defineConfig(({ command }) => {
           buildEnv == "vercel"
             ? vercelServerlessPreset({
                 regions: "sin1",
-                cleanUrls: true,
-                cacheFiles: ["favicon.svg", "apple-touch-icon.png", "manifest.webmanifest"],
-                cacheFolders: ["icons", "images"],
               })
             : nodeHonoPreset(),
         ],

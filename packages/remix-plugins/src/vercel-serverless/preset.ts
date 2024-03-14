@@ -8,16 +8,10 @@ import { buildEntry, bundleServer } from "../base/build-utils";
 
 export type VercelServerlessPresetOptions = {
   regions: string | string[];
-  cleanUrls?: boolean;
-  cacheFiles?: string[];
-  cacheFolders?: string[];
 };
 
 export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): Preset => {
   const __dirname = fileURLToPath(new URL(".", import.meta.url));
-
-  const cacheFiles = options.cacheFiles ?? [];
-  const cacheFolders = options.cacheFolders ?? [];
 
   return {
     name: "resolid-vercel-serverless-preset",
@@ -48,13 +42,7 @@ export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): 
           await mkdir(vercelOutput, { recursive: true });
 
           await copyStaticFiles(clientBuildPath, vercelOutput);
-          await writeVercelConfigJson(
-            options.cleanUrls,
-            cacheFiles,
-            cacheFolders,
-            buildManifest,
-            join(vercelOutput, "config.json"),
-          );
+          await writeVercelConfigJson(viteConfig.build.assetsDir, buildManifest, join(vercelOutput, "config.json"));
 
           for (const key in serverBundles) {
             const serverBundleId = serverBundles[key].id;
@@ -255,9 +243,7 @@ const getServerRoutes = (buildManifest: BuildManifest | undefined) => {
 };
 
 const writeVercelConfigJson = async (
-  cleanUrls: boolean | undefined,
-  cacheFiles: string[],
-  cacheFolders: string[],
+  assetsDir: string,
   buildManifest: BuildManifest | undefined,
   vercelConfigFile: string,
 ) => {
@@ -266,26 +252,9 @@ const writeVercelConfigJson = async (
     routes: [],
   };
 
-  if (cleanUrls) {
-    configJson.routes.push({ src: "^/(.*)/$", headers: { Location: "/$1" }, status: 308 });
-  }
-
   configJson.routes.push({
-    src: `^/(${["favicon.ico", ...cacheFiles]
-      .filter((f) => f.length > 0)
-      .map((f) => f.replace(".", "\\."))
-      .join("|")})$`,
-    headers: {
-      "cache-control": "public, max-age=86400",
-    },
-    continue: true,
-  });
-
-  configJson.routes.push({
-    src: `^/(${["assets", ...cacheFolders].filter((f) => f.length > 0).join("|")})/(.*)$`,
-    headers: {
-      "cache-control": "public, max-age=31536000, immutable",
-    },
+    src: `^/${assetsDir}/(.*)$`,
+    headers: { "cache-control": "public, max-age=31536000, immutable" },
     continue: true,
   });
 
@@ -303,7 +272,7 @@ const writeVercelConfigJson = async (
       });
     } else {
       configJson.routes.push({
-        src: `/.*`,
+        src: `/(.*)`,
         dest: `_${bundle.bundleId}`,
       });
     }

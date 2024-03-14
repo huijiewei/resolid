@@ -137,13 +137,7 @@ export default {
   remix: {
     presets: [vercelServerlessPreset({
       // Deployment area
-      regions: "sin1",
-      // Whether to use clean URL
-      cleanUrls: true,
-      // The files in the public directory that need to be cached will be cached for one day. By default, favicon.ico will be cached.
-      cacheFiles: ["favicon.svg", "apple-touch-icon.png", "manifest.webmanifest"],
-      // The folders in the public directory that need to be cached are cached for one year. By default, assets will be cached.
-      cacheFolders: ["icons", "images"]
+      regions: "sin1"
     })]
   }
 };

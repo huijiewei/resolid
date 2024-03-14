@@ -137,13 +137,7 @@ export default {
   remix: {
     presets: [vercelServerlessPreset({
       // 部署区域
-      regions: "sin1",
-      // 是否使用清洁 URL
-      cleanUrls: true,
-      // 需要缓存的 public 目录下文件, 缓存一天, 默认会缓存 favicon.ico
-      cacheFiles: ["favicon.svg", "apple-touch-icon.png", "manifest.webmanifest"],
-      // 需要缓存的 public 目录下的文件夹, 缓存一年, 默认会缓存 assets
-      cacheFolders: ["icons", "images"]
+      regions: "sin1"
     })]
   }
 };
