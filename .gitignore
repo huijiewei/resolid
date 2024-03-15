@@ -2,6 +2,7 @@
 .idea
 .eslintcache
 .env
+.env.test
 .vercel
 .resolid
 .vite-inspect

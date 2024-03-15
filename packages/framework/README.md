@@ -103,4 +103,15 @@ export default drizzleKitConfig({
 resolid db push
 ```
 
+## 单元测试
+
+增加 .env.test 文件
+
+```text
+# 数据库连接
+RX_DB_URL=''
+# 表前缀
+RX_DB_TABLE_PREFIX='rx_'
+```
+
 ## 感谢
