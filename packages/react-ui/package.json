@@ -35,13 +35,13 @@
     "@resolid/utils": "workspace:^",
     "@tw-classed/core": "^1.7.0",
     "clsx": "^2.1.0",
-    "react-remove-scroll-bar": "^2.3.5"
+    "react-remove-scroll-bar": "^2.3.6"
   },
   "devDependencies": {
     "@resolid/config": "workspace:^",
     "@resolid/tailwind": "workspace:^",
     "@testing-library/react": "^14.2.1",
-    "@types/react": "^18.2.65",
+    "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "jsdom": "^24.0.0",
     "react": "^18.2.0",

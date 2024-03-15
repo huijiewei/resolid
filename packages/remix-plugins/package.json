@@ -48,7 +48,7 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@vercel/nft": "^0.26.4",
-    "esbuild": "^0.20.1",
+    "esbuild": "^0.20.2",
     "minimatch": "^9.0.3",
     "rollup": "^4.13.0",
     "tsup": "^8.0.2",
