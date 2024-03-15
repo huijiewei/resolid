@@ -1,8 +1,8 @@
 import { relations } from "drizzle-orm";
 import { index, integer, serial, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
-import { resolidTable } from "../../foundation/schema";
+import { defineTable } from "../../foundation/schema";
 
-export const users = resolidTable(
+export const userTable = defineTable(
   "user",
   {
     id: serial("id").primaryKey(),
@@ -18,25 +18,25 @@ export const users = resolidTable(
     updatedAt: timestamp("updatedAt"),
     deletedAt: timestamp("deletedAt"),
   },
-  (users) => ({
-    emailIndex: uniqueIndex("emailIndex").on(users.email),
-    usernameIndex: uniqueIndex("usernameIndex").on(users.username),
-    nicknameIndex: index("nicknameIndex").on(users.nickname),
-    deletedAtIndex: index("deletedAtIndex").on(users.deletedAt),
-    userGroupIdIndex: index("userGroupIdIndex").on(users.userGroupId),
+  (userTable) => ({
+    emailIndex: uniqueIndex("emailIndex").on(userTable.email),
+    usernameIndex: uniqueIndex("usernameIndex").on(userTable.username),
+    nicknameIndex: index("nicknameIndex").on(userTable.nickname),
+    deletedAtIndex: index("deletedAtIndex").on(userTable.deletedAt),
+    userGroupIdIndex: index("userGroupIdIndex").on(userTable.userGroupId),
   }),
 );
 
-export const userGroups = resolidTable("user_group", {
+export const userGroupTable = defineTable("user_group", {
   id: serial("id").primaryKey(),
   name: text("name").notNull().default(""),
   color: text("color").notNull().default(""),
   icon: text("icon").notNull().default(""),
 });
 
-export const usersRelations = relations(users, ({ one }) => ({
-  userGroup: one(userGroups, {
-    fields: [users.userGroupId],
-    references: [userGroups.id],
+export const userTableRelations = relations(userTable, ({ one }) => ({
+  userGroup: one(userGroupTable, {
+    fields: [userTable.userGroupId],
+    references: [userGroupTable.id],
   }),
 }));

@@ -4,12 +4,12 @@ import { Await, defer, useLoaderData } from "@remix-run/react";
 import { clsx } from "@resolid/react-ui";
 import { mergeMeta } from "@resolid/remix-utils";
 import { Suspense } from "react";
-import { getStatus } from "~/modules/system/service.server";
+import { statusService } from "~/modules/system/service.server";
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
   const status = async () => {
     try {
-      await getStatus();
+      await statusService.getFirst();
 
       return { success: true, message: "数据库访问正常" };
     } catch {

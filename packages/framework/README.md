@@ -9,10 +9,10 @@ Resolid 核心框架
 新建文件 `src/db.server.ts`
 
 ```ts
-import { resolidDatabase } from "@resolid/framework";
+import { defineDatabase } from "@resolid/framework";
 import { env } from "node:process";
 
-export const db = resolidDatabase({
+export const db = defineDatabase({
   drizzleOptions: {
     logger: env.NODE_ENV == "development",
   },
@@ -31,12 +31,12 @@ export const db = resolidDatabase({
 ### 定义数据架构
 
 ```js
-import { resolidTable } from "@resolid/framework";
-import { users } from "@resolid/framework/modules";
+import { defineTable } from "@resolid/framework";
+import { userTable } from "@resolid/framework/modules";
 import { serial, text, integer, relations } from "@resolid/framework/drizzle";
 
-// 定义博客文章, 请使用 resolidTable 定义
-export const blogPosts = resolidTable("blog_post", {
+// 定义博客文章, 请使用 defineTable 定义
+export const blogPostTable = defineTable("blog_post", {
     id: serial("id").primaryKey(),
     userId: integer("userId").notNull().default(0),
     slug: text("slug").notNull().default(""),
@@ -44,18 +44,18 @@ export const blogPosts = resolidTable("blog_post", {
     content: text("content").notNull().default(""), 
     createdAt: timestamp("createdAt").notNull().defaultNow()
   },
-  (blogPosts) => ({
-    slugIndex: uniqueIndex("slugIndex").on(blogPosts.slug),
-    userIdIndex: index("userIdIndex").on(blogPosts.userId),
-    createdAtIndex: index("createdAtIndex").on(blogPosts.createdAt)
+  (blogPostTable) => ({
+    slugIndex: uniqueIndex("slugIndex").on(blogPostTable.slug),
+    userIdIndex: index("userIdIndex").on(blogPostTable.userId),
+    createdAtIndex: index("createdAtIndex").on(blogPostTable.createdAt)
   })
 );
 
 // 建立关联
-export const blogPostsRelations = relations(users, ({ one }) => ({
-  user: one(users, {
-    fields: [blogPosts.userId],
-    references: [users.id]
+export const blogPostRelations = relations(blogPostTable, ({ one }) => ({
+  user: one(userTable, {
+    fields: [blogPostTable.userId],
+    references: [userTable.id]
   })
 }));
 ```
@@ -67,12 +67,12 @@ export const blogPostsRelations = relations(users, ({ one }) => ({
 ```js
 import { eq } from "@resolid/framework/drizzle";
 
-const posts = db.query.blogPosts
+const posts = db.query.blogPostTable
   .findMany({
-    where: eq(blogPosts.userId, 1),
-    orderBy: [desc(blogPosts.createdAt)],
+    where: eq(blogPostTable.userId, 1),
+    orderBy: [desc(blogPostTable.createdAt)],
     with: {
-      users: true,
+      user: true,
     },
   });
 ```

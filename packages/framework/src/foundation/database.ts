@@ -3,7 +3,7 @@ import { drizzle, type PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import { env } from "node:process";
 import postgres, { type Options } from "postgres";
 
-import * as userSchema from "../modules/user/schema";
+import * as schemas from "../modules/schemas";
 
 export type DatabaseOptions<
   PT extends Record<string, postgres.PostgresType>,
@@ -13,7 +13,7 @@ export type DatabaseOptions<
   drizzleOptions?: DrizzleConfig<TSchema>;
 };
 
-export const resolidDatabase = <
+export const defineDatabase = <
   PT extends Record<string, postgres.PostgresType> = Record<string, never>,
   TSchema extends Record<string, unknown> = Record<string, never>,
 >(
@@ -28,7 +28,7 @@ export const resolidDatabase = <
 
   const drizzleOptions = {
     ...options.drizzleOptions,
-    schema: { ...userSchema, ...options.drizzleOptions?.schema },
+    schema: { ...schemas, ...options.drizzleOptions?.schema },
   };
 
   return drizzle(pg, drizzleOptions) as PostgresJsDatabase<TSchema & (typeof drizzleOptions)["schema"]>;
