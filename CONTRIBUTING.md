@@ -2,29 +2,56 @@
 
 感谢你考虑为 Resolid 做出贡献！在提交您的贡献之前，请阅读以下指南。
 
-## 步骤
+## 本地开发
 
 1. 克隆存储库
 
-   ```bash
+   ```shell
    git clone https://github.com/huijiewei/resolid.git
    ```
 
 2. 安装依赖
 
-   ```bash
+   ```shell
    pnpm install
    ```
 
 3. 构建插件包
 
-   ```bash
+   ```shell
    pnpm run --parallel --filter @resolid/remix-plugins --filter @resolid/mdx-plugins build
    ```
 
-4. 本地运行
-   ```bash
+4. 环境变量
+
+   - 复制 `packages/framework/.env.test.example` 为 `.env.test`, 并修改变量
+   - 复制 `website/.env.test.example` 为 `.env.test`, 并修改变量
+   - 复制 `website/.env.example` 为 `.env`, 并修改变量
+
+   > 建议测试环境和开发环境使用不同的数据库连接, 测试环境的数据库在单元测试后都进行清空
+
+5. 本地开发
+
+   ```shell
    pnpm run --filter website dev
+   ```
+
+6. 运行测试
+
+   ```shell
+   pnpm test
+   ```
+
+7. 本地构建
+
+   ```shell
+   pnpm run website:build
+   ```
+
+8. 本地运行
+
+   ```shell
+   pnpm run --filter website serve
    ```
 
 ## Git 提交规范
@@ -60,6 +87,8 @@ Resolid 使用 `commitlint` 工具对提交消息格式进行规范
 范围应该是受影响的包的名称，下面是支持的范围列表：
 
 - `config`
+- `framework`
+- `mdx-plugins`
 - `react-ui`
 - `remix-plugins`
 - `remix-utils`
@@ -78,10 +107,13 @@ Resolid 使用 `commitlint` 工具对提交消息格式进行规范
 
 ##### Body 正文
 
-在简短描述之后，可以编写较长的提交正文，为代码变更提供额外的上下文信息。正文**必须**起始于描述字段结束的一个空行后。并**可以**使用空行分隔不同段落。
+在简短描述之后，可以编写较长的提交正文，为代码变更提供额外的上下文信息。正文**必须**起始于描述字段结束的一个空行后。并**可以
+**使用空行分隔不同段落。
 
 ##### Footer 脚注
 
-在正文结束的一个空行之后，可以编写一行或多行脚注。每行脚注都**必须**包含一个令牌（token），后面紧跟 :<space> 或 <space># 作为分隔符，后面再紧跟令牌的值
+在正文结束的一个空行之后，可以编写一行或多行脚注。每行脚注都**必须**包含一个令牌（token），后面紧跟 :<space> 或 <space>#
+作为分隔符，后面再紧跟令牌的值
 
-脚注的令牌**必须**使用 - 作为连字符，比如 Acked-by (这样有助于区分脚注和多行正文)。有一种例外情况就是 `BREAKING CHANGE`，它可以被认为是一个令牌。
+脚注的令牌**必须**使用 - 作为连字符，比如 Acked-by (这样有助于区分脚注和多行正文)。有一种例外情况就是 `BREAKING CHANGE`
+，它可以被认为是一个令牌。
