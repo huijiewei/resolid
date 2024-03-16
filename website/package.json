@@ -12,7 +12,7 @@
     "resolid": "resolid"
   },
   "dependencies": {
-    "@formkit/tempo": "^0.0.15",
+    "@formkit/tempo": "^0.0.16",
     "@hono/node-server": "^1.8.2",
     "@mdx-js/react": "^3.0.1",
     "@remix-run/node": "^2.8.1",
@@ -35,7 +35,7 @@
     "@resolid/mdx-plugins": "workspace:^",
     "@resolid/remix-plugins": "workspace:^",
     "@resolid/tailwind": "workspace:^",
-    "@shikijs/rehype": "^1.1.7",
+    "@shikijs/rehype": "^1.2.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
