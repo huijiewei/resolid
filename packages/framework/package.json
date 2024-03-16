@@ -18,15 +18,13 @@
     "src",
     "env.d.ts"
   ],
-  "bin": {
-    "resolid": "./cli/bin.js"
-  },
   "scripts": {
     "lint": "eslint .",
     "test": "vitest --run"
   },
   "exports": {
     ".": "./src/index.ts",
+    "./cli": "./cli/index.ts",
     "./drizzle": "./src/export/drizzle.ts",
     "./modules": "./src/modules.ts"
   },

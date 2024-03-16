@@ -10,7 +10,7 @@
     "test": "pnpm test -r --if-present",
     "website:build": "pnpm --filter website... run build",
     "website:vercel": "BUILD_ENV=vercel pnpm --filter website... run build",
-    "resolid": "pnpm --filter website run resolid"
+    "resolid": "pnpm --filter website exec -- pnpm --silent resolid"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.0",

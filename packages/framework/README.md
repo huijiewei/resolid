@@ -2,9 +2,30 @@
 
 Resolid 核心框架
 
-## 基本用法
+- [数据库](#数据库设置)
+  * [设置数据库](#设置数据库)
+  * [定义数据架构](#定义数据架构)
+  * [查询数据](#查询数据)
+- [命令行工具](#命令行工具)
+  * [安装依赖](#安装依赖)
+  * [增加脚本](#增加脚本)
+  * [运行命令](#运行命令)
+  * [创建命令](#创建命令)
+  * [Drizzle Kit 配置](#Drizzle-Kit-配置)
+- [单元测试](#单元测试)
+
+## 数据库
 
 ### 设置数据库
+
+修改环境变量文件 `.env`
+
+```text
+# 数据库连接
+RX_DB_URL=''
+# 表前缀
+RX_DB_TABLE_PREFIX='rx_'
+```
 
 新建文件 `src/db.server.ts`
 
@@ -78,14 +99,92 @@ const posts = db.query.blogPostTable
 ```
 
 > 更多内容可以查看 https://orm.drizzle.team/docs/rqb
+ 
+## 电子邮件
+
+修改环境变量文件 `.env`
+
+```text
+# 邮件服务设置
+RX_MAILER_DSN='smtp://username:password@host:port'
+RX_MAILER_FROM='Name <email@example.com>'
+```
+
+新建文件 `src/mail.server.ts`
+
+```ts
+import { defineMailer } from "@resolid/framework";
+
+export const mailer = defineMailer();
+```
 
 ## 命令行工具
 
-命令行工具依赖 `drizzle-kit`
+### 安装依赖
+
+命令行工具依赖 `drizzle-kit` 和 `tsx`
 
 ```bash
-pnpm add -D drizzle-kit
+pnpm add -D drizzle-kit tsx
 ```
+
+### 增加脚本
+
+新建 `cli/index.ts` 脚本文件
+
+```ts
+import { createCli } from "@resolid/framework/cli";
+
+createCli();
+```
+
+在 `package.json` 的 `scripts` 里面增加
+
+```text
+"resolid": "node --import tsx/esm --env-file .env ./cli/index.ts"
+```
+
+### 运行命令
+
+```shell
+pnpm run resolid
+```
+
+### 创建命令
+
+新建 `cli/commands/demo.ts` 文件
+
+```ts
+import { Command } from "@resolid/framework/cli";
+
+export const demoCommand = () => {
+  const demo = new Command("demo");
+
+  demo.description("命令演示");
+
+  demo
+    .command("echo")
+    .description("演示输出")
+    .action(() => {
+      console.log("这是一个演示命令");
+    });
+
+  return demo;
+};
+```
+
+> Command 是 commander 的再导出, 具体请看 https://github.com/tj/commander.js/blob/master/Readme_zh-CN.md
+
+编辑 `cli/index.ts` 脚本文件
+
+```ts
+import { createCli } from "@resolid/framework/cli";
+import { demoCommand } from "./commands/demo";
+
+createCli(demoCommand);
+```
+
+### Drizzle Kit 配置
 
 编辑 `drizzle.config.ts` 文件
 
@@ -97,21 +196,26 @@ export default drizzleKitConfig({
 });
 ```
 
-### 数据库 Push
-
-```shell
-resolid db push
-```
-
 ## 单元测试
 
-增加 .env.test 文件
+新建文件 `.env.test`
 
 ```text
 # 数据库连接
 RX_DB_URL=''
 # 表前缀
 RX_DB_TABLE_PREFIX='rx_'
+```
+
+修改文件 `vite.config.ts` 或者 `vitest.config.ts` 加载测试环境变量
+```ts
+import { loadEnv, defineConfig } from "vite";
+
+export default defineConfig({
+  test: {
+    env: loadEnv("test", cwd(), ""),
+  }
+});
 ```
 
 ## 感谢

@@ -1,6 +1,6 @@
 {
   "extends": "@resolid/config/tsconfig.react",
-  "include": ["src", "env.d.ts", "drizzle.config.ts", "tailwind.config.ts", "vite.config.ts"],
+  "include": ["src", "cli", "env.d.ts", "drizzle.config.ts", "tailwind.config.ts", "vite.config.ts"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

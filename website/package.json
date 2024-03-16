@@ -9,7 +9,7 @@
     "vercel": "BUILD_ENV=vercel remix vite:build",
     "start": "remix-serve ./build/server/index.js",
     "serve": "NODE_ENV=production node --env-file=.env ./build/server/serve.mjs",
-    "resolid": "resolid"
+    "resolid": "node --import tsx/esm --env-file .env ./cli/index.ts"
   },
   "dependencies": {
     "@formkit/tempo": "^0.0.16",
