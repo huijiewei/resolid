@@ -97,6 +97,9 @@ importers:
       drizzle-orm:
         specifier: ^0.30.2
         version: 0.30.2(postgres@3.4.3)
+      nodemailer:
+        specifier: ^6.9.12
+        version: 6.9.12
       postgres:
         specifier: ^3.4.3
         version: 3.4.3
@@ -104,6 +107,9 @@ importers:
       '@resolid/config':
         specifier: workspace:^
         version: link:../config
+      '@types/nodemailer':
+        specifier: ^6.4.14
+        version: 6.4.14
       commander:
         specifier: ^12.0.0
         version: 12.0.0
@@ -408,6 +414,9 @@ importers:
       vite-tsconfig-paths:
         specifier: ^4.3.2
         version: 4.3.2(typescript@5.4.2)(vite@5.1.6)
+      vitest:
+        specifier: ^1.4.0
+        version: 1.4.0(@types/node@20.11.28)(jsdom@24.0.0)
 
 packages:
 
@@ -2170,6 +2179,12 @@ packages:
     resolution: {integrity: sha512-M/GPWVS2wLkSkNHVeLkrF2fD5Lx5UC4PxA0uZcKc6QqbIQUJyW1jVjueJYi1z8n0I5PxYrtpnPnWglE+y9A0KA==}
     dependencies:
       undici-types: 5.26.5
+    dev: true
+
+  /@types/nodemailer@6.4.14:
+    resolution: {integrity: sha512-fUWthHO9k9DSdPCSPRqcu6TWhYyxTBg382vlNIttSe9M7XfsT06y0f24KHXtbnijPGGRIcVvdKHTNikOI6qiHA==}
+    dependencies:
+      '@types/node': 20.11.28
     dev: true
 
   /@types/prop-types@15.7.11:
@@ -6701,6 +6716,11 @@ packages:
   /node-releases@2.0.14:
     resolution: {integrity: sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw==}
     dev: true
+
+  /nodemailer@6.9.12:
+    resolution: {integrity: sha512-pnLo7g37Br3jXbF0bl5DekBJihm2q+3bB3l2o/B060sWmb5l+VqeScAQCBqaQ+5ezRZFzW5SciZNGdRDEbq89w==}
+    engines: {node: '>=6.0.0'}
+    dev: false
 
   /nopt@5.0.0:
     resolution: {integrity: sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==}

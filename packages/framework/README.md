@@ -6,6 +6,9 @@ Resolid 核心框架
   * [设置数据库](#设置数据库)
   * [定义数据架构](#定义数据架构)
   * [查询数据](#查询数据)
+- [电子邮件](#电子邮件)
+  * [基本用法](#基本用法)
+  * [自定义 Transport](#自定义-Transport)
 - [命令行工具](#命令行工具)
   * [安装依赖](#安装依赖)
   * [增加脚本](#增加脚本)
@@ -102,6 +105,8 @@ const posts = db.query.blogPostTable
  
 ## 电子邮件
 
+### 基本用法
+
 修改环境变量文件 `.env`
 
 ```text
@@ -117,6 +122,32 @@ import { defineMailer } from "@resolid/framework";
 
 export const mailer = defineMailer();
 ```
+
+发送邮件
+```ts
+await mailer.send({
+  to: "收件人 <邮箱>",
+  subject: "标题",
+  text: "内容",
+});
+```
+
+### 自定义 Transport
+
+你可以设定自定义的 Transport, 设置环境变量 `RX_MAILER_DSN` 为 `custom`, 然后将 Transport 传输给 `defineMailer`
+
+```ts
+import { ResendTransport } from '@documenso/nodemailer-resend';
+import { defineMailer } from "@resolid/framework";
+
+export const mailer = defineMailer({
+  transport: ResendTransport.makeTransport({
+    apiKey: process.env.RESEND_API_KEY || '',
+  }),
+});
+```
+
+> 邮件系统使用 nodemailer 实现, 具体请看: https://www.nodemailer.com/
 
 ## 命令行工具
 
