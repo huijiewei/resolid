@@ -99,7 +99,7 @@ const getElementAttrValue = (elem: MdxJsxFlowElement, attrName: string) => {
 
   if (attr) {
     if (typeof attr.value == "string") {
-      return attr.value as string;
+      return attr.value;
     }
 
     return attr.value?.value.slice(1, -1) ?? "";

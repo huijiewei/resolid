@@ -6,9 +6,9 @@ type MediaQueryList = {
   readonly matches: boolean;
   readonly media: string;
   onchange: MediaQueryListener | null;
-  addEventListener(type: "change", listener: MediaQueryListener): void;
-  removeEventListener(type: "change", listener: MediaQueryListener): void;
-  dispatchEvent(event: Event): boolean;
+  addEventListener: (type: "change", listener: MediaQueryListener) => void;
+  removeEventListener: (type: "change", listener: MediaQueryListener) => void;
+  dispatchEvent: (event: Event) => boolean;
 };
 
 type MediaQueryListener = (this: MediaQueryList, ev: MediaQueryListEvent) => void;
