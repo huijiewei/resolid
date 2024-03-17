@@ -44,7 +44,7 @@ export const endWith = (str: string, suffix: string, ignoreCase = true) => {
 
 export const trimStart = (str: string, prefix: string, ignoreCase = true) => {
   if (startWith(str, prefix, ignoreCase)) {
-    return str.substring(prefix.length, str.length);
+    return str.slice(prefix.length, str.length);
   }
 
   return str;
@@ -52,7 +52,7 @@ export const trimStart = (str: string, prefix: string, ignoreCase = true) => {
 
 export const trimEnd = (str: string, suffix: string, ignoreCase = true) => {
   if (endWith(str, suffix, ignoreCase)) {
-    return str.substring(0, str.length - suffix.length);
+    return str.slice(0, str.length - suffix.length);
   }
 
   return str;

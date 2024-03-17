@@ -231,7 +231,7 @@ const getServerRoutes = (buildManifest: BuildManifest | undefined) => {
     }
 
     const result = Object.values(bundleRoutes).map((route) => {
-      return { path: route.path.substring(0, route.path.length - 1), bundleId: route.bundleId };
+      return { path: route.path.slice(0, -1), bundleId: route.bundleId };
     });
 
     result.sort((a, b) => (a.path.length > b.path.length ? -1 : 1));

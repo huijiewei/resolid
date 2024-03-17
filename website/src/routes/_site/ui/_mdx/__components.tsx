@@ -44,7 +44,7 @@ export const ComponentUsage = ({
           item["defaultValue"] == "true" || item["defaultValue"] == "false"
             ? item["defaultValue"] == "true"
             : item["defaultValue"]
-              ? item["defaultValue"].substring(1, item["defaultValue"].length - 1)
+              ? item["defaultValue"].slice(1, -1)
               : undefined,
       };
     }, {}),
@@ -219,7 +219,7 @@ export const ComponentProps = ({
                       <PopoverBody className={"text-sm"}>
                         {prop.description.split("\n").map((p, idx) => {
                           if (p.startsWith("@link")) {
-                            const link = p.substring(6);
+                            const link = p.slice(6);
 
                             return (
                               <p key={`p${idx}`}>
