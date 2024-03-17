@@ -1,8 +1,10 @@
+import { __DEV__ } from "@resolid/utils";
 import type { DrizzleConfig } from "drizzle-orm";
 import { drizzle, type PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import { env } from "node:process";
 import postgres, { type Options } from "postgres";
 
+import { singleton } from "../core/singleton";
 import * as schemas from "../modules/schemas";
 
 export type DatabaseOptions<
@@ -19,7 +21,13 @@ export const defineDatabase = <
 >(
   options: DatabaseOptions<PT, TSchema>,
 ) => {
-  const pg = postgres(env.RX_DB_URL!, {
+  const dbUrl = env.RX_DB_URL;
+
+  if (!dbUrl) {
+    throw new Error("请先设置 RX_DB_URL 环境变量");
+  }
+
+  const pg = postgres(dbUrl, {
     transform: {
       undefined: null,
     },
@@ -31,7 +39,12 @@ export const defineDatabase = <
     schema: { ...schemas, ...options.drizzleOptions?.schema },
   };
 
-  return drizzle(pg, drizzleOptions) as PostgresJsDatabase<TSchema & (typeof drizzleOptions)["schema"]>;
+  return __DEV__
+    ? singleton(
+        "db",
+        () => drizzle(pg, drizzleOptions) as PostgresJsDatabase<TSchema & (typeof drizzleOptions)["schema"]>,
+      )
+    : (drizzle(pg, drizzleOptions) as PostgresJsDatabase<TSchema & (typeof drizzleOptions)["schema"]>);
 };
 
 export const drizzleKitConfig = (
@@ -41,6 +54,12 @@ export const drizzleKitConfig = (
     strict?: boolean | undefined;
   } = {},
 ) => {
+  const dbUrl = env.RX_DB_URL;
+
+  if (!dbUrl) {
+    throw new Error("请先设置 RX_DB_URL 环境变量");
+  }
+
   return {
     schema: [
       "./node_modules/@resolid/framework/src/foundation/schema.ts",
@@ -49,7 +68,7 @@ export const drizzleKitConfig = (
     ],
     driver: "pg",
     dbCredentials: {
-      connectionString: env.RX_DB_URL,
+      connectionString: dbUrl,
     },
     verbose: config.verbose,
     strict: config.strict,

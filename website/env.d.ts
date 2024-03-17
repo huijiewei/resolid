@@ -10,28 +10,17 @@ interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
 
-declare global {
-  namespace NodeJS {
-    interface ProcessEnv {
-      NODE_ENV: "development" | "production";
+declare namespace NodeJS {
+  export interface ProcessEnv {
+    BUILD_ENV: "vercel" | undefined;
 
-      BUILD_ENV: "vercel" | undefined;
+    RX_RUNTIME: "vercel" | "node" | undefined;
+    RX_PROXY: number;
+    RX_PROXY_COUNT: number;
 
-      RX_RUNTIME: "vercel" | "node" | undefined;
-      RX_PROXY: number;
-      RX_PROXY_COUNT: number;
+    RX_COOKIE_SECRET: string;
 
-      RX_DB_URL: string;
-      RX_DB_TABLE_PREFIX?: string;
-
-      RX_COOKIE_SECRET: string;
-
-      RX_TURNSTILE_SECRET: string;
-
-      RX_EMAIL_BREVO_API_KEY?: string;
-      RX_EMAIL_SENDER_NAME?: string;
-      RX_EMAIL_SENDER_EMAIL?: string;
-    }
+    RX_TURNSTILE_SECRET: string;
   }
 }
 

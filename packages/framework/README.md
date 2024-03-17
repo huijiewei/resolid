@@ -38,7 +38,7 @@ import { env } from "node:process";
 
 export const db = defineDatabase({
   drizzleOptions: {
-    logger: env.NODE_ENV == "development",
+    logger: process.env.NODE_ENV == "development",
   },
 });
 ```

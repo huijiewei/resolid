@@ -1,3 +1,4 @@
+import { __DEV__ } from "@resolid/utils";
 import { createContext as ReactCreateContext, useContext as ReactUseContext, type Context, type Provider } from "react";
 
 export type CreateContextOptions = {
@@ -13,7 +14,9 @@ export const createContext = <T>(options: CreateContextOptions) => {
 
   const Context = ReactCreateContext<T | undefined>(undefined);
 
-  Context.displayName = name;
+  if (__DEV__) {
+    Context.displayName = name;
+  }
 
   const useContext = () => {
     const context = ReactUseContext(Context);
