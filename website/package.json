@@ -22,7 +22,7 @@
     "@resolid/react-ui": "workspace:^",
     "@resolid/remix-utils": "workspace:^",
     "@resolid/utils": "workspace:^",
-    "hono": "^4.1.0",
+    "hono": "^4.1.1",
     "isbot": "^5.1.1",
     "react": "18.3.0-canary-a870b2d54-20240314",
     "react-dom": "18.3.0-canary-a870b2d54-20240314"
@@ -51,9 +51,9 @@
     "tailwindcss": "^3.4.1",
     "tsx": "^4.7.1",
     "vite": "^5.1.6",
-    "vitest": "^1.4.0",
     "vite-plugin-inspect": "^0.8.3",
-    "vite-tsconfig-paths": "^4.3.2"
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^1.4.0"
   },
   "engines": {
     "node": "20.x"
