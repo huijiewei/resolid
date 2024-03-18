@@ -14,7 +14,6 @@ import {
   PopoverFooter,
   Input,
   Button,
-  useDisclosure,
 } from "@resolid/react-ui";
 import { mergeFrontmatter } from "@resolid/remix-utils";
 import { useRef } from "react";
@@ -44,9 +43,9 @@ import {
 - `Popover`: 为其子级提供上下文的包装器。
 - `PopoverTrigger`: 用于包装引用或触发元素。
 - `PopoverContent`: 弹出框内容的容器。
-- `ModalHeader`: 弹出框的标题。
-- `ModalFooter`: 弹出框的页脚。
-- `ModalBody`: 包含弹出框主要内容的包装器。
+- `PopoverHeader`: 弹出框的标题。
+- `PopoverBody`: 包含弹出框主要内容的包装器。
+- `PopoverFooter`: 弹出框的页脚。
 - `PopoverArrow`: 指向引用或触发元素的视觉箭头。
 - `PopoverCloseButton`: 关闭弹出框的按钮。
 
@@ -283,14 +282,28 @@ return (
   </ComponentExample>
 
 ```jsx
-<Popover duration={3000}>
-  <PopoverTrigger asChild>
-    <Button>动画持续时间</Button>
-  </PopoverTrigger>
-  <PopoverContent>
-    <PopoverBody>持续时间很长</PopoverBody>
-  </PopoverContent>
-</Popover>
+  <Popover>
+    <PopoverTrigger asChild>
+      <Button>打开第一层</Button>
+    </PopoverTrigger>
+    <PopoverContent>
+      <PopoverBody className={"flex flex-col gap-2"}>
+        <p>第一层内容</p>
+        <div className={"text-center"}>
+          <Popover placement={"bottom"}>
+            <PopoverTrigger asChild>
+              <Button>打开第二层</Button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverBody>
+                <p>第二层内容</p>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
+        </div>
+      </PopoverBody>
+    </PopoverContent>
+  </Popover>
 ```
 
 </section>

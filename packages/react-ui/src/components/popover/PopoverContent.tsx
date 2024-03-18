@@ -1,4 +1,4 @@
-import { FloatingFocusManager, useTransitionStatus } from "@floating-ui/react";
+import { FloatingFocusManager } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
 import type { CSSProperties } from "react";
 import { clsx } from "../../utils/classed";
@@ -10,18 +10,14 @@ import { usePopoverFloating } from "./PopoverContext";
 export const PopoverContent = (props: BaseProps<"div">) => {
   const { children, className, ...rest } = props;
 
-  const { floatingStyles, duration, setFloating, context, getFloatingProps, modal, initialFocus } =
+  const { floatingStyles, duration, mounted, status, setFloating, context, getFloatingProps, modal, initialFocus } =
     usePopoverFloating();
 
   const { labelId, descriptionId } = useFloatingAria();
 
-  const { isMounted, status } = useTransitionStatus(context, {
-    duration: duration,
-  });
-
   return (
     <>
-      {isMounted && (
+      {mounted && (
         <Portal>
           <FloatingFocusManager modal={modal} initialFocus={initialFocus} context={context}>
             <div

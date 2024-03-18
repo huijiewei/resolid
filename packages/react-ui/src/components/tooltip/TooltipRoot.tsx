@@ -94,14 +94,23 @@ export const TooltipRoot = (props: PropsWithChildren<TooltipProps>) => {
     whileElementsMounted: autoUpdate,
   });
 
+  const colorStyle = tooltipColorStyles[color];
+
+  const arrowContext = useMemo<FloatingArrowContext>(
+    () => ({
+      context,
+      setArrow: arrowRef,
+      className: colorStyle.arrow,
+    }),
+    [colorStyle.arrow, context],
+  );
+
   const { getFloatingProps, getReferenceProps } = useInteractions([
     useHover(context, { move: false, mouseOnly: true }),
     useFocus(context),
     useRole(context, { role: "tooltip" }),
     useDismiss(context),
   ]);
-
-  const colorStyle = tooltipColorStyles[color];
 
   const referenceContext = useMemo<FloatingReferenceContext>(
     () => ({
@@ -115,7 +124,6 @@ export const TooltipRoot = (props: PropsWithChildren<TooltipProps>) => {
 
   const floatingContext = useMemo<TooltipContext>(
     () => ({
-      opened: openedState,
       duration,
       context,
       floatingStyles,
@@ -123,16 +131,7 @@ export const TooltipRoot = (props: PropsWithChildren<TooltipProps>) => {
       getFloatingProps,
       floatingClass: colorStyle.content,
     }),
-    [openedState, duration, context, floatingStyles, refs.setFloating, getFloatingProps, colorStyle.content],
-  );
-
-  const arrowContext = useMemo<FloatingArrowContext>(
-    () => ({
-      context,
-      setArrow: arrowRef,
-      className: colorStyle.arrow,
-    }),
-    [colorStyle.arrow, context],
+    [duration, context, floatingStyles, refs.setFloating, getFloatingProps, colorStyle.content],
   );
 
   return (

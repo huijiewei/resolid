@@ -7,6 +7,8 @@ export { PopoverFloatingProvider, usePopoverFloating };
 export type PopoverContext = FloatingFloatingContext & {
   modal: boolean;
   duration: number;
+  mounted: boolean;
+  status: "unmounted" | "initial" | "open" | "close";
   initialFocus?: number | MutableRefObject<HTMLElement | null>;
 };
 

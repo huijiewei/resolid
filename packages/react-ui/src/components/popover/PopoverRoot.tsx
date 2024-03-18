@@ -10,12 +10,12 @@ import {
   useFloating,
   useInteractions,
   useRole,
+  useTransitionStatus,
   type Placement,
 } from "@floating-ui/react";
 import { __DEV__, runIfFunction } from "@resolid/utils";
-import type { ReactNode, RefObject } from "react";
-import { useId, useMemo, useRef } from "react";
-import { useDisclosure } from "../../hooks";
+import { useEffect, useId, useMemo, useRef, type ReactNode, type RefObject } from "react";
+import { useDisclosure, usePrevious } from "../../hooks";
 import { FloatingAriaProvider, type FloatingAriaContext } from "../floating/FloatingAriaContext";
 import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/FloatingArrowContext";
 import { FloatingDispatchProvider } from "../floating/FloatingDispatchContext";
@@ -32,6 +32,11 @@ export type PopoverProps = {
    * 关闭时的回调
    */
   onClose?: () => void;
+
+  /**
+   * 关闭完成后的回调
+   */
+  onCloseComplete?: () => void;
 
   /**
    * 开启后焦点目标
@@ -84,8 +89,21 @@ export const PopoverRoot = (props: PopoverProps) => {
     duration = 250,
     opened,
     onClose,
+    onCloseComplete,
     initialFocus,
   } = props;
+
+  const id = useId();
+  const labelId = `${id}-label`;
+  const descriptionId = `${id}-description`;
+
+  const ariaContext = useMemo<FloatingAriaContext>(
+    () => ({
+      labelId,
+      descriptionId,
+    }),
+    [descriptionId, labelId],
+  );
 
   const arrowRef = useRef<SVGSVGElement>(null);
 
@@ -109,23 +127,20 @@ export const PopoverRoot = (props: PopoverProps) => {
     whileElementsMounted: autoUpdate,
   });
 
-  const id = useId();
-  const labelId = `${id}-label`;
-  const descriptionId = `${id}-description`;
+  const arrowContext = useMemo<FloatingArrowContext>(
+    () => ({
+      context,
+      setArrow: arrowRef,
+      className: "fill-bg-normal [&>path:first-of-type]:stroke-bg-muted",
+    }),
+    [context],
+  );
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useClick(context),
     useRole(context),
     useDismiss(context, { escapeKey: closeOnEsc, outsidePress: closeOnBlur }),
   ]);
-
-  const ariaContext = useMemo<FloatingAriaContext>(
-    () => ({
-      labelId,
-      descriptionId,
-    }),
-    [descriptionId, labelId],
-  );
 
   const referenceContext = useMemo<FloatingReferenceContext>(
     () => ({
@@ -137,9 +152,22 @@ export const PopoverRoot = (props: PopoverProps) => {
     [getReferenceProps, openedState, refs.setPositionReference, refs.setReference],
   );
 
+  const { isMounted, status } = useTransitionStatus(context, {
+    duration: duration,
+  });
+
+  const prevStatus = usePrevious(status);
+
+  useEffect(() => {
+    if (prevStatus == "close" && status == "unmounted") {
+      onCloseComplete && onCloseComplete();
+    }
+  }, [onCloseComplete, prevStatus, status]);
+
   const floatingContext = useMemo<PopoverContext>(
     () => ({
-      opened: openedState,
+      mounted: isMounted,
+      status,
       duration,
       context,
       floatingStyles,
@@ -148,16 +176,7 @@ export const PopoverRoot = (props: PopoverProps) => {
       modal,
       initialFocus,
     }),
-    [openedState, duration, context, floatingStyles, refs.setFloating, getFloatingProps, modal, initialFocus],
-  );
-
-  const arrowContext = useMemo<FloatingArrowContext>(
-    () => ({
-      context,
-      setArrow: arrowRef,
-      className: "fill-bg-normal [&>path:first-of-type]:stroke-bg-muted",
-    }),
-    [context],
+    [isMounted, status, duration, context, floatingStyles, refs.setFloating, getFloatingProps, modal, initialFocus],
   );
 
   return (
