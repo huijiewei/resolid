@@ -1,16 +1,16 @@
 import type { Socket } from "node:net";
 
-export type GetClientIpOptions = { proxy: boolean; ipHeaders?: string; maxIpsCount?: number };
+export type GetClientIpOptions = { proxy: boolean; proxyCount?: number; ipHeaders?: string };
 
 export const getClientIp = (req: Request, socket: Socket, options?: GetClientIpOptions) => {
-  const { proxy = false, ipHeaders = "x-forwarded-for", maxIpsCount = 0 } = options || {};
+  const { proxy = false, proxyCount = 0, ipHeaders = "x-forwarded-for" } = options || {};
 
   const val = req.headers.get(ipHeaders);
 
   let ips = proxy && val ? val.split(/\s*,\s*/) : [];
 
-  if (maxIpsCount > 0) {
-    ips = ips.slice(-maxIpsCount);
+  if (proxyCount > 0) {
+    ips = ips.slice(-proxyCount);
   }
 
   return ips[0] || socket.remoteAddress || "";
