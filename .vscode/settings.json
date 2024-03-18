@@ -1,0 +1,9 @@
+{
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "eslint.experimental.useFlatConfig": true,
+    "tailwindCSS.experimental.classRegex": [
+      "clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)",
+      "classed(?:\\.\\w*)?\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    "editor.formatOnSave": true
+}
