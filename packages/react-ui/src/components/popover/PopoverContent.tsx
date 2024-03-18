@@ -1,22 +1,19 @@
 import { FloatingFocusManager, useTransitionStatus } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
-import { forwardRef, type CSSProperties } from "react";
-import { useMergeRefs } from "../../hooks";
+import type { CSSProperties } from "react";
 import { clsx } from "../../utils/classed";
 import { useFloatingAria } from "../floating/FloatingAriaContext";
 import { Portal } from "../portal/Portal";
 import type { BaseProps } from "../slot/Slot";
 import { usePopoverFloating } from "./PopoverContext";
 
-export const PopoverContent = forwardRef<HTMLDivElement, BaseProps<"div">>((props, ref) => {
+export const PopoverContent = (props: BaseProps<"div">) => {
   const { children, className, ...rest } = props;
 
   const { floatingStyles, duration, setFloating, context, getFloatingProps, modal, initialFocus } =
     usePopoverFloating();
 
   const { labelId, descriptionId } = useFloatingAria();
-
-  const refs = useMergeRefs(setFloating, ref);
 
   const { isMounted, status } = useTransitionStatus(context, {
     duration: duration,
@@ -33,7 +30,7 @@ export const PopoverContent = forwardRef<HTMLDivElement, BaseProps<"div">>((prop
                 status == "open" ? "opacity-1" : "opacity-0",
               )}
               style={{ ...floatingStyles, "--duration-var": `${duration}ms` } as CSSProperties}
-              ref={refs}
+              ref={setFloating}
               {...getFloatingProps({
                 ...rest,
                 "aria-labelledby": labelId,
@@ -51,7 +48,7 @@ export const PopoverContent = forwardRef<HTMLDivElement, BaseProps<"div">>((prop
       )}
     </>
   );
-});
+};
 
 if (__DEV__) {
   PopoverContent.displayName = "PopoverContent";

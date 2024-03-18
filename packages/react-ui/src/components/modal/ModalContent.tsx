@@ -1,13 +1,12 @@
 import { FloatingFocusManager } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
-import { forwardRef, useEffect, type CSSProperties } from "react";
-import { useMergeRefs } from "../../hooks";
+import { useEffect, type CSSProperties } from "react";
 import { clsx } from "../../utils/classed";
 import { useFloatingAria } from "../floating/FloatingAriaContext";
 import type { BaseProps } from "../slot/Slot";
 import { useModal } from "./ModalContext";
 
-export const ModalContent = forwardRef<HTMLDivElement, BaseProps<"div">>((props, ref) => {
+export const ModalContent = (props: BaseProps<"div">) => {
   const { children, className, style, ...rest } = props;
   const {
     opened,
@@ -30,8 +29,6 @@ export const ModalContent = forwardRef<HTMLDivElement, BaseProps<"div">>((props,
     }
   }, [opened, finalFocus]);
 
-  const refs = useMergeRefs(ref, setFloating);
-
   return (
     <div
       className={clsx(
@@ -51,7 +48,7 @@ export const ModalContent = forwardRef<HTMLDivElement, BaseProps<"div">>((props,
             className,
           )}
           style={{ ...style, "--duration-var": `${duration}ms` } as CSSProperties}
-          ref={refs}
+          ref={setFloating}
           {...getFloatingProps({
             ...rest,
             "aria-labelledby": labelId,
@@ -63,7 +60,7 @@ export const ModalContent = forwardRef<HTMLDivElement, BaseProps<"div">>((props,
       </FloatingFocusManager>
     </div>
   );
-});
+};
 
 if (__DEV__) {
   ModalContent.displayName = "ModalContent";

@@ -1,14 +1,13 @@
 import { FloatingFocusManager, FloatingList, useTransitionStatus } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
-import { forwardRef, type CSSProperties } from "react";
+import type { CSSProperties } from "react";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
-import { useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import { Portal } from "../portal/Portal";
 import type { BaseProps } from "../slot/Slot";
 import { MenuSelectProvider, useMenuFloating } from "./MenuContext";
 
-export const MenuContent = forwardRef<HTMLDivElement, BaseProps<"div">>((props, ref) => {
+export const MenuContent = (props: BaseProps<"div">) => {
   const { children, className, ...rest } = props;
 
   const {
@@ -24,8 +23,6 @@ export const MenuContent = forwardRef<HTMLDivElement, BaseProps<"div">>((props, 
     getItemProps,
     activeIndex,
   } = useMenuFloating();
-
-  const refs = useMergeRefs(setFloating, ref);
 
   const { isMounted, status } = useTransitionStatus(context, {
     duration: duration,
@@ -44,7 +41,7 @@ export const MenuContent = forwardRef<HTMLDivElement, BaseProps<"div">>((props, 
                 status == "open" ? "opacity-1" : "opacity-0",
                 className,
               )}
-              ref={refs}
+              ref={setFloating}
               style={{ ...floatingStyles, "--duration-var": `${duration}ms` } as CSSProperties}
               {...getFloatingProps({
                 ...rest,
@@ -59,7 +56,7 @@ export const MenuContent = forwardRef<HTMLDivElement, BaseProps<"div">>((props, 
       )}
     </>
   );
-});
+};
 
 if (__DEV__) {
   MenuContent.displayName = "MenuContent";
