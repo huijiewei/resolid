@@ -9,6 +9,7 @@ export * from "./checkbox/CheckboxGroup";
 export * from "./close-button/CloseButton";
 export * from "./context-menu/ContextMenu";
 export * from "./divider/Divider";
+export * from "./drawer/Drawer";
 export * from "./dropdown-menu/DropdownMenu";
 export * from "./image/Image";
 export * from "./input/Input";
