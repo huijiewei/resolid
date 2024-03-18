@@ -16,6 +16,7 @@ export const ModalBody = forwardRef<HTMLDivElement, BaseProps<"div", EmptyProps,
       id={descriptionId}
       ref={ref}
       className={clsx(
+        "flex-1",
         scrollBehavior == "inside" && "overflow-y-auto overscroll-contain scrollbar scrollbar-thin",
         className,
       )}

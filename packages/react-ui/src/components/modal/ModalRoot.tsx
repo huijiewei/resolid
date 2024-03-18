@@ -12,6 +12,7 @@ export type ModalProps = ModalBaseProps & {
    * 关闭时的回调
    */
   onClose: () => void;
+
   /**
    * 关闭完成后的回调
    */
@@ -52,15 +53,6 @@ export const ModalRoot = (props: PropsWithChildren<ModalProps>) => {
     scrollBehavior = "outside",
   } = props;
 
-  const { refs, context } = useFloating<HTMLElement>({
-    open: opened,
-    onOpenChange: (opened) => {
-      if (!opened) {
-        onClose();
-      }
-    },
-  });
-
   const id = useId();
   const labelId = `${id}-label`;
   const descriptionId = `${id}-description`;
@@ -72,6 +64,15 @@ export const ModalRoot = (props: PropsWithChildren<ModalProps>) => {
     }),
     [descriptionId, labelId],
   );
+
+  const { refs, context } = useFloating<HTMLElement>({
+    open: opened,
+    onOpenChange: (opened) => {
+      if (!opened) {
+        onClose();
+      }
+    },
+  });
 
   const { getFloatingProps } = useInteractions([
     useClick(context),
