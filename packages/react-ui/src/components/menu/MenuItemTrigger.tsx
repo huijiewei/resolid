@@ -3,6 +3,7 @@ import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
+import { dataAttr } from "../../utils/dom";
 import { useFloatingDispatch } from "../floating/FloatingDispatchContext";
 import { useFloatingReference } from "../floating/FloatingReferenceContext";
 import { Slot, type AsChildProps, type EmptyProps } from "../slot/Slot";
@@ -32,7 +33,7 @@ export const MenuItemTrigger = forwardRef<HTMLButtonElement, AsChildProps<"butto
         type={Comp == "button" ? "button" : undefined}
         tabIndex={isActive ? 0 : -1}
         disabled={disabled}
-        data-opened={opened ? "" : undefined}
+        data-opened={dataAttr(opened)}
         className={clsx(
           menuItemStyles,
           "cursor-default justify-between pe-0.5",

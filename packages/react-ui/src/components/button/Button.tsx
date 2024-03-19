@@ -1,6 +1,7 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef, type CSSProperties, type JSX } from "react";
 import { clsx } from "../../utils/classed";
+import { dataAttr } from "../../utils/dom";
 import { toRounded, type Radius } from "../../utils/radius";
 import { Slot, type AsChildProps } from "../slot/Slot";
 import { buttonStyles } from "./Button.styles";
@@ -112,7 +113,7 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<"button", Butto
       type={type ?? asChild ? undefined : "button"}
       ref={ref}
       disabled={Boolean(disabled) || loading}
-      data-active={active ? "" : undefined}
+      data-active={dataAttr(active)}
       {...rest}
     >
       {loading ? (

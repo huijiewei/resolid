@@ -1,6 +1,7 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
+import { ariaAttr } from "../../utils/dom";
 import type { AsChildProps } from "../slot/Slot";
 import { MenuItem, type MenuItemProps } from "./MenuItem";
 import { MenuItemIndicatorProvider } from "./MenuItemIndicatorContext";
@@ -28,7 +29,7 @@ export const MenuRadioItem = forwardRef<
           group.onChange?.(value);
           onClick && onClick();
         }}
-        aria-checked={checked}
+        aria-checked={ariaAttr(checked)}
         className={clsx("relative pl-6", className)}
         {...rest}
       >

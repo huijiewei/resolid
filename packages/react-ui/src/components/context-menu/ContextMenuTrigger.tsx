@@ -1,6 +1,6 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef, useCallback, useEffect, useRef, type MouseEvent, type PointerEventHandler } from "react";
-import { composeEventHandlers } from "../../utils/dom";
+import { composeEventHandlers, dataAttr } from "../../utils/dom";
 import { useFloatingDispatch } from "../floating/FloatingDispatchContext";
 import { useFloatingReference } from "../floating/FloatingReferenceContext";
 import { Slot, type AsChildProps } from "../slot/Slot";
@@ -57,7 +57,7 @@ export const ContextMenuTrigger = forwardRef<HTMLDivElement, AsChildProps<"div",
     return (
       <Comp
         ref={ref}
-        data-active={opened ? "" : undefined}
+        data-active={dataAttr(opened)}
         onContextMenu={
           disabled
             ? onContextMenu

@@ -1,6 +1,7 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { useMergeRefs } from "../../hooks";
+import { dataAttr } from "../../utils/dom";
 import { Slot, type AsChildProps } from "../slot/Slot";
 import { useFloatingReference } from "./FloatingReferenceContext";
 
@@ -18,7 +19,7 @@ export const FloatingTrigger = forwardRef<HTMLButtonElement, FloatingTriggerProp
   return (
     <Comp
       ref={refs}
-      data-active={active && opened ? "" : undefined}
+      data-active={dataAttr(active && opened)}
       type={Comp == "button" ? "button" : undefined}
       {...getReferenceProps({
         ...rest,
