@@ -3,11 +3,12 @@ title: 选择器
 description: 当用户需要从一组同类数据中选择一个或多个时，可以使用下拉选择器，点击后选择对应项。
 ---
 
-import { Button, Input, Select, NativeSelect } from "@resolid/react-ui";
+import { Select, NativeSelect } from "@resolid/react-ui";
 import { mergeFrontmatter } from "@resolid/remix-utils";
 import { useState } from "react";
-import { SpriteIcon } from "~/components/base/SpriteIcon";
 import { ComponentExample, ComponentProps } from "../__components";
+
+import browserIcons from "~/assets/icons/browser.svg";
 
 export const meta = mergeFrontmatter(frontmatter);
 
@@ -375,6 +376,193 @@ import { Select, NativeSelect } from "@resolid/react-ui";
       }
     ]}
   />
+  ```
+
+</section>
+
+## 自定义渲染
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+    {() => {
+      const BrowserIcon = ({ name }) => {
+        return <svg width={"1em"} height={"1em"}><use href={`${browserIcons}#${name}`} /></svg>;
+      }
+      
+      const browsers = [
+        {
+          value: 'chrome',
+          name: 'Google Chrome',
+          icon: <BrowserIcon name={'chrome'} />,
+          description: 'Google Chrome 是一款快速、易于使用且安全的网络浏览器。',
+        },
+        {
+          value: 'firefox',
+          name: 'Firefox',
+          icon: <BrowserIcon name={'firefox'} />,
+          description: 'Firefox 是由 Mozilla 支持的免费网络浏览器。',
+        },
+        {
+          value: 'safari',
+          name: 'Safari',
+          icon: <BrowserIcon name={'safari'} />,
+          description: 'Safari 是在所有 Apple 设备上体验互联网的最佳方式。',
+        },
+        {
+          value: 'edge',
+          name: 'Microsoft Edge',
+          icon: <BrowserIcon name={'edge'} />,
+          description: 'Microsoft Edge 是新 Bing 体验的最佳浏览器。',
+        },
+        {
+          value: 'opera',
+          name: 'Opera',
+          icon: <BrowserIcon name={'opera'} />,
+          description:
+            '比默认浏览器更快、更安全、更智能。 功能齐全，可保护隐私、安全等。',
+        },
+        {
+          value: 'brave',
+          name: 'Brave',
+          icon: <BrowserIcon name={'brave'} />,
+          description: 'Brave 浏览器是一款超快速、私密且安全的网络浏览器，带有 Adblock。',
+        },
+        {
+          value: 'vivaldi',
+          name: 'Vivaldi',
+          icon: <BrowserIcon name={'vivaldi'} />,
+          description: "我们正在构建一个快速、高度可定制的浏览器，优先考虑您的隐私。",
+        },
+      ];
+
+      const optionRender = (browser) => {
+        return (
+          <div className={'flex items-center gap-3'}>
+            {browser.icon}
+            <div>
+              <div>{browser.name}</div>
+              <div className={'text-fg-subtle text-sm'}>{browser.description}</div>
+            </div>
+          </div>
+        );
+      };
+
+      const labelRender = (browser) => {
+        return (
+          <div className={'flex flex-row items-center gap-2'}>
+            {browser.icon}
+            {browser.name}
+          </div>
+        );
+      };
+
+      return (
+        <>
+          <Select
+            className={'w-56'}
+            defaultValue={"chrome"}
+            options={browsers}
+            optionRender={optionRender}
+            labelRender={labelRender}
+          />
+          <Select
+            className={'w-96'}
+            defaultValue={"firefox"}
+            options={browsers}
+            optionRender={optionRender}
+            labelRender={optionRender}
+          />
+        </>
+      );
+    }}
+  </ComponentExample>
+
+  ```jsx
+  const browsers = [
+    {
+      value: 'chrome',
+      name: 'Google Chrome',
+      icon: <BrowserIcon name={'chrome'} />,
+      description: 'Google Chrome 是一款快速、易于使用且安全的网络浏览器。',
+    },
+    {
+      value: 'firefox',
+      name: 'Firefox',
+      icon: <BrowserIcon name={'firefox'} />,
+      description: 'Firefox 是由 Mozilla 支持的免费网络浏览器。',
+    },
+    {
+      value: 'safari',
+      name: 'Safari',
+      icon: <BrowserIcon name={'safari'} />,
+      description: 'Safari 是在所有 Apple 设备上体验互联网的最佳方式。',
+    },
+    {
+      value: 'edge',
+      name: 'Microsoft Edge',
+      icon: <BrowserIcon name={'edge'} />,
+      description: 'Microsoft Edge 是新 Bing 体验的最佳浏览器。',
+    },
+    {
+      value: 'opera',
+      name: 'Opera',
+      icon: <BrowserIcon name={'opera'} />,
+      description:
+    '比默认浏览器更快、更安全、更智能。 功能齐全，可保护隐私、安全等。',
+    },
+    {
+      value: 'brave',
+      name: 'Brave',
+      icon: <BrowserIcon name={'brave'} />,
+      description: 'Brave 浏览器是一款超快速、私密且安全的网络浏览器，带有 Adblock。',
+    },
+    {
+      value: 'vivaldi',
+      name: 'Vivaldi',
+      icon: <BrowserIcon name={'vivaldi'} />,
+      description: "我们正在构建一个快速、高度可定制的浏览器，优先考虑您的隐私。",
+    },
+  ];
+  
+  const optionRender = (browser) => {
+    return (
+      <div className={'flex items-center gap-3'}>
+        {browser.icon}
+        <div>
+          <div>{browser.name}</div>
+          <div className={'text-fg-subtle text-sm'}>{browser.description}</div>
+        </div>
+      </div>
+    );
+  };
+  
+  const labelRender = (browser) => {
+    return (
+      <div className={'flex flex-row items-center gap-2'}>
+        {browser.icon}
+        {browser.name}
+      </div>
+    );
+  };
+  
+  return (
+    <>
+      <Select
+        className={'w-56'}
+        defaultValue={"chrome"}
+        options={browsers}
+        optionRender={optionRender}
+        labelRender={labelRender}
+      />
+      <Select
+        className={'w-96'}
+        defaultValue={"firefox"}
+        options={browsers}
+        optionRender={optionRender}
+        labelRender={optionRender}
+      />
+    </>
+  );
   ```
 
 </section>
