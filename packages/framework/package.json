@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@resolid/utils": "workspace:^",
-    "drizzle-orm": "^0.30.3",
+    "drizzle-orm": "^0.30.4",
     "nodemailer": "^6.9.12",
     "postgres": "^3.4.3"
   },
@@ -43,7 +43,7 @@
     "vitest": "^1.4.0"
   },
   "peerDependencies": {
-    "drizzle-orm": "^0.30.3"
+    "drizzle-orm": "^0.30.4"
   },
   "homepage": "https://resolid.tech",
   "repository": {
