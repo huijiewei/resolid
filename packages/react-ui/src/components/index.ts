@@ -20,6 +20,8 @@ export * from "./popover/Popover";
 export * from "./portal/Portal";
 export * from "./radio/Radio";
 export * from "./radio/RadioGroup";
+export * from "./select/NativeSelect";
+export * from "./select/Select";
 export * from "./slot/Slot";
 export * from "./spinner/Spinner";
 export * from "./switch/Switch";

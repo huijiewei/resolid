@@ -3,6 +3,7 @@ import {
   Button,
   clsx,
   Input,
+  NativeSelect,
   Popover,
   PopoverArrow,
   PopoverBody,
@@ -78,8 +79,9 @@ export const ComponentUsage = ({
                     <label htmlFor={propInputId}>{prop.description}</label>
                     <Input
                       id={propInputId}
+                      size={"xs"}
                       className={"w-1/2"}
-                      value={String(state[prop.name])}
+                      value={state[prop.name] as string}
                       onChange={(value) => {
                         setState((prev) => ({ ...prev, [prop.name]: value }));
                       }}
@@ -141,9 +143,9 @@ export const ComponentUsage = ({
                   ) : (
                     <>
                       <label htmlFor={propInputId}>{prop.description}</label>
-                      <select
+                      <NativeSelect
                         id={propInputId}
-                        className={"rounded border p-1"}
+                        size={"xs"}
                         value={String(state[prop.name])}
                         onChange={(e) => {
                           setState((prev) => ({
@@ -164,7 +166,7 @@ export const ComponentUsage = ({
                             </option>
                           );
                         })}
-                      </select>
+                      </NativeSelect>
                     </>
                   ))}
               </div>

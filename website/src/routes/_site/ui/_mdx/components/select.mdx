@@ -1,0 +1,527 @@
+---
+title: 选择器
+description: 当用户需要从一组同类数据中选择一个或多个时，可以使用下拉选择器，点击后选择对应项。
+---
+
+import { Button, Input, Select, NativeSelect } from "@resolid/react-ui";
+import { mergeFrontmatter } from "@resolid/remix-utils";
+import { useState } from "react";
+import { SpriteIcon } from "~/components/base/SpriteIcon";
+import { ComponentExample, ComponentProps } from "../__components";
+
+export const meta = mergeFrontmatter(frontmatter);
+
+# {frontmatter.title}
+
+{frontmatter.description}
+
+## 导入
+
+```js
+import { Select, NativeSelect } from "@resolid/react-ui";
+```
+
+- `Select` 选择器
+- `NativeSelect` 原生选择器
+
+## 基本
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+    <Select
+      className={"w-36"}
+      options={Array(10)
+        .fill(null)
+        .map((_, idx) => idx + 1)
+        .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+    />
+    <Select
+      multiple
+      className={"min-w-56"}
+      options={Array(10)
+        .fill(null)
+        .map((_, idx) => idx + 1)
+        .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+    />
+  </ComponentExample>
+
+  ```jsx
+  <Select
+    className={"w-36"}
+    options={Array(10)
+      .fill(null)
+      .map((_, idx) => idx + 1)
+      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+  />
+  <Select
+    multiple
+    className={"min-w-56"}
+    options={Array(10)
+      .fill(null)
+      .map((_, idx) => idx + 1)
+      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+  />
+  ```
+
+</section>
+
+## 可控
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+    {() => {
+      const [value, setValue] = useState('');
+      const [values, setValues] = useState([]);
+      
+      return (
+        <>
+          <div className={"flex w-full md:w-1/3 flex-col gap-2"}>
+            <p>你最常用的库: {value}</p>
+            <Select
+              className={'w-36'}
+              value={value}
+              onChange={(value) => setValue(value)}
+              options={[
+                { value: 'react', label: 'React' },
+                { value: 'angular', label: 'Angular' },
+                { value: 'svelte', label: 'Svelte' },
+                { value: 'vue', label: 'Vue' },
+                { value: 'solid', label: 'Solid' },
+                { value: 'preact', label: 'Preact' }
+              ]}
+            />
+          </div>
+          <div className={"flex w-full md:w-2/3 flex-col gap-2"}>
+            <p>你曾学习的库: {values.join(', ')}</p>
+            <Select
+              multiple
+              closeOnSelect={false}
+              className={'min-w-36'}
+              value={values}
+              onChange={(values) => setValues(values)}
+              options={[
+                { value: 'react', label: 'React' },
+                { value: 'angular', label: 'Angular' },
+                { value: 'svelte', label: 'Svelte' },
+                { value: 'vue', label: 'Vue' },
+                { value: 'solid', label: 'Solid' },
+                { value: 'preact', label: 'Preact' }
+              ]}
+            />
+          </div>
+        </>
+      );
+    }}
+  </ComponentExample>
+
+  ```jsx
+  const [value, setValue] = useState('');
+  const [values, setValues] = useState([]);
+
+  return (
+    <>
+      <div className={"flex w-full md:w-1/3 flex-col gap-2"}>
+        <p>你最常用的库: {value}</p>
+        <Select
+          className={'w-36'}
+          value={value}
+          onChange={(value) => setValue(value)}
+          options={[
+            { value: 'react', label: 'React' },
+            { value: 'angular', label: 'Angular' },
+            { value: 'svelte', label: 'Svelte' },
+            { value: 'vue', label: 'Vue' },
+            { value: 'solid', label: 'Solid' },
+            { value: 'preact', label: 'Preact' }
+          ]}
+        />
+      </div>
+      <div className={"flex w-full md:w-2/3 flex-col gap-2"}>
+        <p>你曾学习的库: {values.join(', ')}</p>
+        <Select
+          multiple
+          closeOnSelect={false}
+          className={'min-w-36'}
+          value={values}
+          onChange={(values) => setValues(values)}
+          options={[
+            { value: 'react', label: 'React' },
+            { value: 'angular', label: 'Angular' },
+            { value: 'svelte', label: 'Svelte' },
+            { value: 'vue', label: 'Vue' },
+            { value: 'solid', label: 'Solid' },
+            { value: 'preact', label: 'Preact' }
+          ]}
+        />
+      </div>
+    </>
+  );
+  ```
+
+</section>
+
+## 状态
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+    <Select
+      disabled
+      className={"w-36"}
+      options={Array(10)
+        .fill(null)
+        .map((_, idx) => idx + 1)
+        .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+    />
+    <Select
+      invalid
+      className={"w-36"}
+      options={Array(10)
+        .fill(null)
+        .map((_, idx) => idx + 1)
+        .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+    />
+    <Select
+      readOnly
+      className={"w-36"}
+      options={Array(10)
+        .fill(null)
+        .map((_, idx) => idx + 1)
+        .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+    />
+  </ComponentExample>
+
+  ```jsx
+  <Select
+    disabled
+    className={"w-36"}
+    options={Array(10)
+      .fill(null)
+      .map((_, idx) => idx + 1)
+      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+  />
+  <Select
+    invalid
+    className={"w-36"}
+    options={Array(10)
+      .fill(null)
+      .map((_, idx) => idx + 1)
+      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+  />
+  <Select
+    readOnly
+    className={"w-36"}
+    options={Array(10)
+      .fill(null)
+      .map((_, idx) => idx + 1)
+      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+  />
+  ```
+
+</section>
+
+## 大小
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+    <Select
+      className={"w-28"}
+      options={Array(10)
+        .fill(null)
+        .map((_, idx) => idx + 1)
+        .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+      size={'xs'}
+    />
+    <Select
+      className={"w-28"}
+      options={Array(10)
+        .fill(null)
+        .map((_, idx) => idx + 1)
+        .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+      size={'sm'}
+    />
+    <Select
+      className={"w-28"}
+      options={Array(10)
+        .fill(null)
+        .map((_, idx) => idx + 1)
+        .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+      size={'md'}
+    />
+    <Select
+      className={"w-36"}
+      options={Array(10)
+        .fill(null)
+        .map((_, idx) => idx + 1)
+        .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+      size={'lg'}
+    />
+    <Select
+      className={"w-36"}
+      options={Array(10)
+        .fill(null)
+        .map((_, idx) => idx + 1)
+        .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+      size={'xl'}
+    />
+  </ComponentExample>
+
+```jsx
+  <Select
+    className={"w-28"}
+    options={Array(10)
+      .fill(null)
+      .map((_, idx) => idx + 1)
+      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+    size={'xs'}
+  />
+  <Select
+    className={"w-28"}
+    options={Array(10)
+      .fill(null)
+      .map((_, idx) => idx + 1)
+      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+    size={'sm'}
+  />
+  <Select
+    className={"w-28"}
+    options={Array(10)
+      .fill(null)
+      .map((_, idx) => idx + 1)
+      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+    size={'md'}
+  />
+  <Select
+    className={"w-36"}
+    options={Array(10)
+      .fill(null)
+      .map((_, idx) => idx + 1)
+      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+    size={'lg'}
+  />
+  <Select
+    className={"w-36"}
+    options={Array(10)
+      .fill(null)
+      .map((_, idx) => idx + 1)
+      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+    size={'xl'}
+  />
+```
+
+</section>
+
+## 选项组
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+    <Select
+      className={"w-36"}
+      options={[
+        {
+          label: 'Category 1',
+          options: [
+            { label: 'Option 101', value: '101' },
+            { label: 'Option 102', value: '102' },
+            { label: 'Option 103', value: '103' }
+          ]
+        },
+        {
+          label: 'Category 2',
+          options: [
+            { label: 'Option 201', value: '201' },
+            { label: 'Option 202', value: '202' },
+            { label: 'Option 203', value: '203' }
+          ]
+        },
+        {
+          label: '',
+          options: [
+            { label: 'Option 301', value: '301' },
+            { label: 'Option 302', value: '302' },
+            { label: 'Option 303', value: '303' }
+          ]
+        }
+      ]}
+    />
+  </ComponentExample>
+
+  ```jsx
+  <Select
+    className={"w-36"}
+    options={[
+      {
+        label: 'Category 1',
+        options: [
+          { label: 'Option 101', value: '101' },
+          { label: 'Option 102', value: '102' },
+          { label: 'Option 103', value: '103' }
+        ]
+      },
+      {
+        label: 'Category 2',
+        options: [
+          { label: 'Option 201', value: '201' },
+          { label: 'Option 202', value: '202' },
+          { label: 'Option 203', value: '203' }
+        ]
+      },
+      {
+        label: '',
+        options: [
+          { label: 'Option 301', value: '301' },
+          { label: 'Option 302', value: '302' },
+          { label: 'Option 303', value: '303' }
+        ]
+      }
+    ]}
+  />
+  ```
+
+</section>
+
+## 虚拟滚动
+
+当选项值超过 30 个并且没有分组的时候就会自动开启虚拟滚动
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+    <Select
+      className={"w-36"}
+      options={Array(1000)
+        .fill(null)
+        .map((_, idx) => idx + 1)
+        .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+    />
+    <Select
+      className={"w-36"}
+      defaultValue={102}
+      options={Array(1000)
+        .fill(null)
+        .map((_, idx) => idx + 1)
+        .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+    />
+    <Select
+      multiple
+      className={"min-w-56"}
+      defaultValue={[102,252]}
+      options={Array(1000)
+        .fill(null)
+        .map((_, idx) => idx + 1)
+        .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+    />
+  </ComponentExample>
+
+  ```jsx
+  <Select
+    className={"w-36"}
+    options={Array(1000)
+      .fill(null)
+      .map((_, idx) => idx + 1)
+      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+  />
+  <Select
+    className={"w-36"}
+    defaultValue={102}
+    options={Array(1000)
+      .fill(null)
+      .map((_, idx) => idx + 1)
+      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+  />
+  <Select
+    multiple
+    className={"min-w-56"}
+    defaultValue={[102,252]}
+    options={Array(1000)
+      .fill(null)
+      .map((_, idx) => idx + 1)
+      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+  />
+  ```
+
+</section>
+
+## 原生选择器
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+    <NativeSelect size={'xs'} placeholder={'选择框架'}>
+      <option value={'react'}>React</option>
+      <option value={'vue'}>Vue</option>
+      <option value={'angular'} disabled>Angular</option>
+      <option value={'solid'}>Solid</option>
+      <option value={'svelte'}>Svelte</option>
+    </NativeSelect>
+    <NativeSelect size={'sm'} placeholder={'选择框架'}>
+      <option value={'react'}>React</option>
+      <option value={'vue'}>Vue</option>
+      <option value={'angular'}>Angular</option>
+      <option value={'solid'}>Solid</option>
+      <option value={'svelte'}>Svelte</option>
+    </NativeSelect>
+    <NativeSelect defaultValue={'solid'} placeholder={'选择框架'}>
+      <option value={'react'}>React</option>
+      <option value={'vue'}>Vue</option>
+      <option value={'angular'}>Angular</option>
+      <option value={'solid'}>Solid</option>
+      <option value={'svelte'}>Svelte</option>
+    </NativeSelect>
+    <NativeSelect size={'lg'} placeholder={'选择框架'}>
+      <option value={'react'}>React</option>
+      <option value={'vue'}>Vue</option>
+      <option value={'angular'}>Angular</option>
+      <option value={'solid'}>Solid</option>
+      <option value={'svelte'}>Svelte</option>
+    </NativeSelect>
+    <NativeSelect size={'xl'} placeholder={'选择框架'}>
+      <option value={'react'}>React</option>
+      <option value={'vue'}>Vue</option>
+      <option value={'angular'}>Angular</option>
+      <option value={'solid'}>Solid</option>
+      <option value={'svelte'}>Svelte</option>
+    </NativeSelect>
+  </ComponentExample>
+
+  ```jsx
+  <NativeSelect size={'xs'} placeholder={'选择框架'}>
+    <option value={'react'}>React</option>
+    <option value={'vue'}>Vue</option>
+    <option value={'angular'} disabled>Angular</option>
+    <option value={'solid'}>Solid</option>
+    <option value={'svelte'}>Svelte</option>
+  </NativeSelect>
+  <NativeSelect size={'sm'} placeholder={'选择框架'}>
+    <option value={'react'}>React</option>
+    <option value={'vue'}>Vue</option>
+    <option value={'angular'}>Angular</option>
+    <option value={'solid'}>Solid</option>
+    <option value={'svelte'}>Svelte</option>
+  </NativeSelect>
+  <NativeSelect defaultValue={'solid'} placeholder={'选择框架'}>
+    <option value={'react'}>React</option>
+    <option value={'vue'}>Vue</option>
+    <option value={'angular'}>Angular</option>
+    <option value={'solid'}>Solid</option>
+    <option value={'svelte'}>Svelte</option>
+  </NativeSelect>
+  <NativeSelect size={'lg'} placeholder={'选择框架'}>
+    <option value={'react'}>React</option>
+    <option value={'vue'}>Vue</option>
+    <option value={'angular'}>Angular</option>
+    <option value={'solid'}>Solid</option>
+    <option value={'svelte'}>Svelte</option>
+  </NativeSelect>
+  <NativeSelect size={'xl'} placeholder={'选择框架'}>
+    <option value={'react'}>React</option>
+    <option value={'vue'}>Vue</option>
+    <option value={'angular'}>Angular</option>
+    <option value={'solid'}>Solid</option>
+    <option value={'svelte'}>Svelte</option>
+  </NativeSelect>
+  ```
+
+</section>
+
+
+## 属性
+
+<ComponentProps componentFile={"./select/Select.tsx"} />
