@@ -16,7 +16,7 @@ export default defineConfig({
     alias: [
       {
         find: "@dbInstance",
-        replacement: join(__dirname, `./src/tests/db.setup.ts`),
+        replacement: join(__dirname, `./tests/db.setup.ts`),
       },
     ],
   },

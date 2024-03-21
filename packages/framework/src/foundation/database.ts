@@ -3,8 +3,8 @@ import type { DrizzleConfig } from "drizzle-orm";
 import { drizzle, type PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import { env } from "node:process";
 import postgres, { type Options } from "postgres";
+import { singleton } from "../utils/singleton";
 
-import { singleton } from "../core/singleton";
 import * as schemas from "../modules/schemas";
 
 export type DatabaseOptions<
