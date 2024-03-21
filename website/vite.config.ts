@@ -6,24 +6,27 @@ import { nodeHonoPreset } from "@resolid/remix-plugins/node-hono";
 import { vercelServerlessPreset } from "@resolid/remix-plugins/vercel-serverless";
 import rehypeShiki from "@shikijs/rehype";
 import { join } from "node:path";
-import { env } from "node:process";
+import { cwd, env } from "node:process";
 import { fileURLToPath } from "node:url";
 import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
-import { defineConfig, splitVendorChunkPlugin, type AliasOptions, type UserConfig } from "vite";
+import { loadEnv, splitVendorChunkPlugin, type AliasOptions } from "vite";
 import viteInspect from "vite-plugin-inspect";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { defineConfig, type UserConfig } from "vitest/config";
 
 export default defineConfig(({ command }) => {
   const isBuild = command == "build";
-  const buildEnv = env.BUILD_ENV;
 
   const __dirname = fileURLToPath(new URL(".", import.meta.url));
   const appDirectory = "src";
 
   const config: UserConfig = {
+    test: {
+      env: loadEnv("test", cwd(), ""),
+    },
     plugins: [
       mdx({
         providerImportSource: "@mdx-js/react",
@@ -49,7 +52,7 @@ export default defineConfig(({ command }) => {
       remix({
         appDirectory: appDirectory,
         presets: [
-          buildEnv == "vercel"
+          env.VERCEL == "1"
             ? vercelServerlessPreset({
                 regions: "sin1",
               })

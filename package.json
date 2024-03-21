@@ -9,7 +9,7 @@
     "format": "prettier --write .",
     "test": "pnpm test -r --if-present",
     "website:build": "pnpm --filter website... run build",
-    "website:vercel": "BUILD_ENV=vercel pnpm --filter website... run build",
+    "website:vercel": "VERCEL=1 pnpm --filter website... run build",
     "resolid": "pnpm --filter website exec -- pnpm --silent resolid"
   },
   "devDependencies": {

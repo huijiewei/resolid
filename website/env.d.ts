@@ -3,9 +3,6 @@
 
 declare namespace NodeJS {
   export interface ProcessEnv {
-    BUILD_ENV: "vercel" | undefined;
-
-    RX_RUNTIME: "vercel" | "node" | undefined;
     RX_PROXY: number;
     RX_PROXY_COUNT: number;
 
