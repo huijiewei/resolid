@@ -32,7 +32,7 @@ export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): 
             site: { id: "site", file: relative(rootPath, join(serverBuildPath, serverBuildFile)) },
           };
 
-          console.log("bundle Vercel Serverless for production...");
+          console.log("Bundle Vercel Serverless for production...");
 
           const vercelRoot = join(rootPath, ".vercel");
           await rm(vercelRoot, { recursive: true, force: true });
@@ -54,6 +54,7 @@ export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): 
               join(__dirname, "vercel-serverless-entry.js"),
               buildPath,
               buildFile,
+              serverBundleId,
             );
 
             const bundleFile = await bundleServer(
@@ -62,6 +63,7 @@ export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): 
               join(rootPath, "package.json"),
               commonjsOptions,
               ssrExternal,
+              serverBundleId,
             );
 
             if (defaultHandler) {
@@ -93,6 +95,8 @@ const copyFunctionsFiles = async (
   functionName: string,
   functionRegions: string | string[],
 ) => {
+  console.log(`Coping Vercel function files for ${functionName}...`);
+
   const vercelFunctionDir = join(vercelOutDir, "functions", `${functionName}.func`);
   await mkdir(vercelFunctionDir, { recursive: true });
 
@@ -150,6 +154,8 @@ const copyFunctionsFiles = async (
 };
 
 const copyStaticFiles = async (outDir: string, vercelOutDir: string) => {
+  console.log("Copying assets...");
+
   const vercelStaticDir = join(vercelOutDir, "static");
 
   await mkdir(vercelStaticDir, { recursive: true });
@@ -247,6 +253,8 @@ const writeVercelConfigJson = async (
   buildManifest: BuildManifest | undefined,
   vercelConfigFile: string,
 ) => {
+  console.log("Writing Vercel config file...");
+
   const configJson: { version: number; routes: unknown[] } = {
     version: 3,
     routes: [],

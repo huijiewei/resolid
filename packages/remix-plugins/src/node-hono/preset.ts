@@ -24,9 +24,10 @@ export const nodeHonoPreset = (): Preset => {
             site: { id: "site", file: relative(rootPath, join(serverBuildPath, serverBuildFile)) },
           };
 
-          console.log("bundle Node Hono Server for production...");
+          console.log("Bundle Node Hono Server for production...");
 
           for (const key in serverBundles) {
+            const serverBundleId = serverBundles[key].id;
             const buildFile = join(rootPath, serverBundles[key].file);
             const buildPath = dirname(buildFile);
 
@@ -35,9 +36,17 @@ export const nodeHonoPreset = (): Preset => {
               join(__dirname, "node-hono-entry.js"),
               buildPath,
               buildFile,
+              serverBundleId,
             );
 
-            await bundleServer(buildPath, entryFile, join(rootPath, "package.json"), commonjsOptions, ssrExternal);
+            await bundleServer(
+              buildPath,
+              entryFile,
+              join(rootPath, "package.json"),
+              commonjsOptions,
+              ssrExternal,
+              serverBundleId,
+            );
 
             if (defaultHandler) {
               await rm(defaultHandler, { force: true });

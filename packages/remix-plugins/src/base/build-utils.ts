@@ -48,7 +48,10 @@ export const buildEntry = async (
   entryFile: string,
   buildPath: string,
   buildFile: string,
+  serverBundleId: string,
 ): Promise<[string, string | null]> => {
+  console.log(`Build Server entry file for ${serverBundleId}...`);
+
   const outfile = join(buildPath, "remix-entry.js");
 
   let handler = [".ts", ".js"].map((ext) => join(appPath, "remix.handler" + ext)).find((file) => existsSync(file));
@@ -105,7 +108,10 @@ export const bundleServer = async (
   packageFile: string,
   commonjsOptions: RollupCommonJSOptions,
   ssrExternal: string[] | true | undefined,
+  serverBundleId: string,
 ) => {
+  console.log(`Bundle Server file for ${serverBundleId}`);
+
   const pkg = JSON.parse(await readFile(packageFile, "utf8")) as PackageJson;
 
   const packageDependencies = getPackageDependencies({ ...pkg.dependencies, ...pkg.devDependencies }, ssrExternal);
