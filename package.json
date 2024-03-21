@@ -20,7 +20,7 @@
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.12",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.3"
   },
   "engines": {
     "node": "20.x",
@@ -36,9 +36,9 @@
     "overrides": {
       "esbuild": "^0.20.2",
       "rollup": "^4.13.0",
-      "react": "18.3.0-canary-a870b2d54-20240314",
-      "react-dom": "18.3.0-canary-a870b2d54-20240314",
-      "react-is": "18.3.0-canary-a870b2d54-20240314",
+      "react": "18.3.0-canary-a4939017f-20240320",
+      "react-dom": "18.3.0-canary-a4939017f-20240320",
+      "react-is": "18.3.0-canary-a4939017f-20240320",
       "hasown": "npm:@nolyfill/hasown@latest",
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
