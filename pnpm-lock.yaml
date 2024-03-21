@@ -259,10 +259,17 @@ importers:
         version: 5.2.2(@types/node@20.11.30)
 
   packages/remix-utils:
+    dependencies:
+      '@resolid/utils':
+        specifier: workspace:^
+        version: link:../utils
     devDependencies:
       '@remix-run/node':
         specifier: ^2.8.1
         version: 2.8.1(typescript@5.4.3)
+      '@remix-run/react':
+        specifier: ^2.8.1
+        version: 2.8.1(react-dom@18.3.0-canary-a4939017f-20240320)(react@18.3.0-canary-a4939017f-20240320)(typescript@5.4.3)
       '@remix-run/server-runtime':
         specifier: ^2.8.1
         version: 2.8.1(typescript@5.4.3)
@@ -335,6 +342,12 @@ importers:
       '@resolid/utils':
         specifier: workspace:^
         version: link:../packages/utils
+      '@vercel/analytics':
+        specifier: ^1.2.2
+        version: 1.2.2(react@18.3.0-canary-a4939017f-20240320)
+      '@vercel/speed-insights':
+        specifier: ^1.0.10
+        version: 1.0.10(react@18.3.0-canary-a4939017f-20240320)
       hono:
         specifier: ^4.1.3
         version: 4.1.3
@@ -1791,7 +1804,6 @@ packages:
       react-router: 6.22.3(react@18.3.0-canary-a4939017f-20240320)
       react-router-dom: 6.22.3(react-dom@18.3.0-canary-a4939017f-20240320)(react@18.3.0-canary-a4939017f-20240320)
       typescript: 5.4.3
-    dev: false
 
   /@remix-run/router@1.15.3:
     resolution: {integrity: sha512-Oy8rmScVrVxWZVOpEF57ovlnhpZ8CCPlnIIumVcV9nFdiSIrus99+Lw78ekXyGvVDlIsFJbSfmSovJUhCWYV3w==}
@@ -2435,6 +2447,21 @@ packages:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
     dev: true
 
+  /@vercel/analytics@1.2.2(react@18.3.0-canary-a4939017f-20240320):
+    resolution: {integrity: sha512-X0rctVWkQV1e5Y300ehVNqpOfSOufo7ieA5PIdna8yX/U7Vjz0GFsGf4qvAhxV02uQ2CVt7GYcrFfddXXK2Y4A==}
+    peerDependencies:
+      next: '>= 13'
+      react: 18.3.0-canary-a4939017f-20240320
+    peerDependenciesMeta:
+      next:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      react: 18.3.0-canary-a4939017f-20240320
+      server-only: 0.0.1
+    dev: false
+
   /@vercel/nft@0.26.4:
     resolution: {integrity: sha512-j4jCOOXke2t8cHZCIxu1dzKLHLcFmYzC3yqAK6MfZznOL1QIJKd0xcFsXK3zcqzU7ScsE2zWkiMMNHGMHgp+FA==}
     engines: {node: '>=16'}
@@ -2456,6 +2483,33 @@ packages:
       - encoding
       - supports-color
     dev: true
+
+  /@vercel/speed-insights@1.0.10(react@18.3.0-canary-a4939017f-20240320):
+    resolution: {integrity: sha512-4uzdKB0RW6Ff2FkzshzjZ+RlJfLPxgm/00i0XXgxfMPhwnnsk92YgtqsxT9OcPLdJUyVU1DqFlSWWjIQMPkh0g==}
+    requiresBuild: true
+    peerDependencies:
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: 18.3.0-canary-a4939017f-20240320
+      svelte: ^4
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
+    dependencies:
+      react: 18.3.0-canary-a4939017f-20240320
+    dev: false
 
   /@vitest/expect@1.4.0:
     resolution: {integrity: sha512-Jths0sWCJZ8BxjKe+p+eKsoqev1/T8lYcrjavEaz8auEJ4jAVY0GwW3JKmdVU4mmNPLPHixh4GNXP7GFtAiDHA==}
@@ -7832,7 +7886,6 @@ packages:
       react: 18.3.0-canary-a4939017f-20240320
       react-dom: 18.3.0-canary-a4939017f-20240320(react@18.3.0-canary-a4939017f-20240320)
       react-router: 6.22.3(react@18.3.0-canary-a4939017f-20240320)
-    dev: false
 
   /react-router@6.22.3(react@18.3.0-canary-a4939017f-20240320):
     resolution: {integrity: sha512-dr2eb3Mj5zK2YISHK++foM9w4eBnO23eKnZEDs7c880P6oKbrjz/Svg9+nxqtHQK+oMW4OtjZca0RqPglXxguQ==}
@@ -7842,7 +7895,6 @@ packages:
     dependencies:
       '@remix-run/router': 1.15.3
       react: 18.3.0-canary-a4939017f-20240320
-    dev: false
 
   /react-style-singleton@2.2.1(@types/react@18.2.67)(react@18.3.0-canary-a4939017f-20240320):
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
@@ -8216,6 +8268,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /server-only@0.0.1:
+    resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
+    dev: false
 
   /set-blocking@2.0.0:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}

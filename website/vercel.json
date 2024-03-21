@@ -32,5 +32,15 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/growth/:match*",
+      "destination": "https://resolid.tech/_vercel/insights/:match*"
+    },
+    {
+      "source": "/speed-growth/:match*",
+      "destination": "https://resolid.tech/_vercel/speed-insights/:match*"
+    }
   ]
 }

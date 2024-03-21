@@ -12,6 +12,7 @@ declare namespace NodeJS {
 }
 
 interface ImportMetaEnv {
+  readonly VITE_VERCEL_URL?: string;
   readonly VITE_TURNSTILE_KEY: string;
 }
 

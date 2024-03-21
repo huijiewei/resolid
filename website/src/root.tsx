@@ -1,5 +1,7 @@
 import type { LinksFunction } from "@remix-run/node";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/remix";
 import type { PropsWithChildren } from "react";
 import { RouteProcessBar } from "~/components/base/RouteProcessBar";
 
@@ -40,7 +42,17 @@ export const Layout = ({ children }: PropsWithChildren) => {
 };
 
 export default function Root() {
-  return <Outlet />;
+  return (
+    <>
+      {!!import.meta.env.VITE_VERCEL_URL && (
+        <>
+          <Analytics endpoint={"/growth"} scriptSrc={"/growth/script.js"} />
+          <SpeedInsights endpoint={"/speed-growth/vitals"} scriptSrc={"/speed-growth/script.js"} />
+        </>
+      )}
+      <Outlet />
+    </>
+  );
 }
 
 export const HydrateFallback = () => <p className={"p-20 text-center"}>正在加载</p>;
