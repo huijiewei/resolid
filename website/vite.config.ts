@@ -5,6 +5,7 @@ import remixFlexRoutes from "@resolid/remix-plugins/flex-routes";
 import { nodeHonoPreset } from "@resolid/remix-plugins/node-hono";
 import { vercelServerlessPreset } from "@resolid/remix-plugins/vercel-serverless";
 import rehypeShiki from "@shikijs/rehype";
+import tailwindcss from "@tailwindcss/vite";
 import { join } from "node:path";
 import { cwd, env } from "node:process";
 import { fileURLToPath } from "node:url";
@@ -71,6 +72,7 @@ export default defineConfig(({ command }) => {
           });
         },
       }),
+      tailwindcss(),
       splitVendorChunkPlugin(),
       !isBuild && tsconfigPaths(),
       !isBuild && viteInspect(),
