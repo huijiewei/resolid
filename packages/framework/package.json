@@ -32,7 +32,7 @@
     "@resolid/utils": "workspace:^",
     "drizzle-orm": "^0.30.4",
     "nodemailer": "^6.9.13",
-    "postgres": "^3.4.3"
+    "postgres": "^3.4.4"
   },
   "devDependencies": {
     "@resolid/config": "workspace:^",
