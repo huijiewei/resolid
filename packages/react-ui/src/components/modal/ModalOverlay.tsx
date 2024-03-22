@@ -18,7 +18,7 @@ export const ModalOverlay = (props: BaseProps<"div">) => {
         style={{ ...style, "--duration-var": `${duration}ms` } as CSSProperties}
         className={clsx(
           "z-modal bg-bg-emphasized/60 transition-opacity duration-[--duration-var]",
-          status == "open" ? "opacity-1" : "opacity-0",
+          status == "open" ? "opacity-100" : "opacity-0",
           className,
         )}
         {...rest}

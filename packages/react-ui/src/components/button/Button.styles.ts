@@ -32,6 +32,7 @@ export const buttonStyles = classed(
       },
       disabled: {
         true: "cursor-not-allowed opacity-70 grayscale-[30%]",
+        false: "cursor-pointer",
       },
       loading: {
         true: "cursor-wait opacity-80 grayscale-[20%]",

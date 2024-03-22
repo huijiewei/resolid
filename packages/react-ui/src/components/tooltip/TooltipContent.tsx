@@ -24,7 +24,7 @@ export const TooltipContent = (props: BaseProps<"div">) => {
               "z-tooltip inline-block rounded border px-2 py-1 text-sm text-fg-emphasized shadow",
               floatingClass,
               "transition-opacity duration-[--duration-var]",
-              status == "open" ? "opacity-1" : "opacity-0",
+              status == "open" ? "opacity-100" : "opacity-0",
               className,
             )}
             ref={setFloating}

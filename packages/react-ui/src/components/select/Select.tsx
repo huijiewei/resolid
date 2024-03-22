@@ -583,7 +583,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
               "max-h-80 overflow-y-auto overscroll-contain rounded border border-bg-muted bg-bg-normal shadow outline-none scrollbar scrollbar-thin",
               virtual ? "px-1" : "p-1",
               "transition-opacity duration-[--duration-var]",
-              status == "open" ? "opacity-1" : "opacity-0",
+              status == "open" ? "opacity-100" : "opacity-0",
             )}
             style={
               {

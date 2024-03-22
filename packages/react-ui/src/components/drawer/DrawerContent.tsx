@@ -54,7 +54,7 @@ export const DrawerContent = (props: BaseProps<"div">) => {
           className={clsx(
             "fixed flex flex-col bg-bg-normal shadow",
             "transition-[opacity,transform] duration-[--duration-var] ease-in-out",
-            status == "open" ? `opacity-1 ${transformStyle.open}` : `opacity-0 ${transformStyle.close}`,
+            status == "open" ? `opacity-100 ${transformStyle.open}` : `opacity-0 ${transformStyle.close}`,
             placementStyles[placement],
             className,
           )}

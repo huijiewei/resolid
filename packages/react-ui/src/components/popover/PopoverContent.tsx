@@ -23,7 +23,7 @@ export const PopoverContent = (props: BaseProps<"div">) => {
             <div
               className={clsx(
                 "transition-opacity duration-[--duration-var]",
-                status == "open" ? "opacity-1" : "opacity-0",
+                status == "open" ? "opacity-100" : "opacity-0",
               )}
               style={{ ...floatingStyles, "--duration-var": `${duration}ms` } as CSSProperties}
               ref={setFloating}

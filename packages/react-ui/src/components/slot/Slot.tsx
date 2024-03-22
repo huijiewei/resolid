@@ -55,11 +55,13 @@ if (__DEV__) {
   Slot.displayName = "Slot";
 }
 
-const mergeProps = <T extends HTMLAttributes<Element>>(base: T, overrides: T) => {
+const mergeProps = <T extends HTMLAttributes<HTMLElement>>(base: T, overrides: T) => {
   const props = { ...base };
 
   for (const key in overrides) {
-    if (!hasOwnProperty(overrides, key)) continue;
+    if (!hasOwnProperty(overrides, key)) {
+      continue;
+    }
 
     if (key === "className") {
       const prop = "className";

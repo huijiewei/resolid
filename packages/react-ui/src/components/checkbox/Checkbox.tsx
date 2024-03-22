@@ -156,7 +156,7 @@ export const Checkbox = forwardRef<HTMLInputElement, BaseProps<"input", Checkbox
 
     const clonedIcon = cloneElement(icon, {
       indeterminate: indeterminate,
-      className: clsx(sizeStyle.icon, "transition-opacity", state || indeterminate ? "opacity-1" : "opacity-0"),
+      className: clsx(sizeStyle.icon, "transition-opacity", state || indeterminate ? "opacity-100" : "opacity-0"),
     });
 
     const refs = useMergeRefs(inputRef, ref);

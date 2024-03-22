@@ -38,7 +38,7 @@ export const MenuContent = (props: BaseProps<"div">) => {
               className={clsx(
                 "z-popup rounded border border-bg-muted bg-bg-normal p-1 shadow outline-none",
                 "transition-opacity duration-[--duration-var]",
-                status == "open" ? "opacity-1" : "opacity-0",
+                status == "open" ? "opacity-100" : "opacity-0",
                 className,
               )}
               ref={setFloating}

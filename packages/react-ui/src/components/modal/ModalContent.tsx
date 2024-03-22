@@ -44,7 +44,7 @@ export const ModalContent = (props: BaseProps<"div">) => {
             centered ? "my-6" : "my-16",
             scrollBehavior == "inside" && (centered ? "max-h-[calc(100%-2rem)]" : "max-h-[calc(100%-7rem)]"),
             "transition-opacity duration-[--duration-var]",
-            status == "open" ? "opacity-1" : "opacity-0",
+            status == "open" ? "opacity-100" : "opacity-0",
             className,
           )}
           style={{ ...style, "--duration-var": `${duration}ms` } as CSSProperties}
