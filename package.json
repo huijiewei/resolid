@@ -36,9 +36,9 @@
     "overrides": {
       "esbuild": "^0.20.2",
       "rollup": "^4.13.0",
-      "react": "18.3.0-canary-a4939017f-20240320",
-      "react-dom": "18.3.0-canary-a4939017f-20240320",
-      "react-is": "18.3.0-canary-a4939017f-20240320",
+      "react": "18.3.0-canary-670811593-20240322",
+      "react-dom": "18.3.0-canary-670811593-20240322",
+      "react-is": "18.3.0-canary-670811593-20240322",
       "hasown": "npm:@nolyfill/hasown@latest",
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",

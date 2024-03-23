@@ -26,8 +26,8 @@
     "@vercel/speed-insights": "^1.0.10",
     "hono": "^4.1.3",
     "isbot": "^5.1.2",
-    "react": "18.3.0-canary-a4939017f-20240320",
-    "react-dom": "18.3.0-canary-a4939017f-20240320"
+    "react": "18.3.0-canary-670811593-20240322",
+    "react-dom": "18.3.0-canary-670811593-20240322"
   },
   "devDependencies": {
     "@mdx-js/rollup": "^3.0.1",
@@ -39,7 +39,7 @@
     "@resolid/tailwind": "workspace:^",
     "@shikijs/rehype": "^1.2.0",
     "@tailwindcss/typography": "^0.5.10",
-    "@types/react": "^18.2.67",
+    "@types/react": "^18.2.69",
     "@types/react-dom": "^18.2.22",
     "autoprefixer": "^10.4.19",
     "cssnano": "^6.1.1",
@@ -52,7 +52,7 @@
     "remark-mdx-frontmatter": "^4.0.0",
     "tailwindcss": "^3.4.1",
     "tsx": "^4.7.1",
-    "vite": "^5.2.2",
+    "vite": "^5.2.3",
     "vite-plugin-inspect": "^0.8.3",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.4.0"
