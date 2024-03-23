@@ -39,9 +39,6 @@
     "tsup": "^8.0.2",
     "unified": "^11.0.4"
   },
-  "engines": {
-    "node": "20.x"
-  },
   "homepage": "https://resolid.tech",
   "repository": {
     "type": "git",

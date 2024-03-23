@@ -44,9 +44,6 @@
     "@remix-run/react": "^2.8.1",
     "@remix-run/server-runtime": "^2.8.1"
   },
-  "engines": {
-    "node": "20.x"
-  },
   "homepage": "https://resolid.tech",
   "repository": {
     "type": "git",
