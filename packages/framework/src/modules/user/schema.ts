@@ -1,37 +1,29 @@
 import { relations } from "drizzle-orm";
-import { index, integer, serial, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
+import { index, integer, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
+import { authGroupSchema, authSchema, authSessionSchema } from "../../core/auth/schema";
 import { defineTable } from "../../foundation/schema";
 
 export const userTable = defineTable(
   "user",
   {
-    id: serial("id").primaryKey(),
+    ...authSchema,
     userGroupId: integer("userGroupId").notNull().default(0),
     email: text("email").notNull().default(""),
     emailVerifiedAt: timestamp("emailVerifiedAt"),
-    password: text("password").notNull().default(""),
-    username: text("username").notNull().default(""),
-    nickname: text("nickname").notNull().default(""),
-    avatar: text("avatar").notNull().default(""),
     createdIp: text("createdIp").notNull().default(""),
-    createdAt: timestamp("createdAt").notNull().defaultNow(),
-    updatedAt: timestamp("updatedAt"),
     deletedAt: timestamp("deletedAt"),
   },
-  (userTable) => ({
-    emailIndex: uniqueIndex("emailIndex").on(userTable.email),
-    usernameIndex: uniqueIndex("usernameIndex").on(userTable.username),
-    nicknameIndex: index("nicknameIndex").on(userTable.nickname),
-    deletedAtIndex: index("deletedAtIndex").on(userTable.deletedAt),
-    userGroupIdIndex: index("userGroupIdIndex").on(userTable.userGroupId),
+  (table) => ({
+    emailIndex: uniqueIndex().on(table.email),
+    usernameIndex: uniqueIndex().on(table.username),
+    nicknameIndex: index().on(table.nickname),
+    deletedAtIndex: index().on(table.deletedAt),
+    userGroupIdIndex: index().on(table.userGroupId),
   }),
 );
 
 export const userGroupTable = defineTable("user_group", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull().default(""),
-  color: text("color").notNull().default(""),
-  icon: text("icon").notNull().default(""),
+  ...authGroupSchema,
 });
 
 export const userTableRelations = relations(userTable, ({ one }) => ({
@@ -40,3 +32,8 @@ export const userTableRelations = relations(userTable, ({ one }) => ({
     references: [userGroupTable.id],
   }),
 }));
+
+export const userSessionTable = defineTable("user_session", {
+  ...authSessionSchema,
+  userId: integer("userId").notNull().default(0),
+});
