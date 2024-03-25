@@ -1,5 +1,6 @@
 import { Command } from "commander";
 import { argv } from "node:process";
+import type { DatabaseInstance } from "../src";
 import { dbCommand } from "./commands/db.js";
 
 const normalizeCommand = (command: Command) => {
@@ -12,26 +13,27 @@ const normalizeCommand = (command: Command) => {
     .exitOverride();
 };
 
-export const createCli = (...commands: (() => Command)[]) => {
+export type CreateCommand = (db: DatabaseInstance) => Command;
+
+export const createCli = ({ db, commands }: { db: DatabaseInstance; commands: CreateCommand[] }) => {
   const program = new Command();
 
   program.name("resolid").description("Resolid 命令行工具").version("1.0.0");
 
   normalizeCommand(program);
 
-  program.addCommand(normalizeCommand(dbCommand()));
+  program.addCommand(normalizeCommand(dbCommand(db)));
 
   for (const command of commands) {
-    program.addCommand(normalizeCommand(command()));
+    program.addCommand(normalizeCommand(command(db)));
   }
 
   program.exitOverride();
 
-  try {
-    program.parse(argv);
-  } catch {
-    /* empty */
-  }
+  program
+    .parseAsync(argv)
+    .then(() => {})
+    .catch(() => {});
 };
 
 export { Command };

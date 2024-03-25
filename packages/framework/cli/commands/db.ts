@@ -1,7 +1,8 @@
 import { Command } from "commander";
 import { spawn } from "node:child_process";
+import type { CreateCommand } from "../index";
 
-export const dbCommand = () => {
+export const dbCommand: CreateCommand = () => {
   const db = new Command("db");
 
   db.description("数据库操作");

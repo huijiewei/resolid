@@ -15,6 +15,8 @@ export type DatabaseOptions<
   drizzleOptions?: DrizzleConfig<TSchema>;
 };
 
+export type DatabaseInstance = ReturnType<typeof defineDatabase>;
+
 export const defineDatabase = <
   PT extends Record<string, postgres.PostgresType> = Record<string, never>,
   TSchema extends Record<string, unknown> = Record<string, never>,

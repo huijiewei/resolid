@@ -165,8 +165,12 @@ pnpm add -D drizzle-kit tsx
 
 ```ts
 import { createCli } from "@resolid/framework/cli";
+import { db } from "../src/db.server";
 
-createCli();
+createCli({
+  db: db,
+  commands: []
+});
 ```
 
 在 `package.json` 的 `scripts` 里面增加
@@ -186,9 +190,9 @@ pnpm run resolid
 新建 `cli/commands/demo.ts` 文件
 
 ```ts
-import { Command } from "@resolid/framework/cli";
+import { Command, type CreateCommand } from "@resolid/framework/cli";
 
-export const demoCommand = () => {
+export const demoCommand : CreateCommand = () => {
   const demo = new Command("demo");
 
   demo.description("命令演示");
@@ -211,8 +215,12 @@ export const demoCommand = () => {
 ```ts
 import { createCli } from "@resolid/framework/cli";
 import { demoCommand } from "./commands/demo";
+import { db } from "../src/db.server";
 
-createCli(demoCommand);
+createCli({
+  db: db,
+  commands: [demoCommand]
+});
 ```
 
 ### Drizzle Kit 配置

@@ -1,7 +1,8 @@
-import { Command } from "@resolid/framework/cli";
+import { Command, type CreateCommand } from "@resolid/framework/cli";
+import { exit } from "node:process";
 import { mailer } from "~/foundation/mail.server";
 
-export const mailCommand = () => {
+export const mailCommand: CreateCommand = () => {
   const mail = new Command("mail");
 
   mail.description("电子邮件");
@@ -17,10 +18,12 @@ export const mailCommand = () => {
       });
 
       if (result.success) {
-        console.log(result.messageId);
+        console.log(`邮件发送成功: ${result.messageId}`);
       } else {
-        console.warn(result.message);
+        console.warn(`邮件发送失败: ${result.message}`);
       }
+
+      exit();
     });
 
   return mail;

@@ -1,6 +1,6 @@
-import type { defineDatabase } from "./database";
+import type { DatabaseInstance } from "./database";
 
 // @ts-expect-error Cannot find module
 import { db as dbInstance } from "@dbInstance";
 
-export const db: ReturnType<typeof defineDatabase> = dbInstance;
+export const db: DatabaseInstance = dbInstance;
