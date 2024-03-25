@@ -27,6 +27,9 @@
       "types": "./dist/index.d.ts"
     }
   },
+  "dependencies": {
+    "nanoid": "^5.0.6"
+  },
   "devDependencies": {
     "@resolid/config": "workspace:^",
     "jsdom": "^24.0.0",

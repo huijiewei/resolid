@@ -1,7 +1,15 @@
+import { customAlphabet } from "nanoid";
+
 export const isString = (val: unknown): val is string => typeof val === "string";
 
 export const isEmpty = (value: string | undefined | null) => {
   return value === undefined || value === null || value.trim().length === 0;
+};
+
+export const randomId = () => {
+  const nanoid = customAlphabet("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+
+  return nanoid();
 };
 
 export const startWith = (str: string, prefix: string, ignoreCase = true): boolean => {
