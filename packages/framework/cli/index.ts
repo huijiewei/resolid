@@ -1,7 +1,7 @@
 import { Command } from "commander";
 import { argv } from "node:process";
 import type { DatabaseInstance } from "../src";
-import { dbCommand } from "./commands/db.js";
+import { databaseSeed, dbCommand } from "./commands/db.js";
 
 const normalizeCommand = (command: Command) => {
   return command
@@ -12,6 +12,8 @@ const normalizeCommand = (command: Command) => {
     .helpCommand("help [command]", "显示命令的帮助")
     .exitOverride();
 };
+
+export { Command, databaseSeed };
 
 export type CreateCommand = (db: DatabaseInstance) => Command;
 
@@ -35,5 +37,3 @@ export const createCli = ({ db, commands }: { db: DatabaseInstance; commands: Cr
     .then(() => {})
     .catch(() => {});
 };
-
-export { Command };
