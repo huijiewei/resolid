@@ -94,6 +94,9 @@ importers:
 
   packages/framework:
     dependencies:
+      '@hookform/resolvers':
+        specifier: ^3.3.4
+        version: 3.3.4(react-hook-form@7.51.1)
       '@node-rs/bcrypt':
         specifier: ^1.10.1
         version: 1.10.1
@@ -102,13 +105,16 @@ importers:
         version: link:../utils
       drizzle-orm:
         specifier: ^0.30.4
-        version: 0.30.4(postgres@3.4.4)
+        version: 0.30.4(postgres@3.4.4)(react@18.3.0-canary-670811593-20240322)
       nodemailer:
         specifier: ^6.9.13
         version: 6.9.13
       postgres:
         specifier: ^3.4.4
         version: 3.4.4
+      zod:
+        specifier: ^3.22.4
+        version: 3.22.4
     devDependencies:
       '@resolid/config':
         specifier: workspace:^
@@ -1291,6 +1297,14 @@ packages:
   /@hono/node-server@1.8.2:
     resolution: {integrity: sha512-h8l2TBLCPHZBUrrkosZ6L5CpBLj6zdESyF4B+zngiCDF7aZFQJ0alVbLx7jn8PCVi9EyoFf8a4hOZFi1tD95EA==}
     engines: {node: '>=18.14.1'}
+    dev: false
+
+  /@hookform/resolvers@3.3.4(react-hook-form@7.51.1):
+    resolution: {integrity: sha512-o5cgpGOuJYrd+iMKvkttOclgwRW86EsWJZZRC23prf0uU2i48Htq4PuT73AVb9ionFyZrwYEITuOFGF+BydEtQ==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.51.1(react@18.3.0-canary-670811593-20240322)
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:
@@ -3869,7 +3883,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.30.4(postgres@3.4.4):
+  /drizzle-orm@0.30.4(postgres@3.4.4)(react@18.3.0-canary-670811593-20240322):
     resolution: {integrity: sha512-kWoSMGbrOFkmkAweLTFtHJMpN+nwhx89q0mLELqT2aEU+1szNV8jrnBmJwZ0WGNp7J7yQn/ezEtxBI/qzTSElQ==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -3947,6 +3961,7 @@ packages:
         optional: true
     dependencies:
       postgres: 3.4.4
+      react: 18.3.0-canary-670811593-20240322
     dev: false
 
   /duplexify@3.7.1:
@@ -8043,6 +8058,15 @@ packages:
       react: 18.3.0-canary-670811593-20240322
       scheduler: 0.24.0-canary-670811593-20240322
 
+  /react-hook-form@7.51.1(react@18.3.0-canary-670811593-20240322):
+    resolution: {integrity: sha512-ifnBjl+kW0ksINHd+8C/Gp6a4eZOdWyvRv0UBaByShwU8JbVx5hTcTWEcd5VdybvmPTATkVVXk9npXArHmo56w==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: 18.3.0-canary-670811593-20240322
+    dependencies:
+      react: 18.3.0-canary-670811593-20240322
+    dev: false
+
   /react-is@18.3.0-canary-670811593-20240322:
     resolution: {integrity: sha512-UugQRK3qx0YDCesMtmrH4dKywHXTWihYky5qPDzLXVWkH34jKVvhsfn1rydqW/OE1JdHh3P0BjdhwyQStOwIww==}
 
@@ -9717,7 +9741,6 @@ packages:
 
   /zod@3.22.4:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
-    dev: true
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}

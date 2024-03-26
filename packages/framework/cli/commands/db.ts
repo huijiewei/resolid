@@ -4,6 +4,7 @@ import { spawn } from "node:child_process";
 import { exit } from "node:process";
 import type { DatabaseInstance } from "../../src";
 import { adminGroupTable, adminTable } from "../../src/modules/admin/schema";
+import { userGroupTable } from "../../src/modules/user/schema";
 import type { CreateCommand } from "../index";
 
 export const databaseSeed = async (db: DatabaseInstance) => {
@@ -26,6 +27,11 @@ export const databaseSeed = async (db: DatabaseInstance) => {
     .onConflictDoNothing({
       target: adminTable.id,
     });
+
+  await db
+    .insert(userGroupTable)
+    .values({ id: 1, name: "普通用户" })
+    .onConflictDoNothing({ target: userGroupTable.id });
 };
 
 export const dbCommand: CreateCommand = (db) => {

@@ -1,18 +1,16 @@
-import { afterAll, beforeAll, describe, expect, test } from "vitest";
+import { beforeAll, describe, expect, test } from "vitest";
 import { db } from "../../foundation/alias";
 import { userGroupTable, userService, userTable } from "./service";
 
 describe("userService", () => {
   beforeAll(async () => {
+    await db.delete(userTable);
+    await db.delete(userGroupTable);
+
     await db.insert(userGroupTable).values({ id: 1, name: "test" });
     await db
       .insert(userTable)
       .values({ id: 1, userGroupId: 1, username: "test", nickname: "Test", email: "test@resolid.tech" });
-  });
-
-  afterAll(async () => {
-    await db.delete(userTable);
-    await db.delete(userGroupTable);
   });
 
   test("getLast", async () => {
@@ -37,7 +35,7 @@ describe("userService", () => {
   test("getByUsername", async () => {
     const user = await userService.getByUsername("test2");
 
-    expect(user).toBe(undefined);
+    expect(user).toBe(null);
   });
 
   test("existByUsername", async () => {
@@ -50,5 +48,11 @@ describe("userService", () => {
     const user = await userService.getByNickname("Test");
 
     expect(user?.username).toBe("test");
+  });
+
+  test("getUserGroups", async () => {
+    const groups = await userService.getUserGroups();
+
+    expect(groups[0].name).toBe("test");
   });
 });

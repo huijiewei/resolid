@@ -25,7 +25,7 @@ export const userService = {
     withRelation?: {
       userGroup?: true;
     },
-  ): Promise<R | undefined> => {
+  ): Promise<R | null> => {
     const prepared = db.query.userTable
       .findFirst({
         where: eq(userTable[field], sql.placeholder("value")),
@@ -33,27 +33,32 @@ export const userService = {
       })
       .prepare(`getUserByField_${field}`);
 
-    return (await prepared.execute({ value })) as R;
+    const record = await prepared.execute({ value });
+
+    return (record as R) ?? null;
   },
-  getById: async (id: number): Promise<UserSelectWithGroup | undefined> => {
+  getById: async (id: number): Promise<UserSelectWithGroup | null> => {
     return await userService.getByField("id", id, { userGroup: true });
   },
-  getByEmail: async (email: string): Promise<UserSelectWithGroup | undefined> => {
+  getByEmail: async (email: string): Promise<UserSelectWithGroup | null> => {
     return await userService.getByField("email", email, { userGroup: true });
   },
   existByEmail: async (email: string) => {
-    return (await userService.getByField("email", email)) !== undefined;
+    return (await userService.getByField("email", email)) != null;
   },
-  getByUsername: async (username: string): Promise<UserSelectWithGroup | undefined> => {
+  getByUsername: async (username: string): Promise<UserSelectWithGroup | null> => {
     return await userService.getByField("username", username, { userGroup: true });
   },
   existByUsername: async (username: string) => {
-    return (await userService.getByField("username", username)) !== undefined;
+    return (await userService.getByField("username", username)) != null;
   },
-  getByNickname: async (nickname: string): Promise<UserSelectWithGroup | undefined> => {
+  getByNickname: async (nickname: string): Promise<UserSelectWithGroup | null> => {
     return await userService.getByField("nickname", nickname, { userGroup: true });
   },
   existByNickname: async (nickname: string) => {
-    return (await userService.getByField("nickname", nickname)) !== undefined;
+    return (await userService.getByField("nickname", nickname)) != null;
+  },
+  getUserGroups: async (): Promise<UserGroupSelect[]> => {
+    return db.query.userGroupTable.findMany();
   },
 };
