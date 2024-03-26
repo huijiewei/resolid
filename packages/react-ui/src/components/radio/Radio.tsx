@@ -38,8 +38,8 @@ export type RadioProps = RadioBaseProps & {
 const radioSizeStyles = {
   xs: { control: "h-3.5 w-3.5", label: "text-xs" },
   sm: { control: "h-4 w-4", label: "text-sm" },
-  md: { control: "h-5 w-5", label: "" },
-  lg: { control: "h-6 w-6", label: "" },
+  md: { control: "h-5 w-5", label: "text-base" },
+  lg: { control: "h-6 w-6", label: "text-base" },
   xl: { control: "h-7 w-7", label: "text-lg" },
 };
 
@@ -143,13 +143,13 @@ export const Radio = forwardRef<HTMLInputElement, BaseProps<"input", RadioProps,
           "peer-focus-visible:ring",
           invalid ? "border-border-invalid" : state ? colorStyle.border : "border-bg-muted",
           state ? `${colorStyle.checked} text-fg-emphasized` : "bg-bg-normal",
-          disabled && "opacity-50",
+          disabled && "opacity-70 grayscale-[30%]",
           sizeStyle.control,
           state &&
             `before:relative before:inline-block before:h-1/2 before:w-1/2 before:rounded-[50%] before:bg-current before:content-['']`,
         )}
       />
-      {children && <span className={clsx(sizeStyle.label, "leading-none", disabled && "opacity-50")}>{children}</span>}
+      {children && <span className={clsx(sizeStyle.label, disabled && "opacity-70 grayscale-[30%]")}>{children}</span>}
     </label>
   );
 });

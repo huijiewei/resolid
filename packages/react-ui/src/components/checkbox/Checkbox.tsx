@@ -59,8 +59,8 @@ export type CheckboxProps = CheckboxBaseProps & {
 const checkboxSizeStyles = {
   xs: { control: "h-3.5 w-3.5", label: "text-xs", icon: "text-[0.45rem]" },
   sm: { control: "h-4 w-4", label: "text-sm", icon: "text-[0.5rem]" },
-  md: { control: "h-5 w-5", label: "", icon: "text-[0.625rem]" },
-  lg: { control: "h-6 w-6", label: "", icon: "text-[0.75rem]" },
+  md: { control: "h-5 w-5", label: "text-base", icon: "text-[0.625rem]" },
+  lg: { control: "h-6 w-6", label: "text-base", icon: "text-[0.75rem]" },
   xl: { control: "h-7 w-7", label: "text-lg", icon: "text-[0.875rem]" },
 };
 
@@ -199,7 +199,7 @@ export const Checkbox = forwardRef<HTMLInputElement, BaseProps<"input", Checkbox
           {clonedIcon}
         </div>
         {children && (
-          <span className={clsx(sizeStyle.label, "leading-none", disabled && "opacity-50")}>{children}</span>
+          <span className={clsx(sizeStyle.label, disabled && "opacity-70 grayscale-[30%]")}>{children}</span>
         )}
       </label>
     );

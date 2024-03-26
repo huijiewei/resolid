@@ -45,8 +45,8 @@ export type SwitchProps = {
 const switchSizeStyles = {
   xs: { track: "h-4 w-8", thumb: "translate-x-4", label: "text-xs" },
   sm: { track: "h-5 w-10", thumb: "translate-x-5", label: "text-sm" },
-  md: { track: "h-6 w-12", thumb: "translate-x-6", label: "" },
-  lg: { track: "h-7 w-14", thumb: "translate-x-7", label: "" },
+  md: { track: "h-6 w-12", thumb: "translate-x-6", label: "text-base" },
+  lg: { track: "h-7 w-14", thumb: "translate-x-7", label: "text-base" },
   xl: { track: "h-8 w-16", thumb: "translate-x-8", label: "text-lg" },
 };
 
@@ -152,7 +152,7 @@ export const Switch = forwardRef<HTMLInputElement, BaseProps<"input", SwitchProp
           )}
         />
       </span>
-      {children && <span className={clsx(sizeStyle.label, "leading-none", disabled && "opacity-50")}>{children}</span>}
+      {children && <span className={clsx(sizeStyle.label, disabled && "opacity-70 grayscale-[30%]")}>{children}</span>}
     </label>
   );
 });

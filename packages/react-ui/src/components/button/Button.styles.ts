@@ -27,8 +27,8 @@ export const buttonStyles = classed(
         xs: "text-xs",
         sm: "text-sm",
         md: "text-sm",
-        lg: "text-md",
-        xl: "text-md",
+        lg: "text-base",
+        xl: "text-base",
       },
       disabled: {
         true: "cursor-not-allowed opacity-70 grayscale-[30%]",

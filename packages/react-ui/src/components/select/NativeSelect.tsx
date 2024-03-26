@@ -25,13 +25,13 @@ const selectSizeStyles = {
     chevron: "px-2",
   },
   md: {
-    text: "",
-    select: "py-[3px] pl-3.5 pr-8",
+    text: "text-base",
+    select: "py-[5px] pl-3.5 pr-8",
     chevron: "px-2",
   },
   lg: {
-    text: "",
-    select: "py-[5px] pl-4 pr-10",
+    text: "text-base",
+    select: "py-[7px] pl-4 pr-10",
     chevron: "px-2.5",
   },
   xl: {
