@@ -117,13 +117,8 @@ export default defineConfig(({ command }) => {
         isBuild && { find: "~", replacement: join(__dirname, `./${appDirectory}`) },
       ].filter(Boolean) as AliasOptions,
     },
-    server: {
-      warmup: {
-        clientFiles: [`./${appDirectory}/entry.client.tsx`, `./${appDirectory}/root.tsx`],
-      },
-    },
     optimizeDeps: {
-      include: ["@mdx-js/react", `./${appDirectory}/entry.client.tsx`, `./${appDirectory}/root.tsx`],
+      include: ["@mdx-js/react"],
     },
   };
 

@@ -1,7 +1,7 @@
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { Link, Outlet } from "@remix-run/react";
+import { Link, Outlet, createPath, useLocation, type Location } from "@remix-run/react";
 import { Badge, Button, Tooltip, TooltipArrow, TooltipContent, TooltipTrigger, clsx } from "@resolid/react-ui";
-import { trimEnd } from "@resolid/utils";
+import { omit, trimEnd } from "@resolid/utils";
 import { useState, type MouseEventHandler } from "react";
 import { ColorModeToggle } from "~/components/base/ColorModeToggle";
 import { HistoryLink, HistoryNavLink } from "~/components/base/HistoryLink";
@@ -13,6 +13,10 @@ export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   return {
     requestOrigin: context.requestOrigin ?? request.url,
   };
+};
+
+export const shouldRevalidate = () => {
+  return false;
 };
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
@@ -130,17 +134,7 @@ const NavBar = () => {
         <NavMenu onClick={() => setOpened(false)} />
       </div>
       <div className={"inline-flex items-center gap-1 text-fg-muted"}>
-        <Tooltip placement={"bottom"}>
-          <TooltipTrigger asChild>
-            <Button aria-label={"用户登录"} color={"neutral"} variant={"ghost"} size={"sm"} square>
-              <SpriteIcon name={"user"} />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent>
-            <TooltipArrow />
-            用户登录
-          </TooltipContent>
-        </Tooltip>
+        <NavUser />
         <ColorModeToggle />
         <Tooltip placement={"bottom"}>
           <TooltipTrigger asChild>
@@ -202,4 +196,41 @@ const NavMenu = ({ onClick }: { onClick?: MouseEventHandler<HTMLAnchorElement> }
       })}
     </ul>
   );
+};
+
+const NavUser = () => {
+  const location = useLocation();
+
+  return (
+    <Tooltip placement={"bottom"}>
+      <TooltipTrigger asChild>
+        <Button asChild aria-label={"用户登录"} color={"neutral"} variant={"ghost"} size={"sm"} square>
+          <HistoryLink to={getLoginTo("login", location)}>
+            <SpriteIcon name={"user"} />
+          </HistoryLink>
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>
+        <TooltipArrow />
+        用户登录
+      </TooltipContent>
+    </Tooltip>
+  );
+};
+
+const getLoginTo = (pathname: string, location: Location) => {
+  const to = {
+    pathname: pathname,
+    search: location.search,
+  };
+
+  if (
+    !location.pathname.endsWith("login") &&
+    !location.pathname.endsWith("signup") &&
+    !location.pathname.endsWith("forgot-password")
+  ) {
+    to.search = new URLSearchParams({ redirect: createPath(omit(location, ["hash"])) }).toString();
+  }
+
+  return to;
 };

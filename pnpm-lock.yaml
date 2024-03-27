@@ -373,6 +373,12 @@ importers:
       react-dom:
         specifier: 18.3.0-canary-670811593-20240322
         version: 18.3.0-canary-670811593-20240322(react@18.3.0-canary-670811593-20240322)
+      react-hook-form:
+        specifier: ^7.51.1
+        version: 7.51.1(react@18.3.0-canary-670811593-20240322)
+      remix-hook-form:
+        specifier: ^4.2.0
+        version: 4.2.0(@remix-run/react@2.8.1)(react-dom@18.3.0-canary-670811593-20240322)(react-hook-form@7.51.1)(react@18.3.0-canary-670811593-20240322)
     devDependencies:
       '@mdx-js/rollup':
         specifier: ^3.0.1
@@ -8299,6 +8305,20 @@ packages:
       mdast-util-to-markdown: 2.1.0
       unified: 11.0.4
     dev: true
+
+  /remix-hook-form@4.2.0(@remix-run/react@2.8.1)(react-dom@18.3.0-canary-670811593-20240322)(react-hook-form@7.51.1)(react@18.3.0-canary-670811593-20240322):
+    resolution: {integrity: sha512-fUxA8tDZPexRuqyfGDSlSwB6um1Tr1Juo6X+sRKhJpVABV83+NUb5bmZwrrbRdYF7Wu9knlUYcpFJjPiaHbmGw==}
+    peerDependencies:
+      '@remix-run/react': ^2.0.0
+      react: 18.3.0-canary-670811593-20240322
+      react-dom: 18.3.0-canary-670811593-20240322
+      react-hook-form: ^7.51.0
+    dependencies:
+      '@remix-run/react': 2.8.1(react-dom@18.3.0-canary-670811593-20240322)(react@18.3.0-canary-670811593-20240322)(typescript@5.4.3)
+      react: 18.3.0-canary-670811593-20240322
+      react-dom: 18.3.0-canary-670811593-20240322(react@18.3.0-canary-670811593-20240322)
+      react-hook-form: 7.51.1(react@18.3.0-canary-670811593-20240322)
+    dev: false
 
   /require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
