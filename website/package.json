@@ -6,7 +6,7 @@
     "lint": "eslint .",
     "dev": "remix vite:dev",
     "build": "remix vite:build",
-    "vercel": "BUILD_ENV=vercel remix vite:build",
+    "vercel": "VERCEL=1 remix vite:build",
     "start": "remix-serve ./build/server/index.js",
     "serve": "NODE_ENV=production node --env-file=.env ./build/server/serve.mjs",
     "resolid": "node --import tsx/esm --env-file .env ./cli/index.ts"
@@ -15,6 +15,7 @@
     "@formkit/tempo": "^0.0.19",
     "@hono/node-server": "^1.9.0",
     "@mdx-js/react": "^3.0.1",
+    "@node-rs/bcrypt": "^1.10.1",
     "@remix-run/node": "^2.8.1",
     "@remix-run/react": "^2.8.1",
     "@remix-run/server-runtime": "^2.8.1",

@@ -55,6 +55,7 @@ export default defineConfig(({ command }) => {
           env.VERCEL == "1"
             ? vercelServerlessPreset({
                 regions: "sin1",
+                copyParentModules: ["@node-rs/bcrypt"],
               })
             : nodeHonoPreset(),
         ],
@@ -117,8 +118,13 @@ export default defineConfig(({ command }) => {
         isBuild && { find: "~", replacement: join(__dirname, `./${appDirectory}`) },
       ].filter(Boolean) as AliasOptions,
     },
+    ssr: {
+      external: ["@node-rs/bcrypt"],
+    },
     optimizeDeps: {
+      holdUntilCrawlEnd: false,
       include: ["@mdx-js/react"],
+      exclude: ["@node-rs/bcrypt"],
     },
   };
 

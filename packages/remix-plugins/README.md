@@ -137,7 +137,9 @@ export default {
   remix: {
     presets: [vercelServerlessPreset({
       // Deployment area
-      regions: "sin1"
+      regions: "sin1",
+      // Some packages will introduce binary packages according to different platforms. The binary packages are not in the same directory during installation, such as @node-rs/bcrypt
+      copyParentModules: ["@node-rs/bcrypt"]
     })]
   }
 };

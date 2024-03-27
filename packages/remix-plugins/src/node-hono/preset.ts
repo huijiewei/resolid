@@ -19,6 +19,7 @@ export const nodeHonoPreset = (): Preset => {
 
           const ssrExternal = viteConfig.ssr.external;
           const commonjsOptions = viteConfig.build.commonjsOptions;
+          const resolveDedupe = viteConfig.resolve.dedupe;
 
           const serverBundles = buildManifest?.serverBundles ?? {
             site: { id: "site", file: relative(rootPath, join(serverBuildPath, serverBuildFile)) },
@@ -45,6 +46,7 @@ export const nodeHonoPreset = (): Preset => {
               join(rootPath, "package.json"),
               commonjsOptions,
               ssrExternal,
+              resolveDedupe,
               serverBundleId,
             );
 

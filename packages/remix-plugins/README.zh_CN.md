@@ -137,7 +137,9 @@ export default {
   remix: {
     presets: [vercelServerlessPreset({
       // 部署区域
-      regions: "sin1"
+      regions: "sin1",
+      // 有些包会根据不同平台引入二进制包, 安装的时候二进制包不在同一目录, 比如 @node-rs/bcrypt
+      copyParentModules: ["@node-rs/bcrypt"]
     })]
   }
 };

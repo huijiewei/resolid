@@ -8,6 +8,7 @@ import { buildEntry, bundleServer } from "../base/build-utils";
 
 export type VercelServerlessPresetOptions = {
   regions: string | string[];
+  copyParentModules?: string[];
 };
 
 export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): Preset => {
@@ -27,6 +28,7 @@ export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): 
 
           const ssrExternal = viteConfig.ssr.external;
           const commonjsOptions = viteConfig.build.commonjsOptions;
+          const resolveDedupe = viteConfig.resolve.dedupe;
 
           const serverBundles = buildManifest?.serverBundles ?? {
             site: { id: "site", file: relative(rootPath, join(serverBuildPath, serverBuildFile)) },
@@ -63,6 +65,7 @@ export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): 
               join(rootPath, "package.json"),
               commonjsOptions,
               ssrExternal,
+              resolveDedupe,
               serverBundleId,
             );
 
@@ -78,6 +81,7 @@ export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): 
               bundleFile,
               `_${serverBundleId}`,
               options.regions,
+              options.copyParentModules ?? [],
             );
           }
         },
@@ -94,6 +98,7 @@ const copyFunctionsFiles = async (
   bundleFile: string,
   functionName: string,
   functionRegions: string | string[],
+  copyParentModules: string[],
 ) => {
   console.log(`Coping Vercel function files for ${functionName}...`);
 
@@ -114,7 +119,7 @@ const copyFunctionsFiles = async (
     const dest = join(vercelFunctionDir, relative(rootPath, source));
     const real = await realpath(source);
 
-    if (real.endsWith("@node-rs/bcrypt")) {
+    if (copyParentModules.find((p) => real.endsWith(p))) {
       const parent = join(real, "..");
 
       for (const dir of (await readdir(parent)).filter((d) => !d.startsWith("."))) {

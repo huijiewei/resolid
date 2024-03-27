@@ -1,3 +1,4 @@
+import { verify } from "@node-rs/bcrypt";
 import { Form, useSearchParams } from "@remix-run/react";
 import type { ActionFunctionArgs } from "@remix-run/server-runtime";
 import { userLoginResolver, userService, type UserLoginFormData } from "@resolid/framework/modules";
@@ -21,6 +22,13 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     return problem({
       email: { message: "用户不存在" },
       password: null,
+    });
+  }
+
+  if (!(await verify(data.password.normalize("NFKC"), user.password))) {
+    return problem({
+      email: null,
+      password: { message: "密码错误" },
     });
   }
 
