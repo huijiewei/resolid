@@ -20,4 +20,6 @@ export const authGroupSchema = {
 export const authSessionSchema = {
   id: varchar("id", { length: 36 }).primaryKey(),
   expiredAt: timestamp("expiredAt"),
+  remoteAddr: text("remoteAddr").notNull().default(""),
+  userAgent: text("userAgent").notNull().default(""),
 };

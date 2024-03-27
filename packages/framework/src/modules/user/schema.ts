@@ -33,7 +33,13 @@ export const userTableRelations = relations(userTable, ({ one }) => ({
   }),
 }));
 
-export const userSessionTable = defineTable("user_session", {
-  ...authSessionSchema,
-  userId: integer("userId").notNull().default(0),
-});
+export const userSessionTable = defineTable(
+  "user_session",
+  {
+    ...authSessionSchema,
+    userId: integer("userId").notNull().default(0),
+  },
+  (table) => ({
+    userIdIndex: index().on(table.userId),
+  }),
+);

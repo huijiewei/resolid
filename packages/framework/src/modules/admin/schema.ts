@@ -27,7 +27,13 @@ export const adminTableRelations = relations(adminTable, ({ one }) => ({
   }),
 }));
 
-export const adminSessionTable = defineTable("admin_session", {
-  ...authSessionSchema,
-  adminId: integer("adminId").notNull().default(0),
-});
+export const adminSessionTable = defineTable(
+  "admin_session",
+  {
+    ...authSessionSchema,
+    adminId: integer("adminId").notNull().default(0),
+  },
+  (table) => ({
+    adminIdIndex: index().on(table.adminId),
+  }),
+);
