@@ -1,15 +1,15 @@
 import { z, type ZodRawShape } from "zod";
 
-export const usernameValidation = z
+export const usernameValidator = z
   .string()
   .min(1)
   .max(32)
   .regex(/^[a-z][a-z0-9_\\.]*$/);
 
-export const refineAuthCreateValidationSchema = (schema: ZodRawShape) => {
+export const refineAuthCreateSchema = (schema: ZodRawShape) => {
   return z
     .object({
-      username: usernameValidation,
+      username: usernameValidator,
       nickname: z.string().max(32).optional(),
       password: z.string().min(6).max(32),
       confirmPassword: z.string().min(6).max(32),

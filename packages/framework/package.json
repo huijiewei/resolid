@@ -26,7 +26,10 @@
     ".": "./src/index.ts",
     "./cli": "./cli/index.ts",
     "./drizzle": "./src/export/drizzle.ts",
-    "./modules": "./src/modules.ts"
+    "./modules": {
+      "browser": "./src/modules.borwser.ts",
+      "default": "./src/modules.ts"
+    }
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",

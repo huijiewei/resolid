@@ -1,4 +1,4 @@
-import { desc, eq, sql } from "drizzle-orm";
+import { count, desc, eq } from "drizzle-orm";
 import { db } from "../../foundation/alias";
 import { userGroupTable, userTable } from "./schema";
 
@@ -12,53 +12,89 @@ export type UserGroupSelect = typeof userGroupTable.$inferSelect;
 export type UserGroupInsert = typeof userGroupTable.$inferInsert;
 
 export const userService = {
-  getLast: async (): Promise<UserSelect | undefined> => {
-    return await db.query.userTable
-      .findFirst({
-        orderBy: [desc(userTable.id)],
-      })
-      .execute();
-  },
-  getByField: async <T, R extends UserSelect | UserSelectWithGroup>(
-    field: keyof UserSelect,
-    value: T,
-    withRelation?: {
-      userGroup?: true;
-    },
-  ): Promise<R | null> => {
-    const prepared = db.query.userTable
-      .findFirst({
-        where: eq(userTable[field], sql.placeholder("value")),
-        with: withRelation,
-      })
-      .prepare(`getUserByField_${field}`);
+  getLast: async (): Promise<UserSelect | null> => {
+    const users = await db.select().from(userTable).orderBy(desc(userTable.id)).limit(1);
 
-    const record = await prepared.execute({ value });
+    if (users.length == 0) {
+      return null;
+    }
 
-    return (record as R) ?? null;
+    return users[0];
   },
   getById: async (id: number): Promise<UserSelectWithGroup | null> => {
-    return await userService.getByField("id", id, { userGroup: true });
+    const users = await db
+      .select()
+      .from(userTable)
+      .where(eq(userTable.id, id))
+      .leftJoin(userGroupTable, eq(userTable.userGroupId, userGroupTable.id))
+      .limit(1);
+
+    if (users.length == 0) {
+      return null;
+    }
+
+    const { user, user_group } = users[0];
+
+    return { ...user, userGroup: user_group } as UserSelectWithGroup;
   },
   getByEmail: async (email: string): Promise<UserSelectWithGroup | null> => {
-    return await userService.getByField("email", email, { userGroup: true });
+    const users = await db
+      .select()
+      .from(userTable)
+      .where(eq(userTable.email, email))
+      .leftJoin(userGroupTable, eq(userTable.userGroupId, userGroupTable.id))
+      .limit(1);
+
+    if (users.length == 0) {
+      return null;
+    }
+
+    const { user, user_group } = users[0];
+
+    return { ...user, userGroup: user_group } as UserSelectWithGroup;
   },
   existByEmail: async (email: string) => {
-    return (await userService.getByField("email", email)) != null;
+    return (await db.select({ value: count() }).from(userTable).where(eq(userTable.email, email)))[0].value > 0;
   },
   getByUsername: async (username: string): Promise<UserSelectWithGroup | null> => {
-    return await userService.getByField("username", username, { userGroup: true });
+    const users = await db
+      .select()
+      .from(userTable)
+      .where(eq(userTable.username, username))
+      .leftJoin(userGroupTable, eq(userTable.userGroupId, userGroupTable.id))
+      .limit(1);
+
+    if (users.length == 0) {
+      return null;
+    }
+
+    const { user, user_group } = users[0];
+
+    return { ...user, userGroup: user_group } as UserSelectWithGroup;
   },
   existByUsername: async (username: string) => {
-    return (await userService.getByField("username", username)) != null;
+    return (await db.select({ value: count() }).from(userTable).where(eq(userTable.username, username)))[0].value > 0;
   },
   getByNickname: async (nickname: string): Promise<UserSelectWithGroup | null> => {
-    return await userService.getByField("nickname", nickname, { userGroup: true });
+    const users = await db
+      .select()
+      .from(userTable)
+      .where(eq(userTable.nickname, nickname))
+      .leftJoin(userGroupTable, eq(userTable.userGroupId, userGroupTable.id))
+      .limit(1);
+
+    if (users.length == 0) {
+      return null;
+    }
+
+    const { user, user_group } = users[0];
+
+    return { ...user, userGroup: user_group } as UserSelectWithGroup;
   },
   existByNickname: async (nickname: string) => {
-    return (await userService.getByField("nickname", nickname)) != null;
+    return (await db.select({ value: count() }).from(userTable).where(eq(userTable.nickname, nickname)))[0].value > 0;
   },
   getUserGroups: async (): Promise<UserGroupSelect[]> => {
-    return db.query.userGroupTable.findMany();
+    return db.select().from(userGroupTable);
   },
 };

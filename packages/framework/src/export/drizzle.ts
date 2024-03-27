@@ -4,7 +4,9 @@ export {
   arrayContains,
   arrayOverlaps,
   asc,
+  avg,
   between,
+  count,
   desc,
   eq,
   exists,
@@ -27,6 +29,7 @@ export {
   or,
   relations,
   sql,
+  sum,
 } from "drizzle-orm";
 
 export {

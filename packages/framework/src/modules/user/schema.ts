@@ -1,6 +1,6 @@
 import { relations } from "drizzle-orm";
 import { index, integer, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
-import { authGroupSchema, authSchema } from "../../core/auth/schema";
+import { authGroupSchema, authSchema, authSessionSchema } from "../../core/auth/schema";
 import { defineTable } from "../../foundation/schema";
 
 export const userTable = defineTable(
@@ -32,3 +32,8 @@ export const userTableRelations = relations(userTable, ({ one }) => ({
     references: [userGroupTable.id],
   }),
 }));
+
+export const userSessionTable = defineTable("user_session", {
+  ...authSessionSchema,
+  userId: integer("userId").notNull().default(0),
+});
