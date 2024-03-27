@@ -29,7 +29,8 @@
     "./modules": {
       "browser": "./src/modules.borwser.ts",
       "default": "./src/modules.ts"
-    }
+    },
+    "./setup": "./src/setup.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",

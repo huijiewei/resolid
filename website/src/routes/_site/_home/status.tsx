@@ -21,7 +21,7 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
     ssr: {
       success: true,
       message: "服务器渲染正常",
-      now: format(new Date(), "YYYY-MM-DD HH:mm"),
+      now: format(new Date(), "YYYY-MM-DD HH:mm Z"),
       ip: context.remoteAddress,
     },
     db: status(),

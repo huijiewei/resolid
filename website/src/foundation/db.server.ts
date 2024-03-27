@@ -4,8 +4,6 @@ import { env } from "node:process";
 
 import * as systemSchema from "~/modules/system/schema.server";
 
-env.TZ = "UTC";
-
 export const db = defineDatabase({
   pgOptions: {
     max: env.VERCEL == "1" ? 1 : 10,

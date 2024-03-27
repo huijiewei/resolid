@@ -1,7 +1,8 @@
 import { Command } from "commander";
 import { argv } from "node:process";
 import type { DatabaseInstance } from "../src";
-import { databaseSeed, dbCommand } from "./commands/db.js";
+import { setup } from "../src/setup";
+import { databaseSeed, dbCommand } from "./commands/db";
 
 const normalizeCommand = (command: Command) => {
   return command
@@ -16,6 +17,8 @@ const normalizeCommand = (command: Command) => {
 export { Command, databaseSeed };
 
 export type CreateCommand = (db: DatabaseInstance) => Command;
+
+setup();
 
 export const createCli = ({ db, commands }: { db: DatabaseInstance; commands: CreateCommand[] }) => {
   const program = new Command();

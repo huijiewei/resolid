@@ -1,3 +1,4 @@
+import { format } from "@formkit/tempo";
 import { Command, databaseSeed, type CreateCommand } from "@resolid/framework/cli";
 import { exit } from "node:process";
 import { statusTable } from "~/modules/system/schema.server";
@@ -6,6 +7,13 @@ export const systemCommand: CreateCommand = (db) => {
   const cmd = new Command("system");
 
   cmd.description("系统工具");
+
+  cmd
+    .command("time")
+    .description("系统时间")
+    .action(async () => {
+      console.log(format(new Date(), "YYYY-MM-DD HH:mm Z"));
+    });
 
   cmd
     .command("init")
