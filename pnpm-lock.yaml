@@ -380,8 +380,8 @@ importers:
         specifier: ^7.51.2
         version: 7.51.2(react@19.0.0-canary-2b036d3f1-20240327)
       remix-hook-form:
-        specifier: ^4.2.0
-        version: 4.2.0(@remix-run/react@2.8.1)(react-dom@19.0.0-canary-2b036d3f1-20240327)(react-hook-form@7.51.2)(react@19.0.0-canary-2b036d3f1-20240327)
+        specifier: ^4.3.0
+        version: 4.3.0(@remix-run/react@2.8.1)(react-dom@19.0.0-canary-2b036d3f1-20240327)(react-hook-form@7.51.2)(react@19.0.0-canary-2b036d3f1-20240327)
     devDependencies:
       '@mdx-js/rollup':
         specifier: ^3.0.1
@@ -8313,8 +8313,8 @@ packages:
       unified: 11.0.4
     dev: true
 
-  /remix-hook-form@4.2.0(@remix-run/react@2.8.1)(react-dom@19.0.0-canary-2b036d3f1-20240327)(react-hook-form@7.51.2)(react@19.0.0-canary-2b036d3f1-20240327):
-    resolution: {integrity: sha512-fUxA8tDZPexRuqyfGDSlSwB6um1Tr1Juo6X+sRKhJpVABV83+NUb5bmZwrrbRdYF7Wu9knlUYcpFJjPiaHbmGw==}
+  /remix-hook-form@4.3.0(@remix-run/react@2.8.1)(react-dom@19.0.0-canary-2b036d3f1-20240327)(react-hook-form@7.51.2)(react@19.0.0-canary-2b036d3f1-20240327):
+    resolution: {integrity: sha512-hXOOuBiRJh1jL6PV3OOS9UTO18OD1a83tbCX5x6b061G85LE2vhuvAfl3wY9ljHlswezMGnI7DIedh79G1wVKw==}
     peerDependencies:
       '@remix-run/react': ^2.0.0
       react: 19.0.0-canary-2b036d3f1-20240327

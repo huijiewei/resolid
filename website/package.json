@@ -30,7 +30,7 @@
     "react": "19.0.0-canary-2b036d3f1-20240327",
     "react-dom": "19.0.0-canary-2b036d3f1-20240327",
     "react-hook-form": "^7.51.2",
-    "remix-hook-form": "^4.2.0"
+    "remix-hook-form": "^4.3.0"
   },
   "devDependencies": {
     "@mdx-js/rollup": "^3.0.1",
