@@ -19,7 +19,7 @@
     "lefthook": "^1.6.7",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
-    "prettier-plugin-tailwindcss": "^0.5.12",
+    "prettier-plugin-tailwindcss": "^0.5.13",
     "typescript": "^5.4.3"
   },
   "engines": {
@@ -35,10 +35,10 @@
   "pnpm": {
     "overrides": {
       "esbuild": "^0.20.2",
-      "rollup": "^4.13.0",
-      "react": "18.3.0-canary-670811593-20240322",
-      "react-dom": "18.3.0-canary-670811593-20240322",
-      "react-is": "18.3.0-canary-670811593-20240322",
+      "rollup": "^4.13.1",
+      "react": "19.0.0-canary-2b036d3f1-20240327",
+      "react-dom": "19.0.0-canary-2b036d3f1-20240327",
+      "react-is": "19.0.0-canary-2b036d3f1-20240327",
       "hasown": "npm:@nolyfill/hasown@latest",
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",

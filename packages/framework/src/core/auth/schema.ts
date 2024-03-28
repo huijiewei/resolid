@@ -7,7 +7,7 @@ export const authSchema = {
   nickname: text("nickname").notNull().default(""),
   avatar: text("avatar").notNull().default(""),
   createdAt: timestamp("createdAt").notNull().defaultNow(),
-  updatedAt: timestamp("updatedAt"),
+  updatedAt: timestamp("updatedAt").$onUpdate(() => new Date()),
 };
 
 export const authGroupSchema = {
