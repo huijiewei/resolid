@@ -43,7 +43,7 @@
     "@resolid/tailwind": "workspace:^",
     "@testing-library/react": "^14.2.2",
     "@types/react": "^18.2.73",
-    "@types/react-dom": "^18.2.22",
+    "@types/react-dom": "^18.2.23",
     "jsdom": "^24.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -35,10 +35,10 @@
   "pnpm": {
     "overrides": {
       "esbuild": "^0.20.2",
-      "rollup": "^4.13.1",
-      "react": "19.0.0-canary-2b036d3f1-20240327",
-      "react-dom": "19.0.0-canary-2b036d3f1-20240327",
-      "react-is": "19.0.0-canary-2b036d3f1-20240327",
+      "rollup": "^4.13.2",
+      "react": "19.0.0-canary-05797cceb-20240328",
+      "react-dom": "19.0.0-canary-05797cceb-20240328",
+      "react-is": "19.0.0-canary-05797cceb-20240328",
       "hasown": "npm:@nolyfill/hasown@latest",
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
