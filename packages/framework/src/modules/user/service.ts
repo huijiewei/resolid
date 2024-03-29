@@ -70,7 +70,7 @@ export const userService = {
     const user = await userService.getByEmail(values?.email);
 
     if (user == undefined) {
-      return [createFieldErrors({ message: "用户不存在" }), undefined];
+      return [createFieldErrors({ email: "用户不存在" }), undefined];
     }
 
     if (!(await verify(data.password, user.password))) {
