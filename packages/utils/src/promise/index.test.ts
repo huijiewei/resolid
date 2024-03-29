@@ -16,7 +16,7 @@ describe("to function", () => {
 
     const result = await to(promise);
 
-    expect(result).toEqual([null, testData]);
+    expect(result).toEqual([undefined, testData]);
   });
 
   test("should resolve with [error, undefined] for a rejected promise", async () => {
