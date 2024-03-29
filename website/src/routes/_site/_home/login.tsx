@@ -1,38 +1,22 @@
-import { verify } from "@node-rs/bcrypt";
 import { Form, useSearchParams } from "@remix-run/react";
 import type { ActionFunctionArgs } from "@remix-run/server-runtime";
 import { userLoginResolver, userService, type UserLoginFormData } from "@resolid/framework/modules";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
 import { Controller } from "react-hook-form";
-import { getValidatedFormData, useRemixForm } from "remix-hook-form";
+import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/FormError";
 import { HistoryLink } from "~/components/base/HistoryLink";
 import { problem, success } from "~/foundation/http.server";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-  const { errors, data } = await getValidatedFormData<UserLoginFormData>(request, userLoginResolver);
+  const data = await parseFormData<UserLoginFormData>(request);
+  const [errors, user] = await userService.authLogin(data);
 
   if (errors) {
     return problem(errors);
   }
 
-  const user = await userService.getByEmail(data?.email);
-
-  if (user == null) {
-    return problem({
-      email: { message: "用户不存在" },
-      password: null,
-    });
-  }
-
-  if (!(await verify(data.password.normalize("NFKC"), user.password))) {
-    return problem({
-      email: null,
-      password: { message: "密码错误" },
-    });
-  }
-
-  return success({});
+  return success(user);
 };
 
 export default function Login() {

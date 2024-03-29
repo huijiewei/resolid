@@ -1,8 +1,32 @@
 import { zodResolver, type Resolver } from "@hookform/resolvers/zod";
+import type { FieldError, FieldErrors, FieldValues } from "react-hook-form";
 import { ZodIssueCode, ZodParsedType, util, type ZodErrorMap } from "zod";
 
 export const zodLocaleResolver: Resolver = (schema, schemaOptions, factoryOptions = {}) => {
   return zodResolver(schema, { ...schemaOptions, errorMap: zodErrorMap }, factoryOptions);
+};
+
+export const validateData = async <T extends FieldValues>(data: T, resolver: ReturnType<Resolver>) => {
+  const { errors, values } = await resolver(data, {}, { shouldUseNativeValidation: false, fields: {} });
+
+  if (Object.keys(errors).length > 0) {
+    return { errors: errors as FieldErrors<T>, values: undefined };
+  }
+
+  return { errors: undefined, values: values as T };
+};
+
+export const createFieldErrors = (errors: Record<string, string>) => {
+  const fieldErrors: Record<string, FieldError> = {};
+
+  for (const error in errors) {
+    fieldErrors[error] = {
+      type: "custom",
+      message: errors[error],
+    };
+  }
+
+  return fieldErrors;
 };
 
 const validations = {

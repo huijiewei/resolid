@@ -125,6 +125,9 @@ importers:
       commander:
         specifier: ^12.0.0
         version: 12.0.0
+      react-hook-form:
+        specifier: ^7.51.2
+        version: 7.51.2(react@19.0.0-canary-05797cceb-20240328)
       vite:
         specifier: ^5.2.6
         version: 5.2.6(@types/node@20.11.30)
@@ -8097,7 +8100,6 @@ packages:
       react: 19.0.0-canary-05797cceb-20240328
     dependencies:
       react: 19.0.0-canary-05797cceb-20240328
-    dev: false
 
   /react-is@19.0.0-canary-05797cceb-20240328:
     resolution: {integrity: sha512-1KYLUZbNh/J7WgobSQFzIdchONDaP193nQRhqhL4DTPPLMo3DZO/6ZN2XHGRaExB8Pp8z4g1y2K0bi2gBuoqyA==}

@@ -1,4 +1,4 @@
-import { count, eq } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { db } from "../../foundation/alias";
 import { adminGroupTable, adminTable } from "./schema";
 
@@ -11,63 +11,37 @@ export type AdminInsert = typeof adminTable.$inferInsert;
 export type AdminGroupSelect = typeof adminGroupTable.$inferSelect;
 export type AdminGroupInsert = typeof adminGroupTable.$inferInsert;
 
+type WithInput = NonNullable<Parameters<(typeof db)["query"]["adminTable"]["findFirst"]>[0]>["with"];
+
 export const adminService = {
-  getById: async (id: number): Promise<AdminSelectWithGroup | null> => {
-    const admins = await db
-      .select()
-      .from(adminTable)
-      .where(eq(adminTable.id, id))
-      .leftJoin(adminGroupTable, eq(adminTable.adminGroupId, adminGroupTable.id))
-      .limit(1);
-
-    if (admins.length == 0) {
-      return null;
-    }
-
-    const { admin, admin_group } = admins[0];
-
-    return { ...admin, adminGroup: admin_group } as AdminSelectWithGroup;
+  _getByField: async <R extends AdminSelect | AdminSelectWithGroup>(
+    field: keyof AdminSelect,
+    value: string | number,
+    withInput?: WithInput,
+  ): Promise<R | undefined> => {
+    return (await db.query.adminTable.findFirst({
+      where: eq(adminTable[field], value),
+      with: withInput,
+    })) as R;
   },
-  getByUsername: async (username: string): Promise<AdminSelectWithGroup | null> => {
-    const admins = await db
-      .select()
-      .from(adminTable)
-      .where(eq(adminTable.username, username))
-      .leftJoin(adminGroupTable, eq(adminTable.adminGroupId, adminGroupTable.id))
-      .limit(1);
 
-    if (admins.length == 0) {
-      return null;
-    }
-
-    const { admin, admin_group } = admins[0];
-
-    return { ...admin, adminGroup: admin_group } as AdminSelectWithGroup;
+  getById: async (id: number): Promise<AdminSelectWithGroup | undefined> => {
+    return adminService._getByField("id", id, { adminGroup: true });
+  },
+  getByUsername: async (username: string): Promise<AdminSelectWithGroup | undefined> => {
+    return adminService._getByField("username", username, { adminGroup: true });
   },
   existByUsername: async (username: string) => {
-    return (await db.select({ value: count() }).from(adminTable).where(eq(adminTable.username, username)))[0].value > 0;
+    return (await adminService._getByField("username", username)) != undefined;
   },
-  getByNickname: async (nickname: string): Promise<AdminSelectWithGroup | null> => {
-    const admins = await db
-      .select()
-      .from(adminTable)
-      .where(eq(adminTable.nickname, nickname))
-      .leftJoin(adminGroupTable, eq(adminTable.adminGroupId, adminGroupTable.id))
-      .limit(1);
-
-    if (admins.length == 0) {
-      return null;
-    }
-
-    const { admin, admin_group } = admins[0];
-
-    return { ...admin, adminGroup: admin_group } as AdminSelectWithGroup;
+  getByNickname: async (nickname: string): Promise<AdminSelectWithGroup | undefined> => {
+    return adminService._getByField("nickname", nickname, { adminGroup: true });
   },
   existByNickname: async (nickname: string) => {
-    return (await db.select({ value: count() }).from(adminTable).where(eq(adminTable.nickname, nickname)))[0].value > 0;
+    return (await adminService._getByField("nickname", nickname)) != undefined;
   },
   getAdminGroups: (): Promise<AdminGroupSelect[]> => {
-    return db.select().from(adminGroupTable);
+    return db.query.adminGroupTable.findMany();
   },
   createAdminGroup: async (adminGroup: AdminGroupInsert) => {
     const inserted = await db.insert(adminGroupTable).values(adminGroup).returning();

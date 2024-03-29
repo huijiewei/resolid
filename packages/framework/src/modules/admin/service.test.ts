@@ -15,7 +15,7 @@ describe("adminService", () => {
   test("getByUsername", async () => {
     const user = await adminService.getByUsername("test2");
 
-    expect(user).toBe(null);
+    expect(user).toBe(undefined);
   });
 
   test("existByUsername", async () => {

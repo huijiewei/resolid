@@ -35,7 +35,7 @@ describe("userService", () => {
   test("getByUsername", async () => {
     const user = await userService.getByUsername("test2");
 
-    expect(user).toBe(null);
+    expect(user).toBe(undefined);
   });
 
   test("existByUsername", async () => {

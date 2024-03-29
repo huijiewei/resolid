@@ -45,6 +45,7 @@
     "@resolid/config": "workspace:^",
     "@types/nodemailer": "^6.4.14",
     "commander": "^12.0.0",
+    "react-hook-form": "^7.51.2",
     "vite": "^5.2.6",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.4.0"
