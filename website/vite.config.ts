@@ -12,7 +12,7 @@ import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
-import { loadEnv, splitVendorChunkPlugin, type AliasOptions } from "vite";
+import { loadEnv, type AliasOptions } from "vite";
 import viteInspect from "vite-plugin-inspect";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { defineConfig, type UserConfig } from "vitest/config";
@@ -72,7 +72,6 @@ export default defineConfig(({ command }) => {
           });
         },
       }),
-      splitVendorChunkPlugin(),
       !isBuild && tsconfigPaths(),
       !isBuild && viteInspect(),
     ].filter(Boolean),
