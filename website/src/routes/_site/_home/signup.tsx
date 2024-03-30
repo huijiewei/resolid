@@ -42,8 +42,8 @@ export default function Signup() {
   }, [data]);
 
   return (
-    <div className={"mx-auto my-10 w-96"}>
-      <div className={"flex flex-col gap-2"}>
+    <div className={"mx-auto w-96"}>
+      <div className={"flex flex-col gap-2 py-10"}>
         <h3 className={"py-3 text-center text-xl font-bold"}>注册新账号</h3>
         <Form method={"post"} className={"flex flex-col gap-7"} onSubmit={handleSubmit} noValidate>
           <div className={"relative flex flex-col gap-2"}>
