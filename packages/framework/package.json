@@ -39,13 +39,13 @@
     "drizzle-orm": "^0.30.6",
     "nodemailer": "^6.9.13",
     "postgres": "^3.4.4",
+    "react-hook-form": "^7.51.2",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@resolid/config": "workspace:^",
     "@types/nodemailer": "^6.4.14",
     "commander": "^12.0.0",
-    "react-hook-form": "^7.51.2",
     "vite": "^5.2.7",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.4.0"

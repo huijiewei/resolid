@@ -1,31 +1,23 @@
 import { format } from "@formkit/tempo";
 import type { LoaderFunctionArgs } from "@remix-run/node";
-import { Await, defer, useLoaderData } from "@remix-run/react";
+import { Await } from "@remix-run/react";
 import { clsx } from "@resolid/react-ui";
-import { mergeMeta } from "@resolid/remix-utils";
+import { mergeMeta, useTypedLoaderData } from "@resolid/remix-utils";
 import { Suspense } from "react";
 import { statusService } from "~/modules/system/service.server";
 
-export const loader = async ({ context }: LoaderFunctionArgs) => {
-  const status = async () => {
-    try {
-      await statusService.getFirst();
-
-      return { success: true, message: "数据库访问正常" };
-    } catch {
-      return { success: false, message: "数据库访问失败" };
-    }
-  };
-
-  return defer({
+export const loader = ({ context }: LoaderFunctionArgs) => {
+  return {
     ssr: {
-      success: true,
       message: "服务器渲染正常",
       now: format(new Date(), "YYYY-MM-DD HH:mm Z"),
-      ip: context.remoteAddress,
+      ip: context.remoteAddress as string,
     },
-    db: status(),
-  });
+    db: statusService
+      .getFirst()
+      .then(() => ({ success: true, message: "数据库访问正常" }))
+      .catch(() => ({ success: false, message: "数据库访问失败" })),
+  };
 };
 
 export const meta = mergeMeta(() => {
@@ -37,7 +29,7 @@ export const meta = mergeMeta(() => {
 });
 
 export default function Status() {
-  const { ssr, db } = useLoaderData<typeof loader>();
+  const { ssr, db } = useTypedLoaderData<typeof loader>();
 
   return (
     <div className={"prose mx-auto px-4 py-8 dark:prose-invert"}>

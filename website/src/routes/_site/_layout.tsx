@@ -9,14 +9,10 @@ import { SpriteIcon } from "~/components/base/SpriteIcon";
 
 import resolidSvg from "~/assets/images/resolid.svg";
 
-export const loader = async ({ request, context }: LoaderFunctionArgs) => {
+export const loader = ({ request, context }: LoaderFunctionArgs) => {
   return {
     requestOrigin: context.requestOrigin ?? request.url,
   };
-};
-
-export const shouldRevalidate = () => {
-  return false;
 };
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {

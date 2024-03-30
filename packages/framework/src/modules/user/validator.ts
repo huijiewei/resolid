@@ -1,21 +1,18 @@
 import { z } from "zod";
-import { refineAuthCreateSchema } from "../../core/auth/validator";
+import { authBaseRawShape, emailValidator, isEqualPasswordAndConfirm } from "../../core/auth/validator";
 import { zodLocaleResolver } from "../../utils/zod";
 
-const emailValidator = z.string().min(1).max(100).email();
-
-const userCreateSchema = refineAuthCreateSchema({
-  email: emailValidator,
-});
+const userCreateSchema = z
+  .object({ ...authBaseRawShape, email: emailValidator })
+  .superRefine(isEqualPasswordAndConfirm);
 
 export type UserCreateFormData = z.infer<typeof userCreateSchema>;
 
 export const userCreateResolver = zodLocaleResolver(userCreateSchema);
 
-const userSignupSchema = refineAuthCreateSchema({
-  email: emailValidator,
-  agreeTerms: z.literal<boolean>(true),
-});
+const userSignupSchema = z
+  .object({ ...authBaseRawShape, email: emailValidator, agreeTerms: z.literal<boolean>(true) })
+  .superRefine(isEqualPasswordAndConfirm);
 
 export type UserSignupFormData = z.infer<typeof userSignupSchema>;
 

@@ -13,6 +13,10 @@ import type { ResolvedConfig, RollupCommonJSOptions } from "vite";
 export type SsrExternal = ResolvedConfig["ssr"]["external"];
 
 const getPackageDependencies = (dependencies: Record<string, string | undefined>, ssrExternal: SsrExternal) => {
+  if (Array.isArray(ssrExternal)) {
+    ssrExternal = ssrExternal.filter((id) => !id.startsWith("@remix-run"));
+  }
+
   return Object.keys(dependencies)
     .filter((key) => {
       if (ssrExternal === undefined || ssrExternal === true) {
@@ -109,11 +113,11 @@ export const bundleServer = async (
   resolveDedupe: string[],
   serverBundleId: string,
 ) => {
-  console.log(`Bundle Server file for ${serverBundleId}`);
+  console.log(`Bundle Server file for ${serverBundleId}...`);
 
   const pkg = JSON.parse(await readFile(packageFile, "utf8")) as PackageJson;
 
-  const packageDependencies = getPackageDependencies({ ...pkg.dependencies, ...pkg.devDependencies }, ssrExternal);
+  const packageDependencies = getPackageDependencies({ ...pkg.dependencies }, ssrExternal);
 
   await writePackageJson(pkg, join(buildPath, "package.json"), packageDependencies);
 

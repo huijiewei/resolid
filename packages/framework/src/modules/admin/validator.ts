@@ -1,8 +1,10 @@
 import { z } from "zod";
-import { refineAuthCreateSchema, usernameValidator } from "../../core/auth/validator";
+import { authBaseRawShape, isEqualPasswordAndConfirm, usernameValidator } from "../../core/auth/validator";
 import { zodLocaleResolver } from "../../utils/zod";
 
-const adminCreateSchema = refineAuthCreateSchema({});
+const adminCreateSchema = z
+  .object({ ...authBaseRawShape, adminGroupId: z.number() })
+  .superRefine(isEqualPasswordAndConfirm);
 
 export type AdminCreateFormData = z.infer<typeof adminCreateSchema>;
 

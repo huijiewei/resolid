@@ -1,5 +1,9 @@
 import { redirect } from "@remix-run/server-runtime";
 
 export const loader = () => {
-  return redirect("introduction");
+  throw redirect("introduction");
 };
+
+export default function Index() {
+  return null;
+}

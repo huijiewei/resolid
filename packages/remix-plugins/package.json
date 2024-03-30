@@ -37,12 +37,12 @@
     }
   },
   "dependencies": {
-    "@hono/node-server": "^1.9.0",
-    "@remix-run/server-runtime": "^2.8.1",
+    "@hono/node-server": "^1.9.1",
+    "@remix-run/server-runtime": "2.9.0-pre.1",
     "hono": "^4.1.5"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.8.1",
+    "@remix-run/dev": "2.9.0-pre.1",
     "@resolid/config": "workspace:^",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",

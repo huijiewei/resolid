@@ -6,9 +6,9 @@ import { isbot } from "isbot";
 import { PassThrough } from "node:stream";
 import { renderToPipeableStream } from "react-dom/server";
 
-const ABORT_DELAY = 10_000;
-
 setup();
+
+export const streamTimeout = 10_000;
 
 export default function handleRequest(
   request: Request,
@@ -21,7 +21,7 @@ export default function handleRequest(
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
-      <RemixServer context={remixContext} url={request.url} abortDelay={ABORT_DELAY} />,
+      <RemixServer context={remixContext} url={request.url} abortDelay={streamTimeout} />,
       {
         [ready]() {
           shellRendered = true;
@@ -52,6 +52,6 @@ export default function handleRequest(
       },
     );
 
-    setTimeout(abort, ABORT_DELAY);
+    setTimeout(abort, streamTimeout);
   });
 }

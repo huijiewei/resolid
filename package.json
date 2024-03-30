@@ -34,11 +34,15 @@
   },
   "pnpm": {
     "overrides": {
+      "@remix-run/node": "2.9.0-pre.1",
+      "@remix-run/react": "2.9.0-pre.1",
+      "@remix-run/server-runtime": "2.9.0-pre.1",
+      "@remix-run/dev": "2.9.0-pre.1",
       "esbuild": "^0.20.2",
       "rollup": "^4.13.2",
-      "react": "19.0.0-canary-05797cceb-20240328",
-      "react-dom": "19.0.0-canary-05797cceb-20240328",
-      "react-is": "19.0.0-canary-05797cceb-20240328",
+      "react": "19.0.0-canary-a73c3450e-20240329",
+      "react-dom": "19.0.0-canary-a73c3450e-20240329",
+      "react-is": "19.0.0-canary-a73c3450e-20240329",
       "hasown": "npm:@nolyfill/hasown@latest",
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
