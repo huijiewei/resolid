@@ -39,7 +39,7 @@
   "dependencies": {
     "@hono/node-server": "^1.9.1",
     "@remix-run/server-runtime": "2.9.0-pre.1",
-    "hono": "^4.1.5"
+    "hono": "^4.1.7"
   },
   "devDependencies": {
     "@remix-run/dev": "2.9.0-pre.1",
