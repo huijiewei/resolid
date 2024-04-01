@@ -1,11 +1,12 @@
 import { hash, verify } from "@node-rs/bcrypt";
-import { omit } from "@resolid/utils";
-import { desc, eq } from "drizzle-orm";
+import { omit, randomId } from "@resolid/utils";
+import { and, desc, eq, inArray, isNull } from "drizzle-orm";
+import type { AuthSessionService } from "../../core/auth/service";
 import { db } from "../../foundation/alias";
 import { FieldException } from "../../utils/exceptions";
 import type { ServiceResult } from "../../utils/service";
 import { createFieldErrors, validateData } from "../../utils/zod";
-import { userGroupTable, userTable } from "./schema";
+import { userGroupTable, userSessionTable, userTable } from "./schema";
 import { userLoginResolver, userSignupResolver, type UserLoginFormData, type UserSignupFormData } from "./validator";
 
 export { userGroupTable, userTable };
@@ -22,7 +23,7 @@ type ColumnsInput = NonNullable<Parameters<(typeof db)["query"]["userTable"]["fi
 
 export type UserAuthSession = Omit<UserSelectWithGroup, "password" | "updatedAt" | "deletedAt">;
 
-const userToAuthSession = (user: UserSelectWithGroup) => {
+const userToAuthSession = (user: UserSelectWithGroup): UserAuthSession => {
   return omit(user, ["password", "updatedAt", "deletedAt"]);
 };
 
@@ -119,7 +120,10 @@ export const userService = {
 
     return [undefined, userToAuthSession(user)];
   },
-  authSignup: async (data: UserSignupFormData): Promise<ServiceResult<UserSignupFormData, UserAuthSession>> => {
+  authSignup: async (
+    data: UserSignupFormData,
+    remoteAddr: string,
+  ): Promise<ServiceResult<UserSignupFormData, UserAuthSession>> => {
     const { errors, values } = await validateData(data, userSignupResolver);
 
     if (errors) {
@@ -127,11 +131,65 @@ export const userService = {
     }
 
     try {
-      const user = await insertUser({ ...values, userGroupId: 1 });
+      const user = await insertUser({ ...values, userGroupId: 1, createdIp: remoteAddr });
 
       return [undefined, userToAuthSession(user)];
     } catch (e) {
       return [(e as FieldException).toFieldErrors(), undefined];
     }
+  },
+};
+
+export const userSessionService: AuthSessionService<UserAuthSession> = {
+  async getIdentity(sessionId: string) {
+    const user = await db.query.userTable.findFirst({
+      where: and(
+        inArray(
+          userTable.id,
+          db.select({ id: userSessionTable.userId }).from(userSessionTable).where(eq(userSessionTable.id, sessionId)),
+        ),
+        isNull(userTable.deletedAt),
+      ),
+      with: {
+        userGroup: true,
+      },
+    });
+
+    return user ? userToAuthSession(user) : undefined;
+  },
+  async createdSession(sessionData, expiredAt) {
+    const sessionId = randomId();
+
+    await db.insert(userSessionTable).values({
+      id: sessionId,
+      userId: sessionData.identity.id,
+      remoteAddr: sessionData.remoteAddr,
+      userAgent: sessionData.userAgent,
+      expiredAt: expiredAt,
+    });
+
+    return sessionId;
+  },
+  async removeSession(sessionId: string) {
+    await db.delete(userSessionTable).where(eq(userSessionTable.id, sessionId));
+  },
+  async updateSession(sessionId, sessionData, expiredAt) {
+    const update = {
+      userId: sessionData.identity.id,
+      remoteAddr: sessionData.remoteAddr,
+      userAgent: sessionData.userAgent,
+      expiredAt: expiredAt,
+    };
+
+    await db
+      .insert(userSessionTable)
+      .values({
+        id: sessionId,
+        ...update,
+      })
+      .onConflictDoUpdate({
+        target: userSessionTable.id,
+        set: update,
+      });
   },
 };

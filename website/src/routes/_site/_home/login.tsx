@@ -2,14 +2,14 @@ import { Form, useSearchParams } from "@remix-run/react";
 import type { ActionFunctionArgs } from "@remix-run/server-runtime";
 import { userLoginResolver, userService, type UserLoginFormData } from "@resolid/framework/modules";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
-import { useTypedActionData } from "@resolid/remix-utils";
-import { useEffect } from "react";
+import { mergeMeta, responseRedirect } from "@resolid/remix-utils";
 import { Controller } from "react-hook-form";
 import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/FormError";
 import { HistoryLink } from "~/components/base/HistoryLink";
+import { commitUserSession, setSessionUser } from "../../../foundation/session.server";
 
-export const action = async ({ request, response }: ActionFunctionArgs) => {
+export const action = async ({ request, response, context }: ActionFunctionArgs) => {
   const data = await parseFormData<UserLoginFormData>(request);
   const [errors, user] = await userService.authLogin(data);
 
@@ -18,8 +18,19 @@ export const action = async ({ request, response }: ActionFunctionArgs) => {
     return { errors };
   }
 
-  return { user };
+  const session = await setSessionUser(request, user, context.remoteAddress ?? "");
+
+  response!.headers.set(
+    "Set-Cookie",
+    await commitUserSession(session, { maxAge: data?.rememberMe ? 60 * 60 * 24 * 30 : 60 * 60 * 30 }),
+  );
+
+  return responseRedirect(response!, new URL(request.url).searchParams.get("redirect") ?? "/");
 };
+
+export const meta = mergeMeta(() => {
+  return [{ title: "登陆" }];
+});
 
 export default function Login() {
   const [params] = useSearchParams();
@@ -32,14 +43,6 @@ export default function Login() {
     mode: "onBlur",
     resolver: userLoginResolver,
   });
-
-  const data = useTypedActionData<typeof action>();
-
-  useEffect(() => {
-    if (data && !data.errors) {
-      console.log(data);
-    }
-  }, [data]);
 
   return (
     <div className={"mx-auto w-96"}>
@@ -95,7 +98,7 @@ export default function Login() {
               name={"rememberMe"}
               control={control}
               render={({ field: { name, onChange } }) => (
-                <Checkbox id={name} name={name} onChange={onChange}>
+                <Checkbox defaultChecked={true} id={name} name={name} onChange={onChange}>
                   保持登陆
                 </Checkbox>
               )}

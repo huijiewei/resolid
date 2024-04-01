@@ -1,7 +1,6 @@
 import { Command } from "commander";
 import { argv } from "node:process";
-import type { DatabaseInstance } from "../src";
-import { setup } from "../src/setup";
+import { setup, type DatabaseInstance } from "../src";
 import { databaseSeed, dbCommand } from "./commands/db";
 
 const normalizeCommand = (command: Command) => {

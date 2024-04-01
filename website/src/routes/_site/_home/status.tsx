@@ -11,7 +11,7 @@ export const loader = ({ context }: LoaderFunctionArgs) => {
     ssr: {
       message: "服务器渲染正常",
       now: format(new Date(), "YYYY-MM-DD HH:mm Z"),
-      ip: context.remoteAddress as string,
+      ip: context.remoteAddress ?? "",
     },
     db: statusService
       .getFirst()

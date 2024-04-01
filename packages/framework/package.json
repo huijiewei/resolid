@@ -30,11 +30,13 @@
       "browser": "./src/modules.borwser.ts",
       "default": "./src/modules.ts"
     },
-    "./setup": "./src/setup.ts"
+    "./utils": "./src/utils.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@node-rs/bcrypt": "^1.10.1",
+    "@remix-run/node": "2.9.0-pre.1",
+    "@remix-run/server-runtime": "2.9.0-pre.1",
     "@resolid/utils": "workspace:^",
     "drizzle-orm": "^0.30.6",
     "nodemailer": "^6.9.13",

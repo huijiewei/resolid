@@ -2,24 +2,35 @@ import { Form, useSearchParams } from "@remix-run/react";
 import type { ActionFunctionArgs } from "@remix-run/server-runtime";
 import { userService, userSignupResolver, type UserSignupFormData } from "@resolid/framework/modules";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
-import { useTypedActionData } from "@resolid/remix-utils";
-import { useEffect } from "react";
+import { mergeMeta, responseRedirect } from "@resolid/remix-utils";
 import { Controller } from "react-hook-form";
 import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/FormError";
 import { HistoryLink } from "~/components/base/HistoryLink";
+import { commitUserSession, setSessionUser } from "../../../foundation/session.server";
 
-export const action = async ({ request, response }: ActionFunctionArgs) => {
+export const action = async ({ request, response, context }: ActionFunctionArgs) => {
   const data = await parseFormData<UserSignupFormData>(request);
-  const [errors, user] = await userService.authSignup(data);
+
+  const remoteAddr = context.remoteAddress ?? "";
+
+  const [errors, user] = await userService.authSignup(data, remoteAddr as string);
 
   if (errors) {
     response!.status = 422;
     return { errors };
   }
 
-  return { user };
+  const session = await setSessionUser(request, user, remoteAddr);
+
+  response!.headers.set("Set-Cookie", await commitUserSession(session, { maxAge: 60 * 60 * 24 * 30 }));
+
+  return responseRedirect(response!, new URL(request.url).searchParams.get("redirect") ?? "/");
 };
+
+export const meta = mergeMeta(() => {
+  return [{ title: "注册" }];
+});
 
 export default function Signup() {
   const [params] = useSearchParams();
@@ -32,14 +43,6 @@ export default function Signup() {
     mode: "onBlur",
     resolver: userSignupResolver,
   });
-
-  const data = useTypedActionData<typeof action>();
-
-  useEffect(() => {
-    if (data && !data.errors) {
-      console.log(data);
-    }
-  }, [data]);
 
   return (
     <div className={"mx-auto w-96"}>

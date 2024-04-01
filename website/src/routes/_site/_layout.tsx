@@ -1,16 +1,34 @@
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Link, Outlet, createPath, useLocation, type Location } from "@remix-run/react";
-import { Badge, Button, Tooltip, TooltipArrow, TooltipContent, TooltipTrigger, clsx } from "@resolid/react-ui";
+import { userUtils, type UserAuthSession } from "@resolid/framework/modules";
+import {
+  Avatar,
+  Badge,
+  Button,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuDivider,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  Tooltip,
+  TooltipArrow,
+  TooltipContent,
+  TooltipTrigger,
+  clsx,
+} from "@resolid/react-ui";
+import { useTypedLoaderData } from "@resolid/remix-utils";
 import { omit, trimEnd } from "@resolid/utils";
 import { useState, type MouseEventHandler } from "react";
 import { ColorModeToggle } from "~/components/base/ColorModeToggle";
 import { HistoryLink, HistoryNavLink } from "~/components/base/HistoryLink";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
+import { getSessionUser } from "~/foundation/session.server";
 
 import resolidSvg from "~/assets/images/resolid.svg";
 
-export const loader = ({ request, context }: LoaderFunctionArgs) => {
+export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   return {
+    user: await getSessionUser(request),
     requestOrigin: context.requestOrigin ?? request.url,
   };
 };
@@ -77,10 +95,12 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 export default function SiteLayout() {
+  const { user } = useTypedLoaderData<typeof loader>();
+
   return (
     <>
       <header className={"sticky top-0 z-nav w-full border-b bg-bg-normal"}>
-        <NavBar />
+        <NavBar user={user} />
       </header>
       <div className={"min-h-[calc(100vh-10.765rem)]"}>
         <Outlet />
@@ -112,7 +132,7 @@ export default function SiteLayout() {
   );
 }
 
-const NavBar = () => {
+const NavBar = ({ user }: { user: UserAuthSession | undefined }) => {
   const [opened, setOpened] = useState(false);
 
   return (
@@ -130,7 +150,7 @@ const NavBar = () => {
         <NavMenu onClick={() => setOpened(false)} />
       </div>
       <div className={"inline-flex items-center gap-1 text-fg-muted"}>
-        <NavUser />
+        <NavUser user={user} />
         <ColorModeToggle />
         <Tooltip placement={"bottom"}>
           <TooltipTrigger asChild>
@@ -194,10 +214,37 @@ const NavMenu = ({ onClick }: { onClick?: MouseEventHandler<HTMLAnchorElement> }
   );
 };
 
-const NavUser = () => {
+const NavUser = ({ user }: { user: UserAuthSession | undefined }) => {
   const location = useLocation();
 
-  return (
+  return user ? (
+    <DropdownMenu placement={"bottom"}>
+      <DropdownMenuTrigger asChild>
+        <Button variant={"ghost"} color={"neutral"} size={"sm"} square>
+          <Avatar size={24} src={user.avatar} name={userUtils.getDisplayName(user)} />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className={"text-sm"}>
+        <DropdownMenuItem disabled>{user.email}</DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <HistoryLink to={`user/${user.username}`}>
+            {<SpriteIcon size={"1rem"} name={"user"} className={"me-1.5"} />}个人主页
+          </HistoryLink>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <HistoryLink to={"settings"}>
+            {<SpriteIcon size={"1rem"} name={"setting"} className={"me-1.5"} />}用户设置
+          </HistoryLink>
+        </DropdownMenuItem>
+        <DropdownMenuDivider />
+        <DropdownMenuItem asChild>
+          <HistoryLink to={getLoginTo("logout", location)}>
+            {<SpriteIcon size={"1rem"} name={"logout"} className={"me-1.5"} />}退出登陆
+          </HistoryLink>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  ) : (
     <Tooltip placement={"bottom"}>
       <TooltipTrigger asChild>
         <Button asChild aria-label={"用户登录"} color={"neutral"} variant={"ghost"} size={"sm"} square>
@@ -223,6 +270,7 @@ const getLoginTo = (pathname: string, location: Location) => {
   if (
     !location.pathname.endsWith("login") &&
     !location.pathname.endsWith("signup") &&
+    !location.pathname.endsWith("logout") &&
     !location.pathname.endsWith("forgot-password")
   ) {
     to.search = new URLSearchParams({ redirect: createPath(omit(location, ["hash"])) }).toString();
