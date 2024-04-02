@@ -6,7 +6,14 @@ export const zodLocaleResolver: Resolver = (schema, schemaOptions, factoryOption
   return zodResolver(schema, { ...schemaOptions, errorMap: zodErrorMap }, factoryOptions);
 };
 
-export const validateData = async <T extends FieldValues>(data: T, resolver: ReturnType<Resolver>) => {
+type ValidateDataResult<T extends FieldValues> =
+  | { errors: FieldErrors<T>; values: undefined }
+  | { errors: undefined; values: T };
+
+export const validateData = async <T extends FieldValues>(
+  data: T,
+  resolver: ReturnType<Resolver>,
+): Promise<ValidateDataResult<T>> => {
   const { errors, values } = await resolver(data, {}, { shouldUseNativeValidation: false, fields: {} });
 
   if (Object.keys(errors).length > 0) {

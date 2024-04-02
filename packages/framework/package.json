@@ -30,6 +30,7 @@
       "browser": "./src/modules.borwser.ts",
       "default": "./src/modules.ts"
     },
+    "./schemas": "./src/modules/schemas.ts",
     "./utils": "./src/utils.ts"
   },
   "dependencies": {

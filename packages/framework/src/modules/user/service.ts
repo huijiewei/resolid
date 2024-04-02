@@ -9,8 +9,6 @@ import { createFieldErrors, validateData } from "../../utils/zod";
 import { userGroupTable, userSessionTable, userTable } from "./schema";
 import { userLoginResolver, userSignupResolver, type UserLoginFormData, type UserSignupFormData } from "./validator";
 
-export { userGroupTable, userTable };
-
 export type UserSelect = typeof userTable.$inferSelect;
 export type UserSelectWithGroup = UserSelect & { userGroup: UserGroupSelect };
 export type UserInsert = typeof userTable.$inferInsert & { userGroupId: number };
@@ -75,8 +73,8 @@ export const userService = {
   getById: async (id: number): Promise<UserSelectWithGroup | undefined> => {
     return getUserByField("id", id, undefined, { userGroup: true });
   },
-  getByEmail: async (email: string): Promise<UserSelectWithGroup | undefined> => {
-    return getUserByField("email", email, undefined, { userGroup: true });
+  getByEmail: async (email: string, withUserGroup = true): Promise<UserSelectWithGroup | undefined> => {
+    return getUserByField("email", email, undefined, withUserGroup ? { userGroup: true } : undefined);
   },
   existByEmail: async (email: string) => {
     return (await getUserByField("email", email, { email: true })) != undefined;
@@ -108,13 +106,13 @@ export const userService = {
       return [errors, undefined];
     }
 
-    const user = await userService.getByEmail(values?.email);
+    const user = await userService.getByEmail(values.email);
 
     if (!user) {
       return [createFieldErrors({ email: "用户不存在" }), undefined];
     }
 
-    if (!(await verify(data.password, user.password))) {
+    if (!(await verify(values.password, user.password))) {
       return [createFieldErrors({ password: "密码错误" }), undefined];
     }
 

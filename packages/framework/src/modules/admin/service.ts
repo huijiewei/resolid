@@ -6,8 +6,6 @@ import { validateData } from "../../utils/zod";
 import { adminGroupTable, adminTable } from "./schema";
 import { adminCreateResolver, type AdminCreateFormData } from "./validator";
 
-export { adminGroupTable, adminTable };
-
 export type AdminSelect = typeof adminTable.$inferSelect;
 export type AdminSelectWithGroup = AdminSelect & { adminGroup: AdminGroupSelect };
 export type AdminInsert = typeof adminTable.$inferInsert & { adminGroupId: number };
