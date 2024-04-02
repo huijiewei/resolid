@@ -3,6 +3,7 @@ import type { ResponseStub } from "@remix-run/server-runtime/dist/routeModules";
 import { createDatabaseSessionStorage } from "@resolid/framework";
 import { userSessionService, type UserAuthSession } from "@resolid/framework/modules";
 import { responseRedirect } from "@resolid/remix-utils";
+import { env } from "node:process";
 
 const {
   getSession: getUserSession,
@@ -13,7 +14,7 @@ const {
     name: "__su",
     httpOnly: true,
     sameSite: "lax",
-    secure: false,
+    secrets: [env.RX_COOKIE_SECRET],
     path: "/",
   },
   service: userSessionService,

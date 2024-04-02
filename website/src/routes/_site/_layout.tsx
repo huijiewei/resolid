@@ -1,5 +1,5 @@
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { Link, Outlet, createPath, useLocation, type Location } from "@remix-run/react";
+import { Form, Link, Outlet, createPath, useLocation, type Location } from "@remix-run/react";
 import { userUtils, type UserAuthSession } from "@resolid/framework/modules";
 import {
   Avatar,
@@ -237,11 +237,11 @@ const NavUser = ({ user }: { user: UserAuthSession | undefined }) => {
           </HistoryLink>
         </DropdownMenuItem>
         <DropdownMenuDivider />
-        <DropdownMenuItem asChild>
-          <HistoryLink to={getLoginTo("logout", location)}>
-            {<SpriteIcon size={"1rem"} name={"logout"} className={"me-1.5"} />}退出登陆
-          </HistoryLink>
-        </DropdownMenuItem>
+        <Form action={createPath(getLoginTo("logout", location))} method={"post"}>
+          <DropdownMenuItem asChild>
+            <button type={"submit"}>{<SpriteIcon size={"1rem"} name={"logout"} className={"me-1.5"} />}退出登陆</button>
+          </DropdownMenuItem>
+        </Form>
       </DropdownMenuContent>
     </DropdownMenu>
   ) : (
@@ -271,7 +271,7 @@ const getLoginTo = (pathname: string, location: Location) => {
     !location.pathname.endsWith("login") &&
     !location.pathname.endsWith("signup") &&
     !location.pathname.endsWith("logout") &&
-    !location.pathname.endsWith("forgot-password")
+    !location.pathname.endsWith("password-forgot")
   ) {
     to.search = new URLSearchParams({ redirect: createPath(omit(location, ["hash"])) }).toString();
   }
