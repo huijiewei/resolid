@@ -123,25 +123,32 @@ export const bundleServer = async (
 
   const bundle = await rollup({
     input: entryFile,
+    external: Object.keys(packageDependencies),
+    preserveEntrySignatures: "allow-extension",
     plugins: [
       nodeResolve({
         preferBuiltins: true,
         exportConditions: ["node"],
         dedupe: resolveDedupe,
       }),
-      commonjs({ ...commonjsOptions, strictRequires: true }),
+      commonjs({
+        ...commonjsOptions,
+        strictRequires: true,
+      }),
       json(),
     ],
-    external: Object.keys(packageDependencies),
     logLevel: "silent",
   });
 
   const bundleFile = join(buildPath, "serve.mjs");
 
   await bundle.write({
-    format: "esm",
+    format: "es",
+    generatedCode: "es2015",
     file: bundleFile,
     inlineDynamicImports: true,
+    externalLiveBindings: false,
+    freeze: false,
   });
 
   await bundle.close();
