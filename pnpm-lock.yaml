@@ -344,6 +344,12 @@ importers:
       '@hono/node-server':
         specifier: ^1.9.1
         version: 1.9.1
+      '@hookform/resolvers':
+        specifier: ^3.3.4
+        version: 3.3.4(react-hook-form@7.51.2)
+      '@marsidev/react-turnstile':
+        specifier: ^0.5.3
+        version: 0.5.3(react-dom@19.0.0-canary-a73c3450e-20240329)(react@19.0.0-canary-a73c3450e-20240329)
       '@mdx-js/react':
         specifier: ^3.0.1
         version: 3.0.1(@types/react@18.2.73)(react@19.0.0-canary-a73c3450e-20240329)
@@ -395,6 +401,9 @@ importers:
       remix-hook-form:
         specifier: ^4.3.1
         version: 4.3.1(@remix-run/react@2.9.0-pre.1)(react-dom@19.0.0-canary-a73c3450e-20240329)(react-hook-form@7.51.2)(react@19.0.0-canary-a73c3450e-20240329)
+      zod:
+        specifier: ^3.22.4
+        version: 3.22.4
     devDependencies:
       '@mdx-js/rollup':
         specifier: ^3.0.1
@@ -1413,6 +1422,16 @@ packages:
       - encoding
       - supports-color
     dev: true
+
+  /@marsidev/react-turnstile@0.5.3(react-dom@19.0.0-canary-a73c3450e-20240329)(react@19.0.0-canary-a73c3450e-20240329):
+    resolution: {integrity: sha512-lx3p2/56esPt8Ksr37K8uhPt/K4Mg8xaIfCV8MPKmE/1X4aHesRqZok1+L1ySQwsdWoEe5+KJOhBXka8lFBwNg==}
+    peerDependencies:
+      react: 19.0.0-canary-a73c3450e-20240329
+      react-dom: 19.0.0-canary-a73c3450e-20240329
+    dependencies:
+      react: 19.0.0-canary-a73c3450e-20240329
+      react-dom: 19.0.0-canary-a73c3450e-20240329(react@19.0.0-canary-a73c3450e-20240329)
+    dev: false
 
   /@mdx-js/mdx@2.3.0:
     resolution: {integrity: sha512-jLuwRlz8DQfQNiUCJR50Y09CGPq3fLtmtUQfVrj79E0JWu3dvsVcxVIcfhR5h0iXu+/z++zDrYeiJqifRynJkA==}

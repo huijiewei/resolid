@@ -17,7 +17,7 @@ import viteInspect from "vite-plugin-inspect";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { defineConfig, type UserConfig } from "vitest/config";
 
-export default defineConfig(({ command }) => {
+export default defineConfig(({ command, isSsrBuild }) => {
   const isBuild = command == "build";
 
   const __dirname = fileURLToPath(new URL(".", import.meta.url));
@@ -77,6 +77,8 @@ export default defineConfig(({ command }) => {
       !isBuild && viteInspect(),
     ].filter(Boolean),
     build: {
+      target: isSsrBuild ? "node20" : "modules",
+      cssTarget: ["edge88", "firefox78", "chrome87", "safari14"],
       minify: true,
       rollupOptions: {
         output: {
@@ -95,6 +97,13 @@ export default defineConfig(({ command }) => {
               id.includes("/node_modules/loose-envify/")
             ) {
               return "react";
+            }
+
+            if (
+              id.includes("/node_modules/@marsidev/react-turnstile/") ||
+              id.includes("/node_modules/@mdx-js/react/")
+            ) {
+              return "third";
             }
 
             if (id.includes("/node_modules/@resolid/") || id.includes("/packages/")) {

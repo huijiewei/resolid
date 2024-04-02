@@ -1,6 +1,6 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { mergeMeta, useTypedLoaderData } from "@resolid/remix-utils";
-import { requireSessionUser } from "../../../foundation/session.server";
+import { requireSessionUser } from "~/foundation/session.server";
 
 export const meta = mergeMeta(() => {
   return [{ title: "用户设置" }];
