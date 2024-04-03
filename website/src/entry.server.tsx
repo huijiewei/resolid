@@ -8,7 +8,9 @@ import { renderToPipeableStream } from "react-dom/server";
 
 setup();
 
-export const streamTimeout = 10_000;
+const ABORT_DELAY = 10_000;
+
+export const streamTimeout = ABORT_DELAY - 50;
 
 export default function handleRequest(
   request: Request,
@@ -21,7 +23,7 @@ export default function handleRequest(
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
-      <RemixServer context={remixContext} url={request.url} abortDelay={streamTimeout} />,
+      <RemixServer context={remixContext} url={request.url} abortDelay={ABORT_DELAY} />,
       {
         [ready]() {
           shellRendered = true;
@@ -52,6 +54,6 @@ export default function handleRequest(
       },
     );
 
-    setTimeout(abort, streamTimeout);
+    setTimeout(abort, ABORT_DELAY);
   });
 }
