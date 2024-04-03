@@ -45,8 +45,8 @@
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.23",
     "jsdom": "^24.0.0",
-    "react": "19.0.0-canary-95e6f032c-20240401",
-    "react-dom": "19.0.0-canary-95e6f032c-20240401",
+    "react": "19.0.0-canary-48ec17b86-20240402",
+    "react-dom": "19.0.0-canary-48ec17b86-20240402",
     "tsup": "^8.0.2",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.4.0"
