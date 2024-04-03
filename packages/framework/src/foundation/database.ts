@@ -33,6 +33,7 @@ export const defineDatabase = <
     transform: {
       undefined: null,
     },
+    prepare: false,
     ...options.pgOptions,
   });
 
