@@ -3,6 +3,7 @@ import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
 import type { Size } from "../../utils/types";
 import type { BaseProps } from "../slot/Slot";
+import { selectSizeStyles } from "./Select.styles";
 import { SelectChevron } from "./SelectChevron";
 
 export type NativeSelectProps = {
@@ -11,34 +12,6 @@ export type NativeSelectProps = {
    * @default 'md'
    */
   size?: Size;
-};
-
-const selectSizeStyles = {
-  xs: {
-    text: "text-xs",
-    select: "py-[5px] pl-2.5 pr-7",
-    chevron: "px-2",
-  },
-  sm: {
-    text: "text-sm",
-    select: "py-[5px] pl-3 pr-8",
-    chevron: "px-2",
-  },
-  md: {
-    text: "text-base",
-    select: "py-[5px] pl-3.5 pr-8",
-    chevron: "px-2",
-  },
-  lg: {
-    text: "text-base",
-    select: "py-[7px] pl-4 pr-10",
-    chevron: "px-2.5",
-  },
-  xl: {
-    text: "text-lg",
-    select: "py-[7px] pl-5 pr-12",
-    chevron: "px-3",
-  },
 };
 
 export const NativeSelect = forwardRef<HTMLSelectElement, BaseProps<"select", NativeSelectProps>>((props, ref) => {

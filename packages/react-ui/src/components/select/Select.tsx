@@ -301,36 +301,34 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
   };
 
   const renderMultipleValue = (selectOptions: Omit<Option, keyof OptionFieldNames["options"]>[]) => {
-    return (
-      <div className={"flex flex-wrap gap-1"}>
-        {selectOptions.length > 0 ? (
-          selectOptions.map((option) => (
-            <span
-              className={clsx("flex items-center gap-1 rounded bg-bg-subtle", sizeStyle.chevron)}
-              key={option[mergedFieldNames.value]}
-            >
-              {labelRenderRef(option)}
-              <CloseButton
-                size={"1em"}
-                aria-label={`移除 ${option[mergedFieldNames.value]}`}
-                onClick={(event) => {
-                  event.stopPropagation();
-                  handleSelect(option);
-                }}
-                statusClassName={"hover:bg-bg-subtlest active:bg-bg-muted"}
-                className={"rounded-full p-[1px]"}
-              />
-            </span>
-          ))
-        ) : (
-          <span className={"text-fg-subtle"}>{placeholder}</span>
-        )}
+    return selectOptions.length > 0 ? (
+      <div className={clsx("flex flex-wrap gap-1", sizeStyle.multipleWrap)}>
+        {selectOptions.map((option) => (
+          <div
+            className={clsx("flex items-center gap-1 rounded bg-bg-subtle", sizeStyle.multipleItem)}
+            key={option[mergedFieldNames.value]}
+          >
+            {labelRenderRef(option)}
+            <CloseButton
+              size={"1em"}
+              aria-label={`移除 ${option[mergedFieldNames.value]}`}
+              onClick={(event) => {
+                event.stopPropagation();
+                handleSelect(option);
+              }}
+              statusClassName={"hover:bg-bg-subtlest hover:text-fg-danger active:bg-bg-muted"}
+              className={"rounded-full p-[1px]"}
+            />
+          </div>
+        ))}
       </div>
+    ) : (
+      <span className={"text-fg-subtle"}>{placeholder}</span>
     );
   };
 
   const sizeStyle = selectSizeStyles[size];
-  const sizeOptionStyle = clsx(sizeStyle.base, sizeStyle.option);
+  const sizeOptionStyle = clsx(sizeStyle.text, sizeStyle.option);
 
   const handleSelect = useCallback(
     (option: Omit<Option, keyof OptionFieldNames["options"]>, close = true) => {
@@ -489,7 +487,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
             : "active:border-bg-primary-emphasis active:ring-1 active:ring-bg-primary-emphasis",
           !invalid && !disabled && !openedState && "hover:border-border-hovered",
           block && "w-full",
-          sizeStyle.base,
+          sizeStyle.text,
           sizeStyle.select,
           className,
         )}

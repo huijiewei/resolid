@@ -225,7 +225,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
 <section className={'example group'}>
   <ComponentExample className={"flex flex-row gap-3 items-center"}>
     <Select
-      className={"w-28"}
+      className={"min-w-28"}
       options={Array(10)
         .fill(null)
         .map((_, idx) => idx + 1)
@@ -233,7 +233,8 @@ import { Select, NativeSelect } from "@resolid/react-ui";
       size={'xs'}
     />
     <Select
-      className={"w-28"}
+      multiple
+      className={"min-w-28"}
       options={Array(10)
         .fill(null)
         .map((_, idx) => idx + 1)
@@ -241,7 +242,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
       size={'sm'}
     />
     <Select
-      className={"w-28"}
+      className={"min-w-28"}
       options={Array(10)
         .fill(null)
         .map((_, idx) => idx + 1)
@@ -249,7 +250,8 @@ import { Select, NativeSelect } from "@resolid/react-ui";
       size={'md'}
     />
     <Select
-      className={"w-36"}
+      multiple
+      className={"min-w-36"}
       options={Array(10)
         .fill(null)
         .map((_, idx) => idx + 1)
@@ -257,7 +259,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
       size={'lg'}
     />
     <Select
-      className={"w-36"}
+      className={"min-w-36"}
       options={Array(10)
         .fill(null)
         .map((_, idx) => idx + 1)
@@ -276,6 +278,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     size={'xs'}
   />
   <Select
+    multiple
     className={"w-28"}
     options={Array(10)
       .fill(null)
@@ -292,6 +295,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     size={'md'}
   />
   <Select
+    multiple
     className={"w-36"}
     options={Array(10)
       .fill(null)
