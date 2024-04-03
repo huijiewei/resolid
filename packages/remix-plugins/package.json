@@ -68,6 +68,6 @@
   "homepage": "https://resolid.tech",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/huijiewei/resolid-remix-plugins.git"
+    "url": "https://github.com/huijiewei/resolid-remix-plugins.git"
   }
 }
