@@ -107,20 +107,15 @@ const posts = db.query.blogPostTable
 
 ### 基本用法
 
-修改环境变量文件 `.env`
-
-```text
-# 邮件服务设置
-RX_MAILER_DSN='smtp://username:password@host:port'
-RX_MAILER_FROM='Name <email@example.com>'
-```
-
 新建文件 `src/mail.server.ts`
 
 ```ts
 import { defineMailer } from "@resolid/framework";
 
-export const mailer = defineMailer();
+export const mailer = defineMailer({
+  dsn: "smtp://username:password@host:port", // 邮件服务器设置
+  from: "Name <email@example.com>" // 发件人设置,
+});
 ```
 
 发送邮件

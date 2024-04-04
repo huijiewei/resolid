@@ -3,11 +3,14 @@
 
 declare namespace NodeJS {
   export interface ProcessEnv {
-    RX_PROXY: number;
-    RX_PROXY_COUNT: number;
+    readonly RX_MAILER_DSN: string;
+    readonly RX_MAILER_FROM: string;
 
-    RX_COOKIE_SECRET: string;
-    RX_TURNSTILE_SECRET: string;
+    readonly RX_PROXY: number;
+    readonly RX_PROXY_COUNT: number;
+
+    readonly RX_COOKIE_SECRET: string;
+    readonly RX_TURNSTILE_SECRET: string;
   }
 }
 

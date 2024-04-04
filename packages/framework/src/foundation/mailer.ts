@@ -1,4 +1,3 @@
-import { env } from "node:process";
 import nodemailer, { type SentMessageInfo, type Transport } from "nodemailer";
 import type { Attachment, Options } from "nodemailer/lib/mailer";
 
@@ -12,24 +11,14 @@ export type MailSendResult = {
   messageId?: string;
 };
 
-export const defineMailer = async ({
-  transport,
-}: {
+export type DefineMailerOptions = {
+  dsn: string;
+  from: string;
   transport?: Transport<SentMessageInfo>;
-} = {}) => {
-  const dsn = env.RX_MAILER_DSN;
+};
 
-  if (!dsn) {
-    throw new Error("请先设置 RX_MAILER_DSN 环境变量");
-  }
-
-  const from = env.RX_MAILER_FROM;
-
-  if (!from) {
-    throw new Error("请先设置 RX_MAILER_FROM 环境变量");
-  }
-
-  const transporter = await getTransporter(dsn, from, transport);
+export const defineMailer = ({ dsn, from, transport }: DefineMailerOptions) => {
+  const transporter = getTransporter(dsn, from, transport);
 
   return {
     async send(email: MailOptions): Promise<MailSendResult> {
@@ -43,7 +32,7 @@ export const defineMailer = async ({
   };
 };
 
-const getTransporter = async (dsn: string, from: string, defaultTransport?: Transport<SentMessageInfo>) => {
+const getTransporter = (dsn: string, from: string, defaultTransport?: Transport<SentMessageInfo>) => {
   if (defaultTransport) {
     return nodemailer.createTransport(defaultTransport, { from: from });
   }
@@ -56,11 +45,5 @@ const getTransporter = async (dsn: string, from: string, defaultTransport?: Tran
     return nodemailer.createTransport(dsn, { from: from });
   }
 
-  const { transport } = await import(`../extensions/mailer/${protocol}.ts`);
-
-  if (!transport) {
-    throw new Error(`未能找到 ${protocol} 协议的邮件传输适配器`);
-  }
-
-  return nodemailer.createTransport(transport(url), { from: from });
+  throw new Error(`不支持 ${protocol} 邮件传输适配器`);
 };
