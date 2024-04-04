@@ -43,10 +43,10 @@
     "@resolid/tailwind": "workspace:^",
     "@testing-library/react": "^14.2.2",
     "@types/react": "^18.2.74",
-    "@types/react-dom": "^18.2.23",
+    "@types/react-dom": "^18.2.24",
     "jsdom": "^24.0.0",
-    "react": "19.0.0-canary-48ec17b86-20240402",
-    "react-dom": "19.0.0-canary-48ec17b86-20240402",
+    "react": "19.0.0-canary-7a2609eed-20240403",
+    "react-dom": "19.0.0-canary-7a2609eed-20240403",
     "tsup": "^8.0.2",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.4.0"

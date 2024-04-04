@@ -39,7 +39,7 @@
     "@remix-run/node": "2.9.0-pre.2",
     "@remix-run/server-runtime": "2.9.0-pre.2",
     "@resolid/utils": "workspace:^",
-    "drizzle-orm": "^0.30.6",
+    "drizzle-orm": "^0.30.7",
     "nodemailer": "^6.9.13",
     "postgres": "^3.4.4",
     "react-hook-form": "^7.51.2",
@@ -49,7 +49,7 @@
     "@resolid/config": "workspace:^",
     "@types/nodemailer": "^6.4.14",
     "commander": "^12.0.0",
-    "vite": "^5.2.7",
+    "vite": "^5.2.8",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.4.0"
   },
