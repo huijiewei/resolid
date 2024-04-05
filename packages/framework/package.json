@@ -15,12 +15,10 @@
   },
   "files": [
     "cli",
-    "src",
-    "env.d.ts"
+    "src"
   ],
   "scripts": {
-    "lint": "eslint .",
-    "test": "vitest --run"
+    "lint": "eslint ."
   },
   "exports": {
     ".": "./src/index.ts",
@@ -30,7 +28,6 @@
       "browser": "./src/modules.borwser.ts",
       "default": "./src/modules.ts"
     },
-    "./schemas": "./src/modules/schemas.ts",
     "./utils": "./src/utils.ts"
   },
   "dependencies": {
@@ -48,10 +45,7 @@
   "devDependencies": {
     "@resolid/config": "workspace:^",
     "@types/nodemailer": "^6.4.14",
-    "commander": "^12.0.0",
-    "vite": "^5.2.8",
-    "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^1.4.0"
+    "commander": "^12.0.0"
   },
   "homepage": "https://resolid.tech",
   "repository": {

@@ -119,13 +119,9 @@ export default defineConfig(({ command, isSsrBuild }) => {
     },
     esbuild: { legalComments: "none" },
     resolve: {
-      alias: [
-        {
-          find: "@dbInstance",
-          replacement: join(__dirname, `./${appDirectory}/foundation/db.server.ts`),
-        },
-        isBuild && { find: "~", replacement: join(__dirname, `./${appDirectory}`) },
-      ].filter(Boolean) as AliasOptions,
+      alias: [isBuild && { find: "~", replacement: join(__dirname, `./${appDirectory}`) }].filter(
+        Boolean,
+      ) as AliasOptions,
     },
     ssr: {
       external: ["@node-rs/bcrypt"],

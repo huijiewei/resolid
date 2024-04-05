@@ -1,15 +1,16 @@
 import { createPath } from "@remix-run/react";
 import type { ResponseStub } from "@remix-run/server-runtime/dist/routeModules";
 import { createDatabaseSessionStorage } from "@resolid/framework";
-import { userSessionService, type UserAuthSession } from "@resolid/framework/modules";
 import { responseRedirect } from "@resolid/remix-utils";
 import { env } from "node:process";
+import type { UserIdentity } from "~/modules/user/schema.server";
+import { userSessionService } from "~/modules/user/service.server";
 
 const {
   getSession: getUserSession,
   commitSession: commitUserSession,
   destroySession: destroyUserSession,
-} = createDatabaseSessionStorage({
+} = createDatabaseSessionStorage<UserIdentity>({
   cookie: {
     name: "__su",
     httpOnly: true,
@@ -36,7 +37,7 @@ export const requireSessionUser = async (request: Request, response: ResponseStu
   return user;
 };
 
-export const setSessionUser = async (request: Request, user: UserAuthSession, remoteAddr: string) => {
+export const setSessionUser = async (request: Request, user: UserIdentity, remoteAddr: string) => {
   const session = await getUserSession(request.headers.get("Cookie"));
 
   session.set("identity", user);

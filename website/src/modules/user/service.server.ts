@@ -1,53 +1,51 @@
-import { hash } from "@node-rs/bcrypt";
-import { and, eq, gt } from "@resolid/framework/drizzle";
-import { userService, userUtils } from "@resolid/framework/modules";
-import { userTable } from "@resolid/framework/schemas";
-import { createFieldErrors, validateData, type ServiceResult } from "@resolid/framework/utils";
-import { isEmpty, randomId } from "@resolid/utils";
+import {
+  authUtils,
+  createAuthLoginService,
+  createAuthPasswordForgotService,
+  createAuthPasswordResetService,
+  createAuthSessionService,
+  createAuthSignupService,
+} from "@resolid/framework/modules";
 import { db } from "~/foundation/db.server";
 import { mailer } from "~/foundation/mail.server";
-import { userPasswordResetTable } from "~/modules/user/schema.server";
 import {
-  userPasswordForgotResolver,
-  userPasswordResetResolver,
-  type UserPasswordForgotFormData,
-  type UserPasswordResetFormData,
-} from "~/modules/user/validator";
+  userGroupTable,
+  userPasswordResetTable,
+  userSessionTable,
+  userTable,
+  type UserGroupTable,
+  type UserSelectWithGroup,
+  type UserSessionTable,
+  type UserTable,
+} from "~/modules/user/schema.server";
+import { userSignupResolver } from "~/modules/user/validator";
 
-export const userPasswordForgotService = async (
-  data: UserPasswordForgotFormData,
-  requestOrigin: string,
-): Promise<ServiceResult<UserPasswordForgotFormData, boolean>> => {
-  const { errors, values } = await validateData(data, userPasswordForgotResolver);
+export const userLoginService = createAuthLoginService(db, userTable, userGroupTable);
 
-  if (errors) {
-    return [errors, undefined];
-  }
+export const userSignupService = createAuthSignupService(db, userTable, userGroupTable, userSignupResolver);
 
-  const user = await userService.getByEmail(values.email, false);
+export const userSessionService = createAuthSessionService<
+  UserSelectWithGroup,
+  UserTable,
+  UserGroupTable,
+  UserSessionTable
+>(db, userTable, userGroupTable, userSessionTable);
 
-  if (!user || user.deletedAt != null) {
-    return [createFieldErrors({ email: "用户不存在" }), undefined];
-  }
+export const userPasswordForgotService = createAuthPasswordForgotService(
+  db,
+  userTable,
+  userPasswordResetTable,
+  async (user, resetId, requestOrigin) => {
+    const userDisplayName = authUtils.getDisplayName(user);
+    const resetUrl = new URL(`/password-reset?token=${resetId}`, requestOrigin).toString();
 
-  const resetId = randomId();
-
-  await db.insert(userPasswordResetTable).values({
-    id: resetId,
-    userId: user.id,
-    expiredAt: new Date(Date.now() + 1000 * 60 * 60 * 24),
-  });
-
-  const userDisplayName = userUtils.getDisplayName(user);
-  const resetUrl = new URL(`/password-reset?token=${resetId}`, requestOrigin).toString();
-
-  const result = await mailer.send({
-    to: {
-      name: userDisplayName,
-      address: user.email,
-    },
-    subject: "Resolid 密码重置",
-    html: `
+    const result = await mailer.send({
+      to: {
+        name: userDisplayName,
+        address: user.email,
+      },
+      subject: "Resolid 密码重置",
+      html: `
 <!doctype html>
 <html lang="zh-CN">
   <head>
@@ -73,49 +71,14 @@ export const userPasswordForgotService = async (
   </body>
 </html>
     `,
-  });
+    });
 
-  if (!result.success) {
-    return [createFieldErrors({ email: "邮件发送失败" }), undefined];
-  }
+    if (!result.success) {
+      return [{ email: "邮件发送失败" }, undefined];
+    }
 
-  return [undefined, true];
-};
+    return [undefined, true];
+  },
+);
 
-export const userPasswordResetService = async (
-  data: UserPasswordResetFormData,
-  token: string | null,
-): Promise<ServiceResult<UserPasswordResetFormData, boolean>> => {
-  if (isEmpty(token)) {
-    return [createFieldErrors({ token: "无效的密码重置链接" }), undefined];
-  }
-
-  const { errors, values } = await validateData(data, userPasswordResetResolver);
-
-  if (errors) {
-    return [errors, undefined];
-  }
-
-  const reset = await db.query.userPasswordResetTable.findFirst({
-    where: and(
-      eq(userPasswordResetTable.id, token!),
-      eq(userPasswordResetTable.redeemed, false),
-      gt(userPasswordResetTable.expiredAt, new Date()),
-    ),
-  });
-
-  if (!reset) {
-    return [createFieldErrors({ token: "无效的密码重置链接" }), undefined];
-  }
-
-  await db
-    .update(userTable)
-    .set({
-      password: await hash(values.password),
-    })
-    .where(eq(userTable.id, reset.userId));
-
-  await db.update(userPasswordResetTable).set({ redeemed: true }).where(eq(userPasswordResetTable.id, reset.id));
-
-  return [undefined, true];
-};
+export const userPasswordResetService = createAuthPasswordResetService(db, userTable, userPasswordResetTable);

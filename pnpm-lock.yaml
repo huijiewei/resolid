@@ -138,15 +138,6 @@ importers:
       commander:
         specifier: ^12.0.0
         version: 12.0.0
-      vite:
-        specifier: ^5.2.8
-        version: 5.2.8(@types/node@20.12.4)
-      vite-tsconfig-paths:
-        specifier: ^4.3.2
-        version: 4.3.2(typescript@5.4.4)(vite@5.2.8)
-      vitest:
-        specifier: ^1.4.0
-        version: 1.4.0(@types/node@20.12.4)(jsdom@24.0.0)
 
   packages/mdx-plugins:
     dependencies:

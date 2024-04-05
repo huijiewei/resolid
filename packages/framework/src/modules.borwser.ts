@@ -1,3 +1,2 @@
-export * from "./modules/admin/validator";
-export * from "./modules/user/utils";
-export * from "./modules/user/validator";
+export * from "./modules/auth/utils";
+export * from "./modules/auth/validator";

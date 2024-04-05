@@ -1,6 +1,5 @@
 import { Form, useSearchParams } from "@remix-run/react";
 import type { ActionFunctionArgs } from "@remix-run/server-runtime";
-import { userLoginResolver, userService, type UserLoginFormData } from "@resolid/framework/modules";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
 import { mergeMeta, responseRedirect } from "@resolid/remix-utils";
 import { Controller } from "react-hook-form";
@@ -8,10 +7,13 @@ import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/FormError";
 import { HistoryLink } from "~/components/base/HistoryLink";
 import { commitUserSession, setSessionUser } from "~/foundation/session.server";
+import { userLoginService } from "~/modules/user/service.server";
+import { userLoginResolver, type UserLoginFormData } from "~/modules/user/validator";
 
 export const action = async ({ request, response, context }: ActionFunctionArgs) => {
   const data = await parseFormData<UserLoginFormData>(request);
-  const [errors, user] = await userService.authLogin(data);
+
+  const [errors, user] = await userLoginService(data);
 
   if (errors) {
     response!.status = 422;

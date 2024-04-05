@@ -1,6 +1,6 @@
 import { createSessionStorage } from "@remix-run/node";
 import type { FlashSessionData, SessionIdStorageStrategy } from "@remix-run/server-runtime";
-import type { AuthSessionData, AuthSessionService } from "../core/auth/service";
+import type { AuthSessionData, AuthSessionService } from "../modules/auth/service";
 
 export type DatabaseSessionStorageOptions<T> = {
   cookie?: SessionIdStorageStrategy["cookie"];

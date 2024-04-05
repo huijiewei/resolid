@@ -1,6 +1,6 @@
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Form, Link, Outlet, createPath, useLocation, type Location } from "@remix-run/react";
-import { userUtils, type UserAuthSession } from "@resolid/framework/modules";
+import { authUtils } from "@resolid/framework/modules";
 import {
   Avatar,
   Badge,
@@ -23,6 +23,7 @@ import { ColorModeToggle } from "~/components/base/ColorModeToggle";
 import { HistoryLink, HistoryNavLink } from "~/components/base/HistoryLink";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
 import { getSessionUser } from "~/foundation/session.server";
+import type { UserIdentity } from "~/modules/user/schema.server";
 
 import resolidSvg from "~/assets/images/resolid.svg";
 
@@ -132,7 +133,7 @@ export default function SiteLayout() {
   );
 }
 
-const NavBar = ({ user }: { user: UserAuthSession | undefined }) => {
+const NavBar = ({ user }: { user: UserIdentity | undefined }) => {
   const [opened, setOpened] = useState(false);
 
   return (
@@ -214,14 +215,14 @@ const NavMenu = ({ onClick }: { onClick?: MouseEventHandler<HTMLAnchorElement> }
   );
 };
 
-const NavUser = ({ user }: { user: UserAuthSession | undefined }) => {
+const NavUser = ({ user }: { user: UserIdentity | undefined }) => {
   const location = useLocation();
 
   return user ? (
     <DropdownMenu placement={"bottom"}>
       <DropdownMenuTrigger asChild>
         <Button variant={"ghost"} color={"neutral"} size={"sm"} square>
-          <Avatar size={24} src={user.avatar} name={userUtils.getDisplayName(user)} />
+          <Avatar size={24} src={user.avatar} name={authUtils.getDisplayName(user)} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className={"text-sm"}>

@@ -1,4 +1,4 @@
 export * from "./modules.borwser";
 
-export * from "./modules/admin/service";
-export * from "./modules/user/service";
+export * from "./modules/auth/schema";
+export * from "./modules/auth/service";

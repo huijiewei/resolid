@@ -21,15 +21,6 @@ Resolid 核心框架
 
 ### 设置数据库
 
-修改环境变量文件 `.env`
-
-```text
-# 数据库连接
-RX_DB_URL=''
-# 表前缀
-RX_DB_TABLE_PREFIX='rx_'
-```
-
 新建文件 `src/db.server.ts`
 
 ```ts
@@ -37,35 +28,47 @@ import { defineDatabase } from "@resolid/framework";
 import { env } from "node:process";
 
 export const db = defineDatabase({
+  dbUrl: "postgres://user:password@host/database?sslmode=require", // 数据库链接
   drizzleOptions: {
     logger: process.env.NODE_ENV == "development",
   },
 });
 ```
 
-需要给 `vite.config.ts` 增加 `alias` 配置, 让核心框架能访问到刚才定义的 `db`
+### 数据表前缀
 
-```
-{
-  find: "@dbInstance",
-  replacement: fileURLToPath(new URL(`./src/db.server.ts`, import.meta.url)),
-}
+新建文件 `src/schema.server.ts`
+
+```ts
+import { pgTableCreator } from "@resolid/framework/drizzle";
+
+export const defineTable = pgTableCreator((name) => "pre_" + name);
 ```
 
 ### 定义数据架构
 
 ```js
-import { defineTable } from "@resolid/framework";
-import { userTable } from "@resolid/framework/modules";
-import { serial, text, integer, relations } from "@resolid/framework/drizzle";
+import { serial, text, integer, relations, pgTable } from "@resolid/framework/drizzle";
+import { authColumns } from "@resolid/framework/modules";
 
-// 定义博客文章, 请使用 defineTable 定义
-export const blogPostTable = defineTable("blog_post", {
+export const userTable = pgTable("user", {
+    ...authColumns
+  },
+  (table) => ({
+    emailIndex: uniqueIndex().on(table.email),
+    usernameIndex: uniqueIndex().on(table.username),
+    nicknameIndex: index().on(table.nickname),
+    groupIdIndex: index().on(table.groupId),
+    deletedAtIndex: index().on(table.deletedAt),
+  })
+);
+
+export const blogPostTable = pgTable("blog_post", {
     id: serial("id").primaryKey(),
     userId: integer("userId").notNull().default(0),
     slug: text("slug").notNull().default(""),
     title: text("title").notNull().default(""),
-    content: text("content").notNull().default(""), 
+    content: text("content").notNull().default(""),
     createdAt: timestamp("createdAt").notNull().defaultNow()
   },
   (blogPostTable) => ({
@@ -89,20 +92,21 @@ export const blogPostRelations = relations(blogPostTable, ({ one }) => ({
 ### 查询数据
 
 ```js
-import { eq } from "@resolid/framework/drizzle";
+import { eq, desc, getTableColumns } from "@resolid/framework/drizzle";
 
-const posts = db.query.blogPostTable
-  .findMany({
-    where: eq(blogPostTable.userId, 1),
-    orderBy: [desc(blogPostTable.createdAt)],
-    with: {
-      user: true,
-    },
-  });
+const posts = db
+  .select({
+    ...getTableColumns(blogPostTable),
+    user: getTableColumns(userTable)
+  })
+  .from(blogPostTable)
+  .where(eq(blogPostTable.userId, 1))
+  .orderBy([desc(blogPostTable.createdAt)])
+  .leftJoin(userTable, eq(userTable.id, blogPostTable.userId));
 ```
 
 > 更多内容可以查看 https://orm.drizzle.team/docs/rqb
- 
+
 ## 电子邮件
 
 ### 基本用法
@@ -119,6 +123,7 @@ export const mailer = defineMailer({
 ```
 
 发送邮件
+
 ```ts
 await mailer.send({
   to: "收件人 <邮箱>",
@@ -160,10 +165,8 @@ pnpm add -D drizzle-kit tsx
 
 ```ts
 import { createCli } from "@resolid/framework/cli";
-import { db } from "../src/db.server";
 
 createCli({
-  db: db,
   commands: []
 });
 ```
@@ -187,7 +190,7 @@ pnpm run resolid
 ```ts
 import { Command, type CreateCommand } from "@resolid/framework/cli";
 
-export const demoCommand : CreateCommand = () => {
+export const demoCommand: CreateCommand = () => {
   const demo = new Command("demo");
 
   demo.description("命令演示");
@@ -210,10 +213,8 @@ export const demoCommand : CreateCommand = () => {
 ```ts
 import { createCli } from "@resolid/framework/cli";
 import { demoCommand } from "./commands/demo";
-import { db } from "../src/db.server";
 
 createCli({
-  db: db,
   commands: [demoCommand]
 });
 ```
@@ -223,32 +224,14 @@ createCli({
 编辑 `drizzle.config.ts` 文件
 
 ```ts
-import { drizzleKitConfig } from "@resolid/framework";
-
-export default drizzleKitConfig({
-  schema: ["./src/modules/*/schema.server.ts"], // 这里定义本地项目的 schema
-});
-```
-
-## 单元测试
-
-新建文件 `.env.test`
-
-```text
-# 数据库连接
-RX_DB_URL=''
-# 表前缀
-RX_DB_TABLE_PREFIX='rx_'
-```
-
-修改文件 `vite.config.ts` 或者 `vitest.config.ts` 加载测试环境变量
-```ts
-import { loadEnv, defineConfig } from "vite";
+import { defineConfig } from "drizzle-kit";
 
 export default defineConfig({
-  test: {
-    env: loadEnv("test", cwd(), ""),
-  }
+  schema: ["./src/modules/*/schema.server.ts"], // 这里定义本地项目的 schemas
+  driver: "pg",
+  dbCredentials: {
+    connectionString: "" // 数据库连接,
+  },
 });
 ```
 
