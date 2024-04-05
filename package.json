@@ -20,7 +20,7 @@
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.13",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.4"
   },
   "engines": {
     "node": "20.x",
@@ -34,15 +34,15 @@
   },
   "pnpm": {
     "overrides": {
-      "@remix-run/node": "2.9.0-pre.2",
-      "@remix-run/react": "2.9.0-pre.2",
-      "@remix-run/server-runtime": "2.9.0-pre.2",
-      "@remix-run/dev": "2.9.0-pre.2",
+      "@remix-run/node": "2.9.0-pre.3",
+      "@remix-run/react": "2.9.0-pre.3",
+      "@remix-run/server-runtime": "2.9.0-pre.3",
+      "@remix-run/dev": "2.9.0-pre.3",
       "esbuild": "^0.20.2",
       "rollup": "^4.14.0",
-      "react": "19.0.0-canary-7a2609eed-20240403",
-      "react-dom": "19.0.0-canary-7a2609eed-20240403",
-      "react-is": "19.0.0-canary-7a2609eed-20240403",
+      "react": "19.0.0-canary-fd0da3eef-20240404",
+      "react-dom": "19.0.0-canary-fd0da3eef-20240404",
+      "react-is": "19.0.0-canary-fd0da3eef-20240404",
       "hasown": "npm:@nolyfill/hasown@latest",
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",

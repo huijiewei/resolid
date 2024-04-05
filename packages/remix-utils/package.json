@@ -32,9 +32,9 @@
     "@resolid/utils": "workspace:^"
   },
   "devDependencies": {
-    "@remix-run/node": "2.9.0-pre.2",
-    "@remix-run/react": "2.9.0-pre.2",
-    "@remix-run/server-runtime": "2.9.0-pre.2",
+    "@remix-run/node": "2.9.0-pre.3",
+    "@remix-run/react": "2.9.0-pre.3",
+    "@remix-run/server-runtime": "2.9.0-pre.3",
     "@resolid/config": "workspace:^",
     "tsup": "^8.0.2",
     "vitest": "^1.4.0"
