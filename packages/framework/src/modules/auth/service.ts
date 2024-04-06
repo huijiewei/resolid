@@ -1,6 +1,6 @@
 import { hash, verify } from "@node-rs/bcrypt";
 import { isEmpty, omit, randomId } from "@resolid/utils";
-import { and, eq, getTableColumns, gt, inArray, isNull, type InferSelectModel } from "drizzle-orm";
+import { and, eq, getTableColumns, gt, inArray, isNull, type InferSelectModel, type Simplify } from "drizzle-orm";
 import { PgDatabase, type AnyPgTable } from "drizzle-orm/pg-core";
 import type { ServiceResult } from "../../utils/service";
 import type { DefineTable } from "../../utils/types";
@@ -41,16 +41,18 @@ type AuthSelectWithGroup = AuthSelect & { group: AuthGroupSelect };
 
 type DatabaseInstance = InstanceType<typeof PgDatabase>;
 
-export type AuthIdentity<T extends AuthSelectWithGroup> = Omit<T, "password" | "createdAt" | "updatedAt" | "deletedAt">;
+export type AuthIdentity<T extends AuthSelectWithGroup | AuthSelect> = Simplify<
+  Omit<T, "password" | "createdAt" | "updatedAt" | "deletedAt">
+>;
 
-const omitIdentity = <T extends AuthSelectWithGroup>(identity: T): AuthIdentity<T> => {
+const omitIdentity = <T extends AuthSelectWithGroup | AuthSelect>(identity: T): AuthIdentity<T> => {
   return omit(identity, ["password", "createdAt", "updatedAt", "deletedAt"]);
 };
 
-export const createAuthLoginService = <T extends AuthSelectWithGroup, UT extends AuthTable, GT extends AuthGroupTable>(
+export const createAuthLoginService = <T extends AuthSelectWithGroup>(
   database: DatabaseInstance,
-  authTable: UT,
-  authGroupTable: GT,
+  authTable: AuthTable,
+  authGroupTable: AuthGroupTable,
 ) => {
   return async (data: AuthLoginFormData): Promise<ServiceResult<AuthLoginFormData, AuthIdentity<T>>> => {
     const { errors, values } = await validateData(data, authLoginResolver);
@@ -83,12 +85,12 @@ export const createAuthLoginService = <T extends AuthSelectWithGroup, UT extends
   };
 };
 
-export const createAuthPasswordForgotService = <AT extends AuthTable, PRT extends AuthPasswordResetTable>(
+export const createAuthPasswordForgotService = (
   database: DatabaseInstance,
-  authTable: AT,
-  authPasswordResetTable: PRT,
+  authTable: AuthTable,
+  authPasswordResetTable: AuthPasswordResetTable,
   callback: (
-    identity: AuthSelect,
+    identity: AuthIdentity<AuthSelect>,
     resetId: string,
     requestOrigin: string,
   ) => Promise<[error: Record<string, string>, success: undefined] | [error: undefined, success: true]>,
@@ -131,10 +133,10 @@ export const createAuthPasswordForgotService = <AT extends AuthTable, PRT extend
   };
 };
 
-export const createAuthPasswordResetService = <AT extends AuthTable, PRT extends AuthPasswordResetTable>(
+export const createAuthPasswordResetService = (
   database: DatabaseInstance,
-  authTable: AT,
-  authPasswordResetTable: PRT,
+  authTable: AuthTable,
+  authPasswordResetTable: AuthPasswordResetTable,
 ) => {
   return async (
     data: AuthPasswordResetFormData,
@@ -182,10 +184,10 @@ export const createAuthPasswordResetService = <AT extends AuthTable, PRT extends
   };
 };
 
-export const createAuthBaseService = <AT extends AuthTable, AGT extends AuthGroupTable>(
+export const createAuthBaseService = (
   database: DatabaseInstance,
-  authTable: AT,
-  authGroupTable: AGT,
+  authTable: AuthTable,
+  authGroupTable: AuthGroupTable,
 ) => {
   return {
     emailExists: async (email: string): Promise<boolean> => {
@@ -213,14 +215,10 @@ export const createAuthBaseService = <AT extends AuthTable, AGT extends AuthGrou
   };
 };
 
-export const createAuthSignupService = <
-  T extends AuthSelectWithGroup,
-  AT extends AuthTable,
-  AGT extends AuthGroupTable,
->(
+export const createAuthSignupService = <T extends AuthSelectWithGroup>(
   database: DatabaseInstance,
-  authTable: AT,
-  authGroupTable: AGT,
+  authTable: AuthTable,
+  authGroupTable: AuthGroupTable,
   authSignupResolver: AuthSignupResolver,
 ) => {
   return async (
@@ -265,16 +263,11 @@ export const createAuthSignupService = <
   };
 };
 
-export const createAuthSessionService = <
-  T extends AuthSelectWithGroup,
-  AT extends AuthTable,
-  GT extends AuthGroupTable,
-  ST extends AuthSessionTable,
->(
+export const createAuthSessionService = <T extends AuthSelectWithGroup>(
   database: DatabaseInstance,
-  authTable: AT,
-  authGroupTable: GT,
-  authSessionTable: ST,
+  authTable: AuthTable,
+  authGroupTable: AuthGroupTable,
+  authSessionTable: AuthSessionTable,
 ): AuthSessionService<AuthIdentity<T>> => {
   return {
     async createdSession(sessionData: AuthSessionData<AuthIdentity<T>>, expiredAt: Date): Promise<string> {

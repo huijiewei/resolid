@@ -13,23 +13,25 @@ import {
   userPasswordResetTable,
   userSessionTable,
   userTable,
-  type UserGroupTable,
   type UserSelectWithGroup,
-  type UserSessionTable,
-  type UserTable,
 } from "~/modules/user/schema.server";
 import { userSignupResolver } from "~/modules/user/validator";
 
-export const userLoginService = createAuthLoginService(db, userTable, userGroupTable);
+export const userLoginService = createAuthLoginService<UserSelectWithGroup>(db, userTable, userGroupTable);
 
-export const userSignupService = createAuthSignupService(db, userTable, userGroupTable, userSignupResolver);
+export const userSignupService = createAuthSignupService<UserSelectWithGroup>(
+  db,
+  userTable,
+  userGroupTable,
+  userSignupResolver,
+);
 
-export const userSessionService = createAuthSessionService<
-  UserSelectWithGroup,
-  UserTable,
-  UserGroupTable,
-  UserSessionTable
->(db, userTable, userGroupTable, userSessionTable);
+export const userSessionService = createAuthSessionService<UserSelectWithGroup>(
+  db,
+  userTable,
+  userGroupTable,
+  userSessionTable,
+);
 
 export const userPasswordForgotService = createAuthPasswordForgotService(
   db,

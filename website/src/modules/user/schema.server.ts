@@ -14,10 +14,6 @@ export type UserSelectWithGroup = UserSelect & { group: UserGroupSelect };
 
 export type UserIdentity = AuthIdentity<UserSelectWithGroup>;
 
-export type UserTable = typeof userTable;
-export type UserGroupTable = typeof userGroupTable;
-export type UserSessionTable = typeof userSessionTable;
-
 export const userTable = defineTable(
   "user",
   {
