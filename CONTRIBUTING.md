@@ -24,7 +24,6 @@
 
 4. 环境变量
 
-   - 复制 `packages/framework/.env.test.example` 为 `.env.test`, 并修改变量
    - 复制 `website/.env.test.example` 为 `.env.test`, 并修改变量
    - 复制 `website/.env.example` 为 `.env`, 并修改变量
 
@@ -33,7 +32,7 @@
 5. 本地开发
 
    ```shell
-   pnpm run --filter website dev
+   pnpm run website:dev
    ```
 
 6. 运行测试
