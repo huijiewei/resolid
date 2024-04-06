@@ -1,7 +1,7 @@
 import { Form, useSearchParams } from "@remix-run/react";
-import type { ActionFunctionArgs } from "@remix-run/server-runtime";
+import { redirect, type ActionFunctionArgs } from "@remix-run/server-runtime";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
-import { mergeMeta, responseRedirect } from "@resolid/remix-utils";
+import { mergeMeta } from "@resolid/remix-utils";
 import { Controller } from "react-hook-form";
 import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/FormError";
@@ -22,12 +22,11 @@ export const action = async ({ request, response, context }: ActionFunctionArgs)
 
   const session = await setSessionUser(request, user, context.remoteAddress ?? "");
 
-  response!.headers.set(
-    "Set-Cookie",
-    await commitUserSession(session, { maxAge: data?.rememberMe ? 60 * 60 * 24 * 30 : 60 * 60 * 30 }),
-  );
-
-  return responseRedirect(response!, new URL(request.url).searchParams.get("redirect") ?? "/");
+  return redirect(new URL(request.url).searchParams.get("redirect") ?? "", {
+    headers: {
+      "Set-Cookie": await commitUserSession(session, { maxAge: data?.rememberMe ? 60 * 60 * 24 * 30 : 60 * 60 * 30 }),
+    },
+  });
 };
 
 export const meta = mergeMeta(() => {

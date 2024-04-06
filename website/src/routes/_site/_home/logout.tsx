@@ -1,11 +1,12 @@
-import type { ActionFunctionArgs } from "@remix-run/server-runtime";
-import { responseRedirect } from "@resolid/remix-utils";
+import { redirect, type ActionFunctionArgs } from "@remix-run/server-runtime";
 import { destroyUserSession, getUserSession } from "~/foundation/session.server";
 
-export const action = async ({ request, response }: ActionFunctionArgs) => {
+export const action = async ({ request }: ActionFunctionArgs) => {
   const session = await getUserSession(request.headers.get("Cookie"));
 
-  response!.headers.set("Set-Cookie", await destroyUserSession(session));
-
-  return responseRedirect(response!, new URL(request.url).searchParams.get("redirect") ?? "/");
+  return redirect(new URL(request.url).searchParams.get("redirect") ?? "", {
+    headers: {
+      "Set-Cookie": await destroyUserSession(session),
+    },
+  });
 };

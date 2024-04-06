@@ -1,4 +1,3 @@
-import type { ResponseStub } from "@remix-run/server-runtime/dist/routeModules";
 import type { Socket } from "node:net";
 
 export type GetClientIpOptions = { proxy: boolean; proxyCount?: number; ipHeaders?: string };
@@ -42,11 +41,4 @@ export const getRequestOrigin = (req: Request, socket: Socket, proxy = false) =>
   const host = getRequestHost(req, proxy);
 
   return `${protocol}://${host}`;
-};
-
-export const responseRedirect = (response: ResponseStub, url: string, init = 302) => {
-  response.status = init;
-  response.headers.set("Location", url);
-
-  return null;
 };

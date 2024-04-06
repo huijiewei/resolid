@@ -6,8 +6,8 @@ export const meta = mergeMeta(() => {
   return [{ title: "用户设置" }];
 });
 
-export const loader = async ({ request, response }: LoaderFunctionArgs) => {
-  return requireSessionUser(request, response!);
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  return requireSessionUser(request);
 };
 
 export default function Settings() {
