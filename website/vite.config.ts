@@ -1,5 +1,6 @@
 import mdx from "@mdx-js/rollup";
 import { vitePlugin as remix } from "@remix-run/dev";
+import { installGlobals } from "@remix-run/node";
 import { remarkDocgen } from "@resolid/mdx-plugins";
 import remixFlexRoutes from "@resolid/remix-plugins/flex-routes";
 import { nodeHonoPreset } from "@resolid/remix-plugins/node-hono";
@@ -16,6 +17,8 @@ import { loadEnv, type AliasOptions } from "vite";
 import viteInspect from "vite-plugin-inspect";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { defineConfig, type UserConfig } from "vitest/config";
+
+installGlobals({ nativeFetch: true });
 
 export default defineConfig(({ command, isSsrBuild }) => {
   const isBuild = command == "build";
