@@ -32,12 +32,12 @@ export function RouteProcessBar() {
       role="progressbar"
       aria-hidden={!active}
       aria-valuetext={active ? "正在加载" : undefined}
-      className="pointer-events-none fixed inset-x-0 top-0 z-spotlight h-1 animate-pulse"
+      className="z-spotlight pointer-events-none fixed inset-x-0 top-0 h-1 animate-pulse"
     >
       <div
         ref={ref}
         className={clsx(
-          "h-full bg-gradient-to-r from-blue-500 to-blue-300 transition-all duration-500 ease-in-out",
+          "from-bg-primary-emphasis to-bg-primary-pressed h-full bg-gradient-to-r transition-all duration-500 ease-in-out",
           transition.state === "idle" && (animating ? "w-full" : "w-0 opacity-0 transition-none"),
           transition.state === "submitting" && "w-4/12",
           transition.state === "loading" && "w-10/12",

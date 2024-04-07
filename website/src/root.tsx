@@ -33,11 +33,11 @@ export const Layout = ({ children }: PropsWithChildren) => {
         <Links />
       </head>
       <body className={"min-h-screen overflow-y-scroll antialiased"}>
+        <ColorModeScript />
         <RouteProcessBar />
         <ResolidProvider>{children}</ResolidProvider>
         <ScrollRestoration />
         <Scripts />
-        <ColorModeScript />
       </body>
     </html>
   );
