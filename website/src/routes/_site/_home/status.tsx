@@ -32,19 +32,19 @@ export default function Status() {
   const { ssr, db } = useTypedLoaderData<typeof loader>();
 
   return (
-    <div className={"prose mx-auto px-4 py-8 dark:prose-invert"}>
+    <div className={"prose dark:prose-invert mx-auto px-4 py-8"}>
       <h1 className={"text-center"}>运行状态</h1>
-      <p className={"rounded-lg bg-green-50/60 p-4 font-bold text-fg-success"}>静态页面访问正常</p>
-      <p className={"rounded-lg bg-green-50/60 p-4 font-bold text-fg-success"}>{ssr.message}</p>
+      <p className={"bg-bg-success/60 text-fg-success rounded-lg p-4 font-bold"}>静态页面访问正常</p>
+      <p className={"text-fg-success bg-bg-success/60 rounded-lg p-4 font-bold"}>{ssr.message}</p>
       <Suspense
-        fallback={<p className="rounded-lg bg-yellow-50/60 p-4 font-bold text-fg-warning">正在查询数据库状态</p>}
+        fallback={<p className="text-fg-warning bg-bg-warning/60 rounded-lg p-4 font-bold">正在查询数据库状态</p>}
       >
         <Await resolve={db}>
           {(db) => (
             <p
               className={clsx(
                 "rounded-lg p-4 font-bold",
-                db.success ? "bg-green-50/60 text-fg-success" : "bg-red-50/60 text-fg-danger",
+                db.success ? "text-fg-success bg-bg-success/60" : "text-fg-danger bg-bg-danger/60",
               )}
             >
               {db.message}
@@ -52,7 +52,7 @@ export default function Status() {
           )}
         </Await>
       </Suspense>
-      <p className={"rounded-lg bg-blue-50/60 p-4"}>
+      <p className={"bg-bg-primary/60 rounded-lg p-4"}>
         客户端地址：<span className={"font-mono"}>{ssr.ip}</span>
         <br />
         服务器时间：<span className={"font-mono"}>{ssr.now}</span>

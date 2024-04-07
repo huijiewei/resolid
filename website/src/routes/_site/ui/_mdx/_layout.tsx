@@ -62,7 +62,7 @@ const mdxComponents = {
         <pre
           translate={"no"}
           className={clsx(
-            "scrollbar scrollbar-thin overflow-x-auto rounded border p-3 group-[.example]:mt-0 group-[.example]:rounded-t-none group-[.example]:border-t-0",
+            "scrollbar scrollbar-thin rounded border p-3 group-[.example]:mt-0 group-[.example]:rounded-t-none group-[.example]:border-t-0",
             className,
           )}
           tabIndex={-1}

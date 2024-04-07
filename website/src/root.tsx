@@ -1,5 +1,6 @@
 import type { LinksFunction } from "@remix-run/node";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import { ColorModeScript, ResolidProvider } from "@resolid/react-ui";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/remix";
 import type { PropsWithChildren } from "react";
@@ -19,7 +20,7 @@ export const links: LinksFunction = () => {
 
 export const Layout = ({ children }: PropsWithChildren) => {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,9 +34,10 @@ export const Layout = ({ children }: PropsWithChildren) => {
       </head>
       <body className={"min-h-screen overflow-y-scroll antialiased"}>
         <RouteProcessBar />
-        {children}
+        <ResolidProvider>{children}</ResolidProvider>
         <ScrollRestoration />
         <Scripts />
+        <ColorModeScript />
       </body>
     </html>
   );

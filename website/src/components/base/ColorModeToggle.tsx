@@ -1,4 +1,14 @@
-import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@resolid/react-ui";
+import {
+  Button,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  useColorModeDispatch,
+  useColorModeState,
+  type ColorMode,
+} from "@resolid/react-ui";
+import { useEffect, useState } from "react";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
 
 const colorModes = {
@@ -16,14 +26,21 @@ const colorModes = {
   },
 };
 
-type ColorMode = keyof typeof colorModes;
-
 export const ColorModeToggle = () => {
+  const colorMode = useColorModeState();
+  const setColorMode = useColorModeDispatch();
+
+  const [colorModeState, setColorModeState] = useState(colorModes["system"]);
+
+  useEffect(() => {
+    setColorModeState(colorModes[colorMode]);
+  }, [colorMode]);
+
   return (
     <DropdownMenu placement={"bottom"}>
       <DropdownMenuTrigger asChild>
         <Button active={true} aria-label={"颜色模式"} color={"neutral"} variant={"ghost"} size={"sm"} square>
-          <SpriteIcon name={"auto"} />
+          <SpriteIcon name={colorModeState.icon} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className={"text-sm"}>
@@ -31,7 +48,13 @@ export const ColorModeToggle = () => {
           const mode = colorModes[key as ColorMode];
 
           return (
-            <DropdownMenuItem key={key} onClick={() => {}}>
+            <DropdownMenuItem
+              key={key}
+              className={colorMode == key ? "text-link" : ""}
+              onClick={() => {
+                setColorMode(key as ColorMode);
+              }}
+            >
               <SpriteIcon size={"xs"} name={mode.icon} className={"me-1.5"} />
               <span>{mode.label}</span>
             </DropdownMenuItem>
