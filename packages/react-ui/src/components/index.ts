@@ -18,6 +18,7 @@ export * from "./input/InputGroup";
 export * from "./modal/Modal";
 export * from "./popover/Popover";
 export * from "./portal/Portal";
+export * from "./provider/ResolidProvider";
 export * from "./radio/Radio";
 export * from "./radio/RadioGroup";
 export * from "./select/NativeSelect";
