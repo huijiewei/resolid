@@ -1,7 +1,7 @@
 import { format } from "@formkit/tempo";
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { Await } from "@remix-run/react";
-import { clsx } from "@resolid/react-ui";
+import { Alert, AlertDescription, AlertTitle } from "@resolid/react-ui";
 import { mergeMeta, useTypedLoaderData } from "@resolid/remix-utils";
 import { Suspense } from "react";
 import { statusService } from "~/modules/system/service.server";
@@ -34,29 +34,34 @@ export default function Status() {
   return (
     <div className={"prose dark:prose-invert mx-auto px-4 py-8"}>
       <h1 className={"text-center"}>运行状态</h1>
-      <p className={"bg-bg-success/60 text-fg-success rounded-lg p-4 font-bold"}>静态页面访问正常</p>
-      <p className={"text-fg-success bg-bg-success/60 rounded-lg p-4 font-bold"}>{ssr.message}</p>
+      <Alert color={"success"} className={"my-5"}>
+        <AlertTitle>静态页面访问正常</AlertTitle>
+      </Alert>
+      <Alert color={"success"} className={"my-5"}>
+        <AlertTitle>{ssr.message}</AlertTitle>
+      </Alert>
       <Suspense
-        fallback={<p className="text-fg-warning bg-bg-warning/60 rounded-lg p-4 font-bold">正在查询数据库状态</p>}
+        fallback={
+          <Alert color={"warning"} className={"my-5"}>
+            <AlertTitle>正在查询数据库状态</AlertTitle>
+          </Alert>
+        }
       >
         <Await resolve={db}>
           {(db) => (
-            <p
-              className={clsx(
-                "rounded-lg p-4 font-bold",
-                db.success ? "text-fg-success bg-bg-success/60" : "text-fg-danger bg-bg-danger/60",
-              )}
-            >
-              {db.message}
-            </p>
+            <Alert color={db.success ? "success" : "danger"} className={"my-5"}>
+              <AlertTitle>{db.message}</AlertTitle>
+            </Alert>
           )}
         </Await>
       </Suspense>
-      <p className={"bg-bg-primary/60 rounded-lg p-4"}>
-        客户端地址：<span className={"font-mono"}>{ssr.ip}</span>
-        <br />
-        服务器时间：<span className={"font-mono"}>{ssr.now}</span>
-      </p>
+      <Alert color={"primary"} className={"my-5"}>
+        <AlertDescription>
+          客户端地址：<span className={"font-mono"}>{ssr.ip}</span>
+          <br />
+          服务器时间：<span className={"font-mono"}>{ssr.now}</span>
+        </AlertDescription>
+      </Alert>
     </div>
   );
 }

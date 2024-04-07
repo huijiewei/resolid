@@ -1,3 +1,4 @@
+export * from "./alert/Alert";
 export * from "./avatar/Avatar";
 export * from "./avatar/AvatarBadge";
 export * from "./avatar/AvatarGroup";
