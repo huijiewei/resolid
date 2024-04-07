@@ -46,7 +46,6 @@
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.24",
     "autoprefixer": "^10.4.19",
-    "cssnano": "^6.1.2",
     "drizzle-kit": "^0.20.14",
     "postcss": "^8.4.38",
     "postcss-load-config": "^5.0.3",

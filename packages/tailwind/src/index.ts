@@ -85,7 +85,7 @@ const preset = (options: PresetOptions | undefined = {}): Partial<Config> => {
       colors: { ...colorsPalette, ...resolved.colors },
       borderColor: ({ theme }) => ({
         ...theme("colors"),
-        DEFAULT: `rgb(var(--${cssVarPrefix}-border-normal))`,
+        DEFAULT: `rgb(var(--${cssVarPrefix}-bd-normal))`,
       }),
       borderWidth,
       borderRadius,

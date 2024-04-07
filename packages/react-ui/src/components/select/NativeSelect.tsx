@@ -12,10 +12,16 @@ export type NativeSelectProps = {
    * @default 'md'
    */
   size?: Size;
+
+  /**
+   * 是否无效
+   * @default false
+   */
+  invalid?: boolean;
 };
 
 export const NativeSelect = forwardRef<HTMLSelectElement, BaseProps<"select", NativeSelectProps>>((props, ref) => {
-  const { size = "md", disabled, children, className, ...rest } = props;
+  const { size = "md", disabled = false, invalid = false, children, className, ...rest } = props;
 
   const sizeStyle = selectSizeStyles[size];
 
@@ -24,7 +30,9 @@ export const NativeSelect = forwardRef<HTMLSelectElement, BaseProps<"select", Na
       <select
         disabled={disabled}
         className={clsx(
-          "w-full appearance-none rounded border border-bg-muted bg-bg-normal outline-none transition-colors focus:border-bg-primary-emphasis focus:ring-1 focus:ring-bg-primary-emphasis",
+          "bg-bg-normal focus:border-bg-primary-emphasis focus:ring-bg-primary-emphasis w-full appearance-none rounded border outline-none transition-colors focus:ring-1",
+          invalid && "border-bd-invalid",
+          !invalid && !disabled && "hover:border-bd-hovered",
           sizeStyle.select,
           className,
         )}

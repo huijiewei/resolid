@@ -16,7 +16,7 @@ export const InputAddon = (props: BaseProps<"span">) => {
   return (
     <span
       className={clsx(
-        "flex items-center rounded border bg-bg-subtlest",
+        "text-fg-muted bg-bg-subtlest flex items-center rounded border",
         "first:rounded-br-none first:rounded-tr-none last:rounded-bl-none last:rounded-tl-none [&:not(:first-child)]:-ms-px [&:not(:first-child,:last-child)]:rounded-none",
         inputSizeStyles[group.size],
         className,

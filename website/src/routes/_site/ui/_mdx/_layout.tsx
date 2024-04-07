@@ -62,7 +62,7 @@ const mdxComponents = {
         <pre
           translate={"no"}
           className={clsx(
-            "overflow-x-auto rounded border p-3 scrollbar scrollbar-thin group-[.example]:mt-0 group-[.example]:rounded-t-none group-[.example]:border-t-0",
+            "scrollbar scrollbar-thin overflow-x-auto rounded border p-3 group-[.example]:mt-0 group-[.example]:rounded-t-none group-[.example]:border-t-0",
             className,
           )}
           tabIndex={-1}
@@ -83,7 +83,7 @@ const mdxComponents = {
       <a
         href={href}
         className={clsx(
-          "inline-flex items-center text-link no-underline hover:text-link-hovered hover:underline active:text-link-pressed",
+          "text-link hover:text-link-hovered active:text-link-pressed inline-flex items-center no-underline hover:underline",
           className,
         )}
         {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
@@ -230,7 +230,7 @@ const Toc = () => {
         className={clsx(
           "-ml-px block border-s py-1",
           level == 2 ? "ps-4" : "ps-8",
-          activeId === id ? "border-link text-link" : "text-fg-muted hover:border-fg-subtle hover:text-fg-subtle",
+          activeId === id ? "border-link text-link" : "text-fg-muted hover:border-link-hovered hover:text-fg-subtle",
         )}
         onClick={() => {
           setActiveId(id);
@@ -253,7 +253,7 @@ export default function Layout() {
     <>
       <article
         className={
-          "prose w-full max-w-none px-4 py-6 dark:prose-invert md:px-6 lg:max-w-[calc(100%-theme(spacing.48))]"
+          "prose dark:prose-invert w-full max-w-none px-4 py-6 md:px-6 lg:max-w-[calc(100%-theme(spacing.48))]"
         }
       >
         <MDXProvider disableParentContext components={mdxComponents}>

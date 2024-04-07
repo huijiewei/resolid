@@ -10,7 +10,7 @@ export const scrollbar = (cssVarPrefix: string) => {
           borderColor: "transparent",
           borderRadius: "6px",
           backgroundClip: "padding-box",
-          backgroundColor: `rgb(var(--${cssVarPrefix}-border-normal))`,
+          backgroundColor: `rgb(var(--${cssVarPrefix}-bd-normal))`,
         },
       },
       ".scrollbar-base": {

@@ -141,7 +141,7 @@ export const Radio = forwardRef<HTMLInputElement, BaseProps<"input", RadioProps,
         className={clsx(
           "inline-flex shrink-0 select-none items-center justify-center rounded-full border-2",
           "peer-focus-visible:ring",
-          invalid ? "border-border-invalid" : state ? colorStyle.border : "border-bg-muted",
+          invalid ? "border-bd-invalid" : state ? colorStyle.border : "border-bd-normal",
           state ? `${colorStyle.checked} text-fg-emphasized` : "bg-bg-normal",
           disabled && "opacity-70 grayscale-[30%]",
           sizeStyle.control,

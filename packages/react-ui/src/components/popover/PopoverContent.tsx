@@ -34,7 +34,7 @@ export const PopoverContent = (props: BaseProps<"div">) => {
               })}
             >
               <div
-                className={clsx("relative rounded border border-bg-muted bg-bg-normal shadow outline-none", className)}
+                className={clsx("border-bd-normal bg-bg-normal relative rounded border shadow outline-none", className)}
               >
                 {children}
               </div>

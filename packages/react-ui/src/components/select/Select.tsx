@@ -305,7 +305,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
       <div className={clsx("flex flex-wrap gap-1", sizeStyle.multipleWrap)}>
         {selectOptions.map((option) => (
           <div
-            className={clsx("flex items-center gap-1 rounded bg-bg-subtle", sizeStyle.multipleItem)}
+            className={clsx("bg-bg-subtle flex items-center gap-1 rounded", sizeStyle.multipleItem)}
             key={option[mergedFieldNames.value]}
           >
             {labelRenderRef(option)}
@@ -480,12 +480,12 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
         ref={refs.setReference}
         className={clsx(
           "relative inline-flex items-center rounded border outline-none transition-colors",
-          "focus-within:border-bg-primary-emphasis focus-within:ring-1 focus-within:ring-bg-primary-emphasis",
-          invalid && "border-red-500",
+          "focus-within:border-bg-primary-emphasis focus-within:ring-bg-primary-emphasis focus-within:ring-1",
+          invalid && "border-bd-invalid",
           disabled
-            ? "pointer-events-none cursor-not-allowed bg-bg-subtle opacity-60"
-            : "active:border-bg-primary-emphasis active:ring-1 active:ring-bg-primary-emphasis",
-          !invalid && !disabled && !openedState && "hover:border-border-hovered",
+            ? "bg-bg-subtle pointer-events-none cursor-not-allowed opacity-60"
+            : "active:border-bg-primary-emphasis active:ring-bg-primary-emphasis active:ring-1",
+          !invalid && !disabled && !openedState && "hover:border-bd-hovered",
           block && "w-full",
           sizeStyle.text,
           sizeStyle.select,
@@ -578,7 +578,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
           <div
             ref={refs.setFloating}
             className={clsx(
-              "max-h-80 overflow-y-auto overscroll-contain rounded border border-bg-muted bg-bg-normal shadow outline-none scrollbar scrollbar-thin",
+              "bg-bg-normal scrollbar scrollbar-thin max-h-80 overflow-y-auto overscroll-contain rounded border shadow outline-none",
               virtual ? "px-1" : "p-1",
               "transition-opacity duration-[--duration-var]",
               status == "open" ? "opacity-100" : "opacity-0",
@@ -624,7 +624,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
                     if (option[mergedFieldNames.options]) {
                       return (
                         <Fragment key={`group-${index}`}>
-                          <Divider className={"mb-1 text-fg-subtle [&:not(:first-child)]:mt-1"}>
+                          <Divider className={"text-fg-subtle mb-1 [&:not(:first-child)]:mt-1"}>
                             {option[mergedFieldNames.label]}
                           </Divider>
                           {option[mergedFieldNames.options].map(

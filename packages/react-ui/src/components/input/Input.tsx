@@ -156,16 +156,16 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>
         ref={refs}
         className={clsx(
           "w-full resize-none appearance-none text-left align-middle outline-none",
-          "rounded border bg-bg-normal transition-colors",
-          "disabled:cursor-not-allowed disabled:bg-bg-subtlest disabled:opacity-60",
-          "focus:border-bg-primary-emphasis focus:ring-1 focus:ring-bg-primary-emphasis",
+          "bg-bg-normal rounded border transition-colors",
+          "disabled:bg-bg-subtlest disabled:cursor-not-allowed disabled:opacity-60",
+          "focus:border-bg-primary-emphasis focus:ring-bg-primary-emphasis focus:ring-1",
           inputSizeStyles[size],
           leading && "ps-[var(--leading-width)]",
           trailing && "pe-[var(--trailing-width)]",
-          invalid && "border-border-invalid",
+          invalid && "border-bd-invalid",
           group &&
             "group-first/input:rounded-br-none group-first/input:rounded-tr-none group-last/input:rounded-bl-none group-last/input:rounded-tl-none group-[&:not(:first-child,:last-child)]/input:rounded-none",
-          !disabled && !invalid && "hover:border-border-hovered",
+          !disabled && !invalid && "hover:border-bd-hovered",
         )}
         size={htmlSize}
         placeholder={placeholder}
@@ -199,7 +199,7 @@ const InputAdornment = ({
   return (
     <span
       className={clsx(
-        "absolute inset-y-0 flex items-center justify-center text-fg-subtlest",
+        "text-fg-subtlest absolute inset-y-0 flex items-center justify-center",
         !pointer && "pointer-events-none",
         className,
       )}

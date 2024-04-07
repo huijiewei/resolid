@@ -96,8 +96,9 @@ export const colorsSemanticDark = {
       },
     },
   },
-  border: {
+  bd: {
     normal: colorsPalette.gray[600],
+    subtle: colorsPalette.gray[700],
     hovered: colorsPalette.gray[500],
     invalid: colorsPalette.red[300],
   },
