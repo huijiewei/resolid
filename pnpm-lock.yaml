@@ -4399,8 +4399,8 @@ packages:
       is-plain-obj: 3.0.0
     dev: true
 
-  /estree-util-value-to-estree@3.1.0:
-    resolution: {integrity: sha512-608Ljjzmf3uOy19YczqzdX7keOJfC72CRKebDYxdPTZn2I+och7MOxh8F1fw9nwkgvNMrHNuGpYUsOTCoO5r2A==}
+  /estree-util-value-to-estree@3.1.1:
+    resolution: {integrity: sha512-5mvUrF2suuv5f5cGDnDphIy4/gW86z82kl5qG6mM9z04SEQI4FB5Apmaw/TGEf3l55nLtMs5s51dmhUzvAHQCA==}
     dependencies:
       '@types/estree': 1.0.5
       is-plain-obj: 4.1.0
@@ -8184,7 +8184,7 @@ packages:
     dependencies:
       '@types/mdast': 4.0.3
       estree-util-is-identifier-name: 3.0.0
-      estree-util-value-to-estree: 3.1.0
+      estree-util-value-to-estree: 3.1.1
       toml: 3.0.0
       unified: 11.0.4
       yaml: 2.4.1
