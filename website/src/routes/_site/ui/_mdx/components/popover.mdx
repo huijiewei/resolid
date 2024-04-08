@@ -79,8 +79,10 @@ import {
   <PopoverTrigger asChild>
     <Button>打开弹出框</Button>
   </PopoverTrigger>
-  <PopoverContent>
-    <PopoverBody>弹出框内容</PopoverBody>
+  <PopoverContent className={"max-w-96"}>
+    <PopoverCloseButton />
+    <PopoverHeader>关于 Resolid Remix</PopoverHeader>
+    <PopoverBody>使用 Remix 驱动的全栈网站，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。</PopoverBody>
   </PopoverContent>
 </Popover>
 <Popover placement={"bottom"}>
