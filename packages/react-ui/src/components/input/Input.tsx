@@ -120,7 +120,7 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>
     ...rest
   } = props;
 
-  const [state, setState] = useControllableState({ value, defaultValue: defaultValue, onChange });
+  const [state, setState] = useControllableState({ value, defaultValue, onChange });
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -156,9 +156,9 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>
         ref={refs}
         className={clsx(
           "w-full resize-none appearance-none text-left align-middle outline-none",
-          "bg-bg-normal rounded border transition-colors",
-          "disabled:bg-bg-subtlest disabled:cursor-not-allowed disabled:opacity-60",
-          "focus:border-bg-primary-emphasis focus:ring-bg-primary-emphasis focus:ring-1",
+          "rounded border bg-bg-normal transition-colors",
+          "disabled:cursor-not-allowed disabled:bg-bg-subtlest disabled:opacity-60",
+          "focus:border-bg-primary-emphasis focus:ring-1 focus:ring-bg-primary-emphasis",
           inputSizeStyles[size],
           leading && "ps-[var(--leading-width)]",
           trailing && "pe-[var(--trailing-width)]",
@@ -199,7 +199,7 @@ const InputAdornment = ({
   return (
     <span
       className={clsx(
-        "text-fg-subtlest absolute inset-y-0 flex items-center justify-center",
+        "absolute inset-y-0 flex items-center justify-center text-fg-subtlest",
         !pointer && "pointer-events-none",
         className,
       )}
