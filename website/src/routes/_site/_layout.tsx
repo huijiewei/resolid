@@ -19,6 +19,7 @@ import {
 import { useTypedLoaderData } from "@resolid/remix-utils";
 import { omit, trimEnd } from "@resolid/utils";
 import { useState, type MouseEventHandler } from "react";
+import { AuthProvider, useAuth, type AuthContext } from "~/components/base/AuthProvider";
 import { ColorModeToggle } from "~/components/base/ColorModeToggle";
 import { HistoryLink, HistoryNavLink } from "~/components/base/HistoryLink";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
@@ -97,15 +98,15 @@ export default function SiteLayout() {
   const { user } = useTypedLoaderData<typeof loader>();
 
   return (
-    <>
-      <header className={"z-nav bg-bg-normal sticky top-0 w-full border-b"}>
-        <NavBar user={user} />
+    <AuthProvider value={{ identity: user }}>
+      <header className={"sticky top-0 z-nav w-full border-b bg-bg-normal"}>
+        <NavBar />
       </header>
       <div className={"min-h-[calc(100vh-10.765rem)]"}>
         <Outlet />
       </div>
       <footer className={"border-t"}>
-        <div className={"text-fg-muted mx-auto flex max-w-6xl flex-col gap-1 p-4 text-center text-sm"}>
+        <div className={"mx-auto flex max-w-6xl flex-col gap-1 p-4 text-center text-sm text-fg-muted"}>
           <p>Released under the MIT License</p>
           <p>
             Proudly made in
@@ -127,11 +128,11 @@ export default function SiteLayout() {
           </p>
         </div>
       </footer>
-    </>
+    </AuthProvider>
   );
 }
 
-const NavBar = ({ user }: { user: UserIdentity | undefined }) => {
+const NavBar = () => {
   const [opened, setOpened] = useState(false);
 
   return (
@@ -155,15 +156,15 @@ const NavBar = ({ user }: { user: UserIdentity | undefined }) => {
       </Link>
       <div
         className={clsx(
-          "z-nav bg-bg-normal absolute inset-x-0 top-[calc(theme(spacing.16)+1px)] h-screen p-0",
+          "absolute inset-x-0 top-[calc(theme(spacing.16)+1px)] z-nav h-screen bg-bg-normal p-0",
           "md:relative md:top-0 md:block md:h-auto md:bg-inherit",
           opened ? "block" : "hidden",
         )}
       >
         <NavMenu onClick={() => setOpened(false)} />
       </div>
-      <div className={"text-fg-muted inline-flex items-center gap-1"}>
-        <NavUser user={user} />
+      <div className={"inline-flex items-center gap-1 text-fg-muted"}>
+        <NavUser />
         <ColorModeToggle />
         <Tooltip placement={"bottom"}>
           <TooltipTrigger asChild>
@@ -213,7 +214,7 @@ const NavMenu = ({ onClick }: { onClick?: MouseEventHandler<HTMLAnchorElement> }
         return (
           <li className={"p-2.5 md:px-4"} key={menu.name}>
             <HistoryNavLink
-              className={({ isActive }) => clsx("hover:text-link-hovered block", isActive && "text-link-pressed")}
+              className={({ isActive }) => clsx("block hover:text-link-hovered", isActive && "text-link-pressed")}
               onClick={onClick}
               to={menu.href}
               end={menu.end}
@@ -227,8 +228,9 @@ const NavMenu = ({ onClick }: { onClick?: MouseEventHandler<HTMLAnchorElement> }
   );
 };
 
-const NavUser = ({ user }: { user: UserIdentity | undefined }) => {
+const NavUser = () => {
   const location = useLocation();
+  const { identity: user } = useAuth() as AuthContext<UserIdentity>;
 
   return user ? (
     <DropdownMenu placement={"bottom"}>
