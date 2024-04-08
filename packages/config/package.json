@@ -1,6 +1,6 @@
 {
   "name": "@resolid/config",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "sideEffects": false,
   "description": "Resolid 通用配置",
@@ -31,10 +31,11 @@
   "dependencies": {
     "@eslint/js": "^8.57.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "globals": "^14.0.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "globals": "^15.0.0",
     "typescript-eslint": "^7.5.0"
   },
   "devDependencies": {

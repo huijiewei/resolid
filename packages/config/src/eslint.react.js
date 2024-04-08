@@ -1,6 +1,7 @@
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
 import eslintTypescript from "./eslint.typescript.js";
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
@@ -10,11 +11,19 @@ export default [
     files: ["**/*.{jsx,tsx}"],
     plugins: {
       react: react,
+      "react-refresh": reactRefresh,
     },
     rules: {
       ...react.configs.recommended.rules,
       ...react.configs["jsx-runtime"].rules,
       "react/prop-types": "off",
+      "react-refresh/only-export-components": [
+        "warn",
+        {
+          allowConstantExport: true,
+          allowExportNames: ["meta", "links", "loader", "action", "Layout", "HydrateFallback", "ErrorBoundary"],
+        },
+      ],
     },
     languageOptions: {
       parserOptions: {
