@@ -11,8 +11,8 @@ import {
 import { useControllableState, useIsomorphicEffect, useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/Slot";
-import { useCheckboxGroup, type CheckboxBaseProps } from "./CheckboxGroupContext";
 import { CheckboxIcon } from "./CheckboxIcon";
+import { useCheckboxGroup, type CheckboxBaseProps } from "./checkboxGroupContext";
 
 export type CheckboxProps = CheckboxBaseProps & {
   /**

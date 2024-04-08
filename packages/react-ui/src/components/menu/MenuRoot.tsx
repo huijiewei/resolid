@@ -23,10 +23,10 @@ import {
 import { __DEV__ } from "@resolid/utils";
 import { useEffect, useMemo, useRef, useState, type ReactElement } from "react";
 import { useAllowHover, useDisclosure } from "../../hooks";
-import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/FloatingArrowContext";
-import { FloatingDispatchProvider } from "../floating/FloatingDispatchContext";
-import { FloatingReferenceProvider } from "../floating/FloatingReferenceContext";
-import { MenuFloatingProvider, type MenuFloatingContext } from "./MenuContext";
+import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/floatingArrowContext";
+import { FloatingDispatchProvider } from "../floating/floatingDispatchContext";
+import { FloatingReferenceProvider } from "../floating/floatingReferenceContext";
+import { MenuFloatingProvider, type MenuFloatingContext } from "./menuContext";
 
 export type MenuProps = {
   /**

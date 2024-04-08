@@ -4,11 +4,11 @@ import { forwardRef } from "react";
 import { useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import { dataAttr } from "../../utils/dom";
-import { useFloatingDispatch } from "../floating/FloatingDispatchContext";
-import { useFloatingReference } from "../floating/FloatingReferenceContext";
+import { useFloatingDispatch } from "../floating/floatingDispatchContext";
+import { useFloatingReference } from "../floating/floatingReferenceContext";
 import { Slot, type AsChildProps, type EmptyProps } from "../slot/Slot";
-import { useMenuSelect } from "./MenuContext";
-import { menuItemStyles } from "./MenuItem";
+import { menuItemStyles } from "./menu.styles";
+import { useMenuSelect } from "./menuContext";
 
 export const MenuItemTrigger = forwardRef<HTMLButtonElement, AsChildProps<"button", EmptyProps, "type" | "role">>(
   (props, ref) => {

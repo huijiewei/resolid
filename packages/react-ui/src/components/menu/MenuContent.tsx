@@ -5,7 +5,7 @@ import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { clsx } from "../../utils/classed";
 import { Portal } from "../portal/Portal";
 import type { BaseProps } from "../slot/Slot";
-import { MenuSelectProvider, useMenuFloating } from "./MenuContext";
+import { MenuSelectProvider, useMenuFloating } from "./menuContext";
 
 export const MenuContent = (props: BaseProps<"div">) => {
   const { children, className, ...rest } = props;
@@ -36,7 +36,7 @@ export const MenuContent = (props: BaseProps<"div">) => {
           <FloatingFocusManager modal={false} initialFocus={nested ? -1 : 0} returnFocus={!nested} context={context}>
             <div
               className={clsx(
-                "z-popup border-bd-normal bg-bg-normal rounded border p-1 shadow outline-none",
+                "z-popup rounded border border-bd-normal bg-bg-normal p-1 shadow outline-none",
                 "transition-opacity duration-[--duration-var]",
                 status == "open" ? "opacity-100" : "opacity-0",
                 className,

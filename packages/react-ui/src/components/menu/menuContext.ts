@@ -1,7 +1,7 @@
 import type { FloatingTreeType, ReferenceElement } from "@floating-ui/react";
 import type { HTMLProps, MutableRefObject } from "react";
 import { createContext } from "../../utils/context";
-import type { FloatingFloatingContext } from "../floating/FloatingFloatingContext";
+import type { FloatingFloatingContext } from "../floating/floatingFloatingContext";
 
 export { MenuFloatingProvider, MenuSelectProvider, useMenuFloating, useMenuSelect };
 

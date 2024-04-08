@@ -32,10 +32,10 @@ import type { Size } from "../../utils/types";
 import { CloseButton } from "../close-button/CloseButton";
 import { Divider } from "../divider/Divider";
 import { Portal } from "../portal/Portal";
-import { selectSizeStyles } from "./Select.styles";
 import { SelectChevron } from "./SelectChevron";
-import { SelectProvider, type OptionBase, type OptionDefault, type OptionFieldNames } from "./SelectContext";
 import { SelectOption, type OptionRender } from "./SelectOption";
+import { selectSizeStyles } from "./select.styles";
+import { SelectProvider, type OptionBase, type OptionDefault, type OptionFieldNames } from "./selectContext";
 
 type LabelRender<Option> = (option: Option) => ReactNode;
 

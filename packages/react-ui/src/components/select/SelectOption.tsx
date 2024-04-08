@@ -3,7 +3,7 @@ import { forwardRef, type ComponentPropsWithoutRef, type ForwardedRef, type Reac
 import { useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import { dataAttr } from "../../utils/dom";
-import { useSelect, type OptionBase, type OptionDefault, type OptionFieldNames } from "./SelectContext";
+import { useSelect, type OptionBase, type OptionDefault, type OptionFieldNames } from "./selectContext";
 
 export type OptionRender<Option> = (option: Option, selected?: boolean) => ReactNode;
 

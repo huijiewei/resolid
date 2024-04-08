@@ -4,7 +4,7 @@ import type { CSSProperties } from "react";
 import { clsx } from "../../utils/classed";
 import { Portal } from "../portal/Portal";
 import type { BaseProps } from "../slot/Slot";
-import { useTooltipFloating } from "./TooltipContext";
+import { useTooltipFloating } from "./tooltipContext";
 
 export const TooltipContent = (props: BaseProps<"div">) => {
   const { children, className, ...rest } = props;

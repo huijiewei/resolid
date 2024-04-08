@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
 import { createContext } from "../../utils/context";
 import type { BaseProps } from "../slot/Slot";
-import { alertStyles, type AlertStyleProps } from "./Alert.styles";
+import { alertStyles, type AlertStyleProps } from "./alert.styles";
 
 type AlertContext = {
   /**

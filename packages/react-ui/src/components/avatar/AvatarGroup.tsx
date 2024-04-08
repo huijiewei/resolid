@@ -3,8 +3,8 @@ import { Children, isValidElement, type CSSProperties, type ReactElement } from 
 import { clsx } from "../../utils/classed";
 import { toRounded } from "../../utils/radius";
 import type { BaseProps } from "../slot/Slot";
-import { toSized } from "./Avatar.styles";
-import { AvatarGroupProvider, type AvatarBaseProps } from "./AvatarGroupContext";
+import { toSized } from "./avatar.styles";
+import { AvatarGroupProvider, type AvatarBaseProps } from "./avatarGroupContext";
 
 export type AvatarGroupProps = AvatarBaseProps & {
   /**

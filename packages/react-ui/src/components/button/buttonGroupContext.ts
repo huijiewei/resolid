@@ -1,5 +1,5 @@
 import { createContext } from "../../utils/context";
-import type { ButtonStyleProps } from "./Button.styles";
+import type { ButtonStyleProps } from "./button.styles";
 
 export type ButtonBaseProps = {
   /**

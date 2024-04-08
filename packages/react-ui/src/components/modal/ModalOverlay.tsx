@@ -4,7 +4,7 @@ import type { CSSProperties } from "react";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/Slot";
-import { useModal } from "./ModalContext";
+import { useModal } from "./modalContext";
 
 export const ModalOverlay = (props: BaseProps<"div">) => {
   const { className, style, ...rest } = props;

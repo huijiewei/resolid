@@ -1,6 +1,6 @@
 import { __DEV__ } from "@resolid/utils";
 import { clsx } from "../../utils/classed";
-import { useFloatingAria } from "../floating/FloatingAriaContext";
+import { useFloatingAria } from "../floating/floatingAriaContext";
 import type { BaseProps, EmptyProps } from "../slot/Slot";
 
 export const ModalHeader = (props: BaseProps<"header", EmptyProps, "id">) => {

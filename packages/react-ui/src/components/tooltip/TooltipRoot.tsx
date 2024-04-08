@@ -17,9 +17,9 @@ import { __DEV__ } from "@resolid/utils";
 import { useMemo, useRef, type PropsWithChildren } from "react";
 import { useDisclosure } from "../../hooks";
 import type { Color } from "../../utils/types";
-import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/FloatingArrowContext";
-import { FloatingReferenceProvider, type FloatingReferenceContext } from "../floating/FloatingReferenceContext";
-import { TooltipFloatingProvider, type TooltipContext } from "./TooltipContext";
+import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/floatingArrowContext";
+import { FloatingReferenceProvider, type FloatingReferenceContext } from "../floating/floatingReferenceContext";
+import { TooltipFloatingProvider, type TooltipContext } from "./tooltipContext";
 
 export type TooltipProps = {
   /**

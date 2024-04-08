@@ -1,10 +1,8 @@
 import type { PropsWithChildren } from "react";
 import { useEffect } from "react";
 import { useLocalStorage, useMediaQuery } from "../../hooks";
-import { ColorModeDispatchProvider, ColorModeStateProvider, type ColorMode } from "./ColorModeContext";
-
-export const COLOR_SCHEME_QUERY = "(prefers-color-scheme: dark)";
-export const COLOR_MODE_STORAGE_KEY = "rx:color-mode";
+import { COLOR_MODE_STORAGE_KEY, COLOR_SCHEME_QUERY } from "./colorModeConstant";
+import { ColorModeDispatchProvider, ColorModeStateProvider, type ColorMode } from "./colorModeContext";
 
 export const ColorModeProvider = ({ children }: PropsWithChildren) => {
   const darkOS = useMediaQuery(COLOR_SCHEME_QUERY);

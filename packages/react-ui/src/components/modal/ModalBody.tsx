@@ -1,9 +1,9 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
-import { useFloatingAria } from "../floating/FloatingAriaContext";
+import { useFloatingAria } from "../floating/floatingAriaContext";
 import type { BaseProps, EmptyProps } from "../slot/Slot";
-import { useModal } from "./ModalContext";
+import { useModal } from "./modalContext";
 
 export const ModalBody = forwardRef<HTMLDivElement, BaseProps<"div", EmptyProps, "id">>((props, ref) => {
   const { children, className, ...rest } = props;

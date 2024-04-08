@@ -2,9 +2,9 @@ import { FloatingFocusManager } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
 import { useEffect, type CSSProperties } from "react";
 import { clsx } from "../../utils/classed";
-import { useFloatingAria } from "../floating/FloatingAriaContext";
+import { useFloatingAria } from "../floating/floatingAriaContext";
 import type { BaseProps } from "../slot/Slot";
-import { useModal } from "./ModalContext";
+import { useModal } from "./modalContext";
 
 export const ModalContent = (props: BaseProps<"div">) => {
   const { children, className, style, ...rest } = props;
@@ -32,7 +32,7 @@ export const ModalContent = (props: BaseProps<"div">) => {
   return (
     <div
       className={clsx(
-        "z-modal fixed left-0 top-0 flex w-screen justify-center",
+        "fixed left-0 top-0 z-modal flex w-screen justify-center",
         centered ? "items-center" : "items-start",
         scrollBehavior == "inside" ? "h-screen" : "h-full overflow-y-auto",
       )}
@@ -40,7 +40,7 @@ export const ModalContent = (props: BaseProps<"div">) => {
       <FloatingFocusManager initialFocus={initialFocus} returnFocus={finalFocus == undefined} context={context}>
         <div
           className={clsx(
-            "border-bd-normal bg-bg-normal relative flex flex-col rounded border shadow outline-none",
+            "relative flex flex-col rounded border border-bd-normal bg-bg-normal shadow outline-none",
             centered ? "my-6" : "my-16",
             scrollBehavior == "inside" && (centered ? "max-h-[calc(100%-2rem)]" : "max-h-[calc(100%-7rem)]"),
             "transition-opacity duration-[--duration-var]",

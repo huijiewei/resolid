@@ -2,10 +2,10 @@ import { useClick, useDismiss, useFloating, useInteractions, useRole, useTransit
 import { __DEV__ } from "@resolid/utils";
 import { useEffect, useId, useMemo, type PropsWithChildren } from "react";
 import { usePrevious } from "../../hooks";
-import { FloatingAriaProvider, type FloatingAriaContext } from "../floating/FloatingAriaContext";
-import { FloatingDispatchProvider } from "../floating/FloatingDispatchContext";
+import { FloatingAriaProvider, type FloatingAriaContext } from "../floating/floatingAriaContext";
+import { FloatingDispatchProvider } from "../floating/floatingDispatchContext";
 import { Portal } from "../portal/Portal";
-import { ModalProvider, type ModalBaseProps, type ModalContext } from "./ModalContext";
+import { ModalProvider, type ModalBaseProps, type ModalContext } from "./modalContext";
 
 export type ModalProps = ModalBaseProps & {
   /**

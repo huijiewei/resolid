@@ -4,9 +4,9 @@ import { clsx } from "../../utils/classed";
 import { dataAttr } from "../../utils/dom";
 import { toRounded, type Radius } from "../../utils/radius";
 import { Slot, type AsChildProps } from "../slot/Slot";
-import { buttonStyles } from "./Button.styles";
-import { useButtonGroup, type ButtonBaseProps } from "./ButtonGroupContext";
 import { ButtonSpinner } from "./ButtonSpinner";
+import { buttonStyles } from "./button.styles";
+import { useButtonGroup, type ButtonBaseProps } from "./buttonGroupContext";
 
 export type ButtonProps = ButtonBaseProps & {
   /**

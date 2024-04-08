@@ -2,10 +2,10 @@ import { FloatingFocusManager } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
 import type { CSSProperties } from "react";
 import { clsx } from "../../utils/classed";
-import { useFloatingAria } from "../floating/FloatingAriaContext";
+import { useFloatingAria } from "../floating/floatingAriaContext";
 import { Portal } from "../portal/Portal";
 import type { BaseProps } from "../slot/Slot";
-import { usePopoverFloating } from "./PopoverContext";
+import { usePopoverFloating } from "./popoverContext";
 
 export const PopoverContent = (props: BaseProps<"div">) => {
   const { children, className, ...rest } = props;
@@ -34,7 +34,7 @@ export const PopoverContent = (props: BaseProps<"div">) => {
               })}
             >
               <div
-                className={clsx("border-bd-normal bg-bg-normal relative rounded border shadow outline-none", className)}
+                className={clsx("relative rounded border border-bd-normal bg-bg-normal shadow outline-none", className)}
               >
                 {children}
               </div>

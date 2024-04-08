@@ -1,4 +1,4 @@
-import { COLOR_MODE_STORAGE_KEY, COLOR_SCHEME_QUERY } from "./ColorModeProvider";
+import { COLOR_MODE_STORAGE_KEY, COLOR_SCHEME_QUERY } from "./colorModeConstant";
 
 export const ColorModeScript = ({ nonce }: { nonce?: string }) => {
   return (

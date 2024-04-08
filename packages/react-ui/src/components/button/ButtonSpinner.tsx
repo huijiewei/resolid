@@ -2,7 +2,7 @@ import { __DEV__ } from "@resolid/utils";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/Slot";
 import { Spinner } from "../spinner/Spinner";
-import type { ButtonStyleProps } from "./Button.styles";
+import type { ButtonStyleProps } from "./button.styles";
 
 export type ButtonSpinnerProps = {
   size: NonNullable<ButtonStyleProps["size"]>;

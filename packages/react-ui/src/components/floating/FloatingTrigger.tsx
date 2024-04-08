@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import { useMergeRefs } from "../../hooks";
 import { dataAttr } from "../../utils/dom";
 import { Slot, type AsChildProps } from "../slot/Slot";
-import { useFloatingReference } from "./FloatingReferenceContext";
+import { useFloatingReference } from "./floatingReferenceContext";
 
 export type FloatingTriggerProps = AsChildProps<"button", { active?: boolean }, "type">;
 

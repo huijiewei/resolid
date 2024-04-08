@@ -1,7 +1,7 @@
 import { FloatingArrow as FloatingUiArrow, type FloatingArrowProps as FloatingArrowUiProps } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
 import { clsx } from "../../utils/classed";
-import { useFloatingArrow } from "./FloatingArrowContext";
+import { useFloatingArrow } from "./floatingArrowContext";
 
 export type FloatingArrowProps = Omit<FloatingArrowUiProps, "context" | "stroke" | "fill">;
 

@@ -3,8 +3,8 @@ import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
 import type { Size } from "../../utils/types";
 import type { BaseProps } from "../slot/Slot";
-import { selectSizeStyles } from "./Select.styles";
 import { SelectChevron } from "./SelectChevron";
+import { selectSizeStyles } from "./select.styles";
 
 export type NativeSelectProps = {
   /**
@@ -30,7 +30,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, BaseProps<"select", Na
       <select
         disabled={disabled}
         className={clsx(
-          "bg-bg-normal focus:border-bg-primary-emphasis focus:ring-bg-primary-emphasis w-full appearance-none rounded border outline-none transition-colors focus:ring-1",
+          "w-full appearance-none rounded border bg-bg-normal outline-none transition-colors focus:border-bg-primary-emphasis focus:ring-1 focus:ring-bg-primary-emphasis",
           invalid && "border-bd-invalid",
           !invalid && !disabled && "hover:border-bd-hovered",
           sizeStyle.select,

@@ -3,7 +3,7 @@ import { forwardRef, useCallback, type CSSProperties, type ChangeEvent } from "r
 import { useControllableState } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/Slot";
-import { useRadioGroup, type RadioBaseProps } from "./RadioGroupContext";
+import { useRadioGroup, type RadioBaseProps } from "./radioGroupContext";
 
 export type RadioProps = RadioBaseProps & {
   /**

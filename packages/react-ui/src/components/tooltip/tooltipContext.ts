@@ -1,5 +1,5 @@
 import { createContext } from "../../utils/context";
-import type { FloatingFloatingContext } from "../floating/FloatingFloatingContext";
+import type { FloatingFloatingContext } from "../floating/floatingFloatingContext";
 
 export { TooltipFloatingProvider, useTooltipFloating };
 

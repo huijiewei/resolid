@@ -3,7 +3,7 @@ import type { PropsWithChildren } from "react";
 import { useCallback, useMemo, type ChangeEvent } from "react";
 import { useControllableState } from "../../hooks";
 import { isInputEvent } from "../../utils/dom";
-import { CheckboxGroupProvider, type CheckboxGroupBaseProps } from "./CheckboxGroupContext";
+import { CheckboxGroupProvider, type CheckboxGroupBaseProps } from "./checkboxGroupContext";
 
 export type CheckboxGroupProps = CheckboxGroupBaseProps & {
   /**

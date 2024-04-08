@@ -1,7 +1,7 @@
 import { __DEV__ } from "@resolid/utils";
 import type { PropsWithChildren } from "react";
 import { Modal, type ModalProps } from "../modal/Modal";
-import { DrawerProvider, type DrawerPlacement } from "./DrawerContext";
+import { DrawerProvider, type DrawerPlacement } from "./drawerContext";
 
 export type DrawerProps = Omit<ModalProps, "scrollBehavior" | "lockScroll"> & {
   /**

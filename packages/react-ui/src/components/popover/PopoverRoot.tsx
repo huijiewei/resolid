@@ -16,11 +16,11 @@ import {
 import { __DEV__, runIfFunction } from "@resolid/utils";
 import { useEffect, useId, useMemo, useRef, type ReactNode, type RefObject } from "react";
 import { useDisclosure, usePrevious } from "../../hooks";
-import { FloatingAriaProvider, type FloatingAriaContext } from "../floating/FloatingAriaContext";
-import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/FloatingArrowContext";
-import { FloatingDispatchProvider } from "../floating/FloatingDispatchContext";
-import { FloatingReferenceProvider, type FloatingReferenceContext } from "../floating/FloatingReferenceContext";
-import { PopoverFloatingProvider, type PopoverContext } from "./PopoverContext";
+import { FloatingAriaProvider, type FloatingAriaContext } from "../floating/floatingAriaContext";
+import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/floatingArrowContext";
+import { FloatingDispatchProvider } from "../floating/floatingDispatchContext";
+import { FloatingReferenceProvider, type FloatingReferenceContext } from "../floating/floatingReferenceContext";
+import { PopoverFloatingProvider, type PopoverContext } from "./popoverContext";
 
 export type PopoverProps = {
   /**

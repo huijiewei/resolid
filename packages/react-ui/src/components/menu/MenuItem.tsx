@@ -4,14 +4,12 @@ import { forwardRef } from "react";
 import { useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import { Slot, type AsChildProps } from "../slot/Slot";
-import { useMenuSelect } from "./MenuContext";
+import { menuItemStyles } from "./menu.styles";
+import { useMenuSelect } from "./menuContext";
 
 export type MenuItemProps = {
   onClick?: () => void;
 };
-
-export const menuItemStyles =
-  "flex w-full items-center select-none rounded outline-none transition-colors px-2 py-1.5 focus:bg-bg-subtle disabled:text-fg-muted disabled:pointer-events-none";
 
 export const MenuItem = forwardRef<HTMLButtonElement, AsChildProps<"button", MenuItemProps, "type" | "tabIndex">>(
   (props, ref) => {

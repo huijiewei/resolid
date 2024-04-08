@@ -2,10 +2,10 @@ import { FloatingFocusManager } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
 import { useEffect, type CSSProperties } from "react";
 import { clsx } from "../../utils/classed";
-import { useFloatingAria } from "../floating/FloatingAriaContext";
-import { useModal } from "../modal/ModalContext";
+import { useFloatingAria } from "../floating/floatingAriaContext";
+import { useModal } from "../modal/modalContext";
 import type { BaseProps } from "../slot/Slot";
-import { useDrawer } from "./DrawerContext";
+import { useDrawer } from "./drawerContext";
 
 const placementStyles = {
   left: "left-0 top-0 bottom-0",

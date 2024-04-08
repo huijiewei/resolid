@@ -3,8 +3,8 @@ import { forwardRef, useCallback, useRef, type CSSProperties, type ChangeEvent, 
 import { useControllableState, useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/Slot";
-import { inputAdornmentDefaultSizes, inputSizeStyles } from "./Input.styles";
 import { useInputGroup, type InputGroupContext } from "./InputGroupContext";
+import { inputAdornmentDefaultSizes, inputSizeStyles } from "./input.styles";
 
 export type InputProps = Partial<InputGroupContext> & {
   /**

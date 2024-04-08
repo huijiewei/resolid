@@ -2,7 +2,7 @@ import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
 import { CloseButton } from "../close-button/CloseButton";
-import { useFloatingDispatch } from "../floating/FloatingDispatchContext";
+import { useFloatingDispatch } from "../floating/floatingDispatchContext";
 import type { BaseProps, EmptyProps } from "../slot/Slot";
 
 export const ModalCloseButton = forwardRef<HTMLButtonElement, BaseProps<"button", EmptyProps, "type">>((props, ref) => {
