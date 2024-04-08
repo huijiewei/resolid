@@ -41,7 +41,7 @@
       "@remix-run/server-runtime": "2.9.0-pre.3",
       "@remix-run/dev": "2.9.0-pre.3",
       "esbuild": "^0.20.2",
-      "rollup": "^4.14.0",
+      "rollup": "^4.14.1",
       "react": "19.0.0-canary-e3ebcd54b-20240405",
       "react-dom": "19.0.0-canary-e3ebcd54b-20240405",
       "react-is": "19.0.0-canary-e3ebcd54b-20240405",

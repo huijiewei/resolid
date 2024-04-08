@@ -28,7 +28,7 @@
     }
   },
   "dependencies": {
-    "nanoid": "^5.0.6"
+    "nanoid": "^5.0.7"
   },
   "devDependencies": {
     "@resolid/config": "workspace:^",
