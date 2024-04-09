@@ -9,4 +9,5 @@ const [AuthProvider, useAuth] = createContext<AuthContext>({
   name: "AuthContext",
 });
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { AuthProvider, useAuth };
