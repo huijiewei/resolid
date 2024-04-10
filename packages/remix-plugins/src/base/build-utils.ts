@@ -135,7 +135,11 @@ export const bundleServer = async (
         ...commonjsOptions,
         strictRequires: true,
       }),
-      json(),
+      json({
+        compact: true,
+        namedExports: false,
+        preferConst: true,
+      }),
     ],
     logLevel: "silent",
   });

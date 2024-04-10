@@ -130,17 +130,7 @@ export default defineConfig(({ command, isSsrBuild }) => {
       external: ["@node-rs/bcrypt"],
     },
     optimizeDeps: {
-      include: [
-        "@mdx-js/react",
-        "react-hook-form",
-        "remix-hook-form",
-        "@resolid/utils > nanoid",
-        "@resolid/react-ui > @tw-classed/core",
-        "@resolid/react-ui > clsx",
-        "@resolid/react-ui > @floating-ui/react",
-        "@resolid/react-ui > @tanstack/react-virtual",
-        "@resolid/react-ui > react-remove-scroll-bar",
-      ],
+      include: ["@mdx-js/react", "react-hook-form", "remix-hook-form"],
       exclude: ["@node-rs/bcrypt"],
     },
   };
