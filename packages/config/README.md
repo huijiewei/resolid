@@ -79,6 +79,6 @@ export default [...eslintBowser, ...eslintNode];
 npx eslint-flat-config-viewer
 ```
 
-## 感谢
+## 致谢
 
-- [eslint-flat-config-viewer](https://github.com/antfu/eslint-flat-config-viewer)
+- [ESLint Config Inspector](https://github.com/eslint/config-inspector) 用于检查和理解 ESLint 平面配置的可视化工具。

@@ -21,6 +21,6 @@ export default {
 };
 ```
 
-## 感谢
+## 致谢
 
 - [tw-colors](https://github.com/L-Blondy/tw-colors)

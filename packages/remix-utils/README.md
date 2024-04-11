@@ -26,3 +26,5 @@ export const meta = mergeMeta(
 ```
 
 > 本工具会自动覆盖或者附加到上级路由定义的 Meta, 只有 title 会使用合并连接字符串连接
+
+## 致谢

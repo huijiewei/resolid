@@ -150,6 +150,6 @@ export default {
 > 如果你使用的是 monorepo 结构, 请设置 Root Directory 为需要部署的项目目录, 然后自定义相关命令, [Resolid](https://github.com/huijiewei/resolid) 的配置如下图
 > ![Vercel相关设置](.github/assets/vercel-settings.png)
 
-## 感谢
+## 致谢
 
 - [@remix-galaxy/remix-hono-vite](https://github.com/rphlmr/remix-galaxy)

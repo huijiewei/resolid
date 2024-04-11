@@ -35,7 +35,7 @@
 
 [MIT](./LICENSE).
 
-## 感谢
+## 致谢
 
 感谢 JetBrains 提供 [开源开发许可证](https://jb.gg/OpenSourceSupport).
 
