@@ -1,0 +1,211 @@
+---
+title: 分页
+description: 允许用户从一系列页面中选择特定页面。
+---
+
+import { Pagination, PaginationItem } from "@resolid/react-ui";
+import { mergeFrontmatter } from "@resolid/remix-utils";
+import { Link } from "@remix-run/react";
+import { SpriteIcon } from "~/components/base/SpriteIcon";
+import { ComponentExample, ComponentProps } from "../__components";
+
+export const meta = mergeFrontmatter(frontmatter);
+
+# {frontmatter.title}
+
+{frontmatter.description}
+
+## 导入
+
+```js
+import { Pagination, PaginationItem } from "@resolid/react-ui";
+```
+
+- `Pagination` 分页组件
+- `PaginationItem` 分页的项目
+
+## 用法
+
+<section className={'example group'}>
+  <ComponentExample className={'flex justify-center'}>
+    <Pagination
+      total={512}
+    />
+  </ComponentExample>
+
+  ```jsx
+  <Pagination
+    total={2120}
+  />
+  ```
+</section>
+
+## 禁用
+
+<section className={'example group'}>
+  <ComponentExample className={'flex justify-center'}>
+    <Pagination
+      total={512}
+      disabled
+    />
+  </ComponentExample>
+
+  ```jsx
+  <Pagination
+    total={2120}
+    disabled
+  />
+  ```
+</section>
+
+## 显示总计
+
+<section className={'example group'}>
+  <ComponentExample className={'flex justify-center'}>
+    <Pagination
+      total={512}
+      renderTotal={(total) => <span className={"bg-bg-subtle h-8 items-center inline-flex rounded px-2"}>总计: {total}</span>}
+    />
+  </ComponentExample>
+
+  ```jsx
+  <Pagination
+    total={512}
+    renderTotal={(total) => <span className={"bg-bg-subtle h-8 items-center inline-flex rounded px-2"}>总计: {total}</span>}
+  />
+  ```
+</section>
+
+## 相邻和边界
+
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-col gap-3 justify-center'}>
+    <div className={'flex flex-col gap-1 mx-auto'}>
+      <p>相邻显示 1 个分页项目</p>
+      <Pagination
+        total={512}
+        defaultPage={9}
+        siblings={1}
+      />
+    </div>
+    <div className={'flex flex-col gap-1 mx-auto'}>
+    <p>相邻显示 3 个分页项目</p>
+      <Pagination
+        total={512}
+        defaultPage={9}
+        siblings={3}
+      />
+    </div>
+    <div className={'flex flex-col gap-1 mx-auto'}>
+    <p>边界显示 1 个分页项目</p>
+      <Pagination
+        total={512}
+        defaultPage={9}
+        boundaries={1}
+      />
+    </div>
+    <div className={'flex flex-col gap-1 mx-auto'}>
+    <p>边界显示 3 个分页项目</p>
+      <Pagination
+        total={512}
+        defaultPage={9}
+        boundaries={3}
+      />
+    </div>
+    <div className={'flex flex-col gap-1 mx-auto'}>
+    <p>相邻显示 1 个分页项目, 边界显示 3 个分页项目</p>
+      <Pagination
+        total={512}
+        defaultPage={9}
+        siblings={1}
+        boundaries={3}
+      />
+    </div>
+  </ComponentExample>
+
+  ```jsx
+  <div className={'flex flex-col gap-1 mx-auto'}>
+    <p>相邻显示 1 个分页项目</p>
+    <Pagination
+      total={512}
+      defaultPage={9}
+      siblings={1}
+    />
+  </div>
+  <div className={'flex flex-col gap-1 mx-auto'}>
+  <p>相邻显示 3 个分页项目</p>
+    <Pagination
+      total={512}
+      defaultPage={9}
+      siblings={3}
+    />
+  </div>
+  <div className={'flex flex-col gap-1 mx-auto'}>
+  <p>边界显示 1 个分页项目</p>
+    <Pagination
+      total={512}
+      defaultPage={9}
+      boundaries={1}
+    />
+  </div>
+  <div className={'flex flex-col gap-1 mx-auto'}>
+  <p>边界显示 3 个分页项目</p>
+    <Pagination
+      total={512}
+      defaultPage={9}
+      boundaries={3}
+    />
+  </div>
+  <div className={'flex flex-col gap-1 mx-auto'}>
+  <p>相邻显示 1 个分页项目, 边界显示 3 个分页项目</p>
+    <Pagination
+      total={512}
+      defaultPage={9}
+      siblings={1}
+      boundaries={3}
+    />
+  </div>
+  ```
+</section>
+
+## 分页项目子组件
+
+<section className={'example group'}>
+  <ComponentExample className={'flex justify-center'}>
+    <Pagination
+      total={512}
+      renderPage={(props) => (<PaginationItem asChild {...props}>
+        <Link to={{search : `page=${props.page}`,hash:"分页项目子组件"}}>
+          {props.pageType.includes('ellipsis') ? '...' : 
+            props.pageType=="previous" ? <SpriteIcon size={'1rem'} name={'angle-left'} /> :
+            props.pageType=='next' ? <SpriteIcon size={'1rem'} name={'angle-right'} /> : 
+            props.page}
+          </Link>
+      </PaginationItem>)}
+    />
+  </ComponentExample>
+
+  ```jsx
+  <Pagination
+      total={512}
+      renderPage={(props) => (<PaginationItem asChild {...props}>
+        <Link to={{search : `page=${props.page}`,hash:"分页项目子组件"}}>
+          {props.pageType.includes('ellipsis') ? '...' : 
+            props.pageType=="previous" ? <SpriteIcon size={'1rem'} name={'angle-left'} /> :
+            props.pageType=='next' ? <SpriteIcon size={'1rem'} name={'angle-right'} /> : 
+            props.page}
+          </Link>
+      </PaginationItem>)}
+    />
+  ```
+</section>
+
+## 属性
+
+### 分页
+
+<ComponentProps componentFile={"./pagination/Pagination.tsx"} />
+
+### 分页项目
+
+<ComponentProps componentFile={"./pagination/PaginationItem.tsx"} />

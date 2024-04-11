@@ -21,6 +21,8 @@ export * from "./input/Input";
 export * from "./input/InputAddon";
 export * from "./input/InputGroup";
 export * from "./modal/Modal";
+export * from "./pagination/Pagination";
+export * from "./pagination/PaginationItem";
 export * from "./popover/Popover";
 export * from "./portal/Portal";
 export * from "./provider/ColorModeScript";
