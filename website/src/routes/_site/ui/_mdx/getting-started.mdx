@@ -1,12 +1,17 @@
 ---
 title: 入门指南
+description: 了解如何安装和开始使用 Resolid React UI。
 ---
 
+import { Button } from "@resolid/react-ui";
 import { mergeFrontmatter } from "@resolid/remix-utils";
+import { ComponentExample } from "./__components";
 
 export const meta = mergeFrontmatter(frontmatter);
 
 # {frontmatter.title}
+
+{frontmatter.description}
 
 按照以下步骤快速开始使用组件库。
 
@@ -36,7 +41,7 @@ yarn add -D @resolid/tailwind
 
 ## 添加 TailwindCSS 预设
 
-确保您已经安装了 [TailwindCSS](https://tailwindcss.com/docs/guides/solidjs) ，然后在 `tailwind.config.cjs` 文件内：
+确保您已经安装了 [TailwindCSS](https://tailwindcss.com/docs/guides/solidjs) ，然后在 `tailwind.config.js` 文件内：
 
 1. 在 `content` 数组中添加 Resolid Mix UI 路径，以便将类应用于组件。
 2. 要求 Tailwind CSS 的预设。
@@ -46,11 +51,44 @@ import resolidTailwind from "@resolid/tailwind";
 
 export default {
   presets: [resolidTailwind.preset()],
-  content: ["./node_modules/@resolid/react-ui/dist/*.{js,cjs}", "./src/**/*.{html,js,jsx,ts,tsx,mdx}"],
-  theme: {},
+  content: ["./node_modules/@resolid/react-ui/dist/*.{js,cjs}", "./src/**/*.{html,js,jsx,ts,tsx,mdx}"]
 };
+```
+
+## 添加 ResolidProvider
+
+必须在应用程序的 `root` 处添加 `ResolidProvider` 。
+
+```jsx
+// 1. 导入 `ResolidProvider`
+import { ResolidProvider } from "@resolid/react-ui";
+
+function Root() {
+  // 2. 使用 ResolidProvider 包裹你的 App
+  return (
+    <ResolidProvider>
+      <YourApp />
+    </ResolidProvider>
+  );
+}
 ```
 
 ## 使用组件
 
 导入您需要的组件并开始构建应用程序。
+
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-row gap-3 justify-center'}>
+    <Button>你好</Button>
+  </ComponentExample>
+  
+  ```jsx
+  import { Button } from "@resolid/react-ui";
+  
+  function YourApp() {
+    return (
+      <Button>你好</Button>
+    );
+  }
+  ```
+</section>

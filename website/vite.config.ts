@@ -91,6 +91,10 @@ export default defineConfig(({ command, isSsrBuild }) => {
               return "components";
             }
 
+            if (id.includes("/node_modules/@resolid/tailwind") || id.includes("/packages/tailwind")) {
+              return "tailwind";
+            }
+
             if (
               id.includes("/node_modules/react/") ||
               id.includes("/node_modules/react-dom/") ||

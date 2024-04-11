@@ -1,0 +1,156 @@
+---
+title: 主题设置
+description: 主题是设计用户界面 (UI) 的关键元素。它使您能够在整个应用程序中应用一致的美感，从而增强用户体验并保持视觉一致性。
+---
+
+import { useColorModeState, useColorModeDispatch, Button } from "@resolid/react-ui";
+import { mergeFrontmatter } from "@resolid/remix-utils";
+import { SpriteIcon } from "~/components/base/SpriteIcon";
+import { ComponentExample } from "./__components";
+
+export const meta = mergeFrontmatter(frontmatter);
+
+# {frontmatter.title}
+
+{frontmatter.description}
+
+## 颜色设置
+
+你可以通过 Resolid React UI 的 `TailwindCSS 预设` 来定制主题的颜色。Resolid React UI 内置了 `light` 和 `dark` 颜色主题
+
+编辑 `tailwind.config.js` 文件
+
+```js
+import resolidTailwind from "@resolid/tailwind";
+
+export default {
+  presets: [resolidTailwind.preset({
+    themes: {
+      // 这里可以定义自己的主题颜色或者覆盖 light 和 dark 主题颜色
+    }
+  })],
+  content: ["./node_modules/@resolid/react-ui/dist/*.{js,cjs}", "./src/**/*.{html,js,jsx,ts,tsx,mdx}"],
+  theme: {
+    extend: {
+      colors: {
+        // 这里你可以向默认调色板添加全新的颜色
+      }
+    }
+  }
+};
+```
+
+### 默认颜色
+
+import { colorsPalette } from '../../../../../../packages/tailwind/src/tokens/colors-palette';
+
+<div className={'flex flex-col gap-5'}>
+  {Object.keys(colorsPalette)
+    .filter((key) => !['inherit', 'current', 'transparent'].includes(key))
+    .map((name) => {
+      const color = colorsPalette[name];
+      
+      return (<div key={name} className={'flex flex-row gap-3'}>
+        {typeof color =='string' ? (
+          <div className={'flex flex-row gap-3'}>
+            <div
+              className={'dark:ring-1 dark:ring-white/10 h-10 w-10 rounded ring-inset'}
+              style={{
+                backgroundColor: color,
+              }}
+            />
+            <div>
+              <div className={'font-medium capitalize'}>{name}</div>
+              <div className={'font-mono text-xs uppercase'}>{color}</div>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className={'w-16 shrink-0'}>
+              <div className={'flex h-10 flex-col justify-center font-medium capitalize'}>{name}</div>
+            </div>
+            <div className={'grid min-w-0 flex-1 grid-cols-5 gap-3 tablet:grid-cols-10'}>
+              {Object.keys(color).map((key) => {
+                const value = (color)[key];
+
+                return (
+                  <div key={`${name}-${key}`} className={'flex flex-col gap-1'}>
+                    <div
+                      className={'h-10 w-full rounded ring-inset dark:ring-1 dark:ring-white/10'}
+                      style={{
+                        backgroundColor: value,
+                      }}
+                    />
+                    <div>
+                      <div className={'font-medium capitalize'}>{key}</div>
+                      <div className={'font-mono text-xs uppercase'}>{value}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
+      </div>)
+    })}
+</div>
+
+## 深色模式
+
+默认情况下，Resolid React UI 的组件都兼容深色模式。
+
+> Resolid React UI 将颜色模式存储在 localStorage 中，并将 className 附加到 body 以确保颜色模式持久。
+
+您可以使用 `useColorModeState` 和 `useColorModeDispatch` Hook 轻松构建颜色模式按钮。
+
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center justify-center'}>
+    {() => {
+      const colorMode = useColorModeState();
+      const setColorMode = useColorModeDispatch();
+      
+      return (<Button variant={"soft"} onClick={()=> setColorMode(colorMode == 'dark' ? 'light' : 'dark')} color={"neutral"} square>
+        <SpriteIcon name={colorMode == 'dark' ? 'sun' : 'moon'} />
+      </Button>)
+    }}
+  </ComponentExample>
+
+  ```jsx
+  const colorMode = useColorModeState();
+  const setColorMode = useColorModeDispatch();
+
+  return (<Button variant={"soft"} onClick={()=> setColorMode(colorMode == 'dark' ? 'light' : 'dark')} color={"neutral"} square>
+    <SpriteIcon name={colorMode == 'dark' ? 'sun' : 'moon'} />
+  </Button>)
+  ```
+
+</section>
+
+### SSR 防闪烁
+
+我们不会将 `light` 作为每个人的默认设置，而是检查他们是否在系统设置中设置了媒体首选项。如果他们说他们更喜欢深色模式，我们可以使用深色作为初始状态。
+
+复杂性的出现是因为我们使用服务器端渲染（SSR）。当服务器计算初始状态时，它不会知道用户的媒体偏好应该是什么 - 它必须等待客户端来计算。
+
+我们需要在 HTML `Body` 的头部添加一个 `ColorModeScript` 组件。组件是阻塞的，因此它将在渲染正文的其余部分之前运行。我们可以用它来确保我们最初的水合前状态与水合后状态相匹配。
+
+```jsx
+import { ColorModeScript } from '@resolid/react-ui';
+
+function App() {
+
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* ... */}
+      </head>
+      <body>
+        <ColorModeScript />
+        {/* ... */}
+      </body>
+    </html>
+  );
+}
+```
+
+

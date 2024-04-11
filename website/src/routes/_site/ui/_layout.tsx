@@ -66,16 +66,8 @@ const menus: Menu[] = [
         path: "getting-started",
       },
       {
-        label: "主题",
+        label: "主题设置",
         path: "theming",
-      },
-      {
-        label: "黑暗模式",
-        path: "dark-mode",
-      },
-      {
-        label: "动画效果",
-        path: "animation",
       },
     ],
   },
