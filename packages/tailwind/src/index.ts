@@ -13,17 +13,14 @@ import { screens } from "./tokens/screens";
 import { zIndex } from "./tokens/z-index";
 import { flattenColorPalette, rgbFromHex } from "./utils/color";
 
-type DefaultThemeType = "light" | "dark";
-
 type ThemesObject = Record<string, RecursiveKeyValuePair>;
 
 export type PresetOptions = {
   themes?: ThemesObject;
-  defaultTheme?: DefaultThemeType;
   cssVarPrefix?: string;
 };
 
-const resolveConfig = (themes: ThemesObject, defaultTheme: DefaultThemeType, cssVarPrefix: string) => {
+const resolveConfig = (themes: ThemesObject, cssVarPrefix: string) => {
   const resolved: {
     utilities: Record<string, Record<string, string>>;
     colors: Record<string, string>;
@@ -35,7 +32,7 @@ const resolveConfig = (themes: ThemesObject, defaultTheme: DefaultThemeType, css
   Object.keys(themes).forEach((themeName) => {
     let cssSelector = `.${themeName}`;
 
-    if (themeName === defaultTheme) {
+    if (themeName == "light") {
       cssSelector = `:root, ${cssSelector}`;
     }
 
@@ -70,8 +67,8 @@ const preset = (options: PresetOptions | undefined = {}): Partial<Config> => {
     {
       light: colorsSemantic.light,
       dark: colorsSemantic.dark,
+      ...options?.themes,
     },
-    options?.defaultTheme || "light",
     cssVarPrefix,
   );
 
