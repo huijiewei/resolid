@@ -438,8 +438,17 @@ import { Select, NativeSelect } from "@resolid/react-ui";
           description: "我们正在构建一个快速、高度可定制的浏览器，优先考虑您的隐私。",
         },
       ];
-
-      const optionRender = (browser) => {
+      
+      const renderLabel = (browser) => {
+        return (
+          <div className={'flex flex-row items-center gap-2'}>
+            {browser.icon}
+            {browser.name}
+          </div>
+        );
+      };
+      
+      const renderOption = (browser) => {
         return (
           <div className={'flex items-center gap-3'}>
             {browser.icon}
@@ -451,30 +460,21 @@ import { Select, NativeSelect } from "@resolid/react-ui";
         );
       };
 
-      const labelRender = (browser) => {
-        return (
-          <div className={'flex flex-row items-center gap-2'}>
-            {browser.icon}
-            {browser.name}
-          </div>
-        );
-      };
-
       return (
         <>
           <Select
             className={'w-56'}
             defaultValue={"chrome"}
             options={browsers}
-            optionRender={optionRender}
-            labelRender={labelRender}
+            renderLabel={renderLabel}
+            renderOption={renderOption}
           />
           <Select
             className={'w-96'}
             defaultValue={"firefox"}
             options={browsers}
-            optionRender={optionRender}
-            labelRender={optionRender}
+            renderLabel={renderLabel}
+            renderOption={renderOption}
           />
         </>
       );
@@ -528,7 +528,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     },
   ];
   
-  const optionRender = (browser) => {
+  const renderOption = (browser) => {
     return (
       <div className={'flex items-center gap-3'}>
         {browser.icon}
@@ -540,7 +540,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     );
   };
   
-  const labelRender = (browser) => {
+  const renderLabel = (browser) => {
     return (
       <div className={'flex flex-row items-center gap-2'}>
         {browser.icon}
@@ -555,15 +555,15 @@ import { Select, NativeSelect } from "@resolid/react-ui";
         className={'w-56'}
         defaultValue={"chrome"}
         options={browsers}
-        optionRender={optionRender}
-        labelRender={labelRender}
+        renderLabel={renderLabel}
+        renderOption={renderOption}
       />
       <Select
         className={'w-96'}
         defaultValue={"firefox"}
         options={browsers}
-        optionRender={optionRender}
-        labelRender={optionRender}
+        renderLabel={renderLabel}
+        renderOption={renderOption}
       />
     </>
   );

@@ -3,7 +3,7 @@ import { isFunction, runIfFunction, type AnyFunction } from "./index";
 
 describe("isFunction function", () => {
   test("should return true for a function", () => {
-    const fn: AnyFunction = () => "Hello";
+    const fn = () => "Hello";
     expect(isFunction(fn)).toBe(true);
   });
 

@@ -1,8 +1,8 @@
-export type AnyFunction<A = unknown, R = unknown> = (...args: A[]) => R;
-export type MaybeFunction<R = unknown, A = unknown> = R | AnyFunction<A, R>;
+export type AnyFunction<R, A> = (...args: A[]) => R;
+export type MaybeFunction<R, A = unknown> = R | AnyFunction<A, R>;
 
-export const isFunction = <T = AnyFunction>(value: unknown): value is T => typeof value === "function";
+export const isFunction = <R, A>(value: unknown): value is AnyFunction<R, A> => typeof value === "function";
 
-export const runIfFunction = <R, A>(valueOrFunction: R | AnyFunction<A, R>, ...args: A[]): R => {
-  return isFunction<AnyFunction<A, R>>(valueOrFunction) ? valueOrFunction(...args) : valueOrFunction;
+export const runIfFunction = <R, A>(valueOrFunction: R | AnyFunction<R, A>, ...args: A[]): R => {
+  return isFunction<R, A>(valueOrFunction) ? valueOrFunction(...args) : valueOrFunction;
 };

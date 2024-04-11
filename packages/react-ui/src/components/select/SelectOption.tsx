@@ -5,12 +5,12 @@ import { clsx } from "../../utils/classed";
 import { dataAttr } from "../../utils/dom";
 import { useSelect, type OptionBase, type OptionDefault, type OptionFieldNames } from "./selectContext";
 
-export type OptionRender<Option> = (option: Option, selected?: boolean) => ReactNode;
+export type Render<Option> = (option: Option) => ReactNode;
 
 export type SelectOptionProps<Option extends OptionBase> = {
   option: Omit<Option, keyof OptionFieldNames["options"]>;
   onSelect: (option: Omit<Option, keyof OptionFieldNames["options"]>) => void;
-  render: OptionRender<Omit<Option, keyof OptionFieldNames["options"]>>;
+  render: Render<Omit<Option, keyof OptionFieldNames["options"]>>;
   index: number;
 };
 
@@ -53,7 +53,7 @@ const SelectOptionInner = <Option extends OptionBase = OptionDefault>(
       })}
       {...rest}
     >
-      {render(option, isSelect)}
+      {render(option)}
     </li>
   );
 };

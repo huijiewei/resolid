@@ -33,11 +33,9 @@ import { CloseButton } from "../close-button/CloseButton";
 import { Divider } from "../divider/Divider";
 import { Portal } from "../portal/Portal";
 import { SelectChevron } from "./SelectChevron";
-import { SelectOption, type OptionRender } from "./SelectOption";
+import { SelectOption, type Render } from "./SelectOption";
 import { selectSizeStyles } from "./select.styles";
 import { SelectProvider, type OptionBase, type OptionDefault, type OptionFieldNames } from "./selectContext";
-
-type LabelRender<Option> = (option: Option) => ReactNode;
 
 export type SelectProps<Option extends OptionBase> = {
   /**
@@ -131,12 +129,12 @@ export type SelectProps<Option extends OptionBase> = {
   /**
    * 标签渲染方法
    */
-  labelRender?: LabelRender<Omit<Option, keyof OptionFieldNames["options"]>>;
+  renderLabel?: Render<Omit<Option, keyof OptionFieldNames["options"]>>;
 
   /**
    * 选项渲染方法
    */
-  optionRender?: OptionRender<Omit<Option, keyof OptionFieldNames["options"]>>;
+  renderOption?: Render<Omit<Option, keyof OptionFieldNames["options"]>>;
 
   /**
    * 动画持续时间
@@ -170,8 +168,8 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
     defaultValue = multiple ? [] : undefined,
     closeOnSelect = true,
     style,
-    optionRender,
-    labelRender,
+    renderOption,
+    renderLabel,
     duration = 250,
     ...rest
   } = props;
@@ -290,10 +288,10 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
     duration: duration,
   });
 
-  const labelRenderRef = useCallbackRef<Option, ReactNode>(labelRender ?? ((option) => option[mergedFieldNames.label]));
+  const renderLabelRef = useCallbackRef<ReactNode, Option>(renderLabel ?? ((option) => option[mergedFieldNames.label]));
 
   const renderSingleValue = (selectOption: Omit<Option, keyof OptionFieldNames["options"]> | undefined) => {
-    return selectOption ? labelRenderRef(selectOption) : <span className={"text-fg-subtle"}>{placeholder}</span>;
+    return selectOption ? renderLabelRef(selectOption) : <span className={"text-fg-subtle"}>{placeholder}</span>;
   };
 
   const renderMultipleValue = (selectOptions: Omit<Option, keyof OptionFieldNames["options"]>[]) => {
@@ -304,7 +302,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
             className={clsx("flex items-center gap-1 rounded bg-bg-subtle", sizeStyle.multipleItem)}
             key={option[mergedFieldNames.value]}
           >
-            {labelRenderRef(option)}
+            {renderLabelRef(option)}
             <CloseButton
               size={"1em"}
               aria-label={`移除 ${option[mergedFieldNames.value]}`}
@@ -365,7 +363,9 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
     [closeOnSelect, mergedFieldNames.value, onDeselect, onSelect, refs.domReference, setState, state],
   );
 
-  const render = optionRender ?? ((option) => option[mergedFieldNames.label]);
+  const renderOptionRef = useCallbackRef<ReactNode, Option>(
+    renderOption ?? ((option) => option[mergedFieldNames.label]),
+  );
 
   const selectContext = useMemo(() => {
     return {
@@ -610,7 +610,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
                         className={sizeOptionStyle}
                         key={`item-${option[mergedFieldNames.value]}`}
                         option={option}
-                        render={render}
+                        render={renderOptionRef}
                         onSelect={handleSelect}
                       />
                     );
@@ -631,7 +631,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
                                   className={sizeOptionStyle}
                                   key={`item-${groupOption[mergedFieldNames.value]}`}
                                   option={groupOption}
-                                  render={render}
+                                  render={renderOptionRef}
                                   onSelect={handleSelect}
                                 />
                               );
@@ -650,7 +650,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
                           className={sizeOptionStyle}
                           key={`item-${option[mergedFieldNames.value]}`}
                           option={option}
-                          render={render}
+                          render={renderOptionRef}
                           onSelect={handleSelect}
                         />
                       );
