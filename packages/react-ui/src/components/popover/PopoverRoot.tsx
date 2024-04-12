@@ -4,10 +4,13 @@ import {
   autoUpdate,
   flip,
   offset,
+  safePolygon,
   shift,
   useClick,
   useDismiss,
   useFloating,
+  useFocus,
+  useHover,
   useInteractions,
   useRole,
   useTransitionStatus,
@@ -24,9 +27,10 @@ import { PopoverFloatingProvider, type PopoverContext } from "./popoverContext";
 
 export type PopoverProps = {
   /**
-   * 控制打开状态
+   * 触发模式
+   * @default 'click'
    */
-  opened?: boolean;
+  trigger?: "click" | "hover";
 
   /**
    * 关闭时的回调
@@ -82,12 +86,12 @@ export type PopoverProps = {
 export const PopoverRoot = (props: PopoverProps) => {
   const {
     children,
+    trigger = "click",
     placement = "auto",
     closeOnEsc = true,
     closeOnBlur = true,
     modal = true,
     duration = 250,
-    opened,
     onClose,
     onCloseComplete,
     initialFocus,
@@ -107,7 +111,7 @@ export const PopoverRoot = (props: PopoverProps) => {
 
   const arrowRef = useRef<SVGSVGElement>(null);
 
-  const { opened: openedState, open, close } = useDisclosure({ opened, onClose });
+  const { opened: openedState, open, close } = useDisclosure({ opened: undefined, onClose });
 
   const { floatingStyles, refs, context } = useFloating({
     middleware: [
@@ -137,7 +141,9 @@ export const PopoverRoot = (props: PopoverProps) => {
   );
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
-    useClick(context),
+    useHover(context, { move: false, mouseOnly: true, enabled: trigger == "hover", handleClose: safePolygon() }),
+    useFocus(context, { enabled: trigger == "hover" }),
+    useClick(context, { enabled: trigger == "click" }),
     useRole(context),
     useDismiss(context, { escapeKey: closeOnEsc, outsidePress: closeOnBlur }),
   ]);
@@ -175,8 +181,20 @@ export const PopoverRoot = (props: PopoverProps) => {
       getFloatingProps,
       modal,
       initialFocus,
+      trigger,
     }),
-    [isMounted, status, duration, context, floatingStyles, refs.setFloating, getFloatingProps, modal, initialFocus],
+    [
+      isMounted,
+      status,
+      duration,
+      context,
+      floatingStyles,
+      refs.setFloating,
+      getFloatingProps,
+      modal,
+      initialFocus,
+      trigger,
+    ],
   );
 
   return (

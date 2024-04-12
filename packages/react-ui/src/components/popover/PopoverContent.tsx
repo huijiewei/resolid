@@ -10,36 +10,49 @@ import { usePopoverFloating } from "./popoverContext";
 export const PopoverContent = (props: BaseProps<"div">) => {
   const { children, className, ...rest } = props;
 
-  const { floatingStyles, duration, mounted, status, setFloating, context, getFloatingProps, modal, initialFocus } =
-    usePopoverFloating();
+  const {
+    floatingStyles,
+    duration,
+    trigger,
+    mounted,
+    status,
+    setFloating,
+    context,
+    getFloatingProps,
+    modal,
+    initialFocus,
+  } = usePopoverFloating();
 
   const { labelId, descriptionId } = useFloatingAria();
+
+  const popoverInner = (
+    <div
+      className={clsx("transition-opacity duration-[--duration-var]", status == "open" ? "opacity-100" : "opacity-0")}
+      style={{ ...floatingStyles, "--duration-var": `${duration}ms` } as CSSProperties}
+      ref={setFloating}
+      {...getFloatingProps({
+        ...rest,
+        "aria-labelledby": labelId,
+        "aria-describedby": descriptionId,
+      })}
+    >
+      <div className={clsx("relative rounded border border-bd-normal bg-bg-normal shadow outline-none", className)}>
+        {children}
+      </div>
+    </div>
+  );
 
   return (
     <>
       {mounted && (
         <Portal>
-          <FloatingFocusManager modal={modal} initialFocus={initialFocus} context={context}>
-            <div
-              className={clsx(
-                "transition-opacity duration-[--duration-var]",
-                status == "open" ? "opacity-100" : "opacity-0",
-              )}
-              style={{ ...floatingStyles, "--duration-var": `${duration}ms` } as CSSProperties}
-              ref={setFloating}
-              {...getFloatingProps({
-                ...rest,
-                "aria-labelledby": labelId,
-                "aria-describedby": descriptionId,
-              })}
-            >
-              <div
-                className={clsx("relative rounded border border-bd-normal bg-bg-normal shadow outline-none", className)}
-              >
-                {children}
-              </div>
-            </div>
-          </FloatingFocusManager>
+          {trigger == "click" ? (
+            <FloatingFocusManager modal={modal} initialFocus={initialFocus} context={context}>
+              {popoverInner}
+            </FloatingFocusManager>
+          ) : (
+            popoverInner
+          )}
         </Portal>
       )}
     </>
