@@ -15,8 +15,8 @@ export const scrollbar = (cssVarPrefix: string) => {
       },
       ".scrollbar-base": {
         "&::-webkit-scrollbar": {
-          width: "11px",
-          height: "11px",
+          width: "12px",
+          height: "12px",
         },
       },
       ".scrollbar-thin": {
