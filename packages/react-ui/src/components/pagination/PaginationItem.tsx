@@ -79,8 +79,7 @@ export const PaginationItem = forwardRef<HTMLButtonElement, AsChildProps<"button
         ) : pageType == "previous" ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            height={"1em"}
-            width={"1em"}
+            className={"h-4 w-4"}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -91,8 +90,7 @@ export const PaginationItem = forwardRef<HTMLButtonElement, AsChildProps<"button
         ) : pageType == "next" ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            height={"1em"}
-            width={"1em"}
+            className={"h-4 w-4"}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
