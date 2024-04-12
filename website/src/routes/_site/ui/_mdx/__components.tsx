@@ -53,7 +53,7 @@ export const ComponentUsage = ({
 
   return (
     <div className={"not-prose flex min-h-28 w-full flex-col rounded border lg:flex-row"}>
-      <div className={"flex flex-1 flex-col items-center justify-center p-5"}>{preview(state)}</div>
+      <div className={"flex flex-1 items-center justify-center p-5"}>{preview(state)}</div>
       <div className={"min-w-[15em] flex-shrink-0 border-t p-3 lg:border-s lg:border-t-0"}>
         <div className={"flex flex-col gap-3 text-sm"}>
           {filteredProps.map((prop) => {
@@ -183,7 +183,7 @@ export const ComponentProps = ({
   componentProps?: ComponentProp[];
 }) => {
   return (
-    <table className={"not-prose border-bd-subtle my-4 w-full table-auto border-separate rounded border text-sm"}>
+    <table className={"not-prose my-4 w-full table-auto border-separate rounded border border-bd-subtle text-sm"}>
       <thead>
         <tr className={"bg-bg-subtle"}>
           <th className={"hidden whitespace-nowrap p-2 text-left md:table-cell"}>属性</th>
@@ -196,12 +196,12 @@ export const ComponentProps = ({
         {componentProps?.map((prop, i) => (
           <tr
             className={
-              "md:flex-no-wrap border-b-bg-subtle mb-[1px] flex flex-row flex-wrap border-b pb-[1px] last:mb-0 last:border-none last:pb-0 md:mb-0 md:table-row md:border-none"
+              "md:flex-no-wrap mb-[1px] flex flex-row flex-wrap border-b border-b-bg-subtle pb-[1px] last:mb-0 last:border-none last:pb-0 md:mb-0 md:table-row md:border-none"
             }
             key={`${prop.name}-${i}`}
           >
             <td className={"block w-full whitespace-nowrap font-bold md:table-cell md:w-auto md:p-2"}>
-              <span className="bg-bg-subtle mr-3 inline-block w-[5.5rem] p-2 text-sm font-bold md:hidden">属性</span>
+              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold md:hidden">属性</span>
               <span className={"inline-flex items-center gap-2"}>
                 {prop.name}
                 {prop.description && (
@@ -244,15 +244,15 @@ export const ComponentProps = ({
               </span>
             </td>
             <td className={"block w-full md:table-cell md:w-auto md:p-2"}>
-              <span className="bg-bg-subtle mr-3 inline-block w-[5.5rem] p-2 text-sm font-bold md:hidden">类型</span>
+              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold md:hidden">类型</span>
               {prop.type}
             </td>
             <td className={"block w-full whitespace-nowrap md:table-cell md:w-auto md:p-2 md:text-center"}>
-              <span className="bg-bg-subtle mr-3 inline-block w-[5.5rem] p-2 text-sm font-bold md:hidden">默认值</span>
+              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold md:hidden">默认值</span>
               {prop.defaultValue || "-"}
             </td>
             <td className={"block w-full whitespace-nowrap md:table-cell md:w-auto md:p-2 md:text-center"}>
-              <span className="bg-bg-subtle mr-3 inline-block w-[5.5rem] p-2 text-sm font-bold md:hidden">必须</span>
+              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold md:hidden">必须</span>
               {prop.required ? "true" : "false"}
             </td>
           </tr>
@@ -270,7 +270,7 @@ export const ComponentExample = ({
   children: (() => ReactNode) | ReactNode;
 }) => {
   return (
-    <div className={clsx("not-prose scrollbar scrollbar-thin overflow-x-auto rounded-t border p-3", className)}>
+    <div className={clsx("not-prose overflow-x-auto rounded-t border p-3 scrollbar scrollbar-thin", className)}>
       {isFunction(children) ? children() : children}
     </div>
   );
