@@ -5,6 +5,7 @@ import {
   flip,
   offset,
   shift,
+  useClick,
   useDismiss,
   useFloating,
   useFocus,
@@ -13,8 +14,8 @@ import {
   useRole,
   type Placement,
 } from "@floating-ui/react";
-import { __DEV__ } from "@resolid/utils";
-import { useMemo, useRef, type PropsWithChildren } from "react";
+import { __DEV__, runIfFunction } from "@resolid/utils";
+import { useMemo, useRef, type PropsWithChildren, type ReactNode } from "react";
 import { useDisclosure } from "../../hooks";
 import type { Color } from "../../utils/types";
 import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/floatingArrowContext";
@@ -22,6 +23,12 @@ import { FloatingReferenceProvider, type FloatingReferenceContext } from "../flo
 import { TooltipFloatingProvider, type TooltipContext } from "./tooltipContext";
 
 export type TooltipProps = {
+  /**
+   * 触发模式
+   * @default 'hover'
+   */
+  trigger?: "click" | "hover";
+
   /**
    * 颜色
    * @default 'neutral'
@@ -35,15 +42,15 @@ export type TooltipProps = {
   placement?: "auto" | Placement;
 
   /**
-   * 控制打开状态
-   */
-  opened?: boolean;
-
-  /**
    * 动画持续时间
    * @default '250'
    */
   duration?: number;
+
+  /**
+   * @ignore
+   */
+  children?: ReactNode | ((props: { opened: boolean }) => ReactNode);
 };
 
 const tooltipColorStyles = {
@@ -70,9 +77,9 @@ const tooltipColorStyles = {
 };
 
 export const TooltipRoot = (props: PropsWithChildren<TooltipProps>) => {
-  const { children, opened, duration = 250, placement = "auto", color = "neutral" } = props;
+  const { children, trigger = "hover", duration = 250, placement = "auto", color = "neutral" } = props;
 
-  const { opened: openedState, open, close } = useDisclosure({ opened });
+  const { opened: openedState, open, close } = useDisclosure({ opened: undefined });
 
   const arrowRef = useRef<SVGSVGElement>(null);
 
@@ -106,8 +113,9 @@ export const TooltipRoot = (props: PropsWithChildren<TooltipProps>) => {
   );
 
   const { getFloatingProps, getReferenceProps } = useInteractions([
-    useHover(context, { move: false, mouseOnly: true }),
-    useFocus(context),
+    useHover(context, { move: false, mouseOnly: true, enabled: trigger == "hover" }),
+    useFocus(context, { enabled: trigger == "hover" }),
+    useClick(context, { enabled: trigger == "click" }),
     useRole(context, { role: "tooltip" }),
     useDismiss(context),
   ]);
@@ -137,7 +145,9 @@ export const TooltipRoot = (props: PropsWithChildren<TooltipProps>) => {
   return (
     <FloatingArrowProvider value={arrowContext}>
       <FloatingReferenceProvider value={referenceContext}>
-        <TooltipFloatingProvider value={floatingContext}>{children}</TooltipFloatingProvider>
+        <TooltipFloatingProvider value={floatingContext}>
+          {runIfFunction(children, { opened: openedState })}
+        </TooltipFloatingProvider>
       </FloatingReferenceProvider>
     </FloatingArrowProvider>
   );

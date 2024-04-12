@@ -4,12 +4,11 @@ import {
   clsx,
   Input,
   NativeSelect,
-  Popover,
-  PopoverArrow,
-  PopoverBody,
-  PopoverContent,
-  PopoverTrigger,
   Switch,
+  Tooltip,
+  TooltipArrow,
+  TooltipContent,
+  TooltipTrigger,
 } from "@resolid/react-ui";
 import { isFunction } from "@resolid/utils";
 import { useMemo, useState, type FunctionComponent, type ReactNode } from "react";
@@ -205,41 +204,39 @@ export const ComponentProps = ({
               <span className={"inline-flex items-center gap-2"}>
                 {prop.name}
                 {prop.description && (
-                  <Popover>
-                    <PopoverTrigger>
+                  <Tooltip trigger={"click"}>
+                    <TooltipTrigger>
                       <svg width={"1rem"} height={"1rem"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
                           fill="currentColor"
                           d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2m0 18a8 8 0 1 1 8-8a8.01 8.01 0 0 1-8 8m0-8.5a1 1 0 0 0-1 1v3a1 1 0 0 0 2 0v-3a1 1 0 0 0-1-1m0-4a1.25 1.25 0 1 0 1.25 1.25A1.25 1.25 0 0 0 12 7.5"
                         ></path>
                       </svg>
-                    </PopoverTrigger>
-                    <PopoverContent>
-                      <PopoverArrow />
-                      <PopoverBody className={"text-sm"}>
-                        {prop.description.split("\n").map((p, idx) => {
-                          if (p.startsWith("@link")) {
-                            const link = p.slice(6);
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <TooltipArrow />
+                      {prop.description.split("\n").map((p, idx) => {
+                        if (p.startsWith("@link")) {
+                          const link = p.slice(6);
 
-                            return (
-                              <p key={`p${idx}`}>
-                                <a
-                                  className={"text-link hover:text-link-hovered"}
-                                  href={link}
-                                  rel={"noreferrer"}
-                                  target={"_blank"}
-                                >
-                                  {link}
-                                </a>
-                              </p>
-                            );
-                          }
+                          return (
+                            <p key={`p${idx}`}>
+                              <a
+                                className={"text-link hover:text-link-hovered"}
+                                href={link}
+                                rel={"noreferrer"}
+                                target={"_blank"}
+                              >
+                                {link}
+                              </a>
+                            </p>
+                          );
+                        }
 
-                          return <p key={`p${idx}`}>{p.startsWith("@link") ? p : p}</p>;
-                        })}
-                      </PopoverBody>
-                    </PopoverContent>
-                  </Popover>
+                        return <p key={`p${idx}`}>{p.startsWith("@link") ? p : p}</p>;
+                      })}
+                    </TooltipContent>
+                  </Tooltip>
                 )}
               </span>
             </td>

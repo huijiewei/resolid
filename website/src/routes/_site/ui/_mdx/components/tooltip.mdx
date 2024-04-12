@@ -41,43 +41,33 @@ import { Tooltip, TooltipTrigger, TooltipArrow, TooltipContent } from "@resolid/
     </Tooltip>
   )}
 />
-
-## 可控
+  
+## 触发模式
 
 <section className={'example group'}>
-  <ComponentExample className={"flex flex-row gap-3"}>
-    {() => {
-      const { opened, toggle } = useDisclosure();
-
-      return (
-        <Tooltip opened={opened}>
-          <TooltipTrigger asChild>
-            <Button variant={'outline'} onClick={toggle}>
-              点击切换工具提示显示
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent>可控的工具提示</TooltipContent>
-        </Tooltip>
-      );
-    }}
-
-  </ComponentExample>
+<ComponentExample className={"flex flex-row gap-3"}>
+  <Tooltip trigger={'click'}>
+    <TooltipTrigger asChild>
+      <Button>点击触发</Button>
+    </TooltipTrigger>
+    <TooltipContent>
+      <TooltipArrow />
+      点击触发工具提示
+    </TooltipContent>
+  </Tooltip>
+</ComponentExample>
 
 ```jsx
-const { opened, toggle } = useDisclosure();
-
-return (
-  <Tooltip opened={opened}>
-    <TooltipTrigger asChild>
-      <Button variant={"outline"} onClick={toggle}>
-        点击切换
-      </Button>
-    </TooltipTrigger>
-    <TooltipContent>可控的工具提示</TooltipContent>
-  </Tooltip>
-);
+<Tooltip trigger={'click'}>
+  <TooltipTrigger asChild>
+    <Button>点击触发</Button>
+  </TooltipTrigger>
+  <TooltipContent>
+    <TooltipArrow />
+    点击触发工具提示
+  </TooltipContent>
+</Tooltip>
 ```
-
 </section>
 
 ## 动画持续时间
@@ -95,17 +85,52 @@ return (
     </Tooltip>
   </ComponentExample>
 
-```jsx
-<Tooltip duration={3000}>
-  <TooltipTrigger asChild>
-    <Button>动画持续时间</Button>
-  </TooltipTrigger>
-  <TooltipContent>
-    <TooltipArrow />
-    持续时间很长
-  </TooltipContent>
-</Tooltip>
-```
+  ```jsx
+  <Tooltip duration={3000}>
+    <TooltipTrigger asChild>
+      <Button>动画持续时间</Button>
+    </TooltipTrigger>
+    <TooltipContent>
+      <TooltipArrow />
+      持续时间很长
+    </TooltipContent>
+  </Tooltip>
+  ```
+</section>
+
+## 访问内部状态
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3"}>
+    <Tooltip>
+      {({opened})=> (
+        <>
+          <TooltipTrigger asChild>
+            <Button variant={'outline'}>
+              {opened ? '出现提示' : '工具提示'}
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>工具提示内容</TooltipContent>
+        </>
+      )}
+    </Tooltip>
+  </ComponentExample>
+
+  ```jsx
+  <Tooltip>
+    {({opened})=> (
+      <>
+        <TooltipTrigger asChild>
+          <Button variant={'outline'}>
+            {opened ? '出现提示' : '工具提示'}
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>工具提示内容</TooltipContent>
+      </>
+    )}
+  </Tooltip>
+  );
+  ```
 
 </section>
 
