@@ -15,6 +15,7 @@ const {
     httpOnly: true,
     sameSite: "lax",
     secrets: [env.RX_COOKIE_SECRET],
+    secure: env.NODE_ENV == "production",
     path: "/",
   },
   service: userSessionService,

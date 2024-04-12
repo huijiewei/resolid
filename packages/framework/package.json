@@ -36,10 +36,10 @@
     "@remix-run/node": "2.9.0-pre.3",
     "@remix-run/server-runtime": "2.9.0-pre.3",
     "@resolid/utils": "workspace:^",
-    "drizzle-orm": "^0.30.7",
+    "drizzle-orm": "^0.30.8",
     "nodemailer": "^6.9.13",
     "postgres": "^3.4.4",
-    "react-hook-form": "^7.51.2",
+    "react-hook-form": "^7.51.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {
