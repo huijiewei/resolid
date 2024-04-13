@@ -1,22 +1,9 @@
-import type { LinksFunction } from "@remix-run/node";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 import { ColorModeScript, ResolidProvider } from "@resolid/react-ui";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/remix";
 import type { PropsWithChildren } from "react";
 import { RouteProcessBar } from "~/components/base/RouteProcessBar";
-
-import styles from "~/root.css?url";
-
-export const links: LinksFunction = () => {
-  return [
-    {
-      rel: "stylesheet",
-      href: styles,
-      precedence: "high",
-    },
-  ];
-};
 
 export const Layout = ({ children }: PropsWithChildren) => {
   return (

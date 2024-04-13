@@ -1,4 +1,4 @@
-import type { LoaderFunctionArgs } from "@remix-run/node";
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { Outlet } from "@remix-run/react";
 import { Button, clsx, noScrollbarsClassName } from "@resolid/react-ui";
 import { useTypedLoaderData } from "@resolid/remix-utils";
@@ -8,6 +8,18 @@ import { ColorModeToggle } from "~/components/base/ColorModeToggle";
 import { ResolidLogo } from "~/components/base/ResolidLogo";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
 import { getSessionAdmin } from "~/foundation/session.admin.server";
+
+import styles from "~/root.admin.css?url";
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "stylesheet",
+      href: styles,
+      precedence: "high",
+    },
+  ];
+};
 
 export const meta = () => {
   return [{ title: "Resolid 管理面板" }];

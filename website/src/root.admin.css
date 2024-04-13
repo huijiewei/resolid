@@ -1,0 +1,7 @@
+@config "../tailwind.admin.config.ts";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+

@@ -1,4 +1,4 @@
-import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
+import type { LinksFunction, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Form, Link, Outlet, createPath, useLocation, type Location } from "@remix-run/react";
 import { authUtils } from "@resolid/framework/modules";
 import {
@@ -32,6 +32,18 @@ export const loader = async ({ request, context }: LoaderFunctionArgs) => {
     user: await getSessionUser(request),
     requestOrigin: context.requestOrigin ?? request.url,
   };
+};
+
+import styles from "~/root.site.css?url";
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "stylesheet",
+      href: styles,
+      precedence: "high",
+    },
+  ];
 };
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
