@@ -24,7 +24,7 @@ import { ColorModeToggle } from "~/components/base/ColorModeToggle";
 import { HistoryLink, HistoryNavLink } from "~/components/base/HistoryLink";
 import { ResolidLogo } from "~/components/base/ResolidLogo";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
-import { getSessionUser } from "~/foundation/session.server";
+import { getSessionUser } from "~/foundation/session.user.server";
 import type { UserIdentity } from "~/modules/user/schema.server";
 
 export const loader = async ({ request, context }: LoaderFunctionArgs) => {
