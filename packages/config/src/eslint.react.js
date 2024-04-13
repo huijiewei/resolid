@@ -21,7 +21,17 @@ export default [
         "warn",
         {
           allowConstantExport: true,
-          allowExportNames: ["meta", "links", "loader", "action", "Layout", "HydrateFallback", "ErrorBoundary"],
+          allowExportNames: [
+            "clientAction",
+            "clientLoader",
+            "ErrorBoundary",
+            "handle",
+            "HydrateFallback",
+            "Layout",
+            "links",
+            "meta",
+            "shouldRevalidate",
+          ],
         },
       ],
     },
