@@ -29,7 +29,7 @@ export const action = async ({ request, response, context }: ActionFunctionArgs)
 
   return redirect(new URL(request.url).searchParams.get("redirect") ?? "", {
     headers: {
-      "Set-Cookie": await commitUserSession(session, { expires: getCookieExpires(30) }),
+      "Set-Cookie": await commitUserSession(session, { expires: getCookieExpires(data.rememberMe ? 365 : undefined) }),
     },
   });
 };
@@ -48,10 +48,13 @@ export default function Signup() {
   } = useRemixForm<UserSignupFormData>({
     mode: "onBlur",
     resolver: userSignupResolver,
+    defaultValues: {
+      rememberMe: true,
+    },
   });
 
   return (
-    <div className={"mx-auto flex w-96 flex-col gap-5 py-10"}>
+    <div className={"mx-auto flex max-w-96 flex-col gap-5 py-10"}>
       <h3 className={"text-center text-xl font-bold"}>注册新账号</h3>
       <Form method={"post"} className={"flex flex-col gap-7"} onSubmit={handleSubmit} noValidate>
         <div className={"relative flex flex-col gap-1"}>
@@ -142,7 +145,7 @@ export default function Signup() {
           />
           <FormError message={errors.confirmPassword?.message} />
         </div>
-        <div className={"relative"}>
+        <div className={"relative flex flex-col gap-3"}>
           <Controller
             name={"agreeTerms"}
             control={control}
@@ -156,6 +159,15 @@ export default function Signup() {
                 <HistoryLink className={"text-link hover:underline"} target={"_blank"} to={"/privacy-policy"}>
                   隐私声明
                 </HistoryLink>
+              </Checkbox>
+            )}
+          />
+          <Controller
+            name={"rememberMe"}
+            control={control}
+            render={({ field: { name, value, onChange } }) => (
+              <Checkbox checked={value} id={name} name={name} onChange={onChange}>
+                在这台电脑上保持登陆
               </Checkbox>
             )}
           />

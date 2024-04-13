@@ -67,7 +67,7 @@ export default function PasswordForgot() {
   });
 
   return (
-    <div className={"mx-auto flex w-96 flex-col gap-5 py-10"}>
+    <div className={"mx-auto flex max-w-96 flex-col gap-5 py-10"}>
       <h3 className={"text-center text-xl font-bold"}>忘记密码</h3>
       <p className={"text-center text-sm text-fg-subtle"}>输入你的电子邮箱，我们将向你发送用于重置密码的链接。</p>
       <Form method={"post"} className={"flex flex-col gap-7"} onSubmit={handleSubmit} noValidate>

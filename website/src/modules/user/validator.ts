@@ -18,6 +18,7 @@ export const userLoginResolver = authLoginResolver;
 const userSignupSchema = authSignupSchema
   .extend({
     agreeTerms: z.literal<boolean>(true),
+    rememberMe: z.boolean().default(false),
     createdIp: z.string().optional(),
     createdFrom: z.string().optional(),
   })
