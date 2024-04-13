@@ -21,8 +21,8 @@ import {
   useRole,
   type Placement,
 } from "@floating-ui/react";
-import { __DEV__ } from "@resolid/utils";
-import { useEffect, useMemo, useRef, useState, type ReactElement } from "react";
+import { __DEV__, runIfFunction } from "@resolid/utils";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useAllowHover, useDisclosure } from "../../hooks";
 import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/floatingArrowContext";
 import { FloatingDispatchProvider } from "../floating/floatingDispatchContext";
@@ -72,6 +72,12 @@ export type MenuProps = {
   duration?: number;
 
   /**
+   * 与触发元素的宽度同步
+   * @default true
+   */
+  syncWidth?: boolean;
+
+  /**
    * @ignore
    */
   lockScroll?: boolean;
@@ -79,7 +85,7 @@ export type MenuProps = {
   /**
    * @ignore
    */
-  children?: ReactElement[];
+  children?: ReactNode | ((props: { opened: boolean }) => ReactNode);
 };
 
 export const MenuRoot = (props: MenuProps) => {
@@ -102,6 +108,7 @@ if (__DEV__) {
 
 const MenuTree = (props: MenuProps) => {
   const {
+    syncWidth = true,
     trigger = "click",
     children,
     closeOnEsc = true,
@@ -133,7 +140,8 @@ const MenuTree = (props: MenuProps) => {
         element: arrowRef,
         padding: 4,
       }),
-      !nested &&
+      syncWidth &&
+        !nested &&
         size({
           apply({ rects, elements }) {
             Object.assign(elements.floating.style, {
@@ -239,7 +247,7 @@ const MenuTree = (props: MenuProps) => {
       <FloatingReferenceProvider value={referenceContext}>
         <MenuFloatingProvider value={floatingContext}>
           <FloatingDispatchProvider value={{ close, open }}>
-            <FloatingNode id={nodeId}>{children}</FloatingNode>
+            <FloatingNode id={nodeId}>{runIfFunction(children, { opened: openedState })}</FloatingNode>
           </FloatingDispatchProvider>
         </MenuFloatingProvider>
       </FloatingReferenceProvider>

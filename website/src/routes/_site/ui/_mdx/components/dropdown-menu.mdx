@@ -182,11 +182,11 @@ import {
   ```
 </section>
 
-## 复选框菜单
+## 复选组菜单
 
 <section className={'example group'}>
   <ComponentExample className={'flex flex-row gap-3 items-center'}>
-    {()=>{
+    {() => {
       const [bookmarksChecked, setBookmarksChecked] = useState(true);
       const [urlsChecked, setUrlsChecked] = useState(false);
       
@@ -210,7 +210,6 @@ import {
         </DropdownMenu>
       );
     }}
-
   </ComponentExample>
 
   ```jsx
@@ -248,7 +247,7 @@ import {
 
 <section className={'example group'}>
   <ComponentExample className={'flex flex-row gap-3 items-center'}>
-    {()=>{
+    {() => {
       const [account, setAccount] = useState('张三');
 
       return (
@@ -274,7 +273,6 @@ import {
         </DropdownMenu>
       );
     }}
-
   </ComponentExample>
 
   ```jsx
@@ -305,6 +303,44 @@ import {
       </DropdownMenuContent>
     </DropdownMenu>
   );
+  ```
+</section>
+
+## 访问内部状态
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3"}>
+    <DropdownMenu closeOnBlur={false}>
+      {({opened})=> (
+        <>
+          <DropdownMenuTrigger asChild>
+            <Button color={'neutral'}>{opened ? "关闭" : "打开"}菜单</Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className={"text-sm"}>
+            <DropdownMenuArrow />
+            <DropdownMenuItem>新建</DropdownMenuItem>
+            <DropdownMenuItem>打开</DropdownMenuItem>
+          </DropdownMenuContent>
+        </>
+      )}
+    </DropdownMenu>
+  </ComponentExample>
+
+  ```jsx
+  <DropdownMenu closeOnBlur={false}>
+    {({ opened }) => (
+      <>
+        <DropdownMenuTrigger asChild>
+          <Button color={'neutral'}>{opened ? "关闭" : "打开"}弹出框</Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className={"text-sm"}>
+          <DropdownMenuArrow />
+          <DropdownMenuItem>新建</DropdownMenuItem>
+          <DropdownMenuItem>打开</DropdownMenuItem>
+        </DropdownMenuContent>
+      </>
+    )}
+  </DropdownMenu>
   ```
 </section>
 
@@ -384,7 +420,7 @@ import {
 
 <section className={'example group'}>
   <ComponentExample className={'flex flex-row gap-3 items-center'}>
-    {()=>{
+    {() => {
       const [bookmarksChecked, setBookmarksChecked] = useState(true);
       const [urlsChecked, setUrlsChecked] = useState(false);
       const [account, setAccount] = useState('张三');
@@ -448,7 +484,6 @@ import {
         </DropdownMenu>
       );
     }}
-
   </ComponentExample>
 
   ```jsx

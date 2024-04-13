@@ -11,10 +11,10 @@ import { MenuRadioItem } from "../menu/MenuRadioItem";
 import { MenuRoot, type MenuProps } from "../menu/MenuRoot";
 import { ContextMenuTrigger } from "./ContextMenuTrigger";
 
-export type ContextMenuProps = Omit<MenuProps, "placement" | "lockScroll" | "trigger">;
+export type ContextMenuProps = Omit<MenuProps, "placement" | "lockScroll" | "trigger" | "syncWidth">;
 
 export const ContextMenu = (props: ContextMenuProps) => {
-  return <MenuRoot {...props} lockScroll={true} />;
+  return <MenuRoot {...props} lockScroll={true} syncWidth={false} />;
 };
 
 export { ContextMenuTrigger };

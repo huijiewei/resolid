@@ -3,19 +3,20 @@ title: 右键菜单
 description: 移入区域后，可点击鼠标右键触发。
 ---
 
+
 import {
   ContextMenu,
-  ContextMenuTrigger,
+  ContextMenuCheckboxItem,
   ContextMenuContent,
+  ContextMenuDivider,
   ContextMenuGroup,
   ContextMenuGroupLabel,
-  ContextMenuDivider,
   ContextMenuItem,
-  ContextMenuItemTrigger,
   ContextMenuItemIndicator,
-  ContextMenuCheckboxItem,
+  ContextMenuItemTrigger,
   ContextMenuRadioGroup,
   ContextMenuRadioItem,
+  ContextMenuTrigger
 } from "@resolid/react-ui";
 import { mergeFrontmatter } from "@resolid/remix-utils";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
@@ -65,44 +66,49 @@ import {
 <section className={'example group'}>
   <ComponentExample className={'flex items-center justify-center'}>
     <ContextMenu>
-      <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
+      <ContextMenuTrigger
+        className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
       <ContextMenuContent className={"text-sm"}>
-        <ContextMenuItem>新标签页<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+T</span></ContextMenuItem>
-        <ContextMenuItem>打开新窗口<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+N</span></ContextMenuItem>
-        <ContextMenuItem disabled>打开新的无痕式窗口<span className={'ml-auto pl-5 text-xs tracking-widest'}>⇧+⌘+N</span></ContextMenuItem>
+        <ContextMenuItem>新标签页<span
+          className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+T</span></ContextMenuItem>
+        <ContextMenuItem>打开新窗口<span
+          className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+N</span></ContextMenuItem>
+        <ContextMenuItem disabled>打开新的无痕式窗口<span
+          className={'ml-auto pl-5 text-xs tracking-widest'}>⇧+⌘+N</span></ContextMenuItem>
         <ContextMenuDivider />
-        <ContextMenuItem>关闭窗口<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⇧+⌘+W</span></ContextMenuItem>
-        <ContextMenuItem>关闭标签页<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+W</span></ContextMenuItem>
+        <ContextMenuItem>关闭窗口<span
+          className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⇧+⌘+W</span></ContextMenuItem>
+        <ContextMenuItem>关闭标签页<span
+          className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+W</span></ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>
   </ComponentExample>
 
-```jsx
-<ContextMenu>
-  <ContextMenuTrigger className={"flex h-32 items-center rounded border border-dashed p-6"}>
-    右键点击显示菜单
-  </ContextMenuTrigger>
-  <ContextMenuContent className={"text-sm"}>
-    <ContextMenuItem>
-      新标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+T</span>
-    </ContextMenuItem>
-    <ContextMenuItem>
-      打开新窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+N</span>
-    </ContextMenuItem>
-    <ContextMenuItem disabled>
-      打开新的无痕式窗口<span className={"ml-auto pl-5 text-xs tracking-widest"}>⇧+⌘+N</span>
-    </ContextMenuItem>
-    <ContextMenuDivider />
-    <ContextMenuItem>
-      关闭窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⇧+⌘+W</span>
-    </ContextMenuItem>
-    <ContextMenuItem>
-      关闭标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+W</span>
-    </ContextMenuItem>
-  </ContextMenuContent>
-</ContextMenu>
-```
-
+  ```jsx
+  <ContextMenu>
+    <ContextMenuTrigger className={"flex h-32 items-center rounded border border-dashed p-6"}>
+      右键点击显示菜单
+    </ContextMenuTrigger>
+    <ContextMenuContent className={"text-sm"}>
+      <ContextMenuItem>
+        新标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+T</span>
+      </ContextMenuItem>
+      <ContextMenuItem>
+        打开新窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+N</span>
+      </ContextMenuItem>
+      <ContextMenuItem disabled>
+        打开新的无痕式窗口<span className={"ml-auto pl-5 text-xs tracking-widest"}>⇧+⌘+N</span>
+      </ContextMenuItem>
+      <ContextMenuDivider />
+      <ContextMenuItem>
+        关闭窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⇧+⌘+W</span>
+      </ContextMenuItem>
+      <ContextMenuItem>
+        关闭标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+W</span>
+      </ContextMenuItem>
+    </ContextMenuContent>
+  </ContextMenu>
+  ```
 </section>
 
 ## 多级菜单
@@ -110,7 +116,8 @@ import {
 <section className={'example group'}>
   <ComponentExample className={'flex items-center justify-center'}>
     <ContextMenu>
-      <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
+      <ContextMenuTrigger
+        className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
       <ContextMenuContent className={"text-sm"}>
         <ContextMenuItem>新建</ContextMenuItem>
         <ContextMenuItem>打开</ContextMenuItem>
@@ -141,60 +148,61 @@ import {
     </ContextMenu>
   </ComponentExample>
 
-```jsx
-<ContextMenu>
-  <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
-    右键点击显示菜单
-  </ContextMenuTrigger>
-  <ContextMenuContent className={"text-sm"}>
-    <ContextMenuItem>新建</ContextMenuItem>
-    <ContextMenuItem>打开</ContextMenuItem>
-    <ContextMenuDivider />
-    <ContextMenu>
-      <ContextMenuItemTrigger>分享</ContextMenuItemTrigger>
-      <ContextMenuContent className={"text-sm"}>
-        <ContextMenuItem>邮件</ContextMenuItem>
-        <ContextMenuItem>短信</ContextMenuItem>
-        <ContextMenu>
-          <ContextMenuItemTrigger>社交媒体</ContextMenuItemTrigger>
-          <ContextMenuContent className={"text-sm"}>
-            <ContextMenu>
-              <ContextMenuItemTrigger>微信</ContextMenuItemTrigger>
-              <ContextMenuContent className={"text-sm"}>
-                <ContextMenuItem>聊天</ContextMenuItem>
-                <ContextMenuItem>朋友圈</ContextMenuItem>
-              </ContextMenuContent>
-            </ContextMenu>
-            <ContextMenuItem>微博</ContextMenuItem>
-            <ContextMenuItem>抖音</ContextMenuItem>
-            <ContextMenuItem>知乎</ContextMenuItem>
-          </ContextMenuContent>
-        </ContextMenu>
-      </ContextMenuContent>
-    </ContextMenu>
-  </ContextMenuContent>
-</ContextMenu>
-```
-
+  ```jsx
+  <ContextMenu>
+    <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
+      右键点击显示菜单
+    </ContextMenuTrigger>
+    <ContextMenuContent className={"text-sm"}>
+      <ContextMenuItem>新建</ContextMenuItem>
+      <ContextMenuItem>打开</ContextMenuItem>
+      <ContextMenuDivider />
+      <ContextMenu>
+        <ContextMenuItemTrigger>分享</ContextMenuItemTrigger>
+        <ContextMenuContent className={"text-sm"}>
+          <ContextMenuItem>邮件</ContextMenuItem>
+          <ContextMenuItem>短信</ContextMenuItem>
+          <ContextMenu>
+            <ContextMenuItemTrigger>社交媒体</ContextMenuItemTrigger>
+            <ContextMenuContent className={"text-sm"}>
+              <ContextMenu>
+                <ContextMenuItemTrigger>微信</ContextMenuItemTrigger>
+                <ContextMenuContent className={"text-sm"}>
+                  <ContextMenuItem>聊天</ContextMenuItem>
+                  <ContextMenuItem>朋友圈</ContextMenuItem>
+                </ContextMenuContent>
+              </ContextMenu>
+              <ContextMenuItem>微博</ContextMenuItem>
+              <ContextMenuItem>抖音</ContextMenuItem>
+              <ContextMenuItem>知乎</ContextMenuItem>
+            </ContextMenuContent>
+          </ContextMenu>
+        </ContextMenuContent>
+      </ContextMenu>
+    </ContextMenuContent>
+  </ContextMenu>
+  ```
 </section>
 
-## 复选框菜单
+## 复选组菜单
 
 <section className={'example group'}>
   <ComponentExample className={'flex flex-row gap-3 items-center justify-center'}>
-    {()=>{
+    {() => {
       const [bookmarksChecked, setBookmarksChecked] = useState(true);
       const [urlsChecked, setUrlsChecked] = useState(false);
-      
+
       return (
-        <ContextMenu>
-          <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
+        <ContextMenu closeOnSelect={false}>
+          <ContextMenuTrigger
+            className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
           <ContextMenuContent className={"text-sm"}>
             <ContextMenuGroup>
               <ContextMenuGroupLabel>选项</ContextMenuGroupLabel>
               <ContextMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
                 <ContextMenuItemIndicator><SpriteIcon size={"1rem"} name={"check"} /></ContextMenuItemIndicator>
-                显示书签栏<div className="ml-auto pl-5 text-sm text-fg-muted">⌘+B</div>
+                显示书签栏
+                <div className="ml-auto pl-5 text-sm text-fg-muted">⌘+B</div>
               </ContextMenuCheckboxItem>
               <ContextMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
                 <ContextMenuItemIndicator><SpriteIcon size={"1rem"} name={"check"} /></ContextMenuItemIndicator>
@@ -206,15 +214,14 @@ import {
         </ContextMenu>
       );
     }}
-
   </ComponentExample>
 
-```jsx
-const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
-const [urlsChecked, setUrlsChecked] = React.useState(false);
+  ```jsx
+  const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
+  const [urlsChecked, setUrlsChecked] = React.useState(false);
 
-return (
-  <ContextMenu>
+  return (
+  <ContextMenu closeOnSelect={false}>
     <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
       右键点击显示菜单
     </ContextMenuTrigger>
@@ -225,7 +232,8 @@ return (
           <ContextMenuItemIndicator>
             <SpriteIcon size={"1rem"} name={"check"} />
           </ContextMenuItemIndicator>
-          显示书签栏<div className="ml-auto pl-5 text-sm text-fg-muted">⌘+B</div>
+          显示书签栏
+          <div className="ml-auto pl-5 text-sm text-fg-muted">⌘+B</div>
         </ContextMenuCheckboxItem>
         <ContextMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
           <ContextMenuItemIndicator>
@@ -236,21 +244,21 @@ return (
       </ContextMenuGroup>
     </ContextMenuContent>
   </ContextMenu>
-);
-```
-
+  );
+  ```
 </section>
 
 ## 单选组菜单
 
 <section className={'example group'}>
   <ComponentExample className={'flex flex-row gap-3 items-center justify-center'}>
-    {()=>{
+    {() => {
       const [account, setAccount] = useState('张三');
 
       return (
         <ContextMenu>
-          <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
+          <ContextMenuTrigger
+            className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
           <ContextMenuContent className={"text-sm w-20"}>
             <ContextMenuRadioGroup value={account} onChange={setAccount}>
               <ContextMenuGroupLabel>账号</ContextMenuGroupLabel>
@@ -271,14 +279,13 @@ return (
         </ContextMenu>
       );
     }}
-
   </ComponentExample>
 
-```jsx
-const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
-const [urlsChecked, setUrlsChecked] = React.useState(false);
+  ```jsx
+  const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
+  const [urlsChecked, setUrlsChecked] = React.useState(false);
 
-return (
+  return (
   <ContextMenu>
     <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
       右键点击显示菜单
@@ -290,7 +297,8 @@ return (
           <ContextMenuItemIndicator>
             <SpriteIcon size={"1rem"} name={"check"} />
           </ContextMenuItemIndicator>
-          显示书签栏<div className="ml-auto pl-5 text-sm text-fg-muted">⌘+B</div>
+          显示书签栏
+          <div className="ml-auto pl-5 text-sm text-fg-muted">⌘+B</div>
         </ContextMenuCheckboxItem>
         <ContextMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
           <ContextMenuItemIndicator>
@@ -301,32 +309,73 @@ return (
       </ContextMenuGroup>
     </ContextMenuContent>
   </ContextMenu>
-);
-```
+  );
+  ```
+</section>
 
+## 访问内部状态
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row items-center justify-center gap-3"}>
+    <ContextMenu>
+      {({ opened }) => (
+        <>
+          <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
+            {opened ? '已经打开右键菜单' : '右键点击显示菜单'}
+          </ContextMenuTrigger>
+          <ContextMenuContent className={"text-sm min-w-32"}>
+            <ContextMenuItem>新建</ContextMenuItem>
+            <ContextMenuItem>打开</ContextMenuItem>
+          </ContextMenuContent>
+        </>
+      )}
+    </ContextMenu>
+  </ComponentExample>
+
+  ```jsx
+  <ContextMenu>
+    {({ opened }) => (
+      <>
+        <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
+          {opened ? '已经打开右键菜单' : '右键点击显示菜单'}
+        </ContextMenuTrigger>
+        <ContextMenuContent className={"text-sm min-w-32"}>
+          <ContextMenuItem>新建</ContextMenuItem>
+          <ContextMenuItem>打开</ContextMenuItem>
+        </ContextMenuContent>
+      </>
+    )}
+  </ContextMenu>
+  ```
 </section>
 
 ## 复杂菜单
 
 <section className={'example group'}>
   <ComponentExample className={'flex flex-row gap-3 items-center justify-center'}>
-    {()=>{
+    {() => {
       const [bookmarksChecked, setBookmarksChecked] = useState(true);
       const [urlsChecked, setUrlsChecked] = useState(false);
       const [account, setAccount] = useState('张三');
 
       return (
         <ContextMenu>
-          <ContextMenuTrigger className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
+          <ContextMenuTrigger
+            className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
           <ContextMenuContent className={"text-sm"}>
             <ContextMenuItem>新标签页<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+T</span></ContextMenuItem>
-            <ContextMenuItem>打开新窗口<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+N</span>
+            <ContextMenuItem>打开新窗口<span
+              className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+N</span>
             </ContextMenuItem>
-            <ContextMenuItem disabled>打开新的无痕式窗口<span className={'ml-auto pl-5 text-xs tracking-widest'}>⇧+⌘+N</span></ContextMenuItem>
+            <ContextMenuItem disabled>打开新的无痕式窗口<span
+              className={'ml-auto pl-5 text-xs tracking-widest'}>⇧+⌘+N</span></ContextMenuItem>
             <ContextMenuDivider />
-            <ContextMenuItem>关闭窗口<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⇧+⌘+W</span></ContextMenuItem>
-            <ContextMenuItem>关闭标签页<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+W</span></ContextMenuItem>
-            <ContextMenuItem>页面存储为...<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+S</span></ContextMenuItem>
+            <ContextMenuItem>关闭窗口<span
+              className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⇧+⌘+W</span></ContextMenuItem>
+            <ContextMenuItem>关闭标签页<span
+              className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+W</span></ContextMenuItem>
+            <ContextMenuItem>页面存储为...<span
+              className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+S</span></ContextMenuItem>
             <ContextMenuDivider />
             <ContextMenu>
               <ContextMenuItemTrigger>分享</ContextMenuItemTrigger>
@@ -337,13 +386,15 @@ return (
               </ContextMenuContent>
             </ContextMenu>
             <ContextMenuDivider />
-            <ContextMenuItem>打印<span className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+P</span></ContextMenuItem>
+            <ContextMenuItem>打印<span
+              className={'ml-auto pl-5 text-xs tracking-widest text-fg-subtle'}>⌘+P</span></ContextMenuItem>
             <ContextMenuDivider />
             <ContextMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
               <ContextMenuItemIndicator>
                 <SpriteIcon size={"1rem"} name={"check"} />
               </ContextMenuItemIndicator>
-              显示书签栏<div className="ml-auto pl-5 text-xs tracking-widest text-fg-subtle">⌘+B</div>
+              显示书签栏
+              <div className="ml-auto pl-5 text-xs tracking-widest text-fg-subtle">⌘+B</div>
             </ContextMenuCheckboxItem>
             <ContextMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
               <ContextMenuItemIndicator>
@@ -373,15 +424,14 @@ return (
         </ContextMenu>
       );
     }}
-
   </ComponentExample>
 
-```jsx
-const [bookmarksChecked, setBookmarksChecked] = useState(true);
-const [urlsChecked, setUrlsChecked] = useState(false);
-const [account, setAccount] = useState("张三");
+  ```jsx
+  const [bookmarksChecked, setBookmarksChecked] = useState(true);
+  const [urlsChecked, setUrlsChecked] = useState(false);
+  const [account, setAccount] = useState("张三");
 
-return (
+  return (
   <ContextMenu>
     <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
       右键点击显示菜单
@@ -424,7 +474,8 @@ return (
         <ContextMenuItemIndicator>
           <SpriteIcon size={"1rem"} name={"check"} />
         </ContextMenuItemIndicator>
-        显示书签栏<div className="ml-auto pl-5 text-xs tracking-widest text-fg-subtle">⌘+B</div>
+        显示书签栏
+        <div className="ml-auto pl-5 text-xs tracking-widest text-fg-subtle">⌘+B</div>
       </ContextMenuCheckboxItem>
       <ContextMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
         <ContextMenuItemIndicator>
@@ -452,9 +503,8 @@ return (
       <ContextMenuItem>其他操作</ContextMenuItem>
     </ContextMenuContent>
   </ContextMenu>
-);
-```
-
+  );
+  ```
 </section>
 
 ## 属性
