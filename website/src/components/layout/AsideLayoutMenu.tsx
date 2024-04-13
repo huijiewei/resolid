@@ -17,7 +17,7 @@ const MenuItem = ({ menu, depth }: { menu: Menu; depth: number }) => {
         <HistoryNavLink
           className={({ isActive }) => {
             return clsx(
-              "block rounded py-1",
+              "block rounded py-1.5",
               depth == 2 && "ps-4",
               isActive ? "bg-bg-primary" : "hover:bg-bg-subtle active:bg-bg-muted",
             );
@@ -31,7 +31,7 @@ const MenuItem = ({ menu, depth }: { menu: Menu; depth: number }) => {
         <h5 className={depth > 1 ? "mb-1 ps-4 font-normal" : "mb-2 font-medium"}>{menu.label}</h5>
       )}
       {menu.children && (
-        <ul className={"space-y-1"}>
+        <ul className={"space-y-0.5"}>
           {menu.children.map((child) => (
             <MenuItem depth={depth + 1} menu={child} key={child.label} />
           ))}
@@ -47,7 +47,7 @@ export type AsideLayoutMenuProps = {
 
 export const AsideLayoutMenu = ({ menus }: AsideLayoutMenuProps) => {
   return (
-    <ul className={"space-y-3 p-4"}>
+    <ul className={"space-y-2 p-4"}>
       {menus.map((menu) => (
         <MenuItem menu={menu} depth={1} key={menu.label} />
       ))}
