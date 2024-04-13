@@ -1,6 +1,13 @@
 import { index, uniqueIndex } from "@resolid/framework/drizzle";
+import type { AuthIdentity } from "@resolid/framework/modules";
 import { authColumns, authGroupColumns, authSessionColumns } from "@resolid/framework/modules";
 import { defineTable } from "~/foundation/schema.server";
+
+export type AdminSelect = typeof adminTable.$inferSelect;
+export type AdminGroupSelect = typeof adminGroupTable.$inferSelect;
+export type AdminSelectWithGroup = AdminSelect & { group: AdminGroupSelect };
+
+export type AdminIdentity = AuthIdentity<AdminSelectWithGroup>;
 
 export const adminTable = defineTable("admin", authColumns, (table) => ({
   emailIndex: uniqueIndex().on(table.email),

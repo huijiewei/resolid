@@ -68,11 +68,18 @@ export default defineConfig(({ command, isSsrBuild }) => {
           v3_throwAbortReason: true,
           unstable_singleFetch: true,
         },
+        serverBundles: ({ branch }) => {
+          return branch.some((route) => {
+            return route.id.startsWith("routes/admin");
+          })
+            ? "admin"
+            : "site";
+        },
         ignoredRouteFiles: ["**/*"],
         routes: async () => {
           return await remixFlexRoutes({
             appDir: appDirectory,
-            ignoredRouteFiles: ["**/.*", "**/__*.*", "**/*.demo.tsx"],
+            ignoredRouteFiles: ["**/.*", "**/__*.*"],
           });
         },
       }),

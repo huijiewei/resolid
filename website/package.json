@@ -7,7 +7,8 @@
     "dev": "remix vite:dev",
     "build": "remix vite:build",
     "vercel": "VERCEL=1 remix vite:build",
-    "serve": "NODE_ENV=production node --env-file=.env ./build/server/serve.mjs",
+    "admin-serve": "NODE_ENV=production SERVE_PORT=3002 SERVE_PATH=/admin node --env-file=.env ./build/server/admin/serve.mjs",
+    "site-serve": "NODE_ENV=production SERVE_PORT=3001 node --env-file=.env ./build/server/site/serve.mjs",
     "resolid": "node --import tsx/esm --env-file .env ./cli/index.ts"
   },
   "dependencies": {
