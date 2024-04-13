@@ -9,7 +9,7 @@ export const isEmpty = (value: string | undefined | null) => {
 export const randomId = () => {
   const nanoid = customAlphabet("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
 
-  return nanoid();
+  return nanoid(16);
 };
 
 export const startWith = (str: string, prefix: string, ignoreCase = true): boolean => {

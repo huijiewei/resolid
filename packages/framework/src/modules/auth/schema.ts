@@ -21,7 +21,7 @@ export const authGroupColumns = {
 };
 
 export const authSessionColumns = {
-  id: varchar("id", { length: 36 }).primaryKey(),
+  id: varchar("id", { length: 32 }).primaryKey(),
   identityId: integer("identityId").notNull().default(0),
   expiredAt: timestamp("expiredAt").notNull(),
   remoteAddr: text("remoteAddr").notNull().default(""),
@@ -29,7 +29,7 @@ export const authSessionColumns = {
 };
 
 export const authPasswordResetColumns = {
-  id: varchar("id", { length: 36 }).primaryKey(),
+  id: varchar("id", { length: 32 }).primaryKey(),
   identityId: integer("identityId").notNull().default(0),
   redeemed: boolean("redeemed").default(false),
   expiredAt: timestamp("expiredAt"),
