@@ -11,10 +11,10 @@ overrides:
   '@remix-run/server-runtime': 2.9.0-pre.3
   '@remix-run/dev': 2.9.0-pre.3
   esbuild: ^0.20.2
-  rollup: ^4.14.1
-  react: 19.0.0-canary-adb717393-20240411
-  react-dom: 19.0.0-canary-adb717393-20240411
-  react-is: 19.0.0-canary-adb717393-20240411
+  rollup: ^4.14.2
+  react: 19.0.0-canary-96c584661-20240412
+  react-dom: 19.0.0-canary-96c584661-20240412
+  react-is: 19.0.0-canary-96c584661-20240412
   hasown: npm:@nolyfill/hasown@latest
   array-includes: npm:@nolyfill/array-includes@latest
   array.prototype.flat: npm:@nolyfill/array.prototype.flat@latest
@@ -119,7 +119,7 @@ importers:
         version: link:../utils
       drizzle-orm:
         specifier: ^0.30.8
-        version: 0.30.8(postgres@3.4.4)(react@19.0.0-canary-adb717393-20240411)
+        version: 0.30.8(postgres@3.4.4)(react@19.0.0-canary-96c584661-20240412)
       nodemailer:
         specifier: ^6.9.13
         version: 6.9.13
@@ -128,7 +128,7 @@ importers:
         version: 3.4.4
       react-hook-form:
         specifier: ^7.51.3
-        version: 7.51.3(react@19.0.0-canary-adb717393-20240411)
+        version: 7.51.3(react@19.0.0-canary-96c584661-20240412)
       zod:
         specifier: ^3.22.4
         version: 3.22.4
@@ -175,13 +175,13 @@ importers:
     dependencies:
       '@floating-ui/react':
         specifier: ^0.26.12
-        version: 0.26.12(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411)
+        version: 0.26.12(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)
       '@resolid/utils':
         specifier: workspace:^
         version: link:../utils
       '@tanstack/react-virtual':
         specifier: ^3.2.1
-        version: 3.2.1(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411)
+        version: 3.2.1(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)
       '@tw-classed/core':
         specifier: ^1.7.0
         version: 1.7.0
@@ -190,7 +190,7 @@ importers:
         version: 2.1.0
       react-remove-scroll-bar:
         specifier: ^2.3.6
-        version: 2.3.6(@types/react@18.2.77)(react@19.0.0-canary-adb717393-20240411)
+        version: 2.3.6(@types/react@18.2.77)(react@19.0.0-canary-96c584661-20240412)
     devDependencies:
       '@resolid/config':
         specifier: workspace:^
@@ -199,8 +199,8 @@ importers:
         specifier: workspace:^
         version: link:../tailwind
       '@testing-library/react':
-        specifier: ^14.3.1
-        version: 14.3.1(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411)
+        specifier: ^15.0.1
+        version: 15.0.1(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)
       '@types/react':
         specifier: ^18.2.77
         version: 18.2.77
@@ -211,11 +211,11 @@ importers:
         specifier: ^24.0.0
         version: 24.0.0
       react:
-        specifier: 19.0.0-canary-adb717393-20240411
-        version: 19.0.0-canary-adb717393-20240411
+        specifier: 19.0.0-canary-96c584661-20240412
+        version: 19.0.0-canary-96c584661-20240412
       react-dom:
-        specifier: 19.0.0-canary-adb717393-20240411
-        version: 19.0.0-canary-adb717393-20240411(react@19.0.0-canary-adb717393-20240411)
+        specifier: 19.0.0-canary-96c584661-20240412
+        version: 19.0.0-canary-96c584661-20240412(react@19.0.0-canary-96c584661-20240412)
       tsup:
         specifier: ^8.0.2
         version: 8.0.2(postcss@8.4.38)(typescript@5.4.5)
@@ -246,13 +246,13 @@ importers:
         version: link:../config
       '@rollup/plugin-commonjs':
         specifier: ^25.0.7
-        version: 25.0.7(rollup@4.14.1)
+        version: 25.0.7(rollup@4.14.2)
       '@rollup/plugin-json':
         specifier: ^6.1.0
-        version: 6.1.0(rollup@4.14.1)
+        version: 6.1.0(rollup@4.14.2)
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
-        version: 15.2.3(rollup@4.14.1)
+        version: 15.2.3(rollup@4.14.2)
       '@vercel/nft':
         specifier: ^0.26.4
         version: 0.26.4
@@ -263,8 +263,8 @@ importers:
         specifier: ^9.0.4
         version: 9.0.4
       rollup:
-        specifier: ^4.14.1
-        version: 4.14.1
+        specifier: ^4.14.2
+        version: 4.14.2
       tsup:
         specifier: ^8.0.2
         version: 8.0.2(postcss@8.4.38)(typescript@5.4.5)
@@ -286,7 +286,7 @@ importers:
         version: 2.9.0-pre.3(typescript@5.4.5)
       '@remix-run/react':
         specifier: 2.9.0-pre.3
-        version: 2.9.0-pre.3(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411)(typescript@5.4.5)
+        version: 2.9.0-pre.3(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)(typescript@5.4.5)
       '@remix-run/server-runtime':
         specifier: 2.9.0-pre.3
         version: 2.9.0-pre.3(typescript@5.4.5)
@@ -344,10 +344,10 @@ importers:
         version: 3.3.4(react-hook-form@7.51.3)
       '@marsidev/react-turnstile':
         specifier: ^0.5.4
-        version: 0.5.4(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411)
+        version: 0.5.4(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)
       '@mdx-js/react':
         specifier: ^3.0.1
-        version: 3.0.1(@types/react@18.2.77)(react@19.0.0-canary-adb717393-20240411)
+        version: 3.0.1(@types/react@18.2.77)(react@19.0.0-canary-96c584661-20240412)
       '@node-rs/bcrypt':
         specifier: ^1.10.1
         version: 1.10.1
@@ -356,7 +356,7 @@ importers:
         version: 2.9.0-pre.3(typescript@5.4.5)
       '@remix-run/react':
         specifier: 2.9.0-pre.3
-        version: 2.9.0-pre.3(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411)(typescript@5.4.5)
+        version: 2.9.0-pre.3(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)(typescript@5.4.5)
       '@remix-run/server-runtime':
         specifier: 2.9.0-pre.3
         version: 2.9.0-pre.3(typescript@5.4.5)
@@ -374,10 +374,10 @@ importers:
         version: link:../packages/utils
       '@vercel/analytics':
         specifier: ^1.2.2
-        version: 1.2.2(react@19.0.0-canary-adb717393-20240411)
+        version: 1.2.2(react@19.0.0-canary-96c584661-20240412)
       '@vercel/speed-insights':
         specifier: ^1.0.10
-        version: 1.0.10(react@19.0.0-canary-adb717393-20240411)
+        version: 1.0.10(react@19.0.0-canary-96c584661-20240412)
       hono:
         specifier: ^4.2.3
         version: 4.2.3
@@ -385,24 +385,24 @@ importers:
         specifier: ^5.1.4
         version: 5.1.4
       react:
-        specifier: 19.0.0-canary-adb717393-20240411
-        version: 19.0.0-canary-adb717393-20240411
+        specifier: 19.0.0-canary-96c584661-20240412
+        version: 19.0.0-canary-96c584661-20240412
       react-dom:
-        specifier: 19.0.0-canary-adb717393-20240411
-        version: 19.0.0-canary-adb717393-20240411(react@19.0.0-canary-adb717393-20240411)
+        specifier: 19.0.0-canary-96c584661-20240412
+        version: 19.0.0-canary-96c584661-20240412(react@19.0.0-canary-96c584661-20240412)
       react-hook-form:
         specifier: ^7.51.3
-        version: 7.51.3(react@19.0.0-canary-adb717393-20240411)
+        version: 7.51.3(react@19.0.0-canary-96c584661-20240412)
       remix-hook-form:
         specifier: ^4.3.1
-        version: 4.3.1(@remix-run/react@2.9.0-pre.3)(react-dom@19.0.0-canary-adb717393-20240411)(react-hook-form@7.51.3)(react@19.0.0-canary-adb717393-20240411)
+        version: 4.3.1(@remix-run/react@2.9.0-pre.3)(react-dom@19.0.0-canary-96c584661-20240412)(react-hook-form@7.51.3)(react@19.0.0-canary-96c584661-20240412)
       zod:
         specifier: ^3.22.4
         version: 3.22.4
     devDependencies:
       '@mdx-js/rollup':
         specifier: ^3.0.1
-        version: 3.0.1(rollup@4.14.1)
+        version: 3.0.1(rollup@4.14.2)
       '@remix-run/dev':
         specifier: 2.9.0-pre.3
         version: 2.9.0-pre.3(@remix-run/react@2.9.0-pre.3)(@types/node@20.12.7)(typescript@5.4.5)(vite@5.2.8)
@@ -465,7 +465,7 @@ importers:
         version: 5.2.8(@types/node@20.12.7)
       vite-plugin-inspect:
         specifier: ^0.8.3
-        version: 0.8.3(rollup@4.14.1)(vite@5.2.8)
+        version: 0.8.3(rollup@4.14.2)(vite@5.2.8)
       vite-tsconfig-paths:
         specifier: ^4.3.2
         version: 4.3.2(typescript@5.4.5)(vite@5.2.8)
@@ -1282,27 +1282,27 @@ packages:
       '@floating-ui/utils': 0.2.1
     dev: false
 
-  /@floating-ui/react-dom@2.0.8(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411):
+  /@floating-ui/react-dom@2.0.8(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-HOdqOt3R3OGeTKidaLvJKcgg75S6tibQ3Tif4eyd91QnIJWr0NLvoXFpJA/j8HqkFSL68GDca9AuyWEHlhyClw==}
     peerDependencies:
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412
     dependencies:
       '@floating-ui/dom': 1.6.3
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411(react@19.0.0-canary-adb717393-20240411)
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412(react@19.0.0-canary-96c584661-20240412)
     dev: false
 
-  /@floating-ui/react@0.26.12(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411):
+  /@floating-ui/react@0.26.12(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-D09o62HrWdIkstF2kGekIKAC0/N/Dl6wo3CQsnLcOmO3LkW6Ik8uIb3kw8JYkwxNCcg+uJ2bpWUiIijTBep05w==}
     peerDependencies:
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412
     dependencies:
-      '@floating-ui/react-dom': 2.0.8(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411)
+      '@floating-ui/react-dom': 2.0.8(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)
       '@floating-ui/utils': 0.2.1
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411(react@19.0.0-canary-adb717393-20240411)
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412(react@19.0.0-canary-96c584661-20240412)
       tabbable: 6.2.0
     dev: false
 
@@ -1324,7 +1324,7 @@ packages:
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
-      react-hook-form: 7.51.3(react@19.0.0-canary-adb717393-20240411)
+      react-hook-form: 7.51.3(react@19.0.0-canary-96c584661-20240412)
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:
@@ -1415,14 +1415,14 @@ packages:
       - supports-color
     dev: true
 
-  /@marsidev/react-turnstile@0.5.4(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411):
+  /@marsidev/react-turnstile@0.5.4(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-cloUDkEcJm+G7p3J8DwPtRNNB2GZqVi/nlIbgu9o3VzNyV5K/bWcSfOyWouRiR3umAQZmsFpR3OFYa4mCmy4AQ==}
     peerDependencies:
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412
     dependencies:
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411(react@19.0.0-canary-adb717393-20240411)
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412(react@19.0.0-canary-96c584661-20240412)
     dev: false
 
   /@mdx-js/mdx@3.0.1:
@@ -1455,25 +1455,25 @@ packages:
       - supports-color
     dev: true
 
-  /@mdx-js/react@3.0.1(@types/react@18.2.77)(react@19.0.0-canary-adb717393-20240411):
+  /@mdx-js/react@3.0.1(@types/react@18.2.77)(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-9ZrPIU4MGf6et1m1ov3zKf+q9+deetI51zprKB1D/z3NOb+rUxxtEl3mCjW5wTGh6VhRdwPueh1oRzi6ezkA8A==}
     peerDependencies:
       '@types/react': '>=16'
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
     dependencies:
       '@types/mdx': 2.0.13
       '@types/react': 18.2.77
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
     dev: false
 
-  /@mdx-js/rollup@3.0.1(rollup@4.14.1):
+  /@mdx-js/rollup@3.0.1(rollup@4.14.2):
     resolution: {integrity: sha512-j0II91OCm4ld+l5QVgXXMQGxVVcAWIQJakYWi1dv5pefDHASJyCYER2TsdH7Alf958GoFSM7ugukWyvDq/UY4A==}
     peerDependencies:
-      rollup: ^4.14.1
+      rollup: ^4.14.2
     dependencies:
       '@mdx-js/mdx': 3.0.1
-      '@rollup/pluginutils': 5.1.0(rollup@4.14.1)
-      rollup: 4.14.1
+      '@rollup/pluginutils': 5.1.0(rollup@4.14.2)
+      rollup: 4.14.2
       source-map: 0.7.4
       vfile: 6.0.1
     transitivePeerDependencies:
@@ -1697,13 +1697,6 @@ packages:
       '@nolyfill/shared': 1.0.24
     dev: false
 
-  /@nolyfill/deep-equal@1.0.29:
-    resolution: {integrity: sha512-EtrJBbOXHhVz8Y1gMYolKgPqh2u96UPqkZMHR0lcjn3y4TC4R7GuN3E4kEhDIpyK3q1+y7HHPHHkt5fGvW1crQ==}
-    engines: {node: '>=12.4.0'}
-    dependencies:
-      dequal: 2.0.3
-    dev: true
-
   /@nolyfill/es-iterator-helpers@1.0.21:
     resolution: {integrity: sha512-i326KeE0nhW4STobcUhkxpXzZUddedCmfh7b/IyXR9kW0CFHiNNT80C3JSEy33mUlhZtk/ezX47nymcFxyBigg==}
     engines: {node: '>=12.4.0'}
@@ -1893,7 +1886,7 @@ packages:
       '@mdx-js/mdx': 3.0.1
       '@npmcli/package-json': 4.0.1
       '@remix-run/node': 2.9.0-pre.3(typescript@5.4.5)
-      '@remix-run/react': 2.9.0-pre.3(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411)(typescript@5.4.5)
+      '@remix-run/react': 2.9.0-pre.3(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)(typescript@5.4.5)
       '@remix-run/router': 1.16.0-pre.1
       '@remix-run/server-runtime': 2.9.0-pre.3(typescript@5.4.5)
       '@types/mdx': 2.0.13
@@ -1969,14 +1962,14 @@ packages:
       source-map-support: 0.5.21
       stream-slice: 0.1.2
       typescript: 5.4.5
-      undici: 6.12.0
+      undici: 6.13.0
 
-  /@remix-run/react@2.9.0-pre.3(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411)(typescript@5.4.5):
+  /@remix-run/react@2.9.0-pre.3(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)(typescript@5.4.5):
     resolution: {integrity: sha512-qW6ijXUbDOBnC2ahIs5SNj7p8pt51mRcHidsPPZwlfubGTEKwR6zay2NcP4Q3XfjYH3uwVEhWMbQkzbO1K/NgQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412
       typescript: ^5.1.0
     peerDependenciesMeta:
       typescript:
@@ -1984,10 +1977,10 @@ packages:
     dependencies:
       '@remix-run/router': 1.16.0-pre.1
       '@remix-run/server-runtime': 2.9.0-pre.3(typescript@5.4.5)
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411(react@19.0.0-canary-adb717393-20240411)
-      react-router: 6.23.0-pre.1(react@19.0.0-canary-adb717393-20240411)
-      react-router-dom: 6.23.0-pre.1(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411)
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412(react@19.0.0-canary-96c584661-20240412)
+      react-router: 6.23.0-pre.1(react@19.0.0-canary-96c584661-20240412)
+      react-router-dom: 6.23.0-pre.1(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)
       turbo-stream: 2.0.0
       typescript: 5.4.5
 
@@ -2047,53 +2040,53 @@ packages:
     dependencies:
       web-streams-polyfill: 3.3.3
 
-  /@rollup/plugin-commonjs@25.0.7(rollup@4.14.1):
+  /@rollup/plugin-commonjs@25.0.7(rollup@4.14.2):
     resolution: {integrity: sha512-nEvcR+LRjEjsaSsc4x3XZfCCvZIaSMenZu/OiwOKGN2UhQpAYI7ru7czFvyWbErlpoGjnSX3D5Ch5FcMA3kRWQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      rollup: ^4.14.1
+      rollup: ^4.14.2
     peerDependenciesMeta:
       rollup:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.1.0(rollup@4.14.1)
+      '@rollup/pluginutils': 5.1.0(rollup@4.14.2)
       commondir: 1.0.1
       estree-walker: 2.0.2
       glob: 8.1.0
       is-reference: 1.2.1
       magic-string: 0.30.9
-      rollup: 4.14.1
+      rollup: 4.14.2
     dev: true
 
-  /@rollup/plugin-json@6.1.0(rollup@4.14.1):
+  /@rollup/plugin-json@6.1.0(rollup@4.14.2):
     resolution: {integrity: sha512-EGI2te5ENk1coGeADSIwZ7G2Q8CJS2sF120T7jLw4xFw9n7wIOXHo+kIYRAoVpJAN+kmqZSoO3Fp4JtoNF4ReA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      rollup: ^4.14.1
+      rollup: ^4.14.2
     peerDependenciesMeta:
       rollup:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.1.0(rollup@4.14.1)
-      rollup: 4.14.1
+      '@rollup/pluginutils': 5.1.0(rollup@4.14.2)
+      rollup: 4.14.2
     dev: true
 
-  /@rollup/plugin-node-resolve@15.2.3(rollup@4.14.1):
+  /@rollup/plugin-node-resolve@15.2.3(rollup@4.14.2):
     resolution: {integrity: sha512-j/lym8nf5E21LwBT4Df1VD6hRO2L2iwUeUmP7litikRsVp1H6NWx20NEp0Y7su+7XGc476GnXXc4kFeZNGmaSQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      rollup: ^4.14.1
+      rollup: ^4.14.2
     peerDependenciesMeta:
       rollup:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.1.0(rollup@4.14.1)
+      '@rollup/pluginutils': 5.1.0(rollup@4.14.2)
       '@types/resolve': 1.20.2
       deepmerge: 4.3.1
       is-builtin-module: 3.2.1
       is-module: 1.0.0
       resolve: 1.22.8
-      rollup: 4.14.1
+      rollup: 4.14.2
     dev: true
 
   /@rollup/pluginutils@4.2.1:
@@ -2104,11 +2097,11 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@rollup/pluginutils@5.1.0(rollup@4.14.1):
+  /@rollup/pluginutils@5.1.0(rollup@4.14.2):
     resolution: {integrity: sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      rollup: ^4.14.1
+      rollup: ^4.14.2
     peerDependenciesMeta:
       rollup:
         optional: true
@@ -2116,123 +2109,123 @@ packages:
       '@types/estree': 1.0.5
       estree-walker: 2.0.2
       picomatch: 2.3.1
-      rollup: 4.14.1
+      rollup: 4.14.2
     dev: true
 
-  /@rollup/rollup-android-arm-eabi@4.14.1:
-    resolution: {integrity: sha512-fH8/o8nSUek8ceQnT7K4EQbSiV7jgkHq81m9lWZFIXjJ7lJzpWXbQFpT/Zh6OZYnpFykvzC3fbEvEAFZu03dPA==}
+  /@rollup/rollup-android-arm-eabi@4.14.2:
+    resolution: {integrity: sha512-ahxSgCkAEk+P/AVO0vYr7DxOD3CwAQrT0Go9BJyGQ9Ef0QxVOfjDZMiF4Y2s3mLyPrjonchIMH/tbWHucJMykQ==}
     cpu: [arm]
     os: [android]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-android-arm64@4.14.1:
-    resolution: {integrity: sha512-Y/9OHLjzkunF+KGEoJr3heiD5X9OLa8sbT1lm0NYeKyaM3oMhhQFvPB0bNZYJwlq93j8Z6wSxh9+cyKQaxS7PQ==}
+  /@rollup/rollup-android-arm64@4.14.2:
+    resolution: {integrity: sha512-lAarIdxZWbFSHFSDao9+I/F5jDaKyCqAPMq5HqnfpBw8dKDiCaaqM0lq5h1pQTLeIqueeay4PieGR5jGZMWprw==}
     cpu: [arm64]
     os: [android]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-darwin-arm64@4.14.1:
-    resolution: {integrity: sha512-+kecg3FY84WadgcuSVm6llrABOdQAEbNdnpi5X3UwWiFVhZIZvKgGrF7kmLguvxHNQy+UuRV66cLVl3S+Rkt+Q==}
+  /@rollup/rollup-darwin-arm64@4.14.2:
+    resolution: {integrity: sha512-SWsr8zEUk82KSqquIMgZEg2GE5mCSfr9sE/thDROkX6pb3QQWPp8Vw8zOq2GyxZ2t0XoSIUlvHDkrf5Gmf7x3Q==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-darwin-x64@4.14.1:
-    resolution: {integrity: sha512-2pYRzEjVqq2TB/UNv47BV/8vQiXkFGVmPFwJb+1E0IFFZbIX8/jo1olxqqMbo6xCXf8kabANhp5bzCij2tFLUA==}
+  /@rollup/rollup-darwin-x64@4.14.2:
+    resolution: {integrity: sha512-o/HAIrQq0jIxJAhgtIvV5FWviYK4WB0WwV91SLUnsliw1lSAoLsmgEEgRWzDguAFeUEUUoIWXiJrPqU7vGiVkA==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-linux-arm-gnueabihf@4.14.1:
-    resolution: {integrity: sha512-mS6wQ6Do6/wmrF9aTFVpIJ3/IDXhg1EZcQFYHZLHqw6AzMBjTHWnCG35HxSqUNphh0EHqSM6wRTT8HsL1C0x5g==}
+  /@rollup/rollup-linux-arm-gnueabihf@4.14.2:
+    resolution: {integrity: sha512-nwlJ65UY9eGq91cBi6VyDfArUJSKOYt5dJQBq8xyLhvS23qO+4Nr/RreibFHjP6t+5ap2ohZrUJcHv5zk5ju/g==}
     cpu: [arm]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-linux-arm64-gnu@4.14.1:
-    resolution: {integrity: sha512-p9rGKYkHdFMzhckOTFubfxgyIO1vw//7IIjBBRVzyZebWlzRLeNhqxuSaZ7kCEKVkm/kuC9fVRW9HkC/zNRG2w==}
+  /@rollup/rollup-linux-arm64-gnu@4.14.2:
+    resolution: {integrity: sha512-Pg5TxxO2IVlMj79+c/9G0LREC9SY3HM+pfAwX7zj5/cAuwrbfj2Wv9JbMHIdPCfQpYsI4g9mE+2Bw/3aeSs2rQ==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-linux-arm64-musl@4.14.1:
-    resolution: {integrity: sha512-nDY6Yz5xS/Y4M2i9JLQd3Rofh5OR8Bn8qe3Mv/qCVpHFlwtZSBYSPaU4mrGazWkXrdQ98GB//H0BirGR/SKFSw==}
+  /@rollup/rollup-linux-arm64-musl@4.14.2:
+    resolution: {integrity: sha512-cAOTjGNm84gc6tS02D1EXtG7tDRsVSDTBVXOLbj31DkwfZwgTPYZ6aafSU7rD/4R2a34JOwlF9fQayuTSkoclA==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-linux-powerpc64le-gnu@4.14.1:
-    resolution: {integrity: sha512-im7HE4VBL+aDswvcmfx88Mp1soqL9OBsdDBU8NqDEYtkri0qV0THhQsvZtZeNNlLeCUQ16PZyv7cqutjDF35qw==}
-    cpu: [ppc64le]
+  /@rollup/rollup-linux-powerpc64le-gnu@4.14.2:
+    resolution: {integrity: sha512-4RyT6v1kXb7C0fn6zV33rvaX05P0zHoNzaXI/5oFHklfKm602j+N4mn2YvoezQViRLPnxP8M1NaY4s/5kXO5cw==}
+    cpu: [ppc64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-linux-riscv64-gnu@4.14.1:
-    resolution: {integrity: sha512-RWdiHuAxWmzPJgaHJdpvUUlDz8sdQz4P2uv367T2JocdDa98iRw2UjIJ4QxSyt077mXZT2X6pKfT2iYtVEvOFw==}
+  /@rollup/rollup-linux-riscv64-gnu@4.14.2:
+    resolution: {integrity: sha512-KNUH6jC/vRGAKSorySTyc/yRYlCwN/5pnMjXylfBniwtJx5O7X17KG/0efj8XM3TZU7raYRXJFFReOzNmL1n1w==}
     cpu: [riscv64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-linux-s390x-gnu@4.14.1:
-    resolution: {integrity: sha512-VMgaGQ5zRX6ZqV/fas65/sUGc9cPmsntq2FiGmayW9KMNfWVG/j0BAqImvU4KTeOOgYSf1F+k6at1UfNONuNjA==}
+  /@rollup/rollup-linux-s390x-gnu@4.14.2:
+    resolution: {integrity: sha512-xPV4y73IBEXToNPa3h5lbgXOi/v0NcvKxU0xejiFw6DtIYQqOTMhZ2DN18/HrrP0PmiL3rGtRG9gz1QE8vFKXQ==}
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-linux-x64-gnu@4.14.1:
-    resolution: {integrity: sha512-9Q7DGjZN+hTdJomaQ3Iub4m6VPu1r94bmK2z3UeWP3dGUecRC54tmVu9vKHTm1bOt3ASoYtEz6JSRLFzrysKlA==}
+  /@rollup/rollup-linux-x64-gnu@4.14.2:
+    resolution: {integrity: sha512-QBhtr07iFGmF9egrPOWyO5wciwgtzKkYPNLVCFZTmr4TWmY0oY2Dm/bmhHjKRwZoGiaKdNcKhFtUMBKvlchH+Q==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-linux-x64-musl@4.14.1:
-    resolution: {integrity: sha512-JNEG/Ti55413SsreTguSx0LOVKX902OfXIKVg+TCXO6Gjans/k9O6ww9q3oLGjNDaTLxM+IHFMeXy/0RXL5R/g==}
+  /@rollup/rollup-linux-x64-musl@4.14.2:
+    resolution: {integrity: sha512-8zfsQRQGH23O6qazZSFY5jP5gt4cFvRuKTpuBsC1ZnSWxV8ZKQpPqOZIUtdfMOugCcBvFGRa1pDC/tkf19EgBw==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-win32-arm64-msvc@4.14.1:
-    resolution: {integrity: sha512-ryS22I9y0mumlLNwDFYZRDFLwWh3aKaC72CWjFcFvxK0U6v/mOkM5Up1bTbCRAhv3kEIwW2ajROegCIQViUCeA==}
+  /@rollup/rollup-win32-arm64-msvc@4.14.2:
+    resolution: {integrity: sha512-H4s8UjgkPnlChl6JF5empNvFHp77Jx+Wfy2EtmYPe9G22XV+PMuCinZVHurNe8ggtwoaohxARJZbaH/3xjB/FA==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-win32-ia32-msvc@4.14.1:
-    resolution: {integrity: sha512-TdloItiGk+T0mTxKx7Hp279xy30LspMso+GzQvV2maYePMAWdmrzqSNZhUpPj3CGw12aGj57I026PgLCTu8CGg==}
+  /@rollup/rollup-win32-ia32-msvc@4.14.2:
+    resolution: {integrity: sha512-djqpAjm/i8erWYF0K6UY4kRO3X5+T4TypIqw60Q8MTqSBaQNpNXDhxdjpZ3ikgb+wn99svA7jxcXpiyg9MUsdw==}
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@rollup/rollup-win32-x64-msvc@4.14.1:
-    resolution: {integrity: sha512-wQGI+LY/Py20zdUPq+XCem7JcPOyzIJBm3dli+56DJsQOHbnXZFEwgmnC6el1TPAfC8lBT3m+z69RmLykNUbew==}
+  /@rollup/rollup-win32-x64-msvc@4.14.2:
+    resolution: {integrity: sha512-teAqzLT0yTYZa8ZP7zhFKEx4cotS8Tkk5XiqNMJhD4CpaWB1BHARE4Qy+RzwnXvSAYv+Q3jAqCVBS+PS+Yee8Q==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
@@ -2276,47 +2269,47 @@ packages:
       tailwindcss: 3.4.3
     dev: true
 
-  /@tanstack/react-virtual@3.2.1(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411):
+  /@tanstack/react-virtual@3.2.1(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-i9Nt0ssIh2bSjomJZlr6Iq5usT/9+ewo2/fKHRNk6kjVKS8jrhXbnO8NEawarCuBx/efv0xpoUUKKGxa0cQb4Q==}
     peerDependencies:
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412
     dependencies:
       '@tanstack/virtual-core': 3.2.1
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411(react@19.0.0-canary-adb717393-20240411)
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412(react@19.0.0-canary-96c584661-20240412)
     dev: false
 
   /@tanstack/virtual-core@3.2.1:
     resolution: {integrity: sha512-nO0d4vRzsmpBQCJYyClNHPPoUMI4nXNfrm6IcCRL33ncWMoNVpURh9YebEHPw8KrtsP2VSJIHE4gf4XFGk1OGg==}
     dev: false
 
-  /@testing-library/dom@9.3.4:
-    resolution: {integrity: sha512-FlS4ZWlp97iiNWig0Muq8p+3rVDjRiYE+YKGbAqXOu9nwJFFOdL00kFpz42M+4huzYi86vAK1sOOfyOG45muIQ==}
-    engines: {node: '>=14'}
+  /@testing-library/dom@10.0.0:
+    resolution: {integrity: sha512-PmJPnogldqoVFf+EwbHvbBJ98MmqASV8kLrBYgsDNxQcFMeIS7JFL48sfyXvuMtgmWO/wMhh25odr+8VhDmn4g==}
+    engines: {node: '>=18'}
     dependencies:
       '@babel/code-frame': 7.24.2
       '@babel/runtime': 7.24.4
       '@types/aria-query': 5.0.4
-      aria-query: 5.1.3
+      aria-query: 5.3.0
       chalk: 4.1.2
       dom-accessibility-api: 0.5.16
       lz-string: 1.5.0
       pretty-format: 27.5.1
     dev: true
 
-  /@testing-library/react@14.3.1(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411):
-    resolution: {integrity: sha512-H99XjUhWQw0lTgyMN05W3xQG1Nh4lq574D8keFf1dDoNTJgp66VbJozRaczoF+wsiaPJNt/TcnfpLGufGxSrZQ==}
-    engines: {node: '>=14'}
+  /@testing-library/react@15.0.1(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412):
+    resolution: {integrity: sha512-I8u4qqGAuBg7C1/kRB9n7Oz9Pc/UHEkmiQRbJziSG8B13eZfAcAUn8TSP26ZIvfSeb68CngmtZbKKcRqcQKa3g==}
+    engines: {node: '>=18'}
     peerDependencies:
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412
     dependencies:
       '@babel/runtime': 7.24.4
-      '@testing-library/dom': 9.3.4
+      '@testing-library/dom': 10.0.0
       '@types/react-dom': 18.2.25
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411(react@19.0.0-canary-adb717393-20240411)
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412(react@19.0.0-canary-96c584661-20240412)
     dev: true
 
   /@tw-classed/core@1.7.0:
@@ -2620,18 +2613,18 @@ packages:
     resolution: {integrity: sha512-8FGD6AejeC/nXcblgNCM5rnZb9KXa4WNkR03HCWtdJBpANjTgjHEglNLFnhuvdQ78tC6afaxBPI+g7F2NX3tgg==}
     dev: true
 
-  /@vercel/analytics@1.2.2(react@19.0.0-canary-adb717393-20240411):
+  /@vercel/analytics@1.2.2(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-X0rctVWkQV1e5Y300ehVNqpOfSOufo7ieA5PIdna8yX/U7Vjz0GFsGf4qvAhxV02uQ2CVt7GYcrFfddXXK2Y4A==}
     peerDependencies:
       next: '>= 13'
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
     peerDependenciesMeta:
       next:
         optional: true
       react:
         optional: true
     dependencies:
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
       server-only: 0.0.1
     dev: false
 
@@ -2657,13 +2650,13 @@ packages:
       - supports-color
     dev: true
 
-  /@vercel/speed-insights@1.0.10(react@19.0.0-canary-adb717393-20240411):
+  /@vercel/speed-insights@1.0.10(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-4uzdKB0RW6Ff2FkzshzjZ+RlJfLPxgm/00i0XXgxfMPhwnnsk92YgtqsxT9OcPLdJUyVU1DqFlSWWjIQMPkh0g==}
     requiresBuild: true
     peerDependencies:
       '@sveltejs/kit': ^1 || ^2
       next: '>= 13'
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
       svelte: ^4
       vue: ^3
       vue-router: ^4
@@ -2681,7 +2674,7 @@ packages:
       vue-router:
         optional: true
     dependencies:
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
     dev: false
 
   /@vitest/expect@1.5.0:
@@ -2888,17 +2881,10 @@ packages:
   /argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
-  /aria-query@5.1.3:
-    resolution: {integrity: sha512-R5iJ5lkuHybztUfuOAznmboyjWq8O6sqNqtK7CLOqdydi54VNbORp49mb14KbWgG1QD3JFO9hJdZ+y4KutfdOQ==}
-    dependencies:
-      deep-equal: /@nolyfill/deep-equal@1.0.29
-    dev: true
-
   /aria-query@5.3.0:
     resolution: {integrity: sha512-b0P0sZPKtyu8HkeRAfCq0IfURZK+SuwMjY1UXGBU27wpAiTwQAIlq56IbIO+ytk/JjS1fMR14ee5WBBfKi5J6A==}
     dependencies:
       dequal: 2.0.3
-    dev: false
 
   /array-flatten@1.1.1:
     resolution: {integrity: sha512-PCVAQswWemu6UdxsDFFX/+gVeYqKAod3D3UVm91jHwynguOwAvYPhx8nNlM++NqRcK6CxxpUafjmhIdKiHibqg==}
@@ -2941,7 +2927,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.23.0
-      caniuse-lite: 1.0.30001608
+      caniuse-lite: 1.0.30001609
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -3037,8 +3023,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001608
-      electron-to-chromium: 1.4.734
+      caniuse-lite: 1.0.30001609
+      electron-to-chromium: 1.4.736
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
     dev: true
@@ -3123,8 +3109,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /caniuse-lite@1.0.30001608:
-    resolution: {integrity: sha512-cjUJTQkk9fQlJR2s4HMuPMvTiRggl0rAVMtthQuyOlDWuqHXqN8azLq+pi8B2TjwKJ32diHjUqRIKeFX4z1FoA==}
+  /caniuse-lite@1.0.30001609:
+    resolution: {integrity: sha512-JFPQs34lHKx1B5t1EpQpWH4c+29zIyn/haGsbpfq3suuV9v56enjFt23zqijxGTMwy1p/4H2tjnQMY+p1WoAyA==}
     dev: true
 
   /ccount@2.0.1:
@@ -3667,7 +3653,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.30.8(postgres@3.4.4)(react@19.0.0-canary-adb717393-20240411):
+  /drizzle-orm@0.30.8(postgres@3.4.4)(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-9pBJA0IjnpPpzZ6s9jlS1CQAbKoBmbn2GJesPhXaVblAA/joOJ4AWWevYcqvLGj9SvThBAl7WscN8Zwgg5mnTw==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -3692,7 +3678,7 @@ packages:
       mysql2: '>=2'
       pg: '>=8'
       postgres: '>=3'
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
       sql.js: '>=1'
       sqlite3: '>=5'
     peerDependenciesMeta:
@@ -3748,7 +3734,7 @@ packages:
         optional: true
     dependencies:
       postgres: 3.4.4
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
     dev: false
 
   /duplexify@3.7.1:
@@ -3768,8 +3754,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
-  /electron-to-chromium@1.4.734:
-    resolution: {integrity: sha512-pYfGUc+ll8AOzLbLC0lfgwkvCZIV+sKGuFFsSNuF3K3ujrmem8jIjg/t6DNq0J7biTSS1hCt/Hts0nmA3ZyprQ==}
+  /electron-to-chromium@1.4.736:
+    resolution: {integrity: sha512-Rer6wc3ynLelKNM4lOCg7/zPQj8tPOCB2hzD32PX9wd3hgRRi9MxEbmkFCokzcEhRVMiOVLjnL9ig9cefJ+6+Q==}
     dev: true
 
   /emoji-regex@8.0.0:
@@ -6996,7 +6982,7 @@ packages:
     dependencies:
       ansi-regex: 5.0.1
       ansi-styles: 5.2.0
-      react-is: 19.0.0-canary-adb717393-20240411
+      react-is: 19.0.0-canary-96c584661-20240412
     dev: true
 
   /pretty-format@29.7.0:
@@ -7005,7 +6991,7 @@ packages:
     dependencies:
       '@jest/schemas': 29.6.3
       ansi-styles: 5.2.0
-      react-is: 19.0.0-canary-adb717393-20240411
+      react-is: 19.0.0-canary-96c584661-20240412
     dev: true
 
   /pretty-ms@7.0.1:
@@ -7046,7 +7032,7 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
-      react-is: 19.0.0-canary-adb717393-20240411
+      react-is: 19.0.0-canary-96c584661-20240412
     dev: false
 
   /property-information@6.5.0:
@@ -7128,74 +7114,74 @@ packages:
       typescript: 5.4.5
     dev: false
 
-  /react-dom@19.0.0-canary-adb717393-20240411(react@19.0.0-canary-adb717393-20240411):
-    resolution: {integrity: sha512-zkJnxTJXN5sr7XJ7qq82S6UJJ81PZrZv3Y9Z4iY9Mx9fHAFTORnk7/5oWafrpfW544rLCSMWuxrKVYtXSyOQJA==}
+  /react-dom@19.0.0-canary-96c584661-20240412(react@19.0.0-canary-96c584661-20240412):
+    resolution: {integrity: sha512-BF/9BKTieBBNUuZF8JiEbl9TaJdjo8eUtzh/tiE13Krr1vk5sd8NEXpdZxapc752eiBiINvrlOXdnTLJCj/xLQ==}
     peerDependencies:
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
     dependencies:
-      react: 19.0.0-canary-adb717393-20240411
-      scheduler: 0.25.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
+      scheduler: 0.25.0-canary-96c584661-20240412
 
-  /react-hook-form@7.51.3(react@19.0.0-canary-adb717393-20240411):
+  /react-hook-form@7.51.3(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-cvJ/wbHdhYx8aviSWh28w9ImjmVsb5Y05n1+FW786vEZQJV5STNM0pW6ujS+oiBecb0ARBxJFyAnXj9+GHXACQ==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
     dependencies:
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
     dev: false
 
-  /react-is@19.0.0-canary-adb717393-20240411:
-    resolution: {integrity: sha512-vvsNwnctynMmAi8AGUtfgeDvITkJtGTGnnbZxJUmrZ1c/gYFE0OOdaMntaWLEj4yYliDe/6HSPCUcZ96WAtMKg==}
+  /react-is@19.0.0-canary-96c584661-20240412:
+    resolution: {integrity: sha512-c5oo5Kt+uQOhEvIwoWiyiigUCItqMwi+av/flXj5+ClTXF48TpOA2PhC5FRZW9rvjBm0UcT6LQ82V9pbUH7rYw==}
 
   /react-refresh@0.14.0:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-remove-scroll-bar@2.3.6(@types/react@18.2.77)(react@19.0.0-canary-adb717393-20240411):
+  /react-remove-scroll-bar@2.3.6(@types/react@18.2.77)(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-DtSYaao4mBmX+HDo5YWYdBWQwYIQQshUV/dVxFxK+KM26Wjwp1gZ6rv6OC3oujI6Bfu6Xyg3TwK533AQutsn/g==}
     engines: {node: '>=10'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
     peerDependenciesMeta:
       '@types/react':
         optional: true
     dependencies:
       '@types/react': 18.2.77
-      react: 19.0.0-canary-adb717393-20240411
-      react-style-singleton: 2.2.1(@types/react@18.2.77)(react@19.0.0-canary-adb717393-20240411)
+      react: 19.0.0-canary-96c584661-20240412
+      react-style-singleton: 2.2.1(@types/react@18.2.77)(react@19.0.0-canary-96c584661-20240412)
       tslib: 2.6.2
     dev: false
 
-  /react-router-dom@6.23.0-pre.1(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411):
+  /react-router-dom@6.23.0-pre.1(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-iZnPPBGCvg/gGzzKCqaXoPJjdVQwjJ4aJj2UTatJvzIQq6c586BS7u8WzpHy2pmbri58btGj4eLIgF7jv1Fgvw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412
     dependencies:
       '@remix-run/router': 1.16.0-pre.1
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411(react@19.0.0-canary-adb717393-20240411)
-      react-router: 6.23.0-pre.1(react@19.0.0-canary-adb717393-20240411)
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412(react@19.0.0-canary-96c584661-20240412)
+      react-router: 6.23.0-pre.1(react@19.0.0-canary-96c584661-20240412)
 
-  /react-router@6.23.0-pre.1(react@19.0.0-canary-adb717393-20240411):
+  /react-router@6.23.0-pre.1(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-lijdeB51mv3Cxij+ymI/NcGCb0D9KjXPuvqFXxeUIyMtevHh6i1viDD/0U+gknla1ZfawhWKfwkn4XAD2T7KTA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
     dependencies:
       '@remix-run/router': 1.16.0-pre.1
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
 
-  /react-style-singleton@2.2.1(@types/react@18.2.77)(react@19.0.0-canary-adb717393-20240411):
+  /react-style-singleton@2.2.1(@types/react@18.2.77)(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
     engines: {node: '>=10'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -7203,12 +7189,12 @@ packages:
       '@types/react': 18.2.77
       get-nonce: 1.0.1
       invariant: 2.2.4
-      react: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
       tslib: 2.6.2
     dev: false
 
-  /react@19.0.0-canary-adb717393-20240411:
-    resolution: {integrity: sha512-vizYCKbfm3G8X4EOoGPtk5kmnwEz65AaBE5FhPgsU83pApj94zoYExeVr1SAoxK1DrWVGdZh0XKR1iOUxbFOZw==}
+  /react@19.0.0-canary-96c584661-20240412:
+    resolution: {integrity: sha512-4wZI4CuU4HeKOqy+nu+PlHigTuxYXKAM4d0HaeHtQsgTM8UdyHxgEJ9sjibA0nEhuvNCT9BuyHlVdWqwmcNR2A==}
     engines: {node: '>=0.10.0'}
 
   /read-cache@1.0.0:
@@ -7350,18 +7336,18 @@ packages:
       unified: 11.0.4
     dev: true
 
-  /remix-hook-form@4.3.1(@remix-run/react@2.9.0-pre.3)(react-dom@19.0.0-canary-adb717393-20240411)(react-hook-form@7.51.3)(react@19.0.0-canary-adb717393-20240411):
+  /remix-hook-form@4.3.1(@remix-run/react@2.9.0-pre.3)(react-dom@19.0.0-canary-96c584661-20240412)(react-hook-form@7.51.3)(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-6MO2amNTDe0t6j2msmkwCcHpMmDBXK8IbwHQcHWfgm82wCrIcWkM0DCtnC/ISfyyPv7EBhKYK5gSUUM9WalHcw==}
     peerDependencies:
       '@remix-run/react': 2.9.0-pre.3
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412
       react-hook-form: ^7.51.0
     dependencies:
-      '@remix-run/react': 2.9.0-pre.3(react-dom@19.0.0-canary-adb717393-20240411)(react@19.0.0-canary-adb717393-20240411)(typescript@5.4.5)
-      react: 19.0.0-canary-adb717393-20240411
-      react-dom: 19.0.0-canary-adb717393-20240411(react@19.0.0-canary-adb717393-20240411)
-      react-hook-form: 7.51.3(react@19.0.0-canary-adb717393-20240411)
+      '@remix-run/react': 2.9.0-pre.3(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)(typescript@5.4.5)
+      react: 19.0.0-canary-96c584661-20240412
+      react-dom: 19.0.0-canary-96c584661-20240412(react@19.0.0-canary-96c584661-20240412)
+      react-hook-form: 7.51.3(react@19.0.0-canary-96c584661-20240412)
     dev: false
 
   /require-directory@2.1.1:
@@ -7440,28 +7426,28 @@ packages:
     dependencies:
       glob: 7.2.3
 
-  /rollup@4.14.1:
-    resolution: {integrity: sha512-4LnHSdd3QK2pa1J6dFbfm1HN0D7vSK/ZuZTsdyUAlA6Rr1yTouUTL13HaDOGJVgby461AhrNGBS7sCGXXtT+SA==}
+  /rollup@4.14.2:
+    resolution: {integrity: sha512-WkeoTWvuBoFjFAhsEOHKRoZ3r9GfTyhh7Vff1zwebEFLEFjT1lG3784xEgKiTa7E+e70vsC81roVL2MP4tgEEQ==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
     dependencies:
       '@types/estree': 1.0.5
     optionalDependencies:
-      '@rollup/rollup-android-arm-eabi': 4.14.1
-      '@rollup/rollup-android-arm64': 4.14.1
-      '@rollup/rollup-darwin-arm64': 4.14.1
-      '@rollup/rollup-darwin-x64': 4.14.1
-      '@rollup/rollup-linux-arm-gnueabihf': 4.14.1
-      '@rollup/rollup-linux-arm64-gnu': 4.14.1
-      '@rollup/rollup-linux-arm64-musl': 4.14.1
-      '@rollup/rollup-linux-powerpc64le-gnu': 4.14.1
-      '@rollup/rollup-linux-riscv64-gnu': 4.14.1
-      '@rollup/rollup-linux-s390x-gnu': 4.14.1
-      '@rollup/rollup-linux-x64-gnu': 4.14.1
-      '@rollup/rollup-linux-x64-musl': 4.14.1
-      '@rollup/rollup-win32-arm64-msvc': 4.14.1
-      '@rollup/rollup-win32-ia32-msvc': 4.14.1
-      '@rollup/rollup-win32-x64-msvc': 4.14.1
+      '@rollup/rollup-android-arm-eabi': 4.14.2
+      '@rollup/rollup-android-arm64': 4.14.2
+      '@rollup/rollup-darwin-arm64': 4.14.2
+      '@rollup/rollup-darwin-x64': 4.14.2
+      '@rollup/rollup-linux-arm-gnueabihf': 4.14.2
+      '@rollup/rollup-linux-arm64-gnu': 4.14.2
+      '@rollup/rollup-linux-arm64-musl': 4.14.2
+      '@rollup/rollup-linux-powerpc64le-gnu': 4.14.2
+      '@rollup/rollup-linux-riscv64-gnu': 4.14.2
+      '@rollup/rollup-linux-s390x-gnu': 4.14.2
+      '@rollup/rollup-linux-x64-gnu': 4.14.2
+      '@rollup/rollup-linux-x64-musl': 4.14.2
+      '@rollup/rollup-win32-arm64-msvc': 4.14.2
+      '@rollup/rollup-win32-ia32-msvc': 4.14.2
+      '@rollup/rollup-win32-x64-msvc': 4.14.2
       fsevents: 2.3.3
     dev: true
 
@@ -7498,8 +7484,8 @@ packages:
       xmlchars: 2.2.0
     dev: true
 
-  /scheduler@0.25.0-canary-adb717393-20240411:
-    resolution: {integrity: sha512-b8a8LYUgcGU22/QkOjvFaNW+OXAmuRp4IoHxM1Ve/aT2F/nO0fHpsIyAuik+g4SvOOnV3khW90mqNDG7nsjh/w==}
+  /scheduler@0.25.0-canary-96c584661-20240412:
+    resolution: {integrity: sha512-yIgey951Qr5hSpwdrk1w2OJoywBXFdew8duq27Bo8WQ+4Zp02OX6GjZuS0iRnKxmYh/6FApkQOaYT1T0CdlBTQ==}
 
   /semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -8080,7 +8066,7 @@ packages:
       postcss: 8.4.38
       postcss-load-config: 4.0.2(postcss@8.4.38)
       resolve-from: 5.0.0
-      rollup: 4.14.1
+      rollup: 4.14.2
       source-map: 0.8.0-beta.0
       sucrase: 3.35.0
       tree-kill: 1.2.2
@@ -8168,8 +8154,8 @@ packages:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
     dev: true
 
-  /undici@6.12.0:
-    resolution: {integrity: sha512-d87yk8lqSFUYtR5fTFe2frpkMIrUEz+lgoJmhcL+J3StVl+8fj8ytE4lLnJOTPCE12YbumNGzf4LYsQyusdV5g==}
+  /undici@6.13.0:
+    resolution: {integrity: sha512-Q2rtqmZWrbP8nePMq7mOJIN98M0fYvSgV89vwl/BQRT4mDOeY2GXZngfGpcBBhtky3woM7G24wZV3Q304Bv6cw==}
     engines: {node: '>=18.0'}
 
   /unicorn-magic@0.1.0:
@@ -8406,7 +8392,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-inspect@0.8.3(rollup@4.14.1)(vite@5.2.8):
+  /vite-plugin-inspect@0.8.3(rollup@4.14.2)(vite@5.2.8):
     resolution: {integrity: sha512-SBVzOIdP/kwe6hjkt7LSW4D0+REqqe58AumcnCfRNw4Kt3mbS9pEBkch+nupu2PBxv2tQi69EQHQ1ZA1vgB/Og==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -8417,7 +8403,7 @@ packages:
         optional: true
     dependencies:
       '@antfu/utils': 0.7.7
-      '@rollup/pluginutils': 5.1.0(rollup@4.14.1)
+      '@rollup/pluginutils': 5.1.0(rollup@4.14.2)
       debug: 4.3.4
       error-stack-parser-es: 0.1.1
       fs-extra: 11.2.0
@@ -8479,7 +8465,7 @@ packages:
       '@types/node': 20.12.7
       esbuild: 0.20.2
       postcss: 8.4.38
-      rollup: 4.14.1
+      rollup: 4.14.2
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
