@@ -1,5 +1,6 @@
 import { Form, useSearchParams } from "@remix-run/react";
 import { redirect, type ActionFunctionArgs } from "@remix-run/server-runtime";
+import { getCookieExpires } from "@resolid/framework";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
 import { mergeMeta } from "@resolid/remix-utils";
 import { Controller } from "react-hook-form";
@@ -28,7 +29,7 @@ export const action = async ({ request, response, context }: ActionFunctionArgs)
 
   return redirect(new URL(request.url).searchParams.get("redirect") ?? "", {
     headers: {
-      "Set-Cookie": await commitUserSession(session, { maxAge: 60 * 60 * 24 * 30 }),
+      "Set-Cookie": await commitUserSession(session, { expires: getCookieExpires(30) }),
     },
   });
 };
