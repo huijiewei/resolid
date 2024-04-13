@@ -114,7 +114,11 @@ export default {
 };
 ```
 
-> 运行 build 以后自动会在 `build/server` 目录下生成 `server.mjs` 和 `package.json` 文件, `package.json` 文件里面定义了 Vite 设置的 `ssr.external`, 在服务器目录下运行 `npm install` 即可安装构建时排除的依赖
+此适配器支持 `SERVE_PORT` 和 `SERVE_PATH` 环境变量, `SERVE_PATH` 环境变量用于 Remix 的 serverBundles 功能
+
+> 运行 build 成功以后自动会在 `build/server` 目录下生成 `server.mjs` 和 `package.json` 文件, `package.json` 文件里面定义了 Vite 设置的 `ssr.external`, 在服务器目录下运行 `npm install` 即可安装构建时排除的依赖
+
+
 
 ### Vercel Serverless 适配器
 

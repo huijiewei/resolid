@@ -114,6 +114,8 @@ export default {
 };
 ```
 
+This adapter supports the `SERVE_PORT` and `SERVE_PATH` environment variables. The `SERVE_PATH` environment variable is for Remix's serverBundles feature.
+
 > After running build, `server.mjs` and `package.json` files will be automatically generated in the `build/server` directory. The `package.json` file defines the `ssr.external` set by Vite in the server directory. Run `npm install` to install dependencies excluded during build
 
 ### Vercel Serverless Adapter

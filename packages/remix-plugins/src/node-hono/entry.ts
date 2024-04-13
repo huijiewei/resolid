@@ -34,7 +34,7 @@ app
 serve(
   {
     ...app,
-    port: Number(env.PORT) || 3000,
+    port: Number(env.SERVE_PORT) || 3000,
   },
   async (info) => {
     console.log(`🚀 Hono Server started on port ${info.port}`);
@@ -43,10 +43,10 @@ serve(
       .flat()
       .find((ip) => String(ip?.family).includes("4") && !ip?.internal)?.address;
 
-    if (!address) {
-      console.log(`[remix-hono-server] http://localhost:${info.port}`);
-    } else {
-      console.log(`[remix-hono-server] http://localhost:${info.port} (http://${address}:${info.port})`);
-    }
+    const servePath = env.SERVE_PATH ? env.SERVE_PATH : "";
+
+    console.log(
+      `[remix-hono-server] http://localhost:${info.port}${servePath}${address && ` (http://${address}:${info.port})`}`,
+    );
   },
 );
