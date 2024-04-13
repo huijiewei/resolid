@@ -12,6 +12,7 @@ export const MenuContent = (props: BaseProps<"div">) => {
 
   const {
     nested,
+    trigger,
     lockScroll,
     tree,
     duration,
@@ -28,30 +29,38 @@ export const MenuContent = (props: BaseProps<"div">) => {
     duration: duration,
   });
 
+  const menuInner = (
+    <div
+      className={clsx(
+        "z-popup rounded border border-bd-normal bg-bg-normal p-1 shadow outline-none",
+        "transition-opacity duration-[--duration-var]",
+        status == "open" ? "opacity-100" : "opacity-0",
+        className,
+      )}
+      ref={setFloating}
+      style={{ ...floatingStyles, "--duration-var": `${duration}ms` } as CSSProperties}
+      {...getFloatingProps({
+        ...rest,
+      })}
+    >
+      <MenuSelectProvider value={{ getItemProps, activeIndex, tree }}>
+        <FloatingList elementsRef={elementsRef}>{children}</FloatingList>
+      </MenuSelectProvider>
+    </div>
+  );
+
   return (
     <>
       {isMounted && (
         <Portal>
           {!nested && lockScroll && <RemoveScrollBar />}
-          <FloatingFocusManager modal={false} initialFocus={nested ? -1 : 0} returnFocus={!nested} context={context}>
-            <div
-              className={clsx(
-                "z-popup rounded border border-bd-normal bg-bg-normal p-1 shadow outline-none",
-                "transition-opacity duration-[--duration-var]",
-                status == "open" ? "opacity-100" : "opacity-0",
-                className,
-              )}
-              ref={setFloating}
-              style={{ ...floatingStyles, "--duration-var": `${duration}ms` } as CSSProperties}
-              {...getFloatingProps({
-                ...rest,
-              })}
-            >
-              <MenuSelectProvider value={{ getItemProps, activeIndex, tree }}>
-                <FloatingList elementsRef={elementsRef}>{children}</FloatingList>
-              </MenuSelectProvider>
-            </div>
-          </FloatingFocusManager>
+          {!nested && trigger == "click" ? (
+            <FloatingFocusManager modal={false} initialFocus={0} returnFocus={true} context={context}>
+              {menuInner}
+            </FloatingFocusManager>
+          ) : (
+            menuInner
+          )}
         </Portal>
       )}
     </>

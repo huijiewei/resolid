@@ -14,6 +14,7 @@ import {
   useFloatingNodeId,
   useFloatingParentNodeId,
   useFloatingTree,
+  useFocus,
   useHover,
   useInteractions,
   useListNavigation,
@@ -30,9 +31,10 @@ import { MenuFloatingProvider, type MenuFloatingContext } from "./menuContext";
 
 export type MenuProps = {
   /**
-   * 控制打开状态
+   * 触发模式
+   * @default 'click'
    */
-  opened?: boolean;
+  trigger?: "click" | "hover";
 
   /**
    * 关闭时的回调
@@ -69,10 +71,14 @@ export type MenuProps = {
    */
   duration?: number;
 
-  /* @ignore */
+  /**
+   * @ignore
+   */
   lockScroll?: boolean;
 
-  /* @ignore */
+  /**
+   * @ignore
+   */
   children?: ReactElement[];
 };
 
@@ -96,11 +102,11 @@ if (__DEV__) {
 
 const MenuTree = (props: MenuProps) => {
   const {
+    trigger = "click",
     children,
     closeOnEsc = true,
     closeOnBlur = true,
     closeOnSelect = true,
-    opened,
     duration = 250,
     placement = "bottom-start",
     onClose,
@@ -114,7 +120,7 @@ const MenuTree = (props: MenuProps) => {
 
   const allowHover = useAllowHover();
 
-  const { opened: openedState, open, close } = useDisclosure({ opened, onClose });
+  const { opened: openedState, open, close } = useDisclosure({ opened: undefined, onClose });
 
   const arrowRef = useRef<SVGSVGElement>(null);
 
@@ -150,10 +156,11 @@ const MenuTree = (props: MenuProps) => {
 
   const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
     useHover(context, {
-      enabled: nested && allowHover,
+      enabled: trigger == "hover" || (nested && allowHover),
       handleClose: safePolygon(),
     }),
-    useClick(context, { toggle: !nested || !allowHover, event: "mousedown", ignoreMouse: nested }),
+    useFocus(context, { enabled: trigger == "hover" && !nested }),
+    useClick(context, { enabled: trigger == "click" && (!nested || !allowHover) }),
     useRole(context, { role: "menu" }),
     useDismiss(context, { escapeKey: closeOnEsc, outsidePress: closeOnBlur }),
     useListNavigation(context, {
@@ -177,6 +184,7 @@ const MenuTree = (props: MenuProps) => {
   const floatingContext = useMemo<MenuFloatingContext>(
     () => ({
       nested,
+      trigger,
       lockScroll,
       duration,
       tree,
@@ -190,6 +198,7 @@ const MenuTree = (props: MenuProps) => {
     }),
     [
       nested,
+      trigger,
       lockScroll,
       duration,
       tree,

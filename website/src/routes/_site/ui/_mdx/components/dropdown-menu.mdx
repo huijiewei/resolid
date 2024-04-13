@@ -81,32 +81,31 @@ import {
     </DropdownMenu>
   </ComponentExample>
 
-```jsx
-<DropdownMenu>
-  <DropdownMenuTrigger asChild>
-    <Button color={"neutral"}>普通菜单</Button>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent className={"text-sm"}>
-    <DropdownMenuItem>
-      新标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+T</span>
-    </DropdownMenuItem>
-    <DropdownMenuItem>
-      打开新窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+N</span>
-    </DropdownMenuItem>
-    <DropdownMenuItem disabled>
-      打开新的无痕式窗口<span className={"ml-auto pl-5 text-xs tracking-widest"}>⇧+⌘+N</span>
-    </DropdownMenuItem>
-    <DropdownMenuDivider />
-    <DropdownMenuItem>
-      关闭窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⇧+⌘+W</span>
-    </DropdownMenuItem>
-    <DropdownMenuItem>
-      关闭标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+W</span>
-    </DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>
-```
-
+  ```jsx
+  <DropdownMenu>
+    <DropdownMenuTrigger asChild>
+      <Button color={"neutral"}>普通菜单</Button>
+    </DropdownMenuTrigger>
+    <DropdownMenuContent className={"text-sm"}>
+      <DropdownMenuItem>
+        新标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+T</span>
+      </DropdownMenuItem>
+      <DropdownMenuItem>
+        打开新窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+N</span>
+      </DropdownMenuItem>
+      <DropdownMenuItem disabled>
+        打开新的无痕式窗口<span className={"ml-auto pl-5 text-xs tracking-widest"}>⇧+⌘+N</span>
+      </DropdownMenuItem>
+      <DropdownMenuDivider />
+      <DropdownMenuItem>
+        关闭窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⇧+⌘+W</span>
+      </DropdownMenuItem>
+      <DropdownMenuItem>
+        关闭标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+W</span>
+      </DropdownMenuItem>
+    </DropdownMenuContent>
+  </DropdownMenu>
+  ```
 </section>
 
 ## 多级菜单
@@ -146,42 +145,41 @@ import {
     </DropdownMenu>
   </ComponentExample>
 
-```jsx
-<DropdownMenu>
-  <DropdownMenuTrigger asChild>
-    <Button color={"neutral"}>多级菜单</Button>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent className={"text-sm"}>
-    <DropdownMenuArrow />
-    <DropdownMenuItem>新建</DropdownMenuItem>
-    <DropdownMenuItem>打开</DropdownMenuItem>
-    <DropdownMenuDivider />
-    <DropdownMenu>
-      <DropdownMenuItemTrigger>分享</DropdownMenuItemTrigger>
-      <DropdownMenuContent className={"text-sm"}>
-        <DropdownMenuItem>邮件</DropdownMenuItem>
-        <DropdownMenuItem>短信</DropdownMenuItem>
-        <DropdownMenu>
-          <DropdownMenuItemTrigger>社交媒体</DropdownMenuItemTrigger>
-          <DropdownMenuContent className={"text-sm"}>
-            <DropdownMenu>
-              <DropdownMenuItemTrigger>微信</DropdownMenuItemTrigger>
-              <DropdownMenuContent className={"text-sm"}>
-                <DropdownMenuItem>聊天</DropdownMenuItem>
-                <DropdownMenuItem>朋友圈</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <DropdownMenuItem>微博</DropdownMenuItem>
-            <DropdownMenuItem>抖音</DropdownMenuItem>
-            <DropdownMenuItem>知乎</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  </DropdownMenuContent>
-</DropdownMenu>
-```
-
+  ```jsx
+  <DropdownMenu>
+    <DropdownMenuTrigger asChild>
+      <Button color={"neutral"}>多级菜单</Button>
+    </DropdownMenuTrigger>
+    <DropdownMenuContent className={"text-sm"}>
+      <DropdownMenuArrow />
+      <DropdownMenuItem>新建</DropdownMenuItem>
+      <DropdownMenuItem>打开</DropdownMenuItem>
+      <DropdownMenuDivider />
+      <DropdownMenu>
+        <DropdownMenuItemTrigger>分享</DropdownMenuItemTrigger>
+        <DropdownMenuContent className={"text-sm"}>
+          <DropdownMenuItem>邮件</DropdownMenuItem>
+          <DropdownMenuItem>短信</DropdownMenuItem>
+          <DropdownMenu>
+            <DropdownMenuItemTrigger>社交媒体</DropdownMenuItemTrigger>
+            <DropdownMenuContent className={"text-sm"}>
+              <DropdownMenu>
+                <DropdownMenuItemTrigger>微信</DropdownMenuItemTrigger>
+                <DropdownMenuContent className={"text-sm"}>
+                  <DropdownMenuItem>聊天</DropdownMenuItem>
+                  <DropdownMenuItem>朋友圈</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <DropdownMenuItem>微博</DropdownMenuItem>
+              <DropdownMenuItem>抖音</DropdownMenuItem>
+              <DropdownMenuItem>知乎</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </DropdownMenuContent>
+  </DropdownMenu>
+  ```
 </section>
 
 ## 复选框菜单
@@ -193,7 +191,7 @@ import {
       const [urlsChecked, setUrlsChecked] = useState(false);
       
       return (
-        <DropdownMenu>
+        <DropdownMenu closeOnSelect={false}>
           <DropdownMenuTrigger asChild><Button color={'neutral'}>复选框菜单</Button></DropdownMenuTrigger>
           <DropdownMenuContent className={"text-sm"}>
             <DropdownMenuGroup>
@@ -215,36 +213,35 @@ import {
 
   </ComponentExample>
 
-```jsx
-const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
-const [urlsChecked, setUrlsChecked] = React.useState(false);
-
-return (
-  <DropdownMenu>
-    <DropdownMenuTrigger asChild>
-      <Button color={"neutral"}>复选框菜单</Button>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent className={"text-sm"}>
-      <DropdownMenuGroup>
-        <DropdownMenuGroupLabel>选项</DropdownMenuGroupLabel>
-        <DropdownMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
-          <DropdownMenuItemIndicator>
-            <SpriteIcon size={"1rem"} name={"check"} />
-          </DropdownMenuItemIndicator>
-          显示书签栏<div className="ml-auto pl-5 text-sm text-fg-muted">⌘+B</div>
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
-          <DropdownMenuItemIndicator>
-            <SpriteIcon size={"1rem"} name={"check"} />
-          </DropdownMenuItemIndicator>
-          显示路径
-        </DropdownMenuCheckboxItem>
-      </DropdownMenuGroup>
-    </DropdownMenuContent>
-  </DropdownMenu>
-);
-```
-
+  ```jsx
+  const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
+  const [urlsChecked, setUrlsChecked] = React.useState(false);
+  
+  return (
+    <DropdownMenu closeOnSelect={false}>
+      <DropdownMenuTrigger asChild>
+        <Button color={"neutral"}>复选框菜单</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className={"text-sm"}>
+        <DropdownMenuGroup>
+          <DropdownMenuGroupLabel>选项</DropdownMenuGroupLabel>
+          <DropdownMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
+            <DropdownMenuItemIndicator>
+              <SpriteIcon size={"1rem"} name={"check"} />
+            </DropdownMenuItemIndicator>
+            显示书签栏<div className="ml-auto pl-5 text-sm text-fg-muted">⌘+B</div>
+          </DropdownMenuCheckboxItem>
+          <DropdownMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
+            <DropdownMenuItemIndicator>
+              <SpriteIcon size={"1rem"} name={"check"} />
+            </DropdownMenuItemIndicator>
+            显示路径
+          </DropdownMenuCheckboxItem>
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+  ```
 </section>
 
 ## 单选组菜单
@@ -280,36 +277,107 @@ return (
 
   </ComponentExample>
 
-```jsx
-const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
-const [urlsChecked, setUrlsChecked] = React.useState(false);
+  ```jsx
+  const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
+  const [urlsChecked, setUrlsChecked] = React.useState(false);
+  
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button color={"neutral"}>复选框菜单</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className={"text-sm"}>
+        <DropdownMenuGroup>
+          <DropdownMenuGroupLabel>选项</DropdownMenuGroupLabel>
+          <DropdownMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
+            <DropdownMenuItemIndicator>
+              <SpriteIcon size={"1rem"} name={"check"} />
+            </DropdownMenuItemIndicator>
+            显示书签栏<div className="ml-auto pl-5 text-sm text-fg-muted">⌘+B</div>
+          </DropdownMenuCheckboxItem>
+          <DropdownMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
+            <DropdownMenuItemIndicator>
+              <SpriteIcon size={"1rem"} name={"check"} />
+            </DropdownMenuItemIndicator>
+            显示路径
+          </DropdownMenuCheckboxItem>
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+  ```
+</section>
 
-return (
-  <DropdownMenu>
-    <DropdownMenuTrigger asChild>
-      <Button color={"neutral"}>复选框菜单</Button>
-    </DropdownMenuTrigger>
+## 触发方式
+
+<section className={'example group'}>
+  <ComponentExample className={'flex flex-row gap-3 items-center'}>
+    <DropdownMenu trigger={'hover'}>
+      <DropdownMenuTrigger asChild><Button color={'neutral'}>悬停菜单</Button></DropdownMenuTrigger>
+      <DropdownMenuContent className={"text-sm"}>
+        <DropdownMenuArrow />
+        <DropdownMenuItem>新建</DropdownMenuItem>
+        <DropdownMenuItem>打开</DropdownMenuItem>
+        <DropdownMenuDivider />
+        <DropdownMenu>
+          <DropdownMenuItemTrigger>分享</DropdownMenuItemTrigger>
+          <DropdownMenuContent className={"text-sm"}>
+            <DropdownMenuItem>邮件</DropdownMenuItem>
+            <DropdownMenuItem>短信</DropdownMenuItem>
+            <DropdownMenu>
+              <DropdownMenuItemTrigger>社交媒体</DropdownMenuItemTrigger>
+              <DropdownMenuContent className={"text-sm"}>
+                <DropdownMenu>
+                  <DropdownMenuItemTrigger>微信</DropdownMenuItemTrigger>
+                  <DropdownMenuContent className={"text-sm"}>
+                    <DropdownMenuItem>聊天</DropdownMenuItem>
+                    <DropdownMenuItem>朋友圈</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                <DropdownMenuItem>微博</DropdownMenuItem>
+                <DropdownMenuItem>抖音</DropdownMenuItem>
+                <DropdownMenuItem>知乎</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  </ComponentExample>
+
+  ```jsx
+  <DropdownMenu trigger={'hover'}>
+    <DropdownMenuTrigger asChild><Button color={'neutral'}>悬停菜单</Button></DropdownMenuTrigger>
     <DropdownMenuContent className={"text-sm"}>
-      <DropdownMenuGroup>
-        <DropdownMenuGroupLabel>选项</DropdownMenuGroupLabel>
-        <DropdownMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
-          <DropdownMenuItemIndicator>
-            <SpriteIcon size={"1rem"} name={"check"} />
-          </DropdownMenuItemIndicator>
-          显示书签栏<div className="ml-auto pl-5 text-sm text-fg-muted">⌘+B</div>
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
-          <DropdownMenuItemIndicator>
-            <SpriteIcon size={"1rem"} name={"check"} />
-          </DropdownMenuItemIndicator>
-          显示路径
-        </DropdownMenuCheckboxItem>
-      </DropdownMenuGroup>
+      <DropdownMenuArrow />
+      <DropdownMenuItem>新建</DropdownMenuItem>
+      <DropdownMenuItem>打开</DropdownMenuItem>
+      <DropdownMenuDivider />
+      <DropdownMenu>
+        <DropdownMenuItemTrigger>分享</DropdownMenuItemTrigger>
+        <DropdownMenuContent className={"text-sm"}>
+          <DropdownMenuItem>邮件</DropdownMenuItem>
+          <DropdownMenuItem>短信</DropdownMenuItem>
+          <DropdownMenu>
+            <DropdownMenuItemTrigger>社交媒体</DropdownMenuItemTrigger>
+            <DropdownMenuContent className={"text-sm"}>
+              <DropdownMenu>
+                <DropdownMenuItemTrigger>微信</DropdownMenuItemTrigger>
+                <DropdownMenuContent className={"text-sm"}>
+                  <DropdownMenuItem>聊天</DropdownMenuItem>
+                  <DropdownMenuItem>朋友圈</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <DropdownMenuItem>微博</DropdownMenuItem>
+              <DropdownMenuItem>抖音</DropdownMenuItem>
+              <DropdownMenuItem>知乎</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </DropdownMenuContent>
   </DropdownMenu>
-);
-```
-
+  ```
 </section>
 
 ## 复杂菜单
@@ -383,86 +451,85 @@ return (
 
   </ComponentExample>
 
-```jsx
-const [bookmarksChecked, setBookmarksChecked] = useState(true);
-const [urlsChecked, setUrlsChecked] = useState(false);
-const [account, setAccount] = useState("张三");
-
-return (
-  <DropdownMenu>
-    <DropdownMenuTrigger asChild>
-      <Button color={"neutral"}>复杂菜单</Button>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent className={"text-sm"}>
-      <DropdownMenuArrow />
-      <DropdownMenuItem>
-        新标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+T</span>
-      </DropdownMenuItem>
-      <DropdownMenuItem>
-        打开新窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+N</span>
-      </DropdownMenuItem>
-      <DropdownMenuItem disabled>
-        打开新的无痕式窗口<span className={"ml-auto pl-5 text-xs tracking-widest"}>⇧+⌘+N</span>
-      </DropdownMenuItem>
-      <DropdownMenuDivider />
-      <DropdownMenuItem>
-        关闭窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⇧+⌘+W</span>
-      </DropdownMenuItem>
-      <DropdownMenuItem>
-        关闭标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+W</span>
-      </DropdownMenuItem>
-      <DropdownMenuItem>
-        页面存储为...<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+S</span>
-      </DropdownMenuItem>
-      <DropdownMenuDivider />
-      <DropdownMenu>
-        <DropdownMenuItemTrigger>分享</DropdownMenuItemTrigger>
-        <DropdownMenuContent className={"text-sm"}>
-          <DropdownMenuItem>电子邮件</DropdownMenuItem>
-          <DropdownMenuItem>手机短信</DropdownMenuItem>
-          <DropdownMenuItem>隔空投送</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-      <DropdownMenuDivider />
-      <DropdownMenuItem>
-        打印<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+P</span>
-      </DropdownMenuItem>
-      <DropdownMenuDivider />
-      <DropdownMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
-        <DropdownMenuItemIndicator>
-          <SpriteIcon size={"1rem"} name={"check"} />
-        </DropdownMenuItemIndicator>
-        显示书签栏<div className="ml-auto pl-5 text-xs tracking-widest text-fg-subtle">⌘+B</div>
-      </DropdownMenuCheckboxItem>
-      <DropdownMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
-        <DropdownMenuItemIndicator>
-          <SpriteIcon size={"1rem"} name={"check"} />
-        </DropdownMenuItemIndicator>
-        显示路径
-      </DropdownMenuCheckboxItem>
-      <DropdownMenuDivider />
-      <DropdownMenuRadioGroup value={account} onChange={setAccount}>
-        <DropdownMenuGroupLabel>账号</DropdownMenuGroupLabel>
-        <DropdownMenuRadioItem value={"张三"}>
+  ```jsx
+  const [bookmarksChecked, setBookmarksChecked] = useState(true);
+  const [urlsChecked, setUrlsChecked] = useState(false);
+  const [account, setAccount] = useState("张三");
+  
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button color={"neutral"}>复杂菜单</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className={"text-sm"}>
+        <DropdownMenuArrow />
+        <DropdownMenuItem>
+          新标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+T</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          打开新窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+N</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem disabled>
+          打开新的无痕式窗口<span className={"ml-auto pl-5 text-xs tracking-widest"}>⇧+⌘+N</span>
+        </DropdownMenuItem>
+        <DropdownMenuDivider />
+        <DropdownMenuItem>
+          关闭窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⇧+⌘+W</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          关闭标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+W</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          页面存储为...<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+S</span>
+        </DropdownMenuItem>
+        <DropdownMenuDivider />
+        <DropdownMenu>
+          <DropdownMenuItemTrigger>分享</DropdownMenuItemTrigger>
+          <DropdownMenuContent className={"text-sm"}>
+            <DropdownMenuItem>电子邮件</DropdownMenuItem>
+            <DropdownMenuItem>手机短信</DropdownMenuItem>
+            <DropdownMenuItem>隔空投送</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <DropdownMenuDivider />
+        <DropdownMenuItem>
+          打印<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+P</span>
+        </DropdownMenuItem>
+        <DropdownMenuDivider />
+        <DropdownMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
           <DropdownMenuItemIndicator>
-            <SpriteIcon size={"1rem"} name={"dot"} />
+            <SpriteIcon size={"1rem"} name={"check"} />
           </DropdownMenuItemIndicator>
-          张三
-        </DropdownMenuRadioItem>
-        <DropdownMenuRadioItem value={"李四"}>
+          显示书签栏<div className="ml-auto pl-5 text-xs tracking-widest text-fg-subtle">⌘+B</div>
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
           <DropdownMenuItemIndicator>
-            <SpriteIcon size={"1rem"} name={"dot"} />
+            <SpriteIcon size={"1rem"} name={"check"} />
           </DropdownMenuItemIndicator>
-          李四
-        </DropdownMenuRadioItem>
-      </DropdownMenuRadioGroup>
-      <DropdownMenuDivider />
-      <DropdownMenuItem>其他操作</DropdownMenuItem>
-    </DropdownMenuContent>
-  </DropdownMenu>
-);
-```
-
+          显示路径
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuDivider />
+        <DropdownMenuRadioGroup value={account} onChange={setAccount}>
+          <DropdownMenuGroupLabel>账号</DropdownMenuGroupLabel>
+          <DropdownMenuRadioItem value={"张三"}>
+            <DropdownMenuItemIndicator>
+              <SpriteIcon size={"1rem"} name={"dot"} />
+            </DropdownMenuItemIndicator>
+            张三
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value={"李四"}>
+            <DropdownMenuItemIndicator>
+              <SpriteIcon size={"1rem"} name={"dot"} />
+            </DropdownMenuItemIndicator>
+            李四
+          </DropdownMenuRadioItem>
+        </DropdownMenuRadioGroup>
+        <DropdownMenuDivider />
+        <DropdownMenuItem>其他操作</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+  ```
 </section>
 
 ## 属性

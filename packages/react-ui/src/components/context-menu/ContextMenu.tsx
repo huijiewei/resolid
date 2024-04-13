@@ -11,7 +11,7 @@ import { MenuRadioItem } from "../menu/MenuRadioItem";
 import { MenuRoot, type MenuProps } from "../menu/MenuRoot";
 import { ContextMenuTrigger } from "./ContextMenuTrigger";
 
-export type ContextMenuProps = Omit<MenuProps, "placement" | "lockScroll">;
+export type ContextMenuProps = Omit<MenuProps, "placement" | "lockScroll" | "trigger">;
 
 export const ContextMenu = (props: ContextMenuProps) => {
   return <MenuRoot {...props} lockScroll={true} />;
