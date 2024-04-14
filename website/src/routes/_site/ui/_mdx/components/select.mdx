@@ -63,7 +63,6 @@ import { Select, NativeSelect } from "@resolid/react-ui";
       .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
   />
   ```
-
 </section>
 
 ## 可控
@@ -158,7 +157,6 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     </>
   );
   ```
-
 </section>
 
 ## 状态
@@ -217,7 +215,6 @@ import { Select, NativeSelect } from "@resolid/react-ui";
       .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
   />
   ```
-
 </section>
 
 ## 大小
@@ -268,7 +265,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     />
   </ComponentExample>
 
-```jsx
+  ```jsx
   <Select
     className={"w-28"}
     options={Array(10)
@@ -311,8 +308,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
       .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
     size={'xl'}
   />
-```
-
+  ```
 </section>
 
 ## 选项组
@@ -381,7 +377,6 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     ]}
   />
   ```
-
 </section>
 
 ## 自定义渲染
@@ -471,8 +466,9 @@ import { Select, NativeSelect } from "@resolid/react-ui";
           />
           <Select
             className={'w-96'}
-            defaultValue={"firefox"}
+            defaultValue={["firefox", "chrome"]}
             options={browsers}
+            multiple
             renderLabel={renderLabel}
             renderOption={renderOption}
           />
@@ -560,15 +556,15 @@ import { Select, NativeSelect } from "@resolid/react-ui";
       />
       <Select
         className={'w-96'}
-        defaultValue={"firefox"}
+        defaultValue={["firefox", "chrome"]}
         options={browsers}
+        multiple
         renderLabel={renderLabel}
         renderOption={renderOption}
       />
     </>
   );
   ```
-
 </section>
 
 ## 虚拟滚动
@@ -629,7 +625,6 @@ import { Select, NativeSelect } from "@resolid/react-ui";
       .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
   />
   ```
-
 </section>
 
 ## 原生选择器
@@ -710,10 +705,15 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     <option value={'svelte'}>Svelte</option>
   </NativeSelect>
   ```
-
 </section>
 
 
 ## 属性
 
+### 选择器
+
 <ComponentProps componentFile={"./select/Select.tsx"} />
+
+### 原生选择器
+
+<ComponentProps componentFile={"./select/NativeSelect.tsx"} />

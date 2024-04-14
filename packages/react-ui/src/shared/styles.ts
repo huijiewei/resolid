@@ -88,3 +88,7 @@ export const sharedBadgeAndAlertVariants = {
     },
   ],
 };
+
+export const focusInputStyles = "focus:border-bg-primary-emphasis focus:ring-1 focus:ring-bg-primary-emphasis";
+
+export const focusRingStyles = "focus-visible:ring";

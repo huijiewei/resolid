@@ -5,7 +5,6 @@ export const buttonStyles = classed(
     "inline-flex items-center justify-center",
     "select-none appearance-none outline-none",
     "whitespace-nowrap border transition-colors font-medium",
-    "focus-visible:ring",
   ].join(" "),
   {
     variants: {

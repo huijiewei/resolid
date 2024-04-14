@@ -190,6 +190,7 @@ export const Checkbox = forwardRef<HTMLInputElement, BaseProps<"input", Checkbox
           className={clsx(
             "inline-flex shrink-0 select-none items-center justify-center rounded border-2 transition-colors",
             "peer-focus-visible:ring",
+            colorStyle.focus,
             invalid ? "border-bd-invalid" : state || indeterminate ? colorStyle.border : "border-bd-normal",
             state || indeterminate ? `${colorStyle.checked} text-fg-emphasized` : "bg-bg-normal",
             disabled && "opacity-70 grayscale-[30%]",

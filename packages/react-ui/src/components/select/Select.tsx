@@ -26,6 +26,7 @@ import {
   type ReactNode,
 } from "react";
 import { useCallbackRef, useControllableState, useIsomorphicEffect, usePrevious } from "../../hooks";
+import { focusInputStyles } from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import { ariaAttr, dataAttr } from "../../utils/dom";
 import type { Size } from "../../utils/types";
@@ -476,7 +477,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
         ref={refs.setReference}
         className={clsx(
           "relative inline-flex items-center rounded border outline-none transition-colors",
-          "focus-within:border-bg-primary-emphasis focus-within:ring-1 focus-within:ring-bg-primary-emphasis",
+          focusInputStyles,
           invalid && "border-bd-invalid",
           disabled
             ? "pointer-events-none cursor-not-allowed bg-bg-subtle opacity-60"

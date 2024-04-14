@@ -1,5 +1,6 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
+import { focusInputStyles } from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import type { Size } from "../../utils/types";
 import type { BaseProps } from "../slot/Slot";
@@ -12,6 +13,12 @@ export type NativeSelectProps = {
    * @default 'md'
    */
   size?: Size;
+
+  /**
+   * 是否禁用
+   * @default false
+   */
+  disabled?: boolean;
 
   /**
    * 是否无效
@@ -30,7 +37,8 @@ export const NativeSelect = forwardRef<HTMLSelectElement, BaseProps<"select", Na
       <select
         disabled={disabled}
         className={clsx(
-          "w-full appearance-none rounded border bg-bg-normal outline-none transition-colors focus:border-bg-primary-emphasis focus:ring-1 focus:ring-bg-primary-emphasis",
+          "w-full appearance-none rounded border bg-bg-normal outline-none transition-colors",
+          focusInputStyles,
           invalid && "border-bd-invalid",
           !invalid && !disabled && "hover:border-bd-hovered",
           sizeStyle.select,

@@ -1,5 +1,6 @@
 import { __DEV__, isNumber } from "@resolid/utils";
 import { forwardRef } from "react";
+import { focusRingStyles } from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/Slot";
 
@@ -31,7 +32,7 @@ export const CloseButton = forwardRef<HTMLButtonElement, BaseProps<"button", Clo
         className={clsx(
           "flex shrink-0 appearance-none items-center justify-center rounded outline-none transition-colors",
           textClassName,
-          !disabled && `focus-visible:ring ${statusClassName}`,
+          !disabled && `${focusRingStyles} ${statusClassName}`,
           className,
         )}
         {...rest}

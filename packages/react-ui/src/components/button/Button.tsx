@@ -1,5 +1,6 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef, type CSSProperties, type JSX } from "react";
+import { focusRingStyles } from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import { dataAttr } from "../../utils/dom";
 import { toRounded, type Radius } from "../../utils/radius";
@@ -103,6 +104,7 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<"button", Butto
       style={{ ...style, "--rounded-var": rounded.value } as CSSProperties}
       className={clsx(
         buttonStyles({ variant, size, color, disabled, loading, square, block, padded }),
+        focusRingStyles,
         group
           ? group.vertical
             ? "border-y-[0.5px] first:rounded-t first:border-t last:rounded-b last:border-b"

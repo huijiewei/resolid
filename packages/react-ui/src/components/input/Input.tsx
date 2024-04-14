@@ -1,6 +1,7 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef, useCallback, useRef, type CSSProperties, type ChangeEvent, type ReactNode } from "react";
 import { useControllableState, useMergeRefs } from "../../hooks";
+import { focusInputStyles } from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/Slot";
 import { useInputGroup, type InputGroupContext } from "./InputGroupContext";
@@ -158,7 +159,7 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>
           "w-full resize-none appearance-none text-left align-middle outline-none",
           "rounded border bg-bg-normal transition-colors",
           "disabled:cursor-not-allowed disabled:bg-bg-subtlest disabled:opacity-60",
-          "focus:border-bg-primary-emphasis focus:ring-1 focus:ring-bg-primary-emphasis",
+          focusInputStyles,
           inputSizeStyles[size],
           leading && "ps-[var(--leading-width)]",
           trailing && "pe-[var(--trailing-width)]",
