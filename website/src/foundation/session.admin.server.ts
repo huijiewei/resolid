@@ -14,7 +14,7 @@ const {
     sameSite: "lax",
     secrets: [env.RX_COOKIE_SECRET],
     secure: env.NODE_ENV == "production",
-    path: "/",
+    path: "/admin",
   },
   service: adminSessionService,
 });

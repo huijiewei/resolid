@@ -79,7 +79,7 @@ export default defineConfig(({ command, isSsrBuild }) => {
         routes: async () => {
           return await remixFlexRoutes({
             appDir: appDirectory,
-            ignoredRouteFiles: ["**/.*", "**/__*.*"],
+            ignoredRouteFiles: ["**/.*", "**/__*/*", "**/__*.*"],
           });
         },
       }),

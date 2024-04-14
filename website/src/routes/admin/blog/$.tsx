@@ -1,16 +1,15 @@
-import { httpNotFound } from "@resolid/framework/utils";
 import { mergeMeta } from "@resolid/remix-utils";
 import { ErrorComponent } from "~/components/base/ErrorComponent";
 
 export const loader = async () => {
-  httpNotFound();
+  throw new Response("Not Found", { status: 404 });
 };
 
 export const handle = {
-  breadcrumb: () => ({
+  breadcrumb: {
     link: "",
     label: "页面未找到",
-  }),
+  },
 };
 
 export const meta = mergeMeta(() => {

@@ -1,3 +1,4 @@
+import typography from "@tailwindcss/typography";
 import { env } from "node:process";
 import type { Config } from "tailwindcss";
 import resolidTailwind from "../packages/tailwind/src";
@@ -12,5 +13,5 @@ export default <Partial<Config>>{
     env.NODE_ENV != "production" && "./node_modules/@resolid/react-ui/src/**/*.{ts,tsx}",
   ].filter(Boolean),
   presets: [resolidTailwind.preset()],
-  plugins: [],
+  plugins: [typography],
 };

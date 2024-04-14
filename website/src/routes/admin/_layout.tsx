@@ -1,14 +1,22 @@
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
-import { Outlet } from "@remix-run/react";
-import { Button, clsx, noScrollbarsClassName } from "@resolid/react-ui";
+import { Outlet, useMatches, type UIMatch } from "@remix-run/react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  clsx,
+  noScrollbarsClassName,
+} from "@resolid/react-ui";
 import { useTypedLoaderData } from "@resolid/remix-utils";
-import { useState } from "react";
 import { AuthProvider } from "~/components/base/AuthProvider";
 import { ColorModeToggle } from "~/components/base/ColorModeToggle";
 import { ResolidLogo } from "~/components/base/ResolidLogo";
-import { SpriteIcon } from "~/components/base/SpriteIcon";
 import { getSessionAdmin } from "~/foundation/session.admin.server";
 
+import type { ReactNode } from "react";
+import { HistoryLink } from "~/components/base/HistoryLink";
+import { SpriteIcon } from "~/components/base/SpriteIcon";
 import styles from "~/root.admin.css?url";
 
 export const links: LinksFunction = () => {
@@ -22,7 +30,7 @@ export const links: LinksFunction = () => {
 };
 
 export const meta = () => {
-  return [{ title: "Resolid 管理面板" }];
+  return [{ title: "Resolid 后台管理" }];
 };
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
@@ -37,16 +45,60 @@ export default function AdminLayout() {
   return (
     <AuthProvider value={{ identity: admin }}>
       <aside className={"fixed bottom-0 top-0 w-56 border-r"}>
-        <div className={"flex h-16 items-center justify-center"}>
+        <div className={"flex h-12 items-center justify-center"}>
           <ResolidLogo />
+        </div>
+        <div className={"h-full p-4 pb-16 scrollbar scrollbar-thin hover:overflow-y-auto"}>
+          <p>
+            <HistoryLink to={"blog"}>博客管理</HistoryLink>
+          </p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单</p>
+          <p>菜单1111</p>
         </div>
       </aside>
       <header className={clsx("fixed left-56 right-0 top-0 z-nav border-b bg-bg-normal", noScrollbarsClassName)}>
         <NavBar />
       </header>
-      <div className={"relative ml-56 flex min-h-screen flex-col bg-bg-subtlest"}>
-        <main className={"grow p-4 pt-20"}>
-          <div className={"rounded bg-bg-normal p-4"}>
+      <div className={"relative ml-56 bg-bg-subtlest"}>
+        <main className={"flex-row p-4 pt-16"}>
+          <div className={"min-h-[calc(100vh-theme(space.20)-53px)] rounded bg-bg-normal p-4"}>
             <Outlet />
           </div>
         </main>
@@ -59,31 +111,51 @@ export default function AdminLayout() {
   );
 }
 
-const NavBar = () => {
-  const [opened, setOpened] = useState(false);
+const NavBreadcrumb = () => {
+  const matches = (
+    useMatches() as UIMatch<unknown, { breadcrumb?: (data: unknown) => { link: string; label: ReactNode } }>[]
+  ).filter((match) => match.handle && match.handle.breadcrumb) as UIMatch<
+    unknown,
+    { breadcrumb: (data: unknown) => { link: string; label: ReactNode } }
+  >[];
 
   return (
-    <nav className={"mx-auto flex h-16 items-center justify-between gap-3 px-4"}>
-      <div
-        className={clsx(
-          "absolute inset-x-0 top-[calc(theme(spacing.16)+1px)] z-nav h-screen bg-bg-normal p-0",
-          "md:relative md:top-0 md:block md:h-auto md:bg-inherit",
-          opened ? "block" : "hidden",
-        )}
-      ></div>
+    <Breadcrumb className={"gap-1 text-sm"}>
+      <BreadcrumbItem className={"gap-1"}>
+        <BreadcrumbLink className={"gap-0.5"} asChild>
+          <HistoryLink to="/admin">
+            <SpriteIcon size={"1em"} name={"home"} />
+            后台管理
+          </HistoryLink>
+        </BreadcrumbLink>
+        <BreadcrumbSeparator />
+      </BreadcrumbItem>
+      {matches.map((match, index) => {
+        const breadcrumb = match.handle.breadcrumb(match.data);
+
+        return index == matches.length - 1 ? (
+          <BreadcrumbItem key={index}>{breadcrumb.label}</BreadcrumbItem>
+        ) : (
+          <BreadcrumbItem key={index} className={"gap-1"}>
+            <BreadcrumbLink className={"gap-0.5"} asChild>
+              <HistoryLink to={breadcrumb.link}>{breadcrumb.label}</HistoryLink>
+            </BreadcrumbLink>
+            <BreadcrumbSeparator />
+          </BreadcrumbItem>
+        );
+      })}
+    </Breadcrumb>
+  );
+};
+
+const NavBar = () => {
+  return (
+    <nav className={"mx-auto flex h-12 items-center justify-between gap-3 px-4"}>
+      <div className={"flex flex-row"}>
+        <NavBreadcrumb />
+      </div>
       <div className={"inline-flex items-center gap-1 text-fg-muted"}>
         <ColorModeToggle />
-        <Button
-          aria-label={"导航菜单"}
-          color={"neutral"}
-          variant={"ghost"}
-          size={"sm"}
-          square
-          className={"md:hidden"}
-          onClick={() => setOpened((prev) => !prev)}
-        >
-          {opened ? <SpriteIcon name={"close"} /> : <SpriteIcon name={"menu"} />}
-        </Button>
       </div>
     </nav>
   );
