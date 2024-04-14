@@ -11,7 +11,7 @@ export const Breadcrumb = forwardRef<HTMLElement, BaseProps<"nav", BreadcrumbPro
     children,
     className,
     separator = (
-      <svg width={"1.125rem"} height={"1.125rem"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <svg width={"1.125em"} height={"1.125em"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path
           fill="none"
           stroke="currentColor"
