@@ -193,7 +193,7 @@ importers:
         version: 2.1.0
       react-remove-scroll-bar:
         specifier: ^2.3.6
-        version: 2.3.6(@types/react@18.2.77)(react@19.0.0-canary-96c584661-20240412)
+        version: 2.3.6(@types/react@18.2.78)(react@19.0.0-canary-96c584661-20240412)
     devDependencies:
       '@resolid/config':
         specifier: workspace:^
@@ -202,11 +202,11 @@ importers:
         specifier: workspace:^
         version: link:../tailwind
       '@testing-library/react':
-        specifier: ^15.0.1
-        version: 15.0.1(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)
+        specifier: ^15.0.2
+        version: 15.0.2(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)
       '@types/react':
-        specifier: ^18.2.77
-        version: 18.2.77
+        specifier: ^18.2.78
+        version: 18.2.78
       '@types/react-dom':
         specifier: ^18.2.25
         version: 18.2.25
@@ -238,8 +238,8 @@ importers:
         specifier: 2.9.0-pre.3
         version: 2.9.0-pre.3(typescript@5.4.5)
       hono:
-        specifier: ^4.2.3
-        version: 4.2.3
+        specifier: ^4.2.4
+        version: 4.2.4
     devDependencies:
       '@remix-run/dev':
         specifier: 2.9.0-pre.3
@@ -350,7 +350,7 @@ importers:
         version: 0.5.4(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412)
       '@mdx-js/react':
         specifier: ^3.0.1
-        version: 3.0.1(@types/react@18.2.77)(react@19.0.0-canary-96c584661-20240412)
+        version: 3.0.1(@types/react@18.2.78)(react@19.0.0-canary-96c584661-20240412)
       '@node-rs/bcrypt':
         specifier: ^1.10.1
         version: 1.10.1
@@ -382,8 +382,8 @@ importers:
         specifier: ^1.0.10
         version: 1.0.10(react@19.0.0-canary-96c584661-20240412)
       hono:
-        specifier: ^4.2.3
-        version: 4.2.3
+        specifier: ^4.2.4
+        version: 4.2.4
       isbot:
         specifier: ^5.1.4
         version: 5.1.4
@@ -428,8 +428,8 @@ importers:
         specifier: ^0.5.12
         version: 0.5.12(tailwindcss@3.4.3)
       '@types/react':
-        specifier: ^18.2.77
-        version: 18.2.77
+        specifier: ^18.2.78
+        version: 18.2.78
       '@types/react-dom':
         specifier: ^18.2.25
         version: 18.2.25
@@ -1458,14 +1458,14 @@ packages:
       - supports-color
     dev: true
 
-  /@mdx-js/react@3.0.1(@types/react@18.2.77)(react@19.0.0-canary-96c584661-20240412):
+  /@mdx-js/react@3.0.1(@types/react@18.2.78)(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-9ZrPIU4MGf6et1m1ov3zKf+q9+deetI51zprKB1D/z3NOb+rUxxtEl3mCjW5wTGh6VhRdwPueh1oRzi6ezkA8A==}
     peerDependencies:
       '@types/react': '>=16'
       react: 19.0.0-canary-96c584661-20240412
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 18.2.77
+      '@types/react': 18.2.78
       react: 19.0.0-canary-96c584661-20240412
     dev: false
 
@@ -2301,8 +2301,8 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@testing-library/react@15.0.1(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412):
-    resolution: {integrity: sha512-I8u4qqGAuBg7C1/kRB9n7Oz9Pc/UHEkmiQRbJziSG8B13eZfAcAUn8TSP26ZIvfSeb68CngmtZbKKcRqcQKa3g==}
+  /@testing-library/react@15.0.2(react-dom@19.0.0-canary-96c584661-20240412)(react@19.0.0-canary-96c584661-20240412):
+    resolution: {integrity: sha512-5mzIpuytB1ctpyywvyaY2TAAUQVCZIGqwiqFQf6u9lvj/SJQepGUzNV18Xpk+NLCaCE2j7CWrZE0tEf9xLZYiQ==}
     engines: {node: '>=18'}
     peerDependencies:
       react: 19.0.0-canary-96c584661-20240412
@@ -2403,11 +2403,11 @@ packages:
   /@types/react-dom@18.2.25:
     resolution: {integrity: sha512-o/V48vf4MQh7juIKZU2QGDfli6p1+OOi5oXx36Hffpc9adsHeXjVp8rHuPkjd8VT8sOJ2Zp05HR7CdpGTIUFUA==}
     dependencies:
-      '@types/react': 18.2.77
+      '@types/react': 18.2.78
     dev: true
 
-  /@types/react@18.2.77:
-    resolution: {integrity: sha512-CUT9KUUF+HytDM7WiXKLF9qUSg4tGImwy4FXTlfEDPEkkNUzJ7rVFolYweJ9fS1ljoIaP7M7Rdjc5eUm/Yu5AA==}
+  /@types/react@18.2.78:
+    resolution: {integrity: sha512-qOwdPnnitQY4xKlKayt42q5W5UQrSHjgoXNVEtxeqdITJ99k4VXJOP3vt8Rkm9HmgJpH50UNU+rlqfkfWOqp0A==}
     dependencies:
       '@types/prop-types': 15.7.12
       csstype: 3.1.3
@@ -4760,8 +4760,8 @@ packages:
     resolution: {integrity: sha512-2bsegYkkHO+h/9MGbn6KWcE45cHZgPANo5LXF7EvWdT0yT2EguSVO1nDgU5c8+ZOPwp2vMNa7YFsJhVcDR9Sdg==}
     dev: true
 
-  /hono@4.2.3:
-    resolution: {integrity: sha512-yZDnPOp/XzjIB7KUWaOxwLSywnhxMvAKth8hfKhWQiWXeZhBfC6GlFnEst/FOOgn7rSWjShhQPS89PLEuHxq3Q==}
+  /hono@4.2.4:
+    resolution: {integrity: sha512-2T5Ahxh8tT0ISKCrNeA+OIwfD5W4EZ00iIMYBBCuiIivr+sOrZYOphinARSG7wL3nFsY6zkFHMMZbcR9CzEzug==}
     engines: {node: '>=16.0.0'}
     dev: false
 
@@ -7142,7 +7142,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-remove-scroll-bar@2.3.6(@types/react@18.2.77)(react@19.0.0-canary-96c584661-20240412):
+  /react-remove-scroll-bar@2.3.6(@types/react@18.2.78)(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-DtSYaao4mBmX+HDo5YWYdBWQwYIQQshUV/dVxFxK+KM26Wjwp1gZ6rv6OC3oujI6Bfu6Xyg3TwK533AQutsn/g==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -7152,9 +7152,9 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@types/react': 18.2.77
+      '@types/react': 18.2.78
       react: 19.0.0-canary-96c584661-20240412
-      react-style-singleton: 2.2.1(@types/react@18.2.77)(react@19.0.0-canary-96c584661-20240412)
+      react-style-singleton: 2.2.1(@types/react@18.2.78)(react@19.0.0-canary-96c584661-20240412)
       tslib: 2.6.2
     dev: false
 
@@ -7179,7 +7179,7 @@ packages:
       '@remix-run/router': 1.16.0-pre.1
       react: 19.0.0-canary-96c584661-20240412
 
-  /react-style-singleton@2.2.1(@types/react@18.2.77)(react@19.0.0-canary-96c584661-20240412):
+  /react-style-singleton@2.2.1(@types/react@18.2.78)(react@19.0.0-canary-96c584661-20240412):
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -7189,7 +7189,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@types/react': 18.2.77
+      '@types/react': 18.2.78
       get-nonce: 1.0.1
       invariant: 2.2.4
       react: 19.0.0-canary-96c584661-20240412
