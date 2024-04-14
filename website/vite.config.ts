@@ -93,41 +93,30 @@ export default defineConfig(({ command, isSsrBuild }) => {
       rollupOptions: {
         output: {
           hoistTransitiveImports: false,
-          manualChunks(id) {
-            if (id.includes("/src/components/base/")) {
-              return "components";
-            }
+          manualChunks: isSsrBuild
+            ? undefined
+            : (id) => {
+                if (
+                  id.includes("/node_modules/react/") ||
+                  id.includes("/node_modules/react-dom/") ||
+                  id.includes("/node_modules/scheduler/")
+                ) {
+                  return "react";
+                }
 
-            if (id.includes("/node_modules/@resolid/tailwind") || id.includes("/packages/tailwind")) {
-              return "tailwind";
-            }
+                if (
+                  id.includes("/node_modules/@remix-run/") ||
+                  id.includes("/node_modules/react-router/") ||
+                  id.includes("/node_modules/react-router-dom/") ||
+                  id.includes("/node_modules/turbo-stream/")
+                ) {
+                  return "react-router";
+                }
 
-            if (
-              id.includes("/node_modules/react/") ||
-              id.includes("/node_modules/react-dom/") ||
-              id.includes("/node_modules/react-is/") ||
-              id.includes("/node_modules/scheduler/") ||
-              id.includes("/node_modules/prop-types/") ||
-              id.includes("/node_modules/loose-envify/")
-            ) {
-              return "react";
-            }
-
-            if (
-              id.includes("/node_modules/@marsidev/react-turnstile/") ||
-              id.includes("/node_modules/@mdx-js/react/")
-            ) {
-              return "third";
-            }
-
-            if (id.includes("/node_modules/@resolid/") || id.includes("/packages/")) {
-              return "resolid";
-            }
-
-            if (id.includes("/node_modules/")) {
-              return "vendor";
-            }
-          },
+                if (id.includes("/src/components/base/")) {
+                  return "components";
+                }
+              },
         },
       },
     },
