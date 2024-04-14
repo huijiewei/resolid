@@ -18,3 +18,7 @@ export class FieldException extends Error {
     return fieldErrors;
   }
 }
+
+export const httpNotFound = (message: string = "页面未找到") => {
+  throw new Response(message, { status: 404 });
+};

@@ -115,7 +115,7 @@ export default function SiteLayout() {
       <header className={"sticky top-0 z-nav w-full border-b bg-bg-normal"}>
         <NavBar />
       </header>
-      <div className={"min-h-[calc(100vh-10.765rem)]"}>
+      <div className={"min-h-[calc(100vh-theme(space.16)-108px)]"}>
         <Outlet />
       </div>
       <footer className={"border-t"}>

@@ -1,8 +1,9 @@
+import { httpNotFound } from "@resolid/framework/utils";
 import { mergeMeta } from "@resolid/remix-utils";
 import { ErrorComponent } from "~/components/base/ErrorComponent";
 
 export const loader = async () => {
-  throw new Response("Not Found", { status: 404 });
+  httpNotFound();
 };
 
 export const meta = mergeMeta(() => {
