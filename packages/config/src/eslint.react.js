@@ -30,6 +30,8 @@ export default [
             "Layout",
             "links",
             "meta",
+            "loader",
+            "action",
             "shouldRevalidate",
           ],
         },
