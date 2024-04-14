@@ -117,63 +117,74 @@ const getComponentProps = (componentFile: string, componentName: string): Compon
 
   if (existsSync(componentPropsFile) && statSync(componentPropsFile).mtimeMs > statSync(componentFile).mtimeMs) {
     return JSON.parse(readFileSync(componentPropsFile, "utf8"));
-  } else {
-    const componentDoc = tsParser.parse(componentFile).find((c) => c.displayName == componentName);
-
-    const props = componentDoc
-      ? Object.entries(componentDoc.props).map(([key, value]) => {
-          const type: { type: string; control: string; typeValues: null | string[] } = {
-            type: value.type.name,
-            control: value.type.name,
-            typeValues: null,
-          };
-
-          if (value.type.name == "enum") {
-            if (!value.type.raw) {
-              type.type = value.type.name;
-            } else if (
-              value.type.raw.includes(" | ") ||
-              ["string", "number", "boolean", "ReactNode"].includes(value.type.raw)
-            ) {
-              type.type = value.type.raw;
-              type.control = value.type.raw;
-
-              if (value.type.raw.includes(" | ")) {
-                type.control = "select";
-                type.typeValues = value.type.value
-                  .map((item: { value: string }) => item.value)
-                  .filter((v: string) => v != "number" && v != "string");
-              }
-            } else {
-              const typeValues = value.type.value.map((item: { value: string }) => item.value);
-              type.type = typeValues.join(" | ");
-              type.control = "select";
-              type.typeValues = typeValues.filter((v: string) => v != "number" && v != "string");
-            }
-          }
-
-          if (!value.required) {
-            type.type = type.type.replace(" | undefined", "");
-          }
-
-          if (type.type.startsWith("NonNullable<")) {
-            type.type = type.type.slice(12, -1).replace(" | null", "").replace(" | undefined", "");
-          }
-
-          type.type = type.type.replace("React.", "").replace(/ReactElement<.*>/g, "ReactElement");
-
-          return {
-            name: key,
-            ...type,
-            required: value.required,
-            description: value.description,
-            defaultValue: value.defaultValue?.value ?? "",
-          };
-        })
-      : null;
-
-    writeFileSync(componentPropsFile, JSON.stringify(props), "utf8");
-
-    return props;
   }
+  const componentDoc = tsParser.parse(componentFile).find((c) => c.displayName == componentName);
+
+  const props = componentDoc
+    ? Object.entries(componentDoc.props).map(([key, value]) => {
+        const type: { type: string; control: string; typeValues: null | string[] } = {
+          type: value.type.name,
+          control: value.type.name,
+          typeValues: null,
+        };
+
+        if (value.type.name == "enum") {
+          if (!value.type.raw) {
+            type.type = value.type.name;
+          } else if (
+            value.type.raw.includes(" | ") ||
+            ["string", "number", "boolean", "ReactNode"].includes(value.type.raw)
+          ) {
+            type.type = value.type.raw;
+            type.control = value.type.raw;
+
+            if (value.type.raw.includes(" | ")) {
+              type.control = "select";
+              type.typeValues = value.type.value
+                .map((item: { value: string }) => item.value)
+                .filter((v: string) => v != "number" && v != "string");
+            }
+          } else {
+            const typeValues = value.type.value.map((item: { value: string }) => item.value);
+            type.type = typeValues.join(" | ");
+            type.control = "select";
+            type.typeValues = typeValues.filter((v: string) => v != "number" && v != "string");
+          }
+        }
+
+        if (!value.required) {
+          type.type = type.type.replace(" | undefined", "");
+        }
+
+        if (type.type.startsWith("NonNullable<")) {
+          type.type = type.type.slice(12, -1).replace(" | null", "").replace(" | undefined", "");
+        }
+
+        type.type = type.type.replace("React.", "").replace(/ReactElement<.*>/g, "ReactElement");
+
+        return {
+          name: key,
+          ...type,
+          required: value.required,
+          description: value.description,
+          defaultValue: value.defaultValue?.value ?? "",
+        };
+      })
+    : null;
+
+  props?.sort((a, b) => {
+    if (a.required && !b.required) {
+      return -1;
+    }
+
+    if (b.required && !a.required) {
+      return 1;
+    }
+
+    return 0;
+  });
+
+  writeFileSync(componentPropsFile, JSON.stringify(props), "utf8");
+
+  return props;
 };

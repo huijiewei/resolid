@@ -12,6 +12,7 @@ import {
 } from "@resolid/react-ui";
 import { isFunction } from "@resolid/utils";
 import { useMemo, useState, type FunctionComponent, type ReactNode } from "react";
+import { SpriteIcon } from "~/components/base/SpriteIcon";
 
 export const ComponentUsage = ({
   preview,
@@ -119,19 +120,7 @@ export const ComponentUsage = ({
                                 setState((prev) => ({ ...prev, [prop.name]: color }));
                               }}
                             >
-                              {state[prop.name] == color && (
-                                <svg
-                                  height="1.25rem"
-                                  width="1.25rem"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    fill="currentColor"
-                                    d="M18.71 7.21a1 1 0 0 0-1.42 0l-7.45 7.46l-3.13-3.14A1 1 0 1 0 5.29 13l3.84 3.84a1 1 0 0 0 1.42 0l8.16-8.16a1 1 0 0 0 0-1.47"
-                                  />
-                                </svg>
-                              )}
+                              {state[prop.name] == color && <SpriteIcon size={"sm"} name={"check"} />}
                             </Button>
                           );
                         })}
@@ -201,17 +190,12 @@ export const ComponentProps = ({
           >
             <td className={"block w-full whitespace-nowrap font-bold md:table-cell md:w-auto md:p-2"}>
               <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold md:hidden">属性</span>
-              <span className={"inline-flex items-center gap-2"}>
+              <span className={"inline-flex items-center gap-1.5"}>
                 {prop.name}
                 {prop.description && (
                   <Tooltip trigger={"click"}>
                     <TooltipTrigger>
-                      <svg width={"1rem"} height={"1rem"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                          fill="currentColor"
-                          d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2m0 18a8 8 0 1 1 8-8a8.01 8.01 0 0 1-8 8m0-8.5a1 1 0 0 0-1 1v3a1 1 0 0 0 2 0v-3a1 1 0 0 0-1-1m0-4a1.25 1.25 0 1 0 1.25 1.25A1.25 1.25 0 0 0 12 7.5"
-                        ></path>
-                      </svg>
+                      <SpriteIcon size={"sm"} name={"info"} />
                     </TooltipTrigger>
                     <TooltipContent>
                       <TooltipArrow />
