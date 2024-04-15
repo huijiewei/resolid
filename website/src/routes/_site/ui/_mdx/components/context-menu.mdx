@@ -10,7 +10,7 @@ import {
   ContextMenuContent,
   ContextMenuDivider,
   ContextMenuGroup,
-  ContextMenuGroupLabel,
+  ContextMenuLabel,
   ContextMenuItem,
   ContextMenuItemIndicator,
   ContextMenuItemTrigger,
@@ -37,7 +37,7 @@ import {
   ContextMenuTrigger,
   ContextMenuContent,
   ContextMenuGroup,
-  ContextMenuGroupLabel,
+  ContextMenuLabel,
   ContextMenuDivider,
   ContextMenuItem,
   ContextMenuItemTrigger,
@@ -52,7 +52,7 @@ import {
 - `ContextMenuTrigger`: 包装将打开右键菜单的控件。
 - `ContextMenuContent`: 打开右键菜单时弹出的组件。
 - `ContextMenuGroup`: 用于对多个 `ContextMenuItem` 进行分组。
-- `ContextMenuGroupLabel`: 用于渲染标签。使用箭头键无法聚焦。
+- `ContextMenuLabel`: 用于渲染标签。使用箭头键无法聚焦。
 - `ContextMenuDivider`: 菜单项和组之间的可视分隔符。
 - `ContextMenuItem`: 包含右键菜单项的组件。
 - `ContextMenuItemTrigger`: 包装将打开子菜单的控件。
@@ -198,7 +198,7 @@ import {
             className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
           <ContextMenuContent className={"text-sm"}>
             <ContextMenuGroup>
-              <ContextMenuGroupLabel>选项</ContextMenuGroupLabel>
+              <ContextMenuLabel>选项</ContextMenuLabel>
               <ContextMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
                 <ContextMenuItemIndicator><SpriteIcon size={"1rem"} name={"check"} /></ContextMenuItemIndicator>
                 显示书签栏
@@ -227,7 +227,7 @@ import {
     </ContextMenuTrigger>
     <ContextMenuContent className={"text-sm"}>
       <ContextMenuGroup>
-        <ContextMenuGroupLabel>选项</ContextMenuGroupLabel>
+        <ContextMenuLabel>选项</ContextMenuLabel>
         <ContextMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
           <ContextMenuItemIndicator>
             <SpriteIcon size={"1rem"} name={"check"} />
@@ -261,7 +261,7 @@ import {
             className={"h-32 rounded border border-dashed p-6 flex items-center select-none"}>右键点击显示菜单</ContextMenuTrigger>
           <ContextMenuContent className={"text-sm w-20"}>
             <ContextMenuRadioGroup value={account} onChange={setAccount}>
-              <ContextMenuGroupLabel>账号</ContextMenuGroupLabel>
+              <ContextMenuLabel>账号</ContextMenuLabel>
               <ContextMenuRadioItem value={"张三"}>
                 <ContextMenuItemIndicator><SpriteIcon size={"1rem"} name={"dot"} /></ContextMenuItemIndicator>
                 张三
@@ -292,7 +292,7 @@ import {
     </ContextMenuTrigger>
     <ContextMenuContent className={"text-sm"}>
       <ContextMenuGroup>
-        <ContextMenuGroupLabel>选项</ContextMenuGroupLabel>
+        <ContextMenuLabel>选项</ContextMenuLabel>
         <ContextMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
           <ContextMenuItemIndicator>
             <SpriteIcon size={"1rem"} name={"check"} />
@@ -404,7 +404,7 @@ import {
             </ContextMenuCheckboxItem>
             <ContextMenuDivider />
             <ContextMenuRadioGroup value={account} onChange={setAccount}>
-              <ContextMenuGroupLabel>账号</ContextMenuGroupLabel>
+              <ContextMenuLabel>账号</ContextMenuLabel>
               <ContextMenuRadioItem value={'张三'}>
                 <ContextMenuItemIndicator>
                   <SpriteIcon size={"1rem"} name={"dot"} />
@@ -485,7 +485,7 @@ import {
       </ContextMenuCheckboxItem>
       <ContextMenuDivider />
       <ContextMenuRadioGroup value={account} onChange={setAccount}>
-        <ContextMenuGroupLabel>账号</ContextMenuGroupLabel>
+        <ContextMenuLabel>账号</ContextMenuLabel>
         <ContextMenuRadioItem value={"张三"}>
           <ContextMenuItemIndicator>
             <SpriteIcon size={"1rem"} name={"dot"} />

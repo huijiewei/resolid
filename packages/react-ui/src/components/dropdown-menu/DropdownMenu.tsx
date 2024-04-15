@@ -6,10 +6,10 @@ import { MenuCheckboxItem } from "../menu/MenuCheckboxItem";
 import { MenuContent } from "../menu/MenuContent";
 import { MenuDivider } from "../menu/MenuDivider";
 import { MenuGroup } from "../menu/MenuGroup";
-import { MenuGroupLabel } from "../menu/MenuGroupLabel";
 import { MenuItem } from "../menu/MenuItem";
 import { MenuItemIndicator } from "../menu/MenuItemIndicator";
 import { MenuItemTrigger } from "../menu/MenuItemTrigger";
+import { MenuLabel } from "../menu/MenuLabel";
 import { MenuRadioGroup } from "../menu/MenuRadioGroup";
 import { MenuRadioItem } from "../menu/MenuRadioItem";
 import { MenuRoot, type MenuProps } from "../menu/MenuRoot";
@@ -36,7 +36,7 @@ export const DropdownMenuDivider = MenuDivider;
 
 export const DropdownMenuGroup = MenuGroup;
 
-export const DropdownMenuGroupLabel = MenuGroupLabel;
+export const DropdownMenuLabel = MenuLabel;
 
 export const DropdownMenuItem = MenuItem;
 

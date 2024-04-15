@@ -10,7 +10,7 @@ import {
   DropdownMenuContent,
   DropdownMenuArrow,
   DropdownMenuGroup,
-  DropdownMenuGroupLabel,
+  DropdownMenuLabel,
   DropdownMenuDivider,
   DropdownMenuItem,
   DropdownMenuItemTrigger,
@@ -39,7 +39,7 @@ import {
   DropdownMenuContent,
   DropdownMenuArrow,
   DropdownMenuGroup,
-  DropdownMenuGroupLabel,
+  DropdownMenuLabel,
   DropdownMenuDivider,
   DropdownMenuItem,
   DropdownMenuItemTrigger,
@@ -55,7 +55,7 @@ import {
 - `DropdownMenuContent`: 打开下拉菜单时弹出的组件。
 - `DropdownMenuArrow`: 可选的箭头元素，可与菜单内容一起渲染。
 - `DropdownMenuGroup`: 用于对多个 `DropdownMenuItem` 进行分组。
-- `DropdownMenuGroupLabel`: 用于渲染标签。使用箭头键无法聚焦。
+- `DropdownMenuLabel`: 用于渲染标签。使用箭头键无法聚焦。
 - `DropdownMenuDivider`: 菜单项和组之间的可视分隔符。
 - `DropdownMenuItem`: 包含下拉菜单项的组件。
 - `DropdownMenuItemTrigger`: 包装将打开子菜单的控件。
@@ -195,7 +195,7 @@ import {
           <DropdownMenuTrigger asChild><Button color={'neutral'}>复选框菜单</Button></DropdownMenuTrigger>
           <DropdownMenuContent className={"text-sm"}>
             <DropdownMenuGroup>
-              <DropdownMenuGroupLabel>选项</DropdownMenuGroupLabel>
+              <DropdownMenuLabel>选项</DropdownMenuLabel>
               <DropdownMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
                 <DropdownMenuItemIndicator><SpriteIcon size={"1rem"} name={"check"} /></DropdownMenuItemIndicator>
                 显示书签栏<div className="ml-auto pl-5 text-sm text-fg-muted">⌘+B</div>
@@ -223,7 +223,7 @@ import {
       </DropdownMenuTrigger>
       <DropdownMenuContent className={"text-sm"}>
         <DropdownMenuGroup>
-          <DropdownMenuGroupLabel>选项</DropdownMenuGroupLabel>
+          <DropdownMenuLabel>选项</DropdownMenuLabel>
           <DropdownMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
             <DropdownMenuItemIndicator>
               <SpriteIcon size={"1rem"} name={"check"} />
@@ -255,7 +255,7 @@ import {
           <DropdownMenuTrigger asChild><Button color={'neutral'}>单选组菜单</Button></DropdownMenuTrigger>
           <DropdownMenuContent className={"text-sm"}>
             <DropdownMenuRadioGroup value={account} onChange={setAccount}>
-              <DropdownMenuGroupLabel>账号</DropdownMenuGroupLabel>
+              <DropdownMenuLabel>账号</DropdownMenuLabel>
               <DropdownMenuRadioItem value={"张三"}>
                 <DropdownMenuItemIndicator><SpriteIcon size={"1rem"} name={"dot"} /></DropdownMenuItemIndicator>
                 张三
@@ -286,7 +286,7 @@ import {
       </DropdownMenuTrigger>
       <DropdownMenuContent className={"text-sm"}>
         <DropdownMenuGroup>
-          <DropdownMenuGroupLabel>选项</DropdownMenuGroupLabel>
+          <DropdownMenuLabel>选项</DropdownMenuLabel>
           <DropdownMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
             <DropdownMenuItemIndicator>
               <SpriteIcon size={"1rem"} name={"check"} />
@@ -464,7 +464,7 @@ import {
             </DropdownMenuCheckboxItem>
             <DropdownMenuDivider />
             <DropdownMenuRadioGroup value={account} onChange={setAccount}>
-              <DropdownMenuGroupLabel>账号</DropdownMenuGroupLabel>
+              <DropdownMenuLabel>账号</DropdownMenuLabel>
               <DropdownMenuRadioItem value={'张三'}>
                 <DropdownMenuItemIndicator>
                   <SpriteIcon size={"1rem"} name={"dot"} />
@@ -545,7 +545,7 @@ import {
         </DropdownMenuCheckboxItem>
         <DropdownMenuDivider />
         <DropdownMenuRadioGroup value={account} onChange={setAccount}>
-          <DropdownMenuGroupLabel>账号</DropdownMenuGroupLabel>
+          <DropdownMenuLabel>账号</DropdownMenuLabel>
           <DropdownMenuRadioItem value={"张三"}>
             <DropdownMenuItemIndicator>
               <SpriteIcon size={"1rem"} name={"dot"} />

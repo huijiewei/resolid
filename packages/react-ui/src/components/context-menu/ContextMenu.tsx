@@ -2,10 +2,10 @@ import { MenuCheckboxItem } from "../menu/MenuCheckboxItem";
 import { MenuContent } from "../menu/MenuContent";
 import { MenuDivider } from "../menu/MenuDivider";
 import { MenuGroup } from "../menu/MenuGroup";
-import { MenuGroupLabel } from "../menu/MenuGroupLabel";
 import { MenuItem } from "../menu/MenuItem";
 import { MenuItemIndicator } from "../menu/MenuItemIndicator";
 import { MenuItemTrigger } from "../menu/MenuItemTrigger";
+import { MenuLabel } from "../menu/MenuLabel";
 import { MenuRadioGroup } from "../menu/MenuRadioGroup";
 import { MenuRadioItem } from "../menu/MenuRadioItem";
 import { MenuRoot, type MenuProps } from "../menu/MenuRoot";
@@ -22,7 +22,7 @@ export { ContextMenuTrigger };
 export const ContextMenuContent = MenuContent;
 
 export const ContextMenuGroup = MenuGroup;
-export const ContextMenuGroupLabel = MenuGroupLabel;
+export const ContextMenuLabel = MenuLabel;
 
 export const ContextMenuItem = MenuItem;
 export const ContextMenuItemTrigger = MenuItemTrigger;

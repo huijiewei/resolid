@@ -9,6 +9,7 @@ import {
   DropdownMenuContent,
   DropdownMenuDivider,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuTrigger,
   Tooltip,
   TooltipArrow,
@@ -239,7 +240,13 @@ const NavUser = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className={"text-sm"}>
-        <DropdownMenuItem disabled>{user.email}</DropdownMenuItem>
+        <DropdownMenuLabel className={"gap-2"}>
+          <Avatar radius={"lg"} size={42} src={user.avatar} name={authUtils.getDisplayName(user)} />
+          <div className={"flex flex-col text-left"}>
+            <span className={"text-base font-medium"}>{authUtils.getDisplayName(user)}</span>
+            <span className={"text-fg-muted"}>{user.email}</span>
+          </div>
+        </DropdownMenuLabel>
         <DropdownMenuItem asChild>
           <HistoryLink to={`user/${user.username}`}>
             {<SpriteIcon size={"1rem"} name={"user"} className={"me-1.5"} />}个人主页
