@@ -6,9 +6,9 @@ description: 一种辅助导航模式，用于标识页面在层次结构中的�
 import { 
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator,
   DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@resolid/react-ui";
-import { mergeFrontmatter } from "@resolid/remix-utils";
 import { Link } from "@remix-run/react";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
+import { mergeFrontmatter } from "../__utils";
 import { ComponentExample, ComponentProps } from "../__components";
 
 export const meta = mergeFrontmatter(frontmatter);

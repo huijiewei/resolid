@@ -1,5 +1,4 @@
-import { httpNotFound } from "@resolid/framework/utils";
-import { mergeMeta } from "@resolid/remix-utils";
+import { httpNotFound, mergeMeta } from "@resolid/framework/utils";
 import { ErrorComponent } from "~/components/base/ErrorComponent";
 
 export const loader = async () => {

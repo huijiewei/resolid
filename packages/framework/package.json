@@ -34,7 +34,7 @@
     "@hookform/resolvers": "^3.3.4",
     "@node-rs/bcrypt": "^1.10.1",
     "@remix-run/node": "2.9.0-pre.3",
-    "@remix-run/server-runtime": "2.9.0-pre.3",
+    "@remix-run/react": "2.9.0-pre.3",
     "@resolid/utils": "workspace:^",
     "drizzle-orm": "^0.30.8",
     "nodemailer": "^6.9.13",

@@ -1,6 +1,7 @@
 import type { LinksFunction, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Form, Link, Outlet, createPath, useLocation, type Location } from "@remix-run/react";
 import { authUtils } from "@resolid/framework/modules";
+import { useTypedLoaderData } from "@resolid/framework/utils";
 import {
   Avatar,
   Badge,
@@ -17,7 +18,6 @@ import {
   TooltipTrigger,
   clsx,
 } from "@resolid/react-ui";
-import { useTypedLoaderData } from "@resolid/remix-utils";
 import { omit, trimEnd } from "@resolid/utils";
 import { useState, type MouseEventHandler } from "react";
 import { AuthProvider, useAuth, type AuthContext } from "~/components/base/AuthProvider";
@@ -27,13 +27,6 @@ import { ResolidLogo } from "~/components/base/ResolidLogo";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
 import { getSessionUser } from "~/foundation/session.user.server";
 import type { UserIdentity } from "~/modules/user/schema.server";
-
-export const loader = async ({ request, context }: LoaderFunctionArgs) => {
-  return {
-    user: await getSessionUser(request),
-    requestOrigin: context.requestOrigin ?? request.url,
-  };
-};
 
 import styles from "~/root.site.css?url";
 
@@ -45,6 +38,13 @@ export const links: LinksFunction = () => {
       precedence: "high",
     },
   ];
+};
+
+export const loader = async ({ request, context }: LoaderFunctionArgs) => {
+  return {
+    user: await getSessionUser(request),
+    requestOrigin: context.requestOrigin ?? request.url,
+  };
 };
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {

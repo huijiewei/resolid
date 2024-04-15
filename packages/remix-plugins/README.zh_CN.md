@@ -62,7 +62,7 @@ export default {
 适配器都是基于 [hono](https://hono.dev/) 中间件运行, 默认 remixHandler 为:
 
 ```js
-import { createRequestHandler } from "@remix-run/server-runtime";
+import { createRequestHandler } from "@remix-run/node";
 
 export default function remixHandler(build, c) {
   const requestHandler = createRequestHandler(build, "production");
@@ -74,7 +74,7 @@ export default function remixHandler(build, c) {
 你可以在 Remix App 目录下新建 `remix.handler.ts` 或者 `remix.handler.js` 文件来更改默认 handler 行为, 比如给 Remix loadContext 增加 IP 地址
 
 ```ts
-import { createRequestHandler, type ServerBuild } from "@remix-run/server-runtime";
+import { createRequestHandler, type ServerBuild } from "@remix-run/node";
 import type { Context } from "hono";
 
 export default function remixHandler(build: ServerBuild, c: Context) {

@@ -1,5 +1,5 @@
-import type { LoaderFunction, MetaFunction } from "@remix-run/node";
-import type { ServerRuntimeMetaDescriptor } from "@remix-run/server-runtime";
+import type { ActionFunction, LoaderFunction, MetaDescriptor, MetaFunction } from "@remix-run/node";
+import { useActionData, useLoaderData, useRouteLoaderData } from "@remix-run/react";
 
 export const mergeMeta = <
   Loader extends LoaderFunction | unknown = unknown,
@@ -37,7 +37,7 @@ export const mergeMeta = <
     }, leafMeta);
 
     const titles: string[] = [];
-    const result: ServerRuntimeMetaDescriptor[] = [];
+    const result: MetaDescriptor[] = [];
 
     for (const meta of mergedMeta) {
       if ("title" in meta) {
@@ -55,14 +55,14 @@ export const mergeMeta = <
   };
 };
 
-export const mergeFrontmatter = (frontmatter: { title: string; description?: string }): MetaFunction => {
-  return mergeMeta(() => {
-    const meta: ServerRuntimeMetaDescriptor[] = [{ title: frontmatter.title }];
+export const useTypedLoaderData = <T extends LoaderFunction>() => {
+  return useLoaderData() as unknown as Awaited<ReturnType<T>>;
+};
 
-    if (frontmatter.description) {
-      meta.push({ name: "description", content: frontmatter.description });
-    }
+export const useTypedActionData = <T extends ActionFunction>() => {
+  return useActionData() as unknown as Awaited<ReturnType<T>> | undefined;
+};
 
-    return meta;
-  });
+export const useTypedRouteLoaderData = <T extends LoaderFunction>(routeId: string) => {
+  return useRouteLoaderData(routeId) as unknown as Awaited<ReturnType<T>>;
 };

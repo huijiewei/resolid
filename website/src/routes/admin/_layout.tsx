@@ -1,5 +1,6 @@
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { Outlet, useMatches, type UIMatch } from "@remix-run/react";
+import { useTypedLoaderData } from "@resolid/framework/utils";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,15 +9,14 @@ import {
   clsx,
   noScrollbarsClassName,
 } from "@resolid/react-ui";
-import { useTypedLoaderData } from "@resolid/remix-utils";
+import type { ReactNode } from "react";
 import { AuthProvider } from "~/components/base/AuthProvider";
 import { ColorModeToggle } from "~/components/base/ColorModeToggle";
+import { HistoryLink } from "~/components/base/HistoryLink";
 import { ResolidLogo } from "~/components/base/ResolidLogo";
+import { SpriteIcon } from "~/components/base/SpriteIcon";
 import { getSessionAdmin } from "~/foundation/session.admin.server";
 
-import type { ReactNode } from "react";
-import { HistoryLink } from "~/components/base/HistoryLink";
-import { SpriteIcon } from "~/components/base/SpriteIcon";
 import styles from "~/root.admin.css?url";
 
 export const links: LinksFunction = () => {

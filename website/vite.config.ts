@@ -99,6 +99,7 @@ export default defineConfig(({ command, isSsrBuild }) => {
                 if (
                   id.includes("/node_modules/react/") ||
                   id.includes("/node_modules/react-dom/") ||
+                  id.includes("/node_modules/react-is/") ||
                   id.includes("/node_modules/scheduler/")
                 ) {
                   return "react";
@@ -128,6 +129,7 @@ export default defineConfig(({ command, isSsrBuild }) => {
     },
     ssr: {
       external: ["@node-rs/bcrypt"],
+      noExternal: ["@resolid/framework"],
     },
     optimizeDeps: {
       include: ["@mdx-js/react", "react-hook-form", "remix-hook-form"],

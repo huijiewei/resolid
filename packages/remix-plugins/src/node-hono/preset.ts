@@ -2,7 +2,7 @@ import type { Preset } from "@remix-run/dev";
 import { rm } from "node:fs/promises";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
-import { buildEntry, bundleServer } from "../base/build-utils";
+import { buildEntry } from "../base/build-utils";
 
 export const nodeHonoPreset = (): Preset => {
   const __dirname = fileURLToPath(new URL(".", import.meta.url));
@@ -18,8 +18,6 @@ export const nodeHonoPreset = (): Preset => {
           const serverBuildPath = join(remixConfig.buildDirectory, "server");
 
           const ssrExternal = viteConfig.ssr.external;
-          const commonjsOptions = viteConfig.build.commonjsOptions;
-          const resolveDedupe = viteConfig.resolve.dedupe;
 
           const serverBundles = buildManifest?.serverBundles ?? {
             site: { id: "site", file: relative(rootPath, join(serverBuildPath, serverBuildFile)) },
@@ -32,22 +30,14 @@ export const nodeHonoPreset = (): Preset => {
             const buildFile = join(rootPath, serverBundles[key].file);
             const buildPath = dirname(buildFile);
 
-            const [entryFile, defaultHandler] = await buildEntry(
+            const [, defaultHandler] = await buildEntry(
               appPath,
               join(__dirname, "node-hono-entry.js"),
               buildPath,
               buildFile,
               serverBundleId,
-            );
-
-            await bundleServer(
-              buildPath,
-              entryFile,
               join(rootPath, "package.json"),
-              commonjsOptions,
               ssrExternal,
-              resolveDedupe,
-              serverBundleId,
             );
 
             if (defaultHandler) {

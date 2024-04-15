@@ -14,7 +14,6 @@
     "paths": {
       "~/*": ["./src/*"],
       "@resolid/react-ui": ["../packages/react-ui/src"],
-      "@resolid/remix-utils": ["../packages/remix-utils/src"],
       "@resolid/utils": ["../packages/utils/src"]
     }
   }

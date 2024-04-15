@@ -1,4 +1,4 @@
-import { mergeMeta } from "@resolid/remix-utils";
+import { mergeMeta } from "@resolid/framework/utils";
 
 export const meta = mergeMeta(() => {
   return [{ title: "隐私声明" }];

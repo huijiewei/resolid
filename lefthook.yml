@@ -17,10 +17,6 @@ pre-commit:
       root: "packages/remix-plugins/"
       glob: "*.{js,jsx,ts,tsx}"
       run: npx --no eslint --fix {staged_files}
-    eslint-remix-utils:
-      root: "packages/remix-utils/"
-      glob: "*.{js,jsx,ts,tsx}"
-      run: npx --no eslint --fix {staged_files}
     eslint-tailwind:
       root: "packages/tailwind/"
       glob: "*.{js,jsx,ts,tsx}"

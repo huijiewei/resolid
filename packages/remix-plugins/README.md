@@ -62,7 +62,7 @@ export default {
 Adapters are all run based on [hono](https://hono.dev/) middleware. The default remixHandler is:
 
 ```js
-import { createRequestHandler } from "@remix-run/server-runtime";
+import { createRequestHandler } from "@remix-run/node";
 
 export default function remixHandler(build, c) {
   const requestHandler = createRequestHandler(build, "production");
@@ -74,7 +74,7 @@ export default function remixHandler(build, c) {
 You can create a new `remix.handler.ts` or `remix.handler.js` file in the Remix App directory to change the default handler behavior, such as adding an IP address to the Remix loadContext
 
 ```ts
-import { createRequestHandler, type ServerBuild } from "@remix-run/server-runtime";
+import { createRequestHandler, type ServerBuild } from "@remix-run/node";
 import type { Context } from "hono";
 
 export default function remixHandler(build: ServerBuild, c: Context) {

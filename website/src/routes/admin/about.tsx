@@ -1,4 +1,4 @@
-import { mergeMeta } from "@resolid/remix-utils";
+import { mergeMeta } from "@resolid/framework/utils";
 import { HistoryLink } from "~/components/base/HistoryLink";
 
 export const meta = mergeMeta(() => {

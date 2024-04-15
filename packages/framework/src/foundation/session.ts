@@ -1,5 +1,4 @@
-import { createSessionStorage } from "@remix-run/node";
-import type { FlashSessionData, SessionIdStorageStrategy } from "@remix-run/server-runtime";
+import { createSessionStorage, type SessionIdStorageStrategy } from "@remix-run/node";
 import type { IntRange } from "type-fest";
 import type { AuthSessionData, AuthSessionService } from "../modules/auth/service";
 
@@ -15,31 +14,24 @@ export const getCookieExpires = <T extends IntRange<1, 366> | undefined>(days?: 
 };
 
 export const createDatabaseSessionStorage = <T>({ cookie, service }: DatabaseSessionStorageOptions<T>) => {
-  return createSessionStorage({
+  return createSessionStorage<AuthSessionData<T>>({
     cookie: cookie,
-    async createData(
-      data: FlashSessionData<AuthSessionData<T>, AuthSessionData<T>>,
-      expires: Date | undefined,
-    ): Promise<string> {
+    async createData(data, expires): Promise<string> {
       const expiredAt = expires ?? getCookieExpires(365);
 
       return service.createdSession(data as AuthSessionData<T>, expiredAt);
     },
-    async updateData(
-      id: string,
-      data: FlashSessionData<AuthSessionData<T>, AuthSessionData<T>>,
-      expires: Date | undefined,
-    ): Promise<void> {
+    async updateData(id, data, expires): Promise<void> {
       const expiredAt = expires ?? getCookieExpires(365);
 
       return service.updateSession(id, data as AuthSessionData<T>, expiredAt);
     },
-    async readData(id: string): Promise<FlashSessionData<AuthSessionData<T>, AuthSessionData<T>> | null> {
+    async readData(id) {
       const identity = await service.getIdentity(id);
 
       return identity ? { identity: identity } : null;
     },
-    async deleteData(id: string): Promise<void> {
+    async deleteData(id) {
       return service.removeSession(id);
     },
   });

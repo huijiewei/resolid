@@ -1,6 +1,6 @@
 import { Outlet } from "@remix-run/react";
+import { mergeMeta } from "@resolid/framework/utils";
 import { CloseButton, clsx } from "@resolid/react-ui";
-import { mergeMeta } from "@resolid/remix-utils";
 import { useState } from "react";
 import { SpriteIcon } from "~/components/base/SpriteIcon";
 import { AsideLayoutDispatchProvider, AsideLayoutStateProvider } from "~/components/layout/AsideLayoutContext";

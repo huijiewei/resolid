@@ -1,4 +1,4 @@
-import type { ServerBuild } from "@remix-run/server-runtime";
+import type { ServerBuild } from "@remix-run/node";
 import type { MiddlewareHandler } from "hono";
 
 // @ts-expect-error Cannot find module

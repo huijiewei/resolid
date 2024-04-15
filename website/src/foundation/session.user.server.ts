@@ -1,5 +1,5 @@
+import { redirect } from "@remix-run/node";
 import { createPath } from "@remix-run/react";
-import { redirect } from "@remix-run/server-runtime";
 import { createDatabaseSessionStorage } from "@resolid/framework";
 import { env } from "node:process";
 import type { UserIdentity } from "~/modules/user/schema.server";

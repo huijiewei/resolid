@@ -1,4 +1,4 @@
-import { mergeMeta } from "@resolid/remix-utils";
+import { mergeMeta } from "@resolid/framework/utils";
 import { ErrorComponent } from "~/components/base/ErrorComponent";
 
 export const loader = async () => {

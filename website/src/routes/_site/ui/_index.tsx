@@ -1,4 +1,4 @@
-import { redirect } from "@remix-run/server-runtime";
+import { redirect } from "@remix-run/node";
 
 export const loader = () => {
   throw redirect("introduction", 308);

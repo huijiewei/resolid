@@ -1,5 +1,5 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
-import { mergeMeta, useTypedLoaderData } from "@resolid/remix-utils";
+import { mergeMeta, useTypedLoaderData } from "@resolid/framework/utils";
 import { requireSessionUser } from "~/foundation/session.user.server";
 
 export const meta = mergeMeta(() => {

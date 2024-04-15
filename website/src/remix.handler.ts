@@ -1,6 +1,6 @@
 import type { HttpBindings } from "@hono/node-server";
-import { createRequestHandler, type ServerBuild } from "@remix-run/server-runtime";
-import { getClientIp, getRequestOrigin } from "@resolid/remix-utils";
+import { createRequestHandler, type ServerBuild } from "@remix-run/node";
+import { getClientIp, getRequestOrigin } from "@resolid/framework/utils";
 import type { Context } from "hono";
 import { env } from "node:process";
 

@@ -1,8 +1,8 @@
 import { format } from "@formkit/tempo";
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { Await } from "@remix-run/react";
+import { mergeMeta, useTypedLoaderData } from "@resolid/framework/utils";
 import { Alert, AlertDescription, AlertTitle } from "@resolid/react-ui";
-import { mergeMeta, useTypedLoaderData } from "@resolid/remix-utils";
 import { Suspense } from "react";
 import { statusService } from "~/modules/system/service.server";
 
@@ -32,7 +32,7 @@ export default function Status() {
   const { ssr, db } = useTypedLoaderData<typeof loader>();
 
   return (
-    <div className={"prose dark:prose-invert mx-auto px-4 py-8"}>
+    <div className={"prose mx-auto px-4 py-8 dark:prose-invert"}>
       <h1 className={"text-center"}>运行状态</h1>
       <Alert color={"success"} className={"my-5"}>
         <AlertTitle>静态页面访问正常</AlertTitle>

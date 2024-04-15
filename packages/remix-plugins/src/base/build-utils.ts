@@ -1,14 +1,10 @@
-import commonjs from "@rollup/plugin-commonjs";
-import json from "@rollup/plugin-json";
-import nodeResolve from "@rollup/plugin-node-resolve";
 import esbuild from "esbuild";
 import { existsSync } from "node:fs";
-import { readFile, rm, writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { exit } from "node:process";
-import { rollup } from "rollup";
 import type { PackageJson } from "type-fest";
-import type { ResolvedConfig, RollupCommonJSOptions } from "vite";
+import type { ResolvedConfig } from "vite";
 
 export type SsrExternal = ResolvedConfig["ssr"]["external"];
 
@@ -51,10 +47,10 @@ export const buildEntry = async (
   buildPath: string,
   buildFile: string,
   serverBundleId: string,
+  packageFile: string,
+  ssrExternal: string[] | true | undefined,
 ): Promise<[string, string | null]> => {
-  console.log(`Build Server entry file for ${serverBundleId}...`);
-
-  const outfile = join(buildPath, "remix-entry.js");
+  console.log(`Bundle Server file for ${serverBundleId}...`);
 
   let handler = [".ts", ".js"].map((ext) => join(appPath, "remix.handler" + ext)).find((file) => existsSync(file));
 
@@ -64,7 +60,7 @@ export const buildEntry = async (
     await writeFile(
       defaultHandler,
       `
-import { createRequestHandler } from "@remix-run/server-runtime";
+import { createRequestHandler } from "@remix-run/node";
 
 export default function remixHandler(build, c) {
   const requestHandler = createRequestHandler(build, "production");
@@ -79,9 +75,17 @@ export default function remixHandler(build, c) {
     defaultHandler = null;
   }
 
+  const pkg = JSON.parse(await readFile(packageFile, "utf8")) as PackageJson;
+
+  const packageDependencies = getPackageDependencies({ ...pkg.dependencies }, ssrExternal);
+
+  await writePackageJson(pkg, join(buildPath, "package.json"), packageDependencies);
+
+  const bundleFile = join(buildPath, "serve.mjs");
+
   await esbuild
     .build({
-      outfile: outfile,
+      outfile: bundleFile,
       entryPoints: [entryFile],
       define: {
         "process.env.NODE_ENV": '"production"',
@@ -90,74 +94,21 @@ export default function remixHandler(build, c) {
         "~resolid-remix/server": buildFile,
         "~resolid-remix/handler": handler,
       },
+      banner: { js: "import { createRequire } from 'module';const require = createRequire(import.meta.url);" },
       platform: "node",
       target: "node20",
       format: "esm",
-      packages: "external",
+      external: Object.keys(packageDependencies),
       bundle: true,
+      charset: "utf8",
+      treeShaking: true,
+      legalComments: "none",
+      minify: false,
     })
     .catch((error: unknown) => {
       console.error(error);
       exit(1);
     });
 
-  return [outfile, defaultHandler];
-};
-
-export const bundleServer = async (
-  buildPath: string,
-  entryFile: string,
-  packageFile: string,
-  commonjsOptions: RollupCommonJSOptions,
-  ssrExternal: string[] | true | undefined,
-  resolveDedupe: string[],
-  serverBundleId: string,
-) => {
-  console.log(`Bundle Server file for ${serverBundleId}...`);
-
-  const pkg = JSON.parse(await readFile(packageFile, "utf8")) as PackageJson;
-
-  const packageDependencies = getPackageDependencies({ ...pkg.dependencies }, ssrExternal);
-
-  await writePackageJson(pkg, join(buildPath, "package.json"), packageDependencies);
-
-  const bundle = await rollup({
-    input: entryFile,
-    external: Object.keys(packageDependencies),
-    preserveEntrySignatures: "allow-extension",
-    plugins: [
-      nodeResolve({
-        preferBuiltins: true,
-        exportConditions: ["node"],
-        dedupe: resolveDedupe,
-      }),
-      commonjs({
-        ...commonjsOptions,
-        strictRequires: true,
-      }),
-      json({
-        compact: true,
-        namedExports: false,
-        preferConst: true,
-      }),
-    ],
-    logLevel: "silent",
-  });
-
-  const bundleFile = join(buildPath, "serve.mjs");
-
-  await bundle.write({
-    format: "es",
-    generatedCode: "es2015",
-    file: bundleFile,
-    inlineDynamicImports: true,
-    externalLiveBindings: false,
-    freeze: false,
-  });
-
-  await bundle.close();
-
-  await rm(entryFile, { force: true });
-
-  return bundleFile;
+  return [bundleFile, defaultHandler];
 };
