@@ -102,7 +102,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from 
 
 <section className={'example group'}>
   <ComponentExample className={'flex justify-center'}>
-    <Breadcrumb separator={<SpriteIcon size={"1.25rem"} name={"angle-right"} />} className={"gap-1"}>
+    <Breadcrumb separator={<span className={"text-sm items-center inline-flex justify-center h-5 w-5"}>/</span>} className={"gap-1"}>
       <BreadcrumbItem className={"gap-1"}>
         <BreadcrumbLink asChild>
           <Link to={'/'}>主页</Link>
@@ -137,7 +137,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from 
   </ComponentExample>
 
   ```jsx
-  <Breadcrumb separator={<SpriteIcon size={"1.25rem"} name={"angle-right"} />} className={"gap-1"}>
+  <Breadcrumb separator={<span className={"text-sm items-center inline-flex justify-center h-5 w-5"}>/</span>} className={"gap-1"}>
     <BreadcrumbItem className={"gap-1"}>
       <BreadcrumbLink asChild>
         <Link to={'/'}>主页</Link>

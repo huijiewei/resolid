@@ -1,5 +1,6 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
+import { AngleLeft, AngleRight } from "../../shared/Icons";
 import { clsx } from "../../utils/classed";
 import type { Color } from "../../utils/types";
 import { Slot, type AsChildProps } from "../slot/Slot";
@@ -77,27 +78,9 @@ export const PaginationItem = forwardRef<HTMLButtonElement, AsChildProps<"button
         {children ? (
           children
         ) : pageType == "previous" ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className={"h-4 w-4"}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M15 19l-7-7 7-7" />
-          </svg>
+          <AngleLeft />
         ) : pageType == "next" ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className={"h-4 w-4"}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M9 5l7 7-7 7" />
-          </svg>
+          <AngleRight />
         ) : pageType == "end-ellipsis" || pageType == "start-ellipsis" ? (
           "..."
         ) : (

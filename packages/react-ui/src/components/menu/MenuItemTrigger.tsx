@@ -1,6 +1,7 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { useMergeRefs } from "../../hooks";
+import { AngleRight } from "../../shared/Icons";
 import { clsx } from "../../utils/classed";
 import { dataAttr } from "../../utils/dom";
 import { useFloatingDispatch } from "../floating/floatingDispatchContext";
@@ -38,16 +39,7 @@ export const MenuItemTrigger = forwardRef<HTMLButtonElement, AsChildProps<"div",
         >
           {children}
           <span className={clsx("ms-5", disabled ? "text-fg-subtle" : "text-fg-muted")}>
-            <svg
-              className={"h-4 w-4"}
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="m9 18 6-6-6-6" />
-            </svg>
+            <AngleRight />
           </span>
         </MenuItem>
       </MenuItemTriggerProvider>
