@@ -316,30 +316,60 @@ import { Select, NativeSelect } from "@resolid/react-ui";
 <section className={'example group'}>
   <ComponentExample className={"flex flex-row gap-3 items-center"}>
     <Select
-      className={"w-36"}
+      className={"w-52"}
       options={[
         {
-          label: 'Category 1',
+          label: '前端',
           options: [
-            { label: 'Option 101', value: '101' },
-            { label: 'Option 102', value: '102' },
-            { label: 'Option 103', value: '103' }
+            { label: 'React', value: 'react' },
+            { label: 'Vue', value: 'vue' },
+            { label: 'Angular', value: 'angular' }
           ]
         },
         {
-          label: 'Category 2',
+          label: '后端',
           options: [
-            { label: 'Option 201', value: '201' },
-            { label: 'Option 202', value: '202' },
-            { label: 'Option 203', value: '203' }
+            { label: 'Express', value: 'express' },
+            { label: 'Koa', value: 'koa' },
+            { label: 'Laravel', value: 'laravel' }
           ]
         },
         {
-          label: '',
+          label: '数据库',
           options: [
-            { label: 'Option 301', value: '301' },
-            { label: 'Option 302', value: '302' },
-            { label: 'Option 303', value: '303' }
+            { label: 'Mysql', value: 'mysql', disabled: true },
+            { label: 'Postgres', value: 'postgres' },
+            { label: 'SQLite', value: 'sqlite' }
+          ]
+        }
+      ]}
+    />
+    <Select
+      size={'sm'}
+      className={"w-52"}
+      options={[
+        {
+          label: '前端',
+          options: [
+            { label: 'React', value: 'react' },
+            { label: 'Vue', value: 'vue' },
+            { label: 'Angular', value: 'angular' }
+          ]
+        },
+        {
+          label: '后端',
+          options: [
+            { label: 'Express', value: 'express' },
+            { label: 'Koa', value: 'koa' },
+            { label: 'Laravel', value: 'laravel' }
+          ]
+        },
+        {
+          label: '数据库',
+          options: [
+            { label: 'Mysql', value: 'mysql', disabled: true },
+            { label: 'Postgres', value: 'postgres' },
+            { label: 'SQLite', value: 'sqlite' }
           ]
         }
       ]}
@@ -348,30 +378,30 @@ import { Select, NativeSelect } from "@resolid/react-ui";
 
   ```jsx
   <Select
-    className={"w-36"}
+    className={"w-52"}
     options={[
       {
-        label: 'Category 1',
+        label: '前端',
         options: [
-          { label: 'Option 101', value: '101' },
-          { label: 'Option 102', value: '102' },
-          { label: 'Option 103', value: '103' }
+          { label: 'React', value: 'react' },
+          { label: 'Vue', value: 'vue' },
+          { label: 'Angular', value: 'angular' }
         ]
       },
       {
-        label: 'Category 2',
+        label: '后端',
         options: [
-          { label: 'Option 201', value: '201' },
-          { label: 'Option 202', value: '202' },
-          { label: 'Option 203', value: '203' }
+          { label: 'Express', value: 'express' },
+          { label: 'Koa', value: 'koa' },
+          { label: 'Laravel', value: 'laravel' }
         ]
       },
       {
-        label: '',
+        label: '数据库',
         options: [
-          { label: 'Option 301', value: '301' },
-          { label: 'Option 302', value: '302' },
-          { label: 'Option 303', value: '303' }
+          { label: 'Mysql', value: 'mysql', disabled: true },
+          { label: 'Postgres', value: 'postgres' },
+          { label: 'SQLite', value: 'sqlite' }
         ]
       }
     ]}

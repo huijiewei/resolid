@@ -31,7 +31,6 @@ import { clsx } from "../../utils/classed";
 import { ariaAttr, dataAttr } from "../../utils/dom";
 import type { Size } from "../../utils/types";
 import { CloseButton } from "../close-button/CloseButton";
-import { Divider } from "../divider/Divider";
 import { Portal } from "../portal/Portal";
 import { SelectChevron } from "./SelectChevron";
 import { SelectOption, type Render } from "./SelectOption";
@@ -323,7 +322,6 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
   };
 
   const sizeStyle = selectSizeStyles[size];
-  const sizeOptionStyle = clsx(sizeStyle.text, sizeStyle.option);
 
   const handleSelect = useCallback(
     (option: Omit<Option, keyof OptionFieldNames["options"]>, close = true) => {
@@ -588,7 +586,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
             }
           >
             <ul
-              className={"outline-none"}
+              className={clsx("outline-none", sizeStyle.text)}
               style={
                 virtual ? { height: `${rowVirtual.getTotalSize()}px`, width: "100%", position: "relative" } : undefined
               }
@@ -608,7 +606,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
                           left: 0,
                           transform: `translateY(${row.start}px)`,
                         }}
-                        className={sizeOptionStyle}
+                        className={sizeStyle.option}
                         key={`item-${option[mergedFieldNames.value]}`}
                         option={option}
                         render={renderOptionRef}
@@ -621,15 +619,15 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
                     if (option[mergedFieldNames.options]) {
                       return (
                         <Fragment key={`group-${index}`}>
-                          <Divider className={"mb-1 text-fg-subtle [&:not(:first-child)]:mt-1"}>
+                          <div className={clsx("text-[0.875em] text-fg-subtle", sizeStyle.option)}>
                             {option[mergedFieldNames.label]}
-                          </Divider>
+                          </div>
                           {option[mergedFieldNames.options].map(
                             (groupOption: Omit<Option, keyof OptionFieldNames["options"]>) => {
                               const selectOption = (
                                 <SelectOption<Option>
                                   index={optionIndex}
-                                  className={sizeOptionStyle}
+                                  className={sizeStyle.option}
                                   key={`item-${groupOption[mergedFieldNames.value]}`}
                                   option={groupOption}
                                   render={renderOptionRef}
@@ -648,7 +646,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
                       const selectOption = (
                         <SelectOption<Option>
                           index={optionIndex}
-                          className={sizeOptionStyle}
+                          className={sizeStyle.option}
                           key={`item-${option[mergedFieldNames.value]}`}
                           option={option}
                           render={renderOptionRef}

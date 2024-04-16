@@ -38,7 +38,7 @@ const SelectOptionInner = <Option extends OptionBase = OptionDefault>(
       tabIndex={isActive ? 0 : -1}
       className={clsx(
         "w-full select-none rounded outline-none transition-colors",
-        option.disabled ? "pointer-events-none text-fg-muted" : "active:bg-bg-subtle",
+        option.disabled ? "pointer-events-none text-fg-subtle" : "active:bg-bg-subtle",
         isSelect && "text-fg-primary",
         className,
       )}
