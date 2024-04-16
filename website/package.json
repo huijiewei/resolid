@@ -42,7 +42,7 @@
     "@resolid/tailwind": "workspace:^",
     "@shikijs/rehype": "^1.3.0",
     "@tailwindcss/typography": "^0.5.12",
-    "@types/react": "^18.2.78",
+    "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "autoprefixer": "^10.4.19",
     "drizzle-kit": "^0.20.14",
