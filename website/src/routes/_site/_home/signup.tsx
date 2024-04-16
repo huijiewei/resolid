@@ -157,7 +157,7 @@ export default function Signup() {
                 </HistoryLink>
                 &nbsp;并已阅读&nbsp;
                 <HistoryLink className={"text-link hover:underline"} target={"_blank"} to={"/privacy-policy"}>
-                  隐私声明
+                  隐私政策
                 </HistoryLink>
               </Checkbox>
             )}
