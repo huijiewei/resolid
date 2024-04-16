@@ -49,7 +49,7 @@
     "minimatch": "^9.0.4",
     "tsup": "^8.0.2",
     "type-fest": "^4.15.0",
-    "vite": "^5.2.8"
+    "vite": "^5.2.9"
   },
   "peerDependencies": {
     "@remix-run/dev": "^2.8.1",

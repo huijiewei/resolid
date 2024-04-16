@@ -129,7 +129,6 @@ export default defineConfig(({ command, isSsrBuild }) => {
     },
     ssr: {
       external: ["@node-rs/bcrypt"],
-      noExternal: ["@resolid/framework"],
     },
     optimizeDeps: {
       include: ["@mdx-js/react", "react-hook-form", "remix-hook-form"],
