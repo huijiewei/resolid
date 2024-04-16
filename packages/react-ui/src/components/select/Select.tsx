@@ -212,6 +212,8 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
               selectOptions.push({ ...groupOption, index: optionIndex });
             }
           }
+
+          optionIndex++;
         });
       } else {
         optionArray.push(option);
@@ -225,9 +227,9 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
             selectOptions.push({ ...option, index: optionIndex });
           }
         }
-      }
 
-      optionIndex++;
+        optionIndex++;
+      }
     };
 
     options.forEach((option) => {
@@ -619,9 +621,9 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
                     if (option[mergedFieldNames.options]) {
                       return (
                         <Fragment key={`group-${index}`}>
-                          <div className={clsx("text-[0.875em] text-fg-subtle", sizeStyle.option)}>
+                          <li className={clsx("text-[0.875em] text-fg-subtle", sizeStyle.option)}>
                             {option[mergedFieldNames.label]}
-                          </div>
+                          </li>
                           {option[mergedFieldNames.options].map(
                             (groupOption: Omit<Option, keyof OptionFieldNames["options"]>) => {
                               const selectOption = (
@@ -660,7 +662,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
                     }
                   })
                 ) : (
-                  <li className={"text-center"}>无数据</li>
+                  <li className={clsx("text-center", sizeStyle.option)}>无数据</li>
                 )}
               </SelectProvider>
             </ul>
