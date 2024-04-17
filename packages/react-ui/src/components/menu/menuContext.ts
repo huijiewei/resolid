@@ -7,7 +7,6 @@ export { MenuFloatingProvider, MenuSelectProvider, useMenuFloating, useMenuSelec
 
 export type MenuFloatingContext = MenuSelectContext &
   FloatingFloatingContext & {
-    trigger: "hover" | "click";
     duration: number;
     nested: boolean;
     lockScroll: boolean;

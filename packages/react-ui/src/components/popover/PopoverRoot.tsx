@@ -141,9 +141,16 @@ export const PopoverRoot = (props: PopoverProps) => {
   );
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
-    useHover(context, { move: false, mouseOnly: true, enabled: trigger == "hover", handleClose: safePolygon() }),
+    useHover(context, {
+      enabled: trigger == "hover",
+      move: false,
+      handleClose: safePolygon({ blockPointerEvents: true }),
+    }),
     useFocus(context, { enabled: trigger == "hover" }),
-    useClick(context, { enabled: trigger == "click" }),
+    useClick(context, {
+      event: "mousedown",
+      ignoreMouse: trigger == "hover",
+    }),
     useRole(context),
     useDismiss(context, { escapeKey: closeOnEsc, outsidePress: closeOnBlur }),
   ]);

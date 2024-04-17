@@ -113,7 +113,7 @@ export const TooltipRoot = (props: PropsWithChildren<TooltipProps>) => {
   );
 
   const { getFloatingProps, getReferenceProps } = useInteractions([
-    useHover(context, { move: false, mouseOnly: true, enabled: trigger == "hover" }),
+    useHover(context, { enabled: trigger == "hover" }),
     useFocus(context, { enabled: trigger == "hover" }),
     useClick(context, { enabled: trigger == "click" }),
     useRole(context, { role: "tooltip" }),

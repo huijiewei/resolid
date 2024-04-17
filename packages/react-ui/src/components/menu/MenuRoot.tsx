@@ -23,7 +23,7 @@ import {
 } from "@floating-ui/react";
 import { __DEV__, runIfFunction } from "@resolid/utils";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { useAllowHover, useDisclosure } from "../../hooks";
+import { useDisclosure } from "../../hooks";
 import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/floatingArrowContext";
 import { FloatingDispatchProvider } from "../floating/floatingDispatchContext";
 import { FloatingReferenceProvider } from "../floating/floatingReferenceContext";
@@ -125,8 +125,6 @@ const MenuTree = (props: MenuProps) => {
   const parentId = useFloatingParentNodeId();
   const nested = parentId != null;
 
-  const allowHover = useAllowHover();
-
   const { opened: openedState, open, close } = useDisclosure({ opened: undefined, onClose });
 
   const arrowRef = useRef<SVGSVGElement>(null);
@@ -162,15 +160,22 @@ const MenuTree = (props: MenuProps) => {
   const elementsRef = useRef<(HTMLElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
+  const enableHover = trigger == "hover" || nested;
+
   const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
     useHover(context, {
-      enabled: trigger == "hover" || (nested && allowHover),
-      handleClose: safePolygon(),
+      enabled: enableHover,
+      move: false,
+      handleClose: safePolygon({ blockPointerEvents: true }),
     }),
     useFocus(context, { enabled: trigger == "hover" && !nested }),
-    useClick(context, { enabled: trigger == "click" && (!nested || !allowHover) }),
+    useClick(context, {
+      toggle: !nested,
+      event: "mousedown",
+      ignoreMouse: enableHover,
+    }),
     useRole(context, { role: "menu" }),
-    useDismiss(context, { escapeKey: closeOnEsc, outsidePress: closeOnBlur }),
+    useDismiss(context, { escapeKey: closeOnEsc, outsidePress: closeOnBlur, bubbles: true }),
     useListNavigation(context, {
       listRef: elementsRef,
       nested,
@@ -192,7 +197,6 @@ const MenuTree = (props: MenuProps) => {
   const floatingContext = useMemo<MenuFloatingContext>(
     () => ({
       nested,
-      trigger,
       lockScroll,
       duration,
       tree,
@@ -206,7 +210,6 @@ const MenuTree = (props: MenuProps) => {
     }),
     [
       nested,
-      trigger,
       lockScroll,
       duration,
       tree,
@@ -229,18 +232,38 @@ const MenuTree = (props: MenuProps) => {
   );
 
   useEffect(() => {
-    const handleClick = () => {
+    if (!tree) {
+      return;
+    }
+
+    const handleTreeClick = () => {
       if (closeOnSelect) {
         close();
       }
     };
 
-    tree?.events.on("click", handleClick);
+    const handleSubMenuOpen = (event: { nodeId: string; parentId: string }) => {
+      if (event.nodeId != nodeId && event.parentId == parentId) {
+        if (closeOnSelect) {
+          close();
+        }
+      }
+    };
+
+    tree.events.on("click", handleTreeClick);
+    tree.events.on("menuopen", handleSubMenuOpen);
 
     return () => {
-      tree?.events.off("click", handleClick);
+      tree.events.off("click", handleTreeClick);
+      tree.events.off("menuopen", handleSubMenuOpen);
     };
-  }, [tree, closeOnSelect, close]);
+  }, [tree, closeOnSelect, close, nodeId, parentId]);
+
+  useEffect(() => {
+    if (openedState && tree) {
+      tree.events.emit("menuopen", { parentId, nodeId });
+    }
+  }, [tree, nodeId, parentId, openedState]);
 
   return (
     <FloatingArrowProvider value={arrowContext}>

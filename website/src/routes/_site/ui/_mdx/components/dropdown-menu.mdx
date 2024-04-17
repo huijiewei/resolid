@@ -116,13 +116,13 @@ import {
       <DropdownMenuTrigger asChild><Button color={'neutral'}>多级菜单</Button></DropdownMenuTrigger>
       <DropdownMenuContent className={"text-sm"}>
         <DropdownMenuArrow />
-        <DropdownMenuItem>新建</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => console.log('新建')}>新建</DropdownMenuItem>
         <DropdownMenuItem>打开</DropdownMenuItem>
         <DropdownMenuDivider />
         <DropdownMenu>
           <DropdownMenuItemTrigger>分享</DropdownMenuItemTrigger>
           <DropdownMenuContent className={"text-sm"}>
-            <DropdownMenuItem>邮件</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => console.log('邮件')}>邮件</DropdownMenuItem>
             <DropdownMenuItem>短信</DropdownMenuItem>
             <DropdownMenu>
               <DropdownMenuItemTrigger>社交媒体</DropdownMenuItemTrigger>
@@ -130,7 +130,7 @@ import {
                 <DropdownMenu>
                   <DropdownMenuItemTrigger>微信</DropdownMenuItemTrigger>
                   <DropdownMenuContent className={"text-sm"}>
-                    <DropdownMenuItem>聊天</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => console.log('聊天')}>聊天</DropdownMenuItem>
                     <DropdownMenuItem>朋友圈</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -358,7 +358,7 @@ import {
         <DropdownMenu>
           <DropdownMenuItemTrigger>分享</DropdownMenuItemTrigger>
           <DropdownMenuContent className={"text-sm"}>
-            <DropdownMenuItem>邮件</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => console.log('邮件')}>邮件</DropdownMenuItem>
             <DropdownMenuItem>短信</DropdownMenuItem>
             <DropdownMenu>
               <DropdownMenuItemTrigger>社交媒体</DropdownMenuItemTrigger>
