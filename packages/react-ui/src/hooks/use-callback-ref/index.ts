@@ -1,12 +1,12 @@
-import type { AnyFunction } from "@resolid/utils";
 import { useEffect, useMemo, useRef } from "react";
 
-export const useCallbackRef = <R, A>(callback: AnyFunction<R, A> | undefined): AnyFunction<R, A> => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const useCallbackRef = <T extends (...args: any[]) => any>(callback: T | undefined): T => {
   const ref = useRef(callback);
 
   useEffect(() => {
     ref.current = callback;
   });
 
-  return useMemo(() => ((...args) => ref.current?.(...args)) as AnyFunction<R, A>, []);
+  return useMemo(() => ((...args) => ref.current?.(...args)) as T, []);
 };

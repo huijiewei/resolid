@@ -2,7 +2,7 @@ import type { Overwrite } from "@resolid/utils";
 import { forwardRef, type ComponentPropsWithoutRef, type ForwardedRef, type ReactNode } from "react";
 import { useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
-import { dataAttr } from "../../utils/dom";
+import { ariaAttr, dataAttr } from "../../utils/dom";
 import { useSelect, type OptionBase, type OptionDefault, type OptionFieldNames } from "./selectContext";
 
 export type Render<Option> = (option: Option) => ReactNode;
@@ -34,11 +34,12 @@ const SelectOptionInner = <Option extends OptionBase = OptionDefault>(
       ref={refs}
       role="option"
       data-active={dataAttr(isActive)}
-      aria-selected={isSelect}
+      aria-selected={ariaAttr(isSelect)}
+      aria-disabled={ariaAttr(option.disabled)}
       tabIndex={isActive ? 0 : -1}
       className={clsx(
         "w-full select-none rounded outline-none transition-colors",
-        option.disabled ? "pointer-events-none text-fg-subtle" : "active:bg-bg-subtle",
+        option.disabled ? "text-fg-subtlest" : "active:bg-bg-subtle",
         isSelect && "font-medium text-fg-primary",
         className,
       )}

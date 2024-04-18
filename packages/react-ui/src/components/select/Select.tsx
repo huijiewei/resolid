@@ -23,7 +23,6 @@ import {
   type CSSProperties,
   type ComponentPropsWithoutRef,
   type ForwardedRef,
-  type ReactNode,
 } from "react";
 import { useCallbackRef, useControllableState, useIsomorphicEffect, usePrevious } from "../../hooks";
 import { focusInputStyles } from "../../shared/styles";
@@ -195,45 +194,40 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
     let optionIndex = 0;
     let hasGroupOptions = false;
 
-    const pushOption = (option: Option) => {
-      filterOptions.push(option);
-
-      if (option[mergedFieldNames.options]) {
-        hasGroupOptions = true;
-        option[mergedFieldNames.options].forEach((groupOption: Omit<Option, keyof OptionFieldNames["options"]>) => {
-          optionArray.push(groupOption);
-
-          if (Array.isArray(state)) {
-            if (state.includes(groupOption[mergedFieldNames.value])) {
-              selectOptions.push({ ...groupOption, index: optionIndex });
-            }
-          } else {
-            if (state == groupOption[mergedFieldNames.value]) {
-              selectOptions.push({ ...groupOption, index: optionIndex });
-            }
-          }
-
-          optionIndex++;
-        });
-      } else {
-        optionArray.push(option);
-
-        if (Array.isArray(state)) {
-          if (state.includes(option[mergedFieldNames.value])) {
-            selectOptions.push({ ...option, index: optionIndex });
-          }
-        } else {
-          if (state == option[mergedFieldNames.value]) {
-            selectOptions.push({ ...option, index: optionIndex });
-          }
-        }
-
-        optionIndex++;
-      }
+    const isSelected = (option: Option) => {
+      return Array.isArray(state)
+        ? state.includes(option[mergedFieldNames.value])
+        : state == option[mergedFieldNames.value];
     };
 
     options.forEach((option) => {
-      pushOption(option);
+      if (option[mergedFieldNames.options]) {
+        hasGroupOptions = true;
+
+        const filterChildren = [];
+
+        option[mergedFieldNames.options].forEach((child: Option) => {
+          if (isSelected(child)) {
+            selectOptions.push({ ...child, index: optionIndex });
+          }
+
+          optionIndex++;
+          optionArray.push(child);
+          filterChildren.push(child);
+        });
+
+        if (filterChildren.length > 0) {
+          filterOptions.push(option);
+        }
+      } else {
+        if (isSelected(option)) {
+          selectOptions.push({ ...option, index: optionIndex });
+        }
+
+        optionIndex++;
+        optionArray.push(option);
+        filterOptions.push(option);
+      }
     });
 
     setVirtual(!hasGroupOptions && options.length > 30);
@@ -280,7 +274,6 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
       onNavigate: setActiveIndex,
       loop: true,
       virtual: true,
-      disabledIndices: [],
     }),
   ]);
 
@@ -290,7 +283,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
     duration: duration,
   });
 
-  const renderLabelRef = useCallbackRef<ReactNode, Option>(renderLabel ?? ((option) => option[mergedFieldNames.label]));
+  const renderLabelRef = useCallbackRef(renderLabel ?? ((option) => option[mergedFieldNames.label]));
 
   const renderSingleValue = (selectOption: Omit<Option, keyof OptionFieldNames["options"]> | undefined) => {
     return selectOption ? renderLabelRef(selectOption) : <span className={"text-fg-subtle"}>{placeholder}</span>;
@@ -364,9 +357,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
     [closeOnSelect, mergedFieldNames.value, onDeselect, onSelect, refs.domReference, setState, state],
   );
 
-  const renderOptionRef = useCallbackRef<ReactNode, Option>(
-    renderOption ?? ((option) => option[mergedFieldNames.label]),
-  );
+  const renderOptionRef = useCallbackRef(renderOption ?? ((option) => option[mergedFieldNames.label]));
 
   const selectContext = useMemo(() => {
     return {
@@ -409,9 +400,9 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
         });
       }
     } else {
-      const floating = refs.floating.current;
+      const scrollElement = refs.floating.current;
 
-      if (floating) {
+      if (scrollElement) {
         const item =
           activeIndex != null
             ? elementsRef.current[activeIndex]
@@ -422,20 +413,20 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
         if (item && prevActiveIndex != null) {
           const itemHeight = elementsRef.current[prevActiveIndex]?.offsetHeight || 0;
 
-          const floatingHeight = floating.offsetHeight;
+          const scrollHeight = scrollElement.offsetHeight;
           const top = item.offsetTop - itemHeight;
           const bottom = top + itemHeight * 3;
 
-          if (top < floating.scrollTop) {
-            floating.scrollTop -= floating.scrollTop - top + 6;
-          } else if (bottom > floatingHeight + floating.scrollTop) {
-            floating.scrollTop += bottom - floatingHeight - floating.scrollTop + 6;
+          if (top < scrollElement.scrollTop) {
+            scrollElement.scrollTop -= scrollElement.scrollTop - top + 6;
+          } else if (bottom > scrollHeight + scrollElement.scrollTop) {
+            scrollElement.scrollTop += bottom - scrollHeight - scrollElement.scrollTop + 6;
           }
         }
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [openedState, scrollState, prevActiveIndex, activeIndex, minSelectedIndex, refs.floating, virtual]);
+  }, [openedState, scrollState, prevActiveIndex, activeIndex, minSelectedIndex, virtual]);
 
   useIsomorphicEffect(() => {
     if (!openedState || !closeOnSelect) {
@@ -448,19 +439,19 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
           rowVirtual.scrollToIndex(minSelectedIndex + 1, { align: "center" });
         }
       } else {
-        const floating = refs.floating.current;
+        const scrollElement = refs.floating.current;
 
-        if (floating && floating.offsetHeight < floating.scrollHeight) {
+        if (scrollElement && scrollElement.offsetHeight < scrollElement.scrollHeight) {
           const item = elementsRef.current[minSelectedIndex];
 
           if (item) {
-            floating.scrollTop = item.offsetTop - floating.offsetHeight / 2 + item.offsetHeight / 2 + 9;
+            scrollElement.scrollTop = item.offsetTop - scrollElement.offsetHeight / 2 + item.offsetHeight / 2 + 9;
           }
         }
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [openedState, minSelectedIndex, middlewareData, refs.floating, virtual]);
+  }, [openedState, minSelectedIndex, middlewareData, virtual]);
 
   let optionIndex = 0;
 
@@ -573,9 +564,11 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
       {isMounted && !readOnly && (
         <Portal>
           <div
+            tabIndex={-1}
             ref={refs.setFloating}
             className={clsx(
-              "max-h-80 overflow-y-auto overscroll-contain rounded border bg-bg-normal shadow outline-none scrollbar scrollbar-thin",
+              "z-popup rounded border bg-bg-normal shadow outline-none",
+              "max-h-80 overflow-y-auto overscroll-contain scrollbar scrollbar-thin",
               virtual ? "px-1" : "p-1",
               "transition-opacity duration-[--duration-var]",
               status == "open" ? "opacity-100" : "opacity-0",
@@ -592,7 +585,7 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
               style={
                 virtual ? { height: `${rowVirtual.getTotalSize()}px`, width: "100%", position: "relative" } : undefined
               }
-              {...getFloatingProps({})}
+              {...getFloatingProps()}
             >
               <SelectProvider value={selectContext}>
                 {virtual ? (
@@ -621,7 +614,11 @@ const SelectInner = <Option extends OptionBase = OptionDefault>(
                     if (option[mergedFieldNames.options]) {
                       return (
                         <Fragment key={`group-${index}`}>
-                          <li className={clsx("text-[0.875em] text-fg-subtle", sizeStyle.option)}>
+                          <li
+                            role={"separator"}
+                            aria-disabled
+                            className={clsx("text-[0.875em] text-fg-subtle", sizeStyle.option)}
+                          >
                             {option[mergedFieldNames.label]}
                           </li>
                           {option[mergedFieldNames.options].map(
