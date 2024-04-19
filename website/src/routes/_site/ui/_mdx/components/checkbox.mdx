@@ -24,7 +24,7 @@ import { Checkbox, CheckboxGroup } from "@resolid/react-ui";
 
 <ComponentUsage
   preview={(props) => <Checkbox {...props}>复选框</Checkbox>}
-  componentFile={"./checkbox/Checkbox.tsx"}
+  componentFile={"./checkbox/checkbox.tsx"}
   ignoreProps={["icon", "value", "spacing"]}
 />
 
@@ -39,14 +39,13 @@ import { Checkbox, CheckboxGroup } from "@resolid/react-ui";
     <Checkbox size={"xl"}>XL</Checkbox>
   </ComponentExample>
 
-```jsx
-<Checkbox size={"xs"}>XS</Checkbox>
-<Checkbox size={"sm"}>SM</Checkbox>
-<Checkbox>MD</Checkbox>
-<Checkbox size={"lg"}>LG</Checkbox>
-<Checkbox size={"xl"}>XL</Checkbox>
-```
-
+  ```jsx
+  <Checkbox size={"xs"}>XS</Checkbox>
+  <Checkbox size={"sm"}>SM</Checkbox>
+  <Checkbox>MD</Checkbox>
+  <Checkbox size={"lg"}>LG</Checkbox>
+  <Checkbox size={"xl"}>XL</Checkbox>
+  ```
 </section>
 
 ## 颜色
@@ -60,14 +59,13 @@ import { Checkbox, CheckboxGroup } from "@resolid/react-ui";
       <Checkbox color={'neutral'} defaultChecked>Neutral</Checkbox>
   </ComponentExample>
 
-```jsx
-<Checkbox>Primary</Checkbox>
-<Checkbox color={'success'}>Success</Checkbox>
-<Checkbox color={'warning'}>Warning</Checkbox>
-<Checkbox color={'danger'}>Danger</Checkbox>
-<Checkbox color={'neutral'}>Neutral</Checkbox>
-```
-
+  ```jsx
+  <Checkbox>Primary</Checkbox>
+  <Checkbox color={'success'}>Success</Checkbox>
+  <Checkbox color={'warning'}>Warning</Checkbox>
+  <Checkbox color={'danger'}>Danger</Checkbox>
+  <Checkbox color={'neutral'}>Neutral</Checkbox>
+  ```
 </section>
 
 ## 复选框组
@@ -99,29 +97,28 @@ import { Checkbox, CheckboxGroup } from "@resolid/react-ui";
 
   </ComponentExample>
 
-```jsx
-const [checkedValue, setCheckedValue] = React.useState(["选择框一"]);
-
-return (
-  <div className={"flex flex-col gap-2"}>
-    <CheckboxGroup
-      value={checkedValue}
-      onChange={(value) => {
-        setCheckedValue(value);
-      }}
-    >
-      <div className={"flex flex-row gap-5"}>
-        <Checkbox value={"选择框一"}>选择框一</Checkbox>
-        <Checkbox value={"选择框二"}>选择框二</Checkbox>
-        <Checkbox value={"选择框三"}>选择框三</Checkbox>
-        <Checkbox value={"选择框四"}>选择框四</Checkbox>
-      </div>
-    </CheckboxGroup>
-    <div>你选中的值: {checkedValue.join(", ")}</div>
-  </div>
-);
-```
-
+  ```jsx
+  const [checkedValue, setCheckedValue] = React.useState(["选择框一"]);
+  
+  return (
+    <div className={"flex flex-col gap-2"}>
+      <CheckboxGroup
+        value={checkedValue}
+        onChange={(value) => {
+          setCheckedValue(value);
+        }}
+      >
+        <div className={"flex flex-row gap-5"}>
+          <Checkbox value={"选择框一"}>选择框一</Checkbox>
+          <Checkbox value={"选择框二"}>选择框二</Checkbox>
+          <Checkbox value={"选择框三"}>选择框三</Checkbox>
+          <Checkbox value={"选择框四"}>选择框四</Checkbox>
+        </div>
+      </CheckboxGroup>
+      <div>你选中的值: {checkedValue.join(", ")}</div>
+    </div>
+  );
+  ```
 </section>
 
 ## 部分选中
@@ -169,45 +166,44 @@ return (
 
   </ComponentExample>
 
-```jsx
-const [checkedItems, setCheckedItems] = React.useState([true, false, false]);
-
-const allChecked = checkedItems.every(Boolean);
-const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
-
-return (
-  <div className={"flex flex-col gap-3"}>
-    <Checkbox
-      checked={allChecked}
-      indeterminate={isIndeterminate}
-      onChange={(checked) => setCheckedItems([checked, checked, checked])}
-    >
-      选择框
-    </Checkbox>
-    <div className={"flex flex-row gap-5"}>
+  ```jsx
+  const [checkedItems, setCheckedItems] = React.useState([true, false, false]);
+  
+  const allChecked = checkedItems.every(Boolean);
+  const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
+  
+  return (
+    <div className={"flex flex-col gap-3"}>
       <Checkbox
-        checked={checkedItems[0]}
-        onChange={(checked) => setCheckedItems([checked, checkedItems[1], checkedItems[2]])}
+        checked={allChecked}
+        indeterminate={isIndeterminate}
+        onChange={(checked) => setCheckedItems([checked, checked, checked])}
       >
-        选择框一
+        选择框
       </Checkbox>
-      <Checkbox
-        checked={checkedItems[1]}
-        onChange={(checked) => setCheckedItems([checkedItems[0], checked, checkedItems[2]])}
-      >
-        选择框二
-      </Checkbox>
-      <Checkbox
-        checked={checkedItems[2]}
-        onChange={(checked) => setCheckedItems([checkedItems[0], checkedItems[1], checked])}
-      >
-        选择框三
-      </Checkbox>
+      <div className={"flex flex-row gap-5"}>
+        <Checkbox
+          checked={checkedItems[0]}
+          onChange={(checked) => setCheckedItems([checked, checkedItems[1], checkedItems[2]])}
+        >
+          选择框一
+        </Checkbox>
+        <Checkbox
+          checked={checkedItems[1]}
+          onChange={(checked) => setCheckedItems([checkedItems[0], checked, checkedItems[2]])}
+        >
+          选择框二
+        </Checkbox>
+        <Checkbox
+          checked={checkedItems[2]}
+          onChange={(checked) => setCheckedItems([checkedItems[0], checkedItems[1], checked])}
+        >
+          选择框三
+        </Checkbox>
+      </div>
     </div>
-  </div>
-);
-```
-
+  );
+  ```
 </section>
 
 ## 自定义图标
@@ -268,66 +264,65 @@ return (
 
   </ComponentExample>
 
-```jsx
-const [checkedItems, setCheckedItems] = useState([true, false]);
-
-const allChecked = checkedItems.every(Boolean);
-const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
-
-const CustomIcon = useMemo(() => {
-  return (props) => {
-    const { indeterminate, ...rest } = props;
-
-    const d = indeterminate
-      ? "M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,19a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,12,19Zm1.6-6.08a1,1,0,0,0-.6.917,1,1,0,1,1-2,0,3,3,0,0,1,1.8-2.75A2,2,0,1,0,10,9.255a1,1,0,1,1-2,0,4,4,0,1,1,5.6,3.666Z"
-      : "M0,12a1.5,1.5,0,0,0,1.5,1.5h8.75a.25.25,0,0,1,.25.25V22.5a1.5,1.5,0,0,0,3,0V13.75a.25.25,0,0,1,.25-.25H22.5a1.5,1.5,0,0,0,0-3H13.75a.25.25,0,0,1-.25-.25V1.5a1.5,1.5,0,0,0-3,0v8.75a.25.25,0,0,1-.25.25H1.5A1.5,1.5,0,0,0,0,12Z";
-
-    return (
-      <svg width={"1em"} height={"1em"} viewBox={"0 0 24 24"} {...rest}>
-        <path fill="currentColor" d={d} />
-      </svg>
-    );
-  };
-}, []);
-
-return (
-  <div className={"flex flex-col gap-3"}>
-    <Checkbox
-      icon={<CustomIcon />}
-      checked={allChecked}
-      indeterminate={isIndeterminate}
-      onChange={(checked) => setCheckedItems([checked, checked])}
-    >
-      选择框
-    </Checkbox>
-    <div className={"flex flex-row gap-5"}>
+  ```jsx
+  const [checkedItems, setCheckedItems] = useState([true, false]);
+  
+  const allChecked = checkedItems.every(Boolean);
+  const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
+  
+  const CustomIcon = useMemo(() => {
+    return (props) => {
+      const { indeterminate, ...rest } = props;
+  
+      const d = indeterminate
+        ? "M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,19a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,12,19Zm1.6-6.08a1,1,0,0,0-.6.917,1,1,0,1,1-2,0,3,3,0,0,1,1.8-2.75A2,2,0,1,0,10,9.255a1,1,0,1,1-2,0,4,4,0,1,1,5.6,3.666Z"
+        : "M0,12a1.5,1.5,0,0,0,1.5,1.5h8.75a.25.25,0,0,1,.25.25V22.5a1.5,1.5,0,0,0,3,0V13.75a.25.25,0,0,1,.25-.25H22.5a1.5,1.5,0,0,0,0-3H13.75a.25.25,0,0,1-.25-.25V1.5a1.5,1.5,0,0,0-3,0v8.75a.25.25,0,0,1-.25.25H1.5A1.5,1.5,0,0,0,0,12Z";
+  
+      return (
+        <svg width={"1em"} height={"1em"} viewBox={"0 0 24 24"} {...rest}>
+          <path fill="currentColor" d={d} />
+        </svg>
+      );
+    };
+  }, []);
+  
+  return (
+    <div className={"flex flex-col gap-3"}>
       <Checkbox
         icon={<CustomIcon />}
-        checked={checkedItems[0]}
-        onChange={(checked) => setCheckedItems([checked, checkedItems[1]])}
+        checked={allChecked}
+        indeterminate={isIndeterminate}
+        onChange={(checked) => setCheckedItems([checked, checked])}
       >
-        选择框一
+        选择框
       </Checkbox>
-      <Checkbox
-        icon={<CustomIcon />}
-        checked={checkedItems[1]}
-        onChange={(checked) => setCheckedItems([checkedItems[0], checked])}
-      >
-        选择框二
-      </Checkbox>
+      <div className={"flex flex-row gap-5"}>
+        <Checkbox
+          icon={<CustomIcon />}
+          checked={checkedItems[0]}
+          onChange={(checked) => setCheckedItems([checked, checkedItems[1]])}
+        >
+          选择框一
+        </Checkbox>
+        <Checkbox
+          icon={<CustomIcon />}
+          checked={checkedItems[1]}
+          onChange={(checked) => setCheckedItems([checkedItems[0], checked])}
+        >
+          选择框二
+        </Checkbox>
+      </div>
     </div>
-  </div>
-);
-```
-
+  );
+  ```
 </section>
 
 ## 属性
 
 ### 复选框
 
-<ComponentProps componentFile={"./checkbox/Checkbox.tsx"} />
+<ComponentProps componentFile={"./checkbox/checkbox.tsx"} />
 
 ### 复选框组
 
-<ComponentProps componentFile={"./checkbox/CheckboxGroup.tsx"} />
+<ComponentProps componentFile={"./checkbox/checkbox-group.tsx"} />

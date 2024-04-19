@@ -73,7 +73,6 @@ import {
         </>
       );
     }}
-
   </ComponentExample>
 
   ```jsx
@@ -95,7 +94,6 @@ import {
       </Modal>
     </>
   );
-
   ````
 </section>
 
@@ -145,7 +143,6 @@ import {
     </>
   );
   ````
-
 </section>
 
 ## 嵌套
@@ -188,29 +185,27 @@ import {
         </>
       );
     }}
-
   </ComponentExample>
 
   ```jsx
   const [opened, setOpened] = useState(false);
 
   return (
-  <>
-    <Button onClick={() => setOpened(true)}>打开模态框</Button>
-    <Modal opened={opened} onClose={() => setOpened(false)}>
-      <ModalOverlay />
-      <ModalContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-        <ModalHeader>模态框标题</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody className={'p-4'}>模态框内容</ModalBody>
-        <ModalFooter className={'flex items-center justify-center gap-5'}>
-          <Button onClick={() => setOpened(false)}>关闭</Button>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
-  </>
+    <>
+      <Button onClick={() => setOpened(true)}>打开模态框</Button>
+      <Modal opened={opened} onClose={() => setOpened(false)}>
+        <ModalOverlay />
+        <ModalContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
+          <ModalHeader>模态框标题</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody className={'p-4'}>模态框内容</ModalBody>
+          <ModalFooter className={'flex items-center justify-center gap-5'}>
+            <Button onClick={() => setOpened(false)}>关闭</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
   );
-
   ````
 </section>
 
@@ -238,7 +233,6 @@ import {
         </>
       );
     }}
-
   </ComponentExample>
 
   ```jsx
@@ -261,7 +255,6 @@ import {
     </>
   );
   ```
-
 </section>
 
 ## 滚动行为
@@ -362,7 +355,6 @@ import {
         </>
       );
     }}
-
   </ComponentExample>
 
   ```jsx
@@ -392,7 +384,6 @@ import {
     </>
   );
   ```
-
 </section>
 
 ## 焦点管理
@@ -439,7 +430,6 @@ import {
         </>
       );
     }}
-
   </ComponentExample>
 
   ```jsx
@@ -480,7 +470,6 @@ import {
     </>
   );
   ```
-
 </section>
 
 ## 自定义背景样式
@@ -563,9 +552,8 @@ import {
     </>
   );
   ```
-
 </section>
 
 ## 属性
 
-<ComponentProps componentFile={"./modal/Modal.tsx"} />
+<ComponentProps componentFile={"./modal/modal.tsx"} />

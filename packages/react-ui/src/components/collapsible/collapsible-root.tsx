@@ -2,7 +2,7 @@ import { useTransitionStatus } from "@floating-ui/react";
 import { runIfFunction } from "@resolid/utils";
 import { useCallback, useId, useRef, useState, type ReactNode } from "react";
 import { useDisclosure } from "../../hooks";
-import type { BaseProps } from "../slot/Slot";
+import type { BaseProps } from "../slot/slot";
 import { CollapsibleContentProvider, CollapsibleTriggerProvider } from "./collapsible-context";
 
 export type CollapsibleRootProps = {

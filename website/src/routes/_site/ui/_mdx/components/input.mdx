@@ -25,7 +25,7 @@ import { Input, InputAddon, InputGroup } from "@resolid/react-ui";
 
 <ComponentUsage
   preview={(props) => <Input placeholder={"输入框"} {...props} />}
-  componentFile={"./input/Input.tsx"}
+  componentFile={"./input/input.tsx"}
   ignoreProps={[
     "value",
     "defaultValue",
@@ -57,17 +57,16 @@ import { Input, InputAddon, InputGroup } from "@resolid/react-ui";
 
   </ComponentExample>
 
-```jsx
-const [value, setValue] = React.useState("");
-
-return (
-  <>
-    <div className="mb-2">值: {value}</div>
-    <Input value={value} onChange={(value) => setValue(value)} placeholder="输入框" />
-  </>
-);
-```
-
+  ```jsx
+  const [value, setValue] = React.useState("");
+  
+  return (
+    <>
+      <div className="mb-2">值: {value}</div>
+      <Input value={value} onChange={(value) => setValue(value)} placeholder="输入框" />
+    </>
+  );
+  ```
 </section>
 
 ## 大小
@@ -81,14 +80,13 @@ return (
     <Input size={"xl"} defaultValue={"XL 超大"} />
   </ComponentExample>
 
-```jsx
-<Input size={"xs"} defaultValue={"XS 超小"} />
-<Input size={"sm"} defaultValue={"SM 小型"} />
-<Input defaultValue={"普通输入框"} />
-<Input size={"lg"} defaultValue={"LG 大型"} />
-<Input size={"xl"} defaultValue={"XL 超大"} />
-```
-
+  ```jsx
+  <Input size={"xs"} defaultValue={"XS 超小"} />
+  <Input size={"sm"} defaultValue={"SM 小型"} />
+  <Input defaultValue={"普通输入框"} />
+  <Input size={"lg"} defaultValue={"LG 大型"} />
+  <Input size={"xl"} defaultValue={"XL 超大"} />
+  ```
 </section>
 
 ## 前后置元素
@@ -104,21 +102,20 @@ return (
              trailing={<Button size={"xs"}>订阅</Button>} trailingWidth={56} trailingPointer={true} />
     </div>
   </ComponentExample>
-
-```jsx
-<Input placeholder={"邮箱地址"}
-       leading={<SpriteIcon size={"sm"} name={"email"} />} />
-<Input placeholder={"金额"} trailing={'RMB'} trailingWidth={50} />
-<Input placeholder={"搜索..."}
-       leading={<Button variant={"ghost"} color={"neutral"} size={"xs"} square={true}>
-                  <SpriteIcon size={"sm"} name={"search"} />
-                </Button>}
-       leadingPointer={true} />
-<Input placeholder={"邮件地址"}
-       trailing={<Button size={"xs"}>订阅</Button>}
-       trailingWidth={56} trailingPointer={true} />
-```
-
+  
+  ```jsx
+  <Input placeholder={"邮箱地址"}
+         leading={<SpriteIcon size={"sm"} name={"email"} />} />
+  <Input placeholder={"金额"} trailing={'RMB'} trailingWidth={50} />
+  <Input placeholder={"搜索..."}
+         leading={<Button variant={"ghost"} color={"neutral"} size={"xs"} square={true}>
+                    <SpriteIcon size={"sm"} name={"search"} />
+                  </Button>}
+         leadingPointer={true} />
+  <Input placeholder={"邮件地址"}
+         trailing={<Button size={"xs"}>订阅</Button>}
+         trailingWidth={56} trailingPointer={true} />
+  ```
 </section>
 
 ## 输入框组
@@ -147,35 +144,34 @@ return (
     </div>
   </ComponentExample>
 
-```jsx
-<InputGroup>
-  <InputAddon>@</InputAddon>
-  <Input placeholder={"用户名"} />
-</InputGroup>
-<InputGroup>
-  <Input placeholder={"收件人的用户名"} />
-  <InputAddon>@example.com</InputAddon>
-</InputGroup>
-<InputGroup>
-  <InputAddon>¥</InputAddon>
-  <Input trailing={'RMB'} trailingWidth={50} placeholder={"金额"} />
-  <InputAddon>.00</InputAddon>
-</InputGroup>
-<InputGroup size={"sm"}>
-  <Input placeholder={"用户名"} />
-  <InputAddon>@</InputAddon>
-  <Input placeholder={"服务器"} />
-</InputGroup>
-```
-
+  ```jsx
+  <InputGroup>
+    <InputAddon>@</InputAddon>
+    <Input placeholder={"用户名"} />
+  </InputGroup>
+  <InputGroup>
+    <Input placeholder={"收件人的用户名"} />
+    <InputAddon>@example.com</InputAddon>
+  </InputGroup>
+  <InputGroup>
+    <InputAddon>¥</InputAddon>
+    <Input trailing={'RMB'} trailingWidth={50} placeholder={"金额"} />
+    <InputAddon>.00</InputAddon>
+  </InputGroup>
+  <InputGroup size={"sm"}>
+    <Input placeholder={"用户名"} />
+    <InputAddon>@</InputAddon>
+    <Input placeholder={"服务器"} />
+  </InputGroup>
+  ```
 </section>
 
 ## 属性
 
 ### 输入框
 
-<ComponentProps componentFile={"./input/Input.tsx"} />
+<ComponentProps componentFile={"./input/input.tsx"} />
 
 ### 输入框组
 
-<ComponentProps componentFile={"./input/InputGroup.tsx"} />
+<ComponentProps componentFile={"./input/input-group.tsx"} />

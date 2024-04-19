@@ -28,7 +28,7 @@ import { Switch } from "@resolid/react-ui";
       开关
     </Switch>
   )}
-  componentFile={"./switch/Switch.tsx"}
+  componentFile={"./switch/switch.tsx"}
   ignoreProps={["value", "spacing"]}
 />
 
@@ -51,19 +51,18 @@ import { Switch } from "@resolid/react-ui";
 
   </ComponentExample>
 
-```jsx
-const [checked, setChecked] = useState(false);
-
-return (
-  <>
-    <div>飞行模式 {checked ? <span className="text-fg-success">已激活</span> : "未激活"}.</div>
-    <Switch checked={checked} onChange={setChecked}>
-      飞行模式
-    </Switch>
-  </>
-);
-```
-
+  ```jsx
+  const [checked, setChecked] = useState(false);
+  
+  return (
+    <>
+      <div>飞行模式 {checked ? <span className="text-fg-success">已激活</span> : "未激活"}.</div>
+      <Switch checked={checked} onChange={setChecked}>
+        飞行模式
+      </Switch>
+    </>
+  );
+  ```
 </section>
 
 ## 大小
@@ -77,14 +76,13 @@ return (
     <Switch size={"xl"}>XL</Switch>
   </ComponentExample>
 
-```jsx
-<Switch size={"xs"}>XS</Switch>
-<Switch size={"sm"}>SM</Switch>
-<Switch>MD</Switch>
-<Switch size={"lg"}>LG</Switch>
-<Switch size={"xl"}>XL</Switch>
-```
-
+  ```jsx
+  <Switch size={"xs"}>XS</Switch>
+  <Switch size={"sm"}>SM</Switch>
+  <Switch>MD</Switch>
+  <Switch size={"lg"}>LG</Switch>
+  <Switch size={"xl"}>XL</Switch>
+  ```
 </section>
 
 ## 颜色
@@ -98,16 +96,15 @@ return (
       <Switch color={'neutral'} defaultChecked>Neutral</Switch>
   </ComponentExample>
 
-```jsx
-<Switch>Primary</Switch>
-<Switch color={'success'}>Success</Switch>
-<Switch color={'warning'}>Warning</Switch>
-<Switch color={'danger'}>Danger</Switch>
-<Switch color={'neutral'}>Neutral</Switch>
-```
-
+  ```jsx
+  <Switch>Primary</Switch>
+  <Switch color={'success'}>Success</Switch>
+  <Switch color={'warning'}>Warning</Switch>
+  <Switch color={'danger'}>Danger</Switch>
+  <Switch color={'neutral'}>Neutral</Switch>
+  ```
 </section>
 
 ## 属性
 
-<ComponentProps componentFile={"./switch/Switch.tsx"} />
+<ComponentProps componentFile={"./switch/switch.tsx"} />

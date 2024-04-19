@@ -1,7 +1,7 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { ariaAttr, dataAttr } from "../../utils/dom";
-import { Slot, type AsChildProps } from "../slot/Slot";
+import { Slot, type AsChildProps } from "../slot/slot";
 import { useCollapsibleTrigger } from "./collapsible-context";
 
 export const CollapsibleTrigger = forwardRef<HTMLButtonElement, AsChildProps<"button">>((props, ref) => {

@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, type CSSProperties } from "react";
 import { useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import { dataAttr } from "../../utils/dom";
-import type { BaseProps, EmptyProps } from "../slot/Slot";
+import type { BaseProps, EmptyProps } from "../slot/slot";
 import { useCollapsibleContent } from "./collapsible-context";
 
 export const CollapsibleContent = (props: BaseProps<"div", EmptyProps, "id">) => {
