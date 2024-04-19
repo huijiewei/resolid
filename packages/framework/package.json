@@ -41,7 +41,7 @@
     "postgres": "^3.4.4",
     "react-hook-form": "^7.51.3",
     "type-fest": "^4.15.0",
-    "zod": "^3.22.4"
+    "zod": "^3.22.5"
   },
   "devDependencies": {
     "@resolid/config": "workspace:^",
