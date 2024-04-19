@@ -2,9 +2,9 @@ import { Outlet } from "@remix-run/react";
 import { mergeMeta } from "@resolid/framework/utils";
 import { CloseButton, clsx } from "@resolid/react-ui";
 import { useState } from "react";
-import { SpriteIcon } from "~/components/base/SpriteIcon";
-import { AsideLayoutDispatchProvider, AsideLayoutStateProvider } from "~/components/layout/AsideLayoutContext";
-import { AsideLayoutMenu, type Menu } from "~/components/layout/AsideLayoutMenu";
+import { SpriteIcon } from "~/components/base/sprite-icon";
+import { AsideLayoutDispatchProvider, AsideLayoutStateProvider } from "~/components/layout/aside-layout-context";
+import { AsideLayoutMenu, type Menu } from "~/components/layout/aside-layout-menu";
 
 export const meta = mergeMeta(() => {
   return [

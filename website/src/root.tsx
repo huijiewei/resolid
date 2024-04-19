@@ -3,7 +3,7 @@ import { ColorModeScript, ResolidProvider } from "@resolid/react-ui";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/remix";
 import type { PropsWithChildren } from "react";
-import { RouteProcessBar } from "~/components/base/RouteProcessBar";
+import { RouteProcessBar } from "~/components/base/route-process-bar";
 
 export const Layout = ({ children }: PropsWithChildren) => {
   return (

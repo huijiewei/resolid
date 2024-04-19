@@ -1,5 +1,5 @@
 import { mergeMeta } from "@resolid/framework/utils";
-import { HistoryLink } from "~/components/base/HistoryLink";
+import { HistoryLink } from "~/components/base/history-link";
 
 export const meta = mergeMeta(() => {
   return [{ title: "首页" }];

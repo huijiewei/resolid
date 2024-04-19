@@ -10,11 +10,11 @@ import {
   noScrollbarsClassName,
 } from "@resolid/react-ui";
 import type { ReactNode } from "react";
-import { AuthProvider } from "~/components/base/AuthProvider";
-import { ColorModeToggle } from "~/components/base/ColorModeToggle";
-import { HistoryLink } from "~/components/base/HistoryLink";
-import { ResolidLogo } from "~/components/base/ResolidLogo";
-import { SpriteIcon } from "~/components/base/SpriteIcon";
+import { AuthProvider } from "~/components/base/auth-provider";
+import { ColorModeToggle } from "~/components/base/color-mode-toggle";
+import { HistoryLink } from "~/components/base/history-link";
+import { ResolidLogo } from "~/components/base/resolid-logo";
+import { SpriteIcon } from "~/components/base/sprite-icon";
 import { getSessionAdmin } from "~/foundation/session.admin.server";
 
 import styles from "~/root.admin.css?url";

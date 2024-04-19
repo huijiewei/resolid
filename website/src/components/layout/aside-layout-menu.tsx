@@ -1,6 +1,6 @@
 import { clsx } from "@resolid/react-ui";
-import { HistoryNavLink } from "~/components/base/HistoryLink";
-import { useAsideLayoutDispatch } from "~/components/layout/AsideLayoutContext";
+import { HistoryNavLink } from "~/components/base/history-link";
+import { useAsideLayoutDispatch } from "~/components/layout/aside-layout-context";
 
 export type Menu = {
   label: string;

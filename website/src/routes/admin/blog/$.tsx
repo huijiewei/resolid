@@ -1,5 +1,5 @@
 import { mergeMeta } from "@resolid/framework/utils";
-import { ErrorComponent } from "~/components/base/ErrorComponent";
+import { ErrorComponent } from "~/components/base/error-component";
 
 export const loader = async () => {
   throw new Response("Not Found", { status: 404 });

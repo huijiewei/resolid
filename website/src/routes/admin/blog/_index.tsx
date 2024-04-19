@@ -1,4 +1,4 @@
-import { HistoryLink } from "~/components/base/HistoryLink";
+import { HistoryLink } from "~/components/base/history-link";
 
 export const handle = {
   breadcrumb: () => ({

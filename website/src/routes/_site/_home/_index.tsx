@@ -1,5 +1,5 @@
 import { Button } from "@resolid/react-ui";
-import { SpriteIcon } from "~/components/base/SpriteIcon";
+import { SpriteIcon } from "~/components/base/sprite-icon";
 
 export default function SiteIndex() {
   return (

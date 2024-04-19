@@ -1,7 +1,7 @@
 import { Button, Tooltip, TooltipArrow, TooltipContent, TooltipTrigger, useClipboard } from "@resolid/react-ui";
 import { isNumber, isString } from "@resolid/utils";
 import { isValidElement, useMemo, type ReactNode } from "react";
-import { SpriteIcon } from "~/components/base/SpriteIcon";
+import { SpriteIcon } from "~/components/base/sprite-icon";
 
 export const ClipboardButton = ({ content }: { content: ReactNode }) => {
   const { copied, copy } = useClipboard();

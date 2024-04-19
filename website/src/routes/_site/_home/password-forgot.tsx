@@ -6,10 +6,10 @@ import { Button, Input } from "@resolid/react-ui";
 import { useEffect, useRef, useState } from "react";
 import { Controller } from "react-hook-form";
 import { parseFormData, useRemixForm } from "remix-hook-form";
-import { FormError } from "~/components/base/FormError";
-import { HistoryLink } from "~/components/base/HistoryLink";
-import { TurnstileWidget } from "~/extensions/turnstile/TurnstileWidget";
+import { FormError } from "~/components/base/form-error";
+import { HistoryLink } from "~/components/base/history-link";
 import { trunstileVerify } from "~/extensions/turnstile/trunstile.server";
+import { TurnstileWidget } from "~/extensions/turnstile/turnstile-widget";
 import { userPasswordForgotService } from "~/modules/user/service.server";
 import { userPasswordForgotResolver, type UserPasswordForgotFormData } from "~/modules/user/validator";
 

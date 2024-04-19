@@ -12,7 +12,7 @@ import {
 } from "@resolid/react-ui";
 import { isFunction } from "@resolid/utils";
 import { useMemo, useState, type FunctionComponent, type ReactNode } from "react";
-import { SpriteIcon } from "~/components/base/SpriteIcon";
+import { SpriteIcon } from "~/components/base/sprite-icon";
 
 export const ComponentUsage = ({
   preview,

@@ -3,8 +3,8 @@ import { Outlet, useLocation } from "@remix-run/react";
 import { clsx } from "@resolid/react-ui";
 import { debounce, isBrowser, isExternalUrl } from "@resolid/utils";
 import { useEffect, useMemo, useRef, useState, type ComponentPropsWithoutRef } from "react";
-import { ClipboardButton } from "~/components/ClipboardButton";
-import { SpriteIcon } from "~/components/base/SpriteIcon";
+import { SpriteIcon } from "~/components/base/sprite-icon";
+import { ClipboardButton } from "~/components/clipboard-button";
 
 type TocItem = {
   id: string;

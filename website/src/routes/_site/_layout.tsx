@@ -20,11 +20,11 @@ import {
 } from "@resolid/react-ui";
 import { omit, trimEnd } from "@resolid/utils";
 import { useState, type MouseEventHandler } from "react";
-import { AuthProvider, useAuth, type AuthContext } from "~/components/base/AuthProvider";
-import { ColorModeToggle } from "~/components/base/ColorModeToggle";
-import { HistoryLink, HistoryNavLink } from "~/components/base/HistoryLink";
-import { ResolidLogo } from "~/components/base/ResolidLogo";
-import { SpriteIcon } from "~/components/base/SpriteIcon";
+import { AuthProvider, useAuth, type AuthContext } from "~/components/base/auth-provider";
+import { ColorModeToggle } from "~/components/base/color-mode-toggle";
+import { HistoryLink, HistoryNavLink } from "~/components/base/history-link";
+import { ResolidLogo } from "~/components/base/resolid-logo";
+import { SpriteIcon } from "~/components/base/sprite-icon";
 import { getSessionUser } from "~/foundation/session.user.server";
 import type { UserIdentity } from "~/modules/user/schema.server";
 

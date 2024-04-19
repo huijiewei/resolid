@@ -5,7 +5,7 @@ import { Button, Input } from "@resolid/react-ui";
 import { useEffect, useState } from "react";
 import { Controller } from "react-hook-form";
 import { parseFormData, useRemixForm } from "remix-hook-form";
-import { FormError } from "~/components/base/FormError";
+import { FormError } from "~/components/base/form-error";
 import { userPasswordResetService } from "~/modules/user/service.server";
 import { userPasswordResetResolver, type UserPasswordResetFormData } from "~/modules/user/validator";
 

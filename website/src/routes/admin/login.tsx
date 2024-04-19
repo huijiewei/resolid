@@ -5,7 +5,7 @@ import { mergeMeta } from "@resolid/framework/utils";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
 import { Controller } from "react-hook-form";
 import { parseFormData, useRemixForm } from "remix-hook-form";
-import { FormError } from "~/components/base/FormError";
+import { FormError } from "~/components/base/form-error";
 import { commitAdminSession, setSessionAdmin } from "~/foundation/session.admin.server";
 import { adminLoginService } from "~/modules/admin/service.server";
 import { adminLoginResolver, type AdminLoginFormData } from "~/modules/admin/validator";

@@ -1,6 +1,6 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { httpNotFound, mergeMeta, useTypedLoaderData } from "@resolid/framework/utils";
-import { ErrorComponent } from "~/components/base/ErrorComponent";
+import { ErrorComponent } from "~/components/base/error-component";
 
 export const meta = mergeMeta<typeof loader>(({ data }) => {
   return [{ title: data ? data.title : "记录不存在" }];
