@@ -43,19 +43,17 @@ export const PopoverContent = (props: BaseProps<"div">) => {
   );
 
   return (
-    <>
-      {mounted && (
-        <Portal>
-          {trigger == "click" ? (
-            <FloatingFocusManager modal={modal} initialFocus={initialFocus} context={context}>
-              {popoverInner}
-            </FloatingFocusManager>
-          ) : (
-            popoverInner
-          )}
-        </Portal>
-      )}
-    </>
+    mounted && (
+      <Portal>
+        {trigger == "click" ? (
+          <FloatingFocusManager modal={modal} initialFocus={initialFocus} context={context}>
+            {popoverInner}
+          </FloatingFocusManager>
+        ) : (
+          popoverInner
+        )}
+      </Portal>
+    )
   );
 };
 

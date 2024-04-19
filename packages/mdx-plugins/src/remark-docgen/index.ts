@@ -39,7 +39,9 @@ export const remarkDocgen: Plugin<[RemarkDocgenOptions]> = ({ sourceRoot }) => {
           throw new Error(`Invalid componentFile prop for ${elem.name}.`);
         }
 
-        const componentName = parse(componentFile).name;
+        const componentName = (parse(componentFile).name.match(/[a-zA-Z0-9]+/g) || [])
+          .map((w) => `${w.charAt(0).toUpperCase()}${w.slice(1)}`)
+          .join("");
 
         if (!propsTables[componentName]) {
           const componentProps = getComponentProps(join(sourceRoot, componentFile), componentName);
@@ -108,7 +110,7 @@ const getElementAttrValue = (elem: MdxJsxFlowElement, attrName: string) => {
   return "";
 };
 
-const componentPropsCachePath = join(cwd(), ".resolid", "component-props-cache");
+const componentPropsCachePath = join(cwd(), ".resolid", "component-props");
 
 mkdirSync(componentPropsCachePath, { recursive: true });
 

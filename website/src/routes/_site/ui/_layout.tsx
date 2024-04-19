@@ -128,6 +128,10 @@ const menus: Menu[] = [
         label: "徽标",
         path: "components/badge",
       },
+      {
+        label: "折叠面板",
+        path: "components/collapsible",
+      },
     ],
   },
   {

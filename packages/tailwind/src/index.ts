@@ -87,6 +87,18 @@ const preset = (options: PresetOptions | undefined = {}): Partial<Config> => {
       borderWidth,
       borderRadius,
       zIndex,
+      extend: {
+        keyframes: {
+          "slide-down": {
+            from: { height: "0" },
+            to: { height: "var(--slide-height)" },
+          },
+          "slide-up": {
+            from: { height: "var(--slide-height)" },
+            to: { height: "0" },
+          },
+        },
+      },
     },
     plugins: [
       plugin(({ addBase, addUtilities, addVariant, theme }) => {

@@ -13,7 +13,14 @@ export const ClipboardButton = ({ content }: { content: ReactNode }) => {
   return (
     <Tooltip color={copied ? "success" : undefined}>
       <TooltipTrigger asChild>
-        <Button square={true} padded={false} color={"neutral"} variant={"ghost"} onClick={() => copy(code)}>
+        <Button
+          square={true}
+          className={"p-0.5"}
+          padded={false}
+          color={"neutral"}
+          variant={"soft"}
+          onClick={() => copy(code)}
+        >
           {copied ? (
             <SpriteIcon size={"1rem"} className={"text-fg-success"} name={"clipboard-check"} />
           ) : (

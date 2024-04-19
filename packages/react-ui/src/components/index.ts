@@ -12,6 +12,7 @@ export * from "./button/ButtonGroup";
 export * from "./checkbox/Checkbox";
 export * from "./checkbox/CheckboxGroup";
 export * from "./close-button/CloseButton";
+export * from "./collapsible/collapsible";
 export * from "./context-menu/ContextMenu";
 export * from "./divider/Divider";
 export * from "./drawer/Drawer";

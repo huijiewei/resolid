@@ -70,7 +70,7 @@ const mdxComponents = {
         >
           {children}
         </pre>
-        <div className={"absolute right-1.5 top-1.5"}>
+        <div className={"absolute right-1.5 top-1.5 z-base"}>
           <ClipboardButton content={children} />
         </div>
       </div>
