@@ -7,7 +7,7 @@ export type UseDisclosureProps = {
   onClose?: () => void;
 };
 
-export function useDisclosure(options: UseDisclosureProps = {}) {
+export function useDisclosure(options: UseDisclosureProps) {
   const { opened, defaultOpened = false, onOpen, onClose } = options;
 
   const [openedState, setOpenedState] = useControllableState({
@@ -30,10 +30,5 @@ export function useDisclosure(options: UseDisclosureProps = {}) {
     setOpenedState((prevState) => !prevState);
   };
 
-  return {
-    opened: openedState,
-    open,
-    close,
-    toggle,
-  };
+  return [openedState, { open, close, toggle }] as const;
 }

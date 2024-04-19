@@ -125,7 +125,7 @@ const MenuTree = (props: MenuProps) => {
   const parentId = useFloatingParentNodeId();
   const nested = parentId != null;
 
-  const { opened: openedState, open, close } = useDisclosure({ opened: undefined, onClose });
+  const [openedState, { open, close }] = useDisclosure({ onClose });
 
   const arrowRef = useRef<SVGSVGElement>(null);
 

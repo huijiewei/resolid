@@ -5,29 +5,47 @@ import { useDisclosure } from "./index";
 describe("useDisclosure", () => {
   test("handles close correctly", () => {
     const { result } = renderHook(() => useDisclosure({ defaultOpened: true }));
-    expect(result.current.opened).toBe(true);
 
-    act(() => result.current.close());
-    expect(result.current.opened).toBe(false);
+    const [opened, { close }] = result.current;
+    expect(opened).toBe(true);
+
+    act(close);
+
+    const [next] = result.current;
+
+    expect(next).toBe(false);
   });
 
   test("handles open correctly", () => {
     const { result } = renderHook(() => useDisclosure({ defaultOpened: false }));
-    expect(result.current.opened).toBe(false);
 
-    act(() => result.current.open());
-    expect(result.current.opened).toBe(true);
+    const [opened, { open }] = result.current;
+    expect(opened).toBe(false);
+
+    act(open);
+
+    const [next] = result.current;
+    expect(next).toBe(true);
   });
 
   test("handles toggle correctly", () => {
     const { result } = renderHook(() => useDisclosure({ defaultOpened: false }));
-    expect(result.current.opened).toBe(false);
 
-    act(() => result.current.toggle());
-    expect(result.current.opened).toBe(true);
+    const [opened, { toggle }] = result.current;
+    expect(opened).toBe(false);
 
-    act(() => result.current.toggle());
-    expect(result.current.opened).toBe(false);
+    act(toggle);
+
+    const [next] = result.current;
+    expect(next).toBe(true);
+
+    act(() => {
+      const [, { toggle }] = result.current;
+      toggle();
+    });
+
+    const [last] = result.current;
+    expect(last).toBe(false);
   });
 
   test("calls onClose when close is called", () => {
@@ -35,10 +53,16 @@ describe("useDisclosure", () => {
     const { result } = renderHook(() => useDisclosure({ defaultOpened: true, onClose }));
     expect(onClose).toHaveBeenCalledTimes(0);
 
-    act(() => result.current.close());
+    act(() => {
+      const [, { close }] = result.current;
+      close();
+    });
     expect(onClose).toHaveBeenCalledTimes(1);
 
-    act(() => result.current.close());
+    act(() => {
+      const [, { close }] = result.current;
+      close();
+    });
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
@@ -47,10 +71,16 @@ describe("useDisclosure", () => {
     const { result } = renderHook(() => useDisclosure({ defaultOpened: false, onOpen }));
     expect(onOpen).toHaveBeenCalledTimes(0);
 
-    act(() => result.current.open());
+    act(() => {
+      const [, { open }] = result.current;
+      open();
+    });
     expect(onOpen).toHaveBeenCalledTimes(1);
 
-    act(() => result.current.open());
+    act(() => {
+      const [, { open }] = result.current;
+      open();
+    });
     expect(onOpen).toHaveBeenCalledTimes(1);
   });
 
@@ -61,15 +91,24 @@ describe("useDisclosure", () => {
     expect(onOpen).toHaveBeenCalledTimes(0);
     expect(onClose).toHaveBeenCalledTimes(0);
 
-    act(() => result.current.toggle());
+    act(() => {
+      const [, { toggle }] = result.current;
+      toggle();
+    });
     expect(onOpen).toHaveBeenCalledTimes(1);
     expect(onClose).toHaveBeenCalledTimes(0);
 
-    act(() => result.current.toggle());
+    act(() => {
+      const [, { toggle }] = result.current;
+      toggle();
+    });
     expect(onOpen).toHaveBeenCalledTimes(1);
     expect(onClose).toHaveBeenCalledTimes(1);
 
-    act(() => result.current.toggle());
+    act(() => {
+      const [, { toggle }] = result.current;
+      toggle();
+    });
     expect(onOpen).toHaveBeenCalledTimes(2);
     expect(onClose).toHaveBeenCalledTimes(1);
   });

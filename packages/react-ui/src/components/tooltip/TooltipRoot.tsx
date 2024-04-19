@@ -79,7 +79,7 @@ const tooltipColorStyles = {
 export const TooltipRoot = (props: PropsWithChildren<TooltipProps>) => {
   const { children, trigger = "hover", duration = 250, placement = "auto", color = "neutral" } = props;
 
-  const { opened: openedState, open, close } = useDisclosure({ opened: undefined });
+  const [openedState, { open, close }] = useDisclosure({});
 
   const arrowRef = useRef<SVGSVGElement>(null);
 

@@ -111,7 +111,7 @@ export const PopoverRoot = (props: PopoverProps) => {
 
   const arrowRef = useRef<SVGSVGElement>(null);
 
-  const { opened: openedState, open, close } = useDisclosure({ opened: undefined, onClose });
+  const [openedState, { open, close }] = useDisclosure({ onClose });
 
   const { floatingStyles, refs, context } = useFloating({
     middleware: [
