@@ -37,15 +37,15 @@
     }
   },
   "dependencies": {
-    "@hono/node-server": "^1.10.1",
-    "@remix-run/node": "2.9.0-pre.3",
+    "@hono/node-server": "^1.11.0",
+    "@remix-run/node": "2.9.0-pre.4",
     "@vercel/nft": "^0.26.4",
     "esbuild": "^0.20.2",
     "hono": "^4.2.5",
     "minimatch": "^9.0.4"
   },
   "devDependencies": {
-    "@remix-run/dev": "2.9.0-pre.3",
+    "@remix-run/dev": "2.9.0-pre.4",
     "@resolid/config": "workspace:^",
     "tsup": "^8.0.2",
     "type-fest": "^4.15.0",
