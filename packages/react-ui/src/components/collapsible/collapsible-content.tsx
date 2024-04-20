@@ -37,6 +37,7 @@ export const CollapsibleContent = (props: BaseProps<"div", EmptyProps, "id">) =>
         ref={refs}
         data-disabled={dataAttr(disabled)}
         className={clsx(
+          "overflow-hidden",
           status == "open"
             ? "animate-[slide-down_var(--duration-var)_ease-out]"
             : "animate-[slide-up_var(--duration-var)_ease-out]",
@@ -45,7 +46,7 @@ export const CollapsibleContent = (props: BaseProps<"div", EmptyProps, "id">) =>
         style={
           {
             ...style,
-            "--duration-var": `${duration + 100}ms`,
+            "--duration-var": `${duration}ms`,
             "--slide-width": width ? `${width}px` : undefined,
             "--slide-height": height ? `${height}px` : undefined,
           } as CSSProperties
