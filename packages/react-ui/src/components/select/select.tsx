@@ -14,7 +14,6 @@ import {
 import type { Overwrite } from "@resolid/utils";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import {
-  Fragment,
   forwardRef,
   useCallback,
   useMemo,
@@ -184,56 +183,62 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
     [fieldNames],
   );
 
-  const [state, setState] = useControllableState({ value, defaultValue, onChange });
+  const [valueState, setValueState] = useControllableState({ value, defaultValue, onChange });
 
-  const { filterOptions, selectOptions, optionArray } = useMemo(() => {
-    const filterOptions: Option[] = [];
-    const selectOptions: (Omit<Option, keyof OptionFieldNames["options"]> & { index: number })[] = [];
-    const optionArray: Omit<Option, keyof OptionFieldNames["options"]>[] = [];
+  const { optionNodes, optionItems, selectedOptions } = useMemo(() => {
+    type IndexedOption = Omit<Option, keyof OptionFieldNames["options"]> & { __index: number };
 
+    const selectedOptions: IndexedOption[] = [];
+    const optionNodes: (IndexedOption & { __group?: boolean })[] = [];
+    const optionItems: Omit<Option, keyof OptionFieldNames["options"]>[] = [];
+
+    let groupIndex = 0;
     let optionIndex = 0;
-    let hasGroupOptions = false;
 
     const isSelected = (option: Option) => {
-      return Array.isArray(state)
-        ? state.includes(option[mergedFieldNames.value])
-        : state == option[mergedFieldNames.value];
+      return Array.isArray(valueState)
+        ? valueState.includes(option[mergedFieldNames.value])
+        : valueState == option[mergedFieldNames.value];
     };
 
-    options.forEach((option) => {
+    for (const option of options) {
       if (option[mergedFieldNames.options]) {
-        hasGroupOptions = true;
+        optionNodes.push({ ...option, __index: groupIndex, __group: true });
 
-        const filterChildren = [];
+        for (const child of option[mergedFieldNames.options]) {
+          optionItems.push(child);
 
-        option[mergedFieldNames.options].forEach((child: Option) => {
+          const indexedChild = { ...child, __index: optionIndex };
+
           if (isSelected(child)) {
-            selectOptions.push({ ...child, index: optionIndex });
+            selectedOptions.push(indexedChild);
           }
 
-          optionIndex++;
-          optionArray.push(child);
-          filterChildren.push(child);
-        });
+          optionNodes.push(indexedChild);
 
-        if (filterChildren.length > 0) {
-          filterOptions.push(option);
+          optionIndex++;
         }
+
+        groupIndex++;
       } else {
+        optionItems.push(option);
+
+        const indexedOption = { ...option, __index: optionIndex };
+
         if (isSelected(option)) {
-          selectOptions.push({ ...option, index: optionIndex });
+          selectedOptions.push(indexedOption);
         }
+
+        optionNodes.push(indexedOption);
 
         optionIndex++;
-        optionArray.push(option);
-        filterOptions.push(option);
       }
-    });
+    }
 
-    setVirtual(!hasGroupOptions && options.length > 30);
+    setVirtual(groupIndex == 0 && options.length > 30);
 
-    return { filterOptions, selectOptions, optionArray };
-  }, [mergedFieldNames.options, mergedFieldNames.value, options, state]);
+    return { optionNodes, optionItems, selectedOptions };
+  }, [mergedFieldNames.options, mergedFieldNames.value, options, valueState]);
 
   const [openedState, setOpenedState] = useState(false);
 
@@ -258,10 +263,10 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
     whileElementsMounted: autoUpdate,
   });
 
-  const elementsRef = useRef<(HTMLLIElement | null)[]>([]);
+  const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const minSelectedIndex = selectOptions[0]?.index ?? null;
+  const minSelectedIndex = selectedOptions[0]?.__index ?? null;
 
   const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
     useClick(context, { keyboardHandlers: closeOnSelect }),
@@ -285,14 +290,14 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
 
   const renderLabelRef = useCallbackRef(renderLabel ?? ((option) => option[mergedFieldNames.label]));
 
-  const renderSingleValue = (selectOption: Omit<Option, keyof OptionFieldNames["options"]> | undefined) => {
-    return selectOption ? renderLabelRef(selectOption) : <span className={"text-fg-subtle"}>{placeholder}</span>;
+  const renderSingleValue = (option: Omit<Option, keyof OptionFieldNames["options"]> | undefined) => {
+    return option ? renderLabelRef(option) : <span className={"text-fg-subtle"}>{placeholder}</span>;
   };
 
-  const renderMultipleValue = (selectOptions: Omit<Option, keyof OptionFieldNames["options"]>[]) => {
-    return selectOptions.length > 0 ? (
+  const renderMultipleValue = (options: Omit<Option, keyof OptionFieldNames["options"]>[]) => {
+    return options.length > 0 ? (
       <div className={clsx("flex flex-wrap gap-1", sizeStyle.multipleWrap)}>
-        {selectOptions.map((option) => (
+        {options.map((option) => (
           <div
             className={clsx("flex items-center gap-1 rounded bg-bg-subtle", sizeStyle.multipleItem)}
             key={option[mergedFieldNames.value]}
@@ -320,30 +325,26 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
 
   const handleSelect = useCallback(
     (option: Omit<Option, keyof OptionFieldNames["options"]>, close = true) => {
-      const multiple = Array.isArray(state);
+      const multiple = Array.isArray(valueState);
       const value = option[mergedFieldNames.value] as string | number;
 
-      let nextValue;
-
       if (multiple) {
-        if (state.includes(value)) {
-          onDeselect && onDeselect(value, option);
-          nextValue = state.filter((p) => p != value);
+        if (valueState.includes(value)) {
+          onDeselect?.(value, option);
+          setValueState(valueState.filter((p) => p != value));
         } else {
-          onSelect && onSelect(value, option);
-          nextValue = [...state, value];
+          onSelect?.(value, option);
+          setValueState([...valueState, value]);
         }
       } else {
-        if (value == state) {
-          onDeselect && onDeselect(value, option);
-          nextValue = null;
+        if (value == valueState) {
+          onDeselect?.(value, option);
+          setValueState(null);
         } else {
-          onSelect && onSelect(value, option);
-          nextValue = value;
+          onSelect?.(value, option);
+          setValueState(value);
         }
       }
-
-      setState(nextValue);
 
       if (closeOnSelect && close) {
         setOpenedState(false);
@@ -354,7 +355,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
         refs.domReference.current?.focus();
       });
     },
-    [closeOnSelect, mergedFieldNames.value, onDeselect, onSelect, refs.domReference, setState, state],
+    [closeOnSelect, mergedFieldNames.value, onDeselect, onSelect, refs.domReference, setValueState, valueState],
   );
 
   const renderOptionRef = useCallbackRef(renderOption ?? ((option) => option[mergedFieldNames.label]));
@@ -362,15 +363,15 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
   const selectContext = useMemo(() => {
     return {
       activeIndex,
-      selectedIndex: selectOptions.map((option) => option.index),
+      selectedIndex: selectedOptions.map((option) => option.__index),
       getItemProps,
       elementsRef,
       fieldNames: mergedFieldNames,
     };
-  }, [activeIndex, getItemProps, mergedFieldNames, selectOptions]);
+  }, [activeIndex, getItemProps, mergedFieldNames, selectedOptions]);
 
   const rowVirtual = useVirtualizer({
-    count: optionArray.length,
+    count: optionItems.length,
     getScrollElement: () => refs.floating.current,
     estimateSize: () => sizeStyle.height,
     overscan: 3,
@@ -453,8 +454,6 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openedState, minSelectedIndex, middlewareData, virtual]);
 
-  let optionIndex = 0;
-
   return (
     <>
       <div
@@ -491,7 +490,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
             if (activeIndex != null) {
               if (event.key == "Enter") {
                 event.preventDefault();
-                handleSelect(optionArray[activeIndex]);
+                handleSelect(optionItems[activeIndex]);
               }
             }
 
@@ -504,8 +503,8 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
             }
 
             if (event.key == "Delete" || event.key == "Backspace") {
-              if (Array.isArray(state)) {
-                const lastSelectOption = selectOptions.at(-1);
+              if (Array.isArray(valueState)) {
+                const lastSelectOption = selectedOptions.at(-1);
 
                 if (lastSelectOption != undefined) {
                   handleSelect(lastSelectOption, false);
@@ -519,14 +518,14 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
             if (activeIndex != null) {
               if (event.key == " ") {
                 event.preventDefault();
-                handleSelect(optionArray[activeIndex]);
+                handleSelect(optionItems[activeIndex]);
               }
             }
           },
         })}
       >
         <div className={"select-none"}>
-          {Array.isArray(state) ? renderMultipleValue(selectOptions) : renderSingleValue(selectOptions[0])}
+          {Array.isArray(valueState) ? renderMultipleValue(selectedOptions) : renderSingleValue(selectedOptions[0])}
         </div>
         <span
           className={clsx(
@@ -536,8 +535,8 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
         >
           <SelectChevron />
         </span>
-        {Array.isArray(state) ? (
-          state?.map((value) => (
+        {Array.isArray(valueState) ? (
+          valueState?.map((value) => (
             <input
               disabled={disabled}
               readOnly={readOnly}
@@ -556,7 +555,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
             name={name}
             type={"hidden"}
             ref={ref}
-            value={state || ""}
+            value={valueState || ""}
             {...rest}
           />
         )}
@@ -580,7 +579,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
               } as CSSProperties
             }
           >
-            <ul
+            <div
               className={clsx("outline-none", sizeStyle.text)}
               style={
                 virtual ? { height: `${rowVirtual.getTotalSize()}px`, width: "100%", position: "relative" } : undefined
@@ -590,11 +589,11 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
               <SelectProvider value={selectContext}>
                 {virtual ? (
                   rowVirtual.getVirtualItems().map((row) => {
-                    const option = filterOptions[row.index];
+                    const option = optionNodes[row.index];
 
                     return (
                       <SelectOption<Option>
-                        index={row.index}
+                        index={option.__index}
                         style={{
                           position: "absolute",
                           top: 0,
@@ -602,67 +601,44 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
                           transform: `translateY(${row.start}px)`,
                         }}
                         className={sizeStyle.option}
-                        key={`item-${option[mergedFieldNames.value]}`}
+                        key={option[mergedFieldNames.value]}
                         option={option}
                         render={renderOptionRef}
                         onSelect={handleSelect}
                       />
                     );
                   })
-                ) : filterOptions.length > 0 ? (
-                  filterOptions.map((option, index) => {
-                    if (option[mergedFieldNames.options]) {
+                ) : optionNodes.length > 0 ? (
+                  optionNodes.map((option) => {
+                    if (option.__group) {
                       return (
-                        <Fragment key={`group-${index}`}>
-                          <li
-                            role={"separator"}
-                            aria-disabled
-                            className={clsx("text-[0.875em] text-fg-subtle", sizeStyle.option)}
-                          >
-                            {option[mergedFieldNames.label]}
-                          </li>
-                          {option[mergedFieldNames.options].map(
-                            (groupOption: Omit<Option, keyof OptionFieldNames["options"]>) => {
-                              const selectOption = (
-                                <SelectOption<Option>
-                                  index={optionIndex}
-                                  className={sizeStyle.option}
-                                  key={`item-${groupOption[mergedFieldNames.value]}`}
-                                  option={groupOption}
-                                  render={renderOptionRef}
-                                  onSelect={handleSelect}
-                                />
-                              );
-
-                              optionIndex++;
-
-                              return selectOption;
-                            },
-                          )}
-                        </Fragment>
+                        <div
+                          key={option.__index}
+                          role={"separator"}
+                          aria-disabled
+                          className={clsx("text-[0.875em] text-fg-subtle", sizeStyle.option)}
+                        >
+                          {option[mergedFieldNames.label]}
+                        </div>
                       );
-                    } else {
-                      const selectOption = (
-                        <SelectOption<Option>
-                          index={optionIndex}
-                          className={sizeStyle.option}
-                          key={`item-${option[mergedFieldNames.value]}`}
-                          option={option}
-                          render={renderOptionRef}
-                          onSelect={handleSelect}
-                        />
-                      );
-
-                      optionIndex++;
-
-                      return selectOption;
                     }
+
+                    return (
+                      <SelectOption<Option>
+                        index={option.__index}
+                        className={sizeStyle.option}
+                        key={option[mergedFieldNames.value]}
+                        option={option}
+                        render={renderOptionRef}
+                        onSelect={handleSelect}
+                      />
+                    );
                   })
                 ) : (
-                  <li className={clsx("text-center", sizeStyle.option)}>无数据</li>
+                  <li className={sizeStyle.option}>无数据</li>
                 )}
               </SelectProvider>
-            </ul>
+            </div>
           </div>
         </Portal>
       )}

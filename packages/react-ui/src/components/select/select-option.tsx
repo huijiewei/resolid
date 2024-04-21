@@ -15,8 +15,8 @@ export type SelectOptionProps<Option extends OptionBase> = {
 };
 
 const SelectOptionImpl = <Option extends OptionBase = OptionDefault>(
-  props: Overwrite<Omit<ComponentPropsWithoutRef<"li">, "children">, SelectOptionProps<Option>>,
-  ref: ForwardedRef<HTMLLIElement>,
+  props: Overwrite<Omit<ComponentPropsWithoutRef<"div">, "children">, SelectOptionProps<Option>>,
+  ref: ForwardedRef<HTMLDivElement>,
 ) => {
   const { option, onSelect, render, index, className, ...rest } = props;
 
@@ -30,7 +30,7 @@ const SelectOptionImpl = <Option extends OptionBase = OptionDefault>(
   const isSelect = selectedIndex.includes(index);
 
   return (
-    <li
+    <div
       ref={refs}
       role="option"
       data-active={dataAttr(isActive)}
@@ -38,7 +38,7 @@ const SelectOptionImpl = <Option extends OptionBase = OptionDefault>(
       aria-disabled={ariaAttr(option.disabled)}
       tabIndex={isActive ? 0 : -1}
       className={clsx(
-        "w-full select-none rounded outline-none transition-colors",
+        "w-full select-none rounded transition-colors",
         option.disabled ? "text-fg-subtlest" : "active:bg-bg-subtle",
         isSelect && "font-medium text-fg-primary",
         className,
@@ -55,12 +55,12 @@ const SelectOptionImpl = <Option extends OptionBase = OptionDefault>(
       {...rest}
     >
       {render(option)}
-    </li>
+    </div>
   );
 };
 
 export const SelectOption = forwardRef(SelectOptionImpl) as <Option extends OptionBase>(
-  props: Overwrite<Omit<ComponentPropsWithoutRef<"li">, "children">, SelectOptionProps<Option>> & {
-    ref?: ForwardedRef<HTMLLIElement>;
+  props: Overwrite<Omit<ComponentPropsWithoutRef<"div">, "children">, SelectOptionProps<Option>> & {
+    ref?: ForwardedRef<HTMLDivElement>;
   },
 ) => ReturnType<typeof SelectOptionImpl>;

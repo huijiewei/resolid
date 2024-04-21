@@ -22,7 +22,7 @@ export type OptionFieldNames = {
 export type SelectContext = {
   activeIndex: number | null;
   selectedIndex: number[];
-  elementsRef: MutableRefObject<(HTMLLIElement | null)[]>;
+  elementsRef: MutableRefObject<(HTMLDivElement | null)[]>;
   getItemProps: (userProps?: HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
 };
 
