@@ -13,7 +13,11 @@ export const assignRef = <T>(ref: PossibleRef<T>, value: T) => {
 };
 
 export const mergeRefs = <T>(...refs: PossibleRef<T>[]) => {
-  return (node: T) => refs.forEach((ref) => assignRef(ref, node));
+  return (node: T) => {
+    for (const ref of refs) {
+      assignRef(ref, node);
+    }
+  };
 };
 
 export const useMergeRefs = <T>(...refs: PossibleRef<T>[]) => {

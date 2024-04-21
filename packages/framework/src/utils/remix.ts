@@ -6,7 +6,7 @@ export const mergeMeta = <
   ParentsLoaders extends Record<string, LoaderFunction | unknown> = Record<string, unknown>,
 >(
   metaFn: MetaFunction<Loader, ParentsLoaders>,
-  titleJoin: string = " - ",
+  titleJoin = " - ",
 ): MetaFunction<Loader, ParentsLoaders> => {
   return (arg) => {
     const leafMeta = metaFn(arg);

@@ -142,14 +142,11 @@ export const getRouteSegments = (routeId: string): [string[], string[]] => {
 
 export const createRoutePath = (routeSegments: string[], rawRouteSegments: string[], isIndex?: boolean) => {
   const result: string[] = [];
+  const localSegments = isIndex ? routeSegments.slice(0, -1) : routeSegments;
 
-  if (isIndex) {
-    routeSegments = routeSegments.slice(0, -1);
-  }
-
-  for (let index = 0; index < routeSegments.length; index++) {
-    let segment = routeSegments[index];
+  for (let index = 0; index < localSegments.length; index++) {
     const rawSegment = rawRouteSegments[index];
+    let segment = localSegments[index];
 
     if (segment.startsWith("_") && rawSegment.startsWith("_")) {
       continue;

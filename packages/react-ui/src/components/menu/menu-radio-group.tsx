@@ -18,7 +18,7 @@ export const MenuRadioGroup = (props: BaseProps<"div", MenuRadioGroupProps>) => 
         onChange: handleChange,
       }}
     >
-      <MenuGroup {...rest}></MenuGroup>
+      <MenuGroup {...rest} />
     </MenuRadioGroupProvider>
   );
 };

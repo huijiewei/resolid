@@ -25,7 +25,7 @@ export const MenuRadioItem = forwardRef<HTMLDivElement, AsChildProps<"div", Menu
           role="menuitemradio"
           onClick={() => {
             group.onChange?.(value);
-            onClick && onClick();
+            onClick?.();
           }}
           aria-checked={ariaAttr(checked)}
           className={clsx("relative pl-6", className)}

@@ -173,7 +173,7 @@ export const PopoverRoot = (props: PopoverRootProps) => {
 
   useEffect(() => {
     if (prevStatus == "close" && status == "unmounted") {
-      onCloseComplete && onCloseComplete();
+      onCloseComplete?.();
     }
   }, [onCloseComplete, prevStatus, status]);
 

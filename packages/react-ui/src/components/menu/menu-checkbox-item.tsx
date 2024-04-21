@@ -24,7 +24,7 @@ export const MenuCheckboxItem = forwardRef<
         role="menuitemcheckbox"
         onClick={() => {
           onChange?.(checked == "indeterminate" ? true : !checked);
-          onClick && onClick();
+          onClick?.();
         }}
         aria-checked={checked == "indeterminate" ? "mixed" : ariaAttr(checked)}
         className={clsx("relative pl-6", className)}

@@ -40,7 +40,7 @@ export const HistoryBack = (props: BaseProps<"button", HistoryBackProps, "childr
   const { state } = useLocation();
 
   const historyBack = () => {
-    if (state && state.previous) {
+    if (state?.previous) {
       navigate(-1);
     } else {
       navigate(backTo);

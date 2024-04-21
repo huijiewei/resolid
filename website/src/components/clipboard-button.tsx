@@ -37,7 +37,7 @@ export const ClipboardButton = ({ content }: { content: ReactNode }) => {
 };
 
 // From https://github.com/sunknudsen/react-node-to-string/blob/master/src/index.ts
-const reactNodeToString = function (reactNode: ReactNode): string {
+const reactNodeToString = (reactNode: ReactNode): string => {
   const strings = [];
 
   if (isString(reactNode)) {

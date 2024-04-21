@@ -9,17 +9,17 @@ import type { ResolvedConfig } from "vite";
 export type SsrExternal = ResolvedConfig["ssr"]["external"];
 
 const getPackageDependencies = (dependencies: Record<string, string | undefined>, ssrExternal: SsrExternal) => {
-  if (Array.isArray(ssrExternal)) {
-    ssrExternal = ssrExternal.filter((id) => !id.startsWith("@remix-run"));
-  }
+  const ssrExternalFiltered = Array.isArray(ssrExternal)
+    ? ssrExternal.filter((id) => !id.startsWith("@remix-run"))
+    : ssrExternal;
 
   return Object.keys(dependencies)
     .filter((key) => {
-      if (ssrExternal === undefined || ssrExternal === true) {
+      if (ssrExternalFiltered === undefined || ssrExternalFiltered === true) {
         return false;
       }
 
-      return ssrExternal.includes(key);
+      return ssrExternalFiltered.includes(key);
     })
     .reduce((obj: Record<string, string>, key) => {
       obj[key] = dependencies[key] ?? "";

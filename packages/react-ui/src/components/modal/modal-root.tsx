@@ -117,7 +117,7 @@ export const ModalRoot = (props: PropsWithChildren<ModalRootProps>) => {
 
   useEffect(() => {
     if (prevStatus == "close" && status == "unmounted") {
-      onCloseComplete && onCloseComplete();
+      onCloseComplete?.();
     }
   }, [onCloseComplete, prevStatus, status]);
 

@@ -1,4 +1,5 @@
 import { isNumber } from "@resolid/utils";
+import { clsx } from "../../utils/classed";
 import { isDarkColor, randomColor } from "../../utils/color";
 import type { Size, Styled } from "../../utils/types";
 
@@ -14,9 +15,10 @@ export const toSized = (size: number | Size): Styled => {
   if (isNumber(size)) {
     return {
       value: `${size}px`,
-      style:
-        "w-[--size-var] h-[--size-var] " +
-        (size > 50 ? "text-[length:calc(var(--size-var)/3)]" : "text-[length:calc(var(--size-var)/2)]"),
+      style: clsx(
+        "w-[--size-var] h-[--size-var]",
+        size > 50 ? "text-[length:calc(var(--size-var)/3)]" : "text-[length:calc(var(--size-var)/2)]",
+      ),
     };
   }
 

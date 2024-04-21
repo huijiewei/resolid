@@ -18,7 +18,7 @@ export const MenuItem = forwardRef<HTMLDivElement, AsChildProps<"div", MenuItemP
       return;
     }
 
-    onClick && onClick();
+    onClick?.();
     tree?.events.emit("click");
   };
 

@@ -17,13 +17,11 @@ export const startWith = (str: string, prefix: string, ignoreCase = true): boole
     return false;
   }
 
-  if (ignoreCase) {
-    str = str.toLowerCase();
-    prefix = prefix.toLowerCase();
-  }
+  const localStr = ignoreCase ? str.toLowerCase() : str;
+  const localPrefix = ignoreCase ? prefix.toLowerCase() : prefix;
 
-  for (let i = 0; i < prefix.length; i++) {
-    if (str[i] !== prefix[i]) {
+  for (let i = 0; i < localPrefix.length; i++) {
+    if (localStr[i] !== localPrefix[i]) {
       return false;
     }
   }
@@ -38,16 +36,14 @@ export const endWith = (str: string, suffix: string, ignoreCase = true) => {
     return false;
   }
 
-  if (ignoreCase) {
-    str = str.toLowerCase();
-    suffix = suffix.toLowerCase();
-  }
+  const localStr = ignoreCase ? str.toLowerCase() : str;
+  const localSuffix = ignoreCase ? suffix.toLowerCase() : suffix;
 
   if (diff > 0) {
-    return str.indexOf(suffix, diff) === diff;
+    return localStr.indexOf(localSuffix, diff) === diff;
   }
 
-  return str === suffix;
+  return localStr === localSuffix;
 };
 
 export const trimStart = (str: string, prefix: string, ignoreCase = true) => {

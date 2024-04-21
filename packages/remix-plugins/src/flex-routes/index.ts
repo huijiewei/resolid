@@ -21,7 +21,7 @@ export default async function flexRoutes(options: FolderRoutesOptions = {}) {
   const files: string[] = [];
 
   await visitFiles(join(appDir, routesDir), (file) => {
-    if (ignoredFileRegex && ignoredFileRegex.some((regex) => regex.test(file))) {
+    if (ignoredFileRegex.some((regex) => regex.test(file))) {
       return;
     }
 
@@ -127,14 +127,13 @@ export default async function flexRoutes(options: FolderRoutesOptions = {}) {
       .split(/[./]/)
       .pop();
 
-    const isPathlessLayoutRoute = lastRouteSegment && lastRouteSegment.startsWith("_") && lastRouteSegment !== "_index";
-
-    if (isPathlessLayoutRoute) {
+    if (lastRouteSegment?.startsWith("_") && lastRouteSegment !== "_index") {
       continue;
     }
 
     const conflictRouteId = originalPathname + (config.index ? "?index" : "");
     const conflict = uniqueRoutes.get(conflictRouteId);
+
     uniqueRoutes.set(conflictRouteId, config);
 
     if (conflict && (originalPathname || config.index)) {

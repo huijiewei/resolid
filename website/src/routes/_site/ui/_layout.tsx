@@ -39,7 +39,7 @@ export default function Layout() {
               opened ? "block" : "hidden",
             )}
           >
-            <nav role={"navigation"} className={"pb-28 text-sm md:pb-0"}>
+            <nav className={"pb-28 text-sm md:pb-0"}>
               <CloseButton onClick={() => setOpened(false)} className={"absolute end-2 top-2 p-1 md:hidden"} />
               <AsideLayoutMenu menus={menus} />
             </nav>

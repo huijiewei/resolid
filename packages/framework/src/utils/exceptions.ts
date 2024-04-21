@@ -19,6 +19,6 @@ export class FieldException extends Error {
   }
 }
 
-export const httpNotFound = (message: string = "页面未找到") => {
+export const httpNotFound = (message = "页面未找到") => {
   throw new Response(message, { status: 404 });
 };

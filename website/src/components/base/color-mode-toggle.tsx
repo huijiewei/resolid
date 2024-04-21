@@ -30,17 +30,17 @@ export const ColorModeToggle = () => {
   const colorMode = useColorModeState();
   const setColorMode = useColorModeDispatch();
 
-  const [colorModeState, setColorModeState] = useState(colorModes["system"]);
+  const [colorModeIcon, setColorModeIcon] = useState(colorModes.system.icon);
 
   useEffect(() => {
-    setColorModeState(colorModes[colorMode]);
+    setColorModeIcon(colorModes[colorMode].icon);
   }, [colorMode]);
 
   return (
     <DropdownMenu placement={"bottom"}>
       <DropdownMenuTrigger asChild>
         <Button active={true} aria-label={"颜色模式"} color={"neutral"} variant={"ghost"} size={"sm"} square>
-          <SpriteIcon name={colorModeState.icon} />
+          <SpriteIcon name={colorModeIcon} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className={"text-sm"}>

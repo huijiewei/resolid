@@ -29,33 +29,21 @@ const resolveConfig = (themes: ThemesObject, cssVarPrefix: string) => {
     colors: {},
   };
 
-  Object.keys(themes).forEach((themeName) => {
-    let cssSelector = `.${themeName}`;
-
-    if (themeName == "light") {
-      cssSelector = `:root, ${cssSelector}`;
-    }
+  for (const [themeName, theme] of Object.entries(themes)) {
+    const cssSelector = themeName == "light" ? `:root, .${themeName}` : `.${themeName}`;
 
     resolved.utilities[cssSelector] = {};
 
-    const flatColors = flattenColorPalette(themes[themeName]);
+    const flatColors = flattenColorPalette(theme);
 
-    Object.keys(flatColors).forEach((colorName) => {
-      const colorValue = flatColors[colorName];
-
-      if (!colorValue) {
-        return;
-      }
-
-      const rgb = rgbFromHex(colorValue);
-
+    for (const [colorName, color] of Object.entries(flatColors)) {
+      const rgb = rgbFromHex(color);
       const colorVariable = `--${cssVarPrefix}-${colorName}`;
 
       resolved.utilities[cssSelector][colorVariable] = `${rgb.r} ${rgb.g} ${rgb.b}`;
-
       resolved.colors[colorName] = `rgb(var(${colorVariable}) / <alpha-value>)`;
-    });
-  });
+    }
+  }
 
   return resolved;
 };

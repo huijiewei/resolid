@@ -55,7 +55,7 @@ export const Pagination = (props: BaseProps<"div", PaginationProps>) => {
 
   return (
     <div role={"navigation"} className={clsx("flex w-auto items-center gap-2", className)} {...rest}>
-      {renderTotal && renderTotal(total, totalPage)}
+      {renderTotal?.(total, totalPage)}
       <ul className={"flex flex-nowrap gap-1"}>
         {pages.map((page) => (
           <li key={`${page.type}-${page.page}`}>

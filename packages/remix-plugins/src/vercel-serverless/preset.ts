@@ -275,7 +275,7 @@ const writeVercelConfigJson = async (
       });
     } else {
       configJson.routes.push({
-        src: `/(.*)`,
+        src: "/(.*)",
         dest: `_${bundle.bundleId}`,
       });
     }

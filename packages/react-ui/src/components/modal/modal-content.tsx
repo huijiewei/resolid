@@ -25,7 +25,7 @@ export const ModalContent = (props: BaseProps<"div">) => {
 
   useEffect(() => {
     if (!opened) {
-      finalFocus && finalFocus.current?.focus();
+      finalFocus?.current?.focus();
     }
   }, [opened, finalFocus]);
 

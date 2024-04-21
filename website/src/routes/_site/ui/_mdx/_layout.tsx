@@ -20,12 +20,7 @@ const mdxComponents = {
       <h2 className={clsx("reHeadings group relative flex items-center", className)} {...rest}>
         <span id={id} className={"reHeadingsSlug invisible absolute top-[calc(-1*88px)]"} />
         {children}
-        <a
-          tabIndex={-1}
-          className={"ml-1 opacity-0 transition-opacity group-hover:opacity-100"}
-          aria-hidden={true}
-          href={`#${id}`}
-        >
+        <a tabIndex={-1} className={"ml-1 opacity-0 transition-opacity group-hover:opacity-100"} href={`#${id}`}>
           <SpriteIcon size={"sm"} name={"link"} />
         </a>
       </h2>
@@ -36,20 +31,16 @@ const mdxComponents = {
       <h3 className={clsx("reHeadings group relative flex items-center", className)} {...rest}>
         <span id={id} className={"reHeadingsSlug invisible absolute top-[calc(-1*88px)]"} />
         {children}
-        <a
-          tabIndex={-1}
-          className={"ml-1 opacity-0 transition-opacity group-hover:opacity-100"}
-          aria-hidden={true}
-          href={`#${id}`}
-        >
+        <a tabIndex={-1} className={"ml-1 opacity-0 transition-opacity group-hover:opacity-100"} href={`#${id}`}>
           <SpriteIcon size={"sm"} name={"link"} />
         </a>
       </h3>
     );
   },
-  pre: ({ children, className, ...rest }: ComponentPropsWithoutRef<"pre"> & { ["data-inline"]?: boolean }) => {
+  pre: ({ children, className, ...rest }: ComponentPropsWithoutRef<"pre"> & { "data-inline"?: boolean }) => {
     if (rest["data-inline"]) {
-      delete rest["data-inline"];
+      rest["data-inline"] = undefined;
+
       return (
         <pre className={className} {...rest}>
           {children}
