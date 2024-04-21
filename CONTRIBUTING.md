@@ -90,7 +90,6 @@ Resolid 使用 `commitlint` 工具对提交消息格式进行规范
 - `mdx-plugins`
 - `react-ui`
 - `remix-plugins`
-- `remix-utils`
 - `tailwind`
 - `utils`
 - `website`
