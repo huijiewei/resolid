@@ -24,7 +24,7 @@ const CheckIcon = (props: ComponentPropsWithoutRef<"svg">) => {
       strokeDashoffset={0}
       {...props}
     >
-      <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+      <polyline points="1.5 6 4.5 9 10.5 1" />
     </svg>
   );
 };
@@ -32,7 +32,7 @@ const CheckIcon = (props: ComponentPropsWithoutRef<"svg">) => {
 const IndeterminateIcon = (props: ComponentPropsWithoutRef<"svg">) => {
   return (
     <svg viewBox="0 0 24 24" stroke={"currentColor"} strokeWidth={4} opacity={1} {...props}>
-      <line x1="21" x2="3" y1="12" y2="12"></line>
+      <line x1="21" x2="3" y1="12" y2="12" />
     </svg>
   );
 };

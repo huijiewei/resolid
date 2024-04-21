@@ -27,7 +27,7 @@ export const BlurhashCanvas = (props: HTMLProps<HTMLCanvasElement> & BlurhashCan
   }, [hash, height, punch, width]);
 
   return (
-    <div style={{ paddingBottom: `${aspect * 100}%` }} className={`relative h-0`}>
+    <div style={{ paddingBottom: `${aspect * 100}%` }} className={"relative h-0"}>
       <canvas
         width={width}
         height={height}

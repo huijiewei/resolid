@@ -64,7 +64,7 @@ if (__DEV__) {
 export const AlertIcon = (props: BaseProps<"span">) => {
   const { className, ...rest } = props;
 
-  return <span className={clsx(`shrink-0`, className)} {...rest} />;
+  return <span className={clsx("shrink-0", className)} {...rest} />;
 };
 
 if (__DEV__) {

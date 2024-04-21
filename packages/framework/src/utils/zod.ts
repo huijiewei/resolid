@@ -66,7 +66,7 @@ const zodErrorMap: ZodErrorMap = (issue, _ctx) => {
       message = `对象中的键无法识别: ${util.joinValues(issue.keys, ", ")}`;
       break;
     case ZodIssueCode.invalid_union:
-      message = `不满足联合类型中的选项`;
+      message = "不满足联合类型中的选项";
       break;
     case ZodIssueCode.invalid_union_discriminator:
       message = `标识值无法被区分。请输入 ${util.joinValues(issue.options)}`;
@@ -75,13 +75,13 @@ const zodErrorMap: ZodErrorMap = (issue, _ctx) => {
       message = `错误的枚举值. 预期输入为 ${util.joinValues(issue.options)}, 而输入为 '${issue.received}'`;
       break;
     case ZodIssueCode.invalid_arguments:
-      message = `错误的函数参数格式`;
+      message = "错误的函数参数格式";
       break;
     case ZodIssueCode.invalid_return_type:
-      message = `错误的函数返回值格式`;
+      message = "错误的函数返回值格式";
       break;
     case ZodIssueCode.invalid_date:
-      message = `错误的日期格式`;
+      message = "错误的日期格式";
       break;
     case ZodIssueCode.invalid_string:
       if (typeof issue.validation === "object") {
@@ -105,36 +105,40 @@ const zodErrorMap: ZodErrorMap = (issue, _ctx) => {
       }
       break;
     case ZodIssueCode.too_small:
-      if (issue.type === "array")
-        message = `数组元素${issue.exact ? "必须为" : issue.inclusive ? `至少为` : `须多于`} ${issue.minimum} 个`;
-      else if (issue.type === "string")
-        message = `文本长度${issue.exact ? "必须为" : issue.inclusive ? `至少为` : `须多于`} ${issue.minimum} 个字符`;
-      else if (issue.type === "number")
-        message = `数值必须${issue.exact ? `为` : issue.inclusive ? `大于或等于` : `大于`} ${issue.minimum}`;
-      else if (issue.type === "date")
+      if (issue.type === "array") {
+        message = `数组元素${issue.exact ? "必须为" : issue.inclusive ? "至少为" : "须多于"} ${issue.minimum} 个`;
+      } else if (issue.type === "string") {
+        message = `文本长度${issue.exact ? "必须为" : issue.inclusive ? "至少为" : "须多于"} ${issue.minimum} 个字符`;
+      } else if (issue.type === "number") {
+        message = `数值必须${issue.exact ? "为" : issue.inclusive ? "大于或等于" : "大于"} ${issue.minimum}`;
+      } else if (issue.type === "date") {
         message = `日期必须${
-          issue.exact ? `为` : issue.inclusive ? `大于或等于` : `大于`
+          issue.exact ? "为" : issue.inclusive ? "大于或等于" : "大于"
         } ${new Date(Number(issue.minimum))}`;
-      else message = "错误的输入格式";
+      } else {
+        message = "错误的输入格式";
+      }
       break;
     case ZodIssueCode.too_big:
-      if (issue.type === "array")
-        message = `数组元素${issue.exact ? `必须为` : issue.inclusive ? `最多为` : `须少于`} ${issue.maximum} 个`;
-      else if (issue.type === "string")
-        message = `文本长度${issue.exact ? `必须为` : issue.inclusive ? `最多为` : `须少于`} ${issue.maximum} 个字符`;
-      else if (issue.type === "number" || issue.type === "bigint")
-        message = `数值必须${issue.exact ? `为` : issue.inclusive ? `小于或等于` : `小于`} ${issue.maximum}`;
-      else if (issue.type === "date")
+      if (issue.type === "array") {
+        message = `数组元素${issue.exact ? "必须为" : issue.inclusive ? "最多为" : "须少于"} ${issue.maximum} 个`;
+      } else if (issue.type === "string") {
+        message = `文本长度${issue.exact ? "必须为" : issue.inclusive ? "最多为" : "须少于"} ${issue.maximum} 个字符`;
+      } else if (issue.type === "number" || issue.type === "bigint") {
+        message = `数值必须${issue.exact ? "为" : issue.inclusive ? "小于或等于" : "小于"} ${issue.maximum}`;
+      } else if (issue.type === "date") {
         message = `日期必须${
-          issue.exact ? `为` : issue.inclusive ? `小于或等于` : `小于`
+          issue.exact ? "为" : issue.inclusive ? "小于或等于" : "小于"
         } ${new Date(Number(issue.maximum))}`;
-      else message = "错误的输入格式";
+      } else {
+        message = "错误的输入格式";
+      }
       break;
     case ZodIssueCode.custom:
-      message = `错误的输入格式`;
+      message = "错误的输入格式";
       break;
     case ZodIssueCode.invalid_intersection_types:
-      message = `交叉类型结果无法被合并`;
+      message = "交叉类型结果无法被合并";
       break;
     case ZodIssueCode.not_multiple_of:
       message = `数值必须是 ${issue.multipleOf} 的倍数`;

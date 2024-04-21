@@ -37,21 +37,20 @@ export const ClipboardButton = ({ content }: { content: ReactNode }) => {
 };
 
 // From https://github.com/sunknudsen/react-node-to-string/blob/master/src/index.ts
-
 const reactNodeToString = function (reactNode: ReactNode): string {
-  let string = "";
+  const strings = [];
 
   if (isString(reactNode)) {
-    string = reactNode;
+    strings.push(reactNode);
   } else if (isNumber(reactNode)) {
-    string = reactNode.toString();
+    strings.push(reactNode.toString());
   } else if (Array.isArray(reactNode)) {
-    reactNode.forEach(function (child) {
-      string += reactNodeToString(child);
-    });
+    for (const child of reactNode) {
+      strings.push(reactNodeToString(child));
+    }
   } else if (isValidElement(reactNode)) {
-    string += reactNodeToString(reactNode.props.children);
+    strings.push(reactNodeToString(reactNode.props.children));
   }
 
-  return string;
+  return strings.join("");
 };

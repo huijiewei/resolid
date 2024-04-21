@@ -10,7 +10,7 @@ export const InputAddon = (props: BaseProps<"span">) => {
   const group = useInputGroup();
 
   if (group == undefined) {
-    throw new Error(`useInputGroup returned \`undefined\`. Seems you forgot to wrap component within InputGroup`);
+    throw new Error("useInputGroup returned `undefined`. Seems you forgot to wrap component within InputGroup");
   }
 
   return (

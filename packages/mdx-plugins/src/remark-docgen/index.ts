@@ -22,10 +22,11 @@ export type ComponentProp = {
 };
 
 const propsTables: Record<string, ComponentProp[]> = {};
+const kebabCaseRegex = /[a-zA-Z0-9]+/g;
 
 export const remarkDocgen: Plugin<[RemarkDocgenOptions]> = ({ sourceRoot }) => {
   if (!sourceRoot) {
-    throw new Error(`Please set sourceRoot.`);
+    throw new Error("Please set sourceRoot.");
   }
 
   return (tree) => {
@@ -39,7 +40,7 @@ export const remarkDocgen: Plugin<[RemarkDocgenOptions]> = ({ sourceRoot }) => {
           throw new Error(`Invalid componentFile prop for ${elem.name}.`);
         }
 
-        const componentName = (parse(componentFile).name.match(/[a-zA-Z0-9]+/g) || [])
+        const componentName = (parse(componentFile).name.match(kebabCaseRegex) || [])
           .map((w) => `${w.charAt(0).toUpperCase()}${w.slice(1)}`)
           .join("");
 
@@ -97,7 +98,7 @@ const tsParser = withCustomConfig("tsconfig.json", {
 });
 
 const getElementAttrValue = (elem: MdxJsxFlowElement, attrName: string) => {
-  const attr = elem.attributes.find((attr) => "name" in attr && attr["name"] == attrName);
+  const attr = elem.attributes.find((attr) => "name" in attr && attr.name == attrName);
 
   if (attr) {
     if (typeof attr.value == "string") {
