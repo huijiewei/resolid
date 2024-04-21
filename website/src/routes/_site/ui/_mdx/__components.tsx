@@ -37,18 +37,19 @@ export const ComponentUsage = ({
       .sort((a, b) => (a.control.length > b.control.length ? 1 : -1));
   }, [componentProps, ignoreProps]);
 
-  const [state, setState] = useState<Record<string, string | boolean | number>>(
-    filteredProps.reduce((obj, item) => {
-      return {
-        ...obj,
-        [item["name"]]:
-          item["defaultValue"] == "true" || item["defaultValue"] == "false"
-            ? item["defaultValue"] == "true"
-            : item["defaultValue"]
-              ? item["defaultValue"].slice(1, -1)
-              : undefined,
-      };
-    }, {}),
+  const [state, setState] = useState<Record<string, string | boolean | number | undefined>>(
+    Object.fromEntries(
+      filteredProps.map(({ name, defaultValue }) => {
+        const value =
+          defaultValue == "true" || defaultValue == "false"
+            ? defaultValue == "true"
+            : defaultValue
+              ? defaultValue.slice(1, -1)
+              : undefined;
+
+        return [name, value];
+      }),
+    ),
   );
 
   return (
