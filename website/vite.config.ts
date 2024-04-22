@@ -89,7 +89,6 @@ export default defineConfig(({ command, isSsrBuild }) => {
     build: {
       target: isSsrBuild ? "node20" : "modules",
       cssTarget: ["edge88", "firefox78", "chrome87", "safari14"],
-      minify: true,
       rollupOptions: {
         output: {
           hoistTransitiveImports: false,

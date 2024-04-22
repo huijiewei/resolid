@@ -6,10 +6,11 @@ settings:
 
 overrides:
   '@mdx-js/mdx': ^3.0.1
+  esbuild: ^0.20.2
+  rollup: 4.15.0
   '@remix-run/node': 2.9.0-pre.4
   '@remix-run/react': 2.9.0-pre.4
   '@remix-run/dev': 2.9.0-pre.4
-  esbuild: ^0.20.2
   react: 19.0.0-canary-33a32441e9-20240418
   react-dom: 19.0.0-canary-33a32441e9-20240418
   react-is: 19.0.0-canary-33a32441e9-20240418
@@ -104,8 +105,8 @@ importers:
         specifier: ^3.3.4
         version: 3.3.4(react-hook-form@7.51.3)
       '@node-rs/bcrypt':
-        specifier: ^1.10.1
-        version: 1.10.1
+        specifier: ^1.10.2
+        version: 1.10.2
       '@remix-run/node':
         specifier: 2.9.0-pre.4
         version: 2.9.0-pre.4(typescript@5.4.5)
@@ -116,8 +117,8 @@ importers:
         specifier: workspace:^
         version: link:../utils
       drizzle-orm:
-        specifier: ^0.30.8
-        version: 0.30.8(postgres@3.4.4)(react@19.0.0-canary-33a32441e9-20240418)
+        specifier: ^0.30.9
+        version: 0.30.9(postgres@3.4.4)(react@19.0.0-canary-33a32441e9-20240418)
       nodemailer:
         specifier: ^6.9.13
         version: 6.9.13
@@ -131,8 +132,8 @@ importers:
         specifier: ^4.15.0
         version: 4.15.0
       zod:
-        specifier: ^3.22.5
-        version: 3.22.5
+        specifier: ^3.23.0
+        version: 3.23.0
     devDependencies:
       '@resolid/config':
         specifier: workspace:^
@@ -242,8 +243,8 @@ importers:
         specifier: ^0.20.2
         version: 0.20.2
       hono:
-        specifier: ^4.2.5
-        version: 4.2.5
+        specifier: ^4.2.6
+        version: 4.2.6
       minimatch:
         specifier: ^9.0.4
         version: 9.0.4
@@ -313,8 +314,8 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1(@types/react@18.2.79)(react@19.0.0-canary-33a32441e9-20240418)
       '@node-rs/bcrypt':
-        specifier: ^1.10.1
-        version: 1.10.1
+        specifier: ^1.10.2
+        version: 1.10.2
       '@remix-run/node':
         specifier: 2.9.0-pre.4
         version: 2.9.0-pre.4(typescript@5.4.5)
@@ -337,8 +338,8 @@ importers:
         specifier: ^1.0.10
         version: 1.0.10(react@19.0.0-canary-33a32441e9-20240418)
       hono:
-        specifier: ^4.2.5
-        version: 4.2.5
+        specifier: ^4.2.6
+        version: 4.2.6
       isbot:
         specifier: ^5.1.4
         version: 5.1.4
@@ -355,8 +356,8 @@ importers:
         specifier: ^4.3.1
         version: 4.3.1(@remix-run/react@2.9.0-pre.4)(react-dom@19.0.0-canary-33a32441e9-20240418)(react-hook-form@7.51.3)(react@19.0.0-canary-33a32441e9-20240418)
       zod:
-        specifier: ^3.22.5
-        version: 3.22.5
+        specifier: ^3.23.0
+        version: 3.23.0
     devDependencies:
       '@mdx-js/rollup':
         specifier: ^3.0.1
@@ -1247,14 +1248,14 @@ packages:
     resolution: {integrity: sha512-TLIJq9TMtD1NEG1mVoqNUn1Ita0qSaB5XboZErjFBcO/GJYXwWY4dVdTi9G0lbxtu0x+hJXDItcLaFHb7rlFTw==}
     engines: {node: '>=18.14.1'}
 
-  /@hono/zod-validator@0.2.1(hono@4.2.5)(zod@3.22.5):
+  /@hono/zod-validator@0.2.1(hono@4.2.6)(zod@3.23.0):
     resolution: {integrity: sha512-HFoxln7Q6JsE64qz2WBS28SD33UB2alp3aRKmcWnNLDzEL1BLsWfbdX6e1HIiUprHYTIXf5y7ax8eYidKUwyaA==}
     peerDependencies:
       hono: '>=3.9.0'
       zod: ^3.19.1
     dependencies:
-      hono: 4.2.5
-      zod: 3.22.5
+      hono: 4.2.6
+      zod: 3.23.0
     dev: true
 
   /@hookform/resolvers@3.3.4(react-hook-form@7.51.3):
@@ -1407,7 +1408,7 @@ packages:
   /@mdx-js/rollup@3.0.1(rollup@4.15.0):
     resolution: {integrity: sha512-j0II91OCm4ld+l5QVgXXMQGxVVcAWIQJakYWi1dv5pefDHASJyCYER2TsdH7Alf958GoFSM7ugukWyvDq/UY4A==}
     peerDependencies:
-      rollup: '>=2'
+      rollup: 4.15.0
     dependencies:
       '@mdx-js/mdx': 3.0.1
       '@rollup/pluginutils': 5.1.0(rollup@4.15.0)
@@ -1418,18 +1419,18 @@ packages:
       - supports-color
     dev: true
 
-  /@napi-rs/wasm-runtime@0.1.2:
-    resolution: {integrity: sha512-8JuczewTFIZ/XIjHQ+YlQUydHvlKx2hkcxtuGwh+t/t5zWyZct6YG4+xjHcq8xyc/e7FmFwf42Zj2YgICwmlvA==}
+  /@napi-rs/wasm-runtime@0.2.0:
+    resolution: {integrity: sha512-ETCooPEZJN7cGp6GwE5mUTrStrhIeuEPo0lOhLe48Iz35z6CkbgDauR8nE/K4GaMEu2BwTOm2Epy7ru8w1ua7w==}
     requiresBuild: true
     dependencies:
       '@emnapi/core': 1.1.1
       '@emnapi/runtime': 1.1.1
-      '@tybys/wasm-util': 0.8.2
+      '@tybys/wasm-util': 0.8.3
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-android-arm-eabi@1.10.1:
-    resolution: {integrity: sha512-S/E7zl5KjcttzjYjyvY5YBXEVc8E2EB7u6QSmnRB2fsrscvyIKUMiiSaGbzOFGkCgCdry12WxyGF23JCm3n6ow==}
+  /@node-rs/bcrypt-android-arm-eabi@1.10.2:
+    resolution: {integrity: sha512-FX+fonBxNztNcUwi2TmoNVlQnR1FJDk7K23g8OzSdS/+8MmNIEZbj4CoLfWlow1etCxrdYARL66QT5kJBu3yLA==}
     engines: {node: '>= 10'}
     cpu: [arm]
     os: [android]
@@ -1437,8 +1438,8 @@ packages:
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-android-arm64@1.10.1:
-    resolution: {integrity: sha512-Bdrx+DhkOfRGf4z3CkEVNmTA/bmAS/6Zp4sDn8Po5Q5LqjgyV/6GdFC2lILMobX1axl8GUEhOnUMKO1sg9Annw==}
+  /@node-rs/bcrypt-android-arm64@1.10.2:
+    resolution: {integrity: sha512-jyNeE2khxgYrZsyPuB4Ni2w3MAR6xGMwYtGsi1KBavD0PXQLDzN6Ux7j7JictzEthGMOyfHO6GYpLq/TuPYvbQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [android]
@@ -1446,8 +1447,8 @@ packages:
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-darwin-arm64@1.10.1:
-    resolution: {integrity: sha512-IcEvzAsBHi/x8VmyxM4Zz6VcIDuqBfjV8RCHOIQgRKva5g3LO72ceNv5saAxt4ofp/FEcqMD4YlS+z3dq/AUjg==}
+  /@node-rs/bcrypt-darwin-arm64@1.10.2:
+    resolution: {integrity: sha512-OP2zFEO9GIFPZvt7wZu/eqcSX1ZPvXDlnjx2bFqboFDW5jn2/fFI3YLJ22p3hs6/Kv74bYfDH5VGp1rml1IWrw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
@@ -1455,8 +1456,8 @@ packages:
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-darwin-x64@1.10.1:
-    resolution: {integrity: sha512-VXCOWFDYG/ZahkjmqBxlXsVufqRq1ydLoYLO+WmBZezQO1K12CJNRgPzlLmk5aBe/XdNtjcLG/Oq9nYWiFnYqA==}
+  /@node-rs/bcrypt-darwin-x64@1.10.2:
+    resolution: {integrity: sha512-TzSDMBtWfMHqZdPsW24+TwsIFfu8hg25CtZ+YsxXAVxMZf5gMItBuH63DUDJKLzYm7LGa3O4Ort8x4gLkFy3SQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
@@ -1464,8 +1465,8 @@ packages:
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-freebsd-x64@1.10.1:
-    resolution: {integrity: sha512-3iUb+yayy3QQi8JNijkH1XLBxdSmHCPKqYd8yLfyLPBF36FJv1qpqaUghHaeNOLBn79fufFl7V8FpGeo8DuAgw==}
+  /@node-rs/bcrypt-freebsd-x64@1.10.2:
+    resolution: {integrity: sha512-FkYgT1JUhd/A/qLP5XM1sMSlkOVhj976Ip0E4XD+Fs1Gf4KjBDH4P9m+gYJTS604wgDcI6RTJexEMT1x+a1QHw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [freebsd]
@@ -1473,8 +1474,8 @@ packages:
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-linux-arm-gnueabihf@1.10.1:
-    resolution: {integrity: sha512-9Go6agCbgYElQ8B4yPMwgMMlK1HcIL7ItXnqETLOgSdHpQrccW3f/80tCP3sKKuf5is3q3lP96ZPKbwlV2k2Dw==}
+  /@node-rs/bcrypt-linux-arm-gnueabihf@1.10.2:
+    resolution: {integrity: sha512-6ovkExDQJNIlAWqpMjGzKBI+pfEPoygM77eCbPY+RHfSY67mQhjem7cNs3IiT7S2jJNYjzGdtCKo2vdHkGX6aw==}
     engines: {node: '>= 10'}
     cpu: [arm]
     os: [linux]
@@ -1482,8 +1483,8 @@ packages:
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-linux-arm64-gnu@1.10.1:
-    resolution: {integrity: sha512-RGuEQQk6tGRaobTNT2v+NO3eSncbiM7W2P36StNu/f4DfH0ZluMlg04SxASzCoXANgPh4KcGVck+xcACQkPc1w==}
+  /@node-rs/bcrypt-linux-arm64-gnu@1.10.2:
+    resolution: {integrity: sha512-Lh4qmJ7nEO/SN2BmSfb7IYt6ht5mxtchojaNpvMLSQakKs2DV3K8iBAJGnhTC6F7gx7MfRGJhrPODgB3J9XmXw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -1491,8 +1492,8 @@ packages:
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-linux-arm64-musl@1.10.1:
-    resolution: {integrity: sha512-xfqPzURkVa/t/fdWnOnfP84p3udNpWadsdYaCG1VJ+qGxbQKccWQ+lHBzoH3qjl+Vsy1ov8OG1mYSD7QL7e1lQ==}
+  /@node-rs/bcrypt-linux-arm64-musl@1.10.2:
+    resolution: {integrity: sha512-6ANi8Vrx73AC4keTrcxLESBmm9buM4g/2EUeaoJsarg6lH7QLEDL2p77mN4B9DQtURqIgXTmh61czfsA9/pk1w==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -1500,8 +1501,8 @@ packages:
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-linux-x64-gnu@1.10.1:
-    resolution: {integrity: sha512-/kE+fHtPKH8ANkvJtdB+BAMAGzsrq0CS+nfyvba4x6zwJ1Vf/u6i4Uk2ql+tIKIpOlWTR68XezU550PMkKY3Bg==}
+  /@node-rs/bcrypt-linux-x64-gnu@1.10.2:
+    resolution: {integrity: sha512-r3U6B7YpE+4jdUf7xD/+cT5RuPdPZlseffAQpIWAvprL0FeWq0e3mNbt67twmZ6nEWlHdkEAB2FdqWTkluvfGA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -1509,8 +1510,8 @@ packages:
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-linux-x64-musl@1.10.1:
-    resolution: {integrity: sha512-r459c9UH/EWnNZpWzw76pmECrxRDGgSHJKovz6/sBWaCJ30LGZOGYghDtRQGQI3Ho5sasE4lC51WaWT0nkoHIg==}
+  /@node-rs/bcrypt-linux-x64-musl@1.10.2:
+    resolution: {integrity: sha512-NPGqIUJkx6Lo1AelCLWx6v/wkSfQG0GsZZcrKtDxfmy71Wn5v3dnyg1hkw89eU/UKY0/+4NRefE0KaYviILsoA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -1518,18 +1519,18 @@ packages:
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-wasm32-wasi@1.10.1:
-    resolution: {integrity: sha512-akw9cU1CQv5tythjvpFeNVGMxng5LCnurhiJFEwTLfhaw3R0J1OAyI/kaVe4mvDY42D/Ii+sy3q53H+03AzNeQ==}
+  /@node-rs/bcrypt-wasm32-wasi@1.10.2:
+    resolution: {integrity: sha512-iF4HpOqdm83Q0IXK/hxLbf45ZarrTbssd9AVonskhkQw+fUrCs4F4Xqv/0bUiT4gHEvDKH5JDVQP4WgxCvYA9w==}
     engines: {node: '>=14.0.0'}
     cpu: [wasm32]
     requiresBuild: true
     dependencies:
-      '@napi-rs/wasm-runtime': 0.1.2
+      '@napi-rs/wasm-runtime': 0.2.0
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-win32-arm64-msvc@1.10.1:
-    resolution: {integrity: sha512-p/7FE/HeQr/1PcIQPgPH//hstEs6jlsJsAsbp5NXzEm9+v1RSNSpI/P45ZJ3ozZWNniwBdIm6bqYH+9F6fkVXQ==}
+  /@node-rs/bcrypt-win32-arm64-msvc@1.10.2:
+    resolution: {integrity: sha512-RoSk6AqZd9rJDK1FpIX9ZrpHz03xgSWcqxg3cAmz4BD4bdO3AWveNnX7bAW5n+KFDoWKaGnaywOp3gwvrvgumg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
@@ -1537,8 +1538,8 @@ packages:
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-win32-ia32-msvc@1.10.1:
-    resolution: {integrity: sha512-gaN26MKOYpO3MqPj92ipIZgOAtE7pcz3GSAOD6xhiOwB2fufBswnd7U7mldsac+bpemDD2ScYvgVYmq1Hqr78w==}
+  /@node-rs/bcrypt-win32-ia32-msvc@1.10.2:
+    resolution: {integrity: sha512-ZpPX/r6T+gK+ASC+Ji5DrygqGdCLscg6MZ1QicXWWukqBKq2JzV2z2y+gRd9CRQpVjkjsgB/DfVYbISa05XLSg==}
     engines: {node: '>= 10'}
     cpu: [ia32]
     os: [win32]
@@ -1546,8 +1547,8 @@ packages:
     dev: false
     optional: true
 
-  /@node-rs/bcrypt-win32-x64-msvc@1.10.1:
-    resolution: {integrity: sha512-HlIAhNzjYlbRJC5vmloNhSHRBH90RlxSRW++EuteZoe8m20w91mIt0ULxFkGU4YUfPCHDPNaZofeDr7JZMlzcw==}
+  /@node-rs/bcrypt-win32-x64-msvc@1.10.2:
+    resolution: {integrity: sha512-7+jroPnY1FAZo6/ti3mZhK2xMeCzPFXXFfhwjQs+eaE+bWIWQoPBEgMim6hYuB53krXp4BUYBO4L2c+8F1rOqA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -1555,24 +1556,24 @@ packages:
     dev: false
     optional: true
 
-  /@node-rs/bcrypt@1.10.1:
-    resolution: {integrity: sha512-bF8xy616FED7iT8AF9fOsyKRHjJ0EKvUubL2WuZbui7khl9gJMTW+2udVxHSH4clPyxWRn6IaXFKbDoffuTxSQ==}
+  /@node-rs/bcrypt@1.10.2:
+    resolution: {integrity: sha512-xdKWZ95/QJfkUpLZpw9oWuP5mlaCyp6Q/DOhokGzHoNCH82+YCcgZeF38E64A8DKw6wr8TLqoe0gqfb9CND4VQ==}
     engines: {node: '>= 10'}
     optionalDependencies:
-      '@node-rs/bcrypt-android-arm-eabi': 1.10.1
-      '@node-rs/bcrypt-android-arm64': 1.10.1
-      '@node-rs/bcrypt-darwin-arm64': 1.10.1
-      '@node-rs/bcrypt-darwin-x64': 1.10.1
-      '@node-rs/bcrypt-freebsd-x64': 1.10.1
-      '@node-rs/bcrypt-linux-arm-gnueabihf': 1.10.1
-      '@node-rs/bcrypt-linux-arm64-gnu': 1.10.1
-      '@node-rs/bcrypt-linux-arm64-musl': 1.10.1
-      '@node-rs/bcrypt-linux-x64-gnu': 1.10.1
-      '@node-rs/bcrypt-linux-x64-musl': 1.10.1
-      '@node-rs/bcrypt-wasm32-wasi': 1.10.1
-      '@node-rs/bcrypt-win32-arm64-msvc': 1.10.1
-      '@node-rs/bcrypt-win32-ia32-msvc': 1.10.1
-      '@node-rs/bcrypt-win32-x64-msvc': 1.10.1
+      '@node-rs/bcrypt-android-arm-eabi': 1.10.2
+      '@node-rs/bcrypt-android-arm64': 1.10.2
+      '@node-rs/bcrypt-darwin-arm64': 1.10.2
+      '@node-rs/bcrypt-darwin-x64': 1.10.2
+      '@node-rs/bcrypt-freebsd-x64': 1.10.2
+      '@node-rs/bcrypt-linux-arm-gnueabihf': 1.10.2
+      '@node-rs/bcrypt-linux-arm64-gnu': 1.10.2
+      '@node-rs/bcrypt-linux-arm64-musl': 1.10.2
+      '@node-rs/bcrypt-linux-x64-gnu': 1.10.2
+      '@node-rs/bcrypt-linux-x64-musl': 1.10.2
+      '@node-rs/bcrypt-wasm32-wasi': 1.10.2
+      '@node-rs/bcrypt-win32-arm64-msvc': 1.10.2
+      '@node-rs/bcrypt-win32-ia32-msvc': 1.10.2
+      '@node-rs/bcrypt-win32-x64-msvc': 1.10.2
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:
@@ -1990,7 +1991,7 @@ packages:
     resolution: {integrity: sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
+      rollup: 4.15.0
     peerDependenciesMeta:
       rollup:
         optional: true
@@ -2213,8 +2214,8 @@ packages:
     resolution: {integrity: sha512-D57pNSN3JY2pRB6iPzZKB0m0hWfNGZ6MkxavYxgTDp+YIosi9VwDn6Cc87qcOM3ogu2CFvIAi2XXoAREnz0UFQ==}
     dev: false
 
-  /@tybys/wasm-util@0.8.2:
-    resolution: {integrity: sha512-kzI0zdUtC/ymNQCVQiqHCKobSSyppUHet+pHaiOdKUV48B/uKCEDznwf4N9tOoDKdh7Uuhm8V60xPU8VYbBbrQ==}
+  /@tybys/wasm-util@0.8.3:
+    resolution: {integrity: sha512-Z96T/L6dUFFxgFJ+pQtkPpne9q7i6kIPYCFnQBHSgSPV9idTsKfIhCss0h5iM9irweZCatkrdeP8yi5uM1eX6Q==}
     requiresBuild: true
     dependencies:
       tslib: 2.6.2
@@ -2820,7 +2821,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.23.0
-      caniuse-lite: 1.0.30001611
+      caniuse-lite: 1.0.30001612
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -2916,7 +2917,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001611
+      caniuse-lite: 1.0.30001612
       electron-to-chromium: 1.4.745
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
@@ -2997,8 +2998,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /caniuse-lite@1.0.30001611:
-    resolution: {integrity: sha512-19NuN1/3PjA3QI8Eki55N8my4LzfkMCRLgCVfrl/slbSAchQfV0+GwjPrK3rq37As4UCLlM/DHajbKkAqbv92Q==}
+  /caniuse-lite@1.0.30001612:
+    resolution: {integrity: sha512-lFgnZ07UhaCcsSZgWW0K5j4e69dK1u/ltrL9lTUiFOwNHs12S3UMIEYgBV0Z6C6hRDev7iRnMzzYmKabYdXF9g==}
     dev: true
 
   /ccount@2.0.1:
@@ -3524,7 +3525,7 @@ packages:
     dependencies:
       '@esbuild-kit/esm-loader': 2.6.5
       '@hono/node-server': 1.11.0
-      '@hono/zod-validator': 0.2.1(hono@4.2.5)(zod@3.22.5)
+      '@hono/zod-validator': 0.2.1(hono@4.2.6)(zod@3.23.0)
       camelcase: 7.0.1
       chalk: 5.3.0
       commander: 9.5.0
@@ -3533,18 +3534,18 @@ packages:
       esbuild-register: 3.5.0(esbuild@0.20.2)
       glob: 8.1.0
       hanji: 0.0.5
-      hono: 4.2.5
+      hono: 4.2.6
       json-diff: 0.9.0
       minimatch: 7.4.6
       semver: 7.6.0
       superjson: 2.2.1
-      zod: 3.22.5
+      zod: 3.23.0
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.30.8(postgres@3.4.4)(react@19.0.0-canary-33a32441e9-20240418):
-    resolution: {integrity: sha512-9pBJA0IjnpPpzZ6s9jlS1CQAbKoBmbn2GJesPhXaVblAA/joOJ4AWWevYcqvLGj9SvThBAl7WscN8Zwgg5mnTw==}
+  /drizzle-orm@0.30.9(postgres@3.4.4)(react@19.0.0-canary-33a32441e9-20240418):
+    resolution: {integrity: sha512-VOiCFsexErmgqvNCOmbzmqDCZzZsHoz6SkWAjTFxsTr1AllKDbDJ2+GgedLXsXMDgpg/ljDG1zItIFeZtiO2LA==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -4643,8 +4644,8 @@ packages:
     resolution: {integrity: sha512-2bsegYkkHO+h/9MGbn6KWcE45cHZgPANo5LXF7EvWdT0yT2EguSVO1nDgU5c8+ZOPwp2vMNa7YFsJhVcDR9Sdg==}
     dev: true
 
-  /hono@4.2.5:
-    resolution: {integrity: sha512-uonJD3i/yy005kQ7bPZRVfG3rejYJwyPqBmPoUGijS4UB/qM+YlrZ7xzSWy+ByDu9buGHUG+f+SKzz03Y6V1Kw==}
+  /hono@4.2.6:
+    resolution: {integrity: sha512-AtbHZJYWsm+uFHLz0C6xltX7hjOV44a55gSEGBfoQOJ00KSxEUOoiIkmd+NXfapNX0j2GCKhqMmYeegBdHRwcQ==}
     engines: {node: '>=16.0.0'}
 
   /hosted-git-info@6.1.1:
@@ -5005,7 +5006,7 @@ packages:
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.4
       is-potential-custom-element-name: 1.0.1
-      nwsapi: 2.2.8
+      nwsapi: 2.2.9
       parse5: 7.1.2
       rrweb-cssom: 0.6.0
       saxes: 6.0.0
@@ -6311,8 +6312,8 @@ packages:
       set-blocking: 2.0.0
     dev: false
 
-  /nwsapi@2.2.8:
-    resolution: {integrity: sha512-GU/I3lTEFQ9mkEm07Q7HvdRajss8E1wVMGOk3/lHl60QPseG+B3BIQY+JUjYWw7gF8cCeoQCXd4N7DB7avw0Rg==}
+  /nwsapi@2.2.9:
+    resolution: {integrity: sha512-2f3F0SEEer8bBu0dsNCFF50N0cTThV1nWFYcEYFZttdW0lDAoybv9cQoK7X7/68Z89S7FoRrVjP1LPX4XRf9vg==}
     dev: true
 
   /object-assign@4.1.1:
@@ -7771,8 +7772,8 @@ packages:
       next-tick: 1.1.0
     dev: true
 
-  /tinybench@2.7.0:
-    resolution: {integrity: sha512-Qgayeb106x2o4hNzNjsZEfFziw8IbKqtbXBjVh7VIZfBxfD5M4gWtpyx5+YTae2gJ6Y6Dz/KLepiv16RFeQWNA==}
+  /tinybench@2.8.0:
+    resolution: {integrity: sha512-1/eK7zUnIklz4JUUlL+658n58XO2hHLQfSk1Zf2LKieUjxidN16eKFEoDEfjHc3ohofSSqK3X5yO6VGb6iW8Lw==}
     dev: true
 
   /tinypool@0.8.4:
@@ -8362,7 +8363,7 @@ packages:
       picocolors: 1.0.0
       std-env: 3.7.0
       strip-literal: 2.1.0
-      tinybench: 2.7.0
+      tinybench: 2.8.0
       tinypool: 0.8.4
       vite: 5.2.10(@types/node@20.12.7)
       vite-node: 1.5.0(@types/node@20.12.7)
@@ -8589,8 +8590,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zod@3.22.5:
-    resolution: {integrity: sha512-HqnGsCdVZ2xc0qWPLdO25WnseXThh0kEYKIdV5F/hTHO75hNZFp8thxSeHhiPrHZKrFTo1SOgkAj9po5bexZlw==}
+  /zod@3.23.0:
+    resolution: {integrity: sha512-OFLT+LTocvabn6q76BTwVB0hExEBS0IduTr3cqZyMqEDbOnYmcU+y0tUAYbND4uwclpBGi4I4UUBGzylWpjLGA==}
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
