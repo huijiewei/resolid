@@ -46,6 +46,11 @@ const validations = {
   emoji: "表情符号",
   ip: "IP 地址",
   datetime: "日期时间",
+  date: "日期",
+  time: "时间",
+  duration: "期间",
+  base64: "base64",
+  nanoid: "nanoid",
 };
 
 const zodErrorMap: ZodErrorMap = (issue, _ctx) => {
@@ -88,7 +93,7 @@ const zodErrorMap: ZodErrorMap = (issue, _ctx) => {
         if ("includes" in issue.validation) {
           message = `必须包含 "${issue.validation.includes}"`;
 
-          if (typeof issue.validation.position === "number") {
+          if (issue.validation.position) {
             message = `${message} 在一个或多个位置大于或等 ${issue.validation.position}`;
           }
         } else if ("startsWith" in issue.validation) {
