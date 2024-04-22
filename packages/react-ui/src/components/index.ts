@@ -36,5 +36,6 @@ export * from "./select/select";
 export * from "./slot/slot";
 export * from "./spinner/spinner";
 export * from "./switch/switch";
+export * from "./tabs/tabs";
 export * from "./tooltip/tooltip";
 export * from "./visually-hidden/visually-hidden";

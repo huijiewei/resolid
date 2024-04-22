@@ -132,6 +132,10 @@ const menus: Menu[] = [
         label: "折叠面板",
         path: "components/collapsible",
       },
+      {
+        label: "选项卡",
+        path: "components/tabs",
+      },
     ],
   },
   {
