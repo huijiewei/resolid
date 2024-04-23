@@ -1,13 +1,19 @@
-import type { ActionFunction, LoaderFunction, MetaDescriptor, MetaFunction } from "@remix-run/node";
-import { useActionData, useLoaderData, useRouteLoaderData } from "@remix-run/react";
+import type { ActionFunction, LoaderFunction, MetaDescriptor } from "@remix-run/node";
+import { useActionData, useLoaderData, useRouteLoaderData, type MetaArgs_SingleFetch } from "@remix-run/react";
+import type { LoaderFunction_SingleFetch } from "@remix-run/react/future/single-fetch";
+
+type MetaFunction_SingleFetch<
+  Loader extends LoaderFunction_SingleFetch | unknown = unknown,
+  ParentsLoaders extends Record<string, LoaderFunction_SingleFetch | unknown> = Record<string, unknown>,
+> = (args: MetaArgs_SingleFetch<Loader, ParentsLoaders>) => MetaDescriptor[];
 
 export const mergeMeta = <
-  Loader extends LoaderFunction | unknown = unknown,
-  ParentsLoaders extends Record<string, LoaderFunction | unknown> = Record<string, unknown>,
+  Loader extends LoaderFunction_SingleFetch | unknown = unknown,
+  ParentsLoaders extends Record<string, LoaderFunction_SingleFetch | unknown> = Record<string, unknown>,
 >(
-  metaFn: MetaFunction<Loader, ParentsLoaders>,
+  metaFn: MetaFunction_SingleFetch<Loader, ParentsLoaders>,
   titleJoin = " - ",
-): MetaFunction<Loader, ParentsLoaders> => {
+): MetaFunction_SingleFetch<Loader, ParentsLoaders> => {
   return (arg) => {
     const leafMeta = metaFn(arg);
 

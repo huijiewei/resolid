@@ -19,7 +19,7 @@ export const loader = ({ params }: LoaderFunctionArgs) => {
   const id = params.id as string;
 
   if (!["1", "2", "3"].includes(id)) {
-    httpNotFound("博客不存在");
+    throw httpNotFound("博客不存在");
   }
 
   return { id: params.id, title: `Blog ${id}` };

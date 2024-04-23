@@ -1,3 +1,4 @@
+import { eq } from "@resolid/framework/drizzle";
 import {
   authUtils,
   createAuthLoginService,
@@ -6,6 +7,7 @@ import {
   createAuthSessionService,
   createAuthSignupService,
 } from "@resolid/framework/modules";
+import { omit } from "@resolid/utils";
 import { db } from "~/foundation/db.server";
 import { mailer } from "~/foundation/mail.server";
 import {
@@ -84,3 +86,25 @@ export const userPasswordForgotService = createAuthPasswordForgotService(
 );
 
 export const userPasswordResetService = createAuthPasswordResetService(db, userTable, userPasswordResetTable);
+
+export const userServices = {
+  getByUsername: async (username: string) => {
+    const users = await db.select().from(userTable).where(eq(userTable.username, username)).limit(1);
+
+    if (users.length == 0) {
+      return undefined;
+    }
+
+    return omit(users[0], [
+      "password",
+      "deletedAt",
+      "emailVerifiedAt",
+      "updatedAt",
+      "createdAt",
+      "createdFrom",
+      "createdIp",
+      "email",
+      "groupId",
+    ]);
+  },
+};

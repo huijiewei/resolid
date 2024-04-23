@@ -1,5 +1,13 @@
-import type { LinksFunction, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { Form, Link, Outlet, createPath, useLocation, type Location } from "@remix-run/react";
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
+import {
+  Form,
+  Link,
+  Outlet,
+  createPath,
+  useLocation,
+  type Location,
+  type MetaArgs_SingleFetch,
+} from "@remix-run/react";
 import { authUtils } from "@resolid/framework/modules";
 import { useTypedLoaderData } from "@resolid/framework/utils";
 import {
@@ -47,7 +55,7 @@ export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   };
 };
 
-export const meta: MetaFunction<typeof loader> = ({ data }) => {
+export const meta = ({ data }: MetaArgs_SingleFetch<typeof loader>) => {
   const ogImage = new URL("/images/og-image-v1.png", data?.requestOrigin).toString();
   const ogUrl = trimEnd(new URL("", data?.requestOrigin).toString(), "/");
   const siteName = "Resolid";

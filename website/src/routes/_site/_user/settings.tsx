@@ -13,5 +13,5 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export default function Settings() {
   const user = useTypedLoaderData<typeof loader>();
 
-  return <div className={"mx-auto max-w-6xl p-4"}>用户设置 {user.username}</div>;
+  return <div>用户设置 {user.username}</div>;
 }

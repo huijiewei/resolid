@@ -48,10 +48,10 @@ export default function PasswordForgot() {
   const data = useTypedActionData<typeof action>();
 
   useEffect(() => {
-    if (!data?.success) {
-      setCaptchaVerified(false);
+    if (data?.success) {
       captchaRef.current?.reset();
     } else {
+      setCaptchaVerified(false);
       setSendSucceed(true);
     }
   }, [data]);
