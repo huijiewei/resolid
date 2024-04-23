@@ -28,7 +28,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
 ## 基本
 
 <section className={'example group'}>
-  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+  <ComponentExample className={"flex flex-wrap gap-3 items-center"}>
     <Select
       className={"w-36"}
       options={Array(10)
@@ -68,7 +68,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
 ## 可控
 
 <section className={'example group'}>
-  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+  <ComponentExample className={"flex flex-wrap gap-3 items-center"}>
     {() => {
       const [value, setValue] = useState('');
       const [values, setValues] = useState([]);
@@ -162,7 +162,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
 ## 状态
 
 <section className={'example group'}>
-  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+  <ComponentExample className={"flex flex-wrap gap-3 items-center"}>
     <Select
       disabled
       className={"w-36"}
@@ -220,7 +220,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
 ## 大小
 
 <section className={'example group'}>
-  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+  <ComponentExample className={"flex flex-wrap gap-3 items-center"}>
     <Select
       className={"min-w-28"}
       options={Array(10)
@@ -314,7 +314,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
 ## 选项组
 
 <section className={'example group'}>
-  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+  <ComponentExample className={"flex flex-wrap gap-3 items-center"}>
     <Select
       className={"w-52"}
       options={[
@@ -412,7 +412,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
 ## 自定义渲染
 
 <section className={'example group'}>
-  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+  <ComponentExample className={"flex flex-wrap gap-3 items-center"}>
     {() => {
       const BrowserIcon = ({ name }) => {
         return <svg width={"1em"} height={"1em"}><use href={`${browserIcons}#${name}`} /></svg>;
@@ -488,14 +488,14 @@ import { Select, NativeSelect } from "@resolid/react-ui";
       return (
         <>
           <Select
-            className={'w-56'}
+            className={'min-w-56'}
             defaultValue={"chrome"}
             options={browsers}
             renderLabel={renderLabel}
             renderOption={renderOption}
           />
           <Select
-            className={'w-96'}
+            className={'min-w-80'}
             defaultValue={["firefox", "chrome"]}
             options={browsers}
             multiple
@@ -602,7 +602,7 @@ import { Select, NativeSelect } from "@resolid/react-ui";
 当选项值超过 30 个并且没有分组的时候就会自动开启虚拟滚动
 
 <section className={'example group'}>
-  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+  <ComponentExample className={"flex flex-wrap gap-3 items-center"}>
     <Select
       className={"w-36"}
       options={Array(1000)
@@ -660,36 +660,41 @@ import { Select, NativeSelect } from "@resolid/react-ui";
 ## 原生选择器
 
 <section className={'example group'}>
-  <ComponentExample className={"flex flex-row gap-3 items-center"}>
-    <NativeSelect size={'xs'} placeholder={'选择框架'}>
+  <ComponentExample className={"flex flex-wrap gap-3 items-center"}>
+    <NativeSelect size={'xs'}>
+      <option>选择框架</option>
       <option value={'react'}>React</option>
       <option value={'vue'}>Vue</option>
       <option value={'angular'} disabled>Angular</option>
       <option value={'solid'}>Solid</option>
       <option value={'svelte'}>Svelte</option>
     </NativeSelect>
-    <NativeSelect size={'sm'} placeholder={'选择框架'}>
+    <NativeSelect size={'sm'}>
+      <option>选择框架</option>
       <option value={'react'}>React</option>
       <option value={'vue'}>Vue</option>
       <option value={'angular'}>Angular</option>
       <option value={'solid'}>Solid</option>
       <option value={'svelte'}>Svelte</option>
     </NativeSelect>
-    <NativeSelect defaultValue={'solid'} placeholder={'选择框架'}>
+    <NativeSelect defaultValue={'solid'}>
+      <option>选择框架</option>
       <option value={'react'}>React</option>
       <option value={'vue'}>Vue</option>
       <option value={'angular'}>Angular</option>
       <option value={'solid'}>Solid</option>
       <option value={'svelte'}>Svelte</option>
     </NativeSelect>
-    <NativeSelect size={'lg'} placeholder={'选择框架'}>
+    <NativeSelect size={'lg'}>
+      <option>选择框架</option>
       <option value={'react'}>React</option>
       <option value={'vue'}>Vue</option>
       <option value={'angular'}>Angular</option>
       <option value={'solid'}>Solid</option>
       <option value={'svelte'}>Svelte</option>
     </NativeSelect>
-    <NativeSelect size={'xl'} placeholder={'选择框架'}>
+    <NativeSelect size={'xl'}>
+      <option>选择框架</option>
       <option value={'react'}>React</option>
       <option value={'vue'}>Vue</option>
       <option value={'angular'}>Angular</option>

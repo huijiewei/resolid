@@ -26,7 +26,7 @@ const SelectOptionImpl = <Option extends OptionBase = OptionDefault>(
     elementsRef.current[index] = node;
   });
 
-  const isActive = index === activeIndex && index !== null;
+  const isActive = index == activeIndex;
   const isSelect = selectedIndex.includes(index);
 
   return (
@@ -38,7 +38,7 @@ const SelectOptionImpl = <Option extends OptionBase = OptionDefault>(
       aria-disabled={ariaAttr(option.disabled)}
       tabIndex={isActive ? 0 : -1}
       className={clsx(
-        "w-full select-none rounded transition-colors",
+        "w-full select-none rounded outline-none transition-colors",
         option.disabled ? "text-fg-subtlest" : "active:bg-bg-subtle",
         isSelect && "font-medium text-fg-primary",
         className,

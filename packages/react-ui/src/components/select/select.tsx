@@ -242,7 +242,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
 
   const [openedState, setOpenedState] = useState(false);
 
-  const { floatingStyles, context, refs, middlewareData } = useFloating<HTMLElement>({
+  const { floatingStyles, context, refs } = useFloating<HTMLElement>({
     middleware: [
       offset(4),
       flip({ padding: 8 }),
@@ -275,6 +275,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
     useListNavigation(context, {
       listRef: elementsRef,
       activeIndex,
+      focusItemOnOpen: true,
       selectedIndex: minSelectedIndex,
       onNavigate: setActiveIndex,
       loop: true,
@@ -375,20 +376,16 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
     getScrollElement: () => refs.floating.current,
     estimateSize: () => sizeStyle.height,
     overscan: 3,
-    paddingStart: 6,
-    paddingEnd: 6,
-    scrollPaddingStart: 6,
-    scrollPaddingEnd: 6,
+    paddingStart: 4,
+    paddingEnd: 4,
+    scrollPaddingStart: 17,
+    scrollPaddingEnd: 17,
   });
 
   const prevActiveIndex = usePrevious<number | null>(activeIndex);
 
   useIsomorphicEffect(() => {
-    if (!openedState) {
-      return;
-    }
-
-    if (!scrollState) {
+    if (!openedState || !scrollState) {
       return;
     }
 
@@ -412,11 +409,11 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
               : null;
 
         if (item && prevActiveIndex != null) {
-          const itemHeight = elementsRef.current[prevActiveIndex]?.offsetHeight || 0;
+          const offsetHeight = elementsRef.current[prevActiveIndex]?.offsetHeight || 0;
 
           const scrollHeight = scrollElement.offsetHeight;
-          const top = item.offsetTop - itemHeight;
-          const bottom = top + itemHeight * 3;
+          const top = item.offsetTop - offsetHeight;
+          const bottom = top + offsetHeight * 3;
 
           if (top < scrollElement.scrollTop) {
             scrollElement.scrollTop -= scrollElement.scrollTop - top + 6;
@@ -427,7 +424,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [openedState, scrollState, prevActiveIndex, activeIndex, minSelectedIndex, virtual]);
+  }, [openedState, scrollState, virtual, prevActiveIndex, activeIndex, minSelectedIndex]);
 
   useIsomorphicEffect(() => {
     if (!openedState || !closeOnSelect) {
@@ -446,13 +443,14 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
           const item = elementsRef.current[minSelectedIndex];
 
           if (item) {
-            scrollElement.scrollTop = item.offsetTop - scrollElement.offsetHeight / 2 + item.offsetHeight / 2 + 9;
+            const scrollTop = item.offsetTop - scrollElement.offsetHeight / 2 + item.offsetHeight / 2;
+            scrollElement.scrollTop = scrollTop > 0 ? scrollTop + 2 : scrollTop;
           }
         }
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [openedState, minSelectedIndex, middlewareData, virtual]);
+  }, [openedState, closeOnSelect, virtual, minSelectedIndex]);
 
   return (
     <>
@@ -487,19 +485,16 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
           onKeyDown(event) {
             setScrollState(true);
 
-            if (activeIndex != null) {
-              if (event.key == "Enter") {
-                event.preventDefault();
-                handleSelect(optionItems[activeIndex]);
-              }
+            if (activeIndex != null && event.key == "Enter") {
+              handleSelect(optionItems[activeIndex]);
             }
 
             if (event.key == " ") {
               event.preventDefault();
             }
 
-            if (event.key == "Tab") {
-              setOpenedState(false);
+            if (event.key == "Tab" && openedState) {
+              event.preventDefault();
             }
 
             if (event.key == "Delete" || event.key == "Backspace") {
@@ -515,11 +510,9 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
           onKeyUp(event) {
             setScrollState(true);
 
-            if (activeIndex != null) {
-              if (event.key == " ") {
-                event.preventDefault();
-                handleSelect(optionItems[activeIndex]);
-              }
+            if (activeIndex != null && event.key == " ") {
+              event.preventDefault();
+              handleSelect(optionItems[activeIndex]);
             }
           },
         })}
@@ -567,7 +560,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
             ref={refs.setFloating}
             className={clsx(
               "z-popup rounded border bg-bg-normal shadow outline-none",
-              "max-h-80 overflow-y-auto overscroll-contain scrollbar scrollbar-thin",
+              "max-h-[calc(var(--option-height)*9+10px)] overflow-y-auto overscroll-contain scrollbar scrollbar-thin",
               virtual ? "px-1" : "p-1",
               "transition-opacity duration-[--duration-var]",
               status == "open" ? "opacity-100" : "opacity-0",
@@ -576,6 +569,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
               {
                 ...floatingStyles,
                 "--duration-var": `${duration}ms`,
+                "--option-height": `${sizeStyle.height}px`,
               } as CSSProperties
             }
           >
