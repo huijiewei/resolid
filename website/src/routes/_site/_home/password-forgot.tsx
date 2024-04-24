@@ -1,7 +1,7 @@
 import type { TurnstileInstance } from "@marsidev/react-turnstile";
 import type { ActionFunctionArgs } from "@remix-run/node";
 import { Form, useSearchParams } from "@remix-run/react";
-import { createFieldErrors, mergeMeta, useTypedActionData } from "@resolid/framework/utils";
+import { createFieldErrors, httpProblem, mergeMeta, useTypedActionData } from "@resolid/framework/utils";
 import { Button, Input } from "@resolid/react-ui";
 import { useEffect, useRef, useState } from "react";
 import { Controller } from "react-hook-form";
@@ -23,18 +23,16 @@ export const action = async ({ request, response, context }: ActionFunctionArgs)
   const captcha = await trunstileVerify(data.token);
 
   if (!captcha.success) {
-    response!.status = 422;
-    return { errors: createFieldErrors({ captcha: "验证失败" }) };
+    return httpProblem(response!, createFieldErrors({ captcha: "验证失败" }));
   }
 
   const [errors] = await userPasswordForgotService(data, context.requestOrigin ?? request.url);
 
   if (errors) {
-    response!.status = 422;
-    return { errors };
+    return httpProblem(response!, errors);
   }
 
-  return { success: true };
+  return { errors: undefined };
 };
 
 export default function PasswordForgot() {
@@ -48,11 +46,11 @@ export default function PasswordForgot() {
   const data = useTypedActionData<typeof action>();
 
   useEffect(() => {
-    if (data?.success) {
-      captchaRef.current?.reset();
-    } else {
+    if (data?.errors) {
       setCaptchaVerified(false);
       setSendSucceed(true);
+    } else {
+      captchaRef.current?.reset();
     }
   }, [data]);
 

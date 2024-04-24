@@ -1,7 +1,7 @@
 import { redirect, type ActionFunctionArgs } from "@remix-run/node";
 import { Form, useSearchParams } from "@remix-run/react";
 import { getCookieExpires } from "@resolid/framework";
-import { mergeMeta } from "@resolid/framework/utils";
+import { httpProblem, mergeMeta } from "@resolid/framework/utils";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
 import { Controller } from "react-hook-form";
 import { parseFormData, useRemixForm } from "remix-hook-form";
@@ -11,14 +11,17 @@ import { commitUserSession, setSessionUser } from "~/foundation/session.user.ser
 import { userLoginService } from "~/modules/user/service.server";
 import { userLoginResolver, type UserLoginFormData } from "~/modules/user/validator";
 
+export const meta = mergeMeta(() => {
+  return [{ title: "登陆" }];
+});
+
 export const action = async ({ request, response, context }: ActionFunctionArgs) => {
   const data = await parseFormData<UserLoginFormData>(request);
 
   const [errors, user] = await userLoginService(data);
 
   if (errors) {
-    response!.status = 422;
-    return { errors };
+    return httpProblem(response!, errors);
   }
 
   const session = await setSessionUser(request, user, context.remoteAddress ?? "");
@@ -29,10 +32,6 @@ export const action = async ({ request, response, context }: ActionFunctionArgs)
     },
   });
 };
-
-export const meta = mergeMeta(() => {
-  return [{ title: "登陆" }];
-});
 
 export default function Login() {
   const [params] = useSearchParams();

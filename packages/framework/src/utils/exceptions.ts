@@ -1,24 +1,16 @@
-import type { FieldError } from "react-hook-form";
+import type { FieldErrors } from "react-hook-form";
 
-export class FieldException extends Error {
-  public readonly field: string;
-
-  constructor(field: string, message: string) {
-    super(message);
-
-    this.field = field;
-    this.name = "FieldException";
-  }
-
-  toFieldErrors() {
-    const fieldErrors: Record<string, FieldError> = {};
-
-    fieldErrors[this.field] = { type: "custom", message: this.message };
-
-    return fieldErrors;
-  }
-}
+type ResponseStub = {
+  status: number | undefined;
+  headers: Headers;
+};
 
 export const httpNotFound = (message = "页面未找到") => {
   throw new Response(message, { status: 404 });
+};
+
+export const httpProblem = (response: ResponseStub, errors: FieldErrors) => {
+  response.status = 422;
+
+  return { errors };
 };

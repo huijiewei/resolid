@@ -1,7 +1,7 @@
 import { redirect, type ActionFunctionArgs } from "@remix-run/node";
 import { Form, useSearchParams } from "@remix-run/react";
 import { getCookieExpires } from "@resolid/framework";
-import { mergeMeta } from "@resolid/framework/utils";
+import { httpProblem, mergeMeta } from "@resolid/framework/utils";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
 import { Controller } from "react-hook-form";
 import { parseFormData, useRemixForm } from "remix-hook-form";
@@ -10,6 +10,10 @@ import { HistoryLink } from "~/components/base/history-link";
 import { commitUserSession, setSessionUser } from "~/foundation/session.user.server";
 import { userSignupService } from "~/modules/user/service.server";
 import { userSignupResolver, type UserSignupFormData } from "~/modules/user/validator";
+
+export const meta = mergeMeta(() => {
+  return [{ title: "注册" }];
+});
 
 export const action = async ({ request, response, context }: ActionFunctionArgs) => {
   const data = await parseFormData<UserSignupFormData>(request);
@@ -21,8 +25,7 @@ export const action = async ({ request, response, context }: ActionFunctionArgs)
   const [errors, user] = await userSignupService(data, 1);
 
   if (errors) {
-    response!.status = 422;
-    return { errors };
+    return httpProblem(response!, errors);
   }
 
   const session = await setSessionUser(request, user, remoteAddr);
@@ -33,10 +36,6 @@ export const action = async ({ request, response, context }: ActionFunctionArgs)
     },
   });
 };
-
-export const meta = mergeMeta(() => {
-  return [{ title: "注册" }];
-});
 
 export default function Signup() {
   const [params] = useSearchParams();

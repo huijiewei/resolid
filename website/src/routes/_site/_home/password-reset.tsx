@@ -1,6 +1,6 @@
 import type { ActionFunctionArgs } from "@remix-run/node";
 import { Form } from "@remix-run/react";
-import { mergeMeta, useTypedActionData } from "@resolid/framework/utils";
+import { httpProblem, mergeMeta, useTypedActionData } from "@resolid/framework/utils";
 import { Button, Input } from "@resolid/react-ui";
 import { useEffect, useState } from "react";
 import { Controller } from "react-hook-form";
@@ -19,11 +19,10 @@ export const action = async ({ request, response }: ActionFunctionArgs) => {
   const [errors] = await userPasswordResetService(data, new URL(request.url).searchParams.get("token"));
 
   if (errors) {
-    response!.status = 422;
-    return { errors };
+    return httpProblem(response!, errors);
   }
 
-  return { success: true };
+  return { errors: undefined };
 };
 
 export default function PasswordReset() {
@@ -41,7 +40,7 @@ export default function PasswordReset() {
   const data = useTypedActionData<typeof action>();
 
   useEffect(() => {
-    if (data?.success) {
+    if (!data?.errors) {
       setResetSucceed(true);
     }
   }, [data]);
