@@ -9,15 +9,16 @@
     "resolveJsonModule": true,
     "moduleDetection": "force",
     "isolatedModules": true,
+    "verbatimModuleSyntax": true,
 
     /* Strictness */
     "strict": true,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
 
     /* If NOT transpiling with TypeScript: */
     "module": "preserve",
     "noEmit": true,
-    "verbatimModuleSyntax": true,
 
     /* If your code runs in the DOM: */
     "lib": ["es2022", "dom", "dom.iterable"]

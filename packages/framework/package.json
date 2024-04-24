@@ -32,16 +32,16 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
-    "@node-rs/bcrypt": "^1.10.2",
-    "@remix-run/node": "2.9.0-pre.7",
-    "@remix-run/react": "2.9.0-pre.7",
+    "@node-rs/bcrypt": "^1.10.4",
+    "@remix-run/node": "^2.9.0",
+    "@remix-run/react": "^2.9.0",
     "@resolid/utils": "workspace:^",
     "drizzle-orm": "^0.30.9",
     "nodemailer": "^6.9.13",
     "postgres": "^3.4.4",
     "react-hook-form": "^7.51.3",
     "type-fest": "^4.16.0",
-    "zod": "^3.23.3"
+    "zod": "^3.23.4"
   },
   "devDependencies": {
     "@resolid/config": "workspace:^",

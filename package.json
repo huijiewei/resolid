@@ -14,7 +14,7 @@
     "resolid": "pnpm --filter website exec -- pnpm --silent resolid"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.2.2",
+    "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@types/node": "^20.12.7",
     "lefthook": "^1.6.10",
@@ -37,10 +37,10 @@
     "overrides": {
       "@mdx-js/mdx": "^3.0.1",
       "esbuild": "^0.20.2",
-      "rollup": "^4.16.2",
-      "@remix-run/node": "2.9.0-pre.7",
-      "@remix-run/react": "2.9.0-pre.7",
-      "@remix-run/dev": "2.9.0-pre.7",
+      "rollup": "^4.16.4",
+      "@remix-run/node": "^2.9.0",
+      "@remix-run/react": "^2.9.0",
+      "@remix-run/dev": "^2.9.0",
       "react": "19.0.0-canary-db913d8e17-20240422",
       "react-dom": "19.0.0-canary-db913d8e17-20240422",
       "react-is": "19.0.0-canary-db913d8e17-20240422",
