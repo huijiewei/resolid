@@ -37,5 +37,7 @@ export * from "./slot/slot";
 export * from "./spinner/spinner";
 export * from "./switch/switch";
 export * from "./tabs/tabs";
+export * from "./toast/toast";
+export * from "./toast/use-toast";
 export * from "./tooltip/tooltip";
 export * from "./visually-hidden/visually-hidden";
