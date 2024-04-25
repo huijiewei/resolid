@@ -9,7 +9,7 @@ export const sharedBadgeAndAlertVariants = {
     },
     variant: {
       solid: "border-transparent text-fg-emphasized",
-      outline: "border-current",
+      outline: "border-current bg-bg-normal",
       soft: "border-transparent",
       subtle: "border-current",
     },
