@@ -19,7 +19,7 @@ type CollapsibleContentContext = CollapsibleContext & {
   mounted: boolean;
   status: "unmounted" | "initial" | "open" | "close";
   duration: number;
-  setContentElem: (node: HTMLElement) => void;
+  setElement: (node: HTMLElement) => void;
 };
 
 export const [CollapsibleContentProvider, useCollapsibleContent] = createContext<CollapsibleContentContext>({

@@ -8,10 +8,10 @@ import { useCollapsibleContent } from "./collapsible-context";
 export const CollapsibleContent = (props: BaseProps<"div", EmptyProps, "id">) => {
   const { children, className, style, ...rest } = props;
 
-  const { id, mounted, status, disabled, duration, setContentElem } = useCollapsibleContent();
+  const { id, mounted, status, disabled, duration, setElement } = useCollapsibleContent();
 
   const elemRef = useRef<HTMLElement>(null);
-  const refs = useMergeRefs(elemRef, setContentElem);
+  const refs = useMergeRefs(elemRef, setElement);
 
   const heightRef = useRef<number | undefined>(0);
   const height = heightRef.current;

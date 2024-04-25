@@ -1,7 +1,6 @@
-import { useTransitionStatus } from "@floating-ui/react";
 import { runIfFunction } from "@resolid/utils";
-import { useCallback, useId, useRef, useState, type ReactNode } from "react";
-import { useDisclosure } from "../../hooks";
+import { useId, type ReactNode } from "react";
+import { useDisclosure, useElementTransitionStatus } from "../../hooks";
 import type { BaseProps } from "../slot/slot";
 import { CollapsibleContentProvider, CollapsibleTriggerProvider } from "./collapsible-context";
 
@@ -51,28 +50,12 @@ export const CollapsibleRoot = (props: BaseProps<"div", CollapsibleRootProps>) =
   const [opened, { close, toggle }] = useDisclosure({ opened: open, defaultOpened: defaultOpen, onOpen, onClose });
 
   const id = useId();
-  const contentRef = useRef<HTMLElement | null>(null);
-  const [contentElem, _setContentElem] = useState<HTMLElement | null>(null);
 
-  const setContentElem = useCallback((node: HTMLElement | null) => {
-    if (node !== contentRef.current) {
-      contentRef.current = node;
-      _setContentElem(node);
-    }
-  }, []);
-
-  const { isMounted, status } = useTransitionStatus(
-    // @ts-expect-error Argument of type
-    {
-      open: opened,
-      elements: { floating: contentElem, reference: null, domReference: null },
-    },
-    { duration },
-  );
+  const { isMounted, status, setElement } = useElementTransitionStatus(opened, { duration });
 
   const triggerContext = { id, opened, toggle, disabled };
 
-  const contentContext = { id, mounted: isMounted, status, duration, disabled, setContentElem };
+  const contentContext = { id, mounted: isMounted, status, duration, disabled, setElement };
 
   return (
     <div {...rest}>
