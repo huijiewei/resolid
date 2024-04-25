@@ -1,5 +1,5 @@
 export type AnyFunction<R, A> = (...args: A[]) => R;
-export type MaybeFunction<R, A = unknown> = R | AnyFunction<A, R>;
+export type MaybeFunction<R, A = unknown> = R | AnyFunction<R, A>;
 
 export const isFunction = <R, A>(value: unknown): value is AnyFunction<R, A> => typeof value === "function";
 
