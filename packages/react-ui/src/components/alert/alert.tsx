@@ -1,36 +1,17 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
-import { createContext } from "../../utils/context";
 import type { BaseProps } from "../slot/slot";
-import { alertStyles, type AlertStyleProps } from "./alert.styles";
+import { AlertProvider, useAlert, type AlertContext } from "./alert-context";
+import { alertStyles } from "./alert.styles";
 
-type AlertContext = {
-  /**
-   * 外观
-   * @default 'soft'
-   */
-  variant?: AlertStyleProps["variant"];
-};
-
-export type AlertProps = AlertContext & {
-  /**
-   * 颜色
-   * @default 'primary'
-   */
-  color?: AlertStyleProps["color"];
-};
-
-const [AlertProvider, useAlert] = createContext<AlertContext>({
-  strict: true,
-  name: "AlertContext",
-});
+export type AlertProps = AlertContext;
 
 export const Alert = forwardRef<HTMLDivElement, BaseProps<"div", AlertProps, "role">>((props, ref) => {
   const { children, className, color = "primary", variant = "soft", ...rest } = props;
   return (
     <div ref={ref} role={"alert"} className={clsx(alertStyles({ color, variant }), className)} {...rest}>
-      <AlertProvider value={{ variant }}>{children}</AlertProvider>
+      <AlertProvider value={{ variant, color }}>{children}</AlertProvider>
     </div>
   );
 });
