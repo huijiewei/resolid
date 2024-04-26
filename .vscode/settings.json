@@ -1,10 +1,8 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "tailwindCSS.experimental.classRegex": [
-    "clsx\\(([^)]*)\\)",
-    "(?:'|\"|`)([^']*)(?:'|\"|`)",
-    "classed(?:\\.\\w*)?\\(([^)]*)\\)",
-    "[\"'`]([^\"'`]*).*?[\"'`]"
+    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+    ["classed(?:\\.\\w*)?\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
   "editor.formatOnSave": true,
   "tailwindCSS.experimental.configFile": "./website/tailwind-ide.config.ts",
@@ -12,5 +10,8 @@
     "quickfix.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
-  "editor.defaultFormatter": "biomejs.biome"
+  "editor.defaultFormatter": "biomejs.biome",
+  "prettier.enable": false,
+  "eslint.enable": false,
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "textClassName", "statusClassName"]
 }
