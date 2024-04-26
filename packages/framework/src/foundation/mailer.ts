@@ -2,7 +2,7 @@ import nodemailer, { type SentMessageInfo, type Transport } from "nodemailer";
 import type { Attachment, Options } from "nodemailer/lib/mailer";
 
 export type MailOptions = Options & {
-  attachments?: (Attachment & { href?: string })[] | undefined;
+  attachments?: (Attachment & { href?: string })[];
 };
 
 export type MailSendResult = {

@@ -15,7 +15,7 @@ export type AlertContext = {
   color?: AlertStyleProps["color"];
 };
 
-export const [AlertProvider, useAlert] = createContext<AlertContext>({
+export const [AlertProvider, useAlert] = createContext<Required<AlertContext>>({
   strict: true,
   name: "AlertContext",
 });

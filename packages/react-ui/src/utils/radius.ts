@@ -32,6 +32,6 @@ export const toRounded = (radius: Radius): Styled => {
 
   return {
     value: undefined,
-    style: radiusStyles[radius as BorderRadius],
+    style: radiusStyles[radius],
   };
 };

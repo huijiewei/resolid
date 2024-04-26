@@ -390,7 +390,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
     }
 
     if (virtual) {
-      const scrollIndex = activeIndex != null ? activeIndex : minSelectedIndex != null ? minSelectedIndex - 1 : -1;
+      const scrollIndex = activeIndex ?? minSelectedIndex != null ? minSelectedIndex - 1 : -1;
 
       if (scrollIndex > -1 && prevActiveIndex != null) {
         rowVirtual.scrollToIndex(scrollIndex > prevActiveIndex ? scrollIndex + 1 : scrollIndex - 1, {

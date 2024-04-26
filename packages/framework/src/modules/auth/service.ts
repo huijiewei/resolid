@@ -157,7 +157,7 @@ export const createAuthPasswordResetService = (
       .from(authPasswordResetTable)
       .where(
         and(
-          eq(authPasswordResetTable.id, token!),
+          eq(authPasswordResetTable.id, token as string),
           eq(authPasswordResetTable.redeemed, false),
           gt(authPasswordResetTable.expiredAt, new Date()),
         ),
@@ -207,7 +207,7 @@ export const createAuthBaseService = (
       const groups = await database.select().from(authGroupTable).where(eq(authGroupTable.id, groupId)).limit(1);
 
       if (groups.length == 0) {
-        throw undefined;
+        return undefined;
       }
 
       return groups[0] as T;

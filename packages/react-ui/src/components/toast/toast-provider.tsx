@@ -89,7 +89,7 @@ export const ToastProvider = ({
             ...prev[placement].slice(0, index),
             {
               id,
-              duration: duration ?? prev[placement][index].duration,
+              duration: duration !== undefined ? duration : prev[placement][index].duration,
               component: () => component,
               update: true,
               dismiss: false,
@@ -101,7 +101,7 @@ export const ToastProvider = ({
     };
 
     const update: ToastActionsContext["update"] = (id, component) => {
-      updateImpl(id, component, undefined);
+      updateImpl(id, component);
     };
 
     const dismiss: ToastActionsContext["dismiss"] = (id) => {

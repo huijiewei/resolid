@@ -24,7 +24,7 @@ export const toSized = (size: number | Size): Styled => {
 
   return {
     value: undefined,
-    style: avatarSizeStyles[size as Size],
+    style: avatarSizeStyles[size],
   };
 };
 
