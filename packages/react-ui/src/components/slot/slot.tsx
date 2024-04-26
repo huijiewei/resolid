@@ -1,5 +1,4 @@
-// biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
-import { type Overwrite, __DEV__, hasOwnProperty, isFunction } from "@resolid/utils";
+import { type Overwrite, __DEV__, hasOwn, isFunction } from "@resolid/utils";
 import {
   Children,
   type ComponentPropsWithoutRef,
@@ -60,7 +59,7 @@ const mergeProps = <T extends HTMLAttributes<HTMLElement>>(base: T, overrides: T
   const props = { ...base };
 
   for (const key in overrides) {
-    if (!hasOwnProperty(overrides, key)) {
+    if (!hasOwn(overrides, key)) {
       continue;
     }
 

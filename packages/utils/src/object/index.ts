@@ -2,8 +2,7 @@ import { isFunction } from "../function";
 
 export const isObject = (value: unknown): boolean => value !== null && typeof value === "object";
 
-// biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
-export const hasOwnProperty = <T extends object>(object: T, prop: string | number | symbol): prop is keyof T => {
+export const hasOwn = <T extends object>(object: T, prop: string | number | symbol): prop is keyof T => {
   if (isFunction(Object.hasOwn)) {
     return Object.hasOwn(object, prop);
   }

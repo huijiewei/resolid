@@ -1,6 +1,5 @@
 import { describe, expect, test } from "vitest";
-// biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
-import { hasOwnProperty, isObject, omit } from "./index";
+import { hasOwn, isObject, omit } from "./index";
 
 describe("isObject function", () => {
   test("should return true for a non-null object", () => {
@@ -29,14 +28,14 @@ describe("hasOwnProperty function", () => {
     const objectValue = { key: "value" };
     const prop = "key";
 
-    expect(hasOwnProperty(objectValue, prop)).toBe(true);
+    expect(hasOwn(objectValue, prop)).toBe(true);
   });
 
   test("should return false for a non-existing property", () => {
     const objectValue = { key: "value" };
     const prop = "nonexistent";
 
-    expect(hasOwnProperty(objectValue, prop)).toBe(false);
+    expect(hasOwn(objectValue, prop)).toBe(false);
   });
 
   test("should correctly check inherited properties", () => {
@@ -45,7 +44,7 @@ describe("hasOwnProperty function", () => {
 
     const prop = "key";
 
-    expect(hasOwnProperty(childObject, prop)).toBe(false);
+    expect(hasOwn(childObject, prop)).toBe(false);
   });
 });
 
