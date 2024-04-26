@@ -1,4 +1,5 @@
 import { describe, expect, test } from "vitest";
+// biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
 import { hasOwnProperty, isObject, omit } from "./index";
 
 describe("isObject function", () => {

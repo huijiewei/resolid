@@ -1,13 +1,13 @@
 import {
   Link,
-  NavLink,
-  useLocation,
-  useNavigate,
   type LinkProps,
+  NavLink,
   type NavLinkProps,
   type Path,
+  useLocation,
+  useNavigate,
 } from "@remix-run/react";
-import { Button, type BaseProps, type ButtonProps } from "@resolid/react-ui";
+import { type BaseProps, Button, type ButtonProps } from "@resolid/react-ui";
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 
@@ -50,7 +50,7 @@ export const HistoryBack = (props: BaseProps<"button", HistoryBackProps, "childr
   return (
     <Button
       onClick={(e) => {
-        onClick && onClick(e);
+        onClick?.(e);
         historyBack();
       }}
       {...rest}

@@ -1,9 +1,9 @@
 import { __DEV__ } from "@resolid/utils";
 import type { PropsWithChildren } from "react";
-import { useCallback, useMemo, type ChangeEvent } from "react";
+import { type ChangeEvent, useCallback, useMemo } from "react";
 import { useControllableState } from "../../hooks";
 import { isInputEvent } from "../../utils/dom";
-import { CheckboxGroupProvider, type CheckboxGroupBaseProps } from "./checkbox-group-context";
+import { type CheckboxGroupBaseProps, CheckboxGroupProvider } from "./checkbox-group-context";
 
 export type CheckboxGroupProps = CheckboxGroupBaseProps & {
   /**

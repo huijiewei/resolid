@@ -6,18 +6,13 @@
   "description": "Resolid 基础工具",
   "author": "Huijie Wei",
   "license": "MIT",
-  "keywords": [
-    "resolid"
-  ],
+  "keywords": ["resolid"],
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
-    "lint": "eslint .",
     "test": "vitest --run",
     "build": "tsup"
   },

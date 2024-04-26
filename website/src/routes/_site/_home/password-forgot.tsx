@@ -11,7 +11,7 @@ import { HistoryLink } from "~/components/base/history-link";
 import { trunstileVerify } from "~/extensions/turnstile/trunstile.server";
 import { TurnstileWidget } from "~/extensions/turnstile/turnstile-widget";
 import { userPasswordForgotService } from "~/modules/user/service.server";
-import { userPasswordForgotResolver, type UserPasswordForgotFormData } from "~/modules/user/validator";
+import { type UserPasswordForgotFormData, userPasswordForgotResolver } from "~/modules/user/validator";
 
 export const meta = mergeMeta(() => {
   return [{ title: "忘记密码" }];

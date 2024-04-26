@@ -1,6 +1,7 @@
 import {
   FloatingNode,
   FloatingTree,
+  type Placement,
   arrow,
   autoUpdate,
   flip,
@@ -19,15 +20,14 @@ import {
   useInteractions,
   useListNavigation,
   useRole,
-  type Placement,
 } from "@floating-ui/react";
 import { __DEV__, runIfFunction } from "@resolid/utils";
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { useDisclosure } from "../../hooks";
-import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/floating-arrow-context";
+import { type FloatingArrowContext, FloatingArrowProvider } from "../floating/floating-arrow-context";
 import { FloatingDispatchProvider } from "../floating/floating-dispatch-context";
 import { FloatingReferenceProvider } from "../floating/floating-reference-context";
-import { MenuFloatingProvider, type MenuFloatingContext } from "./menu-context";
+import { type MenuFloatingContext, MenuFloatingProvider } from "./menu-context";
 
 export type MenuRootProps = {
   /**

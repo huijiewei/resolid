@@ -21,6 +21,7 @@ export const debounce = (fn: () => void, delay: number): (() => void) => {
 
     if (!invoked) {
       fn();
+      // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
       (invoked = true) && setTimeout(() => (invoked = false), delay);
     } else {
       timeoutId = setTimeout(fn, delay);

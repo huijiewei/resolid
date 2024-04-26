@@ -1,5 +1,5 @@
 import { __DEV__ } from "@resolid/utils";
-import { forwardRef, useCallback, type CSSProperties, type ChangeEvent } from "react";
+import { type CSSProperties, type ChangeEvent, forwardRef, useCallback } from "react";
 import { useControllableState } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import type { Color, Size } from "../../utils/types";

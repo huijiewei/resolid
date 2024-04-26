@@ -1,11 +1,11 @@
 import { runIfFunction } from "@resolid/utils";
-import { useMemo, useState, type CSSProperties, type PropsWithChildren, type ReactElement } from "react";
+import { type CSSProperties, type PropsWithChildren, type ReactElement, useMemo, useState } from "react";
 import { clsx } from "../../utils/classed";
 import { Portal } from "../portal/portal";
 import {
+  type ToastActionsContext,
   ToastActionsProvider,
   ToastComponentProvider,
-  type ToastActionsContext,
   type ToastConfig,
   type ToastId,
   type ToastPlacement,

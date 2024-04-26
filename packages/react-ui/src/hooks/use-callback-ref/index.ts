@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from "react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export const useCallbackRef = <T extends (...args: any[]) => any>(callback: T | undefined): T => {
   const ref = useRef(callback);
 

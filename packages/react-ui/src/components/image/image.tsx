@@ -1,7 +1,7 @@
 import { __DEV__, omit } from "@resolid/utils";
-import { forwardRef, isValidElement, type ReactElement } from "react";
+import { type ReactElement, forwardRef, isValidElement } from "react";
 import type { BaseProps } from "../slot/slot";
-import { shouldShowFallback, useImage, type FallbackStrategy, type UseImageProps } from "./use-image";
+import { type FallbackStrategy, type UseImageProps, shouldShowFallback, useImage } from "./use-image";
 
 export type ImageProps = UseImageProps & {
   /**
@@ -42,10 +42,12 @@ export const Image = forwardRef<HTMLImageElement, BaseProps<"img", ImageProps>>(
       return fallback;
     }
 
+    // biome-ignore lint/a11y/useAltText: <explanation>
     return <img alt={alt} src={fallback as string} {...omit(rest, ["onLoad", "onError"])} />;
   }
 
   return (
+    // biome-ignore lint/a11y/useAltText: <explanation>
     <img
       alt={alt}
       sizes={sizes}

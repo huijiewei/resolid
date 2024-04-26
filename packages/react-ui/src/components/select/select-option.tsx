@@ -1,9 +1,9 @@
 import type { Overwrite } from "@resolid/utils";
-import { forwardRef, type ComponentPropsWithoutRef, type ForwardedRef, type ReactNode } from "react";
+import { type ComponentPropsWithoutRef, type ForwardedRef, type ReactNode, forwardRef } from "react";
 import { useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import { ariaAttr, dataAttr } from "../../utils/dom";
-import { useSelect, type OptionBase, type OptionDefault, type OptionFieldNames } from "./select-context";
+import { type OptionBase, type OptionDefault, type OptionFieldNames, useSelect } from "./select-context";
 
 export type Render<Option> = (option: Option) => ReactNode;
 

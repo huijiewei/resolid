@@ -1,9 +1,9 @@
-import type { BuildManifest, Preset } from "@remix-run/dev";
-import type { RouteManifest } from "@remix-run/dev/dist/config/routes";
-import { nodeFileTrace } from "@vercel/nft";
 import { cp, mkdir, readdir, realpath, rm, writeFile } from "node:fs/promises";
 import { basename, dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
+import type { BuildManifest, Preset } from "@remix-run/dev";
+import type { RouteManifest } from "@remix-run/dev/dist/config/routes";
+import { nodeFileTrace } from "@vercel/nft";
 import { buildEntry } from "../base/build-utils";
 
 export type VercelServerlessPresetOptions = {
@@ -190,9 +190,11 @@ const getServerRoutes = (buildManifest: BuildManifest | undefined) => {
     const routes: { id: string; path: string }[] = Object.values(buildManifest.routes)
       .filter((route) => route.id != "root")
       .map((route) => {
+        const path = [...getRoutePathsFromParentId(buildManifest.routes, route.parentId), route.path].join("/");
+
         return {
           id: route.id,
-          path: "/" + [...getRoutePathsFromParentId(buildManifest.routes, route.parentId), route.path].join("/"),
+          path: `/${path}`,
         };
       });
 

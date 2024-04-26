@@ -3,7 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint": "eslint .",
     "dev": "remix vite:dev",
     "build": "remix vite:build",
     "vercel": "VERCEL=1 remix vite:build",

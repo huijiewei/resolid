@@ -2,7 +2,7 @@ import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/slot";
-import { AlertProvider, useAlert, type AlertContext } from "./alert-context";
+import { type AlertContext, AlertProvider, useAlert } from "./alert-context";
 import { alertStyles } from "./alert.styles";
 
 export type AlertProps = AlertContext;

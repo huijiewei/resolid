@@ -1,10 +1,10 @@
 import { createAuthLoginService, createAuthSessionService } from "@resolid/framework/modules";
 import { db } from "~/foundation/db.server";
 import {
+  type AdminSelectWithGroup,
   adminGroupTable,
   adminSessionTable,
   adminTable,
-  type AdminSelectWithGroup,
 } from "~/modules/admin/schema.server";
 
 export const adminLoginService = createAuthLoginService<AdminSelectWithGroup>(db, adminTable, adminGroupTable);

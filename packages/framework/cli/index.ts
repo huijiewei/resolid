@@ -1,5 +1,5 @@
-import { Command } from "commander";
 import { argv } from "node:process";
+import { Command } from "commander";
 import { setup } from "../src";
 import { dbCommand } from "./commands/db";
 

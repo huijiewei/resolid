@@ -1,8 +1,8 @@
+import { networkInterfaces } from "node:os";
+import { env } from "node:process";
 import { serve } from "@hono/node-server";
 import { serveStatic } from "@hono/node-server/serve-static";
 import { Hono, type MiddlewareHandler } from "hono";
-import { networkInterfaces } from "node:os";
-import { env } from "node:process";
 import { remix } from "../base/remix-middleware";
 
 // @ts-expect-error Cannot find module

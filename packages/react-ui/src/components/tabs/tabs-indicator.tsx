@@ -1,3 +1,3 @@
 export const TabsIndicator = () => {
-  return <div className={"absolute"}></div>;
+  return <div className={"absolute"} />;
 };

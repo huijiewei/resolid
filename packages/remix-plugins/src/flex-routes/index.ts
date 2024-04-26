@@ -1,6 +1,6 @@
+import { extname, join } from "node:path";
 import type { ConfigRoute, RouteManifest } from "@remix-run/dev/dist/config/routes";
 import { makeRe } from "minimatch";
-import { extname, join } from "node:path";
 import { normalizePath } from "vite";
 import { PrefixLookupTrie, createRoutePath, getRouteSegments, visitFiles } from "./utils";
 
@@ -43,9 +43,10 @@ export default async function flexRoutes(options: FolderRoutesOptions = {}) {
   for (const file of files) {
     const normalizedFile = normalizePath(join(routesDir, file));
     const normalizedFileName = normalizedFile.slice(0, -extname(normalizedFile).length);
-    const routeId = normalizedFileName.endsWith("_layout")
-      ? normalizedFileName.slice(0, -"_layout".length - 1)
-      : normalizedFileName;
+    const routeId =
+      normalizedFileName.slice(-7) == "_layout"
+        ? normalizedFileName.slice(0, -"_layout".length - 1)
+        : normalizedFileName;
 
     const conflict = routeIds.get(routeId);
 
@@ -64,7 +65,7 @@ export default async function flexRoutes(options: FolderRoutesOptions = {}) {
 
   for (const [routeId, file] of sortedRouteIds) {
     const [segments, raw] = getRouteSegments(routeId.slice(routesDir.length + 1));
-    const index = routeId.endsWith("_index");
+    const index = routeId.slice(-6) == "_index";
     const pathname = createRoutePath(segments, raw, index);
 
     routeManifest[routeId] = {
@@ -127,7 +128,7 @@ export default async function flexRoutes(options: FolderRoutesOptions = {}) {
       .split(/[./]/)
       .pop();
 
-    if (lastRouteSegment?.startsWith("_") && lastRouteSegment !== "_index") {
+    if (lastRouteSegment && lastRouteSegment[0] == "_" && lastRouteSegment !== "_index") {
       continue;
     }
 
@@ -149,12 +150,11 @@ export default async function flexRoutes(options: FolderRoutesOptions = {}) {
   if (routeIdConflicts.size > 0) {
     for (const [routeId, files] of routeIdConflicts.entries()) {
       const [taken, ...others] = files;
+
+      const othersRoute = others.map((route) => `⭕️️ ${route}`).join("\n");
+
       console.error(
-        `⚠️ Route ID 冲突: "${routeId}"\n\n` +
-          `下列路由都定义了相同的路由 ID，但只有第一个会生效\n\n` +
-          `🟢 ${taken}\n` +
-          others.map((route) => `⭕️️ ${route}`).join("\n") +
-          "\n",
+        `⚠️ Route ID 冲突: "${routeId}"\n\n下列路由都定义了相同的路由 ID，但只有第一个会生效\n\n🟢 ${taken}\n${othersRoute}\n`,
       );
     }
   }
@@ -164,14 +164,14 @@ export default async function flexRoutes(options: FolderRoutesOptions = {}) {
       for (let i = 1; i < routes.length; i++) {
         delete routeManifest[routes[i].id];
       }
+
       const [taken, ...others] = routes.map((r) => r.file);
 
+      const pathLocal = path[0] == "/" ? path : `/${path}`;
+      const othersRoute = others.map((route) => `⭕️️ ${route}`).join("\n");
+
       console.error(
-        `⚠️ Route 路径冲突: "${path.startsWith("/") ? path : "/" + path}"\n\n` +
-          `下列路由都定义了相同的 URL，但只有第一个会生效\n\n` +
-          `🟢 ${taken}\n` +
-          others.map((route) => `⭕️️ ${route}`).join("\n") +
-          "\n",
+        `⚠️ Route 路径冲突: "${pathLocal}"\n\n下列路由都定义了相同的 URL，但只有第一个会生效\n\n🟢 ${taken}\n${othersRoute}\n`,
       );
     }
   }

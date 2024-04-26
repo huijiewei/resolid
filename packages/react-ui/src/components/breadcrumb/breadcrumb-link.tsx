@@ -1,6 +1,6 @@
 import { __DEV__ } from "@resolid/utils";
 import { clsx } from "../../utils/classed";
-import { Slot, type AsChildProps } from "../slot/slot";
+import { type AsChildProps, Slot } from "../slot/slot";
 
 export type BreadcrumbLinkProps = {
   /**

@@ -3,7 +3,7 @@ import { createContext } from "../../utils/context";
 
 export type OptionBase = {
   disabled?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   [key: string]: any;
 };
 

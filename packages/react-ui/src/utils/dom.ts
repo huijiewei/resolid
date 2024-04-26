@@ -1,10 +1,10 @@
-import { isObject, type Booleanish } from "@resolid/utils";
+import { type Booleanish, isObject } from "@resolid/utils";
 
 export const dataAttr = (condition: boolean | null | undefined) => (condition ? "" : undefined) as Booleanish;
 
 export const ariaAttr = (condition: boolean | null | undefined) => (condition ? true : undefined);
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export const isInputEvent = (value: any): value is { target: HTMLInputElement } => {
   return value && isObject(value) && isObject(value.target);
 };

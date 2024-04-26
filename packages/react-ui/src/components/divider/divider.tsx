@@ -1,8 +1,8 @@
 import { __DEV__ } from "@resolid/utils";
-import { forwardRef, type CSSProperties } from "react";
+import { type CSSProperties, forwardRef } from "react";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/slot";
-import { dividerStyles, type DividerStyleProps } from "./divider.styles";
+import { type DividerStyleProps, dividerStyles } from "./divider.styles";
 
 export type DividerProps = {
   /**

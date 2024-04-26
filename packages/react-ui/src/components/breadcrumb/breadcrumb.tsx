@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import { AngleRight } from "../../shared/icons";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/slot";
-import { BreadcrumbProvider, type BreadcrumbContext } from "./breadcrumb-context";
+import { type BreadcrumbContext, BreadcrumbProvider } from "./breadcrumb-context";
 
 export type BreadcrumbProps = BreadcrumbContext;
 

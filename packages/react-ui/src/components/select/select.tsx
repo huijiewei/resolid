@@ -14,14 +14,14 @@ import {
 import type { Overwrite } from "@resolid/utils";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import {
+  type CSSProperties,
+  type ComponentPropsWithoutRef,
+  type ForwardedRef,
   forwardRef,
   useCallback,
   useMemo,
   useRef,
   useState,
-  type CSSProperties,
-  type ComponentPropsWithoutRef,
-  type ForwardedRef,
 } from "react";
 import { useCallbackRef, useControllableState, useIsomorphicEffect, usePrevious } from "../../hooks";
 import { focusInputStyles } from "../../shared/styles";
@@ -31,8 +31,8 @@ import type { Size } from "../../utils/types";
 import { CloseButton } from "../close-button/close-button";
 import { Portal } from "../portal/portal";
 import { SelectChevron } from "./select-chevron";
-import { SelectProvider, type OptionBase, type OptionDefault, type OptionFieldNames } from "./select-context";
-import { SelectOption, type Render } from "./select-option";
+import { type OptionBase, type OptionDefault, type OptionFieldNames, SelectProvider } from "./select-context";
+import { type Render, SelectOption } from "./select-option";
 import { selectSizeStyles } from "./select.styles";
 
 export type SelectProps<Option extends OptionBase> = {

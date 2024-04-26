@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import { AngleLeft, AngleRight } from "../../shared/icons";
 import { clsx } from "../../utils/classed";
 import type { Color } from "../../utils/types";
-import { Slot, type AsChildProps } from "../slot/slot";
+import { type AsChildProps, Slot } from "../slot/slot";
 import type { PageType } from "./use-pagination";
 
 const paginationItemSelectedColorStyles = {

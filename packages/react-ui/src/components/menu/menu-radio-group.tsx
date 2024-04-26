@@ -2,7 +2,7 @@ import { __DEV__ } from "@resolid/utils";
 import { useCallbackRef } from "../../hooks";
 import type { BaseProps } from "../slot/slot";
 import { MenuGroup } from "./menu-group";
-import { MenuRadioGroupProvider, type MenuRadioGroupContext } from "./menu-radio-group-context";
+import { type MenuRadioGroupContext, MenuRadioGroupProvider } from "./menu-radio-group-context";
 
 export type MenuRadioGroupProps = MenuRadioGroupContext;
 

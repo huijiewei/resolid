@@ -6,19 +6,13 @@
   "description": "Resolid MDX 扩展插件",
   "author": "Huijie Wei",
   "license": "MIT",
-  "keywords": [
-    "resolid",
-    "mdx"
-  ],
+  "keywords": ["resolid", "mdx"],
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
-    "lint": "eslint .",
     "build": "tsup"
   },
   "exports": {

@@ -1,6 +1,6 @@
 import { __DEV__ } from "@resolid/utils";
 import type { DrizzleConfig } from "drizzle-orm";
-import { drizzle, type PostgresJsDatabase } from "drizzle-orm/postgres-js";
+import { type PostgresJsDatabase, drizzle } from "drizzle-orm/postgres-js";
 import postgres, { type Options } from "postgres";
 import { singleton } from "../utils/singleton";
 

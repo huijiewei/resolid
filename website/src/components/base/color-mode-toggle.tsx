@@ -1,12 +1,12 @@
 import {
   Button,
+  type ColorMode,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
   useColorModeDispatch,
   useColorModeState,
-  type ColorMode,
 } from "@resolid/react-ui";
 import { useEffect, useState } from "react";
 import { SpriteIcon } from "~/components/base/sprite-icon";

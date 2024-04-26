@@ -1,9 +1,9 @@
 import { __DEV__ } from "@resolid/utils";
-import { Children, isValidElement, type CSSProperties, type ReactElement } from "react";
+import { type CSSProperties, Children, type ReactElement, isValidElement } from "react";
 import { clsx } from "../../utils/classed";
 import { toRounded } from "../../utils/radius";
 import type { BaseProps } from "../slot/slot";
-import { AvatarGroupProvider, type AvatarBaseProps } from "./avatar-group-context";
+import { type AvatarBaseProps, AvatarGroupProvider } from "./avatar-group-context";
 import { toSized } from "./avatar.styles";
 
 export type AvatarGroupProps = AvatarBaseProps & {

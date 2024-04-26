@@ -1,9 +1,9 @@
 import { __DEV__ } from "@resolid/utils";
-import { forwardRef, useCallback, type CSSProperties, type ChangeEvent } from "react";
+import { type CSSProperties, type ChangeEvent, forwardRef, useCallback } from "react";
 import { useControllableState } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/slot";
-import { useRadioGroup, type RadioBaseProps } from "./radio-group-context";
+import { type RadioBaseProps, useRadioGroup } from "./radio-group-context";
 
 export type RadioProps = RadioBaseProps & {
   /**

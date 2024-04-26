@@ -1,7 +1,7 @@
-import type { Preset } from "@remix-run/dev";
 import { rm } from "node:fs/promises";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
+import type { Preset } from "@remix-run/dev";
 import { buildEntry } from "../base/build-utils";
 
 export const nodeHonoPreset = (): Preset => {

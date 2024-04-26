@@ -1,5 +1,5 @@
 import { __DEV__ } from "@resolid/utils";
-import { forwardRef, type CSSProperties, type HTMLAttributeReferrerPolicy, type ReactElement } from "react";
+import { type CSSProperties, type HTMLAttributeReferrerPolicy, type ReactElement, forwardRef } from "react";
 import { clsx } from "../../utils/classed";
 import { toRounded } from "../../utils/radius";
 import type { BaseProps } from "../slot/slot";

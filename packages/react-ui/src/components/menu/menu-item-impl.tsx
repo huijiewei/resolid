@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 import { useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import { ariaAttr, dataAttr } from "../../utils/dom";
-import { Slot, type AsChildProps } from "../slot/slot";
+import { type AsChildProps, Slot } from "../slot/slot";
 import { useMenuSelect } from "./menu-context";
 
 export type MenuItemImplProps = {

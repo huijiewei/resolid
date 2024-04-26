@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, type CSSProperties } from "react";
+import { type CSSProperties, useLayoutEffect, useRef } from "react";
 import { useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import { dataAttr } from "../../utils/dom";
@@ -18,6 +18,7 @@ export const CollapsibleContent = (props: BaseProps<"div", EmptyProps, "id">) =>
   const widthRef = useRef<number | undefined>(0);
   const width = widthRef.current;
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useLayoutEffect(() => {
     const node = elemRef.current;
 

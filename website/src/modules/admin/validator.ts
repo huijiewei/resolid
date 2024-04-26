@@ -1,4 +1,4 @@
-import { authLoginResolver, type AuthLoginFormData } from "@resolid/framework/modules";
+import { type AuthLoginFormData, authLoginResolver } from "@resolid/framework/modules";
 
 export type AdminLoginFormData = AuthLoginFormData;
 

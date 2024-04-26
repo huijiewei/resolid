@@ -1,17 +1,17 @@
 import { __DEV__ } from "@resolid/utils";
 import {
+  type CSSProperties,
+  type ChangeEvent,
+  type ReactElement,
   cloneElement,
   forwardRef,
   useCallback,
   useRef,
-  type CSSProperties,
-  type ChangeEvent,
-  type ReactElement,
 } from "react";
 import { useControllableState, useIsomorphicEffect, useMergeRefs } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/slot";
-import { useCheckboxGroup, type CheckboxBaseProps } from "./checkbox-group-context";
+import { type CheckboxBaseProps, useCheckboxGroup } from "./checkbox-group-context";
 import { CheckboxIcon } from "./checkbox-icon";
 
 export type CheckboxProps = CheckboxBaseProps & {

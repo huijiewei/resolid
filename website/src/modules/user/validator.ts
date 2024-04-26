@@ -1,12 +1,12 @@
 import {
+  type AuthLoginFormData,
+  type AuthPasswordForgotFormData,
+  type AuthPasswordResetFormData,
   authLoginResolver,
   authPasswordForgotResolver,
   authPasswordResetResolver,
   authSignupSchema,
   isEqualPasswordAndConfirm,
-  type AuthLoginFormData,
-  type AuthPasswordForgotFormData,
-  type AuthPasswordResetFormData,
 } from "@resolid/framework/modules";
 import { zodLocaleResolver } from "@resolid/framework/utils";
 import { z } from "zod";

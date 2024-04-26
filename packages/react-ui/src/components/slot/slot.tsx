@@ -1,14 +1,15 @@
-import { __DEV__, hasOwnProperty, isFunction, type Overwrite } from "@resolid/utils";
+// biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
+import { type Overwrite, __DEV__, hasOwnProperty, isFunction } from "@resolid/utils";
 import {
   Children,
-  cloneElement,
-  forwardRef,
-  isValidElement,
   type ComponentPropsWithoutRef,
   type FunctionComponentElement,
   type HTMLAttributes,
   type JSX,
   type ReactNode,
+  cloneElement,
+  forwardRef,
+  isValidElement,
 } from "react";
 import { mergeRefs } from "../../hooks";
 

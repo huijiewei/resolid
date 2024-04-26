@@ -1,4 +1,4 @@
-import { FloatingArrow as FloatingUiArrow, type FloatingArrowProps as FloatingArrowUiProps } from "@floating-ui/react";
+import { type FloatingArrowProps as FloatingArrowUiProps, FloatingArrow as FloatingUiArrow } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
 import { clsx } from "../../utils/classed";
 import { useFloatingArrow } from "./floating-arrow-context";

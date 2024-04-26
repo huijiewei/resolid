@@ -1,6 +1,6 @@
 import { clsx } from "../../utils/classed";
 import { dataAttr } from "../../utils/dom";
-import { Slot, type AsChildProps } from "../slot/slot";
+import { type AsChildProps, Slot } from "../slot/slot";
 import { makeContentId, makeTriggerId, useTabs } from "./tabs-context";
 
 type TabsTriggerProps = {

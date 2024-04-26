@@ -1,5 +1,5 @@
 import type { ActionFunction, LoaderFunction, MetaDescriptor } from "@remix-run/node";
-import { useActionData, useLoaderData, useRouteLoaderData, type MetaArgs_SingleFetch } from "@remix-run/react";
+import { type MetaArgs_SingleFetch, useActionData, useLoaderData, useRouteLoaderData } from "@remix-run/react";
 import type { LoaderFunction_SingleFetch } from "@remix-run/react/future/single-fetch";
 
 type MetaFunction_SingleFetch<

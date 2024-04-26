@@ -1,10 +1,10 @@
 import { __DEV__ } from "@resolid/utils";
-import { forwardRef, useCallback, useRef, type CSSProperties, type ChangeEvent, type ReactNode } from "react";
+import { type CSSProperties, type ChangeEvent, type ReactNode, forwardRef, useCallback, useRef } from "react";
 import { useControllableState, useMergeRefs } from "../../hooks";
 import { focusInputStyles } from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/slot";
-import { useInputGroup, type InputGroupContext } from "./input-group-context";
+import { type InputGroupContext, useInputGroup } from "./input-group-context";
 import { inputAdornmentDefaultSizes, inputSizeStyles } from "./input.styles";
 
 export type InputProps = Partial<InputGroupContext> & {

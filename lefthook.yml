@@ -1,37 +1,9 @@
 pre-commit:
   parallel: true
   commands:
-    eslint-framework:
-      root: "packages/framework/"
-      glob: "*.{js,jsx,ts,tsx}"
-      run: npx --no eslint --fix {staged_files}
-    eslint-mdx-plugins:
-      root: "packages/mdx-plugins/"
-      glob: "*.{js,jsx,ts,tsx}"
-      run: npx --no eslint --fix {staged_files}
-    eslint-react-ui:
-      root: "packages/react-ui/"
-      glob: "*.{js,jsx,ts,tsx}"
-      run: npx --no eslint --fix {staged_files}
-    eslint-remix-plugins:
-      root: "packages/remix-plugins/"
-      glob: "*.{js,jsx,ts,tsx}"
-      run: npx --no eslint --fix {staged_files}
-    eslint-tailwind:
-      root: "packages/tailwind/"
-      glob: "*.{js,jsx,ts,tsx}"
-      run: npx --no eslint --fix {staged_files}
-    eslint-utils:
-      root: "packages/utils/"
-      glob: "*.{js,jsx,ts,tsx}"
-      run: npx --no eslint --fix {staged_files}
-    eslint-website:
-      root: "website/"
-      glob: "*.{js,jsx,ts,tsx}"
-      run: npx --no eslint --fix {staged_files}
-    prettier:
-      glob: "*.{js,jsx,ts,tsx,json}"
-      run: npx --no prettier --write {staged_files}
+    check:
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
+      run: npx biome check --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
 
 commit-msg:
   parallel: true

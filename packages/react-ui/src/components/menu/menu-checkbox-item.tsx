@@ -4,7 +4,7 @@ import { clsx } from "../../utils/classed";
 import { ariaAttr } from "../../utils/dom";
 import type { AsChildProps } from "../slot/slot";
 import { MenuItem, type MenuItemProps } from "./menu-item";
-import { MenuItemIndicatorProvider, type CheckedState } from "./menu-item-indicator-context";
+import { type CheckedState, MenuItemIndicatorProvider } from "./menu-item-indicator-context";
 
 export type MenuCheckboxItemProps = MenuItemProps & {
   checked?: CheckedState;

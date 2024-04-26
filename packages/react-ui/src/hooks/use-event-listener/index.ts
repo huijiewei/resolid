@@ -1,17 +1,16 @@
 import { isBrowser } from "@resolid/utils";
-import { useEffect, useRef, type RefObject } from "react";
+import { type RefObject, useEffect, useRef } from "react";
 import { useIsomorphicEffect } from "../use-isomorphic-effect";
 
 type UseEventListenerTarget = Window | Document | HTMLElement | RefObject<HTMLElement>;
 
 type ExtractTargetElement<Target> = Target extends RefObject<infer Element> ? Element : Target;
 
-type ExtractEventMap<Target> =
-  ExtractTargetElement<Target> extends Window
-    ? WindowEventMap
-    : ExtractTargetElement<Target> extends Document
-      ? DocumentEventMap
-      : HTMLElementEventMap;
+type ExtractEventMap<Target> = ExtractTargetElement<Target> extends Window
+  ? WindowEventMap
+  : ExtractTargetElement<Target> extends Document
+    ? DocumentEventMap
+    : HTMLElementEventMap;
 
 type ExtractEventName<Target> = keyof ExtractEventMap<ExtractTargetElement<Target>>;
 

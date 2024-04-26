@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useCallbackRef } from '../use-callback-ref';
+import { useEffect } from "react";
+import { useCallbackRef } from "../use-callback-ref";
 
 export const useTimeout = (callback: () => void, delay: number | null) => {
   const fn = useCallbackRef(callback);

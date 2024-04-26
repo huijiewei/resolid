@@ -1,4 +1,4 @@
-import { useTransitionStatus, type UseTransitionStatusProps } from "@floating-ui/react";
+import { type UseTransitionStatusProps, useTransitionStatus } from "@floating-ui/react";
 import { useCallback, useRef, useState } from "react";
 
 export const useElementTransitionStatus = <E extends HTMLElement = HTMLElement>(

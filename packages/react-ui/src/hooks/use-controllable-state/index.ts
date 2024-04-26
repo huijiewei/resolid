@@ -1,5 +1,5 @@
-import { runIfFunction, type MaybeFunction } from "@resolid/utils";
-import { useCallback, useState, type Dispatch, type SetStateAction } from "react";
+import { type MaybeFunction, runIfFunction } from "@resolid/utils";
+import { type Dispatch, type SetStateAction, useCallback, useState } from "react";
 import { useCallbackRef } from "../use-callback-ref";
 
 export type UseControllableStateProps<T> = {

@@ -1,3 +1,6 @@
+import { join } from "node:path";
+import { cwd, env } from "node:process";
+import { fileURLToPath } from "node:url";
 import mdx from "@mdx-js/rollup";
 import { vitePlugin as remix } from "@remix-run/dev";
 import { installGlobals } from "@remix-run/node";
@@ -6,17 +9,14 @@ import remixFlexRoutes from "@resolid/remix-plugins/flex-routes";
 import { nodeHonoPreset } from "@resolid/remix-plugins/node-hono";
 import { vercelServerlessPreset } from "@resolid/remix-plugins/vercel-serverless";
 import rehypeShiki from "@shikijs/rehype";
-import { join } from "node:path";
-import { cwd, env } from "node:process";
-import { fileURLToPath } from "node:url";
 import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
-import { loadEnv, type AliasOptions } from "vite";
+import { type AliasOptions, loadEnv } from "vite";
 import viteInspect from "vite-plugin-inspect";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { defineConfig, type UserConfig } from "vitest/config";
+import { type UserConfig, defineConfig } from "vitest/config";
 
 installGlobals({ nativeFetch: true });
 

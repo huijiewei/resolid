@@ -1,6 +1,6 @@
 import { FloatingFocusManager } from "@floating-ui/react";
 import { __DEV__ } from "@resolid/utils";
-import { useEffect, type CSSProperties } from "react";
+import { type CSSProperties, useEffect } from "react";
 import { clsx } from "../../utils/classed";
 import { useFloatingAria } from "../floating/floating-aria-context";
 import type { BaseProps } from "../slot/slot";

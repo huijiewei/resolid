@@ -1,9 +1,9 @@
-import typography from "@tailwindcss/typography";
 import { env } from "node:process";
+import typography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
 import resolidTailwind from "../packages/tailwind/src";
 
-export default <Partial<Config>>{
+export default (<Partial<Config>>{
   content: [
     "./src/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
@@ -15,4 +15,4 @@ export default <Partial<Config>>{
   ],
   presets: [resolidTailwind.preset()],
   plugins: [typography],
-};
+});

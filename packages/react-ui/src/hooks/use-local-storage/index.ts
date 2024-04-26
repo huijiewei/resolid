@@ -1,5 +1,5 @@
-import { isBrowser, runIfFunction, type MaybeFunction } from "@resolid/utils";
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { type MaybeFunction, isBrowser, runIfFunction } from "@resolid/utils";
+import { type Dispatch, type SetStateAction, useState } from "react";
 import { useEventListener } from "../use-event-listener";
 
 export const useLocalStorage = <T>(key: string, initialValue: MaybeFunction<T>): [T, Dispatch<SetStateAction<T>>] => {

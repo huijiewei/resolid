@@ -6,19 +6,13 @@
   "description": "Resolid TailwindCSS 预设",
   "author": "Huijie Wei",
   "license": "MIT",
-  "keywords": [
-    "resolid",
-    "tailwindcss"
-  ],
+  "keywords": ["resolid", "tailwindcss"],
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
-    "lint": "eslint .",
     "build": "tsup"
   },
   "exports": {

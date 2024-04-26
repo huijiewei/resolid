@@ -1,7 +1,6 @@
 import type { ComponentProp } from "@resolid/mdx-plugins";
 import {
   Button,
-  clsx,
   Input,
   NativeSelect,
   Switch,
@@ -9,9 +8,10 @@ import {
   TooltipArrow,
   TooltipContent,
   TooltipTrigger,
+  clsx,
 } from "@resolid/react-ui";
 import { isFunction } from "@resolid/utils";
-import { useMemo, useState, type FunctionComponent, type ReactNode } from "react";
+import { type FunctionComponent, type ReactNode, useMemo, useState } from "react";
 import { SpriteIcon } from "~/components/base/sprite-icon";
 
 export const ComponentUsage = ({
@@ -201,11 +201,13 @@ export const ComponentProps = ({
                     <TooltipContent>
                       <TooltipArrow />
                       {prop.description.split("\n").map((p, idx) => {
-                        if (p.startsWith("@link")) {
+                        const key = `p${idx}`;
+
+                        if (p.slice(0, 6) == "@link") {
                           const link = p.slice(6);
 
                           return (
-                            <p key={`p${idx}`}>
+                            <p key={key}>
                               <a
                                 className={"text-link hover:text-link-hovered"}
                                 href={link}
@@ -218,7 +220,7 @@ export const ComponentProps = ({
                           );
                         }
 
-                        return <p key={`p${idx}`}>{p.startsWith("@link") ? p : p}</p>;
+                        return <p key={key}>{p}</p>;
                       })}
                     </TooltipContent>
                   </Tooltip>

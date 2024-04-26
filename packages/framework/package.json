@@ -6,20 +6,13 @@
   "description": "Resolid 核心框架",
   "author": "Huijie Wei",
   "license": "MIT",
-  "keywords": [
-    "resolid"
-  ],
+  "keywords": ["resolid"],
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
-  "files": [
-    "cli",
-    "src"
-  ],
-  "scripts": {
-    "lint": "eslint ."
-  },
+  "files": ["cli", "src"],
+  "scripts": {},
   "exports": {
     ".": "./src/index.ts",
     "./cli": "./cli/index.ts",

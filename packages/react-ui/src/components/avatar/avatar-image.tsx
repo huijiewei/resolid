@@ -1,5 +1,5 @@
 import { __DEV__ } from "@resolid/utils";
-import { cloneElement, type SVGProps } from "react";
+import { type SVGProps, cloneElement } from "react";
 import type { ImageProps } from "../image/image";
 import { useImage } from "../image/use-image";
 import type { BaseProps } from "../slot/slot";

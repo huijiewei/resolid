@@ -71,19 +71,21 @@ class MatchMediaMock {
     query.splice(listenerIndex, 1);
   }
 
-  public useMediaQuery(mediaQuery: string): never | void {
+  public useMediaQuery(mediaQuery: string): void {
     this.currentMediaQuery = mediaQuery;
 
-    if (!this.mediaQueries[mediaQuery]) return;
+    if (!this.mediaQueries[mediaQuery]) {
+      return;
+    }
 
     const mqListEvent: Partial<MediaQueryListEvent> = {
       matches: true,
       media: mediaQuery,
     };
 
-    this.mediaQueries[mediaQuery].forEach((listener) => {
+    for (const listener of this.mediaQueries[mediaQuery]) {
       listener.call(this.mediaQueryList, mqListEvent as MediaQueryListEvent);
-    });
+    }
   }
 
   public getMediaQueries(): string[] {
@@ -91,7 +93,10 @@ class MatchMediaMock {
   }
 
   public getListeners(mediaQuery: string): MediaQueryListener[] {
-    if (!this.mediaQueries[mediaQuery]) return [];
+    if (!this.mediaQueries[mediaQuery]) {
+      return [];
+    }
+
     return this.mediaQueries[mediaQuery].slice();
   }
 
@@ -102,7 +107,7 @@ class MatchMediaMock {
   public destroy(): void {
     this.clear();
     // @ts-expect-error type
-    delete window.matchMedia;
+    window.matchMedia = undefined;
   }
 }
 

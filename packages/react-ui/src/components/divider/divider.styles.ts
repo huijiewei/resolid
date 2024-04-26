@@ -1,4 +1,4 @@
-import { classed, type VariantProps } from "../../utils/classed";
+import { type VariantProps, classed } from "../../utils/classed";
 
 export const dividerStyles = classed("m-0 border-0", {
   variants: {

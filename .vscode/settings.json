@@ -1,10 +1,16 @@
 {
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "eslint.experimental.useFlatConfig": true,
-    "tailwindCSS.experimental.classRegex": [
-      "clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)",
-      "classed(?:\\.\\w*)?\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"
-    ],
-    "editor.formatOnSave": true,
-    "tailwindCSS.experimental.configFile": "./website/tailwind.config.ts"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "tailwindCSS.experimental.classRegex": [
+    "clsx\\(([^)]*)\\)",
+    "(?:'|\"|`)([^']*)(?:'|\"|`)",
+    "classed(?:\\.\\w*)?\\(([^)]*)\\)",
+    "[\"'`]([^\"'`]*).*?[\"'`]"
+  ],
+  "editor.formatOnSave": true,
+  "tailwindCSS.experimental.configFile": "./website/tailwind-ide.config.ts",
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome"
 }

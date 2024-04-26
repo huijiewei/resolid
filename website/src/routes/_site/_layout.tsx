@@ -2,11 +2,11 @@ import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import {
   Form,
   Link,
+  type Location,
+  type MetaArgs_SingleFetch,
   Outlet,
   createPath,
   useLocation,
-  type Location,
-  type MetaArgs_SingleFetch,
 } from "@remix-run/react";
 import { authUtils } from "@resolid/framework/modules";
 import { useTypedLoaderData } from "@resolid/framework/utils";
@@ -27,8 +27,8 @@ import {
   clsx,
 } from "@resolid/react-ui";
 import { omit, trimEnd } from "@resolid/utils";
-import { useState, type MouseEventHandler } from "react";
-import { AuthProvider, useAuth, type AuthContext } from "~/components/base/auth-provider";
+import { type MouseEventHandler, useState } from "react";
+import { type AuthContext, AuthProvider, useAuth } from "~/components/base/auth-provider";
 import { ColorModeToggle } from "~/components/base/color-mode-toggle";
 import { HistoryLink, HistoryNavLink } from "~/components/base/history-link";
 import { ResolidLogo } from "~/components/base/resolid-logo";

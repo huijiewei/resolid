@@ -2,7 +2,7 @@ import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { useMergeRefs } from "../../hooks";
 import { dataAttr } from "../../utils/dom";
-import { Slot, type AsChildProps } from "../slot/slot";
+import { type AsChildProps, Slot } from "../slot/slot";
 import { useFloatingReference } from "./floating-reference-context";
 
 export type FloatingTriggerProps = AsChildProps<"button", { active?: boolean }, "type">;

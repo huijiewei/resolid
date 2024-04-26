@@ -1,4 +1,5 @@
 import {
+  type Placement,
   arrow,
   autoPlacement,
   autoUpdate,
@@ -12,15 +13,14 @@ import {
   useHover,
   useInteractions,
   useRole,
-  type Placement,
 } from "@floating-ui/react";
 import { __DEV__, runIfFunction } from "@resolid/utils";
-import { useMemo, useRef, type PropsWithChildren, type ReactNode } from "react";
+import { type PropsWithChildren, type ReactNode, useMemo, useRef } from "react";
 import { useDisclosure } from "../../hooks";
 import type { Color } from "../../utils/types";
-import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/floating-arrow-context";
-import { FloatingReferenceProvider, type FloatingReferenceContext } from "../floating/floating-reference-context";
-import { TooltipFloatingProvider, type TooltipContext } from "./tooltip-context";
+import { type FloatingArrowContext, FloatingArrowProvider } from "../floating/floating-arrow-context";
+import { type FloatingReferenceContext, FloatingReferenceProvider } from "../floating/floating-reference-context";
+import { type TooltipContext, TooltipFloatingProvider } from "./tooltip-context";
 
 export type TooltipRootProps = {
   /**

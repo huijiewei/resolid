@@ -6,51 +6,26 @@
   "description": "Resolid 通用配置",
   "author": "Huijie Wei",
   "license": "MIT",
-  "keywords": [
-    "resolid",
-    "eslint",
-    "typescript"
-  ],
+  "keywords": ["resolid", "biome", "typescript"],
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
-  "files": [
-    "src",
-    "tsconfig.base.json",
-    "tsconfig.react.json"
-  ],
-  "scripts": {
-    "lint": "eslint ."
-  },
+  "files": ["biome.json", "biome.react.json", "biome.tailwind.json", "tsconfig.base.json", "tsconfig.react.json"],
+  "scripts": {},
   "exports": {
     "./tsconfig.base": "./tsconfig.base.json",
     "./tsconfig.react": "./tsconfig.react.json",
-    "./*": "./src/*.js"
+    "./biome": "./biome.json",
+    "./biome.react": "./biome.react.json",
+    "./biome.tailwind": "./biome.tailwind.json"
   },
-  "dependencies": {
-    "@eslint/js": "^8.57.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-n": "^17.3.1",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.1",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "globals": "^15.0.0",
-    "typescript-eslint": "^7.7.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "eslint": "^8.57.0",
+    "@biomejs/biome": "^1.7.1",
     "typescript": "^5.4.5"
   },
-  "peerDependencies": {
-    "eslint": "^8.57.0",
-    "typescript": "^5.4.5"
-  },
-  "peerDependenciesMeta": {
-    "typescript": {
-      "optional": true
-    }
-  },
+  "peerDependencies": {},
   "homepage": "https://resolid.tech",
   "repository": {
     "type": "git",

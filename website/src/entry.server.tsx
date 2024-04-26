@@ -1,9 +1,9 @@
+import { PassThrough } from "node:stream";
 import type { EntryContext } from "@remix-run/node";
 import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { setup } from "@resolid/framework";
 import { isbot } from "isbot";
-import { PassThrough } from "node:stream";
 import { renderToPipeableStream } from "react-dom/server";
 
 setup();
@@ -45,6 +45,7 @@ export default function handleRequest(
           reject(error);
         },
         onError(error: unknown) {
+          // biome-ignore lint/style/noParameterAssign: <explanation>
           responseStatusCode = 500;
 
           if (shellRendered) {

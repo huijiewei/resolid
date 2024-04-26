@@ -1,5 +1,5 @@
 import { sharedBadgeAndAlertVariants } from "../../shared/styles";
-import { classed, type VariantProps } from "../../utils/classed";
+import { type VariantProps, classed } from "../../utils/classed";
 
 // @ts-expect-error Type
 export const badgeStyles = classed("inline-flex items-center", sharedBadgeAndAlertVariants);

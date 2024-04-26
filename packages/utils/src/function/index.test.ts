@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { isFunction, runIfFunction, type AnyFunction } from "./index";
+import { type AnyFunction, isFunction, runIfFunction } from "./index";
 
 describe("isFunction function", () => {
   test("should return true for a function", () => {

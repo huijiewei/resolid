@@ -29,7 +29,6 @@ export function RouteProcessBar() {
 
   return (
     <div
-      role="progressbar"
       aria-hidden={!active}
       aria-valuetext={active ? "正在加载" : undefined}
       className="pointer-events-none fixed inset-x-0 top-0 z-spotlight h-1 animate-pulse"

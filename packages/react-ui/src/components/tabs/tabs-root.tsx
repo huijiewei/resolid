@@ -2,7 +2,7 @@ import { useId, useMemo } from "react";
 import { useControllableState } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/slot";
-import { TabsProvider, type TabsContext } from "./tabs-context";
+import { type TabsContext, TabsProvider } from "./tabs-context";
 
 export type TabsRootProps = {
   /**

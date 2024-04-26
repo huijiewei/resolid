@@ -6,21 +6,13 @@
   "description": "Resolid React UI 组件",
   "author": "Huijie Wei",
   "license": "MIT",
-  "keywords": [
-    "resolid",
-    "react",
-    "react-hook",
-    "tailwindcss"
-  ],
+  "keywords": ["resolid", "react", "react-hook", "tailwindcss"],
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
-    "lint": "eslint .",
     "test": "vitest --run",
     "build": "tsup"
   },

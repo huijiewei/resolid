@@ -1,5 +1,5 @@
 import { runIfFunction } from "@resolid/utils";
-import { useId, type ReactNode } from "react";
+import { type ReactNode, useId } from "react";
 import { useDisclosure, useElementTransitionStatus } from "../../hooks";
 import type { BaseProps } from "../slot/slot";
 import { CollapsibleContentProvider, CollapsibleTriggerProvider } from "./collapsible-context";

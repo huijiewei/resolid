@@ -23,7 +23,6 @@ export const TabsContent = (
   return (
     <div
       id={contentId}
-      tabIndex={0}
       role="tabpanel"
       aria-labelledby={triggerId}
       className={clsx(orientation == "horizontal" ? "mt-4" : "ml-4", selected ? "block" : "hidden", className)}

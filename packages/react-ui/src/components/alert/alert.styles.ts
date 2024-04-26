@@ -1,5 +1,5 @@
 import { sharedBadgeAndAlertVariants } from "../../shared/styles";
-import { classed, type VariantProps } from "../../utils/classed";
+import { type VariantProps, classed } from "../../utils/classed";
 
 // @ts-expect-error Type
 export const alertStyles = classed("border rounded relative p-4", sharedBadgeAndAlertVariants);

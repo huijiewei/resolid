@@ -1,7 +1,7 @@
 import { __DEV__ } from "@resolid/utils";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/slot";
-import { InputGroupProvider, type InputGroupContext } from "./input-group-context";
+import { type InputGroupContext, InputGroupProvider } from "./input-group-context";
 
 export type InputGroupProps = Partial<InputGroupContext>;
 

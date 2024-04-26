@@ -1,6 +1,6 @@
-import { zodResolver, type Resolver } from "@hookform/resolvers/zod";
+import { type Resolver, zodResolver } from "@hookform/resolvers/zod";
 import type { FieldError, FieldErrors, FieldValues } from "react-hook-form";
-import { ZodIssueCode, ZodParsedType, util, type ZodErrorMap } from "zod";
+import { util, type ZodErrorMap, ZodIssueCode, ZodParsedType } from "zod";
 
 export const zodLocaleResolver: Resolver = (schema, schemaOptions, factoryOptions = {}) => {
   return zodResolver(schema, { ...schemaOptions, errorMap: zodErrorMap }, factoryOptions);
@@ -117,9 +117,9 @@ const zodErrorMap: ZodErrorMap = (issue, _ctx) => {
       } else if (issue.type === "number") {
         message = `数值必须${issue.exact ? "为" : issue.inclusive ? "大于或等于" : "大于"} ${issue.minimum}`;
       } else if (issue.type === "date") {
-        message = `日期必须${
-          issue.exact ? "为" : issue.inclusive ? "大于或等于" : "大于"
-        } ${new Date(Number(issue.minimum))}`;
+        message = `日期必须${issue.exact ? "为" : issue.inclusive ? "大于或等于" : "大于"} ${new Date(
+          Number(issue.minimum),
+        )}`;
       } else {
         message = "错误的输入格式";
       }
@@ -132,9 +132,9 @@ const zodErrorMap: ZodErrorMap = (issue, _ctx) => {
       } else if (issue.type === "number" || issue.type === "bigint") {
         message = `数值必须${issue.exact ? "为" : issue.inclusive ? "小于或等于" : "小于"} ${issue.maximum}`;
       } else if (issue.type === "date") {
-        message = `日期必须${
-          issue.exact ? "为" : issue.inclusive ? "小于或等于" : "小于"
-        } ${new Date(Number(issue.maximum))}`;
+        message = `日期必须${issue.exact ? "为" : issue.inclusive ? "小于或等于" : "小于"} ${new Date(
+          Number(issue.maximum),
+        )}`;
       } else {
         message = "错误的输入格式";
       }

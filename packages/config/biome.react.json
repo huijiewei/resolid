@@ -1,0 +1,22 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.7.1/schema.json",
+  "linter": {
+    "rules": {
+      "correctness": {
+        "useExhaustiveDependencies": {
+          "level": "error",
+          "options": {
+            "hooks": [
+              {
+                "name": "useIsomorphicEffect",
+                "closureIndex": 0,
+                "dependenciesIndex": 1,
+                "stableResult": true
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

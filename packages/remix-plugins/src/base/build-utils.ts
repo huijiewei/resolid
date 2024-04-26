@@ -1,8 +1,8 @@
-import esbuild from "esbuild";
 import { existsSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { exit } from "node:process";
+import esbuild from "esbuild";
 import type { PackageJson } from "type-fest";
 import type { ResolvedConfig } from "vite";
 
@@ -52,7 +52,7 @@ export const buildEntry = async (
 ): Promise<[string, string | null]> => {
   console.log(`Bundle Server file for ${serverBundleId}...`);
 
-  let handler = [".ts", ".js"].map((ext) => join(appPath, "remix.handler" + ext)).find((file) => existsSync(file));
+  let handler = [".ts", ".js"].map((ext) => join(appPath, `remix.handler${ext}`)).find((file) => existsSync(file));
 
   let defaultHandler: string | null = join(buildPath, "remix.handler.js");
 

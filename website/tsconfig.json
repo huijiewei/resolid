@@ -8,6 +8,7 @@
     "drizzle.config.ts",
     "tailwind.config.ts",
     "tailwind.admin.config.ts",
+    "tailwind-ide.config.ts",
     "vite.config.ts"
   ],
   "compilerOptions": {

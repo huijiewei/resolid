@@ -1,5 +1,5 @@
-import { Command, type CreateCommand } from "@resolid/framework/cli";
 import { exit } from "node:process";
+import { Command, type CreateCommand } from "@resolid/framework/cli";
 import { mailer } from "~/foundation/mail.server";
 
 export const mailCommand: CreateCommand = () => {

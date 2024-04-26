@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useElementTransitionStatus, usePrevious, useTimeout } from "../../hooks";
 import { clsx } from "../../utils/classed";
 import { Alert, type AlertProps } from "../alert/alert";
-import { FloatingAriaProvider, type FloatingAriaContext } from "../floating/floating-aria-context";
+import { type FloatingAriaContext, FloatingAriaProvider } from "../floating/floating-aria-context";
 import { FloatingDispatchProvider } from "../floating/floating-dispatch-context";
 import type { BaseProps } from "../slot/slot";
 import { useToastComponent } from "./toast-context";

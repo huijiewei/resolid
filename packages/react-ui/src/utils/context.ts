@@ -1,5 +1,5 @@
 import { __DEV__ } from "@resolid/utils";
-import { createContext as ReactCreateContext, useContext as ReactUseContext, type Context, type Provider } from "react";
+import { type Context, type Provider, createContext as ReactCreateContext, useContext as ReactUseContext } from "react";
 
 export type CreateContextOptions = {
   name: string;

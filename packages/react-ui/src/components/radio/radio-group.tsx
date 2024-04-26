@@ -1,8 +1,8 @@
 import { __DEV__ } from "@resolid/utils";
-import { useCallback, useMemo, type ChangeEvent, type PropsWithChildren } from "react";
+import { type ChangeEvent, type PropsWithChildren, useCallback, useMemo } from "react";
 import { useControllableState } from "../../hooks";
 import { isInputEvent } from "../../utils/dom";
-import { RadioGroupProvider, type RadioGroupBaseProps } from "./radio-group-context";
+import { type RadioGroupBaseProps, RadioGroupProvider } from "./radio-group-context";
 
 type RadioGroupProps = RadioGroupBaseProps & {
   /**

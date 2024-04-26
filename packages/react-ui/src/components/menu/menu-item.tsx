@@ -1,5 +1,5 @@
 import { __DEV__ } from "@resolid/utils";
-import { forwardRef, type KeyboardEvent } from "react";
+import { type KeyboardEvent, forwardRef } from "react";
 import type { AsChildProps } from "../slot/slot";
 import { useMenuSelect } from "./menu-context";
 import { MenuItemImpl, type MenuItemImplProps } from "./menu-item-impl";

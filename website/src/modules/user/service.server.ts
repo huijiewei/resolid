@@ -11,11 +11,11 @@ import { omit } from "@resolid/utils";
 import { db } from "~/foundation/db.server";
 import { mailer } from "~/foundation/mail.server";
 import {
+  type UserSelectWithGroup,
   userGroupTable,
   userPasswordResetTable,
   userSessionTable,
   userTable,
-  type UserSelectWithGroup,
 } from "~/modules/user/schema.server";
 import { userSignupResolver } from "~/modules/user/validator";
 

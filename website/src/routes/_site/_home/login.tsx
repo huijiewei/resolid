@@ -1,4 +1,4 @@
-import { redirect, type ActionFunctionArgs } from "@remix-run/node";
+import { type ActionFunctionArgs, redirect } from "@remix-run/node";
 import { Form, useSearchParams } from "@remix-run/react";
 import { getCookieExpires } from "@resolid/framework";
 import { httpProblem, mergeMeta } from "@resolid/framework/utils";
@@ -9,7 +9,7 @@ import { FormError } from "~/components/base/form-error";
 import { HistoryLink } from "~/components/base/history-link";
 import { commitUserSession, setSessionUser } from "~/foundation/session.user.server";
 import { userLoginService } from "~/modules/user/service.server";
-import { userLoginResolver, type UserLoginFormData } from "~/modules/user/validator";
+import { type UserLoginFormData, userLoginResolver } from "~/modules/user/validator";
 
 export const meta = mergeMeta(() => {
   return [{ title: "登陆" }];

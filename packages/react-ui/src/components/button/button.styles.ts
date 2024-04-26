@@ -1,4 +1,4 @@
-import { classed, type VariantProps } from "../../utils/classed";
+import { type VariantProps, classed } from "../../utils/classed";
 
 export const buttonStyles = classed(
   [

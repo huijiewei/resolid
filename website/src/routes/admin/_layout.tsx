@@ -1,5 +1,5 @@
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
-import { Outlet, useMatches, type UIMatch } from "@remix-run/react";
+import { Outlet, type UIMatch, useMatches } from "@remix-run/react";
 import { useTypedLoaderData } from "@resolid/framework/utils";
 import {
   Breadcrumb,
@@ -114,7 +114,7 @@ export default function AdminLayout() {
 const NavBreadcrumb = () => {
   const matches = (
     useMatches() as UIMatch<unknown, { breadcrumb?: (data: unknown) => { link: string; label: ReactNode } }>[]
-  ).filter((match) => match.handle && match.handle.breadcrumb) as UIMatch<
+  ).filter((match) => match.handle?.breadcrumb) as UIMatch<
     unknown,
     { breadcrumb: (data: unknown) => { link: string; label: ReactNode } }
   >[];
@@ -132,11 +132,14 @@ const NavBreadcrumb = () => {
       </BreadcrumbItem>
       {matches.map((match, index) => {
         const breadcrumb = match.handle.breadcrumb(match.data);
+        const key = `b-${index}`;
 
-        return index == matches.length - 1 ? (
-          <BreadcrumbItem key={index}>{breadcrumb.label}</BreadcrumbItem>
-        ) : (
-          <BreadcrumbItem key={index} className={"gap-1"}>
+        if (index == matches.length - 1) {
+          return <BreadcrumbItem key={key}>{breadcrumb.label}</BreadcrumbItem>;
+        }
+
+        return (
+          <BreadcrumbItem key={key} className={"gap-1"}>
             <BreadcrumbLink className={"gap-0.5"} asChild>
               <HistoryLink to={breadcrumb.link}>{breadcrumb.label}</HistoryLink>
             </BreadcrumbLink>

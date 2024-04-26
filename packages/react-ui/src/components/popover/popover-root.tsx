@@ -1,4 +1,5 @@
 import {
+  type Placement,
   arrow,
   autoPlacement,
   autoUpdate,
@@ -14,16 +15,15 @@ import {
   useInteractions,
   useRole,
   useTransitionStatus,
-  type Placement,
 } from "@floating-ui/react";
 import { __DEV__, runIfFunction } from "@resolid/utils";
-import { useEffect, useId, useMemo, useRef, type ReactNode, type RefObject } from "react";
+import { type ReactNode, type RefObject, useEffect, useId, useMemo, useRef } from "react";
 import { useDisclosure, usePrevious } from "../../hooks";
-import { FloatingAriaProvider, type FloatingAriaContext } from "../floating/floating-aria-context";
-import { FloatingArrowProvider, type FloatingArrowContext } from "../floating/floating-arrow-context";
+import { type FloatingAriaContext, FloatingAriaProvider } from "../floating/floating-aria-context";
+import { type FloatingArrowContext, FloatingArrowProvider } from "../floating/floating-arrow-context";
 import { FloatingDispatchProvider } from "../floating/floating-dispatch-context";
-import { FloatingReferenceProvider, type FloatingReferenceContext } from "../floating/floating-reference-context";
-import { PopoverFloatingProvider, type PopoverContext } from "./popover-context";
+import { type FloatingReferenceContext, FloatingReferenceProvider } from "../floating/floating-reference-context";
+import { type PopoverContext, PopoverFloatingProvider } from "./popover-context";
 
 export type PopoverRootProps = {
   /**

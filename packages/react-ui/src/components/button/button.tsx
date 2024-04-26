@@ -1,11 +1,11 @@
 import { __DEV__ } from "@resolid/utils";
-import { forwardRef, type CSSProperties, type JSX } from "react";
+import { type CSSProperties, type JSX, forwardRef } from "react";
 import { focusRingStyles } from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import { dataAttr } from "../../utils/dom";
-import { toRounded, type Radius } from "../../utils/radius";
-import { Slot, type AsChildProps } from "../slot/slot";
-import { useButtonGroup, type ButtonBaseProps } from "./button-group-context";
+import { type Radius, toRounded } from "../../utils/radius";
+import { type AsChildProps, Slot } from "../slot/slot";
+import { type ButtonBaseProps, useButtonGroup } from "./button-group-context";
 import { ButtonSpinner } from "./button-spinner";
 import { buttonStyles } from "./button.styles";
 

@@ -1,8 +1,8 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
-import { Slot, type AsChildProps } from "../slot/slot";
-import { badgeStyles, type BadgeStyleProps } from "./badge.styles";
+import { type AsChildProps, Slot } from "../slot/slot";
+import { type BadgeStyleProps, badgeStyles } from "./badge.styles";
 
 export type BadgeProps = {
   /**

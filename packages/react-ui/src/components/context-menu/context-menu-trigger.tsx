@@ -1,9 +1,9 @@
 import { __DEV__ } from "@resolid/utils";
-import { forwardRef, useCallback, useEffect, useRef, type MouseEvent, type PointerEventHandler } from "react";
+import { type MouseEvent, type PointerEventHandler, forwardRef, useCallback, useEffect, useRef } from "react";
 import { composeEventHandlers, dataAttr } from "../../utils/dom";
 import { useFloatingDispatch } from "../floating/floating-dispatch-context";
 import { useFloatingReference } from "../floating/floating-reference-context";
-import { Slot, type AsChildProps } from "../slot/slot";
+import { type AsChildProps, Slot } from "../slot/slot";
 
 type ContextMenuTriggerProps = {
   disabled?: boolean;

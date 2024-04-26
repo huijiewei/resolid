@@ -1,6 +1,6 @@
 import { clsx } from "@resolid/react-ui";
 import { __DEV__ } from "@resolid/utils";
-import { useEffect, useRef, type HTMLProps } from "react";
+import { type HTMLProps, useEffect, useRef } from "react";
 
 export type BlurhashCanvasProps = {
   hash: string;
@@ -50,6 +50,7 @@ const decode83 = (str: string, start: number, end: number) => {
   let value = 0;
   while (start < end) {
     value *= 83;
+    // biome-ignore lint/style/noParameterAssign: <explanation>
     value += digit.indexOf(str[start++]);
   }
   return value;
@@ -68,8 +69,10 @@ const linearTosRGB = (v: number) => ~~(v > 0.00001227 ? e * pow(v, 0.416666) - 1
 const signSqr = (x: number) => (x < 0 ? -1 : 1) * x * x;
 
 const fastCos = (x: number) => {
+  // biome-ignore lint/style/noParameterAssign: <explanation>
   x += PI / 2;
   while (x > PI) {
+    // biome-ignore lint/style/noParameterAssign: <explanation>
     x -= PI2;
   }
   const cos = 1.27323954 * x - 0.405284735 * signSqr(x);
@@ -87,20 +90,20 @@ const decodeBlurHash = (blurHash: string, width: number, height: number, punch?:
   const numY = ~~(sizeFlag / 9) + 1;
   const size = numX * numY;
 
-  let i: number,
-    j = 0,
-    x = 0,
-    y: number,
-    r = 0,
-    g = 0,
-    b = 0,
-    basis = 0,
-    basisY = 0,
-    colorIndex = 0,
-    pixelIndex = 0,
-    yh = 0,
-    xw = 0,
-    value = 0;
+  let i: number;
+  let j = 0;
+  let x = 0;
+  let y: number;
+  let r = 0;
+  let g = 0;
+  let b = 0;
+  let basis = 0;
+  let basisY = 0;
+  let colorIndex = 0;
+  let pixelIndex = 0;
+  let yh = 0;
+  let xw = 0;
+  let value = 0;
 
   const maximumValue = ((decode83(blurHash, 1, 2) + 1) / 13446) * (punch || 1);
 

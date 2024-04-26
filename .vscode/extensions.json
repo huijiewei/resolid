@@ -1,9 +1,3 @@
 {
-    "recommendations": [
-        "dbaeumer.vscode-eslint",
-        "unifiedjs.vscode-mdx",
-        "esbenp.prettier-vscode",
-        "bradlc.vscode-tailwindcss",
-        "editorconfig.editorconfig"
-    ]
+  "recommendations": ["unifiedjs.vscode-mdx", "bradlc.vscode-tailwindcss", "editorconfig.editorconfig", "biomejs.biome"]
 }

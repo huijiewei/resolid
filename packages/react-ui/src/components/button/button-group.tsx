@@ -2,7 +2,7 @@ import { __DEV__ } from "@resolid/utils";
 import { useMemo } from "react";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/slot";
-import { ButtonGroupProvider, type ButtonGroupContext } from "./button-group-context";
+import { type ButtonGroupContext, ButtonGroupProvider } from "./button-group-context";
 
 export type ButtonGroupProps = ButtonGroupContext;
 
