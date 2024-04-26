@@ -11,7 +11,11 @@ overrides:
   react-dom: 19.0.0-beta-94eed63c49-20240425
   react-is: 19.0.0-beta-94eed63c49-20240425
   hasown: npm:@nolyfill/hasown@latest
+  is-arguments: npm:@nolyfill/is-arguments@latest
+  is-generator-function: npm:@nolyfill/is-generator-function@latest
   is-typed-array: npm:@nolyfill/is-typed-array@latest
+  isarray: npm:@nolyfill/isarray@latest
+  side-channel: npm:@nolyfill/side-channel@latest
   which-typed-array: npm:@nolyfill/which-typed-array@latest
 
 importers:
@@ -178,8 +182,8 @@ importers:
   packages/remix-plugins:
     dependencies:
       '@hono/node-server':
-        specifier: ^1.11.0
-        version: 1.11.0
+        specifier: ^1.11.1
+        version: 1.11.1
       '@remix-run/node':
         specifier: ^2.9.1
         version: 2.9.1(typescript@5.4.5)
@@ -249,8 +253,8 @@ importers:
         specifier: ^0.1.1
         version: 0.1.1
       '@hono/node-server':
-        specifier: ^1.11.0
-        version: 1.11.0
+        specifier: ^1.11.1
+        version: 1.11.1
       '@hookform/resolvers':
         specifier: ^3.3.4
         version: 3.3.4(react-hook-form@7.51.3(react@19.0.0-beta-94eed63c49-20240425))
@@ -850,8 +854,8 @@ packages:
   '@formkit/tempo@0.1.1':
     resolution: {integrity: sha512-nepRwKnCIjukLkblqh339sSXYI6P3cqktF/T7ECj3vURW+Pd+YzTv/I/lwjRqPGmlQJG93LORodIAkvgoExIAg==}
 
-  '@hono/node-server@1.11.0':
-    resolution: {integrity: sha512-TLIJq9TMtD1NEG1mVoqNUn1Ita0qSaB5XboZErjFBcO/GJYXwWY4dVdTi9G0lbxtu0x+hJXDItcLaFHb7rlFTw==}
+  '@hono/node-server@1.11.1':
+    resolution: {integrity: sha512-GW1Iomhmm1o4Z+X57xGby8A35Cu9UZLL7pSMdqDBkD99U5cywff8F+8hLk5aBTzNubnsFAvWQ/fZjNwPsEn9lA==}
     engines: {node: '>=18.14.1'}
 
   '@hono/zod-validator@0.2.1':
@@ -4958,7 +4962,7 @@ snapshots:
 
   '@formkit/tempo@0.1.1': {}
 
-  '@hono/node-server@1.11.0': {}
+  '@hono/node-server@1.11.1': {}
 
   '@hono/zod-validator@0.2.1(hono@4.2.7)(zod@3.23.4)':
     dependencies:
@@ -6133,7 +6137,7 @@ snapshots:
   drizzle-kit@0.20.17:
     dependencies:
       '@esbuild-kit/esm-loader': 2.6.5
-      '@hono/node-server': 1.11.0
+      '@hono/node-server': 1.11.1
       '@hono/zod-validator': 0.2.1(hono@4.2.7)(zod@3.23.4)
       camelcase: 7.0.1
       chalk: 5.3.0
