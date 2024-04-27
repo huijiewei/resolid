@@ -1,11 +1,11 @@
 import { __DEV__ } from "@resolid/utils";
 import { type CSSProperties, type ChangeEvent, type ReactNode, forwardRef, useCallback, useRef } from "react";
 import { useControllableState, useMergeRefs } from "../../hooks";
-import { focusInputStyles } from "../../shared/styles";
+import { sharedInputTextStyles } from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/slot";
 import { type InputGroupContext, useInputGroup } from "./input-group-context";
-import { inputAdornmentDefaultSizes, inputSizeStyles } from "./input.styles";
+import { inputAdornmentDefaultSizes, inputGroupStyles, inputSizeStyles } from "./input.styles";
 
 export type InputProps = Partial<InputGroupContext> & {
   /**
@@ -96,7 +96,7 @@ export type InputProps = Partial<InputGroupContext> & {
   trailingPointer?: boolean;
 };
 
-export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>>((props, ref) => {
+export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps, "children">>((props, ref) => {
   const group = useInputGroup();
 
   const {
@@ -118,6 +118,7 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>
     trailing,
     trailingWidth,
     trailingPointer = false,
+    inputMode,
     ...rest
   } = props;
 
@@ -125,6 +126,10 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
+      if (inputMode == "decimal" && (event.nativeEvent as InputEvent).isComposing) {
+        return;
+      }
+
       if (readOnly || disabled) {
         event.preventDefault();
         return;
@@ -132,7 +137,7 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>
 
       setState(event.target.value);
     },
-    [readOnly, disabled, setState],
+    [readOnly, disabled, inputMode, setState],
   );
 
   const adornmentSize = inputAdornmentDefaultSizes[size];
@@ -142,7 +147,16 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>
 
   return (
     <div
-      className={clsx("relative", block && "w-full", group && "group/input [&:not(:first-child)]:-ms-px", className)}
+      className={clsx(
+        "relative transition-colors rounded border inline-flex items-center",
+        "focus-within:ring-1 focus-within:border-bg-primary-emphasis focus-within:ring-bg-primary-emphasis",
+        block && "w-full",
+        invalid && "border-bd-invalid",
+        group && inputGroupStyles,
+        sharedInputTextStyles[size],
+        !disabled && !invalid && "hover:[&:not(:focus-within)]:border-bd-hovered",
+        className,
+      )}
       style={
         {
           "--leading-width": leading ? (leadingWidth ? `${leadingWidth}px` : adornmentSize) : undefined,
@@ -157,16 +171,11 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>
         ref={refs}
         className={clsx(
           "w-full resize-none appearance-none text-left align-middle outline-none",
-          "rounded border bg-bg-normal transition-colors",
+          "rounded bg-bg-normal transition-colors",
           "disabled:cursor-not-allowed disabled:bg-bg-subtlest disabled:opacity-60",
-          focusInputStyles,
           inputSizeStyles[size],
           leading && "ps-[var(--leading-width)]",
           trailing && "pe-[var(--trailing-width)]",
-          invalid && "border-bd-invalid",
-          group &&
-            "group-first/input:rounded-br-none group-first/input:rounded-tr-none group-last/input:rounded-bl-none group-last/input:rounded-tl-none group-[&:not(:first-child,:last-child)]/input:rounded-none",
-          !disabled && !invalid && "hover:border-bd-hovered",
         )}
         size={htmlSize}
         placeholder={placeholder}
@@ -174,6 +183,7 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps>
         disabled={disabled}
         readOnly={readOnly}
         onChange={handleChange}
+        inputMode={inputMode}
         value={state}
         {...rest}
       />
@@ -200,7 +210,7 @@ const InputAdornment = ({
   return (
     <span
       className={clsx(
-        "absolute inset-y-0 flex items-center justify-center text-fg-subtlest",
+        "absolute inset-y-0 flex justify-center items-center text-fg-subtlest",
         !pointer && "pointer-events-none",
         className,
       )}

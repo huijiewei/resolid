@@ -24,7 +24,7 @@ import {
   useState,
 } from "react";
 import { useCallbackRef, useControllableState, useIsomorphicEffect, usePrevious } from "../../hooks";
-import { focusInputStyles } from "../../shared/styles";
+import { focusInputStyles, sharedInputTextStyles } from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import { ariaAttr, dataAttr } from "../../utils/dom";
 import type { Size } from "../../utils/types";
@@ -323,6 +323,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
   };
 
   const sizeStyle = selectSizeStyles[size];
+  const textStyle = sharedInputTextStyles[size];
 
   const handleSelect = useCallback(
     (option: Omit<Option, keyof OptionFieldNames["options"]>, close = true) => {
@@ -472,7 +473,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
             : "active:border-bg-primary-emphasis active:ring-1 active:ring-bg-primary-emphasis",
           !invalid && !disabled && !openedState && "hover:border-bd-hovered",
           block && "w-full",
-          sizeStyle.text,
+          textStyle,
           sizeStyle.select,
           className,
         )}
@@ -574,7 +575,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
             }
           >
             <div
-              className={clsx("outline-none", sizeStyle.text)}
+              className={clsx("outline-none", textStyle)}
               style={
                 virtual ? { height: `${rowVirtual.getTotalSize()}px`, width: "100%", position: "relative" } : undefined
               }

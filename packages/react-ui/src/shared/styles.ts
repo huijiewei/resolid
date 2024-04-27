@@ -150,3 +150,11 @@ export const sharedCheckboxRadioSizeStyles = {
   lg: { control: "h-6 w-6", label: "text-base" },
   xl: { control: "h-7 w-7", label: "text-lg" },
 };
+
+export const sharedInputTextStyles = {
+  xs: "text-xs",
+  sm: "text-sm",
+  md: "text-base",
+  lg: "text-base",
+  xl: "text-lg",
+};

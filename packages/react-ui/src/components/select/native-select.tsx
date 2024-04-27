@@ -1,6 +1,6 @@
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
-import { focusInputStyles } from "../../shared/styles";
+import { focusInputStyles, sharedInputTextStyles } from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import type { Size } from "../../utils/types";
 import type { BaseProps } from "../slot/slot";
@@ -31,9 +31,10 @@ export const NativeSelect = forwardRef<HTMLSelectElement, BaseProps<"select", Na
   const { size = "md", disabled = false, invalid = false, children, className, ...rest } = props;
 
   const sizeStyle = selectSizeStyles[size];
+  const textStyle = sharedInputTextStyles[size];
 
   return (
-    <div className={clsx("relative", sizeStyle.text)}>
+    <div className={clsx("relative", textStyle)}>
       <select
         disabled={disabled}
         className={clsx(

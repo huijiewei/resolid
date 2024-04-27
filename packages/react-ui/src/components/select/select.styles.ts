@@ -1,6 +1,5 @@
 export const selectSizeStyles = {
   xs: {
-    text: "text-xs",
     select: "py-[5px] pl-2.5 pr-7",
     chevron: "px-1.5",
     option: "px-2.5 py-1.5",
@@ -9,7 +8,6 @@ export const selectSizeStyles = {
     height: 28,
   },
   sm: {
-    text: "text-sm",
     select: "py-[5px] pl-3 pr-8",
     chevron: "px-2",
     option: "px-3 py-1.5",
@@ -18,7 +16,6 @@ export const selectSizeStyles = {
     height: 32,
   },
   md: {
-    text: "text-base",
     select: "py-[5px] pl-3.5 pr-8",
     chevron: "px-2",
     option: "px-3.5 py-1.5",
@@ -27,7 +24,6 @@ export const selectSizeStyles = {
     height: 36,
   },
   lg: {
-    text: "text-base",
     select: "py-[7px] pl-4 pr-10",
     chevron: "px-2",
     option: "px-4 py-2",
@@ -36,7 +32,6 @@ export const selectSizeStyles = {
     height: 40,
   },
   xl: {
-    text: "text-lg",
     select: "py-[7px] pl-4 pr-10",
     chevron: "px-2.5",
     option: "px-4 py-2",
