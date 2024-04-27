@@ -1,6 +1,12 @@
 import { __DEV__ } from "@resolid/utils";
 import { type CSSProperties, type ChangeEvent, forwardRef, useCallback } from "react";
 import { useControllableState } from "../../hooks";
+import {
+  disabledStyles,
+  peerFocusRingStyles,
+  sharedCheckboxRadioColorStyles,
+  sharedCheckboxRadioSizeStyles,
+} from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/slot";
 import { type RadioBaseProps, useRadioGroup } from "./radio-group-context";
@@ -35,41 +41,9 @@ export type RadioProps = RadioBaseProps & {
   onChange?: (checked: boolean) => void;
 };
 
-const radioSizeStyles = {
-  xs: { control: "h-3.5 w-3.5", label: "text-xs" },
-  sm: { control: "h-4 w-4", label: "text-sm" },
-  md: { control: "h-5 w-5", label: "text-base" },
-  lg: { control: "h-6 w-6", label: "text-base" },
-  xl: { control: "h-7 w-7", label: "text-lg" },
-};
+const radioSizeStyles = sharedCheckboxRadioSizeStyles;
 
-const radioColorStyles = {
-  primary: {
-    focus: "peer-focus-visible:ring-bg-primary-emphasis/35",
-    checked: "bg-bg-primary-emphasis",
-    border: "border-bg-primary-emphasis",
-  },
-  neutral: {
-    focus: "peer-focus-visible:ring-bg-neutral-emphasis/35",
-    checked: "bg-bg-neutral-emphasis",
-    border: "border-bg-neutral-emphasis",
-  },
-  success: {
-    focus: "peer-focus-visible:ring-bg-success-emphasis/35",
-    checked: "bg-bg-success-emphasis",
-    border: "border-bg-success-emphasis",
-  },
-  warning: {
-    focus: "peer-focus-visible:ring-bg-warning-emphasis/35",
-    checked: "bg-bg-warning-emphasis",
-    border: "border-bg-warning-emphasis",
-  },
-  danger: {
-    focus: "peer-focus-visible:ring-bg-danger-emphasis/35",
-    checked: "bg-bg-danger-emphasis",
-    border: "border-bg-danger-emphasis",
-  },
-};
+const radioColorStyles = sharedCheckboxRadioColorStyles;
 
 export const Radio = forwardRef<HTMLInputElement, BaseProps<"input", RadioProps, "role" | "type">>((props, ref) => {
   const group = useRadioGroup();
@@ -140,17 +114,17 @@ export const Radio = forwardRef<HTMLInputElement, BaseProps<"input", RadioProps,
       <span
         className={clsx(
           "inline-flex shrink-0 select-none items-center justify-center rounded-full border-2",
-          "peer-focus-visible:ring",
+          peerFocusRingStyles,
           colorStyle.focus,
           invalid ? "border-bd-invalid" : state ? colorStyle.border : "border-bd-normal",
           state ? `${colorStyle.checked} text-fg-emphasized` : "bg-bg-normal",
-          disabled && "opacity-70 grayscale-[30%]",
+          disabled && disabledStyles,
           sizeStyle.control,
           state &&
             `before:relative before:inline-block before:h-1/2 before:w-1/2 before:rounded-[50%] before:bg-current before:content-['']`,
         )}
       />
-      {children && <span className={clsx(sizeStyle.label, disabled && "opacity-70 grayscale-[30%]")}>{children}</span>}
+      {children && <span className={clsx(sizeStyle.label, disabled && disabledStyles)}>{children}</span>}
     </label>
   );
 });

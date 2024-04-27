@@ -92,3 +92,61 @@ export const sharedBadgeAndAlertVariants = {
 export const focusInputStyles = "focus:border-bg-primary-emphasis focus:ring-1 focus:ring-bg-primary-emphasis";
 
 export const focusRingStyles = "focus-visible:ring";
+
+export const peerFocusRingStyles = "peer-focus-visible:ring";
+
+export const disabledStyles = "opacity-70 grayscale-[30%]";
+
+export const sharedSwitchCheckboxRadioColorStyles = {
+  primary: {
+    focus: "peer-focus-visible:ring-bg-primary-emphasis/35",
+    checked: "bg-bg-primary-emphasis",
+  },
+  neutral: {
+    focus: "peer-focus-visible:ring-bg-neutral-emphasis/35",
+    checked: "bg-bg-neutral-emphasis",
+  },
+  success: {
+    focus: "peer-focus-visible:ring-bg-success-emphasis/35",
+    checked: "bg-bg-success-emphasis",
+  },
+  warning: {
+    focus: "peer-focus-visible:ring-bg-warning-emphasis/35",
+    checked: "bg-bg-warning-emphasis",
+  },
+  danger: {
+    focus: "peer-focus-visible:ring-bg-danger-emphasis/35",
+    checked: "bg-bg-danger-emphasis",
+  },
+};
+
+export const sharedCheckboxRadioColorStyles = {
+  primary: {
+    ...sharedSwitchCheckboxRadioColorStyles.primary,
+    border: "border-bg-primary-emphasis",
+  },
+  neutral: {
+    ...sharedSwitchCheckboxRadioColorStyles.neutral,
+    border: "border-bg-neutral-emphasis",
+  },
+  success: {
+    ...sharedSwitchCheckboxRadioColorStyles.success,
+    border: "border-bg-success-emphasis",
+  },
+  warning: {
+    ...sharedSwitchCheckboxRadioColorStyles.warning,
+    border: "border-bg-warning-emphasis",
+  },
+  danger: {
+    ...sharedSwitchCheckboxRadioColorStyles.danger,
+    border: "border-bg-danger-emphasis",
+  },
+};
+
+export const sharedCheckboxRadioSizeStyles = {
+  xs: { control: "h-3.5 w-3.5", label: "text-xs" },
+  sm: { control: "h-4 w-4", label: "text-sm" },
+  md: { control: "h-5 w-5", label: "text-base" },
+  lg: { control: "h-6 w-6", label: "text-base" },
+  xl: { control: "h-7 w-7", label: "text-lg" },
+};

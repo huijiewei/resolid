@@ -9,6 +9,12 @@ import {
   useRef,
 } from "react";
 import { useControllableState, useIsomorphicEffect, useMergeRefs } from "../../hooks";
+import {
+  disabledStyles,
+  peerFocusRingStyles,
+  sharedCheckboxRadioColorStyles,
+  sharedCheckboxRadioSizeStyles,
+} from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/slot";
 import { type CheckboxBaseProps, useCheckboxGroup } from "./checkbox-group-context";
@@ -57,40 +63,14 @@ export type CheckboxProps = CheckboxBaseProps & {
 };
 
 const checkboxSizeStyles = {
-  xs: { control: "h-3.5 w-3.5", label: "text-xs", icon: "text-[0.45rem]" },
-  sm: { control: "h-4 w-4", label: "text-sm", icon: "text-[0.5rem]" },
-  md: { control: "h-5 w-5", label: "text-base", icon: "text-[0.625rem]" },
-  lg: { control: "h-6 w-6", label: "text-base", icon: "text-[0.75rem]" },
-  xl: { control: "h-7 w-7", label: "text-lg", icon: "text-[0.875rem]" },
+  xs: { ...sharedCheckboxRadioSizeStyles.xs, icon: "text-[0.45rem]" },
+  sm: { ...sharedCheckboxRadioSizeStyles.sm, icon: "text-[0.5rem]" },
+  md: { ...sharedCheckboxRadioSizeStyles.md, icon: "text-[0.625rem]" },
+  lg: { ...sharedCheckboxRadioSizeStyles.lg, icon: "text-[0.75rem]" },
+  xl: { ...sharedCheckboxRadioSizeStyles.xl, icon: "text-[0.875rem]" },
 };
 
-const checkboxColorStyles = {
-  primary: {
-    focus: "peer-focus-visible:ring-bg-primary-emphasis/35",
-    checked: "bg-bg-primary-emphasis",
-    border: "border-bg-primary-emphasis",
-  },
-  neutral: {
-    focus: "peer-focus-visible:ring-bg-neutral-emphasis/35",
-    checked: "bg-bg-neutral-emphasis",
-    border: "border-bg-neutral-emphasis",
-  },
-  success: {
-    focus: "peer-focus-visible:ring-bg-success-emphasis/35",
-    checked: "bg-bg-success-emphasis",
-    border: "border-bg-success-emphasis",
-  },
-  warning: {
-    focus: "peer-focus-visible:ring-bg-warning-emphasis/35",
-    checked: "bg-bg-warning-emphasis",
-    border: "border-bg-warning-emphasis",
-  },
-  danger: {
-    focus: "peer-focus-visible:ring-bg-danger-emphasis/35",
-    checked: "bg-bg-danger-emphasis",
-    border: "border-bg-danger-emphasis",
-  },
-};
+const checkboxColorStyles = sharedCheckboxRadioColorStyles;
 
 export const Checkbox = forwardRef<HTMLInputElement, BaseProps<"input", CheckboxProps, "role" | "type">>(
   (props, ref) => {
@@ -189,19 +169,17 @@ export const Checkbox = forwardRef<HTMLInputElement, BaseProps<"input", Checkbox
         <div
           className={clsx(
             "inline-flex shrink-0 select-none items-center justify-center rounded border-2 transition-colors",
-            "peer-focus-visible:ring",
+            peerFocusRingStyles,
             colorStyle.focus,
             invalid ? "border-bd-invalid" : state || indeterminate ? colorStyle.border : "border-bd-normal",
             state || indeterminate ? `${colorStyle.checked} text-fg-emphasized` : "bg-bg-normal",
-            disabled && "opacity-70 grayscale-[30%]",
+            disabled && disabledStyles,
             sizeStyle.control,
           )}
         >
           {clonedIcon}
         </div>
-        {children && (
-          <span className={clsx(sizeStyle.label, disabled && "opacity-70 grayscale-[30%]")}>{children}</span>
-        )}
+        {children && <span className={clsx(sizeStyle.label, disabled && disabledStyles)}>{children}</span>}
       </label>
     );
   },

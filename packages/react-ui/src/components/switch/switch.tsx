@@ -1,6 +1,7 @@
 import { __DEV__ } from "@resolid/utils";
 import { type CSSProperties, type ChangeEvent, forwardRef, useCallback } from "react";
 import { useControllableState } from "../../hooks";
+import { disabledStyles, peerFocusRingStyles, sharedSwitchCheckboxRadioColorStyles } from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import type { Color, Size } from "../../utils/types";
 import type { BaseProps } from "../slot/slot";
@@ -50,28 +51,7 @@ const switchSizeStyles = {
   xl: { track: "h-8 w-16", thumb: "translate-x-8", label: "text-lg" },
 };
 
-const switchColorStyles = {
-  primary: {
-    focus: "peer-focus-visible:ring-bg-primary-emphasis/35",
-    checked: "bg-bg-primary-emphasis",
-  },
-  neutral: {
-    focus: "peer-focus-visible:ring-bg-neutral-emphasis/35",
-    checked: "bg-bg-neutral-emphasis",
-  },
-  success: {
-    focus: "peer-focus-visible:ring-bg-success-emphasis/35",
-    checked: "bg-bg-success-emphasis",
-  },
-  warning: {
-    focus: "peer-focus-visible:ring-bg-warning-emphasis/35",
-    checked: "bg-bg-warning-emphasis",
-  },
-  danger: {
-    focus: "peer-focus-visible:ring-bg-danger-emphasis/35",
-    checked: "bg-bg-danger-emphasis",
-  },
-};
+const switchColorStyles = sharedSwitchCheckboxRadioColorStyles;
 
 export const Switch = forwardRef<HTMLInputElement, BaseProps<"input", SwitchProps, "role" | "type">>((props, ref) => {
   const {
@@ -138,11 +118,11 @@ export const Switch = forwardRef<HTMLInputElement, BaseProps<"input", SwitchProp
       <span
         className={clsx(
           "inline-flex shrink-0 justify-start rounded-full p-[2px] transition-colors",
-          "peer-focus-visible:ring",
+          peerFocusRingStyles,
           colorStyle.focus,
           sizeStyle.track,
           state ? colorStyle.checked : "bg-bg-muted",
-          disabled && "opacity-70 grayscale-[30%]",
+          disabled && disabledStyles,
         )}
       >
         <span
@@ -152,7 +132,7 @@ export const Switch = forwardRef<HTMLInputElement, BaseProps<"input", SwitchProp
           )}
         />
       </span>
-      {children && <span className={clsx(sizeStyle.label, disabled && "opacity-70 grayscale-[30%]")}>{children}</span>}
+      {children && <span className={clsx(sizeStyle.label, disabled && disabledStyles)}>{children}</span>}
     </label>
   );
 });
