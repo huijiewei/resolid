@@ -14,8 +14,8 @@ export const ModalCloseButton = forwardRef<HTMLButtonElement, BaseProps<"button"
     <CloseButton
       onClick={() => close()}
       ref={ref}
-      size={"1.25rem"}
-      className={clsx("absolute right-2 top-2 rounded p-1 text-lg", className)}
+      size={"1.125rem"}
+      className={clsx("absolute right-2.5 top-2.5 rounded-full p-1 text-lg", className)}
       {...rest}
     >
       {children}

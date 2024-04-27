@@ -77,11 +77,7 @@ export const ToastRoot = (props: BaseProps<"div", ToastRootProps, "role" | "id">
     [descriptionId, labelId],
   );
 
-  console.log(placement);
-
   const transformStyle = placementTransformStyles[placement?.split("-")[0] as keyof typeof placementTransformStyles];
-
-  console.log(transformStyle);
 
   return (
     isMounted && (

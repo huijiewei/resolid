@@ -15,8 +15,8 @@ export const PopoverCloseButton = forwardRef<HTMLButtonElement, BaseProps<"butto
       <CloseButton
         onClick={() => close()}
         ref={ref}
-        size={"1.25rem"}
-        className={clsx("absolute right-1 top-1 rounded p-0.5", className)}
+        size={"1.125rem"}
+        className={clsx("absolute right-1.5 top-1.5 rounded-full p-1", className)}
         {...rest}
       >
         {children}
