@@ -12,6 +12,7 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerHeader,
+  DrawerTitle,
   DrawerBody,
   DrawerFooter,
   DrawerCloseButton,
@@ -34,19 +35,21 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerHeader,
+  DrawerTitle,
+  DrawerCloseButton,
   DrawerBody,
   DrawerFooter,
-  DrawerCloseButton,
 } from "@resolid/react-ui";
 ```
 
 - `Drawer`: 为其子级提供上下文的包装器。
 - `DrawerOverlay`: 抽屉后面的灰度叠加层。
 - `DrawerContent`: 抽屉内容的容器。
-- `DrawerHeader`: 抽屉的标题。
+- `DrawerHeader`: 抽屉的头部。
+- `DrawerTitle`: 抽屉的标题。
+- `DrawerCloseButton`: 关闭抽屉的按钮。
 - `DrawerBody`: 包含抽屉主要内容的包装器。
 - `DrawerFooter`: 抽屉的页脚。
-- `DrawerCloseButton`: 关闭抽屉的按钮。
 
 ## 基础
 
@@ -61,10 +64,12 @@ import {
           <Drawer opened={opened} onClose={() => setOpened(false)}>
             <DrawerOverlay />
             <DrawerContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-              <DrawerHeader>抽屉标题</DrawerHeader>
-              <DrawerCloseButton />
-              <DrawerBody className={'p-4'}>抽屉内容</DrawerBody>
-              <DrawerFooter className={'flex items-center justify-center gap-5'}>
+              <DrawerHeader className={"p-4"}>
+                <DrawerTitle>抽屉标题</DrawerTitle>
+                <DrawerCloseButton />
+              </DrawerHeader>
+              <DrawerBody className={'p-1 px-4'}>抽屉内容</DrawerBody>
+              <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
                 <Button onClick={() => setOpened(false)}>关闭</Button>
               </DrawerFooter>
             </DrawerContent>
@@ -84,10 +89,12 @@ import {
       <Drawer opened={opened} onClose={() => setOpened(false)}>
         <DrawerOverlay />
         <DrawerContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-          <DrawerHeader>抽屉标题</DrawerHeader>
-          <DrawerCloseButton />
-          <DrawerBody className={'p-4'}>抽屉内容</DrawerBody>
-          <DrawerFooter className={'flex items-center justify-center gap-5'}>
+          <DrawerHeader className={"p-4"}>
+            <DrawerTitle>抽屉标题</DrawerTitle>
+            <DrawerCloseButton />
+          </DrawerHeader>
+          <DrawerBody className={'p-1 px-4'}>抽屉内容</DrawerBody>
+          <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>关闭</Button>
           </DrawerFooter>
         </DrawerContent>
@@ -125,10 +132,12 @@ import {
                 : 'h-11/12 md:h-3/5 lg:h-1/3'
             }
           >
-            <DrawerHeader>抽屉标题</DrawerHeader>
-            <DrawerCloseButton />
-            <DrawerBody className={'p-4'}>抽屉内容</DrawerBody>
-            <DrawerFooter className={'flex items-center justify-center gap-5'}>
+            <DrawerHeader className={"p-4"}>
+              <DrawerTitle>抽屉标题</DrawerTitle>
+              <DrawerCloseButton />
+            </DrawerHeader>
+            <DrawerBody className={'p-1 px-4'}>抽屉内容</DrawerBody>
+            <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
               <Button onClick={() => setOpened(false)}>关闭</Button>
             </DrawerFooter>
           </DrawerContent>
@@ -143,18 +152,34 @@ import {
   
   return (
     <>
-      <Button onClick={() => setOpened(true)}>打开模态框</Button>
-      <Modal centered opened={opened} onClose={() => setOpened(false)}>
-        <ModalOverlay />
-        <ModalContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-          <ModalHeader>模态框标题</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody className={'p-4'}>模态框内容</ModalBody>
-          <ModalFooter className={'flex items-center justify-center gap-5'}>
+      <RadioGroup name="placement" value={placement} onChange={setPlacement}>
+        <div className={'flex flex-row gap-5'}>
+          <Radio value="top">顶部</Radio>
+          <Radio value="bottom">底部</Radio>
+          <Radio value="left">左边</Radio>
+          <Radio value="right">右边</Radio>
+        </div>
+      </RadioGroup>
+      <Button onClick={() => setOpened(true)}>打开抽屉</Button>
+      <Drawer opened={opened} placement={placement} onClose={() => setOpened(false)}>
+        <DrawerOverlay />
+        <DrawerContent
+          className={
+            placement == 'left' || placement == 'right'
+              ? 'w-11/12 md:w-3/5 lg:w-1/3'
+              : 'h-11/12 md:h-3/5 lg:h-1/3'
+          }
+        >
+          <DrawerHeader className={"p-4"}>
+            <DrawerTitle>抽屉标题</DrawerTitle>
+            <DrawerCloseButton />
+          </DrawerHeader>
+          <DrawerBody className={'p-1 px-4'}>抽屉内容</DrawerBody>
+          <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>关闭</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
     </>
   );
   ````
@@ -173,9 +198,11 @@ import {
           <Drawer opened={opened} onClose={() => setOpened(false)}>
             <DrawerOverlay />
             <DrawerContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-              <DrawerHeader>抽屉标题</DrawerHeader>
-              <DrawerCloseButton />
-              <DrawerBody className={'border-t border-b border-bd-subtle prose p-4 dark:prose-invert'}>
+              <DrawerHeader className={"p-4"}>
+                <DrawerTitle>抽屉标题</DrawerTitle>
+                <DrawerCloseButton />
+              </DrawerHeader>
+              <DrawerBody className={'border-t border-b border-bd-subtle prose p-1 px-4 dark:prose-invert'}>
                 <p>
                   苹果于 2023 年 1 月对 14 英寸和 16 英寸 MacBook Pro 机型进行了彻底改造，添加了下一代 M2 Pro 和 M2 Max
                   芯片、增加了最大内存、更长的电池续航时间、支持 8K 显示的 HDMI 2.1、更快的 Wi-Fi 6E 以及 蓝牙5.3支持。
@@ -240,7 +267,7 @@ import {
                   美元，价格与上一代机器相比没有变化。
                 </p>
               </DrawerBody>
-              <DrawerFooter className={'flex items-center justify-center gap-5'}>
+              <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
                 <Button onClick={() => setOpened(false)}>关闭</Button>
               </DrawerFooter>
             </DrawerContent>
@@ -261,12 +288,14 @@ const [scrollBehavior, setScrollBehavior] = useState("inside");
       <Drawer opened={opened} onClose={() => setOpened(false)}>
         <DrawerOverlay />
         <DrawerContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-          <DrawerHeader>抽屉标题</DrawerHeader>
-          <DrawerCloseButton />
-          <DrawerBody className={'p-4'}>
+          <DrawerHeader className={"p-4"}>
+            <DrawerTitle>抽屉标题</DrawerTitle>
+            <DrawerCloseButton />
+          </DrawerHeader>
+          <DrawerBody className={'p-1 px-4'}>
             内部大量内容
           </DrawerBody>
-          <DrawerFooter className={'flex items-center justify-center gap-5'}>
+          <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
             <Button onClick={() => setOpened(false)}>关闭</Button>
           </DrawerFooter>
         </DrawerContent>
@@ -296,9 +325,11 @@ const [scrollBehavior, setScrollBehavior] = useState("inside");
           <Drawer initialFocus={initialRef} finalFocus={finalRef} opened={opened} onClose={() => setOpened(false)}>
             <DrawerOverlay />
             <DrawerContent className={'w-fit'}>
-              <DrawerHeader>抽屉标题</DrawerHeader>
-              <DrawerCloseButton />
-              <DrawerBody className={'p-4 flex flex-col gap-3'}>
+              <DrawerHeader className={"p-4"}>
+                <DrawerTitle>抽屉标题</DrawerTitle>
+                <DrawerCloseButton />
+              </DrawerHeader>
+              <DrawerBody className={'p-1 px-4 flex flex-col gap-3'}>
                 <div className={'flex flex-row items-center'}>
                   <label htmlFor={'username'} className={'w-28'}>
                     用户名 <span className={'text-red-500'}>*</span>
@@ -312,7 +343,7 @@ const [scrollBehavior, setScrollBehavior] = useState("inside");
                   <Input placeholder={'电子邮箱'} id={'email'} />
                 </div>
               </DrawerBody>
-              <DrawerFooter className={'flex items-center justify-center gap-5'}>
+              <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
                 <Button onClick={() => setOpened(false)}>关闭</Button>
               </DrawerFooter>
             </DrawerContent>
@@ -337,9 +368,11 @@ const [scrollBehavior, setScrollBehavior] = useState("inside");
         <Drawer initialFocus={initialRef} finalFocus={finalRef} opened={opened} onClose={() => setOpened(false)}>
           <DrawerOverlay />
           <DrawerContent className={'w-fit'}>
-            <DrawerHeader>抽屉标题</DrawerHeader>
-            <DrawerCloseButton />
-            <DrawerBody className={'p-4 flex flex-col gap-3'}>
+            <DrawerHeader className={"p-4"}>
+              <DrawerTitle>抽屉标题</DrawerTitle>
+              <DrawerCloseButton />
+            </DrawerHeader>
+            <DrawerBody className={'p-1 px-4 flex flex-col gap-3'}>
               <div className={'flex flex-row items-center'}>
                 <label htmlFor={'username'} className={'w-28'}>
                   用户名 <span className={'text-red-500'}>*</span>
@@ -353,7 +386,7 @@ const [scrollBehavior, setScrollBehavior] = useState("inside");
                 <Input placeholder={'电子邮箱'} id={'email'} />
               </div>
             </DrawerBody>
-            <DrawerFooter className={'flex items-center justify-center gap-5'}>
+            <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
               <Button onClick={() => setOpened(false)}>关闭</Button>
             </DrawerFooter>
           </DrawerContent>
@@ -385,10 +418,12 @@ const [scrollBehavior, setScrollBehavior] = useState("inside");
           <Drawer opened={opened} onClose={() => setOpened(false)}>
             {overlay}
             <DrawerContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-              <DrawerHeader>抽屉标题</DrawerHeader>
-              <DrawerCloseButton />
-              <DrawerBody className={'p-4'}>抽屉内容</DrawerBody>
-              <DrawerFooter className={'flex items-center justify-center gap-5'}>
+              <DrawerHeader className={"p-4"}>
+                <DrawerTitle>抽屉标题</DrawerTitle>
+                <DrawerCloseButton />
+              </DrawerHeader>
+              <DrawerBody className={'p-1 px-4'}>抽屉内容</DrawerBody>
+              <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
                 <Button onClick={() => setOpened(false)}>关闭</Button>
               </DrawerFooter>
             </DrawerContent>
@@ -417,10 +452,12 @@ const [scrollBehavior, setScrollBehavior] = useState("inside");
         <Drawer opened={opened} onClose={() => setOpened(false)}>
           {overlay}
           <DrawerContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-            <DrawerHeader>抽屉标题</DrawerHeader>
-            <DrawerCloseButton />
-            <DrawerBody className={'p-4'}>抽屉内容</DrawerBody>
-            <DrawerFooter className={'flex items-center justify-center gap-5'}>
+            <DrawerHeader className={"p-4"}>
+              <DrawerTitle>抽屉标题</DrawerTitle>
+              <DrawerCloseButton />
+            </DrawerHeader>
+            <DrawerBody className={'p-1 px-4'}>抽屉内容</DrawerBody>
+            <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
               <Button onClick={() => setOpened(false)}>关闭</Button>
             </DrawerFooter>
           </DrawerContent>

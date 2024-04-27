@@ -1,5 +1,4 @@
 import { FloatingFocusManager } from "@floating-ui/react";
-import { __DEV__ } from "@resolid/utils";
 import { type CSSProperties, useEffect } from "react";
 import { clsx } from "../../utils/classed";
 import { useFloatingAria } from "../floating/floating-aria-context";
@@ -36,7 +35,7 @@ const placementTransformStyles = {
 export const DrawerContent = (props: BaseProps<"div">) => {
   const { children, className, ...rest } = props;
   const { placement } = useDrawer();
-  const { labelId, descriptionId } = useFloatingAria();
+  const { labelId } = useFloatingAria();
   const { opened, status, duration, setFloating, context, getFloatingProps, initialFocus, finalFocus } = useModal();
 
   const transformStyle = placementTransformStyles[placement];
@@ -63,7 +62,6 @@ export const DrawerContent = (props: BaseProps<"div">) => {
           {...getFloatingProps({
             ...rest,
             "aria-labelledby": labelId,
-            "aria-describedby": descriptionId,
           })}
         >
           {children}
@@ -72,7 +70,3 @@ export const DrawerContent = (props: BaseProps<"div">) => {
     </div>
   );
 };
-
-if (__DEV__) {
-  DrawerContent.displayName = "DrawerContent";
-}

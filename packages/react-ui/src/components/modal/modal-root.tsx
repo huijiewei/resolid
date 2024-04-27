@@ -1,5 +1,4 @@
 import { useClick, useDismiss, useFloating, useInteractions, useRole, useTransitionStatus } from "@floating-ui/react";
-import { __DEV__ } from "@resolid/utils";
 import { type PropsWithChildren, useEffect, useId, useMemo } from "react";
 import { usePrevious } from "../../hooks";
 import { type FloatingAriaContext, FloatingAriaProvider } from "../floating/floating-aria-context";
@@ -131,7 +130,3 @@ export const ModalRoot = (props: PropsWithChildren<ModalRootProps>) => {
     </ModalProvider>
   );
 };
-
-if (__DEV__) {
-  ModalRoot.displayName = "Modal";
-}

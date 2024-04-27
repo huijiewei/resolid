@@ -1,4 +1,3 @@
-import { __DEV__ } from "@resolid/utils";
 import type { PropsWithChildren } from "react";
 import { Modal, type ModalRootProps } from "../modal/modal";
 import { type DrawerPlacement, DrawerProvider } from "./drawer-context";
@@ -23,13 +22,10 @@ export const Drawer = (props: PropsWithChildren<DrawerProps>) => {
   );
 };
 
-if (__DEV__) {
-  Drawer.displayName = "Drawer";
-}
-
-export { ModalBody as DrawerBody } from "../modal/modal-body";
-export { ModalCloseButton as DrawerCloseButton } from "../modal/modal-close-button";
-export { ModalFooter as DrawerFooter } from "../modal/modal-footer";
 export { ModalHeader as DrawerHeader } from "../modal/modal-header";
+export { ModalTitle as DrawerTitle } from "../modal/modal-title";
+export { ModalCloseButton as DrawerCloseButton } from "../modal/modal-close-button";
+export { ModalBody as DrawerBody } from "../modal/modal-body";
+export { ModalFooter as DrawerFooter } from "../modal/modal-footer";
 export { ModalOverlay as DrawerOverlay } from "../modal/modal-overlay";
 export { DrawerContent } from "./drawer-content";

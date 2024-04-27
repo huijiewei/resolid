@@ -1,5 +1,4 @@
 import { FloatingFocusManager } from "@floating-ui/react";
-import { __DEV__ } from "@resolid/utils";
 import { type CSSProperties, useEffect } from "react";
 import { clsx } from "../../utils/classed";
 import { useFloatingAria } from "../floating/floating-aria-context";
@@ -21,7 +20,7 @@ export const ModalContent = (props: BaseProps<"div">) => {
     scrollBehavior,
   } = useModal();
 
-  const { labelId, descriptionId } = useFloatingAria();
+  const { labelId } = useFloatingAria();
 
   useEffect(() => {
     if (!opened) {
@@ -38,9 +37,9 @@ export const ModalContent = (props: BaseProps<"div">) => {
       )}
     >
       <FloatingFocusManager initialFocus={initialFocus} returnFocus={finalFocus == undefined} context={context}>
-        <div
+        <section
           className={clsx(
-            "relative flex flex-col rounded border border-bd-normal bg-bg-normal shadow outline-none",
+            "flex flex-col rounded border border-bd-normal bg-bg-normal shadow outline-none",
             centered ? "my-6" : "my-16",
             scrollBehavior == "inside" && (centered ? "max-h-[calc(100%-2rem)]" : "max-h-[calc(100%-7rem)]"),
             "transition-opacity duration-[--duration-var]",
@@ -52,16 +51,11 @@ export const ModalContent = (props: BaseProps<"div">) => {
           {...getFloatingProps({
             ...rest,
             "aria-labelledby": labelId,
-            "aria-describedby": descriptionId,
           })}
         >
           {children}
-        </div>
+        </section>
       </FloatingFocusManager>
     </div>
   );
 };
-
-if (__DEV__) {
-  ModalContent.displayName = "ModalContent";
-}

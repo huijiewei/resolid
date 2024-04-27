@@ -1,5 +1,4 @@
 import { FloatingOverlay } from "@floating-ui/react";
-import { __DEV__ } from "@resolid/utils";
 import type { CSSProperties } from "react";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { clsx } from "../../utils/classed";
@@ -26,7 +25,3 @@ export const ModalOverlay = (props: BaseProps<"div">) => {
     </>
   );
 };
-
-if (__DEV__) {
-  ModalOverlay.displayName = "ModalOverlay";
-}

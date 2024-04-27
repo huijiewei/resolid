@@ -1,7 +1,5 @@
-import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
-import { useFloatingAria } from "../floating/floating-aria-context";
 import type { BaseProps, EmptyProps } from "../slot/slot";
 import { useModal } from "./modal-context";
 
@@ -9,11 +7,9 @@ export const ModalBody = forwardRef<HTMLDivElement, BaseProps<"div", EmptyProps,
   const { children, className, ...rest } = props;
 
   const { scrollBehavior } = useModal();
-  const { descriptionId } = useFloatingAria();
 
   return (
     <div
-      id={descriptionId}
       ref={ref}
       className={clsx(
         "flex-1",
@@ -26,7 +22,3 @@ export const ModalBody = forwardRef<HTMLDivElement, BaseProps<"div", EmptyProps,
     </div>
   );
 });
-
-if (__DEV__) {
-  ModalBody.displayName = "ModalBody";
-}
