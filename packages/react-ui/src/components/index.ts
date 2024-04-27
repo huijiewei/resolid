@@ -41,3 +41,4 @@ export * from "./toast/toast";
 export * from "./toast/use-toast";
 export * from "./tooltip/tooltip";
 export * from "./visually-hidden/visually-hidden";
+export * from "./number-input/number-input";

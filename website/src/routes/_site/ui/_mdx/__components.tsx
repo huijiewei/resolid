@@ -3,6 +3,7 @@ import {
   Button,
   Input,
   NativeSelect,
+  NumberInput,
   Switch,
   Tooltip,
   TooltipArrow,
@@ -10,7 +11,7 @@ import {
   TooltipTrigger,
   clsx,
 } from "@resolid/react-ui";
-import { isFunction } from "@resolid/utils";
+import { isFunction, isNumber } from "@resolid/utils";
 import { type FunctionComponent, type ReactNode, useMemo, useState } from "react";
 import { SpriteIcon } from "~/components/base/sprite-icon";
 
@@ -41,11 +42,15 @@ export const ComponentUsage = ({
     Object.fromEntries(
       filteredProps.map(({ name, defaultValue }) => {
         const value =
-          defaultValue == "true" || defaultValue == "false"
-            ? defaultValue == "true"
-            : defaultValue
-              ? defaultValue.slice(1, -1)
-              : undefined;
+          defaultValue && /^[Ee0-9+\-.]$/.test(defaultValue)
+            ? defaultValue
+            : defaultValue == "-Infinity" || defaultValue == "Infinity"
+              ? undefined
+              : defaultValue == "true" || defaultValue == "false"
+                ? defaultValue == "true"
+                : defaultValue
+                  ? defaultValue.slice(1, -1)
+                  : undefined;
 
         return [name, value];
       }),
@@ -61,7 +66,7 @@ export const ComponentUsage = ({
             const propInputId = `prop-${prop.name}`;
 
             return (
-              <div className={"flex items-center justify-between"} key={propInputId}>
+              <div className={"flex items-center justify-between gap-5"} key={propInputId}>
                 {prop.control == "boolean" && (
                   <Switch
                     size={"sm"}
@@ -90,13 +95,13 @@ export const ComponentUsage = ({
                 {prop.control == "number" && (
                   <>
                     <label htmlFor={propInputId}>{prop.description}</label>
-                    <input
+                    <NumberInput
                       id={propInputId}
-                      type={"number"}
-                      className={"w-1/2 rounded border p-1"}
-                      value={String(state[prop.name])}
-                      onChange={(e) => {
-                        setState((prev) => ({ ...prev, [prop.name]: e.target.value }));
+                      size={"xs"}
+                      className={"w-1/2"}
+                      value={state[prop.name] ? Number(state[prop.name]) : undefined}
+                      onChange={(value) => {
+                        setState((prev) => ({ ...prev, [prop.name]: value }));
                       }}
                     />
                   </>

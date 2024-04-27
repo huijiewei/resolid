@@ -1,0 +1,151 @@
+---
+title: 数字输入框
+description: 仅允许输入数字格式的输入框。
+---
+
+import { NumberInput } from "@resolid/react-ui";
+import { mergeFrontmatter } from "../__utils";
+import { useState } from "react";
+import { SpriteIcon } from "~/components/base/sprite-icon";
+import { ComponentExample, ComponentProps, ComponentUsage } from "../__components";
+
+export const meta = mergeFrontmatter(frontmatter);
+
+# {frontmatter.title}
+
+{frontmatter.description}
+
+## 导入
+
+```js
+import { NumberInput } from "@resolid/react-ui";
+```
+
+## 用法
+
+<ComponentUsage
+  preview={(props) => <NumberInput placeholder={"数字输入框"} {...props} />}
+  componentFile={"./number-input/number-input.tsx"}
+  ignoreProps={[
+    "value",
+    "defaultValue",
+    "placeholder",
+    "htmlSize",
+    "leading",
+    "leadingWidth",
+    "leadingPointer",
+    'format',
+    'parse'
+  ]}
+/>
+
+## 值限制
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+    <NumberInput max={10} />
+    <NumberInput min={10} />
+    <NumberInput min={10} max={20} />
+  </ComponentExample>
+
+  ```jsx
+  <NumberInput max={10} />
+  <NumberInput min={10} />
+  <NumberInput min={10} max={20} />
+  ```
+</section>
+
+## 格式化
+
+<section className={'example group'}>
+  <ComponentExample className={"flex"}>
+    <NumberInput
+      parse={(value) => value.replace(/\$\s?|(,*)/g, '')}
+      format={(value) => (!Number.isNaN(value) ? `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '$ ')}
+    />
+  </ComponentExample>
+
+  ```jsx
+  <NumberInput
+    parse={(value) => value.replace(/\$\s?|(,*)/g, '')}
+    format={(value) => (!Number.isNaN(value) ? `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '$ ')}
+  />
+  ```
+</section>
+
+## 可控
+
+<section className={'example group'}>
+  <ComponentExample className={"flex"}>
+    {() => {
+      const [value, setValue] = useState(0);
+
+      return (
+        <div className={"flex flex-col gap-2"}>
+          <div>值: {value}</div>
+          <NumberInput value={value} onChange={(value) => setValue(value)} placeholder="数字输入框" />
+        </div>
+      );
+    }}
+
+  </ComponentExample>
+
+  ```jsx
+  const [value, setValue] = useState(0);
+
+  return (
+    <div className={"flex flex-col gap-2"}>
+      <div>值: {value}</div>
+      <NumberInput value={value} onChange={(value) => setValue(value)} placeholder="数字输入框" />
+    </div>
+  );
+  ```
+</section>
+
+## 大小
+
+<section className={'example group'}>
+  <ComponentExample className={"flex flex-row gap-3 items-center"}>
+    <NumberInput size={"xs"} placeholder={"XS 超小"} />
+    <NumberInput size={"sm"} placeholder={"SM 小型"} />
+    <NumberInput placeholder={"默认大小"} />
+    <NumberInput size={"lg"} placeholder={"LG 大型"} />
+    <NumberInput size={"xl"} placeholder={"XL 超大"} />
+  </ComponentExample>
+
+  ```jsx
+  <NumberInput size={"xs"} placeholder={"XS 超小"} />
+  <NumberInput size={"sm"} placeholder={"SM 小型"} />
+  <NumberInput placeholder={"默认大小"} />
+  <NumberInput size={"lg"} placeholder={"LG 大型"} />
+  <NumberInput size={"xl"} placeholder={"XL 超大"} />
+  ```
+</section>
+
+## 前置元素
+
+<section className={'example group'}>
+  <ComponentExample className={"flex"}>
+    <NumberInput leading={<SpriteIcon size={"sm"} name={"github"} />} placeholder={"仓库数量"} />
+  </ComponentExample>
+  
+  ```jsx
+  <NumberInput leading={<SpriteIcon size={"sm"} name={"github"} />} placeholder={"仓库数量"} />
+  ```
+</section>
+
+## 滚轮改变
+
+<section className={'example group'}>
+  <ComponentExample className={"flex"}>
+    <NumberInput mouseWheel placeholder={""} />
+  </ComponentExample>
+
+  ```jsx
+  <NumberInput leading={<SpriteIcon size={"sm"} name={"github"} />} placeholder={"仓库数量"} />
+  ```
+</section>
+
+## 属性
+
+<ComponentProps componentFile={"./number-input/number-input.tsx"} />
