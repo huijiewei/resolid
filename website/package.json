@@ -24,7 +24,7 @@
     "@resolid/utils": "workspace:^",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
-    "hono": "^4.2.8",
+    "hono": "^4.2.9",
     "isbot": "^5.1.5",
     "react": "19.0.0-beta-94eed63c49-20240425",
     "react-dom": "19.0.0-beta-94eed63c49-20240425",
