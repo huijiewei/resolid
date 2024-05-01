@@ -20,12 +20,10 @@
     "./biome.react": "./biome.react.json",
     "./biome.tailwind": "./biome.tailwind.json"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@biomejs/biome": "^1.7.1",
+    "@biomejs/biome": "^1.7.2",
     "typescript": "^5.4.5"
   },
-  "peerDependencies": {},
   "homepage": "https://resolid.tech",
   "repository": {
     "type": "git",
