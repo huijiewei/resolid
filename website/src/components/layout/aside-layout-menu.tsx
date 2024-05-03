@@ -13,7 +13,7 @@ const MenuItem = ({ menu, depth }: { menu: Menu; depth: number }) => {
 
   return (
     <li>
-      {menu.path ? (
+      {menu.path != null ? (
         <HistoryNavLink
           className={({ isActive }) => {
             return clsx(
@@ -24,6 +24,7 @@ const MenuItem = ({ menu, depth }: { menu: Menu; depth: number }) => {
           }}
           onClick={() => setOpen(false)}
           to={menu.path}
+          end={menu.path.length == 0}
         >
           {menu.label}
         </HistoryNavLink>
