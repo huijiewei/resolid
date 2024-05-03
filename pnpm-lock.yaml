@@ -83,15 +83,15 @@ importers:
         specifier: ^4.18.1
         version: 4.18.1
       zod:
-        specifier: ^3.23.5
-        version: 3.23.5
+        specifier: ^3.23.6
+        version: 3.23.6
     devDependencies:
       '@resolid/config':
         specifier: workspace:^
         version: link:../config
       '@types/nodemailer':
-        specifier: ^6.4.14
-        version: 6.4.14
+        specifier: ^6.4.15
+        version: 6.4.15
       commander:
         specifier: ^12.0.0
         version: 12.0.0
@@ -174,7 +174,7 @@ importers:
         version: 8.0.2(postcss@8.4.38)(typescript@5.4.5)
       vite-tsconfig-paths:
         specifier: ^4.3.2
-        version: 4.3.2(typescript@5.4.5)(vite@5.2.10(@types/node@20.12.8))
+        version: 4.3.2(typescript@5.4.5)(vite@5.2.11(@types/node@20.12.8))
       vitest:
         specifier: ^1.5.3
         version: 1.5.3(@types/node@20.12.8)(jsdom@24.0.0)
@@ -202,7 +202,7 @@ importers:
     devDependencies:
       '@remix-run/dev':
         specifier: ^2.9.1
-        version: 2.9.1(@remix-run/react@2.9.1(react-dom@19.0.0-beta-4508873393-20240430(react@19.0.0-beta-4508873393-20240430))(react@19.0.0-beta-4508873393-20240430)(typescript@5.4.5))(@types/node@20.12.8)(typescript@5.4.5)(vite@5.2.10(@types/node@20.12.8))
+        version: 2.9.1(@remix-run/react@2.9.1(react-dom@19.0.0-beta-4508873393-20240430(react@19.0.0-beta-4508873393-20240430))(react@19.0.0-beta-4508873393-20240430)(typescript@5.4.5))(@types/node@20.12.8)(typescript@5.4.5)(vite@5.2.11(@types/node@20.12.8))
       '@resolid/config':
         specifier: workspace:^
         version: link:../config
@@ -213,8 +213,8 @@ importers:
         specifier: ^4.18.1
         version: 4.18.1
       vite:
-        specifier: ^5.2.10
-        version: 5.2.10(@types/node@20.12.8)
+        specifier: ^5.2.11
+        version: 5.2.11(@types/node@20.12.8)
 
   packages/tailwind:
     devDependencies:
@@ -307,15 +307,15 @@ importers:
         specifier: ^4.3.1
         version: 4.3.1(@remix-run/react@2.9.1(react-dom@19.0.0-beta-4508873393-20240430(react@19.0.0-beta-4508873393-20240430))(react@19.0.0-beta-4508873393-20240430)(typescript@5.4.5))(react-dom@19.0.0-beta-4508873393-20240430(react@19.0.0-beta-4508873393-20240430))(react-hook-form@7.51.3(react@19.0.0-beta-4508873393-20240430))(react@19.0.0-beta-4508873393-20240430)
       zod:
-        specifier: ^3.23.5
-        version: 3.23.5
+        specifier: ^3.23.6
+        version: 3.23.6
     devDependencies:
       '@mdx-js/rollup':
         specifier: ^3.0.1
         version: 3.0.1(rollup@4.17.2)
       '@remix-run/dev':
         specifier: ^2.9.1
-        version: 2.9.1(@remix-run/react@2.9.1(react-dom@19.0.0-beta-4508873393-20240430(react@19.0.0-beta-4508873393-20240430))(react@19.0.0-beta-4508873393-20240430)(typescript@5.4.5))(@types/node@20.12.8)(typescript@5.4.5)(vite@5.2.10(@types/node@20.12.8))
+        version: 2.9.1(@remix-run/react@2.9.1(react-dom@19.0.0-beta-4508873393-20240430(react@19.0.0-beta-4508873393-20240430))(react@19.0.0-beta-4508873393-20240430)(typescript@5.4.5))(@types/node@20.12.8)(typescript@5.4.5)(vite@5.2.11(@types/node@20.12.8))
       '@resolid/config':
         specifier: workspace:^
         version: link:../packages/config
@@ -371,14 +371,14 @@ importers:
         specifier: ^4.8.2
         version: 4.8.2
       vite:
-        specifier: ^5.2.10
-        version: 5.2.10(@types/node@20.12.8)
+        specifier: ^5.2.11
+        version: 5.2.11(@types/node@20.12.8)
       vite-plugin-inspect:
         specifier: ^0.8.4
-        version: 0.8.4(rollup@4.17.2)(vite@5.2.10(@types/node@20.12.8))
+        version: 0.8.4(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.8))
       vite-tsconfig-paths:
         specifier: ^4.3.2
-        version: 4.3.2(typescript@5.4.5)(vite@5.2.10(@types/node@20.12.8))
+        version: 4.3.2(typescript@5.4.5)(vite@5.2.11(@types/node@20.12.8))
       vitest:
         specifier: ^1.5.3
         version: 1.5.3(@types/node@20.12.8)(jsdom@24.0.0)
@@ -1379,8 +1379,8 @@ packages:
   '@types/node@20.12.8':
     resolution: {integrity: sha512-NU0rJLJnshZWdE/097cdCBbyW1h4hEg0xpovcoAQYHl8dnEyp/NAOiE45pvc+Bd1Dt+2r94v2eGFpQJ4R7g+2w==}
 
-  '@types/nodemailer@6.4.14':
-    resolution: {integrity: sha512-fUWthHO9k9DSdPCSPRqcu6TWhYyxTBg382vlNIttSe9M7XfsT06y0f24KHXtbnijPGGRIcVvdKHTNikOI6qiHA==}
+  '@types/nodemailer@6.4.15':
+    resolution: {integrity: sha512-0EBJxawVNjPkng1zm2vopRctuWVCxk34JcIlRuXSf54habUWdz1FB7wHDqOqvDa8Mtpt0Q3LTXQkAs2LNyK5jQ==}
 
   '@types/prop-types@15.7.12':
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
@@ -1652,8 +1652,8 @@ packages:
     resolution: {integrity: sha512-tjwM5exMg6BGRI+kNmTntNsvdZS1X8BFYS6tnJ2hdH0kVxM6/eVZ2xy+FqStSWvYmtfFMDLIxurorHwDKfDz5Q==}
     engines: {node: '>=18'}
 
-  bundle-require@4.0.3:
-    resolution: {integrity: sha512-2iscZ3fcthP2vka4Y7j277YJevwmsby/FpFDwjgw34Nl7dtCpt7zz/4TexmHMzY6KZEih7En9ImlbbgUNNQGtA==}
+  bundle-require@4.1.0:
+    resolution: {integrity: sha512-FeArRFM+ziGkRViKRnSTbHZc35dgmR9yNog05Kn0+ItI59pOAISGvnnIwW1WgFZQW59IxD9QpJnUPkdIPfZuXg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     peerDependencies:
       esbuild: ^0.20.2
@@ -1682,8 +1682,8 @@ packages:
     resolution: {integrity: sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==}
     engines: {node: '>=14.16'}
 
-  caniuse-lite@1.0.30001614:
-    resolution: {integrity: sha512-jmZQ1VpmlRwHgdP1/uiKzgiAuGOfLEJsYFP4+GBou/QQ4U6IOJCB4NP1c+1p9RGLpwObcT94jA5/uO+F1vBbog==}
+  caniuse-lite@1.0.30001615:
+    resolution: {integrity: sha512-1IpazM5G3r38meiae0bHRnPhz+CBQ3ZLqbQMtrg+AsTPKAXgW38JNsXkyZ+v8waCsDmPq87lmfun5Q2AGysNEQ==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -3271,8 +3271,8 @@ packages:
       encoding:
         optional: true
 
-  node-gyp-build@4.8.0:
-    resolution: {integrity: sha512-u6fs2AEUljNho3EYTJNBfImO5QTo/J/1Etd+NVdCj7qWKUSN/bSLkZwhDv7I+w/MSC6qJ4cknepkAYykDdK8og==}
+  node-gyp-build@4.8.1:
+    resolution: {integrity: sha512-OSs33Z9yWr148JZcbZd5WiAXhh/n9z8TxQcdMhIOlpN9AhWpLfvVFO73+m77bBABQMaY9XSvIa+qk0jlI7Gcaw==}
     hasBin: true
 
   node-releases@2.0.14:
@@ -4349,8 +4349,8 @@ packages:
       vite:
         optional: true
 
-  vite@5.2.10:
-    resolution: {integrity: sha512-PAzgUZbP7msvQvqdSD+ErD5qGnSFiGOoWmV5yAKUEI0kdhjbH6nMWVyZQC/hSc4aXwc0oJ9aEdIiF9Oje0JFCw==}
+  vite@5.2.11:
+    resolution: {integrity: sha512-HndV31LWW05i1BLPMUCE1B9E9GFbOu1MbenhS58FuK6owSO5qHm7GiCotrNY1YE5rMeQSFBGmT5ZaLEjFizgiQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -4542,8 +4542,8 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
 
-  zod@3.23.5:
-    resolution: {integrity: sha512-fkwiq0VIQTksNNA131rDOsVJcns0pfVUjHzLrNBiF/O/Xxb5lQyEXkhZWcJ7npWsYlvs+h0jFWXXy4X46Em1JA==}
+  zod@3.23.6:
+    resolution: {integrity: sha512-RTHJlZhsRbuA8Hmp/iNL7jnfc4nZishjsanDAfEY1QpDQZCahUp3xDzl+zfweE9BklxMUcgBgS1b7Lvie/ZVwA==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -5067,10 +5067,10 @@ snapshots:
 
   '@hono/node-server@1.11.1': {}
 
-  '@hono/zod-validator@0.2.1(hono@4.2.9)(zod@3.23.5)':
+  '@hono/zod-validator@0.2.1(hono@4.2.9)(zod@3.23.6)':
     dependencies:
       hono: 4.2.9
-      zod: 3.23.5
+      zod: 3.23.6
 
   '@hookform/resolvers@3.3.4(react-hook-form@7.51.3(react@19.0.0-beta-4508873393-20240430))':
     dependencies:
@@ -5310,7 +5310,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.25': {}
 
-  '@remix-run/dev@2.9.1(@remix-run/react@2.9.1(react-dom@19.0.0-beta-4508873393-20240430(react@19.0.0-beta-4508873393-20240430))(react@19.0.0-beta-4508873393-20240430)(typescript@5.4.5))(@types/node@20.12.8)(typescript@5.4.5)(vite@5.2.10(@types/node@20.12.8))':
+  '@remix-run/dev@2.9.1(@remix-run/react@2.9.1(react-dom@19.0.0-beta-4508873393-20240430(react@19.0.0-beta-4508873393-20240430))(react@19.0.0-beta-4508873393-20240430)(typescript@5.4.5))(@types/node@20.12.8)(typescript@5.4.5)(vite@5.2.11(@types/node@20.12.8))':
     dependencies:
       '@babel/core': 7.24.5
       '@babel/generator': 7.24.5
@@ -5368,7 +5368,7 @@ snapshots:
       ws: 7.5.9
     optionalDependencies:
       typescript: 5.4.5
-      vite: 5.2.10(@types/node@20.12.8)
+      vite: 5.2.11(@types/node@20.12.8)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -5614,7 +5614,7 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
-  '@types/nodemailer@6.4.14':
+  '@types/nodemailer@6.4.15':
     dependencies:
       '@types/node': 20.12.8
 
@@ -5670,7 +5670,7 @@ snapshots:
       lodash: 4.17.21
       mlly: 1.7.0
       outdent: 0.8.0
-      vite: 5.2.10(@types/node@20.12.8)
+      vite: 5.2.11(@types/node@20.12.8)
       vite-node: 1.5.3(@types/node@20.12.8)
     transitivePeerDependencies:
       - '@types/node'
@@ -5703,7 +5703,7 @@ snapshots:
       glob: 7.2.3
       graceful-fs: 4.2.11
       micromatch: 4.0.5
-      node-gyp-build: 4.8.0
+      node-gyp-build: 4.8.1
       resolve-from: 5.0.0
     transitivePeerDependencies:
       - encoding
@@ -5854,7 +5854,7 @@ snapshots:
   autoprefixer@10.4.19(postcss@8.4.38):
     dependencies:
       browserslist: 4.23.0
-      caniuse-lite: 1.0.30001614
+      caniuse-lite: 1.0.30001615
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -5915,7 +5915,7 @@ snapshots:
 
   browserslist@4.23.0:
     dependencies:
-      caniuse-lite: 1.0.30001614
+      caniuse-lite: 1.0.30001615
       electron-to-chromium: 1.4.754
       node-releases: 2.0.14
       update-browserslist-db: 1.0.14(browserslist@4.23.0)
@@ -5935,7 +5935,7 @@ snapshots:
     dependencies:
       run-applescript: 7.0.0
 
-  bundle-require@4.0.3(esbuild@0.20.2):
+  bundle-require@4.1.0(esbuild@0.20.2):
     dependencies:
       esbuild: 0.20.2
       load-tsconfig: 0.2.5
@@ -5965,7 +5965,7 @@ snapshots:
 
   camelcase@7.0.1: {}
 
-  caniuse-lite@1.0.30001614: {}
+  caniuse-lite@1.0.30001615: {}
 
   ccount@2.0.1: {}
 
@@ -6249,7 +6249,7 @@ snapshots:
     dependencies:
       '@esbuild-kit/esm-loader': 2.6.5
       '@hono/node-server': 1.11.1
-      '@hono/zod-validator': 0.2.1(hono@4.2.9)(zod@3.23.5)
+      '@hono/zod-validator': 0.2.1(hono@4.2.9)(zod@3.23.6)
       camelcase: 7.0.1
       chalk: 5.3.0
       commander: 9.5.0
@@ -6263,7 +6263,7 @@ snapshots:
       minimatch: 7.4.6
       semver: 7.6.0
       superjson: 2.2.1
-      zod: 3.23.5
+      zod: 3.23.6
     transitivePeerDependencies:
       - supports-color
 
@@ -7790,7 +7790,7 @@ snapshots:
     dependencies:
       whatwg-url: 5.0.0
 
-  node-gyp-build@4.8.0: {}
+  node-gyp-build@4.8.1: {}
 
   node-releases@2.0.14: {}
 
@@ -8727,7 +8727,7 @@ snapshots:
 
   tsup@8.0.2(postcss@8.4.38)(typescript@5.4.5):
     dependencies:
-      bundle-require: 4.0.3(esbuild@0.20.2)
+      bundle-require: 4.1.0(esbuild@0.20.2)
       cac: 6.7.14
       chokidar: 3.6.0
       debug: 4.3.4
@@ -8930,7 +8930,7 @@ snapshots:
       debug: 4.3.4
       pathe: 1.1.2
       picocolors: 1.0.0
-      vite: 5.2.10(@types/node@20.12.8)
+      vite: 5.2.11(@types/node@20.12.8)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -8941,7 +8941,7 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-inspect@0.8.4(rollup@4.17.2)(vite@5.2.10(@types/node@20.12.8)):
+  vite-plugin-inspect@0.8.4(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.8)):
     dependencies:
       '@antfu/utils': 0.7.7
       '@rollup/pluginutils': 5.1.0(rollup@4.17.2)
@@ -8952,23 +8952,23 @@ snapshots:
       perfect-debounce: 1.0.0
       picocolors: 1.0.0
       sirv: 2.0.4
-      vite: 5.2.10(@types/node@20.12.8)
+      vite: 5.2.11(@types/node@20.12.8)
     transitivePeerDependencies:
       - rollup
       - supports-color
 
-  vite-tsconfig-paths@4.3.2(typescript@5.4.5)(vite@5.2.10(@types/node@20.12.8)):
+  vite-tsconfig-paths@4.3.2(typescript@5.4.5)(vite@5.2.11(@types/node@20.12.8)):
     dependencies:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 3.0.3(typescript@5.4.5)
     optionalDependencies:
-      vite: 5.2.10(@types/node@20.12.8)
+      vite: 5.2.11(@types/node@20.12.8)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@5.2.10(@types/node@20.12.8):
+  vite@5.2.11(@types/node@20.12.8):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
@@ -8996,7 +8996,7 @@ snapshots:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.2.10(@types/node@20.12.8)
+      vite: 5.2.11(@types/node@20.12.8)
       vite-node: 1.5.3(@types/node@20.12.8)
       why-is-node-running: 2.2.2
     optionalDependencies:
@@ -9122,6 +9122,6 @@ snapshots:
 
   yocto-queue@1.0.0: {}
 
-  zod@3.23.5: {}
+  zod@3.23.6: {}
 
   zwitch@2.0.4: {}
