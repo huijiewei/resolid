@@ -133,7 +133,7 @@ export default function SiteLayout() {
           <p>
             Proudly made in
             <span className={"mx-1"} aria-label="中国" role="img">
-              🇨
+              🇨🇳
             </span>
             by Resolid Tech, 2024
           </p>

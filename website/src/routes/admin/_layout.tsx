@@ -104,7 +104,13 @@ export default function AdminLayout() {
         </main>
         <footer className={"flex flex-row items-center justify-between border-t p-4 text-sm"}>
           <div>Copyright © 2024</div>
-          <div>Proudly made in 🇨 by Resolid Tech</div>
+          <div>
+            Proudly made in
+            <span className={"mx-1"} aria-label="中国" role="img">
+              🇨🇳
+            </span>
+            by Resolid Tech
+          </div>
         </footer>
       </div>
     </AuthProvider>
