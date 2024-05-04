@@ -47,13 +47,13 @@ export const DrawerContent = (props: BaseProps<"div">) => {
   }, [opened, finalFocus]);
 
   return (
-    <div className={clsx("fixed left-0 top-0 z-modal flex h-screen w-screen justify-center")}>
+    <div className={clsx("fixed top-0 left-0 z-modal flex h-screen w-screen justify-center")}>
       <FloatingFocusManager initialFocus={initialFocus} returnFocus={finalFocus == undefined} context={context}>
         <div
           className={clsx(
             "fixed flex flex-col bg-bg-normal shadow",
             "transition-[opacity,transform] duration-[--duration-var] ease-in-out",
-            status == "open" ? `opacity-100 ${transformStyle.open}` : `opacity-0 ${transformStyle.close}`,
+            status == "open" ? ["opacity-100", transformStyle.open] : ["opacity-0", transformStyle.close],
             placementStyles[placement],
             className,
           )}

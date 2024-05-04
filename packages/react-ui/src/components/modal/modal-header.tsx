@@ -5,7 +5,7 @@ export const ModalHeader = (props: BaseProps<"header">) => {
   const { children, className, ...rest } = props;
 
   return (
-    <header className={clsx("flex-0 relative", className)} {...rest}>
+    <header className={clsx("relative flex-0", className)} {...rest}>
       {children}
     </header>
   );

@@ -148,8 +148,8 @@ export const Input = forwardRef<HTMLInputElement, BaseProps<"input", InputProps,
   return (
     <div
       className={clsx(
-        "relative transition-colors rounded border inline-flex items-center",
-        "focus-within:ring-1 focus-within:border-bg-primary-emphasis focus-within:ring-bg-primary-emphasis",
+        "relative inline-flex items-center rounded border transition-colors",
+        "focus-within:border-bg-primary-emphasis focus-within:ring-1 focus-within:ring-bg-primary-emphasis",
         block && "w-full",
         invalid && "border-bd-invalid",
         group && inputGroupStyles,
@@ -210,7 +210,7 @@ const InputAdornment = ({
   return (
     <span
       className={clsx(
-        "absolute inset-y-0 flex justify-center items-center text-fg-subtlest",
+        "absolute inset-y-0 flex items-center justify-center text-fg-subtlest",
         !pointer && "pointer-events-none",
         className,
       )}

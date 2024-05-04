@@ -31,7 +31,7 @@ export const ModalContent = (props: BaseProps<"div">) => {
   return (
     <div
       className={clsx(
-        "fixed left-0 top-0 z-modal flex w-screen justify-center",
+        "fixed top-0 left-0 z-modal flex w-screen justify-center",
         centered ? "items-center" : "items-start",
         scrollBehavior == "inside" ? "h-screen" : "h-full overflow-y-auto",
       )}

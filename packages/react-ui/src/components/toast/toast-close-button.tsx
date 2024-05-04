@@ -42,7 +42,7 @@ export const ToastCloseButton = forwardRef<HTMLButtonElement, BaseProps<"button"
       size={"1.125rem"}
       textClassName={variant == "solid" ? "text-fg-emphasized" : undefined}
       statusClassName={toastColorStyles[color](variant == "solid")}
-      className={clsx("absolute right-1.5 top-1.5 rounded-full p-1", className)}
+      className={clsx("absolute top-1.5 right-1.5 rounded-full p-1", className)}
       {...rest}
     >
       {children}

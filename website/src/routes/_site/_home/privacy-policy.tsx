@@ -6,7 +6,7 @@ export const meta = mergeMeta(() => {
 
 export default function PrivacyPolicy() {
   return (
-    <div className={"prose mx-auto max-w-3xl px-4 py-8 dark:prose-invert"}>
+    <div className={"prose dark:prose-invert mx-auto max-w-3xl px-4 py-8"}>
       <h1 className={"text-center"}>隐私政策</h1>
       <p>最后更新时间：2024 年 04 月 16 日</p>
       <p>Resolid Tech（“我们”、“我们”或“我们的”）运营 Resolid 网站（“服务”）。</p>

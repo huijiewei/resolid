@@ -28,7 +28,11 @@ export const Spinner = forwardRef<HTMLSpanElement, BaseProps<"span", SpinnerProp
   const { label = "加载中", className, size = "md", color = "primary", ...rest } = props;
 
   return (
-    <span ref={ref} className={clsx(spinnerStyles({ color, size }), className)} {...rest}>
+    <span
+      ref={ref}
+      className={clsx("inline-block animate-spin rounded-full", spinnerStyles({ color, size }), className)}
+      {...rest}
+    >
       {label && <VisuallyHidden>{label}</VisuallyHidden>}
     </span>
   );

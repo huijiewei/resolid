@@ -26,7 +26,7 @@ export const Badge = forwardRef<HTMLSpanElement, AsChildProps<"span", BadgeProps
   return (
     <Comp
       className={clsx(
-        "inline-flex items-center rounded border px-2 py-1 text-xs font-medium",
+        "inline-flex items-center rounded border px-2 py-1 font-medium text-xs",
         badgeStyles({ color, variant }),
         className,
       )}

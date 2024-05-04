@@ -311,7 +311,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
                 event.stopPropagation();
                 handleSelect(option);
               }}
-              statusClassName={"hover:bg-bg-subtlest hover:text-fg-danger active:bg-bg-muted"}
+              statusClassName={"active:bg-bg-muted hover:bg-bg-subtlest hover:text-fg-danger"}
               className={"rounded-full p-[1px]"}
             />
           </div>
@@ -385,6 +385,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
 
   const prevActiveIndex = usePrevious<number | null>(activeIndex);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useIsomorphicEffect(() => {
     if (!openedState || !scrollState) {
       return;
@@ -424,9 +425,9 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
         }
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openedState, scrollState, virtual, prevActiveIndex, activeIndex, minSelectedIndex]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useIsomorphicEffect(() => {
     if (!openedState || !closeOnSelect) {
       return;
@@ -450,7 +451,6 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
         }
       }
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openedState, closeOnSelect, virtual, minSelectedIndex]);
 
   return (
@@ -523,7 +523,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
         </div>
         <span
           className={clsx(
-            "pointer-events-none absolute bottom-0 right-0 top-0 flex items-center justify-center",
+            "pointer-events-none absolute top-0 right-0 bottom-0 flex items-center justify-center",
             sizeStyle.chevron,
           )}
         >
@@ -561,7 +561,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
             ref={refs.setFloating}
             className={clsx(
               "z-popup rounded border bg-bg-normal shadow outline-none",
-              "max-h-[calc(var(--option-height)*9+10px)] overflow-y-auto overscroll-contain scrollbar scrollbar-thin",
+              "scrollbar scrollbar-thin max-h-[calc(var(--option-height)*9+10px)] overflow-y-auto overscroll-contain",
               virtual ? "px-1" : "p-1",
               "transition-opacity duration-[--duration-var]",
               status == "open" ? "opacity-100" : "opacity-0",

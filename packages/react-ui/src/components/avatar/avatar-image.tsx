@@ -1,5 +1,6 @@
 import { __DEV__ } from "@resolid/utils";
 import { type SVGProps, cloneElement } from "react";
+import { clsx } from "../../utils/classed";
 import type { ImageProps } from "../image/image";
 import { useImage } from "../image/use-image";
 import type { BaseProps } from "../slot/slot";
@@ -47,7 +48,7 @@ export const AvatarImage = (props: BaseProps<"img", AvatarImageProps>) => {
       srcSet={srcSet}
       loading={loading}
       referrerPolicy={referrerPolicy}
-      className={`${rounded} h-full w-full object-cover`}
+      className={clsx("h-full w-full object-cover", rounded)}
     />
   );
 };

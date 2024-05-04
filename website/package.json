@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "check": "biome check --apply .",
     "dev": "remix vite:dev",
     "build": "remix vite:build",
     "vercel": "VERCEL=1 remix vite:build",

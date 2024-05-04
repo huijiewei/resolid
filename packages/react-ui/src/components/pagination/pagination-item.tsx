@@ -68,7 +68,7 @@ export const PaginationItem = forwardRef<HTMLButtonElement, AsChildProps<"button
         aria-current={selected ? "page" : undefined}
         className={clsx(
           "inline-flex h-8 min-w-8 select-none appearance-none items-center justify-center rounded px-2 disabled:cursor-not-allowed disabled:opacity-50",
-          selected ? `${selectedStyle.normal} text-fg-emphasized` : "bg-bg-subtle",
+          selected ? ["text-fg-emphasized", selectedStyle.normal] : "bg-bg-subtle",
           !disabled && (selected ? selectedStyle.hovered : "hover:bg-bg-muted"),
           className,
         )}

@@ -12,7 +12,9 @@
     "provenance": true
   },
   "files": ["cli", "src"],
-  "scripts": {},
+  "scripts": {
+    "check": "biome check --apply ."
+  },
   "exports": {
     ".": "./src/index.ts",
     "./cli": "./cli/index.ts",

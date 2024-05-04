@@ -13,6 +13,7 @@
   },
   "files": ["dist"],
   "scripts": {
+    "check": "biome check --apply .",
     "test": "vitest --run",
     "build": "tsup"
   },

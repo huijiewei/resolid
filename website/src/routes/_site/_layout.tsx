@@ -128,12 +128,12 @@ export default function SiteLayout() {
         <Outlet />
       </div>
       <footer className={"border-t"}>
-        <div className={"mx-auto flex max-w-6xl flex-col gap-1 p-4 text-center text-sm text-fg-muted"}>
+        <div className={"mx-auto flex max-w-6xl flex-col gap-1 p-4 text-center text-fg-muted text-sm"}>
           <p>Released under the MIT License</p>
           <p>
             Proudly made in
             <span className={"mx-1"} aria-label="中国" role="img">
-              🇨🇳
+              🇨
             </span>
             by Resolid Tech, 2024
           </p>
@@ -251,7 +251,7 @@ const NavUser = () => {
         <DropdownMenuLabel className={"gap-2"}>
           <Avatar radius={"lg"} size={42} src={user.avatar} name={authUtils.getDisplayName(user)} />
           <div className={"flex flex-col text-left"}>
-            <span className={"text-base font-medium"}>{authUtils.getDisplayName(user)}</span>
+            <span className={"font-medium text-base"}>{authUtils.getDisplayName(user)}</span>
             <span className={"text-fg-muted"}>{user.email}</span>
           </div>
         </DropdownMenuLabel>

@@ -190,12 +190,12 @@ export const ComponentProps = ({
         {componentProps?.map((prop, i) => (
           <tr
             className={
-              "md:flex-no-wrap mb-[1px] flex flex-row flex-wrap border-b border-b-bg-subtle pb-[1px] last:mb-0 last:border-none last:pb-0 md:mb-0 md:table-row md:border-none"
+              "mb-[1px] flex flex-row flex-wrap border-b border-b-bg-subtle pb-[1px] last:mb-0 md:mb-0 md:table-row md:flex-no-wrap last:border-none md:border-none last:pb-0"
             }
             key={`${prop.name}-${i}`}
           >
             <td className={"block w-full whitespace-nowrap font-bold md:table-cell md:w-auto md:p-2"}>
-              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold md:hidden">属性</span>
+              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 font-bold text-sm md:hidden">属性</span>
               <span className={"inline-flex items-center gap-1.5"}>
                 {prop.name}
                 {prop.description && (
@@ -233,15 +233,15 @@ export const ComponentProps = ({
               </span>
             </td>
             <td className={"block w-full md:table-cell md:w-auto md:p-2"}>
-              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold md:hidden">类型</span>
+              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 font-bold text-sm md:hidden">类型</span>
               {prop.type}
             </td>
             <td className={"block w-full whitespace-nowrap md:table-cell md:w-auto md:p-2 md:text-center"}>
-              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold md:hidden">默认值</span>
+              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 font-bold text-sm md:hidden">默认值</span>
               {prop.defaultValue || "-"}
             </td>
             <td className={"block w-full whitespace-nowrap md:table-cell md:w-auto md:p-2 md:text-center"}>
-              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 text-sm font-bold md:hidden">必须</span>
+              <span className="mr-3 inline-block w-[5.5rem] bg-bg-subtle p-2 font-bold text-sm md:hidden">必须</span>
               {prop.required ? "true" : "false"}
             </td>
           </tr>
@@ -259,7 +259,7 @@ export const ComponentExample = ({
   children: (() => ReactNode) | ReactNode;
 }) => {
   return (
-    <div className={clsx("not-prose overflow-x-auto rounded-t border p-3 scrollbar scrollbar-thin", className)}>
+    <div className={clsx("not-prose scrollbar scrollbar-thin overflow-x-auto rounded-t border p-3", className)}>
       {isFunction(children) ? children() : children}
     </div>
   );

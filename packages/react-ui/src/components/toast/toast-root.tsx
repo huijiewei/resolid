@@ -89,9 +89,9 @@ export const ToastRoot = (props: BaseProps<"div", ToastRootProps, "role" | "id">
         className={clsx(
           "flex flex-col items-center",
           "transition-[opacity,transform] duration-[250ms]",
-          transitionEnable && status == "open" && `opacity-100 ${transformStyle.open}`,
-          transitionEnable && status == "close" && `opacity-0 ${transformStyle.close}`,
-          transitionEnable && status == "initial" && `opacity-0 ${transformStyle.init}`,
+          transitionEnable && status == "open" && ["opacity-100", transformStyle.open],
+          transitionEnable && status == "close" && ["opacity-0", transformStyle.close],
+          transitionEnable && status == "initial" && ["opacity-0", transformStyle.init],
         )}
         onFocus={() => setDelayState(null)}
         onBlur={() => setDelayState(duration)}

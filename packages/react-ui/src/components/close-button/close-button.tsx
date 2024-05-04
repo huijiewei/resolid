@@ -32,7 +32,7 @@ export const CloseButton = forwardRef<HTMLButtonElement, BaseProps<"button", Clo
         className={clsx(
           "flex shrink-0 appearance-none items-center justify-center rounded outline-none transition-colors",
           textClassName,
-          !disabled && `${focusRingStyles} ${statusClassName}`,
+          !disabled && [focusRingStyles, statusClassName],
           className,
         )}
         {...rest}

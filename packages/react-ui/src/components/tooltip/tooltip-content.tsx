@@ -21,7 +21,7 @@ export const TooltipContent = (props: BaseProps<"div">) => {
         <Portal>
           <div
             className={clsx(
-              "z-tooltip inline-block max-w-96 rounded border px-2 py-1 text-sm text-fg-emphasized shadow",
+              "z-tooltip inline-block max-w-96 rounded border px-2 py-1 text-fg-emphasized text-sm shadow",
               floatingClass,
               "transition-opacity duration-[--duration-var]",
               status == "open" ? "opacity-100" : "opacity-0",

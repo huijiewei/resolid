@@ -7,7 +7,7 @@ export const meta = mergeMeta(() => {
 
 export default function About() {
   return (
-    <div className={"prose mx-auto max-w-3xl px-4 py-8 dark:prose-invert"}>
+    <div className={"prose dark:prose-invert mx-auto max-w-3xl px-4 py-8"}>
       <h1 className={"text-center"}>关于</h1>
       <p>
         Resolid Remix 是使用 Remix 驱动的全栈网站，旨在展示使用 Remix、React、Tailwind CSS、Vite、Drizzle

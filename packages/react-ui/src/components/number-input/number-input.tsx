@@ -278,7 +278,7 @@ export const NumberInput = forwardRef<
       size={size}
       trailingPointer={true}
       trailing={
-        <span className={"flex flex-col ps-2 py-px h-full gap-px w-[calc(var(--trailing-width)-2px)]"}>
+        <span className={"flex h-full w-[calc(var(--trailing-width)-2px)] flex-col gap-px py-px ps-2"}>
           <NumberInputControl
             stepper={"increment"}
             onClick={(event) => {

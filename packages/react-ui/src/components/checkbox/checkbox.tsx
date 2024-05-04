@@ -172,7 +172,7 @@ export const Checkbox = forwardRef<HTMLInputElement, BaseProps<"input", Checkbox
             peerFocusRingStyles,
             colorStyle.focus,
             invalid ? "border-bd-invalid" : state || indeterminate ? colorStyle.border : "border-bd-normal",
-            state || indeterminate ? `${colorStyle.checked} text-fg-emphasized` : "bg-bg-normal",
+            state || indeterminate ? ["text-fg-emphasized", colorStyle.checked] : "bg-bg-normal",
             disabled && disabledStyles,
             sizeStyle.control,
           )}

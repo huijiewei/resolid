@@ -32,7 +32,7 @@ export default function Status() {
   const { ssr, db } = useTypedLoaderData<typeof loader>();
 
   return (
-    <div className={"prose mx-auto px-4 py-8 dark:prose-invert"}>
+    <div className={"prose dark:prose-invert mx-auto px-4 py-8"}>
       <h1 className={"text-center"}>运行状态</h1>
       <Alert color={"success"} className={"my-5"}>
         <AlertTitle>静态页面访问正常</AlertTitle>

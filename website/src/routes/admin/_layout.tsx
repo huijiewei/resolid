@@ -44,11 +44,11 @@ export default function AdminLayout() {
 
   return (
     <AuthProvider value={{ identity: admin }}>
-      <aside className={"fixed bottom-0 top-0 w-56 border-r"}>
+      <aside className={"fixed top-0 bottom-0 w-56 border-r"}>
         <div className={"flex h-12 items-center justify-center"}>
           <ResolidLogo />
         </div>
-        <div className={"h-full p-4 pb-16 scrollbar scrollbar-thin hover:overflow-y-auto"}>
+        <div className={"scrollbar scrollbar-thin h-full p-4 pb-16 hover:overflow-y-auto"}>
           <p>
             <HistoryLink to={"blog"}>博客管理</HistoryLink>
           </p>
@@ -93,7 +93,7 @@ export default function AdminLayout() {
           <p>菜单1111</p>
         </div>
       </aside>
-      <header className={clsx("fixed left-56 right-0 top-0 z-nav border-b bg-bg-normal", noScrollbarsClassName)}>
+      <header className={clsx("fixed top-0 right-0 left-56 z-nav border-b bg-bg-normal", noScrollbarsClassName)}>
         <NavBar />
       </header>
       <div className={"relative ml-56 bg-bg-subtlest"}>
@@ -104,7 +104,7 @@ export default function AdminLayout() {
         </main>
         <footer className={"flex flex-row items-center justify-between border-t p-4 text-sm"}>
           <div>Copyright © 2024</div>
-          <div>Proudly made in 🇨🇳 by Resolid Tech</div>
+          <div>Proudly made in 🇨 by Resolid Tech</div>
         </footer>
       </div>
     </AuthProvider>

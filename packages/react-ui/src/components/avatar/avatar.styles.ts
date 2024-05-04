@@ -16,7 +16,7 @@ export const toSized = (size: number | Size): Styled => {
     return {
       value: `${size}px`,
       style: clsx(
-        "w-[--size-var] h-[--size-var]",
+        "h-[--size-var] w-[--size-var]",
         size > 50 ? "text-[length:calc(var(--size-var)/3)]" : "text-[length:calc(var(--size-var)/2)]",
       ),
     };

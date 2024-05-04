@@ -53,7 +53,7 @@ const mdxComponents = {
         <pre
           translate={"no"}
           className={clsx(
-            "rounded border p-3 scrollbar scrollbar-thin group-[.example]:mt-0 group-[.example]:rounded-t-none group-[.example]:border-t-0",
+            "scrollbar scrollbar-thin rounded border p-3 group-[.example]:mt-0 group-[.example]:rounded-t-none group-[.example]:border-t-0",
             className,
           )}
           tabIndex={-1}
@@ -61,7 +61,7 @@ const mdxComponents = {
         >
           {children}
         </pre>
-        <div className={"absolute right-1.5 top-1.5 z-base"}>
+        <div className={"absolute top-1.5 right-1.5 z-base"}>
           <ClipboardButton content={children} />
         </div>
       </div>
@@ -74,7 +74,7 @@ const mdxComponents = {
       <a
         href={href}
         className={clsx(
-          "inline-flex items-center text-link no-underline hover:text-link-hovered hover:underline active:text-link-pressed",
+          "inline-flex items-center text-link no-underline active:text-link-pressed hover:text-link-hovered hover:underline",
           className,
         )}
         {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
@@ -246,7 +246,7 @@ export default function Layout() {
     <>
       <article
         className={
-          "prose w-full max-w-none px-4 py-6 dark:prose-invert md:px-6 lg:max-w-[calc(100%-theme(spacing.48))]"
+          "prose dark:prose-invert w-full max-w-none px-4 py-6 lg:max-w-[calc(100%-theme(spacing.48))] md:px-6"
         }
       >
         <MDXProvider disableParentContext components={mdxComponents}>

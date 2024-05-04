@@ -117,7 +117,7 @@ export const Radio = forwardRef<HTMLInputElement, BaseProps<"input", RadioProps,
           peerFocusRingStyles,
           colorStyle.focus,
           invalid ? "border-bd-invalid" : state ? colorStyle.border : "border-bd-normal",
-          state ? `${colorStyle.checked} text-fg-emphasized` : "bg-bg-normal",
+          state ? ["text-fg-emphasized", colorStyle.checked] : "bg-bg-normal",
           disabled && disabledStyles,
           sizeStyle.control,
           state &&

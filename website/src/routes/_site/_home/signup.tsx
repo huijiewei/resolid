@@ -54,7 +54,7 @@ export default function Signup() {
 
   return (
     <div className={"mx-auto flex max-w-96 flex-col gap-5 py-10"}>
-      <h3 className={"text-center text-xl font-bold"}>注册新账号</h3>
+      <h3 className={"text-center font-bold text-xl"}>注册新账号</h3>
       <Form method={"post"} className={"flex flex-col gap-7"} onSubmit={handleSubmit} noValidate>
         <div className={"relative flex flex-col gap-1"}>
           <label htmlFor={"email"}>电子邮箱</label>

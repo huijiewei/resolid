@@ -99,13 +99,13 @@ export const useImage = (props: UseImageProps) => {
     imageRef.current = img;
   }, [src, crossOrigin, srcSet, sizes, onLoad, onError, loading]);
 
-  const flush = () => {
+  const flush = useCallback(() => {
     if (imageRef.current) {
       imageRef.current.onload = null;
       imageRef.current.onerror = null;
       imageRef.current = null;
     }
-  };
+  }, []);
 
   useIsomorphicEffect(() => {
     if (status === "loading") {
@@ -115,7 +115,7 @@ export const useImage = (props: UseImageProps) => {
     return () => {
       flush();
     };
-  }, [load, status]);
+  }, [load, status, flush]);
 
   return status;
 };

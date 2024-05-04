@@ -52,7 +52,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, BaseProps<"select", Na
       </select>
       <span
         className={clsx(
-          "pointer-events-none absolute bottom-0 right-0 top-0 flex items-center justify-center",
+          "pointer-events-none absolute top-0 right-0 bottom-0 flex items-center justify-center",
           sizeStyle.chevron,
         )}
       >

@@ -60,7 +60,11 @@ export const Divider = forwardRef<HTMLDivElement, BaseProps<"div", DividerProps,
           "--size-var": `${size}px`,
         } as CSSProperties
       }
-      className={clsx(dividerStyles({ color, variant, vertical, label: hasLabel, position }), className)}
+      className={clsx(
+        "m-0 border-0",
+        dividerStyles({ color, variant, vertical, label: hasLabel, position }),
+        className,
+      )}
       {...rest}
     >
       {hasLabel && children}

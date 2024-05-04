@@ -12,7 +12,6 @@
     "provenance": true
   },
   "files": ["biome.json", "biome.react.json", "biome.tailwind.json", "tsconfig.base.json", "tsconfig.react.json"],
-  "scripts": {},
   "exports": {
     "./tsconfig.base": "./tsconfig.base.json",
     "./tsconfig.react": "./tsconfig.react.json",
