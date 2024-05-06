@@ -19,8 +19,11 @@
     "./biome.react": "./biome.react.json",
     "./biome.tailwind": "./biome.tailwind.json"
   },
+  "scripts": {
+    "check": "biome check --apply ."
+  },
   "devDependencies": {
-    "@biomejs/biome": "^1.7.2",
+    "@biomejs/biome": "^1.7.3",
     "typescript": "^5.4.5"
   },
   "homepage": "https://resolid.tech",
