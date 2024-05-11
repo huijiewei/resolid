@@ -20,7 +20,7 @@
     "./cli": "./cli/index.ts",
     "./drizzle": "./src/export/drizzle.ts",
     "./modules": {
-      "browser": "./src/modules.borwser.ts",
+      "browser": "./src/modules.browser.ts",
       "default": "./src/modules.ts"
     },
     "./utils": "./src/utils.ts"
