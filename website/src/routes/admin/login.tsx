@@ -1,7 +1,6 @@
-import { type ActionFunctionArgs, redirect } from "@remix-run/node";
 import { Form } from "@remix-run/react";
 import { getCookieExpires } from "@resolid/framework";
-import { mergeMeta } from "@resolid/framework/utils";
+import { type TypedActionArgs, httpProblem, httpRedirect, mergeMeta } from "@resolid/framework/utils";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
 import { Controller } from "react-hook-form";
 import { parseFormData, useRemixForm } from "remix-hook-form";
@@ -10,25 +9,24 @@ import { commitAdminSession, setSessionAdmin } from "~/foundation/session.admin.
 import { adminLoginService } from "~/modules/admin/service.server";
 import { type AdminLoginFormData, adminLoginResolver } from "~/modules/admin/validator";
 
-export const action = async ({ request, response, context }: ActionFunctionArgs) => {
+export const action = async ({ request, response, context }: TypedActionArgs) => {
   const data = await parseFormData<AdminLoginFormData>(request);
 
   const [errors, admin] = await adminLoginService(data);
 
   if (errors) {
-    response!.status = 422;
-    return { errors };
+    return httpProblem(response, errors);
   }
 
   const session = await setSessionAdmin(request, admin, context.remoteAddress ?? "");
 
-  return redirect(new URL(request.url).searchParams.get("redirect") ?? "", {
-    headers: {
-      "Set-Cookie": await commitAdminSession(session, {
-        expires: getCookieExpires(data?.rememberMe ? 365 : undefined),
-      }),
-    },
-  });
+  httpRedirect(
+    response,
+    new URL(request.url).searchParams.get("redirect") ?? "",
+    await commitAdminSession(session, {
+      expires: getCookieExpires(data?.rememberMe ? 365 : undefined),
+    }),
+  );
 };
 
 export const meta = mergeMeta(() => {

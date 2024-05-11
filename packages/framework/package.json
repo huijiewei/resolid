@@ -30,6 +30,7 @@
     "@node-rs/bcrypt": "^1.10.4",
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
+    "@remix-run/server-runtime": "^2.9.2",
     "@resolid/utils": "workspace:^",
     "drizzle-orm": "^0.30.10",
     "nodemailer": "^6.9.13",

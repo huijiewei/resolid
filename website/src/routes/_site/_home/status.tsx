@@ -1,12 +1,11 @@
 import { format } from "@formkit/tempo";
-import type { LoaderFunctionArgs } from "@remix-run/node";
 import { Await } from "@remix-run/react";
-import { mergeMeta, useTypedLoaderData } from "@resolid/framework/utils";
+import { type TypedLoaderArgs, mergeMeta, useTypedLoaderData } from "@resolid/framework/utils";
 import { Alert, AlertDescription, AlertTitle } from "@resolid/react-ui";
 import { Suspense } from "react";
 import { statusService } from "~/modules/system/service.server";
 
-export const loader = ({ context }: LoaderFunctionArgs) => {
+export const loader = ({ context }: TypedLoaderArgs) => {
   return {
     ssr: {
       message: "服务器渲染正常",

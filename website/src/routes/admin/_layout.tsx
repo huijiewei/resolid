@@ -1,6 +1,6 @@
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
-import { Outlet, type UIMatch, useMatches } from "@remix-run/react";
-import { useTypedLoaderData } from "@resolid/framework/utils";
+import type { LinksFunction } from "@remix-run/node";
+import { Outlet, type UIMatch, useLoaderData, useMatches } from "@remix-run/react";
+import { type TypedLoaderArgs, useTypedLoaderData } from "@resolid/framework/utils";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -33,7 +33,7 @@ export const meta = () => {
   return [{ title: "Resolid 后台管理" }];
 };
 
-export const loader = async ({ request }: LoaderFunctionArgs) => {
+export const loader = async ({ request }: TypedLoaderArgs) => {
   return {
     admin: await getSessionAdmin(request),
   };
@@ -107,7 +107,7 @@ export default function AdminLayout() {
           <div>
             Proudly made in
             <span className={"mx-1"} aria-label="中国" role="img">
-              🇨🇳
+              🇨
             </span>
             by Resolid Tech
           </div>

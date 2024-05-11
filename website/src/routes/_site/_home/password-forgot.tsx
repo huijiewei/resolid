@@ -1,7 +1,12 @@
 import type { TurnstileInstance } from "@marsidev/react-turnstile";
-import type { ActionFunctionArgs } from "@remix-run/node";
 import { Form, useSearchParams } from "@remix-run/react";
-import { createFieldErrors, httpProblem, mergeMeta, useTypedActionData } from "@resolid/framework/utils";
+import {
+  type TypedActionArgs,
+  createFieldErrors,
+  httpProblem,
+  mergeMeta,
+  useTypedActionData,
+} from "@resolid/framework/utils";
 import { Button, Input } from "@resolid/react-ui";
 import { useEffect, useRef, useState } from "react";
 import { Controller } from "react-hook-form";
@@ -17,19 +22,19 @@ export const meta = mergeMeta(() => {
   return [{ title: "忘记密码" }];
 });
 
-export const action = async ({ request, response, context }: ActionFunctionArgs) => {
+export const action = async ({ request, response, context }: TypedActionArgs) => {
   const data = await parseFormData<UserPasswordForgotFormData>(request);
 
   const captcha = await trunstileVerify(data.token);
 
   if (!captcha.success) {
-    return httpProblem(response!, createFieldErrors({ captcha: "验证失败" }));
+    return httpProblem(response, createFieldErrors({ captcha: "验证失败" }));
   }
 
   const [errors] = await userPasswordForgotService(data, context.requestOrigin ?? request.url);
 
   if (errors) {
-    return httpProblem(response!, errors);
+    return httpProblem(response, errors);
   }
 
   return { errors: undefined };

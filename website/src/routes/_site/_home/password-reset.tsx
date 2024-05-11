@@ -1,6 +1,5 @@
-import type { ActionFunctionArgs } from "@remix-run/node";
 import { Form } from "@remix-run/react";
-import { httpProblem, mergeMeta, useTypedActionData } from "@resolid/framework/utils";
+import { type TypedActionArgs, httpProblem, mergeMeta, useTypedActionData } from "@resolid/framework/utils";
 import { Button, Input } from "@resolid/react-ui";
 import { useEffect, useState } from "react";
 import { Controller } from "react-hook-form";
@@ -13,13 +12,13 @@ export const meta = mergeMeta(() => {
   return [{ title: "密码重置" }];
 });
 
-export const action = async ({ request, response }: ActionFunctionArgs) => {
+export const action = async ({ request, response }: TypedActionArgs) => {
   const data = await parseFormData<UserPasswordResetFormData>(request);
 
   const [errors] = await userPasswordResetService(data, new URL(request.url).searchParams.get("token"));
 
   if (errors) {
-    return httpProblem(response!, errors);
+    return httpProblem(response, errors);
   }
 
   return { errors: undefined };

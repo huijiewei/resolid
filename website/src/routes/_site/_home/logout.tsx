@@ -1,12 +1,8 @@
-import { type ActionFunctionArgs, redirect } from "@remix-run/node";
+import { type TypedActionArgs, httpRedirect } from "@resolid/framework/utils";
 import { destroyUserSession, getUserSession } from "~/foundation/session.user.server";
 
-export const action = async ({ request }: ActionFunctionArgs) => {
+export const action = async ({ request, response }: TypedActionArgs) => {
   const session = await getUserSession(request.headers.get("Cookie"));
 
-  return redirect(new URL(request.url).searchParams.get("redirect") ?? "", {
-    headers: {
-      "Set-Cookie": await destroyUserSession(session),
-    },
-  });
+  httpRedirect(response, new URL(request.url).searchParams.get("redirect") ?? "", await destroyUserSession(session));
 };

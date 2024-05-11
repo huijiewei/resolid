@@ -1,10 +1,16 @@
 import { createContext } from "@resolid/react-ui";
 
-export type AuthContext<T = unknown> = {
+type AuthContext<T = unknown> = {
   identity: T | undefined;
 };
 
-export const [AuthProvider, useAuth] = createContext<AuthContext>({
+const [AuthProvider, useAuthContext] = createContext<AuthContext>({
   strict: true,
   name: "AuthContext",
 });
+
+export { AuthProvider };
+
+export const useAuth = <T>() => {
+  return useAuthContext() as AuthContext<T>;
+};

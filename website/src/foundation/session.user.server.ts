@@ -1,7 +1,7 @@
 import { env } from "node:process";
-import { redirect } from "@remix-run/node";
 import { createPath } from "@remix-run/react";
 import { createDatabaseSessionStorage } from "@resolid/framework";
+import { type ResponseStub, httpRedirect } from "@resolid/framework/utils";
 import type { UserIdentity } from "~/modules/user/schema.server";
 import { userSessionService } from "~/modules/user/service.server";
 
@@ -27,14 +27,14 @@ export const getSessionUser = async (request: Request) => {
   return session.has("identity") ? session.data.identity : undefined;
 };
 
-export const requireSessionUser = async (request: Request) => {
+export const requireSessionUser = async (response: ResponseStub, request: Request) => {
   const user = await getSessionUser(request);
 
   if (!user) {
-    throw redirect(`/login?redirect=${encodeURIComponent(createPath(new URL(request.url)))}`);
+    httpRedirect(response, `/login?redirect=${encodeURIComponent(createPath(new URL(request.url)))}`);
   }
 
-  return user;
+  return user!;
 };
 
 export const setSessionUser = async (request: Request, user: UserIdentity, remoteAddr: string) => {

@@ -1,5 +1,4 @@
-import type { LoaderFunctionArgs } from "@remix-run/node";
-import { httpNotFound, mergeMeta, useTypedLoaderData } from "@resolid/framework/utils";
+import { type TypedLoaderArgs, httpNotFound, mergeMeta, useTypedLoaderData } from "@resolid/framework/utils";
 import { ErrorComponent } from "~/components/base/error-component";
 
 export const meta = mergeMeta<typeof loader>(({ data }) => {
@@ -15,11 +14,11 @@ export const handle = {
   },
 };
 
-export const loader = ({ params }: LoaderFunctionArgs) => {
+export const loader = ({ params }: TypedLoaderArgs) => {
   const id = params.id as string;
 
   if (!["1", "2", "3"].includes(id)) {
-    throw httpNotFound("博客不存在");
+    httpNotFound("博客不存在");
   }
 
   return { id: params.id, title: `Blog ${id}` };

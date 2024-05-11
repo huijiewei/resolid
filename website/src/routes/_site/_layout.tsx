@@ -1,4 +1,4 @@
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
+import { type LinksFunction, unstable_defineLoader } from "@remix-run/node";
 import {
   Form,
   Link,
@@ -6,10 +6,10 @@ import {
   type MetaArgs_SingleFetch,
   Outlet,
   createPath,
+  useLoaderData,
   useLocation,
 } from "@remix-run/react";
 import { authUtils } from "@resolid/framework/modules";
-import { useTypedLoaderData } from "@resolid/framework/utils";
 import {
   Avatar,
   Badge,
@@ -28,7 +28,7 @@ import {
 } from "@resolid/react-ui";
 import { omit, trimEnd } from "@resolid/utils";
 import { type MouseEventHandler, useState } from "react";
-import { type AuthContext, AuthProvider, useAuth } from "~/components/base/auth-provider";
+import { AuthProvider, useAuth } from "~/components/base/auth-provider";
 import { ColorModeToggle } from "~/components/base/color-mode-toggle";
 import { HistoryLink, HistoryNavLink } from "~/components/base/history-link";
 import { ResolidLogo } from "~/components/base/resolid-logo";
@@ -48,12 +48,12 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export const loader = async ({ request, context }: LoaderFunctionArgs) => {
+export const loader = unstable_defineLoader(async ({ request, context }) => {
   return {
     user: await getSessionUser(request),
     requestOrigin: context.requestOrigin ?? request.url,
   };
-};
+});
 
 export const meta = ({ data }: MetaArgs_SingleFetch<typeof loader>) => {
   const ogImage = new URL("/images/og-image-v1.png", data?.requestOrigin).toString();
@@ -117,7 +117,7 @@ export const meta = ({ data }: MetaArgs_SingleFetch<typeof loader>) => {
 };
 
 export default function SiteLayout() {
-  const { user } = useTypedLoaderData<typeof loader>();
+  const { user } = useLoaderData<typeof loader>();
 
   return (
     <AuthProvider value={{ identity: user }}>
@@ -133,7 +133,7 @@ export default function SiteLayout() {
           <p>
             Proudly made in
             <span className={"mx-1"} aria-label="中国" role="img">
-              🇨🇳
+              🇨
             </span>
             by Resolid Tech, 2024
           </p>
@@ -238,7 +238,7 @@ const NavMenu = ({ onClick }: { onClick?: MouseEventHandler<HTMLAnchorElement> }
 
 const NavUser = () => {
   const location = useLocation();
-  const { identity: user } = useAuth() as AuthContext<UserIdentity>;
+  const { identity: user } = useAuth<UserIdentity>();
 
   return user ? (
     <DropdownMenu placement={"bottom"}>

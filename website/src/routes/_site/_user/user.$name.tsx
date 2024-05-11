@@ -1,16 +1,15 @@
-import type { LoaderFunctionArgs } from "@remix-run/node";
 import { authUtils } from "@resolid/framework/modules";
-import { httpNotFound, mergeMeta, useTypedLoaderData } from "@resolid/framework/utils";
+import { type TypedLoaderArgs, httpNotFound, mergeMeta, useTypedLoaderData } from "@resolid/framework/utils";
 import { userServices } from "~/modules/user/service.server";
 
-export const loader = async ({ params }: LoaderFunctionArgs) => {
+export const loader = async ({ params }: TypedLoaderArgs) => {
   const user = await userServices.getByUsername(params.name!);
 
   if (!user) {
-    throw httpNotFound("用户不存在");
+    httpNotFound("用户不存在");
   }
 
-  return user;
+  return user!;
 };
 
 export const meta = mergeMeta<typeof loader>(({ data }) => {
