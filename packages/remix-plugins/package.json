@@ -32,22 +32,22 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.11.1",
-    "@remix-run/node": "^2.9.1",
+    "@remix-run/node": "^2.9.2",
     "@vercel/nft": "^0.26.5",
     "esbuild": "^0.20.2",
     "hono": "^4.3.4",
     "minimatch": "^9.0.4"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.9.1",
+    "@remix-run/dev": "^2.9.2",
     "@resolid/config": "workspace:^",
     "tsup": "^8.0.2",
     "type-fest": "^4.18.2",
     "vite": "^5.2.11"
   },
   "peerDependencies": {
-    "@remix-run/dev": "^2.9.1",
-    "vite": "^5.2.10"
+    "@remix-run/dev": "^2.9.2",
+    "vite": "^5.2.11"
   },
   "homepage": "https://resolid.tech",
   "repository": {
