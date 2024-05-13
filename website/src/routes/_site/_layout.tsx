@@ -1,15 +1,7 @@
 import { type LinksFunction, unstable_defineLoader } from "@remix-run/node";
-import {
-  Form,
-  Link,
-  type Location,
-  type MetaArgs_SingleFetch,
-  Outlet,
-  createPath,
-  useLoaderData,
-  useLocation,
-} from "@remix-run/react";
+import { Form, Link, type Location, Outlet, createPath, useLoaderData, useLocation } from "@remix-run/react";
 import { authUtils } from "@resolid/framework/modules";
+import type { MetaArgs_SingleFetch } from "@resolid/framework/utils";
 import {
   Avatar,
   Badge,
@@ -130,13 +122,7 @@ export default function SiteLayout() {
       <footer className={"border-t"}>
         <div className={"mx-auto flex max-w-6xl flex-col gap-1 p-4 text-center text-fg-muted text-sm"}>
           <p>Released under the MIT License</p>
-          <p>
-            Proudly made in
-            <span className={"mx-1"} aria-label="中国" role="img">
-              🇨
-            </span>
-            by Resolid Tech, 2024
-          </p>
+          <p>Copyright Ⓒ 2022-present Resolid Tech</p>
           <p className={"inline-flex items-center justify-center gap-2"}>
             <Badge asChild color={"success"}>
               <HistoryLink to={"status"}>
@@ -145,7 +131,7 @@ export default function SiteLayout() {
               </HistoryLink>
             </Badge>
             <Badge className={"pointer-events-none"} color={"neutral"}>
-              由 Vercel 部署
+              部署于 Vercel
             </Badge>
           </p>
         </div>
