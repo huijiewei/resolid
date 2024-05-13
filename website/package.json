@@ -9,7 +9,8 @@
     "vercel": "VERCEL=1 remix vite:build",
     "admin-serve": "NODE_ENV=production SERVE_PORT=3002 SERVE_PATH=/admin node --env-file=.env ./build/server/admin/serve.mjs",
     "site-serve": "NODE_ENV=production SERVE_PORT=3001 node --env-file=.env ./build/server/site/serve.mjs",
-    "resolid": "node --import tsx/esm --env-file .env ./cli/index.ts"
+    "resolid": "node --import tsx/esm --env-file .env ./cli/index.ts",
+    "drizzle": "drizzle-kit"
   },
   "dependencies": {
     "@formkit/tempo": "^0.1.1",
@@ -45,7 +46,7 @@
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
-    "drizzle-kit": "^0.20.18",
+    "drizzle-kit": "^0.21.1",
     "postcss": "^8.4.38",
     "postcss-load-config": "^5.1.0",
     "rehype-slug": "^6.0.0",

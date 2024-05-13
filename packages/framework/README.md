@@ -153,10 +153,10 @@ export const mailer = defineMailer({
 
 ### 安装依赖
 
-命令行工具依赖 `drizzle-kit` 和 `tsx`
+命令行工具依赖 `tsx`
 
 ```bash
-pnpm add -D drizzle-kit tsx
+pnpm add -D tsx
 ```
 
 ### 增加脚本
@@ -216,22 +216,6 @@ import { demoCommand } from "./commands/demo";
 
 createCli({
   commands: [demoCommand]
-});
-```
-
-### Drizzle Kit 配置
-
-编辑 `drizzle.config.ts` 文件
-
-```ts
-import { defineConfig } from "drizzle-kit";
-
-export default defineConfig({
-  schema: ["./src/modules/*/schema.server.ts"], // 这里定义本地项目的 schemas
-  driver: "pg",
-  dbCredentials: {
-    connectionString: "" // 数据库连接,
-  },
 });
 ```
 

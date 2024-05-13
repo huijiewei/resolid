@@ -1,7 +1,6 @@
 import { argv } from "node:process";
 import { Command } from "commander";
 import { setup } from "../src";
-import { dbCommand } from "./commands/db";
 
 const normalizeCommand = (command: Command) => {
   return command
@@ -25,8 +24,6 @@ export const createCli = ({ commands }: { commands: CreateCommand[] }) => {
   program.name("resolid").description("Resolid 命令行工具").version("1.0.0");
 
   normalizeCommand(program);
-
-  program.addCommand(normalizeCommand(dbCommand()));
 
   for (const command of commands) {
     program.addCommand(normalizeCommand(command()));
