@@ -10,7 +10,7 @@ export default function TermsService() {
       <h1 className={"text-center"}>服务协议</h1>
       <p>最后更新: 2024 年 04 月 16 日</p>
       <p>
-        在使用 Resolid Tech（“我们”、“我们的”）运营的 https://resolid.tech
+        在使用 Resolid Tech（“我们”、“我们的”）运营的 https://www.resolid.tech
         网站（“服务”）之前，请仔细阅读这些使用条款（“条款”、“使用条款”）。
       </p>
       <p>你访问和使用服务的条件是你接受并遵守这些条款。这些条款适用于所有访问者、用户和其他访问或使用服务的人。</p>

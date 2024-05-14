@@ -49,7 +49,7 @@
     "@remix-run/dev": "^2.9.2",
     "vite": "^5.2.11"
   },
-  "homepage": "https://resolid.tech",
+  "homepage": "https://www.resolid.tech",
   "repository": {
     "type": "git",
     "url": "https://github.com/huijiewei/resolid-remix-plugins.git"

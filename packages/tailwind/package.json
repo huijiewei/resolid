@@ -30,7 +30,7 @@
   "peerDependencies": {
     "tailwindcss": "^3.4.1"
   },
-  "homepage": "https://resolid.tech",
+  "homepage": "https://www.resolid.tech",
   "repository": {
     "type": "git",
     "url": "https://github.com/huijiewei/resolid.git",

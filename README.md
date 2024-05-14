@@ -12,7 +12,7 @@
 
 ## 网站
 
-访问 [resolid.tech](https://resolid.tech).
+访问 [resolid.tech](https://www.resolid.tech).
 
 ## 子项目
 

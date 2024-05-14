@@ -34,7 +34,7 @@
     "@types/mdast": "^4.0.3",
     "tsup": "^8.0.2"
   },
-  "homepage": "https://resolid.tech",
+  "homepage": "https://www.resolid.tech",
   "repository": {
     "type": "git",
     "url": "https://github.com/huijiewei/resolid.git",

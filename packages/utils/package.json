@@ -32,7 +32,7 @@
     "tsup": "^8.0.2",
     "vitest": "^1.6.0"
   },
-  "homepage": "https://resolid.tech",
+  "homepage": "https://www.resolid.tech",
   "repository": {
     "type": "git",
     "url": "https://github.com/huijiewei/resolid.git",

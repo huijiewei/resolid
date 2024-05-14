@@ -24,7 +24,7 @@
     }
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.13",
+    "@floating-ui/react": "^0.26.14",
     "@resolid/utils": "workspace:^",
     "@tanstack/react-virtual": "^3.5.0",
     "@tw-classed/core": "^1.7.0",
@@ -38,8 +38,8 @@
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "jsdom": "^24.0.0",
-    "react": "19.0.0-beta-6946ebe620-20240508",
-    "react-dom": "19.0.0-beta-6946ebe620-20240508",
+    "react": "19.0.0-beta-9d76c954cf-20240510",
+    "react-dom": "19.0.0-beta-9d76c954cf-20240510",
     "tsup": "^8.0.2",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0"
@@ -49,7 +49,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "homepage": "https://resolid.tech",
+  "homepage": "https://www.resolid.tech",
   "repository": {
     "type": "git",
     "url": "https://github.com/huijiewei/resolid.git",
