@@ -25,7 +25,7 @@ export type AuthSessionData<T> = {
 
 export type AuthSessionService<T> = {
   getIdentity: (sessionId: string) => Promise<T | undefined>;
-  createdSession: (sessionData: AuthSessionData<T>, expiredAt: Date) => Promise<string>;
+  createSession: (sessionData: AuthSessionData<T>, expiredAt: Date) => Promise<string>;
   updateSession: (sessionId: string, sessionData: AuthSessionData<T>, expiredAt: Date) => Promise<void>;
   removeSession: (sessionId: string) => Promise<void>;
 };
@@ -49,6 +49,7 @@ const omitIdentity = <T extends AuthSelectWithGroup | AuthSelect>(identity: T): 
   return omit(identity, ["password", "createdAt", "updatedAt", "deletedAt"]);
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const createAuthLoginService = <T extends AuthSelectWithGroup>(
   database: DatabaseInstance,
   authTable: AuthTable,
@@ -85,105 +86,6 @@ export const createAuthLoginService = <T extends AuthSelectWithGroup>(
   };
 };
 
-export const createAuthPasswordForgotService = (
-  database: DatabaseInstance,
-  authTable: AuthTable,
-  authPasswordResetTable: AuthPasswordResetTable,
-  callback: (
-    identity: AuthIdentity<AuthSelect>,
-    resetId: string,
-    requestOrigin: string,
-  ) => Promise<[error: Record<string, string>, success: undefined] | [error: undefined, success: true]>,
-) => {
-  return async (
-    data: AuthPasswordForgotFormData,
-    requestOrigin: string,
-  ): Promise<ServiceResult<AuthPasswordForgotFormData, boolean>> => {
-    const { errors, values } = await validateData(data, authPasswordForgotResolver);
-
-    if (errors) {
-      return [errors, undefined];
-    }
-
-    const identities = await database
-      .select()
-      .from(authTable)
-      .where(and(eq(authTable.email, values.email), isNull(authTable.deletedAt)))
-      .limit(1);
-
-    if (identities.length == 0) {
-      return [createFieldErrors({ email: "电子邮箱并未注册" }), undefined];
-    }
-
-    const resetId = randomId();
-
-    await database.insert(authPasswordResetTable as AnyPgTable).values({
-      id: resetId,
-      identityId: identities[0].id,
-      expiredAt: new Date(Date.now() + 1000 * 60 * 60 * 24),
-    });
-
-    const [error] = await callback(identities[0], resetId, requestOrigin);
-
-    if (error) {
-      return [createFieldErrors(error), undefined];
-    }
-
-    return [undefined, true];
-  };
-};
-
-export const createAuthPasswordResetService = (
-  database: DatabaseInstance,
-  authTable: AuthTable,
-  authPasswordResetTable: AuthPasswordResetTable,
-) => {
-  return async (
-    data: AuthPasswordResetFormData,
-    token: string | null,
-  ): Promise<ServiceResult<AuthPasswordResetFormData, boolean>> => {
-    if (isEmpty(token)) {
-      return [createFieldErrors({ token: "无效的密码重置链接" }), undefined];
-    }
-
-    const { errors, values } = await validateData(data, authPasswordResetResolver);
-
-    if (errors) {
-      return [errors, undefined];
-    }
-
-    const resets = await database
-      .select()
-      .from(authPasswordResetTable)
-      .where(
-        and(
-          eq(authPasswordResetTable.id, token as string),
-          eq(authPasswordResetTable.redeemed, false),
-          gt(authPasswordResetTable.expiredAt, new Date()),
-        ),
-      )
-      .limit(1);
-
-    if (resets.length == 0) {
-      return [createFieldErrors({ token: "无效的密码重置链接" }), undefined];
-    }
-
-    await database
-      .update(authTable as AnyPgTable)
-      .set({
-        password: await hash(values.password),
-      })
-      .where(eq(authTable.id, resets[0].identityId));
-
-    await database
-      .update(authPasswordResetTable as AnyPgTable)
-      .set({ redeemed: true })
-      .where(eq(authPasswordResetTable.id, resets[0].id));
-
-    return [undefined, true];
-  };
-};
-
 export const createAuthBaseService = (
   database: DatabaseInstance,
   authTable: AuthTable,
@@ -215,6 +117,7 @@ export const createAuthBaseService = (
   };
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const createAuthSignupService = <T extends AuthSelectWithGroup>(
   database: DatabaseInstance,
   authTable: AuthTable,
@@ -263,79 +166,189 @@ export const createAuthSignupService = <T extends AuthSelectWithGroup>(
   };
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const createAuthSessionService = <T extends AuthSelectWithGroup>(
   database: DatabaseInstance,
   authTable: AuthTable,
   authGroupTable: AuthGroupTable,
   authSessionTable: AuthSessionTable,
 ): AuthSessionService<AuthIdentity<T>> => {
-  return {
-    async createdSession(sessionData: AuthSessionData<AuthIdentity<T>>, expiredAt: Date): Promise<string> {
-      const sessionId = randomId();
-
-      await database.insert(authSessionTable as AnyPgTable).values({
-        id: sessionId,
-        identityId: sessionData.identity.id,
-        remoteAddr: sessionData.remoteAddr,
-        userAgent: sessionData.userAgent,
-        expiredAt: expiredAt,
-      });
-
-      return sessionId;
-    },
-    async getIdentity(sessionId: string): Promise<AuthIdentity<T> | undefined> {
-      const result = await database
-        .select({
-          ...getTableColumns(authTable),
-          group: getTableColumns(authGroupTable),
-        })
-        .from(authTable)
-        .where(
-          and(
-            isNull(authTable.deletedAt),
-            inArray(
-              authTable.id,
-              database
-                .select({ id: authSessionTable.identityId })
-                .from(authSessionTable)
-                .where(eq(authSessionTable.id, sessionId)),
-            ),
+  const getIdentity: AuthSessionService<AuthIdentity<T>>["getIdentity"] = async (sessionId) => {
+    const result = await database
+      .select({
+        ...getTableColumns(authTable),
+        group: getTableColumns(authGroupTable),
+      })
+      .from(authTable)
+      .where(
+        and(
+          isNull(authTable.deletedAt),
+          inArray(
+            authTable.id,
+            database
+              .select({ id: authSessionTable.identityId })
+              .from(authSessionTable)
+              .where(eq(authSessionTable.id, sessionId)),
           ),
-        )
-        .leftJoin(authGroupTable, eq(authGroupTable.id, authTable.groupId))
-        .limit(1);
+        ),
+      )
+      .leftJoin(authGroupTable, eq(authGroupTable.id, authTable.groupId))
+      .limit(1);
 
-      if (result.length == 0) {
-        return undefined;
-      }
+    if (result.length == 0) {
+      return undefined;
+    }
 
-      return omitIdentity(result[0] as T);
-    },
-    async removeSession(sessionId: string): Promise<void> {
-      await database.delete(authSessionTable).where(eq(authSessionTable.id, sessionId));
-    },
-    async updateSession(
-      sessionId: string,
-      sessionData: AuthSessionData<AuthIdentity<T>>,
-      expiredAt: Date,
-    ): Promise<void> {
-      const update = {
-        identityId: sessionData.identity.id,
-        remoteAddr: sessionData.remoteAddr,
-        userAgent: sessionData.userAgent,
-        expiredAt: expiredAt,
-      };
+    return omitIdentity(result[0] as T);
+  };
 
-      await database
-        .insert(authSessionTable as AnyPgTable)
-        .values({
-          id: sessionId,
-          ...update,
-        })
-        .onConflictDoUpdate({
-          target: authSessionTable.id,
-          set: update,
-        });
-    },
+  const createSession: AuthSessionService<AuthIdentity<T>>["createSession"] = async (sessionData, expiredAt) => {
+    const sessionId = randomId();
+
+    await database.insert(authSessionTable as AnyPgTable).values({
+      id: sessionId,
+      identityId: sessionData.identity.id,
+      remoteAddr: sessionData.remoteAddr,
+      userAgent: sessionData.userAgent,
+      expiredAt: expiredAt,
+    });
+
+    return sessionId;
+  };
+
+  const updateSession: AuthSessionService<AuthIdentity<T>>["updateSession"] = async (
+    sessionId,
+    sessionData,
+    expiredAt,
+  ) => {
+    const update = {
+      identityId: sessionData.identity.id,
+      remoteAddr: sessionData.remoteAddr,
+      userAgent: sessionData.userAgent,
+      expiredAt: expiredAt,
+    };
+
+    await database
+      .insert(authSessionTable as AnyPgTable)
+      .values({
+        id: sessionId,
+        ...update,
+      })
+      .onConflictDoUpdate({
+        target: authSessionTable.id,
+        set: update,
+      });
+  };
+
+  const removeSession: AuthSessionService<AuthIdentity<T>>["removeSession"] = async (sessionId) => {
+    await database.delete(authSessionTable).where(eq(authSessionTable.id, sessionId));
+  };
+
+  return {
+    getIdentity,
+    createSession,
+    updateSession,
+    removeSession,
+  };
+};
+
+// noinspection JSUnusedGlobalSymbols
+export const createAuthPasswordForgotService = (
+  database: DatabaseInstance,
+  authTable: AuthTable,
+  authPasswordResetTable: AuthPasswordResetTable,
+  callback: (
+    identity: AuthIdentity<AuthSelect>,
+    resetId: string,
+    requestOrigin: string,
+  ) => Promise<[error: Record<string, string>, success: undefined] | [error: undefined, success: true]>,
+) => {
+  return async (
+    data: AuthPasswordForgotFormData,
+    requestOrigin: string,
+  ): Promise<ServiceResult<AuthPasswordForgotFormData, boolean>> => {
+    const { errors, values } = await validateData(data, authPasswordForgotResolver);
+
+    if (errors) {
+      return [errors, undefined];
+    }
+
+    const identities = await database
+      .select()
+      .from(authTable)
+      .where(and(eq(authTable.email, values.email), isNull(authTable.deletedAt)))
+      .limit(1);
+
+    if (identities.length == 0) {
+      return [createFieldErrors({ email: "电子邮箱并未注册" }), undefined];
+    }
+
+    const resetId = randomId();
+
+    await database.insert(authPasswordResetTable as AnyPgTable).values({
+      id: resetId,
+      identityId: identities[0].id,
+      expiredAt: new Date(Date.now() + 1000 * 60 * 60 * 24),
+    });
+
+    const [error] = await callback(identities[0], resetId, requestOrigin);
+
+    if (error) {
+      return [createFieldErrors(error), undefined];
+    }
+
+    return [undefined, true];
+  };
+};
+
+// noinspection JSUnusedGlobalSymbols
+export const createAuthPasswordResetService = (
+  database: DatabaseInstance,
+  authTable: AuthTable,
+  authPasswordResetTable: AuthPasswordResetTable,
+) => {
+  return async (
+    data: AuthPasswordResetFormData,
+    token: string | null,
+  ): Promise<ServiceResult<AuthPasswordResetFormData, boolean>> => {
+    if (isEmpty(token)) {
+      return [createFieldErrors({ token: "无效的密码重置链接" }), undefined];
+    }
+
+    const { errors, values } = await validateData(data, authPasswordResetResolver);
+
+    if (errors) {
+      return [errors, undefined];
+    }
+
+    const resets = await database
+      .select()
+      .from(authPasswordResetTable)
+      .where(
+        and(
+          eq(authPasswordResetTable.id, token as string),
+          eq(authPasswordResetTable.redeemed, false),
+          gt(authPasswordResetTable.expiredAt, new Date()),
+        ),
+      )
+      .limit(1);
+
+    if (resets.length == 0) {
+      return [createFieldErrors({ token: "无效的密码重置链接" }), undefined];
+    }
+
+    await database
+      .update(authTable as AnyPgTable)
+      .set({
+        password: await hash(values.password),
+      })
+      .where(eq(authTable.id, resets[0].identityId));
+
+    await database
+      .update(authPasswordResetTable as AnyPgTable)
+      .set({ redeemed: true })
+      .where(eq(authPasswordResetTable.id, resets[0].id));
+
+    return [undefined, true];
   };
 };

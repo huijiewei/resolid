@@ -16,12 +16,12 @@ export const getCookieExpires = <T extends IntRange<1, 366> | undefined>(days?: 
 export const createDatabaseSessionStorage = <T>({ cookie, service }: DatabaseSessionStorageOptions<T>) => {
   return createSessionStorage<AuthSessionData<T>>({
     cookie: cookie,
-    async createData(data, expires): Promise<string> {
+    async createData(data, expires) {
       const expiredAt = expires ?? getCookieExpires(365);
 
-      return service.createdSession(data as AuthSessionData<T>, expiredAt);
+      return service.createSession(data as AuthSessionData<T>, expiredAt);
     },
-    async updateData(id, data, expires): Promise<void> {
+    async updateData(id, data, expires) {
       const expiredAt = expires ?? getCookieExpires(365);
 
       return service.updateSession(id, data as AuthSessionData<T>, expiredAt);
