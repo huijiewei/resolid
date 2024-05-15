@@ -26,12 +26,12 @@
     "esast-util-from-js": "^2.0.1",
     "mdast-util-mdx-jsx": "^3.1.2",
     "react-docgen-typescript": "^2.2.2",
-    "unist-util-visit": "^5.0.0",
-    "unified": "^11.0.4"
+    "unified": "^11.0.4",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@resolid/config": "workspace:^",
-    "@types/mdast": "^4.0.3",
+    "@types/mdast": "^4.0.4",
     "tsup": "^8.0.2"
   },
   "homepage": "https://www.resolid.tech",
