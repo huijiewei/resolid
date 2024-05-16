@@ -35,7 +35,7 @@
     "@remix-run/node": "^2.9.2",
     "@vercel/nft": "^0.26.5",
     "esbuild": "^0.20.2",
-    "hono": "^4.3.6",
+    "hono": "^4.3.7",
     "minimatch": "^9.0.4"
   },
   "devDependencies": {
