@@ -5,7 +5,6 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/mdx-plugins/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/react-ui/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/remix-plugins/dist" />
-      <excludeFolder url="file://$MODULE_DIR$/packages/remix-utils/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/tailwind/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/utils/dist" />
       <excludeFolder url="file://$MODULE_DIR$/website/.resolid" />

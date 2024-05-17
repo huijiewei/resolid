@@ -28,7 +28,7 @@
     "tsup": "^8.0.2"
   },
   "peerDependencies": {
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.3"
   },
   "homepage": "https://www.resolid.tech",
   "repository": {
