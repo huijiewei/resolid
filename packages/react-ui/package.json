@@ -38,8 +38,8 @@
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "jsdom": "^24.0.0",
-    "react": "19.0.0-rc-915b914b3a-20240515",
-    "react-dom": "19.0.0-rc-915b914b3a-20240515",
+    "react": "19.0.0-rc-3f1436cca1-20240516",
+    "react-dom": "19.0.0-rc-3f1436cca1-20240516",
     "tsup": "^8.0.2",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0"
