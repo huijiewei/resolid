@@ -35,9 +35,9 @@
     "overrides": {
       "@mdx-js/mdx": "^3.0.1",
       "esbuild": "^0.20.2",
-      "react": "19.0.0-rc-81c5ff2e04-20240521",
-      "react-dom": "19.0.0-rc-81c5ff2e04-20240521",
-      "react-is": "19.0.0-rc-81c5ff2e04-20240521",
+      "react": "19.0.0-rc-f994737d14-20240522",
+      "react-dom": "19.0.0-rc-f994737d14-20240522",
+      "react-is": "19.0.0-rc-f994737d14-20240522",
       "hasown": "npm:@nolyfill/hasown@latest",
       "is-arguments": "npm:@nolyfill/is-arguments@latest",
       "is-generator-function": "npm:@nolyfill/is-generator-function@latest",
