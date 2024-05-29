@@ -38,16 +38,16 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "jsdom": "^24.1.0",
-    "react": "19.0.0-rc-935180c7e0-20240524",
-    "react-dom": "19.0.0-rc-935180c7e0-20240524",
+    "react": "19.0.0-rc-6f23540c7d-20240528",
+    "react-dom": "19.0.0-rc-6f23540c7d-20240528",
     "tsup": "^8.0.2",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {
     "@resolid/tailwind": "workspace:^",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "homepage": "https://www.resolid.tech",
   "repository": {
