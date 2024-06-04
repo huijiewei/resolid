@@ -25,7 +25,7 @@
   "devDependencies": {
     "@resolid/config": "workspace:^",
     "tailwindcss": "^3.4.3",
-    "tsup": "^8.0.2"
+    "tsup": "^8.1.0"
   },
   "peerDependencies": {
     "tailwindcss": "^3.4.3"
