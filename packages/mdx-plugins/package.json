@@ -13,7 +13,7 @@
   },
   "files": ["dist"],
   "scripts": {
-    "check": "biome check --apply .",
+    "check": "biome check --write .",
     "build": "tsup"
   },
   "exports": {
