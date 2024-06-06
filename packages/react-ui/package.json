@@ -26,7 +26,7 @@
   "dependencies": {
     "@floating-ui/react": "^0.26.16",
     "@resolid/utils": "workspace:^",
-    "@tanstack/react-virtual": "^3.5.0",
+    "@tanstack/react-virtual": "^3.5.1",
     "@tw-classed/core": "^1.7.0",
     "clsx": "^2.1.1",
     "react-remove-scroll-bar": "^2.3.6"
@@ -38,8 +38,8 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "jsdom": "^24.1.0",
-    "react": "19.0.0-rc-bf3a29d097-20240603",
-    "react-dom": "19.0.0-rc-bf3a29d097-20240603",
+    "react": "19.0.0-rc-eb259b5d3b-20240605",
+    "react-dom": "19.0.0-rc-eb259b5d3b-20240605",
     "tsup": "^8.1.0",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0"
