@@ -354,7 +354,7 @@ importers:
         version: 8.4.38
       postcss-load-config:
         specifier: ^6.0.1
-        version: 6.0.1(jiti@1.21.3)(postcss@8.4.38)(tsx@4.14.1)(yaml@2.4.5)
+        version: 6.0.1(jiti@1.21.3)(postcss@8.4.38)(tsx@4.15.1)(yaml@2.4.5)
       rehype-slug:
         specifier: ^6.0.0
         version: 6.0.0
@@ -371,8 +371,8 @@ importers:
         specifier: ^3.4.4
         version: 3.4.4
       tsx:
-        specifier: ^4.14.1
-        version: 4.14.1
+        specifier: ^4.15.1
+        version: 4.15.1
       vite:
         specifier: ^5.2.13
         version: 5.2.13(@types/node@20.14.2)
@@ -2683,8 +2683,8 @@ packages:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
     engines: {node: '>=10'}
 
-  lilconfig@3.1.1:
-    resolution: {integrity: sha512-O18pf7nyvHTckunPWCV1XUNXU1piu01y2b7ATJ0ppkUkk8ocqVWBrYjJBCwHDjD/ZWcfyrA0P4gKhzWGi5EINQ==}
+  lilconfig@3.1.2:
+    resolution: {integrity: sha512-eop+wDAvpItUys0FWkHIKeC9ybYrTGbU41U5K7+bttZZeohvnY7M9dZ5kB21GNWiFT2q1OoPTvncPCgSOVO5ow==}
     engines: {node: '>=14'}
 
   lines-and-columns@1.2.4:
@@ -4033,8 +4033,8 @@ packages:
       typescript:
         optional: true
 
-  tsx@4.14.1:
-    resolution: {integrity: sha512-GU8pPJq8DdxcJDSK6Bc64c2jW8zBK2hb0jzwHZDfjapbwu6AqvFnAElnzZ17Xb9TH5a/j6/sicTCVYF+eO/cmA==}
+  tsx@4.15.1:
+    resolution: {integrity: sha512-k/6h17jA1KfUR7SpcteOa880zGmF56s8gMIcSqUR5avyNFi9nlCEKpMiHLrzrqyARGr52A/JablmGey1DEWbCA==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -6791,7 +6791,7 @@ snapshots:
 
   lilconfig@2.1.0: {}
 
-  lilconfig@3.1.1: {}
+  lilconfig@3.1.2: {}
 
   lines-and-columns@1.2.4: {}
 
@@ -7708,18 +7708,18 @@ snapshots:
 
   postcss-load-config@4.0.2(postcss@8.4.38):
     dependencies:
-      lilconfig: 3.1.1
+      lilconfig: 3.1.2
       yaml: 2.4.5
     optionalDependencies:
       postcss: 8.4.38
 
-  postcss-load-config@6.0.1(jiti@1.21.3)(postcss@8.4.38)(tsx@4.14.1)(yaml@2.4.5):
+  postcss-load-config@6.0.1(jiti@1.21.3)(postcss@8.4.38)(tsx@4.15.1)(yaml@2.4.5):
     dependencies:
-      lilconfig: 3.1.1
+      lilconfig: 3.1.2
     optionalDependencies:
       jiti: 1.21.3
       postcss: 8.4.38
-      tsx: 4.14.1
+      tsx: 4.15.1
       yaml: 2.4.5
 
   postcss-modules-extract-imports@3.1.0(postcss@8.4.38):
@@ -8427,7 +8427,7 @@ snapshots:
       - supports-color
       - ts-node
 
-  tsx@4.14.1:
+  tsx@4.15.1:
     dependencies:
       esbuild: 0.20.2
       get-tsconfig: 4.7.5
