@@ -24,7 +24,7 @@
     }
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.16",
+    "@floating-ui/react": "^0.26.17",
     "@resolid/utils": "workspace:^",
     "@tanstack/react-virtual": "^3.5.1",
     "@tw-classed/core": "^1.7.0",
@@ -38,8 +38,8 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "jsdom": "^24.1.0",
-    "react": "19.0.0-rc-f3e09d6328-20240612",
-    "react-dom": "19.0.0-rc-f3e09d6328-20240612",
+    "react": "19.0.0-rc-dfd30974ab-20240613",
+    "react-dom": "19.0.0-rc-dfd30974ab-20240613",
     "tsup": "^8.1.0",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0"
