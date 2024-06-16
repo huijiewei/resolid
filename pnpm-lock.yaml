@@ -54,7 +54,7 @@ importers:
     dependencies:
       '@hookform/resolvers':
         specifier: ^3.6.0
-        version: 3.6.0(react-hook-form@7.51.5(react@19.0.0-rc-fb9a90fa48-20240614))
+        version: 3.6.0(react-hook-form@7.52.0(react@19.0.0-rc-fb9a90fa48-20240614))
       '@node-rs/bcrypt':
         specifier: ^1.10.4
         version: 1.10.4
@@ -80,11 +80,11 @@ importers:
         specifier: ^3.4.4
         version: 3.4.4
       react-hook-form:
-        specifier: ^7.51.5
-        version: 7.51.5(react@19.0.0-rc-fb9a90fa48-20240614)
+        specifier: ^7.52.0
+        version: 7.52.0(react@19.0.0-rc-fb9a90fa48-20240614)
       type-fest:
-        specifier: ^4.20.0
-        version: 4.20.0
+        specifier: ^4.20.1
+        version: 4.20.1
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -213,8 +213,8 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0(postcss@8.4.38)(typescript@5.4.5)
       type-fest:
-        specifier: ^4.20.0
-        version: 4.20.0
+        specifier: ^4.20.1
+        version: 4.20.1
       vite:
         specifier: ^5.3.1
         version: 5.3.1(@types/node@20.14.2)
@@ -260,7 +260,7 @@ importers:
         version: 1.11.3
       '@hookform/resolvers':
         specifier: ^3.6.0
-        version: 3.6.0(react-hook-form@7.51.5(react@19.0.0-rc-fb9a90fa48-20240614))
+        version: 3.6.0(react-hook-form@7.52.0(react@19.0.0-rc-fb9a90fa48-20240614))
       '@marsidev/react-turnstile':
         specifier: ^0.7.1
         version: 0.7.1(react-dom@19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614))(react@19.0.0-rc-fb9a90fa48-20240614)
@@ -304,11 +304,11 @@ importers:
         specifier: 19.0.0-rc-fb9a90fa48-20240614
         version: 19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614)
       react-hook-form:
-        specifier: ^7.51.5
-        version: 7.51.5(react@19.0.0-rc-fb9a90fa48-20240614)
+        specifier: ^7.52.0
+        version: 7.52.0(react@19.0.0-rc-fb9a90fa48-20240614)
       remix-hook-form:
         specifier: ^4.3.1
-        version: 4.3.1(@remix-run/react@2.9.2(react-dom@19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614))(react@19.0.0-rc-fb9a90fa48-20240614)(typescript@5.4.5))(react-dom@19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614))(react-hook-form@7.51.5(react@19.0.0-rc-fb9a90fa48-20240614))(react@19.0.0-rc-fb9a90fa48-20240614)
+        version: 4.3.1(@remix-run/react@2.9.2(react-dom@19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614))(react@19.0.0-rc-fb9a90fa48-20240614)(typescript@5.4.5))(react-dom@19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614))(react-hook-form@7.52.0(react@19.0.0-rc-fb9a90fa48-20240614))(react@19.0.0-rc-fb9a90fa48-20240614)
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -332,8 +332,8 @@ importers:
         specifier: workspace:^
         version: link:../packages/tailwind
       '@shikijs/rehype':
-        specifier: ^1.6.4
-        version: 1.6.4
+        specifier: ^1.6.5
+        version: 1.6.5
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.13(tailwindcss@3.4.4)
@@ -1240,14 +1240,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@shikijs/core@1.6.4':
-    resolution: {integrity: sha512-WTU9rzZae1p2v6LOxMf6LhtmZOkIHYYW160IuahUyJy7YXPPjyWZLR1ag+SgD22ZMxZtz1gfU6Tccc8t0Il/XA==}
+  '@shikijs/core@1.6.5':
+    resolution: {integrity: sha512-XcQYt6e4L61ruAxHiL3Xg1DL/XkWWjzDdeckB/DtN8jAxoAU+bcxsV6DetC8NafHpL4YpGhxy9iXF0ND/u6HmA==}
 
-  '@shikijs/rehype@1.6.4':
-    resolution: {integrity: sha512-rQFnJKb9uJm3lr6DDKoVBSnWcocHGIqfKM591NSDawMxfhm+gPGhgLP6/EX1N2v0qNHQeuzBuunkApWVQbVTCg==}
+  '@shikijs/rehype@1.6.5':
+    resolution: {integrity: sha512-tv3WzBXvRI3VD9dBg1wdbRcXXg19mSGsNuJ2ZDlJK7DgRThUs++OgUqYosvBJZlraqFthXSr5tuCok9ffZaqQw==}
 
-  '@shikijs/transformers@1.6.4':
-    resolution: {integrity: sha512-NqDt7gUg3ayVBnsipT/KoL1pqsVbsvT/2cB0pb5SG2q72qjAv9Lb5OP99pL//BMmI+sMTo+TeARntklyBu4mZQ==}
+  '@shikijs/transformers@1.6.5':
+    resolution: {integrity: sha512-iuKa1uQtPQEe5vgCsXIb162b/3imRiAIdoF5IqafrTWL1uqZUpipfPjWZPuAAszOzYU//yIYRbhUk8reHVXA/w==}
 
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
@@ -3529,8 +3529,8 @@ packages:
     peerDependencies:
       react: 19.0.0-rc-fb9a90fa48-20240614
 
-  react-hook-form@7.51.5:
-    resolution: {integrity: sha512-J2ILT5gWx1XUIJRETiA7M19iXHlG74+6O3KApzvqB/w8S5NQR7AbU8HVZrMALdmDgWpRPYiZJl0zx8Z4L2mP6Q==}
+  react-hook-form@7.52.0:
+    resolution: {integrity: sha512-mJX506Xc6mirzLsmXUJyqlAI3Kj9Ph2RhplYhUVffeOQSnubK2uVqBFOBJmvKikvbFV91pxVXmDiR+QMF19x6A==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: 19.0.0-rc-fb9a90fa48-20240614
@@ -3756,8 +3756,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  shiki@1.6.4:
-    resolution: {integrity: sha512-X88chM7w8jnadoZtjPTi5ahCJx9pc9f8GfEkZAEYUTlcUZIEw2D/RY86HI/LkkE7Nj8TQWkiBfaFTJ3VJT6ESg==}
+  shiki@1.6.5:
+    resolution: {integrity: sha512-iFzypldJG0zeyRHKAhaSGCf+YWXpMMyUyOrCVFBFKGGdF5vrB6jbd66/SQljxV20aSrVZEAQwUto/hhuNi/CIg==}
 
   siginfo@2.0.0:
     resolution: {integrity: sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==}
@@ -4045,8 +4045,8 @@ packages:
     resolution: {integrity: sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==}
     engines: {node: '>=4'}
 
-  type-fest@4.20.0:
-    resolution: {integrity: sha512-MBh+PHUHHisjXf4tlx0CFWoMdjx8zCMLJHOjnV1prABYZFHqtFOyauCIK2/7w4oIfwkF8iNhLtnJEfVY2vn3iw==}
+  type-fest@4.20.1:
+    resolution: {integrity: sha512-R6wDsVsoS9xYOpy8vgeBlqpdOyzJ12HNfQhC/aAKWM3YoCV9TtunJzh/QpkMgeDhkoynDcw5f1y+qF9yc/HHyg==}
     engines: {node: '>=16'}
 
   type-is@1.6.18:
@@ -4908,9 +4908,9 @@ snapshots:
 
   '@hono/node-server@1.11.3': {}
 
-  '@hookform/resolvers@3.6.0(react-hook-form@7.51.5(react@19.0.0-rc-fb9a90fa48-20240614))':
+  '@hookform/resolvers@3.6.0(react-hook-form@7.52.0(react@19.0.0-rc-fb9a90fa48-20240614))':
     dependencies:
-      react-hook-form: 7.51.5(react@19.0.0-rc-fb9a90fa48-20240614)
+      react-hook-form: 7.52.0(react@19.0.0-rc-fb9a90fa48-20240614)
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -5347,20 +5347,20 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.18.0':
     optional: true
 
-  '@shikijs/core@1.6.4': {}
+  '@shikijs/core@1.6.5': {}
 
-  '@shikijs/rehype@1.6.4':
+  '@shikijs/rehype@1.6.5':
     dependencies:
-      '@shikijs/transformers': 1.6.4
+      '@shikijs/transformers': 1.6.5
       '@types/hast': 3.0.4
       hast-util-to-string: 3.0.0
-      shiki: 1.6.4
+      shiki: 1.6.5
       unified: 11.0.4
       unist-util-visit: 5.0.0
 
-  '@shikijs/transformers@1.6.4':
+  '@shikijs/transformers@1.6.5':
     dependencies:
-      shiki: 1.6.4
+      shiki: 1.6.5
 
   '@sinclair/typebox@0.27.8': {}
 
@@ -7864,7 +7864,7 @@ snapshots:
       react: 19.0.0-rc-fb9a90fa48-20240614
       scheduler: 0.25.0-rc-fb9a90fa48-20240614
 
-  react-hook-form@7.51.5(react@19.0.0-rc-fb9a90fa48-20240614):
+  react-hook-form@7.52.0(react@19.0.0-rc-fb9a90fa48-20240614):
     dependencies:
       react: 19.0.0-rc-fb9a90fa48-20240614
 
@@ -8010,12 +8010,12 @@ snapshots:
       mdast-util-to-markdown: 2.1.0
       unified: 11.0.4
 
-  remix-hook-form@4.3.1(@remix-run/react@2.9.2(react-dom@19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614))(react@19.0.0-rc-fb9a90fa48-20240614)(typescript@5.4.5))(react-dom@19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614))(react-hook-form@7.51.5(react@19.0.0-rc-fb9a90fa48-20240614))(react@19.0.0-rc-fb9a90fa48-20240614):
+  remix-hook-form@4.3.1(@remix-run/react@2.9.2(react-dom@19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614))(react@19.0.0-rc-fb9a90fa48-20240614)(typescript@5.4.5))(react-dom@19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614))(react-hook-form@7.52.0(react@19.0.0-rc-fb9a90fa48-20240614))(react@19.0.0-rc-fb9a90fa48-20240614):
     dependencies:
       '@remix-run/react': 2.9.2(react-dom@19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614))(react@19.0.0-rc-fb9a90fa48-20240614)(typescript@5.4.5)
       react: 19.0.0-rc-fb9a90fa48-20240614
       react-dom: 19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614)
-      react-hook-form: 7.51.5(react@19.0.0-rc-fb9a90fa48-20240614)
+      react-hook-form: 7.52.0(react@19.0.0-rc-fb9a90fa48-20240614)
 
   require-directory@2.1.1: {}
 
@@ -8141,9 +8141,9 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shiki@1.6.4:
+  shiki@1.6.5:
     dependencies:
-      '@shikijs/core': 1.6.4
+      '@shikijs/core': 1.6.5
 
   siginfo@2.0.0: {}
 
@@ -8440,7 +8440,7 @@ snapshots:
 
   type-detect@4.0.8: {}
 
-  type-fest@4.20.0: {}
+  type-fest@4.20.1: {}
 
   type-is@1.6.18:
     dependencies:

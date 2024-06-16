@@ -30,7 +30,7 @@
     "isbot": "^5.1.9",
     "react": "19.0.0-rc-fb9a90fa48-20240614",
     "react-dom": "19.0.0-rc-fb9a90fa48-20240614",
-    "react-hook-form": "^7.51.5",
+    "react-hook-form": "^7.52.0",
     "remix-hook-form": "^4.3.1",
     "zod": "^3.23.8"
   },
@@ -41,7 +41,7 @@
     "@resolid/mdx-plugins": "workspace:^",
     "@resolid/remix-plugins": "workspace:^",
     "@resolid/tailwind": "workspace:^",
-    "@shikijs/rehype": "^1.6.4",
+    "@shikijs/rehype": "^1.6.5",
     "@tailwindcss/typography": "^0.5.13",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",

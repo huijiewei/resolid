@@ -42,7 +42,7 @@
     "@remix-run/dev": "^2.9.2",
     "@resolid/config": "workspace:^",
     "tsup": "^8.1.0",
-    "type-fest": "^4.20.0",
+    "type-fest": "^4.20.1",
     "vite": "^5.3.1"
   },
   "peerDependencies": {
