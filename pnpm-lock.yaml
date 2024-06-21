@@ -23,32 +23,32 @@ importers:
   .:
     devDependencies:
       '@biomejs/biome':
-        specifier: ^1.8.1
-        version: 1.8.1
+        specifier: ^1.8.2
+        version: 1.8.2
       '@commitlint/cli':
         specifier: ^19.3.0
-        version: 19.3.0(@types/node@20.14.6)(typescript@5.4.5)
+        version: 19.3.0(@types/node@20.14.7)(typescript@5.5.2)
       '@commitlint/config-conventional':
         specifier: ^19.2.2
         version: 19.2.2
       '@types/node':
-        specifier: ^20.14.6
-        version: 20.14.6
+        specifier: ^20.14.7
+        version: 20.14.7
       lefthook:
-        specifier: ^1.6.16
-        version: 1.6.16
+        specifier: ^1.6.17
+        version: 1.6.17
       typescript:
-        specifier: ^5.4.5
-        version: 5.4.5
+        specifier: ^5.5.2
+        version: 5.5.2
 
   packages/config:
     devDependencies:
       '@biomejs/biome':
-        specifier: ^1.8.1
-        version: 1.8.1
+        specifier: ^1.8.2
+        version: 1.8.2
       typescript:
-        specifier: ^5.4.5
-        version: 5.4.5
+        specifier: ^5.5.2
+        version: 5.5.2
 
   packages/framework:
     dependencies:
@@ -60,13 +60,13 @@ importers:
         version: 1.10.4
       '@remix-run/node':
         specifier: ^2.9.2
-        version: 2.9.2(typescript@5.4.5)
+        version: 2.9.2(typescript@5.5.2)
       '@remix-run/react':
         specifier: ^2.9.2
-        version: 2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.4.5)
+        version: 2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.5.2)
       '@remix-run/server-runtime':
         specifier: ^2.9.2
-        version: 2.9.2(typescript@5.4.5)
+        version: 2.9.2(typescript@5.5.2)
       '@resolid/utils':
         specifier: workspace:^
         version: link:../utils
@@ -109,7 +109,7 @@ importers:
         version: 3.1.2
       react-docgen-typescript:
         specifier: ^2.2.2
-        version: 2.2.2(typescript@5.4.5)
+        version: 2.2.2(typescript@5.5.2)
       unified:
         specifier: ^11.0.5
         version: 11.0.5
@@ -125,7 +125,7 @@ importers:
         version: 4.0.4
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.38)(typescript@5.4.5)
+        version: 8.1.0(postcss@8.4.38)(typescript@5.5.2)
 
   packages/react-ui:
     dependencies:
@@ -174,22 +174,22 @@ importers:
         version: 19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619)
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.38)(typescript@5.4.5)
+        version: 8.1.0(postcss@8.4.38)(typescript@5.5.2)
       vite-tsconfig-paths:
         specifier: ^4.3.2
-        version: 4.3.2(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.6))
+        version: 4.3.2(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.7))
       vitest:
         specifier: ^1.6.0
-        version: 1.6.0(@types/node@20.14.6)(jsdom@24.1.0)
+        version: 1.6.0(@types/node@20.14.7)(jsdom@24.1.0)
 
   packages/remix-plugins:
     dependencies:
       '@hono/node-server':
-        specifier: ^1.11.3
-        version: 1.11.3
+        specifier: ^1.11.4
+        version: 1.11.4
       '@remix-run/node':
         specifier: ^2.9.2
-        version: 2.9.2(typescript@5.4.5)
+        version: 2.9.2(typescript@5.5.2)
       '@vercel/nft':
         specifier: ^0.27.2
         version: 0.27.2
@@ -205,19 +205,19 @@ importers:
     devDependencies:
       '@remix-run/dev':
         specifier: ^2.9.2
-        version: 2.9.2(@remix-run/react@2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.4.5))(@types/node@20.14.6)(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.6))
+        version: 2.9.2(@remix-run/react@2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.5.2))(@types/node@20.14.7)(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.7))
       '@resolid/config':
         specifier: workspace:^
         version: link:../config
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.38)(typescript@5.4.5)
+        version: 8.1.0(postcss@8.4.38)(typescript@5.5.2)
       type-fest:
         specifier: ^4.20.1
         version: 4.20.1
       vite:
         specifier: ^5.3.1
-        version: 5.3.1(@types/node@20.14.6)
+        version: 5.3.1(@types/node@20.14.7)
 
   packages/tailwind:
     devDependencies:
@@ -229,7 +229,7 @@ importers:
         version: 3.4.4
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.38)(typescript@5.4.5)
+        version: 8.1.0(postcss@8.4.38)(typescript@5.5.2)
 
   packages/utils:
     dependencies:
@@ -245,10 +245,10 @@ importers:
         version: 24.1.0
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.38)(typescript@5.4.5)
+        version: 8.1.0(postcss@8.4.38)(typescript@5.5.2)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.0(@types/node@20.14.6)(jsdom@24.1.0)
+        version: 1.6.0(@types/node@20.14.7)(jsdom@24.1.0)
 
   website:
     dependencies:
@@ -256,8 +256,8 @@ importers:
         specifier: ^0.1.1
         version: 0.1.1
       '@hono/node-server':
-        specifier: ^1.11.3
-        version: 1.11.3
+        specifier: ^1.11.4
+        version: 1.11.4
       '@hookform/resolvers':
         specifier: ^3.6.0
         version: 3.6.0(react-hook-form@7.52.0(react@19.0.0-rc-e684ca66ab-20240619))
@@ -272,10 +272,10 @@ importers:
         version: 1.10.4
       '@remix-run/node':
         specifier: ^2.9.2
-        version: 2.9.2(typescript@5.4.5)
+        version: 2.9.2(typescript@5.5.2)
       '@remix-run/react':
         specifier: ^2.9.2
-        version: 2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.4.5)
+        version: 2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.5.2)
       '@resolid/framework':
         specifier: workspace:^
         version: link:../packages/framework
@@ -307,8 +307,8 @@ importers:
         specifier: ^7.52.0
         version: 7.52.0(react@19.0.0-rc-e684ca66ab-20240619)
       remix-hook-form:
-        specifier: ^4.3.1
-        version: 4.3.1(@remix-run/react@2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.4.5))(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react-hook-form@7.52.0(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)
+        specifier: ^5.0.1
+        version: 5.0.1(@remix-run/react@2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.5.2))(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react-hook-form@7.52.0(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -318,7 +318,7 @@ importers:
         version: 3.0.1(rollup@4.18.0)
       '@remix-run/dev':
         specifier: ^2.9.2
-        version: 2.9.2(@remix-run/react@2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.4.5))(@types/node@20.14.6)(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.6))
+        version: 2.9.2(@remix-run/react@2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.5.2))(@types/node@20.14.7)(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.7))
       '@resolid/config':
         specifier: workspace:^
         version: link:../packages/config
@@ -375,16 +375,16 @@ importers:
         version: 4.15.6
       vite:
         specifier: ^5.3.1
-        version: 5.3.1(@types/node@20.14.6)
+        version: 5.3.1(@types/node@20.14.7)
       vite-plugin-inspect:
         specifier: ^0.8.4
-        version: 0.8.4(rollup@4.18.0)(vite@5.3.1(@types/node@20.14.6))
+        version: 0.8.4(rollup@4.18.0)(vite@5.3.1(@types/node@20.14.7))
       vite-tsconfig-paths:
         specifier: ^4.3.2
-        version: 4.3.2(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.6))
+        version: 4.3.2(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.7))
       vitest:
         specifier: ^1.6.0
-        version: 1.6.0(@types/node@20.14.6)(jsdom@24.1.0)
+        version: 1.6.0(@types/node@20.14.7)(jsdom@24.1.0)
 
 packages:
 
@@ -558,55 +558,55 @@ packages:
     resolution: {integrity: sha512-XEFXSlxiG5td2EJRe8vOmRbaXVgfcBlszKujvVmWIK/UpywWljQCfzAv3RQCGujWQ1RD4YYWEAqDXfuJiy8f5Q==}
     engines: {node: '>=6.9.0'}
 
-  '@biomejs/biome@1.8.1':
-    resolution: {integrity: sha512-fQXGfvq6DIXem12dGQCM2tNF+vsNHH1qs3C7WeOu75Pd0trduoTmoO7G4ntLJ2qDs5wuw981H+cxQhi1uHnAtA==}
+  '@biomejs/biome@1.8.2':
+    resolution: {integrity: sha512-XafCzLgs0xbH0bCjYKxQ63ig2V86fZQMq1jiy5pyLToWk9aHxA8GAUxyBtklPHtPYZPGEPOYglQHj4jyfUp+Iw==}
     engines: {node: '>=14.21.3'}
     hasBin: true
 
-  '@biomejs/cli-darwin-arm64@1.8.1':
-    resolution: {integrity: sha512-XLiB7Uu6GALIOBWzQ2aMD0ru4Ly5/qSeQF7kk3AabzJ/kwsEWSe33iVySBP/SS2qv25cgqNiLksjGcw2bHT3mw==}
+  '@biomejs/cli-darwin-arm64@1.8.2':
+    resolution: {integrity: sha512-l9msLsTcSIAPqMsPIhodQmb50sEfaXPLQ0YW4cdj6INmd8iaOh/V9NceQb2366vACTJgcWDQ2RzlvURek1T68g==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [darwin]
 
-  '@biomejs/cli-darwin-x64@1.8.1':
-    resolution: {integrity: sha512-uMTSxVLMfqkBVqyc25hSn83jBbp+wtWjzM/pHFlKXt3htJuw7FErVGW0nmQ9Sxa9vJ7GcqoltLMl28VQRIMYzg==}
+  '@biomejs/cli-darwin-x64@1.8.2':
+    resolution: {integrity: sha512-Fc4y/FuIxRSiB3TJ+y27vFDE/HJt4QgBuymktsIKEcBZvnKfsRjxvzVDunccRn4xbKgepnp+fn6BoS+ZIg/I3Q==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [darwin]
 
-  '@biomejs/cli-linux-arm64-musl@1.8.1':
-    resolution: {integrity: sha512-UQ8Wc01J0wQL+5AYOc7qkJn20B4PZmQL1KrmDZh7ot0DvD6aX4+8mmfd/dG5b6Zjo/44QvCKcvkFGCMRYuhWZA==}
+  '@biomejs/cli-linux-arm64-musl@1.8.2':
+    resolution: {integrity: sha512-WpT41QJJvkZa1eZq0WmD513zkC6AYaMI39HJKmKeiUeX2NZirG+bxv1YRDhqkns1NbBqo3+qrJqBkPmOW+xAVA==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
 
-  '@biomejs/cli-linux-arm64@1.8.1':
-    resolution: {integrity: sha512-3SzZRuC/9Oi2P2IBNPsEj0KXxSXUEYRR2kfRF/Ve8QAfGgrt4qnwuWd6QQKKN5R+oYH691qjm+cXBKEcrP1v/Q==}
+  '@biomejs/cli-linux-arm64@1.8.2':
+    resolution: {integrity: sha512-Q99qwP0qibkZxm2kfnt37OxeIlliDYf5ogi3zX9ij2DULzc+KtPA9Uj0wCljcJofOBsBYaHc7597Q+Bf/251ww==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
 
-  '@biomejs/cli-linux-x64-musl@1.8.1':
-    resolution: {integrity: sha512-fYbP/kNu/rtZ4kKzWVocIdqZOtBSUEg9qUhZaao3dy3CRzafR6u6KDtBeSCnt47O+iLnks1eOR1TUxzr5+QuqA==}
+  '@biomejs/cli-linux-x64-musl@1.8.2':
+    resolution: {integrity: sha512-rk1Wj4d3LIlAlIAS1m2jlyfOjkNbuY1lfwKvWIAeZC51yDMzwhRD7cReE5PE+jqLDtq60PX38hDPeKd7nA1S6A==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
 
-  '@biomejs/cli-linux-x64@1.8.1':
-    resolution: {integrity: sha512-AeBycVdNrTzsyYKEOtR2R0Ph0hCD0sCshcp2aOnfGP0hCZbtFg09D0SdKLbyzKntisY41HxKVrydYiaApp+2uw==}
+  '@biomejs/cli-linux-x64@1.8.2':
+    resolution: {integrity: sha512-bjhhUVFchFid2gOjrvBe4fg8BShcpyFQTHuB/QQnfGxs1ddrGP30yq3fHfc6S6MoCcz9Tjd3Zzq1EfWfyy5iHA==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
 
-  '@biomejs/cli-win32-arm64@1.8.1':
-    resolution: {integrity: sha512-6tEd1H/iFKpgpE3OIB7oNgW5XkjiVMzMRPL8zYoZ036YfuJ5nMYm9eB9H/y81+8Z76vL48fiYzMPotJwukGPqQ==}
+  '@biomejs/cli-win32-arm64@1.8.2':
+    resolution: {integrity: sha512-EUbqmCmNWT5xhnxHrCAEBzJB1AnLqxTYoRjlxiCMzGvsy5jQzhCanJ8CT9kNsApW3pfPWBWkoTa7qrwWmwnEGA==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [win32]
 
-  '@biomejs/cli-win32-x64@1.8.1':
-    resolution: {integrity: sha512-g2H31jJzYmS4jkvl6TiyEjEX+Nv79a5km/xn+5DARTp5MBFzC9gwceusSSB2AkJKqZzY131AiACAWjKrVt5Ijw==}
+  '@biomejs/cli-win32-x64@1.8.2':
+    resolution: {integrity: sha512-n9H5oRUCk1uNezMgyJh9+hZdtfD8PXLLeq8DUzTycIhl0I1BulIoZ/uxWgRVDFDwAR1JHu1AykISCRFNGnc4iA==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [win32]
@@ -860,8 +860,8 @@ packages:
   '@formkit/tempo@0.1.1':
     resolution: {integrity: sha512-nepRwKnCIjukLkblqh339sSXYI6P3cqktF/T7ECj3vURW+Pd+YzTv/I/lwjRqPGmlQJG93LORodIAkvgoExIAg==}
 
-  '@hono/node-server@1.11.3':
-    resolution: {integrity: sha512-mFg3qlKkDtMWSalX5Gyh6Zd3MXay0biGobFlyJ49i6R1smBBS1CYkNZbvwLlw+4sSrHO4ZiH7kj4TcLpl2Jr3g==}
+  '@hono/node-server@1.11.4':
+    resolution: {integrity: sha512-8TOiiiAqcFC6f62P7M9p6adQREAlWdVi1awehAwgWW+3R65/rKzHnLARO/Hu/466z01VNViBoogqatqXJMyItA==}
     engines: {node: '>=18.14.1'}
 
   '@hookform/resolvers@3.6.0':
@@ -1327,8 +1327,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@20.14.6':
-    resolution: {integrity: sha512-JbA0XIJPL1IiNnU7PFxDXyfAwcwVVrOoqyzzyQTyMeVhBzkJVMSkC1LlVsRQ2lpqiY4n6Bb9oCS6lzDKVQxbZw==}
+  '@types/node@20.14.7':
+    resolution: {integrity: sha512-uTr2m2IbJJucF3KUxgnGOZvYbN0QgkGyWxG6973HCpMYFy2KfcgYuIwkJQMQkt1VbBMlvWRbpshFTLxnxCZjKQ==}
 
   '@types/nodemailer@6.4.15':
     resolution: {integrity: sha512-0EBJxawVNjPkng1zm2vopRctuWVCxk34JcIlRuXSf54habUWdz1FB7wHDqOqvDa8Mtpt0Q3LTXQkAs2LNyK5jQ==}
@@ -2037,8 +2037,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.4.806:
-    resolution: {integrity: sha512-nkoEX2QIB8kwCOtvtgwhXWy2IHVcOLQZu9Qo36uaGB835mdX/h8uLRlosL6QIhLVUnAiicXRW00PwaPZC74Nrg==}
+  electron-to-chromium@1.4.807:
+    resolution: {integrity: sha512-kSmJl2ZwhNf/bcIuCH/imtNOKlpkLDn2jqT5FJ+/0CXjhnFaOa9cOe9gHKKy71eM49izwuQjZhKk+lWQ1JxB7A==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -2478,8 +2478,9 @@ packages:
     resolution: {integrity: sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==}
     engines: {node: '>=4'}
 
-  is-core-module@2.13.1:
-    resolution: {integrity: sha512-hHrIjvZsftOsvKSn2TRYl63zvxsgE0K+0mYMoH6gD4omR5IWB2KynivBQczo3+wF1cCkjzvptnI9Q0sPU66ilw==}
+  is-core-module@2.14.0:
+    resolution: {integrity: sha512-a5dFJih5ZLYlRtDc0dZWP7RiKr6xIKzmn/oAYCDvdLThadVgyJwlaoQPmRtMSpz+rk0OGAgIu+TcM9HUF0fk1A==}
+    engines: {node: '>= 0.4'}
 
   is-decimal@2.0.1:
     resolution: {integrity: sha512-AAB9hiomQs5DXWcRB1rqsxGUstbRroFOPPVAomNk/3XHR5JyEZChOyTWe2oayKnsSsr/kcGqF+z6yuH6HHpN0A==}
@@ -2635,48 +2636,48 @@ packages:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
     engines: {'0': node >= 0.2.0}
 
-  lefthook-darwin-arm64@1.6.16:
-    resolution: {integrity: sha512-VwOegHjdu3jHBUoNsf2k/BUipHs7SpkF861ZQNTkLKqXneLDmiqljkPwruJi688oUC4otNOYJNqoron+DFy4BA==}
+  lefthook-darwin-arm64@1.6.17:
+    resolution: {integrity: sha512-F4yEmN+9p6jvLdctEmVPkuTP7tgMNt5vciEp3Ci3id3UTs6/KCTg8pWtIoHKoFqRJWOTRhEMTGWm5LhO5g6eqg==}
     cpu: [arm64]
     os: [darwin]
 
-  lefthook-darwin-x64@1.6.16:
-    resolution: {integrity: sha512-opl1Yz1F5t11LLnelcu7Bok/1cnYaoCBSPve71jFwAq8W9wwHLbDLHLGLpRUcj5PxUpUkYzfl5RmGoNFLfD44A==}
+  lefthook-darwin-x64@1.6.17:
+    resolution: {integrity: sha512-cPhqYq5LVnW7i5AqPr5QTk5FqdbpqaJjsOwfJ6g81lzuHwkzAGKzHrFAujCI/OB2tv71PDLeiPPypRB2IGsDXg==}
     cpu: [x64]
     os: [darwin]
 
-  lefthook-freebsd-arm64@1.6.16:
-    resolution: {integrity: sha512-MFsGFkNRRtpphTa+gLFt5PwtaBFlgEXVlfhzwUZOZcRT99B2EkvTP8MacOuWeixy0yfIa+kluqonPXBZdQ9f0w==}
+  lefthook-freebsd-arm64@1.6.17:
+    resolution: {integrity: sha512-+6L8+vhn7AcukQCmMk1xKHK9fup3PNSb2jZ7Lngm9+v/oEQGqYM2ePx26IWJ9mXvPJw0URgyYGKVuf0LGzY5Iw==}
     cpu: [arm64]
     os: [freebsd]
 
-  lefthook-freebsd-x64@1.6.16:
-    resolution: {integrity: sha512-4+7StS5Tffzri3Zof3jMm0QvdUgF+vRGIfw31cDydxcSPIXJjJSEKwA2AhMOSPeq1i9MyJmqfFXSsgskHP+dvg==}
+  lefthook-freebsd-x64@1.6.17:
+    resolution: {integrity: sha512-W5kTHjKhghyFifkD8QQ6ly9xcU7CetW2CSceK9Y52Rj0bvQtKdXBwvQ0Ipz0LwEb772URq2aobamycuDGtz8QA==}
     cpu: [x64]
     os: [freebsd]
 
-  lefthook-linux-arm64@1.6.16:
-    resolution: {integrity: sha512-ytlMhHscl6kSGMRPtl2E+yMll3sLT41lsXUo6HyJ53Eg7fJ7sAhP38QdZBnXqJDZBh0Z21DbWuwaJ2QOgCvNew==}
+  lefthook-linux-arm64@1.6.17:
+    resolution: {integrity: sha512-pHNW5lmd4MKiR7sWoZ6UMkHi8LjA0A4t01+4LYaVABrJiFjxOgFlJ4fV6hanrpO24uDcs7fcas1xJE85BKBDmw==}
     cpu: [arm64]
     os: [linux]
 
-  lefthook-linux-x64@1.6.16:
-    resolution: {integrity: sha512-te+dZNhFhGRQqKFiSG4zeBcklXBRHNtLHzoGi15vRTZAocLrQkVydd9KGBRPgEvelXJuS4X7dGzuI7ijFVFZqA==}
+  lefthook-linux-x64@1.6.17:
+    resolution: {integrity: sha512-ZvQqKdFyFL6GKwoqPQXHcZlVJxX0wSBkrMlvLpK5ytbssMRw6U9JotIhDI60GwedgAcQN5dys01mrK0zB8Bwdg==}
     cpu: [x64]
     os: [linux]
 
-  lefthook-windows-arm64@1.6.16:
-    resolution: {integrity: sha512-ip4BuMTdT7lGNo6zfVaoHmROJIrkgUf0LzpI6LpjbVuNPWsM896vEB0pzCj9HXOZtAdqHcLwzA647SDakveUVQ==}
+  lefthook-windows-arm64@1.6.17:
+    resolution: {integrity: sha512-6DwJQmIC5FE1Sz1QOJ1r3I/Epvm3sQSGC8qkP/GCURA1VrdOWXva4RUnH1lOOXkDr96zMejqVmEfJMKtdFQqBA==}
     cpu: [arm64]
     os: [win32]
 
-  lefthook-windows-x64@1.6.16:
-    resolution: {integrity: sha512-gsfzmVIXe8sk8JbVcK3JDub1ymcQmdv9UYy+8NkkymJJ98WE6tb29LQatiWmwDhMsn7i2DvhBC/aCTYK4xAlbA==}
+  lefthook-windows-x64@1.6.17:
+    resolution: {integrity: sha512-BEhB93Cm1k63iAYmCHuIB+QlSz6oj9FHF192T6mCBz8sGcDzVhQPNPeuHh3Ku1CIElzddwKP7W1Sf/cC3wzRPQ==}
     cpu: [x64]
     os: [win32]
 
-  lefthook@1.6.16:
-    resolution: {integrity: sha512-KPwx9zyu+LivC8h6v+8CUGMK6TZ9ZqTv326OWFWJFsWXLUffG2uRaolui7b8gCGavJZMl8mYPXvsiNJgn8RolA==}
+  lefthook@1.6.17:
+    resolution: {integrity: sha512-xE2CHzQVqg7g24dn3v/1WkXLlPUJlHlDhxw2hUfBdBVVGuNT1NHZfkjWsd5VFUMfMqRYyMwAYmSaEuFVxCKt1w==}
     hasBin: true
 
   lilconfig@2.1.0:
@@ -3630,8 +3631,8 @@ packages:
   remark-stringify@11.0.0:
     resolution: {integrity: sha512-1OSmLd3awB/t8qdoEOMazZkNsfVTeY4fTsgzcQFdXNq8ToTN4ZGwrMnlda4K6smTFKD+GRV6O48i6Z4iKgPPpw==}
 
-  remix-hook-form@4.3.1:
-    resolution: {integrity: sha512-6MO2amNTDe0t6j2msmkwCcHpMmDBXK8IbwHQcHWfgm82wCrIcWkM0DCtnC/ISfyyPv7EBhKYK5gSUUM9WalHcw==}
+  remix-hook-form@5.0.1:
+    resolution: {integrity: sha512-7rjuIfx6JzemPKv2Y31IWpNTar3KeWRwJ2klJzchWSwgioPkloahqnwM89MBiAXDOFMYt2TcGR8SSl1PVTTuqQ==}
     peerDependencies:
       '@remix-run/react': ^2.0.0
       react: 19.0.0-rc-e684ca66ab-20240619
@@ -4056,8 +4057,8 @@ packages:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
     engines: {node: '>= 0.6'}
 
-  typescript@5.4.5:
-    resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
+  typescript@5.5.2:
+    resolution: {integrity: sha512-NcRtPEOsPFFWjobJEtfihkLCZCXZt/os3zf8nTxjVH3RvTSxjrCamJpbExGvYOF+tFHc3pA65qpdwPbzjohhew==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -4639,46 +4640,46 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       to-fast-properties: 2.0.0
 
-  '@biomejs/biome@1.8.1':
+  '@biomejs/biome@1.8.2':
     optionalDependencies:
-      '@biomejs/cli-darwin-arm64': 1.8.1
-      '@biomejs/cli-darwin-x64': 1.8.1
-      '@biomejs/cli-linux-arm64': 1.8.1
-      '@biomejs/cli-linux-arm64-musl': 1.8.1
-      '@biomejs/cli-linux-x64': 1.8.1
-      '@biomejs/cli-linux-x64-musl': 1.8.1
-      '@biomejs/cli-win32-arm64': 1.8.1
-      '@biomejs/cli-win32-x64': 1.8.1
+      '@biomejs/cli-darwin-arm64': 1.8.2
+      '@biomejs/cli-darwin-x64': 1.8.2
+      '@biomejs/cli-linux-arm64': 1.8.2
+      '@biomejs/cli-linux-arm64-musl': 1.8.2
+      '@biomejs/cli-linux-x64': 1.8.2
+      '@biomejs/cli-linux-x64-musl': 1.8.2
+      '@biomejs/cli-win32-arm64': 1.8.2
+      '@biomejs/cli-win32-x64': 1.8.2
 
-  '@biomejs/cli-darwin-arm64@1.8.1':
+  '@biomejs/cli-darwin-arm64@1.8.2':
     optional: true
 
-  '@biomejs/cli-darwin-x64@1.8.1':
+  '@biomejs/cli-darwin-x64@1.8.2':
     optional: true
 
-  '@biomejs/cli-linux-arm64-musl@1.8.1':
+  '@biomejs/cli-linux-arm64-musl@1.8.2':
     optional: true
 
-  '@biomejs/cli-linux-arm64@1.8.1':
+  '@biomejs/cli-linux-arm64@1.8.2':
     optional: true
 
-  '@biomejs/cli-linux-x64-musl@1.8.1':
+  '@biomejs/cli-linux-x64-musl@1.8.2':
     optional: true
 
-  '@biomejs/cli-linux-x64@1.8.1':
+  '@biomejs/cli-linux-x64@1.8.2':
     optional: true
 
-  '@biomejs/cli-win32-arm64@1.8.1':
+  '@biomejs/cli-win32-arm64@1.8.2':
     optional: true
 
-  '@biomejs/cli-win32-x64@1.8.1':
+  '@biomejs/cli-win32-x64@1.8.2':
     optional: true
 
-  '@commitlint/cli@19.3.0(@types/node@20.14.6)(typescript@5.4.5)':
+  '@commitlint/cli@19.3.0(@types/node@20.14.7)(typescript@5.5.2)':
     dependencies:
       '@commitlint/format': 19.3.0
       '@commitlint/lint': 19.2.2
-      '@commitlint/load': 19.2.0(@types/node@20.14.6)(typescript@5.4.5)
+      '@commitlint/load': 19.2.0(@types/node@20.14.7)(typescript@5.5.2)
       '@commitlint/read': 19.2.1
       '@commitlint/types': 19.0.3
       execa: 8.0.1
@@ -4725,15 +4726,15 @@ snapshots:
       '@commitlint/rules': 19.0.3
       '@commitlint/types': 19.0.3
 
-  '@commitlint/load@19.2.0(@types/node@20.14.6)(typescript@5.4.5)':
+  '@commitlint/load@19.2.0(@types/node@20.14.7)(typescript@5.5.2)':
     dependencies:
       '@commitlint/config-validator': 19.0.3
       '@commitlint/execute-rule': 19.0.0
       '@commitlint/resolve-extends': 19.1.0
       '@commitlint/types': 19.0.3
       chalk: 5.3.0
-      cosmiconfig: 9.0.0(typescript@5.4.5)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.14.6)(cosmiconfig@9.0.0(typescript@5.4.5))(typescript@5.4.5)
+      cosmiconfig: 9.0.0(typescript@5.5.2)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.14.7)(cosmiconfig@9.0.0(typescript@5.5.2))(typescript@5.5.2)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -4909,7 +4910,7 @@ snapshots:
 
   '@formkit/tempo@0.1.1': {}
 
-  '@hono/node-server@1.11.3': {}
+  '@hono/node-server@1.11.4': {}
 
   '@hookform/resolvers@3.6.0(react-hook-form@7.52.0(react@19.0.0-rc-e684ca66ab-20240619))':
     dependencies:
@@ -5149,7 +5150,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.25': {}
 
-  '@remix-run/dev@2.9.2(@remix-run/react@2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.4.5))(@types/node@20.14.6)(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.6))':
+  '@remix-run/dev@2.9.2(@remix-run/react@2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.5.2))(@types/node@20.14.7)(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.7))':
     dependencies:
       '@babel/core': 7.24.7
       '@babel/generator': 7.24.7
@@ -5161,12 +5162,12 @@ snapshots:
       '@babel/types': 7.24.7
       '@mdx-js/mdx': 3.0.1
       '@npmcli/package-json': 4.0.1
-      '@remix-run/node': 2.9.2(typescript@5.4.5)
-      '@remix-run/react': 2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.4.5)
+      '@remix-run/node': 2.9.2(typescript@5.5.2)
+      '@remix-run/react': 2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.5.2)
       '@remix-run/router': 1.16.1
-      '@remix-run/server-runtime': 2.9.2(typescript@5.4.5)
+      '@remix-run/server-runtime': 2.9.2(typescript@5.5.2)
       '@types/mdx': 2.0.13
-      '@vanilla-extract/integration': 6.5.0(@types/node@20.14.6)
+      '@vanilla-extract/integration': 6.5.0(@types/node@20.14.7)
       arg: 5.0.2
       cacache: 17.1.4
       chalk: 4.1.2
@@ -5206,8 +5207,8 @@ snapshots:
       tsconfig-paths: 4.2.0
       ws: 7.5.10
     optionalDependencies:
-      typescript: 5.4.5
-      vite: 5.3.1(@types/node@20.14.6)
+      typescript: 5.5.2
+      vite: 5.3.1(@types/node@20.14.7)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -5223,9 +5224,9 @@ snapshots:
       - ts-node
       - utf-8-validate
 
-  '@remix-run/node@2.9.2(typescript@5.4.5)':
+  '@remix-run/node@2.9.2(typescript@5.5.2)':
     dependencies:
-      '@remix-run/server-runtime': 2.9.2(typescript@5.4.5)
+      '@remix-run/server-runtime': 2.9.2(typescript@5.5.2)
       '@remix-run/web-fetch': 4.4.2
       '@web3-storage/multipart-parser': 1.0.0
       cookie-signature: 1.2.1
@@ -5233,23 +5234,23 @@ snapshots:
       stream-slice: 0.1.2
       undici: 6.19.2
     optionalDependencies:
-      typescript: 5.4.5
+      typescript: 5.5.2
 
-  '@remix-run/react@2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.4.5)':
+  '@remix-run/react@2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.5.2)':
     dependencies:
       '@remix-run/router': 1.16.1
-      '@remix-run/server-runtime': 2.9.2(typescript@5.4.5)
+      '@remix-run/server-runtime': 2.9.2(typescript@5.5.2)
       react: 19.0.0-rc-e684ca66ab-20240619
       react-dom: 19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619)
       react-router: 6.23.1(react@19.0.0-rc-e684ca66ab-20240619)
       react-router-dom: 6.23.1(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)
       turbo-stream: 2.2.0
     optionalDependencies:
-      typescript: 5.4.5
+      typescript: 5.5.2
 
   '@remix-run/router@1.16.1': {}
 
-  '@remix-run/server-runtime@2.9.2(typescript@5.4.5)':
+  '@remix-run/server-runtime@2.9.2(typescript@5.5.2)':
     dependencies:
       '@remix-run/router': 1.16.1
       '@types/cookie': 0.6.0
@@ -5259,7 +5260,7 @@ snapshots:
       source-map: 0.7.4
       turbo-stream: 2.2.0
     optionalDependencies:
-      typescript: 5.4.5
+      typescript: 5.5.2
 
   '@remix-run/web-blob@3.1.0':
     dependencies:
@@ -5419,7 +5420,7 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.0':
     dependencies:
-      '@types/node': 20.14.6
+      '@types/node': 20.14.7
 
   '@types/cookie@0.6.0': {}
 
@@ -5449,13 +5450,13 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@20.14.6':
+  '@types/node@20.14.7':
     dependencies:
       undici-types: 5.26.5
 
   '@types/nodemailer@6.4.15':
     dependencies:
-      '@types/node': 20.14.6
+      '@types/node': 20.14.7
 
   '@types/prop-types@15.7.12': {}
 
@@ -5496,7 +5497,7 @@ snapshots:
     transitivePeerDependencies:
       - babel-plugin-macros
 
-  '@vanilla-extract/integration@6.5.0(@types/node@20.14.6)':
+  '@vanilla-extract/integration@6.5.0(@types/node@20.14.7)':
     dependencies:
       '@babel/core': 7.24.7
       '@babel/plugin-syntax-typescript': 7.24.7(@babel/core@7.24.7)
@@ -5509,8 +5510,8 @@ snapshots:
       lodash: 4.17.21
       mlly: 1.7.1
       outdent: 0.8.0
-      vite: 5.3.1(@types/node@20.14.6)
-      vite-node: 1.6.0(@types/node@20.14.6)
+      vite: 5.3.1(@types/node@20.14.7)
+      vite-node: 1.6.0(@types/node@20.14.7)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -5757,7 +5758,7 @@ snapshots:
   browserslist@4.23.1:
     dependencies:
       caniuse-lite: 1.0.30001636
-      electron-to-chromium: 1.4.806
+      electron-to-chromium: 1.4.807
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.1)
 
@@ -5941,21 +5942,21 @@ snapshots:
 
   core-util-is@1.0.3: {}
 
-  cosmiconfig-typescript-loader@5.0.0(@types/node@20.14.6)(cosmiconfig@9.0.0(typescript@5.4.5))(typescript@5.4.5):
+  cosmiconfig-typescript-loader@5.0.0(@types/node@20.14.7)(cosmiconfig@9.0.0(typescript@5.5.2))(typescript@5.5.2):
     dependencies:
-      '@types/node': 20.14.6
-      cosmiconfig: 9.0.0(typescript@5.4.5)
+      '@types/node': 20.14.7
+      cosmiconfig: 9.0.0(typescript@5.5.2)
       jiti: 1.21.6
-      typescript: 5.4.5
+      typescript: 5.5.2
 
-  cosmiconfig@9.0.0(typescript@5.4.5):
+  cosmiconfig@9.0.0(typescript@5.5.2):
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
     optionalDependencies:
-      typescript: 5.4.5
+      typescript: 5.5.2
 
   cross-spawn@7.0.3:
     dependencies:
@@ -6078,7 +6079,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.4.806: {}
+  electron-to-chromium@1.4.807: {}
 
   emoji-regex@8.0.0: {}
 
@@ -6211,7 +6212,7 @@ snapshots:
 
   eval@0.1.8:
     dependencies:
-      '@types/node': 20.14.6
+      '@types/node': 20.14.7
       require-like: 0.1.2
 
   event-target-shim@5.0.1: {}
@@ -6632,7 +6633,7 @@ snapshots:
 
   is-buffer@2.0.5: {}
 
-  is-core-module@2.13.1:
+  is-core-module@2.14.0:
     dependencies:
       hasown: '@nolyfill/hasown@1.0.29'
 
@@ -6760,40 +6761,40 @@ snapshots:
 
   jsonparse@1.3.1: {}
 
-  lefthook-darwin-arm64@1.6.16:
+  lefthook-darwin-arm64@1.6.17:
     optional: true
 
-  lefthook-darwin-x64@1.6.16:
+  lefthook-darwin-x64@1.6.17:
     optional: true
 
-  lefthook-freebsd-arm64@1.6.16:
+  lefthook-freebsd-arm64@1.6.17:
     optional: true
 
-  lefthook-freebsd-x64@1.6.16:
+  lefthook-freebsd-x64@1.6.17:
     optional: true
 
-  lefthook-linux-arm64@1.6.16:
+  lefthook-linux-arm64@1.6.17:
     optional: true
 
-  lefthook-linux-x64@1.6.16:
+  lefthook-linux-x64@1.6.17:
     optional: true
 
-  lefthook-windows-arm64@1.6.16:
+  lefthook-windows-arm64@1.6.17:
     optional: true
 
-  lefthook-windows-x64@1.6.16:
+  lefthook-windows-x64@1.6.17:
     optional: true
 
-  lefthook@1.6.16:
+  lefthook@1.6.17:
     optionalDependencies:
-      lefthook-darwin-arm64: 1.6.16
-      lefthook-darwin-x64: 1.6.16
-      lefthook-freebsd-arm64: 1.6.16
-      lefthook-freebsd-x64: 1.6.16
-      lefthook-linux-arm64: 1.6.16
-      lefthook-linux-x64: 1.6.16
-      lefthook-windows-arm64: 1.6.16
-      lefthook-windows-x64: 1.6.16
+      lefthook-darwin-arm64: 1.6.17
+      lefthook-darwin-x64: 1.6.17
+      lefthook-freebsd-arm64: 1.6.17
+      lefthook-freebsd-x64: 1.6.17
+      lefthook-linux-arm64: 1.6.17
+      lefthook-linux-x64: 1.6.17
+      lefthook-windows-arm64: 1.6.17
+      lefthook-windows-x64: 1.6.17
 
   lilconfig@2.1.0: {}
 
@@ -7499,7 +7500,7 @@ snapshots:
   normalize-package-data@5.0.0:
     dependencies:
       hosted-git-info: 6.1.1
-      is-core-module: 2.13.1
+      is-core-module: 2.14.0
       semver: 7.6.2
       validate-npm-package-license: 3.0.4
 
@@ -7861,9 +7862,9 @@ snapshots:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
 
-  react-docgen-typescript@2.2.2(typescript@5.4.5):
+  react-docgen-typescript@2.2.2(typescript@5.5.2):
     dependencies:
-      typescript: 5.4.5
+      typescript: 5.5.2
 
   react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619):
     dependencies:
@@ -8016,9 +8017,9 @@ snapshots:
       mdast-util-to-markdown: 2.1.0
       unified: 11.0.5
 
-  remix-hook-form@4.3.1(@remix-run/react@2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.4.5))(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react-hook-form@7.52.0(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619):
+  remix-hook-form@5.0.1(@remix-run/react@2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.5.2))(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react-hook-form@7.52.0(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619):
     dependencies:
-      '@remix-run/react': 2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.4.5)
+      '@remix-run/react': 2.9.2(react-dom@19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619))(react@19.0.0-rc-e684ca66ab-20240619)(typescript@5.5.2)
       react: 19.0.0-rc-e684ca66ab-20240619
       react-dom: 19.0.0-rc-e684ca66ab-20240619(react@19.0.0-rc-e684ca66ab-20240619)
       react-hook-form: 7.52.0(react@19.0.0-rc-e684ca66ab-20240619)
@@ -8041,7 +8042,7 @@ snapshots:
 
   resolve@1.22.8:
     dependencies:
-      is-core-module: 2.13.1
+      is-core-module: 2.14.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
 
@@ -8400,9 +8401,9 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  tsconfck@3.1.0(typescript@5.4.5):
+  tsconfck@3.1.0(typescript@5.5.2):
     optionalDependencies:
-      typescript: 5.4.5
+      typescript: 5.5.2
 
   tsconfig-paths@4.2.0:
     dependencies:
@@ -8412,7 +8413,7 @@ snapshots:
 
   tslib@2.6.3: {}
 
-  tsup@8.1.0(postcss@8.4.38)(typescript@5.4.5):
+  tsup@8.1.0(postcss@8.4.38)(typescript@5.5.2):
     dependencies:
       bundle-require: 4.2.1(esbuild@0.21.5)
       cac: 6.7.14
@@ -8430,7 +8431,7 @@ snapshots:
       tree-kill: 1.2.2
     optionalDependencies:
       postcss: 8.4.38
-      typescript: 5.4.5
+      typescript: 5.5.2
     transitivePeerDependencies:
       - supports-color
       - ts-node
@@ -8453,7 +8454,7 @@ snapshots:
       media-typer: 0.3.0
       mime-types: 2.1.35
 
-  typescript@5.4.5: {}
+  typescript@5.5.2: {}
 
   ufo@1.5.3: {}
 
@@ -8607,13 +8608,13 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite-node@1.6.0(@types/node@20.14.6):
+  vite-node@1.6.0(@types/node@20.14.7):
     dependencies:
       cac: 6.7.14
       debug: 4.3.5
       pathe: 1.1.2
       picocolors: 1.0.1
-      vite: 5.3.1(@types/node@20.14.6)
+      vite: 5.3.1(@types/node@20.14.7)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -8624,7 +8625,7 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-inspect@0.8.4(rollup@4.18.0)(vite@5.3.1(@types/node@20.14.6)):
+  vite-plugin-inspect@0.8.4(rollup@4.18.0)(vite@5.3.1(@types/node@20.14.7)):
     dependencies:
       '@antfu/utils': 0.7.8
       '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
@@ -8635,32 +8636,32 @@ snapshots:
       perfect-debounce: 1.0.0
       picocolors: 1.0.1
       sirv: 2.0.4
-      vite: 5.3.1(@types/node@20.14.6)
+      vite: 5.3.1(@types/node@20.14.7)
     transitivePeerDependencies:
       - rollup
       - supports-color
 
-  vite-tsconfig-paths@4.3.2(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.6)):
+  vite-tsconfig-paths@4.3.2(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.7)):
     dependencies:
       debug: 4.3.5
       globrex: 0.1.2
-      tsconfck: 3.1.0(typescript@5.4.5)
+      tsconfck: 3.1.0(typescript@5.5.2)
     optionalDependencies:
-      vite: 5.3.1(@types/node@20.14.6)
+      vite: 5.3.1(@types/node@20.14.7)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@5.3.1(@types/node@20.14.6):
+  vite@5.3.1(@types/node@20.14.7):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.38
       rollup: 4.18.0
     optionalDependencies:
-      '@types/node': 20.14.6
+      '@types/node': 20.14.7
       fsevents: 2.3.3
 
-  vitest@1.6.0(@types/node@20.14.6)(jsdom@24.1.0):
+  vitest@1.6.0(@types/node@20.14.7)(jsdom@24.1.0):
     dependencies:
       '@vitest/expect': 1.6.0
       '@vitest/runner': 1.6.0
@@ -8679,11 +8680,11 @@ snapshots:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.3.1(@types/node@20.14.6)
-      vite-node: 1.6.0(@types/node@20.14.6)
+      vite: 5.3.1(@types/node@20.14.7)
+      vite-node: 1.6.0(@types/node@20.14.7)
       why-is-node-running: 2.2.2
     optionalDependencies:
-      '@types/node': 20.14.6
+      '@types/node': 20.14.7
       jsdom: 24.1.0
     transitivePeerDependencies:
       - less
