@@ -67,6 +67,7 @@ export default defineConfig(({ command, isSsrBuild }) => {
           v3_relativeSplatPath: true,
           v3_throwAbortReason: true,
           unstable_singleFetch: true,
+          unstable_fogOfWar: true,
         },
         serverBundles: ({ branch }) => {
           return branch.some((route) => {
