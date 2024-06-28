@@ -110,8 +110,8 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<"button", Butto
         focusRingStyles,
         group
           ? group.vertical
-            ? "border-y-[0.5px] first:rounded-t last:rounded-b first:border-t last:border-b"
-            : "border-x-[0.5px] first:rounded-s last:rounded-e first:border-s last:border-e"
+            ? "border-y-[0.5px] first:rounded-t first:border-t last:rounded-b last:border-b"
+            : "border-x-[0.5px] first:rounded-s first:border-s last:rounded-e last:border-e"
           : rounded.style,
         className,
       )}

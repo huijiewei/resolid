@@ -19,7 +19,7 @@ export const dividerStyles = classed({
       false: "w-full",
     },
     label: {
-      true: 'flex items-center text-xs before:mr-2 after:ml-2 after:h-0 before:h-0 after:shrink before:shrink after:content-[""] before:content-[""]',
+      true: `flex items-center text-xs before:mr-2 before:h-0 before:shrink before:content-[""] after:ml-2 after:h-0 after:shrink after:content-[""]`,
       false: "",
     },
     position: {
@@ -41,7 +41,7 @@ export const dividerStyles = classed({
     },
     {
       label: true,
-      class: "after:border-t-[length:var(--size-var)] before:border-t-[length:var(--size-var)]",
+      class: "before:border-t-[length:var(--size-var)] after:border-t-[length:var(--size-var)]",
     },
     {
       label: false,
@@ -61,17 +61,17 @@ export const dividerStyles = classed({
     {
       label: true,
       variant: "solid",
-      class: "after:border-solid before:border-solid",
+      class: "before:border-solid after:border-solid",
     },
     {
       label: true,
       variant: "dotted",
-      class: "after:border-dotted before:border-dotted",
+      class: "before:border-dotted after:border-dotted",
     },
     {
       label: true,
       variant: "dashed",
-      class: "after:border-dashed before:border-dashed",
+      class: "before:border-dashed after:border-dashed",
     },
     {
       label: false,
@@ -101,42 +101,42 @@ export const dividerStyles = classed({
     {
       label: true,
       color: "primary",
-      class: "after:border-bg-primary-pressed before:border-bg-primary-pressed",
+      class: "before:border-bg-primary-pressed after:border-bg-primary-pressed",
     },
     {
       label: true,
       color: "neutral",
-      class: "after:border-bg-neutral-pressed before:border-bg-neutral-pressed",
+      class: "before:border-bg-neutral-pressed after:border-bg-neutral-pressed",
     },
     {
       label: true,
       color: "success",
-      class: "after:border-bg-success-pressed before:border-bg-success-pressed",
+      class: "before:border-bg-success-pressed after:border-bg-success-pressed",
     },
     {
       label: true,
       color: "warning",
-      class: "after:border-bg-warning-pressed before:border-bg-warning-pressed",
+      class: "before:border-bg-warning-pressed after:border-bg-warning-pressed",
     },
     {
       label: true,
       color: "danger",
-      class: "after:border-bg-danger-pressed before:border-bg-danger-pressed",
+      class: "before:border-bg-danger-pressed after:border-bg-danger-pressed",
     },
     {
       label: true,
       position: "center",
-      class: "after:grow before:grow after:basis-0 before:basis-0",
+      class: "before:grow before:basis-0 after:grow after:basis-0",
     },
     {
       label: true,
       position: "left",
-      class: "after:grow before:grow-0 after:basis-0 before:basis-[5%]",
+      class: "before:grow-0 before:basis-[5%] after:grow after:basis-0",
     },
     {
       label: true,
       position: "right",
-      class: "before:grow after:grow-0 after:basis-[5%] before:basis-0",
+      class: "before:grow before:basis-0 after:grow-0 after:basis-[5%]",
     },
   ],
 });

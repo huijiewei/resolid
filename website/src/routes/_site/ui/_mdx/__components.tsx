@@ -190,7 +190,7 @@ export const ComponentProps = ({
         {componentProps?.map((prop, i) => (
           <tr
             className={
-              "mb-[1px] flex flex-row flex-wrap border-b border-b-bg-subtle pb-[1px] last:mb-0 md:mb-0 md:table-row md:flex-no-wrap last:border-none md:border-none last:pb-0"
+              "mb-[1px] flex flex-row flex-wrap border-b border-b-bg-subtle pb-[1px] last:mb-0 last:border-none last:pb-0 md:mb-0 md:table-row md:flex-no-wrap md:border-none"
             }
             key={`${prop.name}-${i}`}
           >

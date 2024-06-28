@@ -19,7 +19,7 @@ const MenuItem = ({ menu, depth }: { menu: Menu; depth: number }) => {
             return clsx(
               "block rounded py-1.5",
               depth == 2 && "ps-4",
-              isActive ? "bg-bg-primary" : "active:bg-bg-muted hover:bg-bg-subtle",
+              isActive ? "bg-bg-primary" : "hover:bg-bg-subtle active:bg-bg-muted",
             );
           }}
           onClick={() => setOpen(false)}

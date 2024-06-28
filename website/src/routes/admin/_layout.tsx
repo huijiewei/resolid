@@ -1,5 +1,5 @@
 import type { LinksFunction } from "@remix-run/node";
-import { Outlet, type UIMatch, useLoaderData, useMatches } from "@remix-run/react";
+import { Outlet, type UIMatch, useMatches } from "@remix-run/react";
 import { type TypedLoaderArgs, useTypedLoaderData } from "@resolid/framework/utils";
 import {
   Breadcrumb,

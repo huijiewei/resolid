@@ -74,7 +74,7 @@ const mdxComponents = {
       <a
         href={href}
         className={clsx(
-          "inline-flex items-center text-link no-underline active:text-link-pressed hover:text-link-hovered hover:underline",
+          "inline-flex items-center text-link no-underline hover:text-link-hovered hover:underline active:text-link-pressed",
           className,
         )}
         {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
@@ -246,7 +246,7 @@ export default function Layout() {
     <>
       <article
         className={
-          "prose dark:prose-invert w-full max-w-none px-4 py-6 lg:max-w-[calc(100%-theme(spacing.48))] md:px-6"
+          "prose dark:prose-invert w-full max-w-none px-4 py-6 md:px-6 lg:max-w-[calc(100%-theme(spacing.48))]"
         }
       >
         <MDXProvider disableParentContext components={mdxComponents}>

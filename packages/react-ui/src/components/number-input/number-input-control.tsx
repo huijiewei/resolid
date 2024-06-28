@@ -30,7 +30,7 @@ export const NumberInputControl = (
       disabled={disabled}
       className={clsx(
         "flex h-full select-none appearance-none items-center justify-center bg-bg-subtle transition-colors",
-        disabled ? "cursor-not-allowed opacity-60" : "active:bg-bg-muted hover:bg-bg-muted",
+        disabled ? "cursor-not-allowed opacity-60" : "hover:bg-bg-muted active:bg-bg-muted",
         stepper == "increment" && "rounded-tr",
         stepper == "decrement" && "rounded-br",
         className,

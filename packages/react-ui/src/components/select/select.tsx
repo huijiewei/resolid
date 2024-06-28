@@ -311,7 +311,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
                 event.stopPropagation();
                 handleSelect(option);
               }}
-              statusClassName={"active:bg-bg-muted hover:bg-bg-subtlest hover:text-fg-danger"}
+              statusClassName={"hover:bg-bg-subtlest hover:text-fg-danger active:bg-bg-muted"}
               className={"rounded-full p-[1px]"}
             />
           </div>
