@@ -26,7 +26,7 @@
     "./utils": "./src/utils.ts"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.6.0",
+    "@hookform/resolvers": "^3.7.0",
     "@node-rs/bcrypt": "^1.10.4",
     "@remix-run/node": "^2.10.0",
     "@remix-run/react": "^2.10.0",
@@ -35,8 +35,8 @@
     "drizzle-orm": "^0.31.2",
     "nodemailer": "^6.9.14",
     "postgres": "^3.4.4",
-    "react-hook-form": "^7.52.0",
-    "type-fest": "^4.20.1",
+    "react-hook-form": "^7.52.1",
+    "type-fest": "^4.21.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
