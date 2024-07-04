@@ -28,9 +28,9 @@
   "dependencies": {
     "@hookform/resolvers": "^3.7.0",
     "@node-rs/bcrypt": "^1.10.4",
-    "@remix-run/node": "^2.10.0",
-    "@remix-run/react": "^2.10.0",
-    "@remix-run/server-runtime": "^2.10.0",
+    "@remix-run/node": "^2.10.1",
+    "@remix-run/react": "^2.10.1",
+    "@remix-run/server-runtime": "^2.10.1",
     "@resolid/utils": "workspace:^",
     "drizzle-orm": "^0.31.2",
     "nodemailer": "^6.9.14",
