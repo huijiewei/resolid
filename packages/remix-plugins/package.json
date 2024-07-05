@@ -32,14 +32,14 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.12.0",
-    "@remix-run/node": "^2.10.1",
+    "@remix-run/node": "^2.10.2",
     "@vercel/nft": "^0.27.2",
     "esbuild": "^0.21.5",
     "hono": "^4.4.11",
     "minimatch": "^9.0.5"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.10.1",
+    "@remix-run/dev": "^2.10.2",
     "@resolid/config": "workspace:^",
     "tsup": "^8.1.0",
     "type-fest": "^4.21.0",
