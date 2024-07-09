@@ -18,7 +18,7 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@types/node": "^20.14.10",
-    "lefthook": "^1.6.18",
+    "lefthook": "^1.7.1",
     "typescript": "^5.5.3"
   },
   "engines": {
@@ -35,9 +35,9 @@
     "overrides": {
       "@mdx-js/mdx": "^3.0.1",
       "esbuild": "^0.21.5",
-      "react": "19.0.0-rc-100dfd7dab-20240701",
-      "react-dom": "19.0.0-rc-100dfd7dab-20240701",
-      "react-is": "19.0.0-rc-100dfd7dab-20240701",
+      "react": "19.0.0-rc-df783f9ea1-20240708",
+      "react-dom": "19.0.0-rc-df783f9ea1-20240708",
+      "react-is": "19.0.0-rc-df783f9ea1-20240708",
       "hasown": "npm:@nolyfill/hasown@latest",
       "is-arguments": "npm:@nolyfill/is-arguments@latest",
       "is-generator-function": "npm:@nolyfill/is-generator-function@latest",
