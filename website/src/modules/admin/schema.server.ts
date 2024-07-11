@@ -1,6 +1,5 @@
 import { index, uniqueIndex } from "@resolid/framework/drizzle";
-import type { AuthIdentity } from "@resolid/framework/modules";
-import { authColumns, authGroupColumns, authSessionColumns } from "@resolid/framework/modules";
+import { type AuthIdentity, authColumns, authGroupColumns, authSessionColumns } from "@resolid/framework/modules";
 import { defineTable } from "~/foundation/schema.server";
 
 export type AdminSelect = typeof adminTable.$inferSelect;

@@ -1,5 +1,6 @@
 import { Form, useSearchParams } from "@remix-run/react";
 import { getCookieExpires } from "@resolid/framework";
+import { RX_DEFAULT_AUTH_GROUP_ID } from "@resolid/framework/modules";
 import { type TypedActionArgs, httpProblem, httpRedirect, mergeMeta } from "@resolid/framework/utils";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
 import { Controller } from "react-hook-form";
@@ -21,7 +22,7 @@ export const action = async ({ request, response, context }: TypedActionArgs) =>
   data.createdIp = remoteAddr;
   data.createdFrom = "WEB";
 
-  const [errors, user] = await userSignupService(data, 1);
+  const [errors, user] = await userSignupService(data, RX_DEFAULT_AUTH_GROUP_ID);
 
   if (errors) {
     return httpProblem(response, errors);

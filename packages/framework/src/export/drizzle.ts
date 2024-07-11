@@ -35,7 +35,6 @@ export {
 
 export {
   bigint,
-  bigserial,
   boolean,
   char,
   date,
@@ -52,7 +51,6 @@ export {
   pgTable,
   pgTableCreator,
   real,
-  serial,
   smallint,
   smallserial,
   text,

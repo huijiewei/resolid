@@ -46,7 +46,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
-    "drizzle-kit": "^0.22.8",
+    "drizzle-kit": "^0.23.0",
     "postcss": "^8.4.39",
     "postcss-load-config": "^6.0.1",
     "rehype-slug": "^6.0.0",

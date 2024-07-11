@@ -1,7 +1,7 @@
-import { boolean, integer, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
+import { boolean, integer, text, timestamp, varchar } from "drizzle-orm/pg-core";
 
 export const authColumns = {
-  id: serial("id").primaryKey(),
+  id: integer("id").primaryKey().generatedAlwaysAsIdentity({ startWith: 10021 }),
   groupId: integer("groupId").notNull().default(0),
   password: text("password").notNull().default(""),
   email: text("email").notNull().default(""),
@@ -13,8 +13,10 @@ export const authColumns = {
   deletedAt: timestamp("deletedAt"),
 };
 
+export const RX_DEFAULT_AUTH_GROUP_ID = 101;
+
 export const authGroupColumns = {
-  id: serial("id").primaryKey(),
+  id: integer("id").primaryKey().generatedAlwaysAsIdentity({ startWith: RX_DEFAULT_AUTH_GROUP_ID }),
   name: text("name").notNull().default(""),
   color: text("color").notNull().default(""),
   icon: text("icon").notNull().default(""),
