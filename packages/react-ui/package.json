@@ -26,7 +26,7 @@
   "dependencies": {
     "@floating-ui/react": "^0.26.19",
     "@resolid/utils": "workspace:^",
-    "@tanstack/react-virtual": "^3.8.2",
+    "@tanstack/react-virtual": "^3.8.3",
     "@tw-classed/core": "^1.7.0",
     "clsx": "^2.1.1",
     "react-remove-scroll-bar": "^2.3.6"

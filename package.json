@@ -18,7 +18,7 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@types/node": "^20.14.10",
-    "lefthook": "^1.7.1",
+    "lefthook": "^1.7.2",
     "typescript": "^5.5.3"
   },
   "engines": {
@@ -38,13 +38,14 @@
       "react": "19.0.0-rc-c3cdbec0a7-20240708",
       "react-dom": "19.0.0-rc-c3cdbec0a7-20240708",
       "react-is": "19.0.0-rc-c3cdbec0a7-20240708",
-      "hasown": "npm:@nolyfill/hasown@latest",
-      "is-arguments": "npm:@nolyfill/is-arguments@latest",
-      "is-generator-function": "npm:@nolyfill/is-generator-function@latest",
-      "is-typed-array": "npm:@nolyfill/is-typed-array@latest",
-      "isarray": "npm:@nolyfill/isarray@latest",
-      "side-channel": "npm:@nolyfill/side-channel@latest",
-      "which-typed-array": "npm:@nolyfill/which-typed-array@latest"
+      "hasown": "npm:@nolyfill/hasown@^1",
+      "is-arguments": "npm:@nolyfill/is-arguments@^1",
+      "is-generator-function": "npm:@nolyfill/is-generator-function@^1",
+      "is-typed-array": "npm:@nolyfill/is-typed-array@^1",
+      "isarray": "npm:@nolyfill/isarray@^1",
+      "side-channel": "npm:@nolyfill/side-channel@^1",
+      "which-typed-array": "npm:@nolyfill/which-typed-array@^1",
+      "is-core-module": "npm:@nolyfill/is-core-module@^1"
     }
   }
 }
