@@ -34,13 +34,14 @@
   "devDependencies": {
     "@resolid/config": "workspace:^",
     "@resolid/tailwind": "workspace:^",
+    "@swc/core": "^1.6.13",
     "@testing-library/react": "^16.0.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "jsdom": "^24.1.0",
     "react": "19.0.0-rc-df5f2736-20240712",
     "react-dom": "19.0.0-rc-df5f2736-20240712",
-    "tsup": "^8.1.0",
+    "tsup": "^8.1.1",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0"
   },
