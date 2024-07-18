@@ -28,10 +28,9 @@
   },
   "devDependencies": {
     "@resolid/config": "workspace:^",
-    "@swc/core": "^1.6.13",
     "jsdom": "^24.1.0",
-    "tsup": "^8.1.1",
-    "vitest": "^1.6.0"
+    "tsup": "^8.1.2",
+    "vitest": "^2.0.3"
   },
   "homepage": "https://www.resolid.tech",
   "repository": {

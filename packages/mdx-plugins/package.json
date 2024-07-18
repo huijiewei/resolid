@@ -31,9 +31,8 @@
   },
   "devDependencies": {
     "@resolid/config": "workspace:^",
-    "@swc/core": "^1.6.13",
     "@types/mdast": "^4.0.4",
-    "tsup": "^8.1.1"
+    "tsup": "^8.1.2"
   },
   "homepage": "https://www.resolid.tech",
   "repository": {

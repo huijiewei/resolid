@@ -41,8 +41,7 @@
   "devDependencies": {
     "@remix-run/dev": "^2.10.3",
     "@resolid/config": "workspace:^",
-    "@swc/core": "^1.6.13",
-    "tsup": "^8.1.1",
+    "tsup": "^8.1.2",
     "type-fest": "^4.22.0",
     "vite": "^5.3.4"
   },
