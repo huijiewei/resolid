@@ -36,7 +36,7 @@
     "nodemailer": "^6.9.14",
     "postgres": "^3.4.4",
     "react-hook-form": "^7.52.1",
-    "type-fest": "^4.22.0",
+    "type-fest": "^4.22.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
