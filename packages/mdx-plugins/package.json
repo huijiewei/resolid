@@ -32,7 +32,7 @@
   "devDependencies": {
     "@resolid/config": "workspace:^",
     "@types/mdast": "^4.0.4",
-    "tsup": "^8.2.0"
+    "tsup": "^8.2.1"
   },
   "homepage": "https://www.resolid.tech",
   "repository": {

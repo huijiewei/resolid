@@ -35,13 +35,13 @@
     "@remix-run/node": "^2.10.3",
     "@vercel/nft": "^0.27.3",
     "esbuild": "^0.21.5",
-    "hono": "^4.5.0",
+    "hono": "^4.5.1",
     "minimatch": "^9.0.5"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.10.3",
     "@resolid/config": "workspace:^",
-    "tsup": "^8.2.0",
+    "tsup": "^8.2.1",
     "type-fest": "^4.22.1",
     "vite": "^5.3.4"
   },
