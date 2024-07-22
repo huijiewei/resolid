@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@resolid/config": "workspace:^",
-    "jsdom": "^24.1.0",
+    "jsdom": "^24.1.1",
     "tsup": "^8.2.1",
     "vitest": "^2.0.3"
   },
