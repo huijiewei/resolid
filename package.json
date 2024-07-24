@@ -17,7 +17,7 @@
     "@biomejs/biome": "^1.8.3",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@types/node": "^20.14.11",
+    "@types/node": "^20.14.12",
     "lefthook": "^1.7.5",
     "typescript": "^5.5.4"
   },
@@ -35,9 +35,9 @@
     "overrides": {
       "@mdx-js/mdx": "^3.0.1",
       "esbuild": "^0.21.5",
-      "react": "19.0.0-rc-512b09b2-20240718",
-      "react-dom": "19.0.0-rc-512b09b2-20240718",
-      "react-is": "19.0.0-rc-512b09b2-20240718",
+      "react": "19.0.0-rc-f6cce072-20240723",
+      "react-dom": "19.0.0-rc-f6cce072-20240723",
+      "react-is": "19.0.0-rc-f6cce072-20240723",
       "hasown": "npm:@nolyfill/hasown@^1",
       "is-arguments": "npm:@nolyfill/is-arguments@^1",
       "is-generator-function": "npm:@nolyfill/is-generator-function@^1",
