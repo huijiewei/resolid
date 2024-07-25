@@ -40,7 +40,7 @@
     "jsdom": "^24.1.1",
     "react": "19.0.0-rc-f6cce072-20240723",
     "react-dom": "19.0.0-rc-f6cce072-20240723",
-    "tsup": "^8.2.2",
+    "tsup": "^8.2.3",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^2.0.4"
   },

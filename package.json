@@ -18,7 +18,7 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@types/node": "^20.14.12",
-    "lefthook": "^1.7.5",
+    "lefthook": "^1.7.7",
     "typescript": "^5.5.4"
   },
   "engines": {
