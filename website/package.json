@@ -31,7 +31,7 @@
     "react": "19.0.0-rc-3208e73e-20240730",
     "react-dom": "19.0.0-rc-3208e73e-20240730",
     "react-hook-form": "^7.52.1",
-    "remix-hook-form": "^5.0.1",
+    "remix-hook-form": "^5.0.4",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -58,7 +58,7 @@
     "vite": "^5.3.5",
     "vite-plugin-inspect": "^0.8.5",
     "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^2.0.4"
+    "vitest": "^2.0.5"
   },
   "engines": {
     "node": "20.x"

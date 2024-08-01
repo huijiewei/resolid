@@ -30,7 +30,7 @@
     "@resolid/config": "workspace:^",
     "jsdom": "^24.1.1",
     "tsup": "^8.2.3",
-    "vitest": "^2.0.4"
+    "vitest": "^2.0.5"
   },
   "homepage": "https://www.resolid.tech",
   "repository": {
