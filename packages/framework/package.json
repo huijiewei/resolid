@@ -35,7 +35,7 @@
     "drizzle-orm": "^0.32.1",
     "nodemailer": "^6.9.14",
     "postgres": "^3.4.4",
-    "react-hook-form": "^7.52.1",
+    "react-hook-form": "^7.52.2",
     "type-fest": "^4.23.0",
     "zod": "^3.23.8"
   },
