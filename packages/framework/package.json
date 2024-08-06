@@ -32,7 +32,7 @@
     "@remix-run/react": "2.10.3",
     "@remix-run/server-runtime": "2.10.3",
     "@resolid/utils": "workspace:^",
-    "drizzle-orm": "^0.32.1",
+    "drizzle-orm": "^0.32.2",
     "nodemailer": "^6.9.14",
     "postgres": "^3.4.4",
     "react-hook-form": "^7.52.2",
