@@ -198,8 +198,8 @@ importers:
         specifier: ^0.21.5
         version: 0.21.5
       hono:
-        specifier: ^4.5.3
-        version: 4.5.3
+        specifier: ^4.5.4
+        version: 4.5.4
       minimatch:
         specifier: ^9.0.5
         version: 9.0.5
@@ -293,8 +293,8 @@ importers:
         specifier: ^1.0.12
         version: 1.0.12(react@19.0.0-rc-65903583-20240805)
       hono:
-        specifier: ^4.5.3
-        version: 4.5.3
+        specifier: ^4.5.4
+        version: 4.5.4
       isbot:
         specifier: ^5.1.14
         version: 5.1.14
@@ -2127,8 +2127,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.4:
-    resolution: {integrity: sha512-orzA81VqLyIGUEA77YkVA1D+N+nNfl2isJVjjmOyrlxuooZ19ynb+dOlaDTqd/idKRS9lDCSBmtzM+kyCsMnkA==}
+  electron-to-chromium@1.5.5:
+    resolution: {integrity: sha512-QR7/A7ZkMS8tZuoftC/jfqNkZLQO779SSW3YuZHP4eXpj3EffGLFcB/Xu9AAZQzLccTiCV+EmUo3ha4mQ9wnlA==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -2457,8 +2457,8 @@ packages:
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
 
-  hono@4.5.3:
-    resolution: {integrity: sha512-r26WwwbKD3BAYdfB294knNnegNda7VfV1tVn66D9Kvl9WQTdrR+5eKdoeaQNHQcC3Gr0KBikzAtjd6VsRGVSaw==}
+  hono@4.5.4:
+    resolution: {integrity: sha512-k2IguJfRgNCpDbAfpxk+o+fZBLFHl4+eIZUpjc1ItZWHeZ37SmT3efA1UpkIaC0hSf1NJg0E79/wWn6g9LQ4Cw==}
     engines: {node: '>=16.0.0'}
 
   hosted-git-info@6.1.1:
@@ -5984,7 +5984,7 @@ snapshots:
   browserslist@4.23.3:
     dependencies:
       caniuse-lite: 1.0.30001649
-      electron-to-chromium: 1.5.4
+      electron-to-chromium: 1.5.5
       node-releases: 2.0.18
       update-browserslist-db: 1.1.0(browserslist@4.23.3)
 
@@ -6300,7 +6300,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.4: {}
+  electron-to-chromium@1.5.5: {}
 
   emoji-regex@8.0.0: {}
 
@@ -6751,7 +6751,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
-  hono@4.5.3: {}
+  hono@4.5.4: {}
 
   hosted-git-info@6.1.1:
     dependencies:
