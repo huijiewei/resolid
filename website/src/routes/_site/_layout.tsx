@@ -1,7 +1,15 @@
 import { type LinksFunction, unstable_defineLoader } from "@remix-run/node";
-import { Form, Link, type Location, Outlet, createPath, useLoaderData, useLocation } from "@remix-run/react";
+import {
+  Form,
+  Link,
+  type Location,
+  type MetaArgs_SingleFetch,
+  Outlet,
+  createPath,
+  useLoaderData,
+  useLocation,
+} from "@remix-run/react";
 import { authUtils } from "@resolid/framework/modules";
-import type { MetaArgs_SingleFetch } from "@resolid/framework/utils";
 import {
   Avatar,
   Badge,

@@ -1,46 +1,14 @@
-import type {
-  ActionFunction,
-  ActionFunctionArgs,
-  LoaderFunction,
-  LoaderFunctionArgs,
-  MetaArgs,
-  MetaDescriptor,
-} from "@remix-run/node";
-import { type UNSAFE_MetaMatch, useActionData, useLoaderData, useRouteLoaderData } from "@remix-run/react";
-import type { ResponseStub, Serialize } from "@remix-run/server-runtime/dist/single-fetch";
-
-interface MetaMatch_SingleFetch<RouteId extends string = string, L extends TypedLoader | unknown = unknown>
-  extends Omit<UNSAFE_MetaMatch<RouteId, L>, "data"> {
-  data: L extends TypedLoader ? Serialize<L> : unknown;
-}
-
-type MetaMatches_SingleFetch<MatchLoaders extends Record<string, TypedLoader | unknown> = Record<string, unknown>> =
-  Array<
-    {
-      [K in keyof MatchLoaders]: MetaMatch_SingleFetch<Exclude<K, number | symbol>, MatchLoaders[K]>;
-    }[keyof MatchLoaders]
-  >;
-
-export interface MetaArgs_SingleFetch<
-  L extends TypedLoader | unknown = unknown,
-  MatchLoaders extends Record<string, TypedLoader | unknown> = Record<string, unknown>,
-> extends Omit<MetaArgs<L, MatchLoaders>, "data" | "matches"> {
-  data: (L extends TypedLoader ? Serialize<L> : unknown) | undefined;
-  matches: MetaMatches_SingleFetch<MatchLoaders>;
-}
-
-type TypedMetaFunction<
-  L extends TypedLoader | unknown = unknown,
-  MatchLoaders extends Record<string, TypedLoader | unknown> = Record<string, unknown>,
-> = (args: MetaArgs_SingleFetch<L, MatchLoaders>) => MetaDescriptor[];
+import type { MetaDescriptor } from "@remix-run/node";
+import type { MetaArgs_SingleFetch } from "@remix-run/react";
+import type { unstable_Loader as Loader } from "@remix-run/server-runtime";
 
 export const mergeMeta = <
-  L extends TypedLoader | unknown = unknown,
-  MatchLoaders extends Record<string, L | unknown> = Record<string, unknown>,
+  L extends Loader | unknown = unknown,
+  MatchLoaders extends Record<string, Loader | unknown> = Record<string, unknown>,
 >(
-  metaFn: TypedMetaFunction<L, MatchLoaders>,
+  metaFn: (arg: MetaArgs_SingleFetch<L, MatchLoaders>) => MetaDescriptor[],
   titleJoin = " - ",
-): TypedMetaFunction<L, MatchLoaders> => {
+): ((arg: MetaArgs_SingleFetch<L, MatchLoaders>) => MetaDescriptor[]) => {
   return (arg) => {
     const leafMeta = metaFn(arg);
 
@@ -88,28 +56,8 @@ export const mergeMeta = <
   };
 };
 
-export type { ResponseStub };
+export type SuccessData = { success: true } | undefined;
 
-export type TypedActionArgs = ActionFunctionArgs & {
-  response: ResponseStub;
-};
-
-export type TypedAction = (args: TypedActionArgs) => ReturnType<ActionFunction>;
-
-export type TypedLoaderArgs = LoaderFunctionArgs & {
-  response: ResponseStub;
-};
-
-export type TypedLoader = (args: TypedLoaderArgs) => ReturnType<LoaderFunction>;
-
-export const useTypedLoaderData = <T extends TypedLoader>() => {
-  return useLoaderData() as unknown as Awaited<ReturnType<T>>;
-};
-
-export const useTypedActionData = <T extends TypedAction>() => {
-  return useActionData() as unknown as Awaited<ReturnType<T>> | undefined;
-};
-
-export const useTypedRouteLoaderData = <T extends TypedLoader>(routeId: string) => {
-  return useRouteLoaderData(routeId) as unknown as Awaited<ReturnType<T>>;
+export const isSuccess = (data: SuccessData): boolean => {
+  return !!data?.success;
 };

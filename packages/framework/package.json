@@ -23,14 +23,17 @@
       "browser": "./src/modules.browser.ts",
       "default": "./src/modules.ts"
     },
-    "./utils": "./src/utils.ts"
+    "./utils": {
+      "browser": "./src/utils.browser.ts",
+      "default": "./src/utils.ts"
+    }
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@node-rs/bcrypt": "^1.10.4",
-    "@remix-run/node": "2.10.3",
-    "@remix-run/react": "2.10.3",
-    "@remix-run/server-runtime": "2.10.3",
+    "@remix-run/node": "^2.11.1",
+    "@remix-run/react": "^2.11.1",
+    "@remix-run/server-runtime": "^2.11.1",
     "@resolid/utils": "workspace:^",
     "drizzle-orm": "^0.32.2",
     "nodemailer": "^6.9.14",

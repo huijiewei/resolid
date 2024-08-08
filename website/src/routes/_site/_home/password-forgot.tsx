@@ -1,12 +1,7 @@
 import type { TurnstileInstance } from "@marsidev/react-turnstile";
-import { Form, useSearchParams } from "@remix-run/react";
-import {
-  type TypedActionArgs,
-  createFieldErrors,
-  httpProblem,
-  mergeMeta,
-  useTypedActionData,
-} from "@resolid/framework/utils";
+import { unstable_defineAction } from "@remix-run/node";
+import { Form, useActionData, useSearchParams } from "@remix-run/react";
+import { type SuccessData, createFieldErrors, httpProblem, isSuccess, mergeMeta } from "@resolid/framework/utils";
 import { Button, Input } from "@resolid/react-ui";
 import { useEffect, useRef, useState } from "react";
 import { Controller } from "react-hook-form";
@@ -22,23 +17,23 @@ export const meta = mergeMeta(() => {
   return [{ title: "忘记密码" }];
 });
 
-export const action = async ({ request, response, context }: TypedActionArgs) => {
+export const action = unstable_defineAction(async ({ request, context }) => {
   const data = await parseFormData<UserPasswordForgotFormData>(request);
 
   const captcha = await trunstileVerify(data.token);
 
   if (!captcha.success) {
-    return httpProblem(response, createFieldErrors({ captcha: "验证失败" }));
+    return httpProblem(createFieldErrors({ captcha: "验证失败" }));
   }
 
   const [errors] = await userPasswordForgotService(data, context.requestOrigin ?? request.url);
 
   if (errors) {
-    return httpProblem(response, errors);
+    return httpProblem(errors);
   }
 
-  return { errors: undefined };
-};
+  return { success: true };
+});
 
 export default function PasswordForgot() {
   const [params] = useSearchParams();
@@ -48,10 +43,10 @@ export default function PasswordForgot() {
 
   const [sendSucceed, setSendSucceed] = useState(false);
 
-  const data = useTypedActionData<typeof action>();
+  const data = useActionData<typeof action>();
 
   useEffect(() => {
-    if (data?.errors) {
+    if (isSuccess(data as SuccessData)) {
       setCaptchaVerified(false);
       setSendSucceed(true);
     } else {

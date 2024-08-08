@@ -1,4 +1,6 @@
-import { type TypedLoaderArgs, httpNotFound, mergeMeta, useTypedLoaderData } from "@resolid/framework/utils";
+import { unstable_defineLoader } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { httpNotFound, mergeMeta } from "@resolid/framework/utils";
 import { ErrorComponent } from "~/components/base/error-component";
 
 export const meta = mergeMeta<typeof loader>(({ data }) => {
@@ -14,7 +16,7 @@ export const handle = {
   },
 };
 
-export const loader = ({ params }: TypedLoaderArgs) => {
+export const loader = unstable_defineLoader(({ params }) => {
   const id = params.id as string;
 
   if (!["1", "2", "3"].includes(id)) {
@@ -22,10 +24,10 @@ export const loader = ({ params }: TypedLoaderArgs) => {
   }
 
   return { id: params.id, title: `Blog ${id}` };
-};
+});
 
 export default function BlogView() {
-  const blog = useTypedLoaderData<typeof loader>();
+  const blog = useLoaderData<typeof loader>();
 
   return <div>{blog.title}</div>;
 }

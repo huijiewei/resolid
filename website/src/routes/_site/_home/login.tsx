@@ -1,6 +1,7 @@
+import type { ActionFunctionArgs } from "@remix-run/node";
 import { Form, useSearchParams } from "@remix-run/react";
 import { getCookieExpires } from "@resolid/framework";
-import { type TypedActionArgs, httpProblem, httpRedirect, mergeMeta } from "@resolid/framework/utils";
+import { httpProblem, httpRedirect, mergeMeta } from "@resolid/framework/utils";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
 import { Controller } from "react-hook-form";
 import { parseFormData, useRemixForm } from "remix-hook-form";
@@ -14,19 +15,18 @@ export const meta = mergeMeta(() => {
   return [{ title: "登陆" }];
 });
 
-export const action = async ({ request, response, context }: TypedActionArgs) => {
+export const action = async ({ request, context }: ActionFunctionArgs) => {
   const data = await parseFormData<UserLoginFormData>(request);
 
   const [errors, user] = await userLoginService(data);
 
   if (errors) {
-    return httpProblem(response, errors);
+    return httpProblem(errors);
   }
 
   const session = await setSessionUser(request, user, context.remoteAddress ?? "");
 
   httpRedirect(
-    response,
     new URL(request.url).searchParams.get("redirect") ?? "",
     await commitUserSession(session, { expires: getCookieExpires(data.rememberMe ? 365 : undefined) }),
   );

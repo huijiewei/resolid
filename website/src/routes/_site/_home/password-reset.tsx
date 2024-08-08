@@ -1,5 +1,6 @@
-import { Form } from "@remix-run/react";
-import { type TypedActionArgs, httpProblem, mergeMeta, useTypedActionData } from "@resolid/framework/utils";
+import { unstable_defineAction } from "@remix-run/node";
+import { Form, useActionData } from "@remix-run/react";
+import { type SuccessData, httpProblem, isSuccess, mergeMeta } from "@resolid/framework/utils";
 import { Button, Input } from "@resolid/react-ui";
 import { useEffect, useState } from "react";
 import { Controller } from "react-hook-form";
@@ -12,17 +13,17 @@ export const meta = mergeMeta(() => {
   return [{ title: "密码重置" }];
 });
 
-export const action = async ({ request, response }: TypedActionArgs) => {
+export const action = unstable_defineAction(async ({ request }) => {
   const data = await parseFormData<UserPasswordResetFormData>(request);
 
   const [errors] = await userPasswordResetService(data, new URL(request.url).searchParams.get("token"));
 
   if (errors) {
-    return httpProblem(response, errors);
+    return httpProblem(errors);
   }
 
-  return { errors: undefined };
-};
+  return { success: true };
+});
 
 export default function PasswordReset() {
   const {
@@ -36,10 +37,10 @@ export default function PasswordReset() {
 
   const [resetSucceed, setResetSucceed] = useState(false);
 
-  const data = useTypedActionData<typeof action>();
+  const data = useActionData<typeof action>();
 
   useEffect(() => {
-    if (!data?.errors) {
+    if (isSuccess(data as SuccessData)) {
       setResetSucceed(true);
     }
   }, [data]);

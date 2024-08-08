@@ -4,6 +4,7 @@
   "compilerOptions": {
     "paths": {
       "@resolid/utils": ["../utils/src"]
-    }
+    },
+    "types": ["@remix-run/react/future/single-fetch.d.ts"]
   }
 }

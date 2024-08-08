@@ -16,6 +16,7 @@
       "~/*": ["./src/*"],
       "@resolid/react-ui": ["../packages/react-ui/src"],
       "@resolid/utils": ["../packages/utils/src"]
-    }
+    },
+    "types": ["@remix-run/react/future/single-fetch.d.ts"]
   }
 }

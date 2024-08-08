@@ -1,11 +1,12 @@
 import { format } from "@formkit/tempo";
-import { Await } from "@remix-run/react";
-import { type TypedLoaderArgs, mergeMeta, useTypedLoaderData } from "@resolid/framework/utils";
+import { unstable_defineLoader } from "@remix-run/node";
+import { Await, useLoaderData } from "@remix-run/react";
+import { mergeMeta } from "@resolid/framework/utils";
 import { Alert, AlertDescription, AlertTitle } from "@resolid/react-ui";
 import { Suspense } from "react";
 import { statusService } from "~/modules/system/service.server";
 
-export const loader = ({ context }: TypedLoaderArgs) => {
+export const loader = unstable_defineLoader(({ context }) => {
   return {
     ssr: {
       message: "服务器渲染正常",
@@ -17,7 +18,7 @@ export const loader = ({ context }: TypedLoaderArgs) => {
       .then(() => ({ success: true, message: "数据库访问正常" }))
       .catch(() => ({ success: false, message: "数据库访问失败" })),
   };
-};
+});
 
 export const meta = mergeMeta(() => {
   return [
@@ -28,7 +29,7 @@ export const meta = mergeMeta(() => {
 });
 
 export default function Status() {
-  const { ssr, db } = useTypedLoaderData<typeof loader>();
+  const { ssr, db } = useLoaderData<typeof loader>();
 
   return (
     <div className={"prose dark:prose-invert mx-auto px-4 py-8"}>

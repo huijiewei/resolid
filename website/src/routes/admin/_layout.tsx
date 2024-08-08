@@ -1,6 +1,5 @@
-import type { LinksFunction } from "@remix-run/node";
-import { Outlet, type UIMatch, useMatches } from "@remix-run/react";
-import { type TypedLoaderArgs, useTypedLoaderData } from "@resolid/framework/utils";
+import { type LinksFunction, unstable_defineLoader } from "@remix-run/node";
+import { Outlet, type UIMatch, useLoaderData, useMatches } from "@remix-run/react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -33,14 +32,14 @@ export const meta = () => {
   return [{ title: "Resolid 后台管理" }];
 };
 
-export const loader = async ({ request }: TypedLoaderArgs) => {
+export const loader = unstable_defineLoader(async ({ request }) => {
   return {
     admin: await getSessionAdmin(request),
   };
-};
+});
 
 export default function AdminLayout() {
-  const { admin } = useTypedLoaderData<typeof loader>();
+  const { admin } = useLoaderData<typeof loader>();
 
   return (
     <AuthProvider value={{ identity: admin }}>
