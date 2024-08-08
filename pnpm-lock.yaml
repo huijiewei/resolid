@@ -7,9 +7,9 @@ settings:
 overrides:
   '@mdx-js/mdx': ^3.0.1
   esbuild: ^0.21.5
-  react: 19.0.0-rc-65903583-20240805
-  react-dom: 19.0.0-rc-65903583-20240805
-  react-is: 19.0.0-rc-65903583-20240805
+  react: 19.0.0-rc-e948a5ac-20240807
+  react-dom: 19.0.0-rc-e948a5ac-20240807
+  react-is: 19.0.0-rc-e948a5ac-20240807
   hasown: npm:@nolyfill/hasown@^1
   is-arguments: npm:@nolyfill/is-arguments@^1
   is-generator-function: npm:@nolyfill/is-generator-function@^1
@@ -27,8 +27,8 @@ importers:
         specifier: ^1.8.3
         version: 1.8.3
       '@commitlint/cli':
-        specifier: ^19.3.0
-        version: 19.3.0(@types/node@20.14.14)(typescript@5.5.4)
+        specifier: ^19.4.0
+        version: 19.4.0(@types/node@20.14.14)(typescript@5.5.4)
       '@commitlint/config-conventional':
         specifier: ^19.2.2
         version: 19.2.2
@@ -55,7 +55,7 @@ importers:
     dependencies:
       '@hookform/resolvers':
         specifier: ^3.9.0
-        version: 3.9.0(react-hook-form@7.52.2(react@19.0.0-rc-65903583-20240805))
+        version: 3.9.0(react-hook-form@7.52.2(react@19.0.0-rc-e948a5ac-20240807))
       '@node-rs/bcrypt':
         specifier: ^1.10.4
         version: 1.10.4
@@ -64,7 +64,7 @@ importers:
         version: 2.10.3(typescript@5.5.4)
       '@remix-run/react':
         specifier: 2.10.3
-        version: 2.10.3(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)(typescript@5.5.4)
+        version: 2.10.3(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4)
       '@remix-run/server-runtime':
         specifier: 2.10.3
         version: 2.10.3(typescript@5.5.4)
@@ -73,7 +73,7 @@ importers:
         version: link:../utils
       drizzle-orm:
         specifier: ^0.32.2
-        version: 0.32.2(@types/react@18.3.3)(postgres@3.4.4)(react@19.0.0-rc-65903583-20240805)
+        version: 0.32.2(@types/react@18.3.3)(postgres@3.4.4)(react@19.0.0-rc-e948a5ac-20240807)
       nodemailer:
         specifier: ^6.9.14
         version: 6.9.14
@@ -82,7 +82,7 @@ importers:
         version: 3.4.4
       react-hook-form:
         specifier: ^7.52.2
-        version: 7.52.2(react@19.0.0-rc-65903583-20240805)
+        version: 7.52.2(react@19.0.0-rc-e948a5ac-20240807)
       type-fest:
         specifier: ^4.23.0
         version: 4.23.0
@@ -131,14 +131,14 @@ importers:
   packages/react-ui:
     dependencies:
       '@floating-ui/react':
-        specifier: ^0.26.21
-        version: 0.26.21(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)
+        specifier: ^0.26.22
+        version: 0.26.22(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)
       '@resolid/utils':
         specifier: workspace:^
         version: link:../utils
       '@tanstack/react-virtual':
         specifier: ^3.8.4
-        version: 3.8.4(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)
+        version: 3.8.4(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)
       '@tw-classed/core':
         specifier: ^1.7.0
         version: 1.7.0
@@ -147,7 +147,7 @@ importers:
         version: 2.1.1
       react-remove-scroll-bar:
         specifier: ^2.3.6
-        version: 2.3.6(@types/react@18.3.3)(react@19.0.0-rc-65903583-20240805)
+        version: 2.3.6(@types/react@18.3.3)(react@19.0.0-rc-e948a5ac-20240807)
     devDependencies:
       '@resolid/config':
         specifier: workspace:^
@@ -157,7 +157,7 @@ importers:
         version: link:../tailwind
       '@testing-library/react':
         specifier: ^16.0.0
-        version: 16.0.0(@testing-library/dom@10.1.0)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)
+        version: 16.0.0(@testing-library/dom@10.1.0)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.3
@@ -168,17 +168,17 @@ importers:
         specifier: ^24.1.1
         version: 24.1.1
       react:
-        specifier: 19.0.0-rc-65903583-20240805
-        version: 19.0.0-rc-65903583-20240805
+        specifier: 19.0.0-rc-e948a5ac-20240807
+        version: 19.0.0-rc-e948a5ac-20240807
       react-dom:
-        specifier: 19.0.0-rc-65903583-20240805
-        version: 19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805)
+        specifier: 19.0.0-rc-e948a5ac-20240807
+        version: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
       tsup:
         specifier: ^8.2.4
         version: 8.2.4(@swc/core@1.6.13)(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.5)(typescript@5.5.4)(yaml@2.5.0)
       vite-tsconfig-paths:
-        specifier: ^4.3.2
-        version: 4.3.2(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))
+        specifier: ^5.0.0
+        version: 5.0.0(typescript@5.5.4)(vite@5.4.0(@types/node@22.1.0))
       vitest:
         specifier: ^2.0.5
         version: 2.0.5(@types/node@22.1.0)(jsdom@24.1.1)
@@ -206,7 +206,7 @@ importers:
     devDependencies:
       '@remix-run/dev':
         specifier: 2.10.3
-        version: 2.10.3(@remix-run/react@2.11.0(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)(typescript@5.5.4))(@types/node@22.1.0)(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))
+        version: 2.10.3(@remix-run/react@2.11.0(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4))(@types/node@22.1.0)(typescript@5.5.4)(vite@5.4.0(@types/node@22.1.0))
       '@resolid/config':
         specifier: workspace:^
         version: link:../config
@@ -217,8 +217,8 @@ importers:
         specifier: ^4.23.0
         version: 4.23.0
       vite:
-        specifier: ^5.3.5
-        version: 5.3.5(@types/node@22.1.0)
+        specifier: ^5.4.0
+        version: 5.4.0(@types/node@22.1.0)
 
   packages/tailwind:
     devDependencies:
@@ -226,8 +226,8 @@ importers:
         specifier: workspace:^
         version: link:../config
       tailwindcss:
-        specifier: ^3.4.7
-        version: 3.4.7
+        specifier: ^3.4.8
+        version: 3.4.8
       tsup:
         specifier: ^8.2.4
         version: 8.2.4(@swc/core@1.6.13)(jiti@1.21.6)(postcss@8.4.41)(tsx@4.16.5)(typescript@5.5.4)(yaml@2.5.0)
@@ -261,13 +261,13 @@ importers:
         version: 1.12.0
       '@hookform/resolvers':
         specifier: ^3.9.0
-        version: 3.9.0(react-hook-form@7.52.2(react@19.0.0-rc-65903583-20240805))
+        version: 3.9.0(react-hook-form@7.52.2(react@19.0.0-rc-e948a5ac-20240807))
       '@marsidev/react-turnstile':
         specifier: ^0.7.2
-        version: 0.7.2(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)
+        version: 0.7.2(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)
       '@mdx-js/react':
         specifier: ^3.0.1
-        version: 3.0.1(@types/react@18.3.3)(react@19.0.0-rc-65903583-20240805)
+        version: 3.0.1(@types/react@18.3.3)(react@19.0.0-rc-e948a5ac-20240807)
       '@node-rs/bcrypt':
         specifier: ^1.10.4
         version: 1.10.4
@@ -276,7 +276,7 @@ importers:
         version: 2.10.3(typescript@5.5.4)
       '@remix-run/react':
         specifier: 2.10.3
-        version: 2.10.3(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)(typescript@5.5.4)
+        version: 2.10.3(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4)
       '@resolid/framework':
         specifier: workspace:^
         version: link:../packages/framework
@@ -288,10 +288,10 @@ importers:
         version: link:../packages/utils
       '@vercel/analytics':
         specifier: ^1.3.1
-        version: 1.3.1(react@19.0.0-rc-65903583-20240805)
+        version: 1.3.1(react@19.0.0-rc-e948a5ac-20240807)
       '@vercel/speed-insights':
         specifier: ^1.0.12
-        version: 1.0.12(react@19.0.0-rc-65903583-20240805)
+        version: 1.0.12(react@19.0.0-rc-e948a5ac-20240807)
       hono:
         specifier: ^4.5.4
         version: 4.5.4
@@ -299,17 +299,17 @@ importers:
         specifier: ^5.1.14
         version: 5.1.14
       react:
-        specifier: 19.0.0-rc-65903583-20240805
-        version: 19.0.0-rc-65903583-20240805
+        specifier: 19.0.0-rc-e948a5ac-20240807
+        version: 19.0.0-rc-e948a5ac-20240807
       react-dom:
-        specifier: 19.0.0-rc-65903583-20240805
-        version: 19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805)
+        specifier: 19.0.0-rc-e948a5ac-20240807
+        version: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
       react-hook-form:
         specifier: ^7.52.2
-        version: 7.52.2(react@19.0.0-rc-65903583-20240805)
+        version: 7.52.2(react@19.0.0-rc-e948a5ac-20240807)
       remix-hook-form:
         specifier: ^5.0.4
-        version: 5.0.4(@remix-run/react@2.10.3(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)(typescript@5.5.4))(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react-hook-form@7.52.2(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)
+        version: 5.0.4(@remix-run/react@2.10.3(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4))(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react-hook-form@7.52.2(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -319,7 +319,7 @@ importers:
         version: 3.0.1(rollup@4.20.0)
       '@remix-run/dev':
         specifier: 2.10.3
-        version: 2.10.3(@remix-run/react@2.10.3(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)(typescript@5.5.4))(@types/node@22.1.0)(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))
+        version: 2.10.3(@remix-run/react@2.10.3(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4))(@types/node@22.1.0)(typescript@5.5.4)(vite@5.4.0(@types/node@22.1.0))
       '@resolid/config':
         specifier: workspace:^
         version: link:../packages/config
@@ -336,8 +336,8 @@ importers:
         specifier: ^1.12.1
         version: 1.12.1
       '@tailwindcss/typography':
-        specifier: ^0.5.13
-        version: 0.5.13(tailwindcss@3.4.7)
+        specifier: ^0.5.14
+        version: 0.5.14(tailwindcss@3.4.8)
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.3
@@ -369,20 +369,20 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0
       tailwindcss:
-        specifier: ^3.4.7
-        version: 3.4.7
+        specifier: ^3.4.8
+        version: 3.4.8
       tsx:
         specifier: ^4.16.5
         version: 4.16.5
       vite:
-        specifier: ^5.3.5
-        version: 5.3.5(@types/node@22.1.0)
+        specifier: ^5.4.0
+        version: 5.4.0(@types/node@22.1.0)
       vite-plugin-inspect:
         specifier: ^0.8.5
-        version: 0.8.5(rollup@4.20.0)(vite@5.3.5(@types/node@22.1.0))
+        version: 0.8.5(rollup@4.20.0)(vite@5.4.0(@types/node@22.1.0))
       vite-tsconfig-paths:
-        specifier: ^4.3.2
-        version: 4.3.2(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))
+        specifier: ^5.0.0
+        version: 5.0.0(typescript@5.5.4)(vite@5.4.0(@types/node@22.1.0))
       vitest:
         specifier: ^2.0.5
         version: 2.0.5(@types/node@22.1.0)(jsdom@24.1.1)
@@ -596,8 +596,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@commitlint/cli@19.3.0':
-    resolution: {integrity: sha512-LgYWOwuDR7BSTQ9OLZ12m7F/qhNY+NpAyPBgo4YNMkACE7lGuUnuQq1yi9hz1KA4+3VqpOYl8H1rY/LYK43v7g==}
+  '@commitlint/cli@19.4.0':
+    resolution: {integrity: sha512-sJX4J9UioVwZHq7JWM9tjT5bgWYaIN3rC4FP7YwfEwBYiIO+wMyRttRvQLNkow0vCdM0D67r9NEWU0Ui03I4Eg==}
     engines: {node: '>=v18'}
     hasBin: true
 
@@ -629,8 +629,8 @@ packages:
     resolution: {integrity: sha512-xrzMmz4JqwGyKQKTpFzlN0dx0TAiT7Ran1fqEBgEmEj+PU98crOFtysJgY+QdeSagx6EDRigQIXJVnfrI0ratA==}
     engines: {node: '>=v18'}
 
-  '@commitlint/load@19.2.0':
-    resolution: {integrity: sha512-XvxxLJTKqZojCxaBQ7u92qQLFMMZc4+p9qrIq/9kJDy8DOrEa7P1yx7Tjdc2u2JxIalqT4KOGraVgCE7eCYJyQ==}
+  '@commitlint/load@19.4.0':
+    resolution: {integrity: sha512-I4lCWaEZYQJ1y+Y+gdvbGAx9pYPavqZAZ3/7/8BpWh+QjscAn8AjsUpLV2PycBsEx7gupq5gM4BViV9xwTIJuw==}
     engines: {node: '>=v18'}
 
   '@commitlint/message@19.0.0':
@@ -641,8 +641,8 @@ packages:
     resolution: {integrity: sha512-Il+tNyOb8VDxN3P6XoBBwWJtKKGzHlitEuXA5BP6ir/3loWlsSqDr5aecl6hZcC/spjq4pHqNh0qPlfeWu38QA==}
     engines: {node: '>=v18'}
 
-  '@commitlint/read@19.2.1':
-    resolution: {integrity: sha512-qETc4+PL0EUv7Q36lJbPG+NJiBOGg7SSC7B5BsPWOmei+Dyif80ErfWQ0qXoW9oCh7GTpTNRoaVhiI8RbhuaNw==}
+  '@commitlint/read@19.4.0':
+    resolution: {integrity: sha512-r95jLOEZzKDakXtnQub+zR3xjdnrl2XzerPwm7ch1/cc5JGq04tyaNpa6ty0CRCWdVrk4CZHhqHozb8yZwy2+g==}
     engines: {node: '>=v18'}
 
   '@commitlint/resolve-extends@19.1.0':
@@ -824,26 +824,26 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@floating-ui/core@1.6.6':
-    resolution: {integrity: sha512-Vkvsw6EcpMHjvZZdMkSY+djMGFbt7CRssW99Ne8tar2WLnZ/l3dbxeTShbLQj+/s35h+Qb4cmnob+EzwtjrXGQ==}
+  '@floating-ui/core@1.6.7':
+    resolution: {integrity: sha512-yDzVT/Lm101nQ5TCVeK65LtdN7Tj4Qpr9RTXJ2vPFLqtLxwOrpoxAHAJI8J3yYWUc40J0BDBheaitK5SJmno2g==}
 
-  '@floating-ui/dom@1.6.9':
-    resolution: {integrity: sha512-zB1PcI350t4tkm3rvUhSRKa9sT7vH5CrAbQxW+VaPYJXKAO0gsg4CTueL+6Ajp7XzAQC8CW4Jj1Wgqc0sB6oUQ==}
+  '@floating-ui/dom@1.6.10':
+    resolution: {integrity: sha512-fskgCFv8J8OamCmyun8MfjB1Olfn+uZKjOKZ0vhYF3gRmEUXcGOjxWL8bBr7i4kIuPZ2KD2S3EUIOxnjC8kl2A==}
 
   '@floating-ui/react-dom@2.1.1':
     resolution: {integrity: sha512-4h84MJt3CHrtG18mGsXuLCHMrug49d7DFkU0RMIyshRveBeyV2hmV/pDaF2Uxtu8kgq5r46llp5E5FQiR0K2Yg==}
     peerDependencies:
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807
 
-  '@floating-ui/react@0.26.21':
-    resolution: {integrity: sha512-7P5ncDIiYd6RrwpCDbKyFzvabM014QlzlumtDbK3Bck0UueC+Rp8BLS34qcGBcN1pZCTodl4QNnCVmKv4tSxfQ==}
+  '@floating-ui/react@0.26.22':
+    resolution: {integrity: sha512-LNv4azPt8SpT4WW7Kku5JNVjLk2GcS0bGGjFTAgqOONRFo9r/aaGHHPpdiIuQbB1t8shmWyWqTTUDmZ9fcNshg==}
     peerDependencies:
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807
 
-  '@floating-ui/utils@0.2.6':
-    resolution: {integrity: sha512-0KI3zGxIUs1KDR/pjQPdJH4Z8nGBm0yJ5WRoRfdw1Kzeh45jkIfA0rmD0kBF6fKHH+xaH7g8y4jIXyAV5MGK3g==}
+  '@floating-ui/utils@0.2.7':
+    resolution: {integrity: sha512-X8R8Oj771YRl/w+c1HqAC1szL8zWQRwFvgDwT129k9ACdBoud/+/rX9V0qiMl6LWUdP9voC2nDVZYPMQQsb6eA==}
 
   '@formkit/tempo@0.1.2':
     resolution: {integrity: sha512-jNPPbjL8oj7hK3eHX++CwbR6X4GKQt+x00/q4yeXkwynXHGKL27dylYhpEgwrmediPP4y7s0XtN1if/M/JYujg==}
@@ -889,8 +889,8 @@ packages:
   '@marsidev/react-turnstile@0.7.2':
     resolution: {integrity: sha512-0jwLvAUkcLkaYaS6jBOZB3zzUiKi5dU3kZtlaeBX6yV7Y4CbFEtfHCY352ovphNz1v0ZjpOj6+3QUczJvD56VA==}
     peerDependencies:
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807
 
   '@mdx-js/mdx@3.0.1':
     resolution: {integrity: sha512-eIQ4QTrOWyL3LWEe/bu6Taqzq2HQvHcyTMaOrI95P2/LmJE7AsfPfgJGuFLPVqBUE1BC1rik3VIhU+s9u72arA==}
@@ -899,7 +899,7 @@ packages:
     resolution: {integrity: sha512-9ZrPIU4MGf6et1m1ov3zKf+q9+deetI51zprKB1D/z3NOb+rUxxtEl3mCjW5wTGh6VhRdwPueh1oRzi6ezkA8A==}
     peerDependencies:
       '@types/react': '>=16'
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
 
   '@mdx-js/rollup@3.0.1':
     resolution: {integrity: sha512-j0II91OCm4ld+l5QVgXXMQGxVVcAWIQJakYWi1dv5pefDHASJyCYER2TsdH7Alf958GoFSM7ugukWyvDq/UY4A==}
@@ -1095,8 +1095,8 @@ packages:
     resolution: {integrity: sha512-nqXlUJzG3zgllsMio20AICbSsF8va0jOnMakl/+oJpFbQqCyFkvYqr+BViBc4Befp5VK54jqJzDnY4kL9zwNvA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807
       typescript: ^5.1.0
     peerDependenciesMeta:
       typescript:
@@ -1106,8 +1106,8 @@ packages:
     resolution: {integrity: sha512-XncDiwDAm6NFiUtISBieAJylb0Y9E66XKbFd0PDgYNbJWd7jMmJN3ZFnFggLKLt7KhtR6wepkW83BhmI7I7+aw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807
       typescript: ^5.1.0
     peerDependenciesMeta:
       typescript:
@@ -1332,16 +1332,16 @@ packages:
   '@swc/types@0.1.12':
     resolution: {integrity: sha512-wBJA+SdtkbFhHjTMYH+dEH1y4VpfGdAc2Kw/LK09i9bXd/K6j6PkDcFCEzb6iVfZMkPRrl/q0e3toqTAJdkIVA==}
 
-  '@tailwindcss/typography@0.5.13':
-    resolution: {integrity: sha512-ADGcJ8dX21dVVHIwTRgzrcunY6YY9uSlAHHGVKvkA+vLc5qLwEszvKts40lx7z0qc4clpjclwLeK5rVCV2P/uw==}
+  '@tailwindcss/typography@0.5.14':
+    resolution: {integrity: sha512-ZvOCjUbsJBjL9CxQBn+VEnFpouzuKhxh2dH8xMIWHILL+HfOYtlAkWcyoon8LlzE53d2Yo6YO6pahKKNW3q1YQ==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
 
   '@tanstack/react-virtual@3.8.4':
     resolution: {integrity: sha512-Dq0VQr3QlTS2qL35g360QaJWBt7tCn/0xw4uZ0dHXPLO1Ak4Z4nVX4vuj1Npg1b/jqNMDToRtR5OIxM2NXRBWg==}
     peerDependencies:
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807
 
   '@tanstack/virtual-core@3.8.4':
     resolution: {integrity: sha512-iO5Ujgw3O1yIxWDe9FgUPNkGjyT657b1WNX52u+Wv1DyBFEpdCdGkuVaky0M3hHFqNWjAmHWTn4wgj9rTr7ZQg==}
@@ -1357,8 +1357,8 @@ packages:
       '@testing-library/dom': ^10.0.0
       '@types/react': ^18.0.0
       '@types/react-dom': ^18.0.0
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -1450,7 +1450,7 @@ packages:
     resolution: {integrity: sha512-xhSlYgAuJ6Q4WQGkzYTLmXwhYl39sWjoMA3nHxfkvG+WdBT25c563a7QhwwKivEOZtPJXifYHR1m2ihoisbWyA==}
     peerDependencies:
       next: '>= 13'
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
     peerDependenciesMeta:
       next:
         optional: true
@@ -1467,7 +1467,7 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^1 || ^2
       next: '>= 13'
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
       svelte: ^4
       vue: ^3
       vue-router: ^4
@@ -1710,8 +1710,8 @@ packages:
     resolution: {integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==}
     engines: {node: '>= 6'}
 
-  caniuse-lite@1.0.30001649:
-    resolution: {integrity: sha512-fJegqZZ0ZX8HOWr6rcafGr72+xcgJKI9oWfDW5DrD7ExUtgZC7a7R7ZYmZqplh7XDocFdGeIFn7roAxhOeYrPQ==}
+  caniuse-lite@1.0.30001650:
+    resolution: {integrity: sha512-fgEc7hP/LB7iicdXHUI9VsBsMZmUmlVJeQP2qqQW+3lkqVhbmjEU8zp+h5stWeilX+G7uXuIUIIlWlDw9jdt8g==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -2057,7 +2057,7 @@ packages:
       pg: '>=8'
       postgres: '>=3'
       prisma: '*'
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
       sql.js: '>=1'
       sqlite3: '>=5'
     peerDependenciesMeta:
@@ -2297,8 +2297,8 @@ packages:
     resolution: {integrity: sha512-YyZM99iHrqLKjmt4LJDj58KI+fYyufRLBSYcqycxf//KpBk9FoewoGX0450m9nB44qrZnovzC2oeP5hUibxc/g==}
     engines: {node: '>=18'}
 
-  foreground-child@3.2.1:
-    resolution: {integrity: sha512-PXUUyLqrR2XCWICfv6ukppP96sdFwWbNEnfEMt7jNsISjMsvaLNinAHNDYyvkyU+SZG2BTSbT5NjG+vZslfGTA==}
+  foreground-child@3.3.0:
+    resolution: {integrity: sha512-Ld2g8rrAyMYFXBhEqMz8ZAHBi4J4uS1i/CxGMDnjyFWddMXLVcDp051DZfu+t7+ab7Wv6SMqpWmyFIj5UbfFvg==}
     engines: {node: '>=14'}
 
   form-data@4.0.0:
@@ -3604,19 +3604,19 @@ packages:
     peerDependencies:
       typescript: '>= 4.3.x'
 
-  react-dom@19.0.0-rc-65903583-20240805:
-    resolution: {integrity: sha512-aq+5m8wbT642C5LT5fDqHAkIvBKuSzlEQLsmeDUyiaqFE1ETVLaB1k1hj6a4lqPPVXgkPxSzzyflUMmt8IsAwg==}
+  react-dom@19.0.0-rc-e948a5ac-20240807:
+    resolution: {integrity: sha512-FVjbcTEsbHn00XuWb1Q0zeTHk27M5kAGw7k8Y1U/M748dIqJOoL64C5n9+YBq7XbGrk10c3wKLYB0DJ8LkBRzw==}
     peerDependencies:
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
 
   react-hook-form@7.52.2:
     resolution: {integrity: sha512-pqfPEbERnxxiNMPd0bzmt1tuaPcVccywFDpyk2uV5xCIBphHV5T8SVnX9/o3kplPE1zzKt77+YIoq+EMwJp56A==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
 
-  react-is@19.0.0-rc-65903583-20240805:
-    resolution: {integrity: sha512-AQdj93l/xs3c7B3xAoOoEi46HWaNk/SHJmOsDqmxiMzclp1yNvO/Fj9jFjz9JHjNc3KYj3iUp5RKENQJ/VnRuQ==}
+  react-is@19.0.0-rc-e948a5ac-20240807:
+    resolution: {integrity: sha512-1cwxkfOXUXEHQwmd0R6j04LTvi74qy9P9eYKBAkYUK99QhWvI/zJJ2z5inK6xBNYQoFrldMIgj5d7BbsFVAdFw==}
 
   react-refresh@0.14.2:
     resolution: {integrity: sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==}
@@ -3627,7 +3627,7 @@ packages:
     engines: {node: '>=10'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -3636,40 +3636,40 @@ packages:
     resolution: {integrity: sha512-BhcczgDWWgvGZxjDDGuGHrA8HrsSudilqTaRSBYLWDayvo1ClchNIDVt5rldqp6e7Dro5dEFx9Mzc+r292lN0w==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807
 
   react-router-dom@6.26.0:
     resolution: {integrity: sha512-RRGUIiDtLrkX3uYcFiCIxKFWMcWQGMojpYZfcstc63A1+sSnVgILGIm9gNUA6na3Fm1QuPGSBQH2EMbAZOnMsQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807
 
   react-router@6.25.0:
     resolution: {integrity: sha512-bziKjCcDbcxgWS9WlWFcQIVZ2vJHnCP6DGpQDT0l+0PFDasfJKgzf9CM22eTyhFsZkjk8ApCdKjJwKtzqH80jQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
 
   react-router@6.26.0:
     resolution: {integrity: sha512-wVQq0/iFYd3iZ9H2l3N3k4PL8EEHcb0XlU2Na8nEwmiXgIUElEH6gaJDtUQxJ+JFzmIXaQjfdpcGWaM6IoQGxg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
 
   react-style-singleton@2.2.1:
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
     engines: {node: '>=10'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
     peerDependenciesMeta:
       '@types/react':
         optional: true
 
-  react@19.0.0-rc-65903583-20240805:
-    resolution: {integrity: sha512-VdRerPb8uT3jh+Op+rTsZWi8VqPBBfyPIiFToNY6mzNdvHFtxkCHOaThpciy03+WKoirtx6vG3qv1sAsE3xbYg==}
+  react@19.0.0-rc-e948a5ac-20240807:
+    resolution: {integrity: sha512-HQz6Ien3YXDqFFsZcoEagiXk43VOtyvEQAk2ZR/+99dnhRxlFT7e2n0g6qgeD2B/S7UZimiYS+HQS410xhvMxg==}
     engines: {node: '>=0.10.0'}
 
   read-cache@1.0.0:
@@ -3724,8 +3724,8 @@ packages:
     resolution: {integrity: sha512-KLYJKk29SU+jDbOph9fIinevx6vg1YOeaCo1h4x9eIw/s8eBe/nTnSDu3/CLPazU/vxpyiWh/EwE4DkKjvVXyQ==}
     peerDependencies:
       '@remix-run/react': ^2.0.0
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807
       react-hook-form: ^7.51.0
 
   require-directory@2.1.1:
@@ -3809,8 +3809,8 @@ packages:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
     engines: {node: '>=v12.22.7'}
 
-  scheduler@0.25.0-rc-65903583-20240805:
-    resolution: {integrity: sha512-93mzJeBtywRo0ODdzOyP4oMNb/1kgpdWBGr+TlwJpciTeS8SToImiXzzMmNwj4wnxTFEhC6/L2dy0ucTJDL5lw==}
+  scheduler@0.25.0-rc-e948a5ac-20240807:
+    resolution: {integrity: sha512-LH8rwsrnIYe1YTz0odUZWq5+rCZZqcw69DTx0eSnD1xx3q1AM60gEYrpis6Uf3p5bMU2wFxjtlubx/Pw+kvfCA==}
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -3997,8 +3997,8 @@ packages:
   tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
 
-  tailwindcss@3.4.7:
-    resolution: {integrity: sha512-rxWZbe87YJb4OcSopb7up2Ba4U82BoiSGUdoDr3Ydrg9ckxFS/YWsvhN323GMcddgU65QRy7JndC7ahhInhvlQ==}
+  tailwindcss@3.4.8:
+    resolution: {integrity: sha512-GkP17r9GQkxgZ9FKHJQEnjJuKBcbFhMFzKu5slmN6NjlCuFnYJMQ8N4AZ6VrUyiRXlDtPKHkesuQ/MS913Nvdg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -4286,16 +4286,16 @@ packages:
       '@nuxt/kit':
         optional: true
 
-  vite-tsconfig-paths@4.3.2:
-    resolution: {integrity: sha512-0Vd/a6po6Q+86rPlntHye7F31zA2URZMbH8M3saAZ/xR9QoGN/L21bxEGfXdWmFdNkqPpRdxFT7nmNe12e9/uA==}
+  vite-tsconfig-paths@5.0.0:
+    resolution: {integrity: sha512-sCdKc6uC7ir102lW8deBiMnS0NGEs0100OJX8WZQmf3Uf7tJ/T3uQnzznq/tZWph7tkG+44JYOsKE7YTZjDn+Q==}
     peerDependencies:
       vite: '*'
     peerDependenciesMeta:
       vite:
         optional: true
 
-  vite@5.3.5:
-    resolution: {integrity: sha512-MdjglKR6AQXQb9JGiS7Rc2wC6uMjcm7Go/NHNO63EwiJXfuk9PgqiP/n5IDJCziMkfw9n4Ubp7lttNwz+8ZVKA==}
+  vite@5.4.0:
+    resolution: {integrity: sha512-5xokfMX0PIiwCMCMb9ZJcMyh5wbBun0zUzKib+L65vAZ8GY9ePZMXxFrHbr/Kyll2+LSCY7xtERPpxkBDKngwg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -4303,6 +4303,7 @@ packages:
       less: '*'
       lightningcss: ^1.21.0
       sass: '*'
+      sass-embedded: '*'
       stylus: '*'
       sugarss: '*'
       terser: ^5.4.0
@@ -4314,6 +4315,8 @@ packages:
       lightningcss:
         optional: true
       sass:
+        optional: true
+      sass-embedded:
         optional: true
       stylus:
         optional: true
@@ -4744,12 +4747,12 @@ snapshots:
   '@biomejs/cli-win32-x64@1.8.3':
     optional: true
 
-  '@commitlint/cli@19.3.0(@types/node@20.14.14)(typescript@5.5.4)':
+  '@commitlint/cli@19.4.0(@types/node@20.14.14)(typescript@5.5.4)':
     dependencies:
       '@commitlint/format': 19.3.0
       '@commitlint/lint': 19.2.2
-      '@commitlint/load': 19.2.0(@types/node@20.14.14)(typescript@5.5.4)
-      '@commitlint/read': 19.2.1
+      '@commitlint/load': 19.4.0(@types/node@20.14.14)(typescript@5.5.4)
+      '@commitlint/read': 19.4.0
       '@commitlint/types': 19.0.3
       execa: 8.0.1
       yargs: 17.7.2
@@ -4795,7 +4798,7 @@ snapshots:
       '@commitlint/rules': 19.0.3
       '@commitlint/types': 19.0.3
 
-  '@commitlint/load@19.2.0(@types/node@20.14.14)(typescript@5.5.4)':
+  '@commitlint/load@19.4.0(@types/node@20.14.14)(typescript@5.5.4)':
     dependencies:
       '@commitlint/config-validator': 19.0.3
       '@commitlint/execute-rule': 19.0.0
@@ -4819,7 +4822,7 @@ snapshots:
       conventional-changelog-angular: 7.0.0
       conventional-commits-parser: 5.0.0
 
-  '@commitlint/read@19.2.1':
+  '@commitlint/read@19.4.0':
     dependencies:
       '@commitlint/top-level': 19.0.0
       '@commitlint/types': 19.0.3
@@ -4954,38 +4957,38 @@ snapshots:
   '@esbuild/win32-x64@0.21.5':
     optional: true
 
-  '@floating-ui/core@1.6.6':
+  '@floating-ui/core@1.6.7':
     dependencies:
-      '@floating-ui/utils': 0.2.6
+      '@floating-ui/utils': 0.2.7
 
-  '@floating-ui/dom@1.6.9':
+  '@floating-ui/dom@1.6.10':
     dependencies:
-      '@floating-ui/core': 1.6.6
-      '@floating-ui/utils': 0.2.6
+      '@floating-ui/core': 1.6.7
+      '@floating-ui/utils': 0.2.7
 
-  '@floating-ui/react-dom@2.1.1(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)':
+  '@floating-ui/react-dom@2.1.1(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)':
     dependencies:
-      '@floating-ui/dom': 1.6.9
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805)
+      '@floating-ui/dom': 1.6.10
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
 
-  '@floating-ui/react@0.26.21(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)':
+  '@floating-ui/react@0.26.22(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)':
     dependencies:
-      '@floating-ui/react-dom': 2.1.1(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)
-      '@floating-ui/utils': 0.2.6
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805)
+      '@floating-ui/react-dom': 2.1.1(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)
+      '@floating-ui/utils': 0.2.7
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
       tabbable: 6.2.0
 
-  '@floating-ui/utils@0.2.6': {}
+  '@floating-ui/utils@0.2.7': {}
 
   '@formkit/tempo@0.1.2': {}
 
   '@hono/node-server@1.12.0': {}
 
-  '@hookform/resolvers@3.9.0(react-hook-form@7.52.2(react@19.0.0-rc-65903583-20240805))':
+  '@hookform/resolvers@3.9.0(react-hook-form@7.52.2(react@19.0.0-rc-e948a5ac-20240807))':
     dependencies:
-      react-hook-form: 7.52.2(react@19.0.0-rc-65903583-20240805)
+      react-hook-form: 7.52.2(react@19.0.0-rc-e948a5ac-20240807)
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -5030,10 +5033,10 @@ snapshots:
       - encoding
       - supports-color
 
-  '@marsidev/react-turnstile@0.7.2(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)':
+  '@marsidev/react-turnstile@0.7.2(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)':
     dependencies:
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805)
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
 
   '@mdx-js/mdx@3.0.1':
     dependencies:
@@ -5063,11 +5066,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mdx-js/react@3.0.1(@types/react@18.3.3)(react@19.0.0-rc-65903583-20240805)':
+  '@mdx-js/react@3.0.1(@types/react@18.3.3)(react@19.0.0-rc-e948a5ac-20240807)':
     dependencies:
       '@types/mdx': 2.0.13
       '@types/react': 18.3.3
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
 
   '@mdx-js/rollup@3.0.1(rollup@4.20.0)':
     dependencies:
@@ -5217,7 +5220,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.25': {}
 
-  '@remix-run/dev@2.10.3(@remix-run/react@2.10.3(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)(typescript@5.5.4))(@types/node@22.1.0)(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))':
+  '@remix-run/dev@2.10.3(@remix-run/react@2.10.3(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4))(@types/node@22.1.0)(typescript@5.5.4)(vite@5.4.0(@types/node@22.1.0))':
     dependencies:
       '@babel/core': 7.25.2
       '@babel/generator': 7.25.0
@@ -5230,7 +5233,7 @@ snapshots:
       '@mdx-js/mdx': 3.0.1
       '@npmcli/package-json': 4.0.1
       '@remix-run/node': 2.10.3(typescript@5.5.4)
-      '@remix-run/react': 2.10.3(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)(typescript@5.5.4)
+      '@remix-run/react': 2.10.3(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4)
       '@remix-run/router': 1.18.0
       '@remix-run/server-runtime': 2.10.3(typescript@5.5.4)
       '@types/mdx': 2.0.13
@@ -5275,7 +5278,7 @@ snapshots:
       ws: 7.5.10
     optionalDependencies:
       typescript: 5.5.4
-      vite: 5.3.5(@types/node@22.1.0)
+      vite: 5.4.0(@types/node@22.1.0)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -5284,6 +5287,7 @@ snapshots:
       - less
       - lightningcss
       - sass
+      - sass-embedded
       - stylus
       - sugarss
       - supports-color
@@ -5291,7 +5295,7 @@ snapshots:
       - ts-node
       - utf-8-validate
 
-  '@remix-run/dev@2.10.3(@remix-run/react@2.11.0(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)(typescript@5.5.4))(@types/node@22.1.0)(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))':
+  '@remix-run/dev@2.10.3(@remix-run/react@2.11.0(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4))(@types/node@22.1.0)(typescript@5.5.4)(vite@5.4.0(@types/node@22.1.0))':
     dependencies:
       '@babel/core': 7.25.2
       '@babel/generator': 7.25.0
@@ -5304,7 +5308,7 @@ snapshots:
       '@mdx-js/mdx': 3.0.1
       '@npmcli/package-json': 4.0.1
       '@remix-run/node': 2.10.3(typescript@5.5.4)
-      '@remix-run/react': 2.11.0(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)(typescript@5.5.4)
+      '@remix-run/react': 2.11.0(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4)
       '@remix-run/router': 1.18.0
       '@remix-run/server-runtime': 2.10.3(typescript@5.5.4)
       '@types/mdx': 2.0.13
@@ -5349,7 +5353,7 @@ snapshots:
       ws: 7.5.10
     optionalDependencies:
       typescript: 5.5.4
-      vite: 5.3.5(@types/node@22.1.0)
+      vite: 5.4.0(@types/node@22.1.0)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -5358,6 +5362,7 @@ snapshots:
       - less
       - lightningcss
       - sass
+      - sass-embedded
       - stylus
       - sugarss
       - supports-color
@@ -5377,26 +5382,26 @@ snapshots:
     optionalDependencies:
       typescript: 5.5.4
 
-  '@remix-run/react@2.10.3(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)(typescript@5.5.4)':
+  '@remix-run/react@2.10.3(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4)':
     dependencies:
       '@remix-run/router': 1.18.0
       '@remix-run/server-runtime': 2.10.3(typescript@5.5.4)
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805)
-      react-router: 6.25.0(react@19.0.0-rc-65903583-20240805)
-      react-router-dom: 6.25.0(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
+      react-router: 6.25.0(react@19.0.0-rc-e948a5ac-20240807)
+      react-router-dom: 6.25.0(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)
       turbo-stream: 2.2.0
     optionalDependencies:
       typescript: 5.5.4
 
-  '@remix-run/react@2.11.0(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)(typescript@5.5.4)':
+  '@remix-run/react@2.11.0(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4)':
     dependencies:
       '@remix-run/router': 1.19.0
       '@remix-run/server-runtime': 2.11.0(typescript@5.5.4)
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805)
-      react-router: 6.26.0(react@19.0.0-rc-65903583-20240805)
-      react-router-dom: 6.26.0(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
+      react-router: 6.26.0(react@19.0.0-rc-e948a5ac-20240807)
+      react-router-dom: 6.26.0(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)
       turbo-stream: 2.2.0
     optionalDependencies:
       typescript: 5.5.4
@@ -5590,19 +5595,19 @@ snapshots:
       '@swc/counter': 0.1.3
     optional: true
 
-  '@tailwindcss/typography@0.5.13(tailwindcss@3.4.7)':
+  '@tailwindcss/typography@0.5.14(tailwindcss@3.4.8)':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.4.7
+      tailwindcss: 3.4.8
 
-  '@tanstack/react-virtual@3.8.4(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)':
+  '@tanstack/react-virtual@3.8.4(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)':
     dependencies:
       '@tanstack/virtual-core': 3.8.4
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805)
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
 
   '@tanstack/virtual-core@3.8.4': {}
 
@@ -5617,12 +5622,12 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/react@16.0.0(@testing-library/dom@10.1.0)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)':
+  '@testing-library/react@16.0.0(@testing-library/dom@10.1.0)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)':
     dependencies:
       '@babel/runtime': 7.25.0
       '@testing-library/dom': 10.1.0
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805)
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
     optionalDependencies:
       '@types/react': 18.3.3
       '@types/react-dom': 18.3.0
@@ -5736,7 +5741,7 @@ snapshots:
       lodash: 4.17.21
       mlly: 1.7.1
       outdent: 0.8.0
-      vite: 5.3.5(@types/node@22.1.0)
+      vite: 5.4.0(@types/node@22.1.0)
       vite-node: 1.6.0(@types/node@22.1.0)
     transitivePeerDependencies:
       - '@types/node'
@@ -5744,6 +5749,7 @@ snapshots:
       - less
       - lightningcss
       - sass
+      - sass-embedded
       - stylus
       - sugarss
       - supports-color
@@ -5751,11 +5757,11 @@ snapshots:
 
   '@vanilla-extract/private@1.0.5': {}
 
-  '@vercel/analytics@1.3.1(react@19.0.0-rc-65903583-20240805)':
+  '@vercel/analytics@1.3.1(react@19.0.0-rc-e948a5ac-20240807)':
     dependencies:
       server-only: 0.0.1
     optionalDependencies:
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
 
   '@vercel/nft@0.27.3':
     dependencies:
@@ -5775,9 +5781,9 @@ snapshots:
       - encoding
       - supports-color
 
-  '@vercel/speed-insights@1.0.12(react@19.0.0-rc-65903583-20240805)':
+  '@vercel/speed-insights@1.0.12(react@19.0.0-rc-e948a5ac-20240807)':
     optionalDependencies:
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
 
   '@vitest/expect@2.0.5':
     dependencies:
@@ -5922,7 +5928,7 @@ snapshots:
   autoprefixer@10.4.20(postcss@8.4.41):
     dependencies:
       browserslist: 4.23.3
-      caniuse-lite: 1.0.30001649
+      caniuse-lite: 1.0.30001650
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.1
@@ -5983,7 +5989,7 @@ snapshots:
 
   browserslist@4.23.3:
     dependencies:
-      caniuse-lite: 1.0.30001649
+      caniuse-lite: 1.0.30001650
       electron-to-chromium: 1.5.5
       node-releases: 2.0.18
       update-browserslist-db: 1.1.0(browserslist@4.23.3)
@@ -6027,7 +6033,7 @@ snapshots:
 
   camelcase-css@2.0.1: {}
 
-  caniuse-lite@1.0.30001649: {}
+  caniuse-lite@1.0.30001650: {}
 
   ccount@2.0.1: {}
 
@@ -6283,11 +6289,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.32.2(@types/react@18.3.3)(postgres@3.4.4)(react@19.0.0-rc-65903583-20240805):
+  drizzle-orm@0.32.2(@types/react@18.3.3)(postgres@3.4.4)(react@19.0.0-rc-e948a5ac-20240807):
     optionalDependencies:
       '@types/react': 18.3.3
       postgres: 3.4.4
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
 
   duplexify@3.7.1:
     dependencies:
@@ -6550,7 +6556,7 @@ snapshots:
       path-exists: 5.0.0
       unicorn-magic: 0.1.0
 
-  foreground-child@3.2.1:
+  foreground-child@3.3.0:
     dependencies:
       cross-spawn: 7.0.3
       signal-exit: 4.1.0
@@ -6648,7 +6654,7 @@ snapshots:
 
   glob@10.4.5:
     dependencies:
-      foreground-child: 3.2.1
+      foreground-child: 3.3.0
       jackspeak: 3.4.3
       minimatch: 9.0.5
       minipass: 7.1.2
@@ -8007,7 +8013,7 @@ snapshots:
     dependencies:
       ansi-regex: 5.0.1
       ansi-styles: 5.2.0
-      react-is: 19.0.0-rc-65903583-20240805
+      react-is: 19.0.0-rc-e948a5ac-20240807
 
   pretty-ms@7.0.1:
     dependencies:
@@ -8072,61 +8078,61 @@ snapshots:
     dependencies:
       typescript: 5.5.4
 
-  react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805):
+  react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807):
     dependencies:
-      react: 19.0.0-rc-65903583-20240805
-      scheduler: 0.25.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
+      scheduler: 0.25.0-rc-e948a5ac-20240807
 
-  react-hook-form@7.52.2(react@19.0.0-rc-65903583-20240805):
+  react-hook-form@7.52.2(react@19.0.0-rc-e948a5ac-20240807):
     dependencies:
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
 
-  react-is@19.0.0-rc-65903583-20240805: {}
+  react-is@19.0.0-rc-e948a5ac-20240807: {}
 
   react-refresh@0.14.2: {}
 
-  react-remove-scroll-bar@2.3.6(@types/react@18.3.3)(react@19.0.0-rc-65903583-20240805):
+  react-remove-scroll-bar@2.3.6(@types/react@18.3.3)(react@19.0.0-rc-e948a5ac-20240807):
     dependencies:
-      react: 19.0.0-rc-65903583-20240805
-      react-style-singleton: 2.2.1(@types/react@18.3.3)(react@19.0.0-rc-65903583-20240805)
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-style-singleton: 2.2.1(@types/react@18.3.3)(react@19.0.0-rc-e948a5ac-20240807)
       tslib: 2.6.3
     optionalDependencies:
       '@types/react': 18.3.3
 
-  react-router-dom@6.25.0(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805):
+  react-router-dom@6.25.0(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807):
     dependencies:
       '@remix-run/router': 1.18.0
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805)
-      react-router: 6.25.0(react@19.0.0-rc-65903583-20240805)
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
+      react-router: 6.25.0(react@19.0.0-rc-e948a5ac-20240807)
 
-  react-router-dom@6.26.0(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805):
+  react-router-dom@6.26.0(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807):
     dependencies:
       '@remix-run/router': 1.19.0
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805)
-      react-router: 6.26.0(react@19.0.0-rc-65903583-20240805)
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
+      react-router: 6.26.0(react@19.0.0-rc-e948a5ac-20240807)
 
-  react-router@6.25.0(react@19.0.0-rc-65903583-20240805):
+  react-router@6.25.0(react@19.0.0-rc-e948a5ac-20240807):
     dependencies:
       '@remix-run/router': 1.18.0
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
 
-  react-router@6.26.0(react@19.0.0-rc-65903583-20240805):
+  react-router@6.26.0(react@19.0.0-rc-e948a5ac-20240807):
     dependencies:
       '@remix-run/router': 1.19.0
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
 
-  react-style-singleton@2.2.1(@types/react@18.3.3)(react@19.0.0-rc-65903583-20240805):
+  react-style-singleton@2.2.1(@types/react@18.3.3)(react@19.0.0-rc-e948a5ac-20240807):
     dependencies:
       get-nonce: 1.0.1
       invariant: 2.2.4
-      react: 19.0.0-rc-65903583-20240805
+      react: 19.0.0-rc-e948a5ac-20240807
       tslib: 2.6.3
     optionalDependencies:
       '@types/react': 18.3.3
 
-  react@19.0.0-rc-65903583-20240805: {}
+  react@19.0.0-rc-e948a5ac-20240807: {}
 
   read-cache@1.0.0:
     dependencies:
@@ -8235,12 +8241,12 @@ snapshots:
       mdast-util-to-markdown: 2.1.0
       unified: 11.0.5
 
-  remix-hook-form@5.0.4(@remix-run/react@2.10.3(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)(typescript@5.5.4))(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react-hook-form@7.52.2(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805):
+  remix-hook-form@5.0.4(@remix-run/react@2.10.3(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4))(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react-hook-form@7.52.2(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807):
     dependencies:
-      '@remix-run/react': 2.10.3(react-dom@19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805))(react@19.0.0-rc-65903583-20240805)(typescript@5.5.4)
-      react: 19.0.0-rc-65903583-20240805
-      react-dom: 19.0.0-rc-65903583-20240805(react@19.0.0-rc-65903583-20240805)
-      react-hook-form: 7.52.2(react@19.0.0-rc-65903583-20240805)
+      '@remix-run/react': 2.10.3(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4)
+      react: 19.0.0-rc-e948a5ac-20240807
+      react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
+      react-hook-form: 7.52.2(react@19.0.0-rc-e948a5ac-20240807)
 
   require-directory@2.1.1: {}
 
@@ -8319,7 +8325,7 @@ snapshots:
     dependencies:
       xmlchars: 2.2.0
 
-  scheduler@0.25.0-rc-65903583-20240805: {}
+  scheduler@0.25.0-rc-e948a5ac-20240807: {}
 
   semver@6.3.1: {}
 
@@ -8505,7 +8511,7 @@ snapshots:
 
   tabbable@6.2.0: {}
 
-  tailwindcss@3.4.7:
+  tailwindcss@3.4.8:
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -8832,12 +8838,13 @@ snapshots:
       debug: 4.3.6
       pathe: 1.1.2
       picocolors: 1.0.1
-      vite: 5.3.5(@types/node@22.1.0)
+      vite: 5.4.0(@types/node@22.1.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
       - lightningcss
       - sass
+      - sass-embedded
       - stylus
       - sugarss
       - supports-color
@@ -8849,18 +8856,19 @@ snapshots:
       debug: 4.3.6
       pathe: 1.1.2
       tinyrainbow: 1.2.0
-      vite: 5.3.5(@types/node@22.1.0)
+      vite: 5.4.0(@types/node@22.1.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
       - lightningcss
       - sass
+      - sass-embedded
       - stylus
       - sugarss
       - supports-color
       - terser
 
-  vite-plugin-inspect@0.8.5(rollup@4.20.0)(vite@5.3.5(@types/node@22.1.0)):
+  vite-plugin-inspect@0.8.5(rollup@4.20.0)(vite@5.4.0(@types/node@22.1.0)):
     dependencies:
       '@antfu/utils': 0.7.10
       '@rollup/pluginutils': 5.1.0(rollup@4.20.0)
@@ -8871,23 +8879,23 @@ snapshots:
       perfect-debounce: 1.0.0
       picocolors: 1.0.1
       sirv: 2.0.4
-      vite: 5.3.5(@types/node@22.1.0)
+      vite: 5.4.0(@types/node@22.1.0)
     transitivePeerDependencies:
       - rollup
       - supports-color
 
-  vite-tsconfig-paths@4.3.2(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0)):
+  vite-tsconfig-paths@5.0.0(typescript@5.5.4)(vite@5.4.0(@types/node@22.1.0)):
     dependencies:
       debug: 4.3.6
       globrex: 0.1.2
       tsconfck: 3.1.1(typescript@5.5.4)
     optionalDependencies:
-      vite: 5.3.5(@types/node@22.1.0)
+      vite: 5.4.0(@types/node@22.1.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@5.3.5(@types/node@22.1.0):
+  vite@5.4.0(@types/node@22.1.0):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.41
@@ -8914,7 +8922,7 @@ snapshots:
       tinybench: 2.9.0
       tinypool: 1.0.0
       tinyrainbow: 1.2.0
-      vite: 5.3.5(@types/node@22.1.0)
+      vite: 5.4.0(@types/node@22.1.0)
       vite-node: 2.0.5(@types/node@22.1.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
@@ -8924,6 +8932,7 @@ snapshots:
       - less
       - lightningcss
       - sass
+      - sass-embedded
       - stylus
       - sugarss
       - supports-color

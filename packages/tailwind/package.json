@@ -24,11 +24,11 @@
   },
   "devDependencies": {
     "@resolid/config": "workspace:^",
-    "tailwindcss": "^3.4.7",
+    "tailwindcss": "^3.4.8",
     "tsup": "^8.2.4"
   },
   "peerDependencies": {
-    "tailwindcss": "^3.4.3"
+    "tailwindcss": "^3.4.8"
   },
   "homepage": "https://www.resolid.tech",
   "repository": {
