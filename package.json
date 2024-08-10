@@ -17,8 +17,8 @@
     "@biomejs/biome": "^1.8.3",
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@types/node": "^20.14.14",
-    "lefthook": "^1.7.11",
+    "@types/node": "^20.14.15",
+    "lefthook": "^1.7.12",
     "typescript": "^5.5.4"
   },
   "engines": {
