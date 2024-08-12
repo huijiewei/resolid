@@ -198,8 +198,8 @@ importers:
         specifier: ^0.21.5
         version: 0.21.5
       hono:
-        specifier: ^4.5.4
-        version: 4.5.4
+        specifier: ^4.5.5
+        version: 4.5.5
       minimatch:
         specifier: ^9.0.5
         version: 9.0.5
@@ -293,8 +293,8 @@ importers:
         specifier: ^1.0.12
         version: 1.0.12(react@19.0.0-rc-2d2cc042-20240809)
       hono:
-        specifier: ^4.5.4
-        version: 4.5.4
+        specifier: ^4.5.5
+        version: 4.5.5
       isbot:
         specifier: ^5.1.14
         version: 5.1.14
@@ -2433,8 +2433,8 @@ packages:
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
 
-  hono@4.5.4:
-    resolution: {integrity: sha512-k2IguJfRgNCpDbAfpxk+o+fZBLFHl4+eIZUpjc1ItZWHeZ37SmT3efA1UpkIaC0hSf1NJg0E79/wWn6g9LQ4Cw==}
+  hono@4.5.5:
+    resolution: {integrity: sha512-fXBXHqaVfimWofbelLXci8pZyIwBMkDIwCa4OwZvK+xVbEyYLELVP4DfbGaj1aEM6ZY3hHgs4qLvCO2ChkhgQw==}
     engines: {node: '>=16.0.0'}
 
   hosted-git-info@6.1.1:
@@ -6619,7 +6619,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
-  hono@4.5.4: {}
+  hono@4.5.5: {}
 
   hosted-git-info@6.1.1:
     dependencies:
