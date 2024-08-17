@@ -31,15 +31,15 @@
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@node-rs/bcrypt": "^1.10.4",
-    "@remix-run/node": "^2.11.1",
-    "@remix-run/react": "^2.11.1",
-    "@remix-run/server-runtime": "^2.11.1",
+    "@remix-run/node": "^2.11.2",
+    "@remix-run/react": "^2.11.2",
+    "@remix-run/server-runtime": "^2.11.2",
     "@resolid/utils": "workspace:^",
     "drizzle-orm": "^0.33.0",
     "nodemailer": "^6.9.14",
     "postgres": "^3.4.4",
     "react-hook-form": "^7.52.2",
-    "type-fest": "^4.24.0",
+    "type-fest": "^4.25.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
