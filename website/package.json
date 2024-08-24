@@ -30,7 +30,7 @@
     "isbot": "^5.1.17",
     "react": "19.0.0-rc-6ebfd5b0-20240818",
     "react-dom": "19.0.0-rc-6ebfd5b0-20240818",
-    "react-hook-form": "^7.52.2",
+    "react-hook-form": "^7.53.0",
     "remix-hook-form": "^5.0.4",
     "zod": "^3.23.8"
   },
