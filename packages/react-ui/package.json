@@ -24,7 +24,7 @@
     }
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.22",
+    "@floating-ui/react": "^0.26.23",
     "@resolid/utils": "workspace:^",
     "@tanstack/react-virtual": "^3.10.4",
     "@tw-classed/core": "^1.7.0",
@@ -37,7 +37,7 @@
     "@testing-library/react": "^16.0.0",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
-    "jsdom": "^24.1.1",
+    "jsdom": "^24.1.3",
     "react": "19.0.0-rc-6ebfd5b0-20240818",
     "react-dom": "19.0.0-rc-6ebfd5b0-20240818",
     "tsup": "^8.2.4",
