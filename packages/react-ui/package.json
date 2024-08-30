@@ -26,7 +26,7 @@
   "dependencies": {
     "@floating-ui/react": "^0.26.23",
     "@resolid/utils": "workspace:^",
-    "@tanstack/react-virtual": "^3.10.5",
+    "@tanstack/react-virtual": "^3.10.6",
     "@tw-classed/core": "^1.7.0",
     "clsx": "^2.1.1",
     "react-remove-scroll-bar": "^2.3.6"
@@ -34,7 +34,7 @@
   "devDependencies": {
     "@resolid/config": "workspace:^",
     "@resolid/tailwind": "workspace:^",
-    "@testing-library/react": "^16.0.0",
+    "@testing-library/react": "^16.0.1",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
     "jsdom": "^24.1.3",
