@@ -20,6 +20,12 @@ import { type UserConfig, defineConfig } from "vitest/config";
 
 installGlobals({ nativeFetch: true });
 
+declare module "@remix-run/server-runtime" {
+  interface Future {
+    unstable_singleFetch: true;
+  }
+}
+
 export default defineConfig(({ command, isSsrBuild }) => {
   const isBuild = command == "build";
 
@@ -68,6 +74,7 @@ export default defineConfig(({ command, isSsrBuild }) => {
           v3_throwAbortReason: true,
           unstable_singleFetch: true,
           unstable_lazyRouteDiscovery: true,
+          unstable_optimizeDeps: true,
         },
         serverBundles: ({ branch }) => {
           return branch.some((route) => {
@@ -131,7 +138,17 @@ export default defineConfig(({ command, isSsrBuild }) => {
       external: ["@node-rs/bcrypt"],
     },
     optimizeDeps: {
-      include: ["@mdx-js/react", "react-hook-form", "remix-hook-form"],
+      include: [
+        "@mdx-js/react",
+        "react-hook-form",
+        "remix-hook-form",
+        "@resolid/react-ui > react-remove-scroll-bar",
+        "@resolid/react-ui > @tw-classed/core",
+        "@resolid/react-ui > clsx",
+        "@resolid/react-ui > @floating-ui/react",
+        "@resolid/react-ui > @tanstack/react-virtual",
+        "@resolid/utils > nanoid",
+      ],
       exclude: ["@node-rs/bcrypt"],
     },
   };

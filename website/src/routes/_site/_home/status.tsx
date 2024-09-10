@@ -1,12 +1,12 @@
 import { format } from "@formkit/tempo";
-import { unstable_defineLoader } from "@remix-run/node";
+import type { LoaderFunctionArgs } from "@remix-run/node";
 import { Await, useLoaderData } from "@remix-run/react";
 import { mergeMeta } from "@resolid/framework/utils";
 import { Alert, AlertDescription, AlertTitle } from "@resolid/react-ui";
 import { Suspense } from "react";
 import { statusService } from "~/modules/system/service.server";
 
-export const loader = unstable_defineLoader(({ context }) => {
+export const loader = ({ context }: LoaderFunctionArgs) => {
   return {
     ssr: {
       message: "服务器渲染正常",
@@ -18,7 +18,7 @@ export const loader = unstable_defineLoader(({ context }) => {
       .then(() => ({ success: true, message: "数据库访问正常" }))
       .catch(() => ({ success: false, message: "数据库访问失败" })),
   };
-});
+};
 
 export const meta = mergeMeta(() => {
   return [

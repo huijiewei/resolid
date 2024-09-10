@@ -1,10 +1,10 @@
-import { unstable_defineLoader } from "@remix-run/node";
+import type { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { authUtils } from "@resolid/framework/modules";
 import { httpNotFound, mergeMeta } from "@resolid/framework/utils";
 import { userServices } from "~/modules/user/service.server";
 
-export const loader = unstable_defineLoader(async ({ params }) => {
+export const loader = async ({ params }: LoaderFunctionArgs) => {
   const user = await userServices.getByUsername(params.name!);
 
   if (!user) {
@@ -12,7 +12,7 @@ export const loader = unstable_defineLoader(async ({ params }) => {
   }
 
   return user!;
-});
+};
 
 export const meta = mergeMeta<typeof loader>(({ data }) => {
   return [{ title: data ? authUtils.getDisplayName(data) : "用户不存在" }];

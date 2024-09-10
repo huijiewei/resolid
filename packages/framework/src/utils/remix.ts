@@ -1,14 +1,13 @@
-import type { MetaDescriptor } from "@remix-run/node";
-import type { MetaArgs_SingleFetch } from "@remix-run/react";
-import type { unstable_Loader as Loader } from "@remix-run/server-runtime";
+import type { LoaderFunction, MetaDescriptor } from "@remix-run/node";
+import type { MetaArgs } from "@remix-run/react";
 
 export const mergeMeta = <
-  L extends Loader | unknown = unknown,
-  MatchLoaders extends Record<string, Loader | unknown> = Record<string, unknown>,
+  L extends LoaderFunction | unknown = unknown,
+  MatchLoaders extends Record<string, LoaderFunction | unknown> = Record<string, unknown>,
 >(
-  metaFn: (arg: MetaArgs_SingleFetch<L, MatchLoaders>) => MetaDescriptor[],
+  metaFn: (arg: MetaArgs<L, MatchLoaders>) => MetaDescriptor[],
   titleJoin = " - ",
-): ((arg: MetaArgs_SingleFetch<L, MatchLoaders>) => MetaDescriptor[]) => {
+): ((arg: MetaArgs<L, MatchLoaders>) => MetaDescriptor[]) => {
   return (arg) => {
     const leafMeta = metaFn(arg);
 
@@ -56,8 +55,8 @@ export const mergeMeta = <
   };
 };
 
-export type SuccessData = { success: true } | undefined;
+export type SuccessData = { success: boolean } | undefined;
 
-export const isSuccess = (data: SuccessData): boolean => {
-  return !!data?.success;
+export const isSuccess = (data: unknown): boolean => {
+  return !!(data as SuccessData)?.success;
 };

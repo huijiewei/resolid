@@ -1,4 +1,4 @@
-import { unstable_defineLoader } from "@remix-run/node";
+import type { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { httpNotFound, mergeMeta } from "@resolid/framework/utils";
 import { ErrorComponent } from "~/components/base/error-component";
@@ -16,7 +16,7 @@ export const handle = {
   },
 };
 
-export const loader = unstable_defineLoader(({ params }) => {
+export const loader = ({ params }: LoaderFunctionArgs) => {
   const id = params.id as string;
 
   if (!["1", "2", "3"].includes(id)) {
@@ -24,7 +24,7 @@ export const loader = unstable_defineLoader(({ params }) => {
   }
 
   return { id: params.id, title: `Blog ${id}` };
-});
+};
 
 export default function BlogView() {
   const blog = useLoaderData<typeof loader>();

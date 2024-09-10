@@ -19,13 +19,13 @@
     "@commitlint/config-conventional": "^19.4.1",
     "@types/node": "^20.16.5",
     "lefthook": "^1.7.15",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.2"
   },
   "engines": {
     "node": "20.x",
     "pnpm": "9.x"
   },
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@9.10.0",
   "homepage": "https://www.resolid.tech",
   "repository": {
     "type": "git",

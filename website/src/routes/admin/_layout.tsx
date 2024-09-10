@@ -1,4 +1,4 @@
-import { type LinksFunction, unstable_defineLoader } from "@remix-run/node";
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { Outlet, type UIMatch, useLoaderData, useMatches } from "@remix-run/react";
 import {
   Breadcrumb,
@@ -32,11 +32,11 @@ export const meta = () => {
   return [{ title: "Resolid 后台管理" }];
 };
 
-export const loader = unstable_defineLoader(async ({ request }) => {
+export const loader = async ({ request }: LoaderFunctionArgs) => {
   return {
     admin: await getSessionAdmin(request),
   };
-});
+};
 
 export default function AdminLayout() {
   const { admin } = useLoaderData<typeof loader>();

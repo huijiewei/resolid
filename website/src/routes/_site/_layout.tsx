@@ -1,9 +1,9 @@
-import { type LinksFunction, unstable_defineLoader } from "@remix-run/node";
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import {
   Form,
   Link,
   type Location,
-  type MetaArgs_SingleFetch,
+  type MetaArgs,
   Outlet,
   createPath,
   useLoaderData,
@@ -48,14 +48,14 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export const loader = unstable_defineLoader(async ({ request, context }) => {
+export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   return {
     user: await getSessionUser(request),
     requestOrigin: context.requestOrigin ?? request.url,
   };
-});
+};
 
-export const meta = ({ data }: MetaArgs_SingleFetch<typeof loader>) => {
+export const meta = ({ data }: MetaArgs<typeof loader>) => {
   const ogImage = new URL("/images/og-image-v1.png", data?.requestOrigin).toString();
   const ogUrl = trimEnd(new URL("", data?.requestOrigin).toString(), "/");
   const siteName = "Resolid";
