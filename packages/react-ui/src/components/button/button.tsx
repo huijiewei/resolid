@@ -115,7 +115,7 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<"button", Butto
           : rounded.style,
         className,
       )}
-      type={type ?? asChild ? undefined : "button"}
+      type={type ?? (asChild ? undefined : "button")}
       ref={ref}
       disabled={Boolean(disabled) || loading}
       data-active={dataAttr(active)}

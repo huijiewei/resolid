@@ -392,7 +392,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
     }
 
     if (virtual) {
-      const scrollIndex = activeIndex ?? minSelectedIndex != null ? minSelectedIndex - 1 : -1;
+      const scrollIndex = activeIndex ?? (minSelectedIndex != null ? minSelectedIndex - 1 : -1);
 
       if (scrollIndex > -1 && prevActiveIndex != null) {
         rowVirtual.scrollToIndex(scrollIndex > prevActiveIndex ? scrollIndex + 1 : scrollIndex - 1, {
@@ -610,6 +610,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
                         <div
                           key={option.__index}
                           role={"separator"}
+                          tabIndex={-1}
                           aria-disabled
                           className={clsx("text-[0.875em] text-fg-subtle", sizeStyle.option)}
                         >

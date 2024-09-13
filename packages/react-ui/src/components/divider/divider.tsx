@@ -53,6 +53,7 @@ export const Divider = forwardRef<HTMLDivElement, BaseProps<"div", DividerProps,
   return (
     <div
       role={"separator"}
+      tabIndex={-1}
       aria-orientation={vertical ? "vertical" : "horizontal"}
       ref={ref}
       style={

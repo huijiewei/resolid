@@ -11,7 +11,7 @@ import {
   TooltipTrigger,
   clsx,
 } from "@resolid/react-ui";
-import { isFunction, isNumber } from "@resolid/utils";
+import { isFunction } from "@resolid/utils";
 import { type FunctionComponent, type ReactNode, useMemo, useState } from "react";
 import { SpriteIcon } from "~/components/base/sprite-icon";
 

@@ -29,7 +29,9 @@
         "noDoubleEquals": "off"
       },
       "a11y": {
-        "noSvgWithoutTitle": "off"
+        "noSvgWithoutTitle": "off",
+        "useSemanticElements": "off",
+        "noLabelWithoutControl": "off"
       }
     }
   }
