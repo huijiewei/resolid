@@ -42,7 +42,7 @@
     "react-dom": "19.0.0-rc-3dfd5d9e-20240910",
     "tsup": "^8.2.4",
     "vite-tsconfig-paths": "^5.0.1",
-    "vitest": "^2.1.0"
+    "vitest": "^2.1.1"
   },
   "peerDependencies": {
     "@resolid/tailwind": "workspace:^",
