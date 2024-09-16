@@ -23,7 +23,7 @@
     "check": "biome check --write ."
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.0",
+    "@biomejs/biome": "^1.9.1",
     "typescript": "^5.6.2"
   },
   "homepage": "https://www.resolid.tech",
