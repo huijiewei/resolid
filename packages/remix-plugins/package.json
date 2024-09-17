@@ -31,11 +31,11 @@
     }
   },
   "dependencies": {
-    "@hono/node-server": "^1.12.2",
+    "@hono/node-server": "^1.13.0",
     "@remix-run/node": "^2.12.0",
     "@vercel/nft": "^0.27.4",
     "esbuild": "^0.21.5",
-    "hono": "^4.6.1",
+    "hono": "^4.6.2",
     "minimatch": "^9.0.5"
   },
   "devDependencies": {
@@ -43,7 +43,7 @@
     "@resolid/config": "workspace:^",
     "tsup": "^8.2.4",
     "type-fest": "^4.26.1",
-    "vite": "^5.4.5"
+    "vite": "^5.4.6"
   },
   "peerDependencies": {
     "@remix-run/dev": "^2.12.0",
