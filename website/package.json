@@ -29,8 +29,8 @@
     "@vercel/speed-insights": "^1.0.12",
     "hono": "^4.6.2",
     "isbot": "^5.1.17",
-    "react": "19.0.0-rc-a99d8e8d-20240916",
-    "react-dom": "19.0.0-rc-a99d8e8d-20240916",
+    "react": "19.0.0-rc-5dcb0097-20240918",
+    "react-dom": "19.0.0-rc-5dcb0097-20240918",
     "react-hook-form": "^7.53.0",
     "remix-hook-form": "^5.0.4",
     "zod": "^3.23.8"

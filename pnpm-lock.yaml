@@ -7,9 +7,9 @@ settings:
 overrides:
   '@mdx-js/mdx': ^3.0.1
   esbuild: ^0.21.5
-  react: 19.0.0-rc-a99d8e8d-20240916
-  react-dom: 19.0.0-rc-a99d8e8d-20240916
-  react-is: 19.0.0-rc-a99d8e8d-20240916
+  react: 19.0.0-rc-5dcb0097-20240918
+  react-dom: 19.0.0-rc-5dcb0097-20240918
+  react-is: 19.0.0-rc-5dcb0097-20240918
   hasown: npm:@nolyfill/hasown@^1
   is-arguments: npm:@nolyfill/is-arguments@^1
   is-generator-function: npm:@nolyfill/is-generator-function@^1
@@ -55,7 +55,7 @@ importers:
     dependencies:
       '@hookform/resolvers':
         specifier: ^3.9.0
-        version: 3.9.0(react-hook-form@7.53.0(react@19.0.0-rc-a99d8e8d-20240916))
+        version: 3.9.0(react-hook-form@7.53.0(react@19.0.0-rc-5dcb0097-20240918))
       '@node-rs/bcrypt':
         specifier: ^1.10.4
         version: 1.10.4
@@ -64,7 +64,7 @@ importers:
         version: 2.12.0(typescript@5.6.2)
       '@remix-run/react':
         specifier: ^2.12.0
-        version: 2.12.0(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)(typescript@5.6.2)
+        version: 2.12.0(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(typescript@5.6.2)
       '@remix-run/server-runtime':
         specifier: ^2.12.0
         version: 2.12.0(typescript@5.6.2)
@@ -73,7 +73,7 @@ importers:
         version: link:../utils
       drizzle-orm:
         specifier: ^0.33.0
-        version: 0.33.0(@types/react@18.3.7)(postgres@3.4.4)(react@19.0.0-rc-a99d8e8d-20240916)
+        version: 0.33.0(@types/react@18.3.7)(postgres@3.4.4)(react@19.0.0-rc-5dcb0097-20240918)
       nodemailer:
         specifier: ^6.9.15
         version: 6.9.15
@@ -82,7 +82,7 @@ importers:
         version: 3.4.4
       react-hook-form:
         specifier: ^7.53.0
-        version: 7.53.0(react@19.0.0-rc-a99d8e8d-20240916)
+        version: 7.53.0(react@19.0.0-rc-5dcb0097-20240918)
       type-fest:
         specifier: ^4.26.1
         version: 4.26.1
@@ -132,13 +132,13 @@ importers:
     dependencies:
       '@floating-ui/react':
         specifier: ^0.26.24
-        version: 0.26.24(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)
+        version: 0.26.24(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)
       '@resolid/utils':
         specifier: workspace:^
         version: link:../utils
       '@tanstack/react-virtual':
         specifier: ^3.10.8
-        version: 3.10.8(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)
+        version: 3.10.8(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)
       '@tw-classed/core':
         specifier: ^1.7.0
         version: 1.7.0
@@ -147,7 +147,7 @@ importers:
         version: 2.1.1
       react-remove-scroll-bar:
         specifier: ^2.3.6
-        version: 2.3.6(@types/react@18.3.7)(react@19.0.0-rc-a99d8e8d-20240916)
+        version: 2.3.6(@types/react@18.3.7)(react@19.0.0-rc-5dcb0097-20240918)
     devDependencies:
       '@resolid/config':
         specifier: workspace:^
@@ -157,7 +157,7 @@ importers:
         version: link:../tailwind
       '@testing-library/react':
         specifier: ^16.0.1
-        version: 16.0.1(@testing-library/dom@10.1.0)(@types/react-dom@18.3.0)(@types/react@18.3.7)(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)
+        version: 16.0.1(@testing-library/dom@10.1.0)(@types/react-dom@18.3.0)(@types/react@18.3.7)(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)
       '@types/react':
         specifier: ^18.3.7
         version: 18.3.7
@@ -168,11 +168,11 @@ importers:
         specifier: ^24.1.3
         version: 24.1.3
       react:
-        specifier: 19.0.0-rc-a99d8e8d-20240916
-        version: 19.0.0-rc-a99d8e8d-20240916
+        specifier: 19.0.0-rc-5dcb0097-20240918
+        version: 19.0.0-rc-5dcb0097-20240918
       react-dom:
-        specifier: 19.0.0-rc-a99d8e8d-20240916
-        version: 19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916)
+        specifier: 19.0.0-rc-5dcb0097-20240918
+        version: 19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918)
       tsup:
         specifier: ^8.3.0
         version: 8.3.0(@swc/core@1.6.13)(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.6.2)(yaml@2.5.1)
@@ -206,7 +206,7 @@ importers:
     devDependencies:
       '@remix-run/dev':
         specifier: ^2.12.0
-        version: 2.12.0(@remix-run/react@2.12.0(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)(typescript@5.6.2))(@types/node@22.5.5)(typescript@5.6.2)(vite@5.4.6(@types/node@22.5.5))
+        version: 2.12.0(@remix-run/react@2.12.0(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(typescript@5.6.2))(@types/node@22.5.5)(typescript@5.6.2)(vite@5.4.6(@types/node@22.5.5))
       '@resolid/config':
         specifier: workspace:^
         version: link:../config
@@ -261,13 +261,13 @@ importers:
         version: 1.13.0(hono@4.6.2)
       '@hookform/resolvers':
         specifier: ^3.9.0
-        version: 3.9.0(react-hook-form@7.53.0(react@19.0.0-rc-a99d8e8d-20240916))
+        version: 3.9.0(react-hook-form@7.53.0(react@19.0.0-rc-5dcb0097-20240918))
       '@marsidev/react-turnstile':
         specifier: ^1.0.2
-        version: 1.0.2(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)
+        version: 1.0.2(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)
       '@mdx-js/react':
         specifier: ^3.0.1
-        version: 3.0.1(@types/react@18.3.7)(react@19.0.0-rc-a99d8e8d-20240916)
+        version: 3.0.1(@types/react@18.3.7)(react@19.0.0-rc-5dcb0097-20240918)
       '@node-rs/bcrypt':
         specifier: ^1.10.4
         version: 1.10.4
@@ -276,7 +276,7 @@ importers:
         version: 2.12.0(typescript@5.6.2)
       '@remix-run/react':
         specifier: ^2.12.0
-        version: 2.12.0(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)(typescript@5.6.2)
+        version: 2.12.0(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(typescript@5.6.2)
       '@remix-run/server-runtime':
         specifier: ^2.12.0
         version: 2.12.0(typescript@5.6.2)
@@ -291,10 +291,10 @@ importers:
         version: link:../packages/utils
       '@vercel/analytics':
         specifier: ^1.3.1
-        version: 1.3.1(react@19.0.0-rc-a99d8e8d-20240916)
+        version: 1.3.1(react@19.0.0-rc-5dcb0097-20240918)
       '@vercel/speed-insights':
         specifier: ^1.0.12
-        version: 1.0.12(react@19.0.0-rc-a99d8e8d-20240916)
+        version: 1.0.12(react@19.0.0-rc-5dcb0097-20240918)
       hono:
         specifier: ^4.6.2
         version: 4.6.2
@@ -302,17 +302,17 @@ importers:
         specifier: ^5.1.17
         version: 5.1.17
       react:
-        specifier: 19.0.0-rc-a99d8e8d-20240916
-        version: 19.0.0-rc-a99d8e8d-20240916
+        specifier: 19.0.0-rc-5dcb0097-20240918
+        version: 19.0.0-rc-5dcb0097-20240918
       react-dom:
-        specifier: 19.0.0-rc-a99d8e8d-20240916
-        version: 19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916)
+        specifier: 19.0.0-rc-5dcb0097-20240918
+        version: 19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918)
       react-hook-form:
         specifier: ^7.53.0
-        version: 7.53.0(react@19.0.0-rc-a99d8e8d-20240916)
+        version: 7.53.0(react@19.0.0-rc-5dcb0097-20240918)
       remix-hook-form:
         specifier: ^5.0.4
-        version: 5.0.4(@remix-run/react@2.12.0(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)(typescript@5.6.2))(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react-hook-form@7.53.0(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)
+        version: 5.0.4(@remix-run/react@2.12.0(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(typescript@5.6.2))(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react-hook-form@7.53.0(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -322,7 +322,7 @@ importers:
         version: 3.0.1(rollup@4.21.3)
       '@remix-run/dev':
         specifier: ^2.12.0
-        version: 2.12.0(@remix-run/react@2.12.0(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)(typescript@5.6.2))(@types/node@22.5.5)(typescript@5.6.2)(vite@5.4.6(@types/node@22.5.5))
+        version: 2.12.0(@remix-run/react@2.12.0(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(typescript@5.6.2))(@types/node@22.5.5)(typescript@5.6.2)(vite@5.4.6(@types/node@22.5.5))
       '@resolid/config':
         specifier: workspace:^
         version: link:../packages/config
@@ -836,14 +836,14 @@ packages:
   '@floating-ui/react-dom@2.1.2':
     resolution: {integrity: sha512-06okr5cgPzMNBy+Ycse2A6udMi4bqwW/zgBF/rwjcNqWkyr82Mcg8b0vjX8OJpZFy/FKjJmw6wV7t44kK6kW7A==}
     peerDependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918
 
   '@floating-ui/react@0.26.24':
     resolution: {integrity: sha512-2ly0pCkZIGEQUq5H8bBK0XJmc1xIK/RM3tvVzY3GBER7IOD1UgmC2Y2tjj4AuS+TC+vTE1KJv2053290jua0Sw==}
     peerDependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918
 
   '@floating-ui/utils@0.2.8':
     resolution: {integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig==}
@@ -894,8 +894,8 @@ packages:
   '@marsidev/react-turnstile@1.0.2':
     resolution: {integrity: sha512-YkCtJVaCzZ1kcmhPsiFTmTXVughoNzEMRsNHcmTG0K5OdbCQfAG67Q6d5Ze+A72vrHbvVZkvcLgUbldeGcbRjQ==}
     peerDependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918
 
   '@mdx-js/mdx@3.0.1':
     resolution: {integrity: sha512-eIQ4QTrOWyL3LWEe/bu6Taqzq2HQvHcyTMaOrI95P2/LmJE7AsfPfgJGuFLPVqBUE1BC1rik3VIhU+s9u72arA==}
@@ -904,7 +904,7 @@ packages:
     resolution: {integrity: sha512-9ZrPIU4MGf6et1m1ov3zKf+q9+deetI51zprKB1D/z3NOb+rUxxtEl3mCjW5wTGh6VhRdwPueh1oRzi6ezkA8A==}
     peerDependencies:
       '@types/react': '>=16'
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
 
   '@mdx-js/rollup@3.0.1':
     resolution: {integrity: sha512-j0II91OCm4ld+l5QVgXXMQGxVVcAWIQJakYWi1dv5pefDHASJyCYER2TsdH7Alf958GoFSM7ugukWyvDq/UY4A==}
@@ -1064,8 +1064,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@polka/url@1.0.0-next.25':
-    resolution: {integrity: sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==}
+  '@polka/url@1.0.0-next.27':
+    resolution: {integrity: sha512-MU0SYgcrBdSVLu7Tfow3VY4z1odzlaTYRjt3WQ0z8XbjDWReuy+EALt2HdjhrwD2HPiW2GY+KTSw4HLv4C/EOA==}
 
   '@remix-run/dev@2.12.0':
     resolution: {integrity: sha512-/87YQORdlJg5YChd7nVBM/hRXHZA4GfUjhKbZyNrh03bazCQBF+6EsXbzpJ6cCFOpZgecsN0Xv648Qw0VuJjwg==}
@@ -1100,8 +1100,8 @@ packages:
     resolution: {integrity: sha512-Y109tI37Icr0BSU8sWSo8jDPkXaErJ/e1h0fkPvq6LZ0DrlcmHWBxzWJKID431I/KJvhVvBgVCuDamZTRVOZ5Q==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918
       typescript: ^5.1.0
     peerDependenciesMeta:
       typescript:
@@ -1333,8 +1333,8 @@ packages:
   '@tanstack/react-virtual@3.10.8':
     resolution: {integrity: sha512-VbzbVGSsZlQktyLrP5nxE+vE1ZR+U0NFAWPbJLoG2+DKPwd2D7dVICTVIIaYlJqX1ZCEnYDbaOpmMwbsyhBoIA==}
     peerDependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918
 
   '@tanstack/virtual-core@3.10.8':
     resolution: {integrity: sha512-PBu00mtt95jbKFi6Llk9aik8bnR3tR/oQP1o3TSi+iG//+Q2RTIzCEgKkHG8BB86kxMNW6O8wku+Lmi+QFR6jA==}
@@ -1350,8 +1350,8 @@ packages:
       '@testing-library/dom': ^10.0.0
       '@types/react': ^18.0.0
       '@types/react-dom': ^18.0.0
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -1384,6 +1384,9 @@ packages:
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
+
+  '@types/estree@1.0.6':
+    resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
 
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
@@ -1443,7 +1446,7 @@ packages:
     resolution: {integrity: sha512-xhSlYgAuJ6Q4WQGkzYTLmXwhYl39sWjoMA3nHxfkvG+WdBT25c563a7QhwwKivEOZtPJXifYHR1m2ihoisbWyA==}
     peerDependencies:
       next: '>= 13'
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
     peerDependenciesMeta:
       next:
         optional: true
@@ -1460,7 +1463,7 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^1 || ^2
       next: '>= 13'
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
       svelte: ^4
       vue: ^3
       vue-router: ^4
@@ -2054,7 +2057,7 @@ packages:
       pg: '>=8'
       postgres: '>=3'
       prisma: '*'
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
       sql.js: '>=1'
       sqlite3: '>=5'
     peerDependenciesMeta:
@@ -2124,8 +2127,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.24:
-    resolution: {integrity: sha512-0x0wLCmpdKFCi9ulhvYZebgcPmHTkFVUfU2wzDykadkslKwT4oAmDTHEKLnlrDsMGZe4B+ksn8quZfZjYsBetA==}
+  electron-to-chromium@1.5.25:
+    resolution: {integrity: sha512-kMb204zvK3PsSlgvvwzI3wBIcAw15tRkYk+NQdsjdDtcQWTp2RABbMQ9rUBy8KNEOM+/E6ep+XC3AykiWZld4g==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -3589,19 +3592,19 @@ packages:
     peerDependencies:
       typescript: '>= 4.3.x'
 
-  react-dom@19.0.0-rc-a99d8e8d-20240916:
-    resolution: {integrity: sha512-GW5Z7oK2K+BUvX36k8BJwDERYQU7/aRL3sIyokkDNeDQjWsOk8sve67iTVR0KvCOtK5p9/uXi0CxBDLzii8wyw==}
+  react-dom@19.0.0-rc-5dcb0097-20240918:
+    resolution: {integrity: sha512-QV5mYzXL8okN43EIxsMhjOMi6AP+mkZBbs3nmMcIKp3RbflINO/lUIdHnGsSm6Pc/Mc34QXCHy8RaN1DZ5o8fw==}
     peerDependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
 
   react-hook-form@7.53.0:
     resolution: {integrity: sha512-M1n3HhqCww6S2hxLxciEXy2oISPnAzxY7gvwVPrtlczTM/1dDadXgUxDpHMrMTblDOcm/AXtXxHwZ3jpg1mqKQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
 
-  react-is@19.0.0-rc-a99d8e8d-20240916:
-    resolution: {integrity: sha512-ic0Ubbx0RO58e/gapZ6Nfpcj/R18iKxu/nKvDSMPALMBR9FkZhRAMq2WgwuyU2XNStq20Xxw8aHAciK6eOGYPA==}
+  react-is@19.0.0-rc-5dcb0097-20240918:
+    resolution: {integrity: sha512-ntphFZK4sjyOsVLvJExLYcf6XLaRJE8duCzHbYX9IDzdu71fSXgCrHsj/2VzECURVM3opCcSlyThlKM+kfL8WA==}
 
   react-refresh@0.14.2:
     resolution: {integrity: sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==}
@@ -3612,7 +3615,7 @@ packages:
     engines: {node: '>=10'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -3621,27 +3624,27 @@ packages:
     resolution: {integrity: sha512-z7YkaEW0Dy35T3/QKPYB1LjMK2R1fxnHO8kWpUMTBdfVzZrWOiY9a7CtN8HqdWtDUWd5FY6Dl8HFsqVwH4uOtQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918
 
   react-router@6.26.2:
     resolution: {integrity: sha512-tvN1iuT03kHgOFnLPfLJ8V95eijteveqdOSk+srqfePtQvqCExB8eHOYnlilbOcyJyKnYkr1vJvf7YqotAJu1A==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
 
   react-style-singleton@2.2.1:
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
     engines: {node: '>=10'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
     peerDependenciesMeta:
       '@types/react':
         optional: true
 
-  react@19.0.0-rc-a99d8e8d-20240916:
-    resolution: {integrity: sha512-4ZGVUQyFLBPDHQsLCIVV53zauZi0DESiGjFVnEAGRMWQZgZXi+1QhGvCT5TB9AusBzik+uxhIN/sdbl1QUvmHQ==}
+  react@19.0.0-rc-5dcb0097-20240918:
+    resolution: {integrity: sha512-kpRDycbFGXguigJtTLzT67L6FJjWUJYLru40Yk/7GSYDPy2hAfdLVXwfjczfRrnKVyIO76EVbnlBuR+zNX0bdQ==}
     engines: {node: '>=0.10.0'}
 
   read-cache@1.0.0:
@@ -3699,8 +3702,8 @@ packages:
     resolution: {integrity: sha512-KLYJKk29SU+jDbOph9fIinevx6vg1YOeaCo1h4x9eIw/s8eBe/nTnSDu3/CLPazU/vxpyiWh/EwE4DkKjvVXyQ==}
     peerDependencies:
       '@remix-run/react': ^2.0.0
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918
       react-hook-form: ^7.51.0
 
   require-directory@2.1.1:
@@ -3781,8 +3784,8 @@ packages:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
     engines: {node: '>=v12.22.7'}
 
-  scheduler@0.25.0-rc-a99d8e8d-20240916:
-    resolution: {integrity: sha512-d+Tjq2frOYPkQDzX4DlahWn2nQGYdXmCsGyCCXyw9olEJt8qD5WlQxp7LTApKy+yLSI2i3SpsEzCONJJEwjTKw==}
+  scheduler@0.25.0-rc-5dcb0097-20240918:
+    resolution: {integrity: sha512-Sr3CaLDHJIA1p7wzNF8EyZ/JzetrV21S0sY6byC3AhREQMoEuKol8BSmXM5gd8Aoxo92uW9WCjWL0hwdb2DtqQ==}
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -4930,18 +4933,18 @@ snapshots:
       '@floating-ui/core': 1.6.8
       '@floating-ui/utils': 0.2.8
 
-  '@floating-ui/react-dom@2.1.2(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)':
+  '@floating-ui/react-dom@2.1.2(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)':
     dependencies:
       '@floating-ui/dom': 1.6.11
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916)
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918)
 
-  '@floating-ui/react@0.26.24(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)':
+  '@floating-ui/react@0.26.24(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)':
     dependencies:
-      '@floating-ui/react-dom': 2.1.2(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)
+      '@floating-ui/react-dom': 2.1.2(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)
       '@floating-ui/utils': 0.2.8
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916)
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918)
       tabbable: 6.2.0
 
   '@floating-ui/utils@0.2.8': {}
@@ -4952,9 +4955,9 @@ snapshots:
     dependencies:
       hono: 4.6.2
 
-  '@hookform/resolvers@3.9.0(react-hook-form@7.53.0(react@19.0.0-rc-a99d8e8d-20240916))':
+  '@hookform/resolvers@3.9.0(react-hook-form@7.53.0(react@19.0.0-rc-5dcb0097-20240918))':
     dependencies:
-      react-hook-form: 7.53.0(react@19.0.0-rc-a99d8e8d-20240916)
+      react-hook-form: 7.53.0(react@19.0.0-rc-5dcb0097-20240918)
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -4999,14 +5002,14 @@ snapshots:
       - encoding
       - supports-color
 
-  '@marsidev/react-turnstile@1.0.2(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)':
+  '@marsidev/react-turnstile@1.0.2(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)':
     dependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916)
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918)
 
   '@mdx-js/mdx@3.0.1':
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       '@types/estree-jsx': 1.0.5
       '@types/hast': 3.0.4
       '@types/mdx': 2.0.13
@@ -5032,11 +5035,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mdx-js/react@3.0.1(@types/react@18.3.7)(react@19.0.0-rc-a99d8e8d-20240916)':
+  '@mdx-js/react@3.0.1(@types/react@18.3.7)(react@19.0.0-rc-5dcb0097-20240918)':
     dependencies:
       '@types/mdx': 2.0.13
       '@types/react': 18.3.7
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
 
   '@mdx-js/rollup@3.0.1(rollup@4.21.3)':
     dependencies:
@@ -5184,9 +5187,9 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@polka/url@1.0.0-next.25': {}
+  '@polka/url@1.0.0-next.27': {}
 
-  '@remix-run/dev@2.12.0(@remix-run/react@2.12.0(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)(typescript@5.6.2))(@types/node@22.5.5)(typescript@5.6.2)(vite@5.4.6(@types/node@22.5.5))':
+  '@remix-run/dev@2.12.0(@remix-run/react@2.12.0(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(typescript@5.6.2))(@types/node@22.5.5)(typescript@5.6.2)(vite@5.4.6(@types/node@22.5.5))':
     dependencies:
       '@babel/core': 7.25.2
       '@babel/generator': 7.25.6
@@ -5199,7 +5202,7 @@ snapshots:
       '@mdx-js/mdx': 3.0.1
       '@npmcli/package-json': 4.0.1
       '@remix-run/node': 2.12.0(typescript@5.6.2)
-      '@remix-run/react': 2.12.0(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)(typescript@5.6.2)
+      '@remix-run/react': 2.12.0(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(typescript@5.6.2)
       '@remix-run/router': 1.19.2
       '@remix-run/server-runtime': 2.12.0(typescript@5.6.2)
       '@types/mdx': 2.0.13
@@ -5273,14 +5276,14 @@ snapshots:
     optionalDependencies:
       typescript: 5.6.2
 
-  '@remix-run/react@2.12.0(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)(typescript@5.6.2)':
+  '@remix-run/react@2.12.0(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(typescript@5.6.2)':
     dependencies:
       '@remix-run/router': 1.19.2
       '@remix-run/server-runtime': 2.12.0(typescript@5.6.2)
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916)
-      react-router: 6.26.2(react@19.0.0-rc-a99d8e8d-20240916)
-      react-router-dom: 6.26.2(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918)
+      react-router: 6.26.2(react@19.0.0-rc-5dcb0097-20240918)
+      react-router-dom: 6.26.2(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)
       turbo-stream: 2.4.0
     optionalDependencies:
       typescript: 5.6.2
@@ -5334,7 +5337,7 @@ snapshots:
 
   '@rollup/pluginutils@5.1.0(rollup@4.21.3)':
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       estree-walker: 2.0.2
       picomatch: 2.3.1
     optionalDependencies:
@@ -5492,11 +5495,11 @@ snapshots:
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.4.12
 
-  '@tanstack/react-virtual@3.10.8(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)':
+  '@tanstack/react-virtual@3.10.8(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)':
     dependencies:
       '@tanstack/virtual-core': 3.10.8
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916)
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918)
 
   '@tanstack/virtual-core@3.10.8': {}
 
@@ -5511,12 +5514,12 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/react@16.0.1(@testing-library/dom@10.1.0)(@types/react-dom@18.3.0)(@types/react@18.3.7)(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)':
+  '@testing-library/react@16.0.1(@testing-library/dom@10.1.0)(@types/react-dom@18.3.0)(@types/react@18.3.7)(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)':
     dependencies:
       '@babel/runtime': 7.25.6
       '@testing-library/dom': 10.1.0
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916)
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918)
     optionalDependencies:
       '@types/react': 18.3.7
       '@types/react-dom': 18.3.0
@@ -5530,7 +5533,7 @@ snapshots:
 
   '@types/acorn@4.0.6':
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
 
   '@types/aria-query@5.0.4': {}
 
@@ -5546,9 +5549,11 @@ snapshots:
 
   '@types/estree-jsx@1.0.5':
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
 
   '@types/estree@1.0.5': {}
+
+  '@types/estree@1.0.6': {}
 
   '@types/hast@3.0.4':
     dependencies:
@@ -5647,11 +5652,11 @@ snapshots:
 
   '@vanilla-extract/private@1.0.6': {}
 
-  '@vercel/analytics@1.3.1(react@19.0.0-rc-a99d8e8d-20240916)':
+  '@vercel/analytics@1.3.1(react@19.0.0-rc-5dcb0097-20240918)':
     dependencies:
       server-only: 0.0.1
     optionalDependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
 
   '@vercel/nft@0.27.4':
     dependencies:
@@ -5671,9 +5676,9 @@ snapshots:
       - encoding
       - supports-color
 
-  '@vercel/speed-insights@1.0.12(react@19.0.0-rc-a99d8e8d-20240916)':
+  '@vercel/speed-insights@1.0.12(react@19.0.0-rc-5dcb0097-20240918)':
     optionalDependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
 
   '@vitest/expect@2.1.1':
     dependencies:
@@ -5885,7 +5890,7 @@ snapshots:
   browserslist@4.23.3:
     dependencies:
       caniuse-lite: 1.0.30001660
-      electron-to-chromium: 1.5.24
+      electron-to-chromium: 1.5.25
       node-releases: 2.0.18
       update-browserslist-db: 1.1.0(browserslist@4.23.3)
 
@@ -6180,11 +6185,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.33.0(@types/react@18.3.7)(postgres@3.4.4)(react@19.0.0-rc-a99d8e8d-20240916):
+  drizzle-orm@0.33.0(@types/react@18.3.7)(postgres@3.4.4)(react@19.0.0-rc-5dcb0097-20240918):
     optionalDependencies:
       '@types/react': 18.3.7
       postgres: 3.4.4
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
 
   duplexify@3.7.1:
     dependencies:
@@ -6197,7 +6202,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.24: {}
+  electron-to-chromium@1.5.25: {}
 
   emoji-regex@8.0.0: {}
 
@@ -6289,7 +6294,7 @@ snapshots:
 
   estree-util-attach-comments@3.0.0:
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
 
   estree-util-build-jsx@3.0.1:
     dependencies:
@@ -6314,7 +6319,7 @@ snapshots:
 
   estree-util-value-to-estree@3.1.2:
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
 
   estree-util-visit@2.0.0:
     dependencies:
@@ -6325,7 +6330,7 @@ snapshots:
 
   estree-walker@3.0.3:
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
 
   etag@1.8.1: {}
 
@@ -6584,7 +6589,7 @@ snapshots:
 
   hast-util-to-estree@3.1.0:
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       '@types/estree-jsx': 1.0.5
       '@types/hast': 3.0.4
       comma-separated-tokens: 2.0.3
@@ -6619,7 +6624,7 @@ snapshots:
 
   hast-util-to-jsx-runtime@2.3.0:
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       '@types/hast': 3.0.4
       '@types/unist': 3.0.3
       comma-separated-tokens: 2.0.3
@@ -6783,7 +6788,7 @@ snapshots:
 
   is-reference@3.0.2:
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
 
   is-stream@2.0.1: {}
 
@@ -7304,7 +7309,7 @@ snapshots:
 
   micromark-extension-mdx-expression@3.0.0:
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       devlop: 1.1.0
       micromark-factory-mdx-expression: 2.0.2
       micromark-factory-space: 2.0.0
@@ -7316,7 +7321,7 @@ snapshots:
   micromark-extension-mdx-jsx@3.0.1:
     dependencies:
       '@types/acorn': 4.0.6
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       devlop: 1.1.0
       estree-util-is-identifier-name: 3.0.0
       micromark-factory-mdx-expression: 2.0.2
@@ -7333,7 +7338,7 @@ snapshots:
 
   micromark-extension-mdxjs-esm@3.0.0:
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       devlop: 1.1.0
       micromark-core-commonmark: 2.0.1
       micromark-util-character: 2.1.0
@@ -7369,7 +7374,7 @@ snapshots:
 
   micromark-factory-mdx-expression@2.0.2:
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       devlop: 1.1.0
       micromark-factory-space: 2.0.0
       micromark-util-character: 2.1.0
@@ -7450,7 +7455,7 @@ snapshots:
   micromark-util-events-to-acorn@2.0.2:
     dependencies:
       '@types/acorn': 4.0.6
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       '@types/unist': 3.0.3
       devlop: 1.1.0
       estree-util-visit: 2.0.0
@@ -7778,7 +7783,7 @@ snapshots:
 
   periscopic@3.1.0:
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       estree-walker: 3.0.3
       is-reference: 3.0.2
 
@@ -7896,7 +7901,7 @@ snapshots:
     dependencies:
       ansi-regex: 5.0.1
       ansi-styles: 5.2.0
-      react-is: 19.0.0-rc-a99d8e8d-20240916
+      react-is: 19.0.0-rc-5dcb0097-20240918
 
   pretty-ms@7.0.1:
     dependencies:
@@ -7961,49 +7966,49 @@ snapshots:
     dependencies:
       typescript: 5.6.2
 
-  react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916):
+  react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918):
     dependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
-      scheduler: 0.25.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
+      scheduler: 0.25.0-rc-5dcb0097-20240918
 
-  react-hook-form@7.53.0(react@19.0.0-rc-a99d8e8d-20240916):
+  react-hook-form@7.53.0(react@19.0.0-rc-5dcb0097-20240918):
     dependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
 
-  react-is@19.0.0-rc-a99d8e8d-20240916: {}
+  react-is@19.0.0-rc-5dcb0097-20240918: {}
 
   react-refresh@0.14.2: {}
 
-  react-remove-scroll-bar@2.3.6(@types/react@18.3.7)(react@19.0.0-rc-a99d8e8d-20240916):
+  react-remove-scroll-bar@2.3.6(@types/react@18.3.7)(react@19.0.0-rc-5dcb0097-20240918):
     dependencies:
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-style-singleton: 2.2.1(@types/react@18.3.7)(react@19.0.0-rc-a99d8e8d-20240916)
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-style-singleton: 2.2.1(@types/react@18.3.7)(react@19.0.0-rc-5dcb0097-20240918)
       tslib: 2.7.0
     optionalDependencies:
       '@types/react': 18.3.7
 
-  react-router-dom@6.26.2(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916):
+  react-router-dom@6.26.2(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918):
     dependencies:
       '@remix-run/router': 1.19.2
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916)
-      react-router: 6.26.2(react@19.0.0-rc-a99d8e8d-20240916)
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918)
+      react-router: 6.26.2(react@19.0.0-rc-5dcb0097-20240918)
 
-  react-router@6.26.2(react@19.0.0-rc-a99d8e8d-20240916):
+  react-router@6.26.2(react@19.0.0-rc-5dcb0097-20240918):
     dependencies:
       '@remix-run/router': 1.19.2
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
 
-  react-style-singleton@2.2.1(@types/react@18.3.7)(react@19.0.0-rc-a99d8e8d-20240916):
+  react-style-singleton@2.2.1(@types/react@18.3.7)(react@19.0.0-rc-5dcb0097-20240918):
     dependencies:
       get-nonce: 1.0.1
       invariant: 2.2.4
-      react: 19.0.0-rc-a99d8e8d-20240916
+      react: 19.0.0-rc-5dcb0097-20240918
       tslib: 2.7.0
     optionalDependencies:
       '@types/react': 18.3.7
 
-  react@19.0.0-rc-a99d8e8d-20240916: {}
+  react@19.0.0-rc-5dcb0097-20240918: {}
 
   read-cache@1.0.0:
     dependencies:
@@ -8114,12 +8119,12 @@ snapshots:
       mdast-util-to-markdown: 2.1.0
       unified: 11.0.5
 
-  remix-hook-form@5.0.4(@remix-run/react@2.12.0(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)(typescript@5.6.2))(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react-hook-form@7.53.0(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916):
+  remix-hook-form@5.0.4(@remix-run/react@2.12.0(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(typescript@5.6.2))(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react-hook-form@7.53.0(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918):
     dependencies:
-      '@remix-run/react': 2.12.0(react-dom@19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916))(react@19.0.0-rc-a99d8e8d-20240916)(typescript@5.6.2)
-      react: 19.0.0-rc-a99d8e8d-20240916
-      react-dom: 19.0.0-rc-a99d8e8d-20240916(react@19.0.0-rc-a99d8e8d-20240916)
-      react-hook-form: 7.53.0(react@19.0.0-rc-a99d8e8d-20240916)
+      '@remix-run/react': 2.12.0(react-dom@19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918))(react@19.0.0-rc-5dcb0097-20240918)(typescript@5.6.2)
+      react: 19.0.0-rc-5dcb0097-20240918
+      react-dom: 19.0.0-rc-5dcb0097-20240918(react@19.0.0-rc-5dcb0097-20240918)
+      react-hook-form: 7.53.0(react@19.0.0-rc-5dcb0097-20240918)
 
   require-directory@2.1.1: {}
 
@@ -8196,7 +8201,7 @@ snapshots:
     dependencies:
       xmlchars: 2.2.0
 
-  scheduler@0.25.0-rc-a99d8e8d-20240916: {}
+  scheduler@0.25.0-rc-5dcb0097-20240918: {}
 
   semver@6.3.1: {}
 
@@ -8260,7 +8265,7 @@ snapshots:
 
   sirv@2.0.4:
     dependencies:
-      '@polka/url': 1.0.0-next.25
+      '@polka/url': 1.0.0-next.27
       mrmime: 2.0.0
       totalist: 3.0.1
 
