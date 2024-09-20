@@ -20,7 +20,7 @@ import { type UserConfig, defineConfig } from "vitest/config";
 
 installGlobals({ nativeFetch: true });
 
-declare module "@remix-run/server-runtime" {
+declare module "@remix-run/node" {
   interface Future {
     unstable_singleFetch: true;
   }
