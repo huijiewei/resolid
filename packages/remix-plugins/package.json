@@ -47,7 +47,7 @@
   },
   "peerDependencies": {
     "@remix-run/dev": "^2.12.1",
-    "vite": "^5.4.6"
+    "vite": "^5.4.8"
   },
   "homepage": "https://www.resolid.tech",
   "repository": {
