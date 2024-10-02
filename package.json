@@ -14,7 +14,7 @@
     "drizzle": "pnpm --filter website exec -- pnpm --silent drizzle"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.2",
+    "@biomejs/biome": "^1.9.3",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@types/node": "^20.16.10",
