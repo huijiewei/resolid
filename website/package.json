@@ -43,7 +43,7 @@
     "@resolid/tailwind": "workspace:^",
     "@shikijs/rehype": "^1.21.0",
     "@tailwindcss/typography": "^0.5.15",
-    "@types/react": "^18.3.10",
+    "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",
     "drizzle-kit": "^0.24.2",
@@ -58,7 +58,7 @@
     "vite": "^5.4.8",
     "vite-plugin-inspect": "^0.8.7",
     "vite-tsconfig-paths": "^5.0.1",
-    "vitest": "^2.1.1"
+    "vitest": "^2.1.2"
   },
   "engines": {
     "node": "20.x"
