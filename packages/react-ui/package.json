@@ -37,7 +37,7 @@
     "@testing-library/react": "^16.0.1",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
-    "jsdom": "^24.1.3",
+    "jsdom": "^25.0.1",
     "react": "19.0.0-rc-3edc000d-20240926",
     "react-dom": "19.0.0-rc-3edc000d-20240926",
     "tsup": "^8.3.0",
