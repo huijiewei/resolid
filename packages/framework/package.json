@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
-    "@node-rs/bcrypt": "^1.10.4",
+    "@node-rs/bcrypt": "^1.10.5",
     "@remix-run/node": "^2.12.1",
     "@remix-run/react": "^2.12.1",
     "@remix-run/server-runtime": "^2.12.1",
