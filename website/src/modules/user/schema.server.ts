@@ -18,9 +18,9 @@ export const userTable = defineTable(
   "user",
   {
     ...authColumns,
-    emailVerifiedAt: timestamp("emailVerifiedAt"),
-    createdIp: text("createdIp").notNull().default(""),
-    createdFrom: text("createdFrom").notNull().default(""),
+    emailVerifiedAt: timestamp(),
+    createdIp: text().notNull().default(""),
+    createdFrom: text().notNull().default(""),
   },
   (table) => ({
     emailIndex: uniqueIndex().on(table.email),

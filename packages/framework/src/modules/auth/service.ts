@@ -1,7 +1,8 @@
 import { hash, verify } from "@node-rs/bcrypt";
 import { isEmpty, omit, randomId } from "@resolid/utils";
 import { type InferSelectModel, type Simplify, and, eq, getTableColumns, gt, inArray, isNull } from "drizzle-orm";
-import type { AnyPgTable, PgDatabase } from "drizzle-orm/pg-core";
+import type { AnyPgTable } from "drizzle-orm/pg-core";
+import type { PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import type { ServiceResult } from "../../utils/service";
 import type { DefineTable } from "../../utils/types";
 import { createFieldErrors, validateData } from "../../utils/zod";
@@ -39,7 +40,7 @@ type AuthSelect = InferSelectModel<AuthTable>;
 type AuthGroupSelect = InferSelectModel<AuthGroupTable>;
 type AuthSelectWithGroup = AuthSelect & { group: AuthGroupSelect };
 
-type DatabaseInstance = InstanceType<typeof PgDatabase>;
+type DatabaseInstance = InstanceType<typeof PostgresJsDatabase>;
 
 export type AuthIdentity<T extends AuthSelectWithGroup | AuthSelect> = Simplify<
   Omit<T, "password" | "createdAt" | "updatedAt" | "deletedAt">

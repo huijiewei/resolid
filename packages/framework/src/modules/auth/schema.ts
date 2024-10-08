@@ -1,39 +1,39 @@
 import { boolean, integer, text, timestamp, varchar } from "drizzle-orm/pg-core";
 
 export const authColumns = {
-  id: integer("id").primaryKey().generatedAlwaysAsIdentity({ startWith: 10021 }),
-  groupId: integer("groupId").notNull().default(0),
-  password: text("password").notNull().default(""),
-  email: text("email").notNull().default(""),
-  username: text("username").notNull().default(""),
-  nickname: text("nickname").notNull().default(""),
-  avatar: text("avatar").notNull().default(""),
-  createdAt: timestamp("createdAt").notNull().defaultNow(),
-  updatedAt: timestamp("updatedAt").$onUpdate(() => new Date()),
-  deletedAt: timestamp("deletedAt"),
+  id: integer().primaryKey().generatedAlwaysAsIdentity({ startWith: 10021 }),
+  groupId: integer().notNull().default(0),
+  password: text().notNull().default(""),
+  email: text().notNull().default(""),
+  username: text().notNull().default(""),
+  nickname: text().notNull().default(""),
+  avatar: text().notNull().default(""),
+  createdAt: timestamp().notNull().defaultNow(),
+  updatedAt: timestamp().$onUpdate(() => new Date()),
+  deletedAt: timestamp(),
 };
 
 export const RX_DEFAULT_AUTH_GROUP_ID = 101;
 
 export const authGroupColumns = {
-  id: integer("id").primaryKey().generatedAlwaysAsIdentity({ startWith: RX_DEFAULT_AUTH_GROUP_ID }),
-  name: text("name").notNull().default(""),
-  color: text("color").notNull().default(""),
-  icon: text("icon").notNull().default(""),
+  id: integer().primaryKey().generatedAlwaysAsIdentity({ startWith: RX_DEFAULT_AUTH_GROUP_ID }),
+  name: text().notNull().default(""),
+  color: text().notNull().default(""),
+  icon: text().notNull().default(""),
 };
 
 export const authSessionColumns = {
-  id: varchar("id", { length: 32 }).primaryKey(),
-  identityId: integer("identityId").notNull().default(0),
-  expiredAt: timestamp("expiredAt").notNull(),
-  remoteAddr: text("remoteAddr").notNull().default(""),
-  userAgent: text("userAgent").notNull().default(""),
+  id: varchar({ length: 32 }).primaryKey(),
+  identityId: integer().notNull().default(0),
+  expiredAt: timestamp().notNull(),
+  remoteAddr: text().notNull().default(""),
+  userAgent: text().notNull().default(""),
 };
 
 export const authPasswordResetColumns = {
-  id: varchar("id", { length: 32 }).primaryKey(),
-  identityId: integer("identityId").notNull().default(0),
-  redeemed: boolean("redeemed").default(false),
-  expiredAt: timestamp("expiredAt"),
-  createdAt: timestamp("createdAt").notNull().defaultNow(),
+  id: varchar({ length: 32 }).primaryKey(),
+  identityId: integer().notNull().default(0),
+  redeemed: boolean().default(false),
+  expiredAt: timestamp(),
+  createdAt: timestamp().notNull().defaultNow(),
 };
