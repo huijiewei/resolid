@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@formkit/tempo": "^0.1.2",
-    "@hono/node-server": "^1.13.1",
+    "@hono/node-server": "^1.13.2",
     "@hookform/resolvers": "^3.9.0",
     "@marsidev/react-turnstile": "^1.0.2",
     "@mdx-js/react": "^3.0.1",
