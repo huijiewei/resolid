@@ -1,8 +1,8 @@
-import { unstable_data } from "@remix-run/node";
+import { data } from "@remix-run/node";
 import type { FieldErrors } from "react-hook-form";
 
 export const httpProblem = (errors: FieldErrors) => {
-  return unstable_data({ errors: errors }, 422);
+  return data({ errors: errors }, 422);
 };
 
 export const httpNotFound = (message = "页面未找到") => {
