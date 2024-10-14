@@ -1,6 +1,6 @@
 import { index, text, timestamp, uniqueIndex } from "@resolid/framework/drizzle";
-import type { AuthIdentity } from "@resolid/framework/modules";
 import {
+  type AuthIdentity,
   authColumns,
   authGroupColumns,
   authPasswordResetColumns,

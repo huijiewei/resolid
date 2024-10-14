@@ -1,4 +1,4 @@
-import { join } from "node:path";
+import { extname, join } from "node:path";
 import { cwd, env } from "node:process";
 import { fileURLToPath } from "node:url";
 import mdx from "@mdx-js/rollup";
@@ -14,6 +14,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import { type AliasOptions, loadEnv } from "vite";
+import babel from "vite-plugin-babel";
 import viteInspect from "vite-plugin-inspect";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { type UserConfig, defineConfig } from "vitest/config";
@@ -25,6 +26,10 @@ declare module "@remix-run/node" {
     v3_singleFetch: true;
   }
 }
+
+const ReactCompilerConfig = {
+  target: "19", // '17' | '18' | '19'
+};
 
 export default defineConfig(({ command, isSsrBuild }) => {
   const isBuild = command == "build";
@@ -89,6 +94,13 @@ export default defineConfig(({ command, isSsrBuild }) => {
             appDir: appDirectory,
             ignoredRouteFiles: ["**/.*", "**/__*/*", "**/__*.*"],
           });
+        },
+      }),
+      babel({
+        filter: /\.[jt]sx?$/,
+        babelConfig: {
+          presets: ["@babel/preset-typescript"],
+          plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
         },
       }),
       !isBuild && tsconfigPaths(),
