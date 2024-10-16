@@ -1,4 +1,4 @@
-import { extname, join } from "node:path";
+import { join } from "node:path";
 import { cwd, env } from "node:process";
 import { fileURLToPath } from "node:url";
 import mdx from "@mdx-js/rollup";
@@ -17,7 +17,7 @@ import { type AliasOptions, loadEnv } from "vite";
 import babel from "vite-plugin-babel";
 import viteInspect from "vite-plugin-inspect";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { type UserConfig, defineConfig } from "vitest/config";
+import { type ViteUserConfig, defineConfig } from "vitest/config";
 
 installGlobals({ nativeFetch: true });
 
@@ -37,7 +37,7 @@ export default defineConfig(({ command, isSsrBuild }) => {
   const __dirname = fileURLToPath(new URL(".", import.meta.url));
   const appDirectory = "src";
 
-  const config: UserConfig = {
+  const config: ViteUserConfig = {
     test: {
       env: loadEnv("test", cwd(), ""),
     },
@@ -79,7 +79,6 @@ export default defineConfig(({ command, isSsrBuild }) => {
           v3_throwAbortReason: true,
           v3_singleFetch: true,
           v3_lazyRouteDiscovery: true,
-          unstable_optimizeDeps: true,
         },
         serverBundles: ({ branch }) => {
           return branch.some((route) => {
@@ -154,6 +153,12 @@ export default defineConfig(({ command, isSsrBuild }) => {
         "@mdx-js/react",
         "react-hook-form",
         "remix-hook-form",
+        "zod",
+        "@hookform/resolvers/zod",
+        "@remix-run/node",
+        "react/compiler-runtime",
+        "@vercel/analytics/react",
+        "@vercel/speed-insights/remix",
         "@resolid/react-ui > react-remove-scroll-bar",
         "@resolid/react-ui > @tw-classed/core",
         "@resolid/react-ui > clsx",
