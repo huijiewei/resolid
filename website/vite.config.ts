@@ -79,6 +79,7 @@ export default defineConfig(({ command, isSsrBuild }) => {
           v3_throwAbortReason: true,
           v3_singleFetch: true,
           v3_lazyRouteDiscovery: true,
+          unstable_optimizeDeps: true,
         },
         serverBundles: ({ branch }) => {
           return branch.some((route) => {
