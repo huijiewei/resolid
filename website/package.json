@@ -17,7 +17,7 @@
     "@hono/node-server": "^1.13.2",
     "@hookform/resolvers": "^3.9.0",
     "@marsidev/react-turnstile": "^1.0.2",
-    "@mdx-js/react": "^3.0.1",
+    "@mdx-js/react": "^3.1.0",
     "@node-rs/bcrypt": "^1.10.5",
     "@remix-run/node": "^2.13.1",
     "@remix-run/react": "^2.13.1",
@@ -30,12 +30,12 @@
     "isbot": "^5.1.17",
     "react": "19.0.0-rc-83825814-20241015",
     "react-dom": "19.0.0-rc-83825814-20241015",
-    "react-hook-form": "^7.53.0",
+    "react-hook-form": "^7.53.1",
     "remix-hook-form": "^5.1.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@mdx-js/rollup": "^3.0.1",
+    "@mdx-js/rollup": "^3.1.0",
     "@remix-run/dev": "^2.13.1",
     "@resolid/config": "workspace:^",
     "@resolid/mdx-plugins": "workspace:^",

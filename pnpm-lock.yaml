@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  '@mdx-js/mdx': ^3.0.1
+  '@mdx-js/mdx': ^3.1.0
   esbuild: ^0.21.5
   react: 19.0.0-rc-83825814-20241015
   react-dom: 19.0.0-rc-83825814-20241015
@@ -28,16 +28,16 @@ importers:
         version: 1.9.4
       '@commitlint/cli':
         specifier: ^19.5.0
-        version: 19.5.0(@types/node@20.16.12)(typescript@5.6.3)
+        version: 19.5.0(@types/node@20.16.13)(typescript@5.6.3)
       '@commitlint/config-conventional':
         specifier: ^19.5.0
         version: 19.5.0
       '@types/node':
-        specifier: ^20.16.12
-        version: 20.16.12
+        specifier: ^20.16.13
+        version: 20.16.13
       lefthook:
-        specifier: ^1.7.21
-        version: 1.7.21
+        specifier: ^1.7.22
+        version: 1.7.22
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
@@ -55,7 +55,7 @@ importers:
     dependencies:
       '@hookform/resolvers':
         specifier: ^3.9.0
-        version: 3.9.0(react-hook-form@7.53.0(react@19.0.0-rc-83825814-20241015))
+        version: 3.9.0(react-hook-form@7.53.1(react@19.0.0-rc-83825814-20241015))
       '@node-rs/bcrypt':
         specifier: ^1.10.5
         version: 1.10.5
@@ -72,8 +72,8 @@ importers:
         specifier: workspace:^
         version: link:../utils
       drizzle-orm:
-        specifier: ^0.35.1
-        version: 0.35.1(@types/react@18.3.11)(postgres@3.4.4)(react@19.0.0-rc-83825814-20241015)
+        specifier: ^0.35.2
+        version: 0.35.2(@types/react@18.3.11)(postgres@3.4.4)(react@19.0.0-rc-83825814-20241015)
       nodemailer:
         specifier: ^6.9.15
         version: 6.9.15
@@ -81,8 +81,8 @@ importers:
         specifier: ^3.4.4
         version: 3.4.4
       react-hook-form:
-        specifier: ^7.53.0
-        version: 7.53.0(react@19.0.0-rc-83825814-20241015)
+        specifier: ^7.53.1
+        version: 7.53.1(react@19.0.0-rc-83825814-20241015)
       type-fest:
         specifier: ^4.26.1
         version: 4.26.1
@@ -178,10 +178,10 @@ importers:
         version: 8.3.0(@swc/core@1.6.13)(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.6.3)(yaml@2.6.0)
       vite-tsconfig-paths:
         specifier: ^5.0.1
-        version: 5.0.1(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.6))
+        version: 5.0.1(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.7))
       vitest:
         specifier: ^2.1.3
-        version: 2.1.3(@types/node@22.7.6)(jsdom@25.0.1)
+        version: 2.1.3(@types/node@22.7.7)(jsdom@25.0.1)
 
   packages/remix-plugins:
     dependencies:
@@ -206,7 +206,7 @@ importers:
     devDependencies:
       '@remix-run/dev':
         specifier: ^2.13.1
-        version: 2.13.1(@remix-run/react@2.13.1(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)(typescript@5.6.3))(@types/node@22.7.6)(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.6))
+        version: 2.13.1(@remix-run/react@2.13.1(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)(typescript@5.6.3))(@types/node@22.7.7)(acorn@8.13.0)(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.7))
       '@resolid/config':
         specifier: workspace:^
         version: link:../config
@@ -218,7 +218,7 @@ importers:
         version: 4.26.1
       vite:
         specifier: ^5.4.9
-        version: 5.4.9(@types/node@22.7.6)
+        version: 5.4.9(@types/node@22.7.7)
 
   packages/tailwind:
     devDependencies:
@@ -249,7 +249,7 @@ importers:
         version: 8.3.0(@swc/core@1.6.13)(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.6.3)(yaml@2.6.0)
       vitest:
         specifier: ^2.1.3
-        version: 2.1.3(@types/node@22.7.6)(jsdom@24.1.3)
+        version: 2.1.3(@types/node@22.7.7)(jsdom@24.1.3)
 
   website:
     dependencies:
@@ -261,13 +261,13 @@ importers:
         version: 1.13.2(hono@4.6.5)
       '@hookform/resolvers':
         specifier: ^3.9.0
-        version: 3.9.0(react-hook-form@7.53.0(react@19.0.0-rc-83825814-20241015))
+        version: 3.9.0(react-hook-form@7.53.1(react@19.0.0-rc-83825814-20241015))
       '@marsidev/react-turnstile':
         specifier: ^1.0.2
         version: 1.0.2(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)
       '@mdx-js/react':
-        specifier: ^3.0.1
-        version: 3.0.1(@types/react@18.3.11)(react@19.0.0-rc-83825814-20241015)
+        specifier: ^3.1.0
+        version: 3.1.0(@types/react@18.3.11)(react@19.0.0-rc-83825814-20241015)
       '@node-rs/bcrypt':
         specifier: ^1.10.5
         version: 1.10.5
@@ -305,21 +305,21 @@ importers:
         specifier: 19.0.0-rc-83825814-20241015
         version: 19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015)
       react-hook-form:
-        specifier: ^7.53.0
-        version: 7.53.0(react@19.0.0-rc-83825814-20241015)
+        specifier: ^7.53.1
+        version: 7.53.1(react@19.0.0-rc-83825814-20241015)
       remix-hook-form:
         specifier: ^5.1.1
-        version: 5.1.1(@remix-run/react@2.13.1(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)(typescript@5.6.3))(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react-hook-form@7.53.0(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)
+        version: 5.1.1(@remix-run/react@2.13.1(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)(typescript@5.6.3))(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react-hook-form@7.53.1(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)
       zod:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
       '@mdx-js/rollup':
-        specifier: ^3.0.1
-        version: 3.0.1(rollup@4.24.0)
+        specifier: ^3.1.0
+        version: 3.1.0(acorn@8.13.0)(rollup@4.24.0)
       '@remix-run/dev':
         specifier: ^2.13.1
-        version: 2.13.1(@remix-run/react@2.13.1(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)(typescript@5.6.3))(@types/node@22.7.6)(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.6))
+        version: 2.13.1(@remix-run/react@2.13.1(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)(typescript@5.6.3))(@types/node@22.7.7)(acorn@8.13.0)(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.7))
       '@resolid/config':
         specifier: workspace:^
         version: link:../packages/config
@@ -349,7 +349,7 @@ importers:
         version: 10.4.20(postcss@8.4.47)
       babel-plugin-react-compiler:
         specifier: experimental
-        version: 0.0.0-experimental-07a2ff2-20241017
+        version: 0.0.0-experimental-7929cc7-20241018
       drizzle-kit:
         specifier: ^0.26.2
         version: 0.26.2
@@ -379,19 +379,19 @@ importers:
         version: 4.19.1
       vite:
         specifier: ^5.4.9
-        version: 5.4.9(@types/node@22.7.6)
+        version: 5.4.9(@types/node@22.7.7)
       vite-plugin-babel:
         specifier: ^1.2.0
-        version: 1.2.0(@babel/core@7.25.8)(vite@5.4.9(@types/node@22.7.6))
+        version: 1.2.0(@babel/core@7.25.8)(vite@5.4.9(@types/node@22.7.7))
       vite-plugin-inspect:
         specifier: ^0.8.7
-        version: 0.8.7(rollup@4.24.0)(vite@5.4.9(@types/node@22.7.6))
+        version: 0.8.7(rollup@4.24.0)(vite@5.4.9(@types/node@22.7.7))
       vite-tsconfig-paths:
         specifier: ^5.0.1
-        version: 5.0.1(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.6))
+        version: 5.0.1(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.7))
       vitest:
         specifier: ^2.1.3
-        version: 2.1.3(@types/node@22.7.6)(jsdom@25.0.1)
+        version: 2.1.3(@types/node@22.7.7)(jsdom@25.0.1)
 
 packages:
 
@@ -909,17 +909,17 @@ packages:
       react: 19.0.0-rc-83825814-20241015
       react-dom: 19.0.0-rc-83825814-20241015
 
-  '@mdx-js/mdx@3.0.1':
-    resolution: {integrity: sha512-eIQ4QTrOWyL3LWEe/bu6Taqzq2HQvHcyTMaOrI95P2/LmJE7AsfPfgJGuFLPVqBUE1BC1rik3VIhU+s9u72arA==}
+  '@mdx-js/mdx@3.1.0':
+    resolution: {integrity: sha512-/QxEhPAvGwbQmy1Px8F899L5Uc2KZ6JtXwlCgJmjSTBedwOZkByYcBG4GceIGPXRDsmfxhHazuS+hlOShRLeDw==}
 
-  '@mdx-js/react@3.0.1':
-    resolution: {integrity: sha512-9ZrPIU4MGf6et1m1ov3zKf+q9+deetI51zprKB1D/z3NOb+rUxxtEl3mCjW5wTGh6VhRdwPueh1oRzi6ezkA8A==}
+  '@mdx-js/react@3.1.0':
+    resolution: {integrity: sha512-QjHtSaoameoalGnKDT3FoIl4+9RwyTmo9ZJGBdLOks/YOiWHoRDI3PUwEzOE7kEmGcV3AFcp9K6dYu9rEuKLAQ==}
     peerDependencies:
       '@types/react': '>=16'
       react: 19.0.0-rc-83825814-20241015
 
-  '@mdx-js/rollup@3.0.1':
-    resolution: {integrity: sha512-j0II91OCm4ld+l5QVgXXMQGxVVcAWIQJakYWi1dv5pefDHASJyCYER2TsdH7Alf958GoFSM7ugukWyvDq/UY4A==}
+  '@mdx-js/rollup@3.1.0':
+    resolution: {integrity: sha512-q4xOtUXpCzeouE8GaJ8StT4rDxm/U5j6lkMHL2srb2Q3Y7cobE0aXyPzXVVlbeIMBi+5R5MpbiaVE5/vJUdnHg==}
     peerDependencies:
       rollup: '>=2'
 
@@ -1418,11 +1418,11 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@20.16.12':
-    resolution: {integrity: sha512-LfPFB0zOeCeCNQV3i+67rcoVvoN5n0NVuR2vLG0O5ySQMgchuZlC4lgz546ZOJyDtj5KIgOxy+lacOimfqZAIA==}
+  '@types/node@20.16.13':
+    resolution: {integrity: sha512-GjQ7im10B0labo8ZGXDGROUl9k0BNyDgzfGpb4g/cl+4yYDWVKcozANF4FGr4/p0O/rAkQClM6Wiwkije++1Tg==}
 
-  '@types/node@22.7.6':
-    resolution: {integrity: sha512-/d7Rnj0/ExXDMcioS78/kf1lMzYk4BZV8MZGTBKzTGZ6/406ukkbYlIsZmMPhcR5KlkunDHQLrtAVmSq7r+mSw==}
+  '@types/node@22.7.7':
+    resolution: {integrity: sha512-SRxCrrg9CL/y54aiMCG3edPKdprgMVGDXjA3gB8UmmBW5TcXzRUYAh8EWzTnSJFAd1rgImPELza+A3bJ+qxz8Q==}
 
   '@types/nodemailer@6.4.16':
     resolution: {integrity: sha512-uz6hN6Pp0upXMcilM61CoKyjT7sskBoOWpptkjjJp8jIMlTdc3xG01U7proKkXzruMS4hS0zqtHNkNPFB20rKQ==}
@@ -1662,8 +1662,8 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
 
-  babel-plugin-react-compiler@0.0.0-experimental-07a2ff2-20241017:
-    resolution: {integrity: sha512-eQ8jekF0kAu7Tsbh28Ff+gxmLim2FIri4Jhn38/qVt6llfayHE9tFyqWMSIHKR8UESmgZIb7ntCHDTjt+Yg03g==}
+  babel-plugin-react-compiler@0.0.0-experimental-7929cc7-20241018:
+    resolution: {integrity: sha512-P3oLmfAqujpmVGYbycdwTh9BWfV+6qPMb8lC3/2buGP5PceujrXZmenLFqJELsjHCAtSmOd8FkpaGcBjooHhhw==}
 
   bail@2.0.2:
     resolution: {integrity: sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw==}
@@ -1908,8 +1908,8 @@ packages:
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
 
-  cosmiconfig-typescript-loader@5.0.0:
-    resolution: {integrity: sha512-+8cK7jRAReYkMwMiG+bxhcNKiHJDM6bR9FD/nGBXOWdMLuYawjF5cGrtLilJ+LGd3ZjCXnJjR5DkfWPoIVlqJA==}
+  cosmiconfig-typescript-loader@5.1.0:
+    resolution: {integrity: sha512-7PtBB+6FdsOvZyJtlF3hEPpACq7RQX6BVGsgC7/lfVXnKMvNCu/XY3ykreqG5w/rBNdu2z8LCIKoF3kpHHdHlA==}
     engines: {node: '>=v16'}
     peerDependencies:
       '@types/node': '*'
@@ -2061,8 +2061,8 @@ packages:
     resolution: {integrity: sha512-cMq8omEKywjIy5KcqUo6LvEFxkl8/zYHsgYjFVXjmPWWtuW4blcz+YW9+oIhoaALgs2ebRjzXwsJgN9i6P49Dw==}
     hasBin: true
 
-  drizzle-orm@0.35.1:
-    resolution: {integrity: sha512-HQxDdYuXlZFuvDPztlUIzrX8TqWa/Ej6uN6L0hkbuGL4slexOUMc3u4nXVU15RQ5QYbk+uLQnR6v1+OIrdCTXQ==}
+  drizzle-orm@0.35.2:
+    resolution: {integrity: sha512-bLQtRchl8QvRo2MyG6kcZC90UDzR7Ubir4YwOHV3cZPdJbF+4jU/Yt0QOczsoXe25wLRt6CtCWLXtSDQKft3yg==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -2247,6 +2247,9 @@ packages:
 
   estree-util-is-identifier-name@3.0.0:
     resolution: {integrity: sha512-hFtqIDZTIUZ9BXLb8y4pYGyk6+wekIivNVTcmvk8NoOh+VeRn5y6cEHzbURrWbfp1fIqdVipilzj+lfaadNZmg==}
+
+  estree-util-scope@1.0.0:
+    resolution: {integrity: sha512-2CAASclonf+JFWBNJPndcOpA8EMJwa0Q8LUFJEKqXLW6+qBvbFZuF5gItbQOs/umBUkjviCSDCbBwU2cXbmrhQ==}
 
   estree-util-to-js@2.0.0:
     resolution: {integrity: sha512-WDF+xj5rRWmD5tj6bIqRi6CkLIXbbNQUcxQHzGysQzvHmdYG2G7p/Tf0J0gpxGgkeMZNTIjT/AoSvC9Xehcgdg==}
@@ -2655,9 +2658,6 @@ packages:
   is-potential-custom-element-name@1.0.1:
     resolution: {integrity: sha512-bCYeRA2rVibKZd+s2625gGnGF/t7DSqDs4dP7CrLA1m7jKWz6pps0LpYLJN8Q64HtmPKJ1hrN3nzPNKFEKOUiQ==}
 
-  is-reference@3.0.2:
-    resolution: {integrity: sha512-v3rht/LgVcsdZa3O2Nqs+NMowLOxeOm7Ay9+/ARQ2F+qEoANRcqrjAZKGN0v8ymUetZGgkp26LTnGT7H0Qo9Pg==}
-
   is-stream@2.0.1:
     resolution: {integrity: sha512-hFoiJiTl63nn+kstHGBtewWSKnQLpyb155KHheA1l39uvtO9nWIop1p3udqPcUd/xbF1VLMO4n7OI6p7RbngDg==}
     engines: {node: '>=8'}
@@ -2752,58 +2752,58 @@ packages:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
     engines: {'0': node >= 0.2.0}
 
-  lefthook-darwin-arm64@1.7.21:
-    resolution: {integrity: sha512-F0YaYUbhl8waZ2Njw4CpNwj/4VDl9Cu7YBvdss/EEbOuQ4dOHdqnlmn7IiFfkLCVXJWcBqToy+AeRWV1WlfliQ==}
+  lefthook-darwin-arm64@1.7.22:
+    resolution: {integrity: sha512-ObcNp1PLZcwlsMwfA50MxUEdY+mINY/H/e6357mzV0HbykX/B0Tko00G4ZY6KKKKdHLwg1rtZW/t+DPsAk4hdQ==}
     cpu: [arm64]
     os: [darwin]
 
-  lefthook-darwin-x64@1.7.21:
-    resolution: {integrity: sha512-W/ulp8zGADwDfK406qr0KLU5GgrQhB5axUPxyUtjzQyZewvZQDTx4JLToHmYMnPkBg5PSuqiYvrDVKntNf0sEg==}
+  lefthook-darwin-x64@1.7.22:
+    resolution: {integrity: sha512-WNioerPFGnZGYV5x8dzwk+PrPvAuFnjUfQG48Qt27MZJd5pXZOjsWkSBrHLQ7URsCV3DoaPzpkoeZblV4WVTQw==}
     cpu: [x64]
     os: [darwin]
 
-  lefthook-freebsd-arm64@1.7.21:
-    resolution: {integrity: sha512-hnP9TPU8LY2AE/5390qpSeKRb3je8nBDorBDeEhq6zhdPjp6uRF9mx0WMsCblI6Enl2s4KnfdJmjD1j9B++AXg==}
+  lefthook-freebsd-arm64@1.7.22:
+    resolution: {integrity: sha512-uvzsXmu5FCRpXbUnq1/EByT6lnNLv/YnHFGmRlzb73Q0uNgrIRyG9oNb8jOWVOul+HFjjYTCNWuS7t4GK8udPw==}
     cpu: [arm64]
     os: [freebsd]
 
-  lefthook-freebsd-x64@1.7.21:
-    resolution: {integrity: sha512-0TNyL7/k3Y+PzWz0aRI4hYOyLrh9IRm6+0+LT8a3d2kmHHo2Tf6xiy3IOvkvAX5rt/y3ikhlDMS6GmhzyWvQAg==}
+  lefthook-freebsd-x64@1.7.22:
+    resolution: {integrity: sha512-Q+GZjIshV6Q5Ylmf1lszdDdJagj+wG3Jgxi9ot3JM7cWLLS/LJ+UVQRBEE5wfrB84/FyZGEcKbJXHFpmeKt2gg==}
     cpu: [x64]
     os: [freebsd]
 
-  lefthook-linux-arm64@1.7.21:
-    resolution: {integrity: sha512-igmBD5AvPedc4mbFpJh/CqeghE50SRSbCYw3MIMMESvNHeWW3o4KSN62rr1SJNI+Ps9eJszty7tFadqpUqLzUg==}
+  lefthook-linux-arm64@1.7.22:
+    resolution: {integrity: sha512-h4X/5JLixrNtcK0oAMJ4fizbwZd/gPegNZ9IU/WYSyGKlNZePdIlL0MPNEtOgG9rEkb9mzK6fcJeScFYMEthuw==}
     cpu: [arm64]
     os: [linux]
 
-  lefthook-linux-x64@1.7.21:
-    resolution: {integrity: sha512-WWO702sNiS3MiWwpAvHpj498wLZmcZ449PsTwcDkTu49bQDZ4ogPCsmoNhciTyL2igYWH0lA/+A3P0Ow5Cq5AQ==}
+  lefthook-linux-x64@1.7.22:
+    resolution: {integrity: sha512-rwE6kQ6ZDN5PgRGaPzp3sK4RIEGAWAcyfRq0R2X/2wZnvScYOg8aPrp46N2CVX713vwwHcvQaEQEzhwjaU+thA==}
     cpu: [x64]
     os: [linux]
 
-  lefthook-openbsd-arm64@1.7.21:
-    resolution: {integrity: sha512-8+yKwXJExgJjIi254VLKG7SYqMXWdmW/sgVsn2MoLeiucsfOCOiO89OST1AanUzK4CwqkUHxJ5/FjZfOXZ/ngA==}
+  lefthook-openbsd-arm64@1.7.22:
+    resolution: {integrity: sha512-1wnMEqg4qbzVHcd2vIdkjVK83G68/9zEO9ygDwBWwqqYcaON1Fv2tjQlXoUanq0n8M5dADswqP4tPSWKPLMn4A==}
     cpu: [arm64]
     os: [openbsd]
 
-  lefthook-openbsd-x64@1.7.21:
-    resolution: {integrity: sha512-skc+HdOtR54f8uCIToHHAtWMn3p8+6tc3NgPrVA0VIJZLo4zt0aZZil/G9NECk86Lt1ruD1ILinFPQEHPkjmTQ==}
+  lefthook-openbsd-x64@1.7.22:
+    resolution: {integrity: sha512-5++XL6ccCSRKHRWmIDyY2UANx+/NZLew0bHxBMeE4KH/lOYJKI15PzcljfonaXp+X+XZoMb+YMRxmVr5EJsOLg==}
     cpu: [x64]
     os: [openbsd]
 
-  lefthook-windows-arm64@1.7.21:
-    resolution: {integrity: sha512-QKZBcShOmD1DteNOS05JRORKUX+MvjY06+cxdEU7E39VPDh0whWgsUVO59cCcaGJ+BqSMCUkYBSIfCTMJewMlA==}
+  lefthook-windows-arm64@1.7.22:
+    resolution: {integrity: sha512-4iBmmMj5Ld464JKnlnfURbZvfoedW3N+BN53sSnDvqosdWIUWYAc8gpEYDnGmwyKU+1ModKJcd0A1UxbOfwWGQ==}
     cpu: [arm64]
     os: [win32]
 
-  lefthook-windows-x64@1.7.21:
-    resolution: {integrity: sha512-nG4ngvMVxmHejbmqCVN6XqI6lszQSbYx/u7Sov0W8XdDCOgtvi/KDcCvqrWD1BF5wo9f3afMcRdNejh7oFVdGQ==}
+  lefthook-windows-x64@1.7.22:
+    resolution: {integrity: sha512-6zxuaxeKGnhyK5yC88NJRi9J99nrmQ0nc4NzUUS8EW6TPm1qnFLQBpLGHWwOu0LQBkPYKVGzOfylvPXb7PlH3A==}
     cpu: [x64]
     os: [win32]
 
-  lefthook@1.7.21:
-    resolution: {integrity: sha512-mSGPzdjfOi7IG6Rc8kOB1q5lJVU8NYCgLqb++cXPs8i42uDfd2GWQ6/BwjfnYslPkhiRJAR5RJcvQ+SMG0Lsgg==}
+  lefthook@1.7.22:
+    resolution: {integrity: sha512-JSXFjaQMHSWP2wdaVpNMerP6DubqkpMMHu/XABl2jBwuTmQdPfDO8VEFGcx0oiv02rP1bqI7zWx+TjPLou+wdw==}
     hasBin: true
 
   lilconfig@2.1.0:
@@ -3420,9 +3420,6 @@ packages:
   perfect-debounce@1.0.0:
     resolution: {integrity: sha512-xCy9V055GLEqoFaHoC1SoLIaLmWctgCUaBaWxDZ7/Zx4CTyX7cJQLJOok/orfjZAh9kEYpjJa4d0KcJmCbctZA==}
 
-  periscopic@3.1.0:
-    resolution: {integrity: sha512-vKiQ8RRtkl9P+r/+oefh25C3fhybptkHKCZSPlcXiJux2tJF55GnEj3BVn4A5gKfq9NWWXXrxkHBwVPUfH0opw==}
-
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
@@ -3639,8 +3636,8 @@ packages:
     peerDependencies:
       react: 19.0.0-rc-83825814-20241015
 
-  react-hook-form@7.53.0:
-    resolution: {integrity: sha512-M1n3HhqCww6S2hxLxciEXy2oISPnAzxY7gvwVPrtlczTM/1dDadXgUxDpHMrMTblDOcm/AXtXxHwZ3jpg1mqKQ==}
+  react-hook-form@7.53.1:
+    resolution: {integrity: sha512-6aiQeBda4zjcuaugWvim9WsGqisoUk+etmFEsSUMm451/Ic8L/UAb7sRtMj3V+Hdzm6mMjU1VhiSzYUZeBm0Vg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: 19.0.0-rc-83825814-20241015
@@ -3703,11 +3700,26 @@ packages:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
 
+  recma-build-jsx@1.0.0:
+    resolution: {integrity: sha512-8GtdyqaBcDfva+GUKDr3nev3VpKAhup1+RvkMvUxURHpW7QyIvk9F5wz7Vzo06CEMSilw6uArgRqhpiUcWp8ew==}
+
+  recma-jsx@1.0.0:
+    resolution: {integrity: sha512-5vwkv65qWwYxg+Atz95acp8DMu1JDSqdGkA2Of1j6rCreyFUE/gp15fC8MnGEuG1W68UKjM6x6+YTWIh7hZM/Q==}
+
+  recma-parse@1.0.0:
+    resolution: {integrity: sha512-OYLsIGBB5Y5wjnSnQW6t3Xg7q3fQ7FWbw/vcXtORTnyaSFscOtABg+7Pnz6YZ6c27fG1/aN8CjfwoUEUIdwqWQ==}
+
+  recma-stringify@1.0.0:
+    resolution: {integrity: sha512-cjwII1MdIIVloKvC9ErQ+OgAtwHBmcZ0Bg4ciz78FtbT8In39aAYbaA7zvxQ61xVMSPE8WxhLwLbhif4Js2C+g==}
+
   regenerator-runtime@0.14.1:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
 
   regex@4.3.3:
     resolution: {integrity: sha512-r/AadFO7owAq1QJVeZ/nq9jNS1vyZt+6t1p/E59B56Rn2GCya+gr1KSyOzNL/er+r+B7phv5jG2xU2Nz1YkmJg==}
+
+  rehype-recma@1.0.0:
+    resolution: {integrity: sha512-lqA4rGUf1JmacCNWWZx0Wv1dHqMwxzsDWYMTowuplHF3xH0N/MmrZ/G3BDZnzAkRmxDadujCjaKM2hqYdCBOGw==}
 
   rehype-slug@6.0.0:
     resolution: {integrity: sha512-lWyvf/jwu+oS5+hL5eClVd3hNdmwM1kAC0BUvEGD19pajQMIzcNUd/k9GsfQ+FfECvX+JE+e9/btsKH0EjJT6A==}
@@ -3728,8 +3740,8 @@ packages:
   remark-mdx-frontmatter@5.0.0:
     resolution: {integrity: sha512-kI75pshe27TM71R+0iX7C3p4MbGMdygkvSbrk1WYSar88WAwR2JfQilofcDGgDNFAWUo5IwTPyq9XvGpifTwqQ==}
 
-  remark-mdx@3.0.1:
-    resolution: {integrity: sha512-3Pz3yPQ5Rht2pM5R+0J2MrGoBSrzf+tJG94N+t/ilfdh8YLyyKYtidAYwTveB20BoHAcwIopOUqhcmh2F7hGYA==}
+  remark-mdx@3.1.0:
+    resolution: {integrity: sha512-Ngl/H3YXyBV9RcRNdlYsZujAmhsxwzxpDzpDEhFBVAGthS4GDgnctpDjgFl/ULx5UEDzqtW1cyBSNKqYYrqLBA==}
 
   remark-parse@11.0.0:
     resolution: {integrity: sha512-FCxlKLNGknS5ba/1lmpYijMUzX2esxW5xQqjWxw2eHFfS2MSdaHVINFmhjo+qN1WhZhNimq0dZATN9pH0IDrpA==}
@@ -4796,11 +4808,11 @@ snapshots:
   '@biomejs/cli-win32-x64@1.9.4':
     optional: true
 
-  '@commitlint/cli@19.5.0(@types/node@20.16.12)(typescript@5.6.3)':
+  '@commitlint/cli@19.5.0(@types/node@20.16.13)(typescript@5.6.3)':
     dependencies:
       '@commitlint/format': 19.5.0
       '@commitlint/lint': 19.5.0
-      '@commitlint/load': 19.5.0(@types/node@20.16.12)(typescript@5.6.3)
+      '@commitlint/load': 19.5.0(@types/node@20.16.13)(typescript@5.6.3)
       '@commitlint/read': 19.5.0
       '@commitlint/types': 19.5.0
       tinyexec: 0.3.1
@@ -4847,7 +4859,7 @@ snapshots:
       '@commitlint/rules': 19.5.0
       '@commitlint/types': 19.5.0
 
-  '@commitlint/load@19.5.0(@types/node@20.16.12)(typescript@5.6.3)':
+  '@commitlint/load@19.5.0(@types/node@20.16.13)(typescript@5.6.3)':
     dependencies:
       '@commitlint/config-validator': 19.5.0
       '@commitlint/execute-rule': 19.5.0
@@ -4855,7 +4867,7 @@ snapshots:
       '@commitlint/types': 19.5.0
       chalk: 5.3.0
       cosmiconfig: 9.0.0(typescript@5.6.3)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.16.12)(cosmiconfig@9.0.0(typescript@5.6.3))(typescript@5.6.3)
+      cosmiconfig-typescript-loader: 5.1.0(@types/node@20.16.13)(cosmiconfig@9.0.0(typescript@5.6.3))(typescript@5.6.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -5036,9 +5048,9 @@ snapshots:
     dependencies:
       hono: 4.6.5
 
-  '@hookform/resolvers@3.9.0(react-hook-form@7.53.0(react@19.0.0-rc-83825814-20241015))':
+  '@hookform/resolvers@3.9.0(react-hook-form@7.53.1(react@19.0.0-rc-83825814-20241015))':
     dependencies:
-      react-hook-form: 7.53.0(react@19.0.0-rc-83825814-20241015)
+      react-hook-form: 7.53.1(react@19.0.0-rc-83825814-20241015)
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -5094,7 +5106,7 @@ snapshots:
       react: 19.0.0-rc-83825814-20241015
       react-dom: 19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015)
 
-  '@mdx-js/mdx@3.0.1':
+  '@mdx-js/mdx@3.1.0(acorn@8.13.0)':
     dependencies:
       '@types/estree': 1.0.6
       '@types/estree-jsx': 1.0.5
@@ -5102,15 +5114,16 @@ snapshots:
       '@types/mdx': 2.0.13
       collapse-white-space: 2.1.0
       devlop: 1.1.0
-      estree-util-build-jsx: 3.0.1
       estree-util-is-identifier-name: 3.0.0
-      estree-util-to-js: 2.0.0
+      estree-util-scope: 1.0.0
       estree-walker: 3.0.3
-      hast-util-to-estree: 3.1.0
       hast-util-to-jsx-runtime: 2.3.2
       markdown-extensions: 2.0.0
-      periscopic: 3.1.0
-      remark-mdx: 3.0.1
+      recma-build-jsx: 1.0.0
+      recma-jsx: 1.0.0(acorn@8.13.0)
+      recma-stringify: 1.0.0
+      rehype-recma: 1.0.0
+      remark-mdx: 3.1.0
       remark-parse: 11.0.0
       remark-rehype: 11.1.1
       source-map: 0.7.4
@@ -5120,22 +5133,24 @@ snapshots:
       unist-util-visit: 5.0.0
       vfile: 6.0.3
     transitivePeerDependencies:
+      - acorn
       - supports-color
 
-  '@mdx-js/react@3.0.1(@types/react@18.3.11)(react@19.0.0-rc-83825814-20241015)':
+  '@mdx-js/react@3.1.0(@types/react@18.3.11)(react@19.0.0-rc-83825814-20241015)':
     dependencies:
       '@types/mdx': 2.0.13
       '@types/react': 18.3.11
       react: 19.0.0-rc-83825814-20241015
 
-  '@mdx-js/rollup@3.0.1(rollup@4.24.0)':
+  '@mdx-js/rollup@3.1.0(acorn@8.13.0)(rollup@4.24.0)':
     dependencies:
-      '@mdx-js/mdx': 3.0.1
+      '@mdx-js/mdx': 3.1.0(acorn@8.13.0)
       '@rollup/pluginutils': 5.1.2(rollup@4.24.0)
       rollup: 4.24.0
       source-map: 0.7.4
       vfile: 6.0.3
     transitivePeerDependencies:
+      - acorn
       - supports-color
 
   '@napi-rs/wasm-runtime@0.2.5':
@@ -5276,7 +5291,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.28': {}
 
-  '@remix-run/dev@2.13.1(@remix-run/react@2.13.1(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)(typescript@5.6.3))(@types/node@22.7.6)(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.6))':
+  '@remix-run/dev@2.13.1(@remix-run/react@2.13.1(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)(typescript@5.6.3))(@types/node@22.7.7)(acorn@8.13.0)(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.7))':
     dependencies:
       '@babel/core': 7.25.8
       '@babel/generator': 7.25.7
@@ -5286,14 +5301,14 @@ snapshots:
       '@babel/preset-typescript': 7.25.7(@babel/core@7.25.8)
       '@babel/traverse': 7.25.7
       '@babel/types': 7.25.8
-      '@mdx-js/mdx': 3.0.1
+      '@mdx-js/mdx': 3.1.0(acorn@8.13.0)
       '@npmcli/package-json': 4.0.1
       '@remix-run/node': 2.13.1(typescript@5.6.3)
       '@remix-run/react': 2.13.1(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)(typescript@5.6.3)
       '@remix-run/router': 1.20.0
       '@remix-run/server-runtime': 2.13.1(typescript@5.6.3)
       '@types/mdx': 2.0.13
-      '@vanilla-extract/integration': 6.5.0(@types/node@22.7.6)
+      '@vanilla-extract/integration': 6.5.0(@types/node@22.7.7)
       arg: 5.0.2
       cacache: 17.1.4
       chalk: 4.1.2
@@ -5334,9 +5349,10 @@ snapshots:
       ws: 7.5.10
     optionalDependencies:
       typescript: 5.6.3
-      vite: 5.4.9(@types/node@22.7.6)
+      vite: 5.4.9(@types/node@22.7.7)
     transitivePeerDependencies:
       - '@types/node'
+      - acorn
       - babel-plugin-macros
       - bluebird
       - bufferutil
@@ -5621,7 +5637,7 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.0':
     dependencies:
-      '@types/node': 20.16.12
+      '@types/node': 20.16.13
 
   '@types/cookie@0.6.0': {}
 
@@ -5662,17 +5678,17 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@20.16.12':
+  '@types/node@20.16.13':
     dependencies:
       undici-types: 6.19.8
 
-  '@types/node@22.7.6':
+  '@types/node@22.7.7':
     dependencies:
       undici-types: 6.19.8
 
   '@types/nodemailer@6.4.16':
     dependencies:
-      '@types/node': 22.7.6
+      '@types/node': 22.7.7
 
   '@types/prop-types@15.7.13': {}
 
@@ -5720,7 +5736,7 @@ snapshots:
     transitivePeerDependencies:
       - babel-plugin-macros
 
-  '@vanilla-extract/integration@6.5.0(@types/node@22.7.6)':
+  '@vanilla-extract/integration@6.5.0(@types/node@22.7.7)':
     dependencies:
       '@babel/core': 7.25.8
       '@babel/plugin-syntax-typescript': 7.25.7(@babel/core@7.25.8)
@@ -5733,8 +5749,8 @@ snapshots:
       lodash: 4.17.21
       mlly: 1.7.2
       outdent: 0.8.0
-      vite: 5.4.9(@types/node@22.7.6)
-      vite-node: 1.6.0(@types/node@22.7.6)
+      vite: 5.4.9(@types/node@22.7.7)
+      vite-node: 1.6.0(@types/node@22.7.7)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -5784,13 +5800,13 @@ snapshots:
       chai: 5.1.1
       tinyrainbow: 1.2.0
 
-  '@vitest/mocker@2.1.3(@vitest/spy@2.1.3)(vite@5.4.9(@types/node@22.7.6))':
+  '@vitest/mocker@2.1.3(@vitest/spy@2.1.3)(vite@5.4.9(@types/node@22.7.7))':
     dependencies:
       '@vitest/spy': 2.1.3
       estree-walker: 3.0.3
       magic-string: 0.30.12
     optionalDependencies:
-      vite: 5.4.9(@types/node@22.7.6)
+      vite: 5.4.9(@types/node@22.7.7)
 
   '@vitest/pretty-format@2.1.3':
     dependencies:
@@ -5934,7 +5950,7 @@ snapshots:
       postcss: 8.4.47
       postcss-value-parser: 4.2.0
 
-  babel-plugin-react-compiler@0.0.0-experimental-07a2ff2-20241017:
+  babel-plugin-react-compiler@0.0.0-experimental-7929cc7-20241018:
     dependencies:
       '@babel/generator': 7.2.0
       '@babel/types': 7.25.8
@@ -6183,9 +6199,9 @@ snapshots:
 
   core-util-is@1.0.3: {}
 
-  cosmiconfig-typescript-loader@5.0.0(@types/node@20.16.12)(cosmiconfig@9.0.0(typescript@5.6.3))(typescript@5.6.3):
+  cosmiconfig-typescript-loader@5.1.0(@types/node@20.16.13)(cosmiconfig@9.0.0(typescript@5.6.3))(typescript@5.6.3):
     dependencies:
-      '@types/node': 20.16.12
+      '@types/node': 20.16.13
       cosmiconfig: 9.0.0(typescript@5.6.3)
       jiti: 1.21.6
       typescript: 5.6.3
@@ -6296,7 +6312,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.35.1(@types/react@18.3.11)(postgres@3.4.4)(react@19.0.0-rc-83825814-20241015):
+  drizzle-orm@0.35.2(@types/react@18.3.11)(postgres@3.4.4)(react@19.0.0-rc-83825814-20241015):
     optionalDependencies:
       '@types/react': 18.3.11
       postgres: 3.4.4
@@ -6418,6 +6434,11 @@ snapshots:
 
   estree-util-is-identifier-name@3.0.0: {}
 
+  estree-util-scope@1.0.0:
+    dependencies:
+      '@types/estree': 1.0.6
+      devlop: 1.1.0
+
   estree-util-to-js@2.0.0:
     dependencies:
       '@types/estree-jsx': 1.0.5
@@ -6447,7 +6468,7 @@ snapshots:
 
   eval@0.1.8:
     dependencies:
-      '@types/node': 22.7.6
+      '@types/node': 22.7.7
       require-like: 0.1.2
 
   event-target-shim@5.0.1: {}
@@ -6895,10 +6916,6 @@ snapshots:
 
   is-potential-custom-element-name@1.0.1: {}
 
-  is-reference@3.0.2:
-    dependencies:
-      '@types/estree': 1.0.6
-
   is-stream@2.0.1: {}
 
   is-text-path@2.0.0:
@@ -7009,48 +7026,48 @@ snapshots:
 
   jsonparse@1.3.1: {}
 
-  lefthook-darwin-arm64@1.7.21:
+  lefthook-darwin-arm64@1.7.22:
     optional: true
 
-  lefthook-darwin-x64@1.7.21:
+  lefthook-darwin-x64@1.7.22:
     optional: true
 
-  lefthook-freebsd-arm64@1.7.21:
+  lefthook-freebsd-arm64@1.7.22:
     optional: true
 
-  lefthook-freebsd-x64@1.7.21:
+  lefthook-freebsd-x64@1.7.22:
     optional: true
 
-  lefthook-linux-arm64@1.7.21:
+  lefthook-linux-arm64@1.7.22:
     optional: true
 
-  lefthook-linux-x64@1.7.21:
+  lefthook-linux-x64@1.7.22:
     optional: true
 
-  lefthook-openbsd-arm64@1.7.21:
+  lefthook-openbsd-arm64@1.7.22:
     optional: true
 
-  lefthook-openbsd-x64@1.7.21:
+  lefthook-openbsd-x64@1.7.22:
     optional: true
 
-  lefthook-windows-arm64@1.7.21:
+  lefthook-windows-arm64@1.7.22:
     optional: true
 
-  lefthook-windows-x64@1.7.21:
+  lefthook-windows-x64@1.7.22:
     optional: true
 
-  lefthook@1.7.21:
+  lefthook@1.7.22:
     optionalDependencies:
-      lefthook-darwin-arm64: 1.7.21
-      lefthook-darwin-x64: 1.7.21
-      lefthook-freebsd-arm64: 1.7.21
-      lefthook-freebsd-x64: 1.7.21
-      lefthook-linux-arm64: 1.7.21
-      lefthook-linux-x64: 1.7.21
-      lefthook-openbsd-arm64: 1.7.21
-      lefthook-openbsd-x64: 1.7.21
-      lefthook-windows-arm64: 1.7.21
-      lefthook-windows-x64: 1.7.21
+      lefthook-darwin-arm64: 1.7.22
+      lefthook-darwin-x64: 1.7.22
+      lefthook-freebsd-arm64: 1.7.22
+      lefthook-freebsd-x64: 1.7.22
+      lefthook-linux-arm64: 1.7.22
+      lefthook-linux-x64: 1.7.22
+      lefthook-openbsd-arm64: 1.7.22
+      lefthook-openbsd-x64: 1.7.22
+      lefthook-windows-arm64: 1.7.22
+      lefthook-windows-x64: 1.7.22
 
   lilconfig@2.1.0: {}
 
@@ -7916,12 +7933,6 @@ snapshots:
 
   perfect-debounce@1.0.0: {}
 
-  periscopic@3.1.0:
-    dependencies:
-      '@types/estree': 1.0.6
-      estree-walker: 3.0.3
-      is-reference: 3.0.2
-
   picocolors@1.1.1: {}
 
   picomatch@2.3.1: {}
@@ -8113,7 +8124,7 @@ snapshots:
       react: 19.0.0-rc-83825814-20241015
       scheduler: 0.25.0-rc-83825814-20241015
 
-  react-hook-form@7.53.0(react@19.0.0-rc-83825814-20241015):
+  react-hook-form@7.53.1(react@19.0.0-rc-83825814-20241015):
     dependencies:
       react: 19.0.0-rc-83825814-20241015
 
@@ -8176,9 +8187,47 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
+  recma-build-jsx@1.0.0:
+    dependencies:
+      '@types/estree': 1.0.6
+      estree-util-build-jsx: 3.0.1
+      vfile: 6.0.3
+
+  recma-jsx@1.0.0(acorn@8.13.0):
+    dependencies:
+      acorn-jsx: 5.3.2(acorn@8.13.0)
+      estree-util-to-js: 2.0.0
+      recma-parse: 1.0.0
+      recma-stringify: 1.0.0
+      unified: 11.0.5
+    transitivePeerDependencies:
+      - acorn
+
+  recma-parse@1.0.0:
+    dependencies:
+      '@types/estree': 1.0.6
+      esast-util-from-js: 2.0.1
+      unified: 11.0.5
+      vfile: 6.0.3
+
+  recma-stringify@1.0.0:
+    dependencies:
+      '@types/estree': 1.0.6
+      estree-util-to-js: 2.0.0
+      unified: 11.0.5
+      vfile: 6.0.3
+
   regenerator-runtime@0.14.1: {}
 
   regex@4.3.3: {}
+
+  rehype-recma@1.0.0:
+    dependencies:
+      '@types/estree': 1.0.6
+      '@types/hast': 3.0.4
+      hast-util-to-estree: 3.1.0
+    transitivePeerDependencies:
+      - supports-color
 
   rehype-slug@6.0.0:
     dependencies:
@@ -8231,7 +8280,7 @@ snapshots:
       unified: 11.0.5
       yaml: 2.6.0
 
-  remark-mdx@3.0.1:
+  remark-mdx@3.1.0:
     dependencies:
       mdast-util-mdx: 3.0.0
       micromark-extension-mdxjs: 3.0.0
@@ -8261,12 +8310,12 @@ snapshots:
       mdast-util-to-markdown: 2.1.0
       unified: 11.0.5
 
-  remix-hook-form@5.1.1(@remix-run/react@2.13.1(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)(typescript@5.6.3))(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react-hook-form@7.53.0(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015):
+  remix-hook-form@5.1.1(@remix-run/react@2.13.1(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)(typescript@5.6.3))(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react-hook-form@7.53.1(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015):
     dependencies:
       '@remix-run/react': 2.13.1(react-dom@19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015))(react@19.0.0-rc-83825814-20241015)(typescript@5.6.3)
       react: 19.0.0-rc-83825814-20241015
       react-dom: 19.0.0-rc-83825814-20241015(react@19.0.0-rc-83825814-20241015)
-      react-hook-form: 7.53.0(react@19.0.0-rc-83825814-20241015)
+      react-hook-form: 7.53.1(react@19.0.0-rc-83825814-20241015)
 
   require-directory@2.1.1: {}
 
@@ -8863,13 +8912,13 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite-node@1.6.0(@types/node@22.7.6):
+  vite-node@1.6.0(@types/node@22.7.7):
     dependencies:
       cac: 6.7.14
       debug: 4.3.7
       pathe: 1.1.2
       picocolors: 1.1.1
-      vite: 5.4.9(@types/node@22.7.6)
+      vite: 5.4.9(@types/node@22.7.7)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -8881,12 +8930,12 @@ snapshots:
       - supports-color
       - terser
 
-  vite-node@2.1.3(@types/node@22.7.6):
+  vite-node@2.1.3(@types/node@22.7.7):
     dependencies:
       cac: 6.7.14
       debug: 4.3.7
       pathe: 1.1.2
-      vite: 5.4.9(@types/node@22.7.6)
+      vite: 5.4.9(@types/node@22.7.7)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -8898,12 +8947,12 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-babel@1.2.0(@babel/core@7.25.8)(vite@5.4.9(@types/node@22.7.6)):
+  vite-plugin-babel@1.2.0(@babel/core@7.25.8)(vite@5.4.9(@types/node@22.7.7)):
     dependencies:
       '@babel/core': 7.25.8
-      vite: 5.4.9(@types/node@22.7.6)
+      vite: 5.4.9(@types/node@22.7.7)
 
-  vite-plugin-inspect@0.8.7(rollup@4.24.0)(vite@5.4.9(@types/node@22.7.6)):
+  vite-plugin-inspect@0.8.7(rollup@4.24.0)(vite@5.4.9(@types/node@22.7.7)):
     dependencies:
       '@antfu/utils': 0.7.10
       '@rollup/pluginutils': 5.1.2(rollup@4.24.0)
@@ -8914,35 +8963,35 @@ snapshots:
       perfect-debounce: 1.0.0
       picocolors: 1.1.1
       sirv: 2.0.4
-      vite: 5.4.9(@types/node@22.7.6)
+      vite: 5.4.9(@types/node@22.7.7)
     transitivePeerDependencies:
       - rollup
       - supports-color
 
-  vite-tsconfig-paths@5.0.1(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.6)):
+  vite-tsconfig-paths@5.0.1(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.7)):
     dependencies:
       debug: 4.3.7
       globrex: 0.1.2
       tsconfck: 3.1.4(typescript@5.6.3)
     optionalDependencies:
-      vite: 5.4.9(@types/node@22.7.6)
+      vite: 5.4.9(@types/node@22.7.7)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@5.4.9(@types/node@22.7.6):
+  vite@5.4.9(@types/node@22.7.7):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.47
       rollup: 4.24.0
     optionalDependencies:
-      '@types/node': 22.7.6
+      '@types/node': 22.7.7
       fsevents: 2.3.3
 
-  vitest@2.1.3(@types/node@22.7.6)(jsdom@24.1.3):
+  vitest@2.1.3(@types/node@22.7.7)(jsdom@24.1.3):
     dependencies:
       '@vitest/expect': 2.1.3
-      '@vitest/mocker': 2.1.3(@vitest/spy@2.1.3)(vite@5.4.9(@types/node@22.7.6))
+      '@vitest/mocker': 2.1.3(@vitest/spy@2.1.3)(vite@5.4.9(@types/node@22.7.7))
       '@vitest/pretty-format': 2.1.3
       '@vitest/runner': 2.1.3
       '@vitest/snapshot': 2.1.3
@@ -8957,11 +9006,11 @@ snapshots:
       tinyexec: 0.3.1
       tinypool: 1.0.1
       tinyrainbow: 1.2.0
-      vite: 5.4.9(@types/node@22.7.6)
-      vite-node: 2.1.3(@types/node@22.7.6)
+      vite: 5.4.9(@types/node@22.7.7)
+      vite-node: 2.1.3(@types/node@22.7.7)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.7.6
+      '@types/node': 22.7.7
       jsdom: 24.1.3
     transitivePeerDependencies:
       - less
@@ -8974,10 +9023,10 @@ snapshots:
       - supports-color
       - terser
 
-  vitest@2.1.3(@types/node@22.7.6)(jsdom@25.0.1):
+  vitest@2.1.3(@types/node@22.7.7)(jsdom@25.0.1):
     dependencies:
       '@vitest/expect': 2.1.3
-      '@vitest/mocker': 2.1.3(@vitest/spy@2.1.3)(vite@5.4.9(@types/node@22.7.6))
+      '@vitest/mocker': 2.1.3(@vitest/spy@2.1.3)(vite@5.4.9(@types/node@22.7.7))
       '@vitest/pretty-format': 2.1.3
       '@vitest/runner': 2.1.3
       '@vitest/snapshot': 2.1.3
@@ -8992,11 +9041,11 @@ snapshots:
       tinyexec: 0.3.1
       tinypool: 1.0.1
       tinyrainbow: 1.2.0
-      vite: 5.4.9(@types/node@22.7.6)
-      vite-node: 2.1.3(@types/node@22.7.6)
+      vite: 5.4.9(@types/node@22.7.7)
+      vite-node: 2.1.3(@types/node@22.7.7)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.7.6
+      '@types/node': 22.7.7
       jsdom: 25.0.1
     transitivePeerDependencies:
       - less
