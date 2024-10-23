@@ -17,8 +17,8 @@
     "@biomejs/biome": "^1.9.4",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
-    "@types/node": "^20.16.13",
-    "lefthook": "^1.7.22",
+    "@types/node": "^20.16.15",
+    "lefthook": "^1.8.0",
     "typescript": "^5.6.3"
   },
   "engines": {
@@ -35,9 +35,9 @@
     "overrides": {
       "@mdx-js/mdx": "^3.1.0",
       "esbuild": "^0.21.5",
-      "react": "19.0.0-rc-65a56d0e-20241020",
-      "react-dom": "19.0.0-rc-65a56d0e-20241020",
-      "react-is": "19.0.0-rc-65a56d0e-20241020",
+      "react": "19.0.0-rc-45804af1-20241021",
+      "react-dom": "19.0.0-rc-45804af1-20241021",
+      "react-is": "19.0.0-rc-45804af1-20241021",
       "hasown": "npm:@nolyfill/hasown@^1",
       "is-arguments": "npm:@nolyfill/is-arguments@^1",
       "is-generator-function": "npm:@nolyfill/is-generator-function@^1",
@@ -45,7 +45,10 @@
       "isarray": "npm:@nolyfill/isarray@^1",
       "side-channel": "npm:@nolyfill/side-channel@^1",
       "which-typed-array": "npm:@nolyfill/which-typed-array@^1",
-      "is-core-module": "npm:@nolyfill/is-core-module@^1"
+      "is-core-module": "npm:@nolyfill/is-core-module@^1",
+      "array-flatten": "npm:@nolyfill/array-flatten@^1",
+      "safe-buffer": "npm:@nolyfill/safe-buffer@^1",
+      "safer-buffer": "npm:@nolyfill/safer-buffer@^1"
     }
   }
 }

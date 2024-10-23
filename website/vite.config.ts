@@ -1,4 +1,4 @@
-import { join } from "node:path";
+import { extname, join } from "node:path";
 import { cwd, env } from "node:process";
 import { fileURLToPath } from "node:url";
 import mdx from "@mdx-js/rollup";
@@ -97,10 +97,14 @@ export default defineConfig(({ command, isSsrBuild }) => {
         },
       }),
       babel({
-        filter: /\.[jt]sx?$/,
         babelConfig: {
+          compact: false,
           presets: ["@babel/preset-typescript"],
           plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
+        },
+        filter: /\.[jt]sx?$/,
+        loader: (path) => {
+          return extname(path).substring(1) as "js" | "jsx";
         },
       }),
       !isBuild && tsconfigPaths(),
