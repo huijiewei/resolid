@@ -31,16 +31,16 @@ importers:
         version: 1.9.4
       '@commitlint/cli':
         specifier: ^19.5.0
-        version: 19.5.0(@types/node@20.16.15)(typescript@5.6.3)
+        version: 19.5.0(@types/node@20.17.0)(typescript@5.6.3)
       '@commitlint/config-conventional':
         specifier: ^19.5.0
         version: 19.5.0
       '@types/node':
-        specifier: ^20.16.15
-        version: 20.16.15
+        specifier: ^20.17.0
+        version: 20.17.0
       lefthook:
-        specifier: ^1.8.0
-        version: 1.8.0
+        specifier: ^1.8.1
+        version: 1.8.1
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
@@ -1175,8 +1175,8 @@ packages:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
     engines: {node: '>= 8.0.0'}
 
-  '@rollup/pluginutils@5.1.2':
-    resolution: {integrity: sha512-/FIdS3PyZ39bjZlwqFnWqCOVnW7o963LtKMwQOD0NhQqw22gSr2YY1afu3FxRip4ZCZNsD5jq6Aaz6QV3D/Njw==}
+  '@rollup/pluginutils@5.1.3':
+    resolution: {integrity: sha512-Pnsb6f32CD2W3uCaLZIzDmeFyQ2b8UWMFI7xtwUezpcGBDVDW6y9XgAWIlARiGAo6eNF5FK5aQTr0LFyNyqq5A==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
@@ -1441,8 +1441,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@20.16.15':
-    resolution: {integrity: sha512-DV58qQz9dBMqVVn+qnKwGa51QzCD4YM/tQM16qLKxdf5tqz5W4QwtrMzjSTbabN1cFTSuyxVYBy+QWHjWW8X/g==}
+  '@types/node@20.17.0':
+    resolution: {integrity: sha512-a7zRo0f0eLo9K5X9Wp5cAqTUNGzuFLDG2R7C4HY2BhcMAsxgSPuRvAC1ZB6QkuUQXf0YZAgfOX2ZyrBa2n4nHQ==}
 
   '@types/node@22.7.9':
     resolution: {integrity: sha512-jrTfRC7FM6nChvU7X2KqcrgquofrWLFDeYC1hKfwNWomVvrn7JIksqf344WN2X/y8xrgqBd2dJATZV4GbatBfg==}
@@ -1768,8 +1768,8 @@ packages:
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
 
-  chai@5.1.1:
-    resolution: {integrity: sha512-pT1ZgP8rPNqUgieVaEY+ryQr6Q4HXNg8Ei9UnLUrjN4IA7dvQC5JB+/kxVcPNDHyBcc/26CXPkbNzq3qwrOEKA==}
+  chai@5.1.2:
+    resolution: {integrity: sha512-aGtmf24DW6MLHHG5gCx4zaI3uBq3KRtxeVs0DjFH6Z0rDNbsvTxFASFvdj79pxjxZ8/5u3PIiN3IwEIQkiiuPw==}
     engines: {node: '>=12'}
 
   chalk@2.4.2:
@@ -2180,8 +2180,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.43:
-    resolution: {integrity: sha512-NxnmFBHDl5Sachd2P46O7UJiMaMHMLSofoIWVJq3mj8NJgG0umiSeljAVP9lGzjI0UDLJJ5jjoGjcrB8RSbjLQ==}
+  electron-to-chromium@1.5.45:
+    resolution: {integrity: sha512-vOzZS6uZwhhbkZbcRyiy99Wg+pYFV5hk+5YaECvx0+Z31NR3Tt5zS6dze2OepT6PCTzVzT0dIJItti+uAW5zmw==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -2776,58 +2776,58 @@ packages:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
     engines: {'0': node >= 0.2.0}
 
-  lefthook-darwin-arm64@1.8.0:
-    resolution: {integrity: sha512-2LWWlASWIt+abhe7h2WA2hbdbqzvPTsibxW2eAp6Yas62pOLbiLSSrC0r4JHSUkwrpx24ZSi91+06zFjnUkkzA==}
+  lefthook-darwin-arm64@1.8.1:
+    resolution: {integrity: sha512-zTUb0NcMWKDqck9UobqJZCzihksk5Dv/D+zD3jrxi50vQvgl4wfTO3sP78WmVdhGkMCyHy5udOB+L72fyJqcdw==}
     cpu: [arm64]
     os: [darwin]
 
-  lefthook-darwin-x64@1.8.0:
-    resolution: {integrity: sha512-g1csia3WgobnKPIw6Le70/R9ChtoMAEXjQBF3V4C/IO5li+Vjr4OZ6U/rBWLO2qcwgXcfHrpT8gXL3ZdaZU6Qg==}
+  lefthook-darwin-x64@1.8.1:
+    resolution: {integrity: sha512-f9DY+UBd+g6TZ/nHdNZnfGeWT/0n18bkYi56biKEBXIgRlnuTNCrk0TUiSxlWF2GUQdxHM8YSWDkPRtHLg+3zg==}
     cpu: [x64]
     os: [darwin]
 
-  lefthook-freebsd-arm64@1.8.0:
-    resolution: {integrity: sha512-yVtvs8iucuz3egCkPHzCnKgMbsClmy635xditQhAN2L4llerRAA6l5TtXwM2EUjxoTaBL26h8fd7U3yRfliUYw==}
+  lefthook-freebsd-arm64@1.8.1:
+    resolution: {integrity: sha512-ZWx0PtYRtd0tlygUjLKP1eSztyLx2pOnI06h5/PyxWcmF+1/WjYPZM7Mt1nBwpqZcFNYkQ3VefFfg1f0URuLJQ==}
     cpu: [arm64]
     os: [freebsd]
 
-  lefthook-freebsd-x64@1.8.0:
-    resolution: {integrity: sha512-ZG8MRpYWuaiN2jgvaj5SO+m2plYbLDuIYVhCx7IanNewuuGp9tduGBi9Quv4CtG3+q4rA0/eU3tU3QKTE5Dmyw==}
+  lefthook-freebsd-x64@1.8.1:
+    resolution: {integrity: sha512-F5rd7JMwQJosZclsyqJciAn5CBZCZGTGEXLWEwOhgFZbbsUubGSekAhJNoHFm4eJZaDhhWnckghCjXCfBjDSYg==}
     cpu: [x64]
     os: [freebsd]
 
-  lefthook-linux-arm64@1.8.0:
-    resolution: {integrity: sha512-fHp2vPqe3QggomuSXou5Xr2kIhrAJgbKU0JR0bDiHc81gXigB7RVcRR+ZLQOqdQYPm1Q0vwCjP2qNR3rlfbsKw==}
+  lefthook-linux-arm64@1.8.1:
+    resolution: {integrity: sha512-CTsqVHW2B291wLXonod1AMUJEOZqtG8lY+la97Id301kY4TzgbBKQvU2LF/hBIS8c62DjPMzEM4NYfbVzrK1QA==}
     cpu: [arm64]
     os: [linux]
 
-  lefthook-linux-x64@1.8.0:
-    resolution: {integrity: sha512-orVdWe0Y17Z8rq55Vq4lPgYieys/e6Z78MkOR3fO35+LsCnVqXERRknudXswqEA8teevbEXmeFS6eOvGYpc2tA==}
+  lefthook-linux-x64@1.8.1:
+    resolution: {integrity: sha512-fw8WwUjr+mCfH/Gbmfj/7J0oX8NjfaACUQlYr3kVHz3c+LYMoRv7O/7dn2OXVO5vEdK5zH/NZlMml4C4qhxwEA==}
     cpu: [x64]
     os: [linux]
 
-  lefthook-openbsd-arm64@1.8.0:
-    resolution: {integrity: sha512-ZRmvdsXgHJCWjqKtOPI0w2lM34EEXY/1YPlgiXAOmQ7kdtcuha7IzlZZ9oN6kt3j0MQ+sf9tx9KfdS65kP4ydA==}
+  lefthook-openbsd-arm64@1.8.1:
+    resolution: {integrity: sha512-Za9K1ZAoRRM2Pq0eXZHbUppUZArZfgVcTDawKf/FRkbvAsTnBPEcH8Qtjcsm12qLQZ45KtPzZ/GEl/nxnWpeVQ==}
     cpu: [arm64]
     os: [openbsd]
 
-  lefthook-openbsd-x64@1.8.0:
-    resolution: {integrity: sha512-RZf8O4S9fY1BHQtHqRne5ITfjX2gSwri3kvdjCMNUh+1EbpCj1TsUu+sAzHwen0LA/art3kJFlqwqfWPzhgBZA==}
+  lefthook-openbsd-x64@1.8.1:
+    resolution: {integrity: sha512-NgzcIouZobNZw1eEIC3Vh3z4bzVgIGIyJ41g5PGe6d1IXVkmnc5qpFP7jgnaaLK7TPahzIOREQrtYgR62Hg5bw==}
     cpu: [x64]
     os: [openbsd]
 
-  lefthook-windows-arm64@1.8.0:
-    resolution: {integrity: sha512-EegohCI0HF+veOL0jrEcdVbZFg1uA+yULAjTmOHsEP4ex7QbpxyCENIpqPmA6NdfntFYGc4mxhRR5ZZy8ApNLw==}
+  lefthook-windows-arm64@1.8.1:
+    resolution: {integrity: sha512-NUIwnV56YLUmHZf+C5gQA9tIdWjdHu5Ql6hNdFbYYrGxNvNFh2juHRaPKHUGjYk5iu9bxgjogw7mHfN+LanBcQ==}
     cpu: [arm64]
     os: [win32]
 
-  lefthook-windows-x64@1.8.0:
-    resolution: {integrity: sha512-BR7uUPwXdbV/VWft6rzimkW+WNbqzonYhNk9fK6NNGYANmxlucX3MzK4vtFC9yWVOia88QdfO5B7Bq4Bxvu8Lw==}
+  lefthook-windows-x64@1.8.1:
+    resolution: {integrity: sha512-9cnvWe8tYBwUxJFvW/TJ3P4Al+52QJcLdkJJ1aKgr3F7EydPPZk+jWFy0b1SSan1S7M7OuoPC9jcKS3PGjB6tw==}
     cpu: [x64]
     os: [win32]
 
-  lefthook@1.8.0:
-    resolution: {integrity: sha512-pHlbfhOj8E7L3uD64xbWiQWiXrwMBDT5pE2Z8JRHIIPRpQYcCjgKokuTujazdIbKWUlK0xNFF1HEo7+nrm7aFA==}
+  lefthook@1.8.1:
+    resolution: {integrity: sha512-DTm2F7kf+mQ0UgxSOuCSIwAMC4RJOH5x77okcsFfeJOJ0y7/xGgpfmPb9ZPBDXeJ6UxfI0ngRgWoEctYMlMr4A==}
     hasBin: true
 
   lilconfig@2.1.0:
@@ -4818,11 +4818,11 @@ snapshots:
   '@biomejs/cli-win32-x64@1.9.4':
     optional: true
 
-  '@commitlint/cli@19.5.0(@types/node@20.16.15)(typescript@5.6.3)':
+  '@commitlint/cli@19.5.0(@types/node@20.17.0)(typescript@5.6.3)':
     dependencies:
       '@commitlint/format': 19.5.0
       '@commitlint/lint': 19.5.0
-      '@commitlint/load': 19.5.0(@types/node@20.16.15)(typescript@5.6.3)
+      '@commitlint/load': 19.5.0(@types/node@20.17.0)(typescript@5.6.3)
       '@commitlint/read': 19.5.0
       '@commitlint/types': 19.5.0
       tinyexec: 0.3.1
@@ -4869,7 +4869,7 @@ snapshots:
       '@commitlint/rules': 19.5.0
       '@commitlint/types': 19.5.0
 
-  '@commitlint/load@19.5.0(@types/node@20.16.15)(typescript@5.6.3)':
+  '@commitlint/load@19.5.0(@types/node@20.17.0)(typescript@5.6.3)':
     dependencies:
       '@commitlint/config-validator': 19.5.0
       '@commitlint/execute-rule': 19.5.0
@@ -4877,7 +4877,7 @@ snapshots:
       '@commitlint/types': 19.5.0
       chalk: 5.3.0
       cosmiconfig: 9.0.0(typescript@5.6.3)
-      cosmiconfig-typescript-loader: 5.1.0(@types/node@20.16.15)(cosmiconfig@9.0.0(typescript@5.6.3))(typescript@5.6.3)
+      cosmiconfig-typescript-loader: 5.1.0(@types/node@20.17.0)(cosmiconfig@9.0.0(typescript@5.6.3))(typescript@5.6.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -5164,7 +5164,7 @@ snapshots:
   '@mdx-js/rollup@3.1.0(acorn@8.13.0)(rollup@4.24.0)':
     dependencies:
       '@mdx-js/mdx': 3.1.0(acorn@8.13.0)
-      '@rollup/pluginutils': 5.1.2(rollup@4.24.0)
+      '@rollup/pluginutils': 5.1.3(rollup@4.24.0)
       rollup: 4.24.0
       source-map: 0.7.4
       vfile: 6.0.3
@@ -5463,11 +5463,11 @@ snapshots:
       estree-walker: 2.0.2
       picomatch: 2.3.1
 
-  '@rollup/pluginutils@5.1.2(rollup@4.24.0)':
+  '@rollup/pluginutils@5.1.3(rollup@4.24.0)':
     dependencies:
       '@types/estree': 1.0.6
       estree-walker: 2.0.2
-      picomatch: 2.3.1
+      picomatch: 4.0.2
     optionalDependencies:
       rollup: 4.24.0
 
@@ -5662,7 +5662,7 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.0':
     dependencies:
-      '@types/node': 20.16.15
+      '@types/node': 20.17.0
 
   '@types/cookie@0.6.0': {}
 
@@ -5703,7 +5703,7 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@20.16.15':
+  '@types/node@20.17.0':
     dependencies:
       undici-types: 6.19.8
 
@@ -5822,7 +5822,7 @@ snapshots:
     dependencies:
       '@vitest/spy': 2.1.3
       '@vitest/utils': 2.1.3
-      chai: 5.1.1
+      chai: 5.1.2
       tinyrainbow: 1.2.0
 
   '@vitest/mocker@2.1.3(@vitest/spy@2.1.3)(vite@5.4.10(@types/node@22.7.9))':
@@ -6038,7 +6038,7 @@ snapshots:
   browserslist@4.24.2:
     dependencies:
       caniuse-lite: 1.0.30001669
-      electron-to-chromium: 1.5.43
+      electron-to-chromium: 1.5.45
       node-releases: 2.0.18
       update-browserslist-db: 1.1.1(browserslist@4.24.2)
 
@@ -6085,7 +6085,7 @@ snapshots:
 
   ccount@2.0.1: {}
 
-  chai@5.1.1:
+  chai@5.1.2:
     dependencies:
       assertion-error: 2.0.1
       check-error: 2.1.1
@@ -6222,9 +6222,9 @@ snapshots:
 
   core-util-is@1.0.3: {}
 
-  cosmiconfig-typescript-loader@5.1.0(@types/node@20.16.15)(cosmiconfig@9.0.0(typescript@5.6.3))(typescript@5.6.3):
+  cosmiconfig-typescript-loader@5.1.0(@types/node@20.17.0)(cosmiconfig@9.0.0(typescript@5.6.3))(typescript@5.6.3):
     dependencies:
-      '@types/node': 20.16.15
+      '@types/node': 20.17.0
       cosmiconfig: 9.0.0(typescript@5.6.3)
       jiti: 1.21.6
       typescript: 5.6.3
@@ -6354,7 +6354,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.43: {}
+  electron-to-chromium@1.5.45: {}
 
   emoji-regex@8.0.0: {}
 
@@ -7053,48 +7053,48 @@ snapshots:
 
   jsonparse@1.3.1: {}
 
-  lefthook-darwin-arm64@1.8.0:
+  lefthook-darwin-arm64@1.8.1:
     optional: true
 
-  lefthook-darwin-x64@1.8.0:
+  lefthook-darwin-x64@1.8.1:
     optional: true
 
-  lefthook-freebsd-arm64@1.8.0:
+  lefthook-freebsd-arm64@1.8.1:
     optional: true
 
-  lefthook-freebsd-x64@1.8.0:
+  lefthook-freebsd-x64@1.8.1:
     optional: true
 
-  lefthook-linux-arm64@1.8.0:
+  lefthook-linux-arm64@1.8.1:
     optional: true
 
-  lefthook-linux-x64@1.8.0:
+  lefthook-linux-x64@1.8.1:
     optional: true
 
-  lefthook-openbsd-arm64@1.8.0:
+  lefthook-openbsd-arm64@1.8.1:
     optional: true
 
-  lefthook-openbsd-x64@1.8.0:
+  lefthook-openbsd-x64@1.8.1:
     optional: true
 
-  lefthook-windows-arm64@1.8.0:
+  lefthook-windows-arm64@1.8.1:
     optional: true
 
-  lefthook-windows-x64@1.8.0:
+  lefthook-windows-x64@1.8.1:
     optional: true
 
-  lefthook@1.8.0:
+  lefthook@1.8.1:
     optionalDependencies:
-      lefthook-darwin-arm64: 1.8.0
-      lefthook-darwin-x64: 1.8.0
-      lefthook-freebsd-arm64: 1.8.0
-      lefthook-freebsd-x64: 1.8.0
-      lefthook-linux-arm64: 1.8.0
-      lefthook-linux-x64: 1.8.0
-      lefthook-openbsd-arm64: 1.8.0
-      lefthook-openbsd-x64: 1.8.0
-      lefthook-windows-arm64: 1.8.0
-      lefthook-windows-x64: 1.8.0
+      lefthook-darwin-arm64: 1.8.1
+      lefthook-darwin-x64: 1.8.1
+      lefthook-freebsd-arm64: 1.8.1
+      lefthook-freebsd-x64: 1.8.1
+      lefthook-linux-arm64: 1.8.1
+      lefthook-linux-x64: 1.8.1
+      lefthook-openbsd-arm64: 1.8.1
+      lefthook-openbsd-x64: 1.8.1
+      lefthook-windows-arm64: 1.8.1
+      lefthook-windows-x64: 1.8.1
 
   lilconfig@2.1.0: {}
 
@@ -8974,7 +8974,7 @@ snapshots:
   vite-plugin-inspect@0.8.7(rollup@4.24.0)(vite@5.4.10(@types/node@22.7.9)):
     dependencies:
       '@antfu/utils': 0.7.10
-      '@rollup/pluginutils': 5.1.2(rollup@4.24.0)
+      '@rollup/pluginutils': 5.1.3(rollup@4.24.0)
       debug: 4.3.7
       error-stack-parser-es: 0.1.5
       fs-extra: 11.2.0
@@ -9016,7 +9016,7 @@ snapshots:
       '@vitest/snapshot': 2.1.3
       '@vitest/spy': 2.1.3
       '@vitest/utils': 2.1.3
-      chai: 5.1.1
+      chai: 5.1.2
       debug: 4.3.7
       magic-string: 0.30.12
       pathe: 1.1.2
@@ -9051,7 +9051,7 @@ snapshots:
       '@vitest/snapshot': 2.1.3
       '@vitest/spy': 2.1.3
       '@vitest/utils': 2.1.3
-      chai: 5.1.1
+      chai: 5.1.2
       debug: 4.3.7
       magic-string: 0.30.12
       pathe: 1.1.2
