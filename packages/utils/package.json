@@ -29,7 +29,7 @@
   "devDependencies": {
     "@resolid/config": "workspace:^",
     "jsdom": "^24.1.3",
-    "tsup": "^8.3.0",
+    "tsup": "^8.3.4",
     "vitest": "^2.1.3"
   },
   "homepage": "https://www.resolid.tech",
