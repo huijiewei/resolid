@@ -29,14 +29,14 @@
     }
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.9.0",
+    "@hookform/resolvers": "^3.9.1",
     "@node-rs/bcrypt": "^1.10.5",
     "@remix-run/node": "^2.13.1",
     "@remix-run/react": "^2.13.1",
     "@remix-run/server-runtime": "^2.13.1",
     "@resolid/utils": "workspace:^",
     "drizzle-orm": "^0.35.3",
-    "nodemailer": "^6.9.15",
+    "nodemailer": "^6.9.16",
     "postgres": "^3.4.5",
     "react-hook-form": "^7.53.1",
     "type-fest": "^4.26.1",
