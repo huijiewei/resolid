@@ -24,7 +24,7 @@
     }
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.25",
+    "@floating-ui/react": "^0.26.26",
     "@resolid/utils": "workspace:^",
     "@tanstack/react-virtual": "^3.10.8",
     "@tw-classed/core": "^1.7.0",
