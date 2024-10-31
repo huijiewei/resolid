@@ -22,19 +22,19 @@ export const userTable = defineTable(
     createdIp: text().notNull().default(""),
     createdFrom: text().notNull().default(""),
   },
-  (table) => ({
-    emailIndex: uniqueIndex().on(table.email),
-    usernameIndex: uniqueIndex().on(table.username),
-    nicknameIndex: index().on(table.nickname),
-    groupIdIndex: index().on(table.groupId),
-    deletedAtIndex: index().on(table.deletedAt),
-  }),
+  (table) => [
+    uniqueIndex().on(table.email),
+    uniqueIndex().on(table.username),
+    index().on(table.nickname),
+    index().on(table.groupId),
+    index().on(table.deletedAt),
+  ],
 );
 
 export const userGroupTable = defineTable("user_group", authGroupColumns);
 
-export const userSessionTable = defineTable("user_session", authSessionColumns, (table) => ({
-  identityIdIndex: index().on(table.identityId),
-}));
+export const userSessionTable = defineTable("user_session", authSessionColumns, (table) => [
+  index().on(table.identityId),
+]);
 
 export const userPasswordResetTable = defineTable("user_password_reset", authPasswordResetColumns);
