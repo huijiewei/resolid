@@ -1,13 +1,12 @@
 import type { BuildColumns } from "drizzle-orm/column-builder";
-import type { PgTableWithColumns } from "drizzle-orm/pg-core";
-import type { PgColumnBuilderBase } from "drizzle-orm/pg-core/columns/common";
+import type { MySqlColumnBuilderBase, MySqlTableWithColumns } from "drizzle-orm/mysql-core";
 
 export type DefineTable<
-  TColumnsMap extends Record<string, PgColumnBuilderBase>,
+  TColumnsMap extends Record<string, MySqlColumnBuilderBase>,
   TSchema extends string | undefined = undefined,
-> = PgTableWithColumns<{
+> = MySqlTableWithColumns<{
   name: string;
   schema: TSchema;
-  columns: BuildColumns<string, TColumnsMap, "pg">;
-  dialect: "pg";
+  columns: BuildColumns<string, TColumnsMap, "mysql">;
+  dialect: "mysql";
 }>;

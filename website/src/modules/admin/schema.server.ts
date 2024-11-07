@@ -8,16 +8,16 @@ export type AdminSelectWithGroup = AdminSelect & { group: AdminGroupSelect };
 
 export type AdminIdentity = AuthIdentity<AdminSelectWithGroup>;
 
-export const adminTable = defineTable("admin", authColumns, (table) => [
-  uniqueIndex().on(table.email),
-  uniqueIndex().on(table.username),
-  index().on(table.nickname),
-  index().on(table.groupId),
-  index().on(table.deletedAt),
-]);
+export const adminTable = defineTable("admin", authColumns, (table) => ({
+  email: uniqueIndex("email").on(table.email),
+  username: uniqueIndex("username").on(table.username),
+  nickname: index("nickname").on(table.nickname),
+  groupId: index("groupId").on(table.groupId),
+  deletedAt: index("deletedAt").on(table.deletedAt),
+}));
 
 export const adminGroupTable = defineTable("admin_group", authGroupColumns);
 
-export const adminSessionTable = defineTable("admin_session", authSessionColumns, (table) => [
-  index().on(table.identityId),
-]);
+export const adminSessionTable = defineTable("admin_session", authSessionColumns, (table) => ({
+  identityId: index("identityId").on(table.identityId),
+}));

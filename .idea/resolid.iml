@@ -10,7 +10,6 @@
       <excludeFolder url="file://$MODULE_DIR$/website/.resolid" />
       <excludeFolder url="file://$MODULE_DIR$/website/.vercel" />
       <excludeFolder url="file://$MODULE_DIR$/website/build" />
-      <excludeFolder url="file://$MODULE_DIR$/website/.vite-inspect" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

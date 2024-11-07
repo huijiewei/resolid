@@ -11,7 +11,7 @@ export default function About() {
       <h1 className={"text-center"}>关于</h1>
       <p>
         Resolid Remix 是使用 Remix 驱动的全栈网站，旨在展示使用 Remix、React、Tailwind CSS、Vite、Drizzle
-        ORM、PostgreSQL、Hono、Node.js 和 Vercel 等现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。
+        ORM、MySQL、Hono、Node.js 和 Vercel 等现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。
       </p>
       <h2>技术栈</h2>
       <div className={"flex justify-center"}>
@@ -23,7 +23,7 @@ export default function About() {
           <SpriteIcon name={"vite"} size={"3rem"} />
           <SpriteIcon name={"nodejs"} size={"3rem"} />
           <SpriteIcon name={"drizzle-orm"} size={"3rem"} />
-          <SpriteIcon name={"postgresql"} size={"3rem"} />
+          <SpriteIcon name={"mysql"} size={"3rem"} />
           <SpriteIcon name={"hono"} size={"3rem"} />
           <SpriteIcon name={"vercel"} size={"3rem"} />
         </div>
@@ -55,10 +55,10 @@ export default function About() {
         Drizzle ORM 是一个带有头部🐲的无头 TypeScript ORM。
         它看起来简单而直观，能够在项目的第1000天保持高性能，允许你按照自己的方式进行操作，并在需要时提供支持。
       </p>
-      <h3>PostgreSQL</h3>
+      <h3>MySQL</h3>
       <p>
-        PostgreSQL 是一个功能强大的开源对象关系数据库系统，经过超过 35
-        年的积极开发，在可靠性、功能稳健性和性能方面赢得了良好的声誉。
+        MySQL 数据库服务是一个完全托管的数据库服务，可使用世界上最受欢迎的开源数据库来部署云原生应用程序。 它是百分百由
+        MySQL 原厂开发，管理和提供支持。
       </p>
       <h3>Hono</h3>
       <p>
@@ -72,8 +72,8 @@ export default function About() {
       </p>
       <h3>Vercel</h3>
       <p>Vercel 的前端云为开发人员提供构建、扩展和保护更快、更个性化 Web 的体验和基础设施。</p>
-      <h3>Neon</h3>
-      <p>完全托管的无服务器 Postgres，具有慷慨的免费套餐。我们将存储和计算分开，以提供自动扩展、分支和无底存储。</p>
+      <h3>Aiven for MySQL</h3>
+      <p>完全托管和管理 MySQL。在您选择的云中进行部署，并在一个直观的云数据平台中获得您所需的所有集成。</p>
     </div>
   );
 }

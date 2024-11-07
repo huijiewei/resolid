@@ -1,4 +1,4 @@
-import { index, text, timestamp, uniqueIndex } from "@resolid/framework/drizzle";
+import { index, timestamp, uniqueIndex, varchar } from "@resolid/framework/drizzle";
 import {
   type AuthIdentity,
   authColumns,
@@ -19,22 +19,22 @@ export const userTable = defineTable(
   {
     ...authColumns,
     emailVerifiedAt: timestamp(),
-    createdIp: text().notNull().default(""),
-    createdFrom: text().notNull().default(""),
+    createdIp: varchar({ length: 60 }).notNull().default(""),
+    createdFrom: varchar({ length: 20 }).notNull().default(""),
   },
-  (table) => [
-    uniqueIndex().on(table.email),
-    uniqueIndex().on(table.username),
-    index().on(table.nickname),
-    index().on(table.groupId),
-    index().on(table.deletedAt),
-  ],
+  (table) => ({
+    email: uniqueIndex("email").on(table.email),
+    username: uniqueIndex("username").on(table.username),
+    nickname: index("nickname").on(table.nickname),
+    groupId: index("groupId").on(table.groupId),
+    deletedAt: index("deletedAt").on(table.deletedAt),
+  }),
 );
 
 export const userGroupTable = defineTable("user_group", authGroupColumns);
 
-export const userSessionTable = defineTable("user_session", authSessionColumns, (table) => [
-  index().on(table.identityId),
-]);
+export const userSessionTable = defineTable("user_session", authSessionColumns, (table) => ({
+  identityId: index("identityId").on(table.identityId),
+}));
 
 export const userPasswordResetTable = defineTable("user_password_reset", authPasswordResetColumns);

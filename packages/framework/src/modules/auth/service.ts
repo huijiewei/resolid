@@ -1,8 +1,7 @@
 import { hash, verify } from "@node-rs/bcrypt";
 import { isEmpty, omit, randomId } from "@resolid/utils";
 import { type InferSelectModel, type Simplify, and, eq, getTableColumns, gt, inArray, isNull } from "drizzle-orm";
-import type { AnyPgTable } from "drizzle-orm/pg-core";
-import type { PostgresJsDatabase } from "drizzle-orm/postgres-js";
+import type { MySql2Database } from "drizzle-orm/mysql2";
 import type { ServiceResult } from "../../utils/service";
 import type { DefineTable } from "../../utils/types";
 import { createFieldErrors, validateData } from "../../utils/zod";
@@ -40,7 +39,7 @@ type AuthSelect = InferSelectModel<AuthTable>;
 type AuthGroupSelect = InferSelectModel<AuthGroupTable>;
 type AuthSelectWithGroup = AuthSelect & { group: AuthGroupSelect };
 
-type DatabaseInstance = InstanceType<typeof PostgresJsDatabase>;
+type DatabaseInstance = InstanceType<typeof MySql2Database>;
 
 export type AuthIdentity<T extends AuthSelectWithGroup | AuthSelect> = Simplify<
   Omit<T, "password" | "createdAt" | "updatedAt" | "deletedAt">
@@ -156,14 +155,13 @@ export const createAuthSignupService = <T extends AuthSelectWithGroup>(
     }
 
     const identities = await database
-      .insert(authTable as AnyPgTable)
+      .insert(authTable)
       .values({ ...values, password: await hash(values.password), groupId: defaultGroupId })
-      .returning();
+      .$returningId();
 
-    const identity = identities[0];
-    identity.group = group;
+    const identity = { id: identities[0].id, ...omit(values, ["confirmPassword"]), group: group } as unknown as T;
 
-    return [undefined, omitIdentity(identity as T)];
+    return [undefined, omitIdentity(identity)];
   };
 };
 
@@ -206,7 +204,7 @@ export const createAuthSessionService = <T extends AuthSelectWithGroup>(
   const createSession: AuthSessionService<AuthIdentity<T>>["createSession"] = async (sessionData, expiredAt) => {
     const sessionId = randomId();
 
-    await database.insert(authSessionTable as AnyPgTable).values({
+    await database.insert(authSessionTable).values({
       id: sessionId,
       identityId: sessionData.identity.id,
       remoteAddr: sessionData.remoteAddr,
@@ -230,13 +228,12 @@ export const createAuthSessionService = <T extends AuthSelectWithGroup>(
     };
 
     await database
-      .insert(authSessionTable as AnyPgTable)
+      .insert(authSessionTable)
       .values({
         id: sessionId,
         ...update,
       })
-      .onConflictDoUpdate({
-        target: authSessionTable.id,
+      .onDuplicateKeyUpdate({
         set: update,
       });
   };
@@ -286,7 +283,7 @@ export const createAuthPasswordForgotService = (
 
     const resetId = randomId();
 
-    await database.insert(authPasswordResetTable as AnyPgTable).values({
+    await database.insert(authPasswordResetTable).values({
       id: resetId,
       identityId: identities[0].id,
       expiredAt: new Date(Date.now() + 1000 * 60 * 60 * 24),
@@ -339,14 +336,14 @@ export const createAuthPasswordResetService = (
     }
 
     await database
-      .update(authTable as AnyPgTable)
+      .update(authTable)
       .set({
         password: await hash(values.password),
       })
       .where(eq(authTable.id, resets[0].identityId));
 
     await database
-      .update(authPasswordResetTable as AnyPgTable)
+      .update(authPasswordResetTable)
       .set({ redeemed: true })
       .where(eq(authPasswordResetTable.id, resets[0].id));
 
