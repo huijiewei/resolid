@@ -40,4 +40,6 @@ export const authPasswordResetColumns = {
   redeemed: boolean().default(false),
   createdAt: timestamp().notNull().default(sql`CURRENT_TIMESTAMP`),
   expiredAt: timestamp(),
+  remoteAddr: varchar({ length: 60 }).notNull().default(""),
+  userAgent: varchar({ length: 512 }).notNull().default(""),
 };

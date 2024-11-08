@@ -10,6 +10,8 @@ declare namespace NodeJS {
     readonly RX_MAILER_DSN: string;
     readonly RX_MAILER_FROM: string;
 
+    readonly RX_SUPPORT_EMAIL: string;
+
     readonly RX_PROXY: number;
     readonly RX_PROXY_COUNT: number;
 

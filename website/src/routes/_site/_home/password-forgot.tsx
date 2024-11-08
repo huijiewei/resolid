@@ -1,3 +1,4 @@
+import { addDay } from "@formkit/tempo";
 import type { TurnstileInstance } from "@marsidev/react-turnstile";
 import type { ActionFunctionArgs } from "@remix-run/node";
 import { Form, useActionData, useSearchParams } from "@remix-run/react";
@@ -10,9 +11,10 @@ import { FormError } from "~/components/base/form-error";
 import { HistoryLink } from "~/components/base/history-link";
 import { trunstileVerify } from "~/extensions/turnstile/trunstile.server";
 import { TurnstileWidget } from "~/extensions/turnstile/turnstile-widget";
-import { userPasswordForgotService } from "~/modules/user/service.server";
+import { userPasswordForgotService, userPasswordResetEmailService } from "~/modules/user/service.server";
 import { type UserPasswordForgotFormData, userPasswordForgotResolver } from "~/modules/user/validator";
 
+// noinspection JSUnusedGlobalSymbols
 export const meta = mergeMeta(() => {
   return [{ title: "忘记密码" }];
 });
@@ -26,10 +28,28 @@ export const action = async ({ request, context }: ActionFunctionArgs) => {
     return httpProblem(createFieldErrors({ captcha: "验证失败" }));
   }
 
-  const [errors] = await userPasswordForgotService(data, context.requestOrigin ?? request.url);
+  const expiredAt = addDay(new Date(), 1);
+  const userAgent = request.headers.get("user-agent") ?? "";
+
+  const [errors, result] = await userPasswordForgotService(data, expiredAt, context.remoteAddress ?? "", userAgent);
 
   if (errors) {
     return httpProblem(errors);
+  }
+
+  const baseUrl = context.requestOrigin ?? request.url;
+  const resetUrl = new URL(`/password-reset?token=${result.resetId}`, baseUrl).toString();
+
+  const send = await userPasswordResetEmailService(
+    result.identity,
+    context.requestOrigin ?? request.url,
+    resetUrl,
+    expiredAt,
+    userAgent,
+  );
+
+  if (!send.success) {
+    return httpProblem(createFieldErrors({ email: "邮件发送失败" }));
   }
 
   return { success: true };

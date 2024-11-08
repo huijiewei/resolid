@@ -251,20 +251,17 @@ export const createAuthSessionService = <T extends AuthSelectWithGroup>(
 };
 
 // noinspection JSUnusedGlobalSymbols
-export const createAuthPasswordForgotService = (
+export const createAuthPasswordForgotService = <T extends AuthSelect>(
   database: DatabaseInstance,
   authTable: AuthTable,
   authPasswordResetTable: AuthPasswordResetTable,
-  callback: (
-    identity: AuthIdentity<AuthSelect>,
-    resetId: string,
-    requestOrigin: string,
-  ) => Promise<[error: Record<string, string>, success: undefined] | [error: undefined, success: true]>,
 ) => {
   return async (
     data: AuthPasswordForgotFormData,
-    requestOrigin: string,
-  ): Promise<ServiceResult<AuthPasswordForgotFormData, boolean>> => {
+    expiredAt: Date,
+    remoteAddr: string,
+    userAgent: string,
+  ): Promise<ServiceResult<AuthPasswordForgotFormData, { identity: AuthIdentity<T>; resetId: string }>> => {
     const { errors, values } = await validateData(data, authPasswordForgotResolver);
 
     if (errors) {
@@ -286,16 +283,12 @@ export const createAuthPasswordForgotService = (
     await database.insert(authPasswordResetTable).values({
       id: resetId,
       identityId: identities[0].id,
-      expiredAt: new Date(Date.now() + 1000 * 60 * 60 * 24),
+      expiredAt: expiredAt,
+      remoteAddr: remoteAddr,
+      userAgent: userAgent,
     });
 
-    const [error] = await callback(identities[0], resetId, requestOrigin);
-
-    if (error) {
-      return [createFieldErrors(error), undefined];
-    }
-
-    return [undefined, true];
+    return [undefined, { identity: omitIdentity(identities[0] as T), resetId }];
   };
 };
 
