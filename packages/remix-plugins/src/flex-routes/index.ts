@@ -1,5 +1,5 @@
 import { extname, join } from "node:path";
-import type { ConfigRoute, RouteManifest } from "@remix-run/dev/dist/config/routes";
+import type { RouteManifest, RouteManifestEntry } from "@remix-run/dev/dist/config/routes";
 import { makeRe } from "minimatch";
 import { normalizePath } from "vite";
 import { PrefixLookupTrie, createRoutePath, getRouteSegments, visitFiles } from "./utils";
@@ -90,7 +90,7 @@ export default async function flexRoutes(options: FolderRoutesOptions = {}) {
     }
   }
 
-  const parentChildrenMap = new Map<string, ConfigRoute[]>();
+  const parentChildrenMap = new Map<string, RouteManifestEntry[]>();
 
   for (const [routeId] of sortedRouteIds) {
     const config = routeManifest[routeId];
@@ -104,8 +104,8 @@ export default async function flexRoutes(options: FolderRoutesOptions = {}) {
     parentChildrenMap.set(config.parentId, existingChildren);
   }
 
-  const uniqueRoutes = new Map<string, ConfigRoute>();
-  const urlConflicts = new Map<string, ConfigRoute[]>();
+  const uniqueRoutes = new Map<string, RouteManifestEntry>();
+  const urlConflicts = new Map<string, RouteManifestEntry[]>();
 
   for (const [routeId] of sortedRouteIds) {
     const config = routeManifest[routeId];
@@ -151,10 +151,10 @@ export default async function flexRoutes(options: FolderRoutesOptions = {}) {
     for (const [routeId, files] of routeIdConflicts.entries()) {
       const [taken, ...others] = files;
 
-      const othersRoute = others.map((route) => `⭕️️ ${route}`).join("\n");
+      const othersRoute = others.map((route) => `⭕ ${route}`).join("\n");
 
       console.error(
-        `⚠️ Route ID 冲突: "${routeId}"\n\n下列路由都定义了相同的路由 ID，但只有第一个会生效\n\n🟢 ${taken}\n${othersRoute}\n`,
+        `!Route ID 冲突: "${routeId}"\n\n下列路由都定义了相同的路由 ID，但只有第一个会生效\n\n🟢 ${taken}\n${othersRoute}\n`,
       );
     }
   }
@@ -168,10 +168,10 @@ export default async function flexRoutes(options: FolderRoutesOptions = {}) {
       const [taken, ...others] = routes.map((r) => r.file);
 
       const pathLocal = path[0] == "/" ? path : `/${path}`;
-      const othersRoute = others.map((route) => `⭕️️ ${route}`).join("\n");
+      const othersRoute = others.map((route) => `⭕ ${route}`).join("\n");
 
       console.error(
-        `⚠️ Route 路径冲突: "${pathLocal}"\n\n下列路由都定义了相同的 URL，但只有第一个会生效\n\n🟢 ${taken}\n${othersRoute}\n`,
+        `! Route 路径冲突: "${pathLocal}"\n\n下列路由都定义了相同的 URL，但只有第一个会生效\n\n🟢 ${taken}\n${othersRoute}\n`,
       );
     }
   }
