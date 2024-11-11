@@ -31,7 +31,7 @@
     }
   },
   "dependencies": {
-    "@hono/node-server": "^1.13.5",
+    "@hono/node-server": "^1.13.6",
     "@remix-run/node": "^2.14.0",
     "@vercel/nft": "^0.27.6",
     "esbuild": "^0.21.5",

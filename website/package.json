@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@formkit/tempo": "^0.1.2",
-    "@hono/node-server": "^1.13.5",
+    "@hono/node-server": "^1.13.6",
     "@hookform/resolvers": "^3.9.1",
     "@marsidev/react-turnstile": "^1.0.2",
     "@mdx-js/react": "^3.1.0",
@@ -51,7 +51,7 @@
     "autoprefixer": "^10.4.20",
     "babel-plugin-react-compiler": "beta",
     "drizzle-kit": "^0.28.0",
-    "postcss": "^8.4.47",
+    "postcss": "^8.4.48",
     "postcss-load-config": "^6.0.1",
     "rehype-slug": "^6.0.0",
     "remark-frontmatter": "^5.0.0",
@@ -62,7 +62,7 @@
     "vite": "^5.4.10",
     "vite-plugin-babel": "^1.2.0",
     "vite-plugin-inspect": "^0.8.7",
-    "vite-tsconfig-paths": "^5.1.1",
+    "vite-tsconfig-paths": "^5.1.2",
     "vitest": "^2.1.4"
   },
   "engines": {
