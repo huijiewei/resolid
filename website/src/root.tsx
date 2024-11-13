@@ -1,6 +1,6 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 import { ColorModeScript, ResolidProvider } from "@resolid/react-ui";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/remix";
 import { SpeedInsights } from "@vercel/speed-insights/remix";
 import type { PropsWithChildren } from "react";
 import { RouteProcessBar } from "~/components/base/route-process-bar";
