@@ -321,8 +321,8 @@ importers:
         specifier: ^5.1.1
         version: 5.1.1(@remix-run/react@2.14.0(react-dom@19.0.0-rc-2ec26bc4-20241111(react@19.0.0-rc-2ec26bc4-20241111))(react@19.0.0-rc-2ec26bc4-20241111)(typescript@5.6.3))(react-dom@19.0.0-rc-2ec26bc4-20241111(react@19.0.0-rc-2ec26bc4-20241111))(react-hook-form@7.53.2(react@19.0.0-rc-2ec26bc4-20241111))(react@19.0.0-rc-2ec26bc4-20241111)
       ua-parser-js:
-        specifier: 2.0.0-rc.1
-        version: 2.0.0-rc.1
+        specifier: 2.0.0-rc.3
+        version: 2.0.0-rc.3
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -2855,6 +2855,9 @@ packages:
   is-property@1.0.2:
     resolution: {integrity: sha512-Ks/IoX00TtClbGQr4TWXemAnktAQvYB7HzcCxDGqEZU6oCmb2INHuOoKxbtR+HFkmYWBKv/dOZtGRiAjDhj92g==}
 
+  is-standalone-pwa@0.1.1:
+    resolution: {integrity: sha512-9Cbovsa52vNQCjdXOzeQq5CnCbAcRk05aU62K20WO372NrTv0NxibLFCK6lQ4/iZEFdEA3p3t2VNOn8AJ53F5g==}
+
   is-stream@2.0.1:
     resolution: {integrity: sha512-hFoiJiTl63nn+kstHGBtewWSKnQLpyb155KHheA1l39uvtO9nWIop1p3udqPcUd/xbF1VLMO4n7OI6p7RbngDg==}
     engines: {node: '>=8'}
@@ -4431,8 +4434,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  ua-parser-js@2.0.0-rc.1:
-    resolution: {integrity: sha512-H+kTJv7j04XbMuASIIrp7TwKj8rVHfGLR9dI36FAWneGHyQ6JZVwFukFgxSyM/OChmk7dxsV82R/tnEQxb1EXg==}
+  ua-is-frozen@0.1.2:
+    resolution: {integrity: sha512-RwKDW2p3iyWn4UbaxpP2+VxwqXh0jpvdxsYpZ5j/MLLiQOfbsV5shpgQiw93+KMYQPcteeMQ289MaAFzs3G9pw==}
+
+  ua-parser-js@2.0.0-rc.3:
+    resolution: {integrity: sha512-XNVpE+u+FyK2fUOVO7Gpyy58yVmH5jV+9nn+NbzxPf2YulgjiE00ECd+uwyH5+Jb82AakfL0+xPxA6jJeCYB7Q==}
     hasBin: true
 
   ufo@1.5.4:
@@ -7299,6 +7305,8 @@ snapshots:
 
   is-property@1.0.2: {}
 
+  is-standalone-pwa@0.1.1: {}
+
   is-stream@2.0.1: {}
 
   is-text-path@2.0.0:
@@ -9204,9 +9212,13 @@ snapshots:
 
   typescript@5.6.3: {}
 
-  ua-parser-js@2.0.0-rc.1:
+  ua-is-frozen@0.1.2: {}
+
+  ua-parser-js@2.0.0-rc.3:
     dependencies:
       detect-europe-js: 0.1.2
+      is-standalone-pwa: 0.1.1
+      ua-is-frozen: 0.1.2
 
   ufo@1.5.4: {}
 

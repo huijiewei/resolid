@@ -34,7 +34,7 @@
     "react-dom": "19.0.0-rc-2ec26bc4-20241111",
     "react-hook-form": "^7.53.2",
     "remix-hook-form": "^5.1.1",
-    "ua-parser-js": "2.0.0-rc.1",
+    "ua-parser-js": "2.0.0-rc.3",
     "zod": "^3.23.8"
   },
   "devDependencies": {

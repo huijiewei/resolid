@@ -1,7 +1,5 @@
-import { env } from "node:process";
-
 const viteDevServer =
-  env.NODE_ENV == "production"
+  process.env.NODE_ENV == "production"
     ? undefined
     : await import("vite").then((vite) =>
         vite.createServer({

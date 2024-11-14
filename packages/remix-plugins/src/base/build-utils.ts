@@ -66,6 +66,9 @@ export const buildEntry = async (
       alias: {
         "virtual:remix/server-build": buildFile,
       },
+      define: {
+        "process.env.NODE_ENV": "'production'",
+      },
       banner: { js: "import { createRequire } from 'module';const require = createRequire(import.meta.url);" },
       platform: "node",
       target: "node20",
@@ -73,9 +76,7 @@ export const buildEntry = async (
       external: ["vite", ...Object.keys(packageDependencies)],
       bundle: true,
       charset: "utf8",
-      treeShaking: true,
       legalComments: "none",
-      // 使用构建 API 时，如果启用了所有缩小选项，则所有 process.env.NODE_ENV 表达式都会自动定义为 "production" ，否则为 "development"
       minify: true,
     })
     .catch((error: unknown) => {
