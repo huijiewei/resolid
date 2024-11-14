@@ -7,6 +7,7 @@ import type { ServerBuild } from "@remix-run/node";
 import type { Env, MiddlewareHandler } from "hono";
 import { logger } from "hono/logger";
 import type { BlankEnv } from "hono/types";
+import { importDevBuild } from "../base/dev-build";
 import { type HonoServerOptions, createHonoServer } from "../base/hono-server";
 
 export { serveStatic };
@@ -37,7 +38,7 @@ export type HonoNodeServerOptions<E extends Env = BlankEnv> = HonoServerOptions<
 // noinspection JSUnusedGlobalSymbols
 export const createHonoNodeServer = async <E extends Env = BlankEnv>(options: HonoNodeServerOptions<E> = {}) => {
   const mode = env.NODE_ENV == "test" ? "development" : env.NODE_ENV;
-  const isProduction = mode === "production";
+  const isProduction = mode == "production";
 
   const mergedOptions: HonoNodeServerOptions<E> = {
     ...{
@@ -60,8 +61,10 @@ export const createHonoNodeServer = async <E extends Env = BlankEnv>(options: Ho
     defaultLogger: options.defaultLogger ?? !isProduction,
   };
 
-  // @ts-expect-error it's not typed
-  const build = (await import("virtual:remix/server-build")) as ServerBuild;
+  const build = isProduction
+    ? // @ts-expect-error it's not typed
+      ((await import("virtual:remix/server-build")) as ServerBuild)
+    : ((await importDevBuild()) as ServerBuild);
 
   const server = await createHonoServer(mode, build, {
     configure: async (server) => {

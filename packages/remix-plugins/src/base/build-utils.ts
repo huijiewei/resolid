@@ -70,7 +70,7 @@ export const buildEntry = async (
       platform: "node",
       target: "node20",
       format: "esm",
-      external: Object.keys(packageDependencies),
+      external: ["vite", ...Object.keys(packageDependencies)],
       bundle: true,
       charset: "utf8",
       treeShaking: true,
