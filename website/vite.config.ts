@@ -5,9 +5,10 @@ import mdx from "@mdx-js/rollup";
 import { vitePlugin as remix } from "@remix-run/dev";
 import { installGlobals } from "@remix-run/node";
 import { remarkDocgen } from "@resolid/mdx-plugins";
+import { devServer } from "@resolid/remix-plugins/dev-server";
 import remixFlexRoutes from "@resolid/remix-plugins/flex-routes";
-import { nodeHonoPreset } from "@resolid/remix-plugins/node-hono";
-import { vercelServerlessPreset } from "@resolid/remix-plugins/vercel-serverless";
+import { nodePreset } from "@resolid/remix-plugins/node-preset";
+import { vercelPreset } from "@resolid/remix-plugins/vercel-preset";
 import rehypeShiki from "@shikijs/rehype";
 import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
@@ -63,15 +64,22 @@ export default defineConfig(({ command, isSsrBuild }) => {
           [remarkDocgen, { sourceRoot: join(__dirname, "../packages/react-ui/src/components") }],
         ],
       }),
+      devServer({
+        appDirectory: appDirectory,
+        entryFile: "server.node.ts",
+      }),
       remix({
         appDirectory: appDirectory,
         presets: [
           env.VERCEL == "1"
-            ? vercelServerlessPreset({
+            ? vercelPreset({
                 regions: "sin1",
                 copyParentModules: ["@node-rs/bcrypt"],
+                entryFile: "server.vercel.ts",
               })
-            : nodeHonoPreset(),
+            : nodePreset({
+                entryFile: "server.node.ts",
+              }),
         ],
         future: {
           v3_fetcherPersist: true,

@@ -1,6 +1,6 @@
 {
   "name": "@resolid/remix-plugins",
-  "version": "2.2.1",
+  "version": "3.0.1",
   "type": "module",
   "sideEffects": false,
   "description": "Resolid Remix 扩展插件",
@@ -17,17 +17,29 @@
     "build": "tsup"
   },
   "exports": {
+    "./dev-server": {
+      "import": "./dist/dev-server.js",
+      "types": "./dist/dev-server.d.ts"
+    },
     "./flex-routes": {
       "import": "./dist/flex-routes.js",
       "types": "./dist/flex-routes.d.ts"
     },
-    "./node-hono": {
-      "import": "./dist/node-hono.js",
-      "types": "./dist/node-hono.d.ts"
+    "./node-server": {
+      "import": "./dist/node-server.js",
+      "types": "./dist/node-server.d.ts"
     },
-    "./vercel-serverless": {
-      "import": "./dist/vercel-serverless.js",
-      "types": "./dist/vercel-serverless.d.ts"
+    "./node-preset": {
+      "import": "./dist/node-preset.js",
+      "types": "./dist/node-preset.d.ts"
+    },
+    "./vercel-server": {
+      "import": "./dist/vercel-server.js",
+      "types": "./dist/vercel-server.d.ts"
+    },
+    "./vercel-preset": {
+      "import": "./dist/vercel-preset.js",
+      "types": "./dist/vercel-preset.d.ts"
     }
   },
   "dependencies": {
@@ -35,8 +47,8 @@
     "@remix-run/node": "^2.14.0",
     "@vercel/nft": "^0.27.6",
     "esbuild": "^0.21.5",
-    "hono": "^4.6.9",
-    "minimatch": "^9.0.5"
+    "hono": "^4.6.10",
+    "minimatch": "^10.0.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.14.0",

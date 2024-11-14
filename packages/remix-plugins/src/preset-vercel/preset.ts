@@ -1,21 +1,19 @@
 import { cp, mkdir, readdir, realpath, rm, writeFile } from "node:fs/promises";
 import { basename, dirname, join, relative } from "node:path";
-import { fileURLToPath } from "node:url";
 import type { BuildManifest, Preset } from "@remix-run/dev";
 import type { RouteManifest } from "@remix-run/dev/dist/config/routes";
 import { nodeFileTrace } from "@vercel/nft";
 import { buildEntry } from "../base/build-utils";
 
-export type VercelServerlessPresetOptions = {
+export type VercelPresetOptions = {
   regions: string | string[];
   copyParentModules?: string[];
+  entryFile?: string;
 };
 
-export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): Preset => {
-  const __dirname = fileURLToPath(new URL(".", import.meta.url));
-
+export const vercelPreset = (options: VercelPresetOptions): Preset => {
   return {
-    name: "resolid-vercel-serverless-preset",
+    name: "resolid-vercel-preset",
     remixConfig: () => {
       return {
         buildEnd: async ({ buildManifest, remixConfig, viteConfig }) => {
@@ -49,19 +47,15 @@ export const vercelServerlessPreset = (options: VercelServerlessPresetOptions): 
             const buildFile = join(rootPath, serverBundles[key].file);
             const buildPath = dirname(buildFile);
 
-            const [bundleFile, defaultHandler] = await buildEntry(
+            const bundleFile = await buildEntry(
               appPath,
-              join(__dirname, "vercel-serverless-entry.js"),
+              options?.entryFile ?? "server.ts",
               buildPath,
               buildFile,
               serverBundleId,
               join(rootPath, "package.json"),
               ssrExternal,
             );
-
-            if (defaultHandler) {
-              await rm(defaultHandler, { force: true });
-            }
 
             await copyFunctionsFiles(
               rootPath,

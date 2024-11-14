@@ -1,14 +1,16 @@
-import { rm } from "node:fs/promises";
 import { dirname, join, relative } from "node:path";
-import { fileURLToPath } from "node:url";
 import type { Preset } from "@remix-run/dev";
 import { buildEntry } from "../base/build-utils";
 
-export const nodeHonoPreset = (): Preset => {
-  const __dirname = fileURLToPath(new URL(".", import.meta.url));
+export type NodePresetOptions = {
+  entryFile?: string;
+};
 
+// noinspection JSUnusedGlobalSymbols
+export const nodePreset = (options?: NodePresetOptions): Preset => {
+  // noinspection JSUnusedGlobalSymbols
   return {
-    name: "resolid-node-hono-preset",
+    name: "resolid-node-preset",
     remixConfig: () => {
       return {
         buildEnd: async ({ buildManifest, remixConfig, viteConfig }) => {
@@ -23,26 +25,20 @@ export const nodeHonoPreset = (): Preset => {
             site: { id: "site", file: relative(rootPath, join(serverBuildPath, serverBuildFile)) },
           };
 
-          console.log("Bundle Node Hono Server for production...");
-
           for (const key in serverBundles) {
             const serverBundleId = serverBundles[key].id;
             const buildFile = join(rootPath, serverBundles[key].file);
             const buildPath = dirname(buildFile);
 
-            const [, defaultHandler] = await buildEntry(
+            await buildEntry(
               appPath,
-              join(__dirname, "node-hono-entry.js"),
+              options?.entryFile ?? "server.ts",
               buildPath,
               buildFile,
               serverBundleId,
               join(rootPath, "package.json"),
               ssrExternal,
             );
-
-            if (defaultHandler) {
-              await rm(defaultHandler, { force: true });
-            }
           }
         },
       };

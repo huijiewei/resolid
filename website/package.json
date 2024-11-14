@@ -4,11 +4,11 @@
   "type": "module",
   "scripts": {
     "check": "biome check --write .",
-    "dev": "remix vite:dev",
+    "dev": "vite",
     "build": "remix vite:build",
     "vercel": "VERCEL=1 remix vite:build",
-    "admin-serve": "NODE_ENV=production SERVE_PORT=3002 SERVE_PATH=/admin node --env-file=.env ./build/server/admin/serve.mjs",
-    "site-serve": "NODE_ENV=production SERVE_PORT=3001 node --env-file=.env ./build/server/site/serve.mjs",
+    "admin-serve": "NODE_ENV=production SERVER_PORT=3002 SERVER_PATH=/admin node --env-file=.env ./build/server/admin/server.mjs",
+    "site-serve": "NODE_ENV=production SERVER_PORT=3001 node --env-file=.env ./build/server/site/server.mjs",
     "resolid": "node --import tsx/esm --env-file .env ./cli/index.ts",
     "drizzle": "drizzle-kit"
   },
@@ -28,10 +28,10 @@
     "@resolid/utils": "workspace:^",
     "@vercel/analytics": "^1.4.0",
     "@vercel/speed-insights": "^1.1.0",
-    "hono": "^4.6.9",
+    "hono": "^4.6.10",
     "isbot": "^5.1.17",
-    "react": "19.0.0-rc-5c56b873-20241107",
-    "react-dom": "19.0.0-rc-5c56b873-20241107",
+    "react": "19.0.0-rc-2ec26bc4-20241111",
+    "react-dom": "19.0.0-rc-2ec26bc4-20241111",
     "react-hook-form": "^7.53.2",
     "remix-hook-form": "^5.1.1",
     "ua-parser-js": "2.0.0-rc.1",
@@ -63,7 +63,7 @@
     "vite-plugin-babel": "^1.2.0",
     "vite-plugin-inspect": "^0.8.7",
     "vite-tsconfig-paths": "^5.1.2",
-    "vitest": "^2.1.4"
+    "vitest": "^2.1.5"
   },
   "engines": {
     "node": "20.x"

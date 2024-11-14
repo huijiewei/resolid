@@ -1,4 +1,3 @@
-import { existsSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { exit } from "node:process";
@@ -49,31 +48,8 @@ export const buildEntry = async (
   serverBundleId: string,
   packageFile: string,
   ssrExternal: string[] | true | undefined,
-): Promise<[string, string | null]> => {
+): Promise<string> => {
   console.log(`Bundle Server file for ${serverBundleId}...`);
-
-  let handler = [".ts", ".js"].map((ext) => join(appPath, `remix.handler${ext}`)).find((file) => existsSync(file));
-
-  let defaultHandler: string | null = join(buildPath, "remix.handler.js");
-
-  if (handler == undefined) {
-    await writeFile(
-      defaultHandler,
-      `
-import { createRequestHandler } from "@remix-run/node";
-
-export default function remixHandler(build, c) {
-  const requestHandler = createRequestHandler(build, "production");
-
-  return requestHandler(c.req.raw);
-}
-`,
-      "utf8",
-    );
-    handler = defaultHandler;
-  } else {
-    defaultHandler = null;
-  }
 
   const pkg = JSON.parse(await readFile(packageFile, "utf8")) as PackageJson;
 
@@ -81,15 +57,14 @@ export default function remixHandler(build, c) {
 
   await writePackageJson(pkg, join(buildPath, "package.json"), packageDependencies);
 
-  const bundleFile = join(buildPath, "serve.mjs");
+  const bundleFile = join(buildPath, "server.mjs");
 
   await esbuild
     .build({
       outfile: bundleFile,
-      entryPoints: [entryFile],
+      entryPoints: [join(appPath, entryFile)],
       alias: {
-        "~resolid-remix/server": buildFile,
-        "~resolid-remix/handler": handler,
+        "virtual:remix/server-build": buildFile,
       },
       banner: { js: "import { createRequire } from 'module';const require = createRequire(import.meta.url);" },
       platform: "node",
@@ -108,5 +83,5 @@ export default function remixHandler(build, c) {
       exit(1);
     });
 
-  return [bundleFile, defaultHandler];
+  return bundleFile;
 };

@@ -13,35 +13,23 @@ export default defineConfig([
   {
     ...baseConfig,
     entry: {
+      "dev-server": "src/dev-server/index.ts",
       "flex-routes": "src/flex-routes/index.ts",
     },
   },
   {
     ...baseConfig,
     entry: {
-      "node-hono": "src/node-hono/preset.ts",
+      "node-server": "src/preset-node/server.ts",
+      "vercel-server": "src/preset-vercel/server.ts",
     },
+    external: ["virtual:remix/server-build"],
   },
   {
     ...baseConfig,
     entry: {
-      "node-hono-entry": "src/node-hono/entry.ts",
+      "node-preset": "src/preset-node/preset.ts",
+      "vercel-preset": "src/preset-vercel/preset.ts",
     },
-    external: ["~resolid-remix/server", "~resolid-remix/handler"],
-    dts: false,
-  },
-  {
-    ...baseConfig,
-    entry: {
-      "vercel-serverless": "src/vercel-serverless/preset.ts",
-    },
-  },
-  {
-    ...baseConfig,
-    entry: {
-      "vercel-serverless-entry": "src/vercel-serverless/entry.ts",
-    },
-    external: ["~resolid-remix/server", "~resolid-remix/handler"],
-    dts: false,
   },
 ]);
