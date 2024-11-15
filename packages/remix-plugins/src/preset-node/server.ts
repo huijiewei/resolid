@@ -70,10 +70,13 @@ export const createHonoNodeServer = async <E extends Env = BlankEnv>(options: Ho
     configure: async (server) => {
       if (isProduction) {
         server.use("/assets/*", cache(60 * 60 * 24 * 365, true), serveStatic({ root: build.assetsBuildDirectory }));
-        server.use("*", cache(60 * 60), serveStatic({ root: build.assetsBuildDirectory }));
-      } else {
-        server.use("*", cache(60 * 60), serveStatic({ root: "./public" }));
       }
+
+      server.use(
+        "*",
+        cache(60 * 60),
+        isProduction ? serveStatic({ root: build.assetsBuildDirectory }) : serveStatic({ root: "./public" }),
+      );
 
       if (mergedOptions.defaultLogger) {
         server.use("*", logger());

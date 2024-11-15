@@ -1,7 +1,8 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { authUtils } from "@resolid/framework/modules";
-import { httpNotFound, mergeMeta } from "@resolid/framework/utils";
+import { mergeMeta } from "@resolid/framework/utils";
+import { httpNotFound } from "@resolid/framework/utils.server";
 import { userServices } from "~/modules/user/service.server";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {

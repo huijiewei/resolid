@@ -10,8 +10,8 @@ export const loader = ({ context }: LoaderFunctionArgs) => {
   return {
     ssr: {
       message: "服务器渲染正常",
-      now: format(new Date(), "YYYY-MM-DD HH:mm Z"),
-      ip: context.remoteAddress ?? "",
+      datetime: format(new Date(), "YYYY-MM-DD HH:mm Z"),
+      remoteAddress: context.remoteAddress ?? "",
     },
     db: statusService
       .getFirst()
@@ -20,6 +20,7 @@ export const loader = ({ context }: LoaderFunctionArgs) => {
   };
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const meta = mergeMeta(() => {
   return [
     {
@@ -57,9 +58,9 @@ export default function Status() {
       </Suspense>
       <Alert color={"primary"} className={"my-5"}>
         <AlertDescription>
-          客户端地址：<span className={"font-mono"}>{ssr.ip}</span>
+          客户端地址：<span className={"font-mono"}>{ssr.remoteAddress}</span>
           <br />
-          服务器时间：<span className={"font-mono"}>{ssr.now}</span>
+          服务器时间：<span className={"font-mono"}>{ssr.datetime}</span>
         </AlertDescription>
       </Alert>
     </div>

@@ -1,5 +1,5 @@
 import { PassThrough } from "node:stream";
-import type { EntryContext } from "@remix-run/node";
+import type { AppLoadContext, EntryContext } from "@remix-run/node";
 import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { setup } from "@resolid/framework";
@@ -17,6 +17,7 @@ export default function handleRequest(
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext,
+  loadContext: AppLoadContext,
 ) {
   const ready = isbot(request.headers.get("user-agent")) ? "onAllReady" : "onShellReady";
 

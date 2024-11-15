@@ -1,6 +1,6 @@
 {
   "name": "@resolid/framework",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "sideEffects": false,
   "description": "Resolid 核心框架",
@@ -19,14 +19,10 @@
     ".": "./src/index.ts",
     "./cli": "./cli/index.ts",
     "./drizzle": "./src/export/drizzle.ts",
-    "./modules": {
-      "browser": "./src/modules.browser.ts",
-      "default": "./src/modules.ts"
-    },
-    "./utils": {
-      "browser": "./src/utils.browser.ts",
-      "default": "./src/utils.ts"
-    }
+    "./modules": "./src/modules.ts",
+    "./modules.server": "./src/modules.server.ts",
+    "./utils": "./src/utils.ts",
+    "./utils.server": "./src/utils.server.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

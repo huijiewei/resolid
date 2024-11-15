@@ -1,5 +1,3 @@
-import { customType } from "drizzle-orm/mysql-core";
-
 export {
   and,
   arrayContained,

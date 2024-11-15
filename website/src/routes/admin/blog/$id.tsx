@@ -1,6 +1,7 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { httpNotFound, mergeMeta } from "@resolid/framework/utils";
+import { mergeMeta } from "@resolid/framework/utils";
+import { httpNotFound } from "@resolid/framework/utils.server";
 import { ErrorComponent } from "~/components/base/error-component";
 
 export const meta = mergeMeta<typeof loader>(({ data }) => {

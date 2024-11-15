@@ -5,7 +5,7 @@ import {
   authGroupColumns,
   authPasswordResetColumns,
   authSessionColumns,
-} from "@resolid/framework/modules";
+} from "@resolid/framework/modules.server";
 import { defineTable } from "~/foundation/schema.server";
 
 export type UserSelect = typeof userTable.$inferSelect;

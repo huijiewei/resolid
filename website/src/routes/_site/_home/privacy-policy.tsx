@@ -1,5 +1,6 @@
 import { mergeMeta } from "@resolid/framework/utils";
 
+// noinspection JSUnusedGlobalSymbols
 export const meta = mergeMeta(() => {
   return [{ title: "隐私政策" }];
 });

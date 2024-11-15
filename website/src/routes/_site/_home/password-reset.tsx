@@ -1,6 +1,7 @@
 import type { ActionFunctionArgs } from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
-import { httpProblem, isSuccess, mergeMeta } from "@resolid/framework/utils";
+import { isSuccess, mergeMeta } from "@resolid/framework/utils";
+import { httpProblem } from "@resolid/framework/utils.server";
 import { Button, Input } from "@resolid/react-ui";
 import { useEffect, useState } from "react";
 import { Controller } from "react-hook-form";

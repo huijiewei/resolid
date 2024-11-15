@@ -1,4 +1,4 @@
-import { createAuthLoginService, createAuthSessionService } from "@resolid/framework/modules";
+import { createAuthLoginService, createAuthSessionService } from "@resolid/framework/modules.server";
 import { db } from "~/foundation/db.server";
 import {
   type AdminSelectWithGroup,

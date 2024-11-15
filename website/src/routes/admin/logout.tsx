@@ -1,5 +1,5 @@
 import type { ActionFunctionArgs } from "@remix-run/node";
-import { httpRedirect } from "@resolid/framework/utils";
+import { httpRedirect } from "@resolid/framework/utils.server";
 import { destroyAdminSession, getAdminSession } from "~/foundation/session.admin.server";
 
 export const action = async ({ request }: ActionFunctionArgs) => {

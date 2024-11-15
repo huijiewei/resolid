@@ -1,7 +1,7 @@
 import { env } from "node:process";
 import { createPath } from "@remix-run/react";
 import { createDatabaseSessionStorage } from "@resolid/framework";
-import { httpRedirect } from "@resolid/framework/utils";
+import { httpRedirect } from "@resolid/framework/utils.server";
 import type { UserIdentity } from "~/modules/user/schema.server";
 import { userSessionService } from "~/modules/user/service.server";
 
