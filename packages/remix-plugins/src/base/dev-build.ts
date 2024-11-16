@@ -3,7 +3,7 @@ const viteDevServer =
     ? undefined
     : await import("vite").then((vite) =>
         vite.createServer({
-          server: { middlewareMode: true, ws: false },
+          server: { middlewareMode: true, ws: false, hmr: false },
           appType: "custom",
         }),
       );
