@@ -898,8 +898,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@jspm/core@2.1.0':
-    resolution: {integrity: sha512-3sRl+pkyFY/kLmHl0cgHiFp2xEqErA8N3ECjMs7serSUBmoJ70lBa0PG5t0IM6WJgdZNyyI0R8YFfi5wM8+mzg==}
+  '@jspm/core@2.0.1':
+    resolution: {integrity: sha512-Lg3PnLp0QXpxwLIAuuJboLeRaIhrgJjeuh797QADg3xz8wGLugQOS5DpsE8A6i6Adgzf+bacllkKZG3J0tGfDw==}
 
   '@mapbox/node-pre-gyp@1.0.11':
     resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
@@ -2307,8 +2307,8 @@ packages:
   esast-util-from-js@2.0.1:
     resolution: {integrity: sha512-8Ja+rNJ0Lt56Pcf3TAmpBZjmx8ZcK5Ts4cAzIOjsjevg9oSXJnl6SUQ2EevU8tv3h6ZLWmoKL5H4fgWvdvfETw==}
 
-  esbuild-plugins-node-modules-polyfill@1.6.7:
-    resolution: {integrity: sha512-1lzsVFT/6OO1ZATHKZqSP+qYzyFo2d+QF9QzMKsyJR7GMRScYizYb1uEEE4NxTsBSxWviY3xnmN9dEOTaKFbJA==}
+  esbuild-plugins-node-modules-polyfill@1.6.8:
+    resolution: {integrity: sha512-bRB4qbgUDWrdY1eMk123KiaCSW9VzQ+QLZrmU7D//cCFkmksPd9mUMpmWoFK/rxjIeTfTSOpKCoGoimlvI+AWw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       esbuild: ^0.21.5
@@ -5230,7 +5230,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@jspm/core@2.1.0': {}
+  '@jspm/core@2.0.1': {}
 
   '@mapbox/node-pre-gyp@1.0.11':
     dependencies:
@@ -5583,7 +5583,7 @@ snapshots:
       dotenv: 16.4.5
       es-module-lexer: 1.5.4
       esbuild: 0.21.5
-      esbuild-plugins-node-modules-polyfill: 1.6.7(esbuild@0.21.5)
+      esbuild-plugins-node-modules-polyfill: 1.6.8(esbuild@0.21.5)
       execa: 5.1.1
       exit-hook: 2.2.1
       express: 4.21.1
@@ -6590,9 +6590,9 @@ snapshots:
       esast-util-from-estree: 2.0.0
       vfile-message: 4.0.2
 
-  esbuild-plugins-node-modules-polyfill@1.6.7(esbuild@0.21.5):
+  esbuild-plugins-node-modules-polyfill@1.6.8(esbuild@0.21.5):
     dependencies:
-      '@jspm/core': 2.1.0
+      '@jspm/core': 2.0.1
       esbuild: 0.21.5
       local-pkg: 0.5.0
       resolve.exports: 2.0.2
