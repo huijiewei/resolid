@@ -16,7 +16,7 @@
     "@formkit/tempo": "^0.1.2",
     "@hono/node-server": "^1.13.7",
     "@hookform/resolvers": "^3.9.1",
-    "@marsidev/react-turnstile": "^1.0.2",
+    "@marsidev/react-turnstile": "^1.1.0",
     "@mdx-js/react": "^3.1.0",
     "@node-rs/bcrypt": "^1.10.5",
     "@react-email/components": "^0.0.28",
@@ -34,7 +34,7 @@
     "react-dom": "19.0.0-rc.1",
     "react-hook-form": "^7.53.2",
     "remix-hook-form": "^5.1.1",
-    "ua-parser-js": "2.0.0-rc.3",
+    "ua-parser-js": "^2.0.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -44,7 +44,7 @@
     "@resolid/mdx-plugins": "workspace:^",
     "@resolid/remix-plugins": "workspace:^",
     "@resolid/tailwind": "workspace:^",
-    "@shikijs/rehype": "^1.23.0",
+    "@shikijs/rehype": "^1.23.1",
     "@tailwindcss/typography": "^0.5.15",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
