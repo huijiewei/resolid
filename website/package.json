@@ -44,7 +44,7 @@
     "@resolid/mdx-plugins": "workspace:^",
     "@resolid/remix-plugins": "workspace:^",
     "@resolid/tailwind": "workspace:^",
-    "@shikijs/rehype": "^1.23.1",
+    "@shikijs/rehype": "^1.24.0",
     "@tailwindcss/typography": "^0.5.15",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
