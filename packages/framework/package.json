@@ -35,7 +35,7 @@
     "mysql2": "^3.11.5",
     "nodemailer": "^6.9.16",
     "react-hook-form": "^7.53.2",
-    "type-fest": "^4.29.0",
+    "type-fest": "^4.29.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
