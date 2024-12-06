@@ -36,21 +36,15 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.6.0
         version: 19.6.0
+      '@resolid/config':
+        specifier: ^2.1.0
+        version: 2.1.0
       '@types/node':
         specifier: ^20.17.9
         version: 20.17.9
       lefthook:
         specifier: ^1.8.5
         version: 1.8.5
-      typescript:
-        specifier: ^5.7.2
-        version: 5.7.2
-
-  packages/config:
-    devDependencies:
-      '@biomejs/biome':
-        specifier: ^1.9.4
-        version: 1.9.4
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -95,8 +89,8 @@ importers:
         version: 3.23.8
     devDependencies:
       '@resolid/config':
-        specifier: workspace:^
-        version: link:../config
+        specifier: ^2.1.0
+        version: 2.1.0
       '@types/nodemailer':
         specifier: ^6.4.17
         version: 6.4.17
@@ -123,8 +117,8 @@ importers:
         version: 5.0.0
     devDependencies:
       '@resolid/config':
-        specifier: workspace:^
-        version: link:../config
+        specifier: ^2.1.0
+        version: 2.1.0
       '@types/mdast':
         specifier: ^4.0.4
         version: 4.0.4
@@ -154,8 +148,8 @@ importers:
         version: 2.3.6(@types/react@18.3.14)(react@19.0.0-rc.1)
     devDependencies:
       '@resolid/config':
-        specifier: workspace:^
-        version: link:../config
+        specifier: ^2.1.0
+        version: 2.1.0
       '@resolid/tailwind':
         specifier: workspace:^
         version: link:../tailwind
@@ -212,8 +206,8 @@ importers:
         specifier: ^2.15.0
         version: 2.15.0(@remix-run/react@2.15.0(react-dom@19.0.0-rc.1(react@19.0.0-rc.1))(react@19.0.0-rc.1)(typescript@5.7.2))(@types/node@22.10.1)(acorn@8.14.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.1))
       '@resolid/config':
-        specifier: workspace:^
-        version: link:../config
+        specifier: ^2.1.0
+        version: 2.1.0
       tsup:
         specifier: ^8.3.5
         version: 8.3.5(jiti@1.21.6)(postcss@8.4.49)(tsx@4.19.2)(typescript@5.7.2)(yaml@2.6.1)
@@ -227,8 +221,8 @@ importers:
   packages/tailwind:
     devDependencies:
       '@resolid/config':
-        specifier: workspace:^
-        version: link:../config
+        specifier: ^2.1.0
+        version: 2.1.0
       tailwindcss:
         specifier: ^3.4.16
         version: 3.4.16
@@ -243,8 +237,8 @@ importers:
         version: 5.0.9
     devDependencies:
       '@resolid/config':
-        specifier: workspace:^
-        version: link:../config
+        specifier: ^2.1.0
+        version: 2.1.0
       jsdom:
         specifier: ^24.1.3
         version: 24.1.3
@@ -334,8 +328,8 @@ importers:
         specifier: ^2.15.0
         version: 2.15.0(@remix-run/react@2.15.0(react-dom@19.0.0-rc.1(react@19.0.0-rc.1))(react@19.0.0-rc.1)(typescript@5.7.2))(@types/node@22.10.1)(acorn@8.14.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.1))
       '@resolid/config':
-        specifier: workspace:^
-        version: link:../packages/config
+        specifier: ^2.1.0
+        version: 2.1.0
       '@resolid/mdx-plugins':
         specifier: workspace:^
         version: link:../packages/mdx-plugins
@@ -1292,6 +1286,10 @@ packages:
 
   '@remix-run/web-stream@1.1.0':
     resolution: {integrity: sha512-KRJtwrjRV5Bb+pM7zxcTJkhIqWWSy+MYsIxHK+0m5atcznsf15YwUBWHWulZerV2+vvHH1Lp1DD7pw6qKW8SgA==}
+
+  '@resolid/config@2.1.0':
+    resolution: {integrity: sha512-Eg2FozM6ICDPZ6RiXC1URyYQjERnHVST611njjbPd1fAqD71UstjWSrISeN2ME7vaggMvWoS4KMf0yjtPYu86g==}
+    engines: {node: 20.x, pnpm: 9.x}
 
   '@rollup/pluginutils@5.1.3':
     resolution: {integrity: sha512-Pnsb6f32CD2W3uCaLZIzDmeFyQ2b8UWMFI7xtwUezpcGBDVDW6y9XgAWIlARiGAo6eNF5FK5aQTr0LFyNyqq5A==}
@@ -5703,6 +5701,8 @@ snapshots:
   '@remix-run/web-stream@1.1.0':
     dependencies:
       web-streams-polyfill: 3.3.3
+
+  '@resolid/config@2.1.0': {}
 
   '@rollup/pluginutils@5.1.3(rollup@4.28.0)':
     dependencies:

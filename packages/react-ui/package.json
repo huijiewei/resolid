@@ -32,7 +32,7 @@
     "react-remove-scroll-bar": "^2.3.6"
   },
   "devDependencies": {
-    "@resolid/config": "workspace:^",
+    "@resolid/config": "^2.1.0",
     "@resolid/tailwind": "workspace:^",
     "@testing-library/react": "^16.1.0",
     "@types/react": "^18.3.14",
