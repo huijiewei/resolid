@@ -30,7 +30,7 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@resolid/config": "^2.1.0",
+    "@resolid/config": "^2.1.1",
     "@types/mdast": "^4.0.4",
     "tsup": "^8.3.5"
   },

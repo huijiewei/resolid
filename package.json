@@ -17,9 +17,9 @@
     "@biomejs/biome": "^1.9.4",
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
-    "@resolid/config": "^2.1.0",
+    "@resolid/config": "^2.1.1",
     "@types/node": "^20.17.9",
-    "lefthook": "^1.8.5",
+    "lefthook": "^1.9.0",
     "typescript": "^5.7.2"
   },
   "engines": {
