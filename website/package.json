@@ -30,24 +30,24 @@
     "@vercel/speed-insights": "^1.1.0",
     "hono": "^4.6.13",
     "isbot": "^5.1.17",
-    "react": "19.0.0-rc.1",
-    "react-dom": "19.0.0-rc.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.0",
     "remix-hook-form": "^5.1.1",
     "ua-parser-js": "^2.0.0",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@mdx-js/rollup": "^3.1.0",
     "@remix-run/dev": "^2.15.1",
-    "@resolid/config": "^2.1.1",
+    "@resolid/config": "^2.1.2",
     "@resolid/mdx-plugins": "workspace:^",
     "@resolid/remix-plugins": "workspace:^",
     "@resolid/tailwind": "workspace:^",
-    "@shikijs/rehype": "^1.24.1",
+    "@shikijs/rehype": "^1.24.2",
     "@tailwindcss/typography": "^0.5.15",
-    "@types/react": "^18.3.14",
-    "@types/react-dom": "^18.3.3",
+    "@types/react": "^18.3.16",
+    "@types/react-dom": "^18.3.5",
     "autoprefixer": "^10.4.20",
     "babel-plugin-react-compiler": "beta",
     "drizzle-kit": "^0.29.1",
@@ -66,6 +66,6 @@
     "vitest": "^2.1.8"
   },
   "engines": {
-    "node": "20.x"
+    "node": "22.x"
   }
 }

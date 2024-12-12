@@ -36,10 +36,10 @@
     "nodemailer": "^6.9.16",
     "react-hook-form": "^7.54.0",
     "type-fest": "^4.30.0",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@resolid/config": "^2.1.1",
+    "@resolid/config": "^2.1.2",
     "@types/nodemailer": "^6.4.17",
     "commander": "^12.1.0"
   },

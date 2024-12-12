@@ -122,7 +122,7 @@ const copyFunctionsFiles = async (
     JSON.stringify(
       {
         handler: "index.mjs",
-        runtime: "nodejs20.x",
+        runtime: "nodejs22.x",
         launcherType: "Nodejs",
         supportsResponseStreaming: true,
         regions: Array.isArray(functionRegions) ? functionRegions : [functionRegions],
