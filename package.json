@@ -19,7 +19,7 @@
     "@commitlint/config-conventional": "^19.6.0",
     "@resolid/config": "^2.1.2",
     "@types/node": "^20.17.10",
-    "lefthook": "^1.9.0",
+    "lefthook": "^1.9.2",
     "typescript": "^5.7.2"
   },
   "engines": {
