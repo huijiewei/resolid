@@ -26,16 +26,16 @@
   "dependencies": {
     "@floating-ui/react": "^0.26.28",
     "@resolid/utils": "workspace:^",
-    "@tanstack/react-virtual": "^3.11.1",
+    "@tanstack/react-virtual": "^3.11.2",
     "@tw-classed/core": "^1.7.0",
     "clsx": "^2.1.1",
-    "react-remove-scroll-bar": "^2.3.6"
+    "react-remove-scroll-bar": "^2.3.8"
   },
   "devDependencies": {
     "@resolid/config": "^2.1.2",
     "@resolid/tailwind": "workspace:^",
     "@testing-library/react": "^16.1.0",
-    "@types/react": "^18.3.16",
+    "@types/react": "^18.3.17",
     "@types/react-dom": "^18.3.5",
     "jsdom": "^25.0.1",
     "react": "^19.0.0",
