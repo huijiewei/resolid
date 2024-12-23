@@ -23,6 +23,7 @@ const SelectOptionImpl = <Option extends OptionBase = OptionDefault>(
   const { activeIndex, selectedIndex, getItemProps, elementsRef } = useSelect();
 
   const refs = useMergeRefs(ref, (node) => {
+    // eslint-disable-next-line react-compiler/react-compiler
     elementsRef.current[index] = node;
   });
 

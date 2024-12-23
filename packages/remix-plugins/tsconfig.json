@@ -1,4 +1,0 @@
-{
-  "extends": "@resolid/config/tsconfig.base",
-  "include": ["src/**/*", "tsup.config.ts"]
-}

@@ -1,3 +1,4 @@
+import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
 import type { BaseProps, EmptyProps } from "../slot/slot";
@@ -22,3 +23,7 @@ export const ModalBody = forwardRef<HTMLDivElement, BaseProps<"div", EmptyProps,
     </div>
   );
 });
+
+if (__DEV__) {
+  ModalBody.displayName = "ModalBody";
+}

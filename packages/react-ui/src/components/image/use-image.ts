@@ -56,7 +56,15 @@ export const useImage = (props: UseImageProps) => {
     setStatus(src ? "loading" : "pending");
   }, [src]);
 
-  const imageRef = useRef<HTMLImageElement | null>();
+  const imageRef = useRef<HTMLImageElement | null>(null);
+
+  const flush = useCallback(() => {
+    if (imageRef.current) {
+      imageRef.current.onload = null;
+      imageRef.current.onerror = null;
+      imageRef.current = null;
+    }
+  }, []);
 
   const load = useCallback(() => {
     if (!src) {
@@ -97,15 +105,7 @@ export const useImage = (props: UseImageProps) => {
     };
 
     imageRef.current = img;
-  }, [src, crossOrigin, srcSet, sizes, onLoad, onError, loading]);
-
-  const flush = useCallback(() => {
-    if (imageRef.current) {
-      imageRef.current.onload = null;
-      imageRef.current.onerror = null;
-      imageRef.current = null;
-    }
-  }, []);
+  }, [src, flush, crossOrigin, srcSet, sizes, loading, onLoad, onError]);
 
   useIsomorphicEffect(() => {
     if (status === "loading") {

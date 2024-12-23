@@ -3,18 +3,18 @@
 Resolid 核心框架
 
 - [数据库](#数据库设置)
-  * [设置数据库](#设置数据库)
-  * [定义数据架构](#定义数据架构)
-  * [查询数据](#查询数据)
+  - [设置数据库](#设置数据库)
+  - [定义数据架构](#定义数据架构)
+  - [查询数据](#查询数据)
 - [电子邮件](#电子邮件)
-  * [基本用法](#基本用法)
-  * [自定义 Transport](#自定义-Transport)
+  - [基本用法](#基本用法)
+  - [自定义 Transport](#自定义-Transport)
 - [命令行工具](#命令行工具)
-  * [安装依赖](#安装依赖)
-  * [增加脚本](#增加脚本)
-  * [运行命令](#运行命令)
-  * [创建命令](#创建命令)
-  * [Drizzle Kit 配置](#Drizzle-Kit-配置)
+  - [安装依赖](#安装依赖)
+  - [增加脚本](#增加脚本)
+  - [运行命令](#运行命令)
+  - [创建命令](#创建命令)
+  - [Drizzle Kit 配置](#Drizzle-Kit-配置)
 - [单元测试](#单元测试)
 
 ## 数据库
@@ -51,8 +51,10 @@ export const defineTable = pgTableCreator((name) => "pre_" + name);
 import { serial, text, integer, relations, pgTable } from "@resolid/framework/drizzle";
 import { authColumns } from "@resolid/framework/modules";
 
-export const userTable = pgTable("user", {
-    ...authColumns
+export const userTable = pgTable(
+  "user",
+  {
+    ...authColumns,
   },
   (table) => ({
     emailIndex: uniqueIndex().on(table.email),
@@ -60,30 +62,32 @@ export const userTable = pgTable("user", {
     nicknameIndex: index().on(table.nickname),
     groupIdIndex: index().on(table.groupId),
     deletedAtIndex: index().on(table.deletedAt),
-  })
+  }),
 );
 
-export const blogPostTable = pgTable("blog_post", {
+export const blogPostTable = pgTable(
+  "blog_post",
+  {
     id: serial("id").primaryKey(),
     userId: integer("userId").notNull().default(0),
     slug: text("slug").notNull().default(""),
     title: text("title").notNull().default(""),
     content: text("content").notNull().default(""),
-    createdAt: timestamp("createdAt").notNull().defaultNow()
+    createdAt: timestamp("createdAt").notNull().defaultNow(),
   },
   (blogPostTable) => ({
     slugIndex: uniqueIndex("slugIndex").on(blogPostTable.slug),
     userIdIndex: index("userIdIndex").on(blogPostTable.userId),
-    createdAtIndex: index("createdAtIndex").on(blogPostTable.createdAt)
-  })
+    createdAtIndex: index("createdAtIndex").on(blogPostTable.createdAt),
+  }),
 );
 
 // 建立关联
 export const blogPostRelations = relations(blogPostTable, ({ one }) => ({
   user: one(userTable, {
     fields: [blogPostTable.userId],
-    references: [userTable.id]
-  })
+    references: [userTable.id],
+  }),
 }));
 ```
 
@@ -97,7 +101,7 @@ import { eq, desc, getTableColumns } from "@resolid/framework/drizzle";
 const posts = db
   .select({
     ...getTableColumns(blogPostTable),
-    user: getTableColumns(userTable)
+    user: getTableColumns(userTable),
   })
   .from(blogPostTable)
   .where(eq(blogPostTable.userId, 1))
@@ -118,7 +122,7 @@ import { defineMailer } from "@resolid/framework";
 
 export const mailer = defineMailer({
   dsn: "smtp://username:password@host:port", // 邮件服务器设置
-  from: "Name <email@example.com>" // 发件人设置,
+  from: "Name <email@example.com>", // 发件人设置,
 });
 ```
 
@@ -137,12 +141,12 @@ await mailer.send({
 你可以设定自定义的 Transport, 设置环境变量 `RX_MAILER_DSN` 为 `custom`, 然后将 Transport 传输给 `defineMailer`
 
 ```ts
-import { ResendTransport } from '@documenso/nodemailer-resend';
+import { ResendTransport } from "@documenso/nodemailer-resend";
 import { defineMailer } from "@resolid/framework";
 
 export const mailer = defineMailer({
   transport: ResendTransport.makeTransport({
-    apiKey: process.env.RESEND_API_KEY || '',
+    apiKey: process.env.RESEND_API_KEY || "",
   }),
 });
 ```
@@ -167,7 +171,7 @@ pnpm add -D tsx
 import { createCli } from "@resolid/framework/cli";
 
 createCli({
-  commands: []
+  commands: [],
 });
 ```
 
@@ -215,7 +219,7 @@ import { createCli } from "@resolid/framework/cli";
 import { demoCommand } from "./commands/demo";
 
 createCli({
-  commands: [demoCommand]
+  commands: [demoCommand],
 });
 ```
 

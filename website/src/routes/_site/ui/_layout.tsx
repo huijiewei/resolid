@@ -1,11 +1,12 @@
-import { Outlet } from "@remix-run/react";
 import { mergeMeta } from "@resolid/framework/utils";
 import { CloseButton, clsx } from "@resolid/react-ui";
 import { useState } from "react";
+import { Outlet } from "react-router";
 import { SpriteIcon } from "~/components/base/sprite-icon";
 import { AsideLayoutDispatchProvider, AsideLayoutStateProvider } from "~/components/layout/aside-layout-context";
 import { AsideLayoutMenu, type Menu } from "~/components/layout/aside-layout-menu";
 
+// noinspection JSUnusedGlobalSymbols
 export const meta = mergeMeta(() => {
   return [
     {
@@ -14,6 +15,7 @@ export const meta = mergeMeta(() => {
   ];
 });
 
+// noinspection JSUnusedGlobalSymbols
 export default function Layout() {
   const [opened, setOpened] = useState(false);
 

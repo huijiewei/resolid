@@ -49,26 +49,32 @@ import { Tabs, TabsList, TabsIndicator, TabsTrigger, TabsContent } from "@resoli
     </Tabs>
   </ComponentExample>
 
-  ```jsx
-  <Tabs defaultValue={"pnpm"}>
-    <TabsList>
-      <TabsTrigger value={"pnpm"}>PNPM</TabsTrigger>
-      <TabsTrigger value={"yarn"}>YARN</TabsTrigger>
-      <TabsTrigger value={"npm"}>NPM</TabsTrigger>
-    </TabsList>
-    <TabsContent value={"pnpm"}>
-      <p>PNPM 是 npm 的直接替代品。它构建在 npm 之上，比其前身更快、更高效。它具有很高的磁盘效率，并解决了 npm
-        中的固有问题。</p>
-    </TabsContent>
-    <TabsContent value={"yarn"}>
-      <p>Yarn 是一个包管理器，同时也是项目管理器。无论您从事简单项目还是行业单一存储库，无论您是开源开发人员还是企业用户，Yarn
-        都会为您提供支持。</p>
-    </TabsContent>
-    <TabsContent value={"npm"}>
-      <p>NPM 是 Node JavaScript 平台的包管理器。它将模块放置到位，以便节点可以找到它们，并智能地管理依赖冲突。</p>
-    </TabsContent>
-  </Tabs>
-  ```
+```jsx
+<Tabs defaultValue={"pnpm"}>
+  <TabsList>
+    <TabsTrigger value={"pnpm"}>PNPM</TabsTrigger>
+    <TabsTrigger value={"yarn"}>YARN</TabsTrigger>
+    <TabsTrigger value={"npm"}>NPM</TabsTrigger>
+  </TabsList>
+  <TabsContent value={"pnpm"}>
+    <p>
+      PNPM 是 npm 的直接替代品。它构建在 npm 之上，比其前身更快、更高效。它具有很高的磁盘效率，并解决了 npm
+      中的固有问题。
+    </p>
+  </TabsContent>
+  <TabsContent value={"yarn"}>
+    <p>
+      Yarn
+      是一个包管理器，同时也是项目管理器。无论您从事简单项目还是行业单一存储库，无论您是开源开发人员还是企业用户，Yarn
+      都会为您提供支持。
+    </p>
+  </TabsContent>
+  <TabsContent value={"npm"}>
+    <p>NPM 是 Node JavaScript 平台的包管理器。它将模块放置到位，以便节点可以找到它们，并智能地管理依赖冲突。</p>
+  </TabsContent>
+</Tabs>
+```
+
 </section>
 
 ## 禁用
@@ -95,26 +101,34 @@ import { Tabs, TabsList, TabsIndicator, TabsTrigger, TabsContent } from "@resoli
     </Tabs>
   </ComponentExample>
 
-  ```jsx
-  <Tabs defaultValue={"pnpm"}>
-    <TabsList>
-      <TabsTrigger value={"pnpm"}>PNPM</TabsTrigger>
-      <TabsTrigger value={"yarn"} disabled>YARN</TabsTrigger>
-      <TabsTrigger value={"npm"}>NPM</TabsTrigger>
-    </TabsList>
-    <TabsContent value={"pnpm"}>
-      <p>PNPM 是 npm 的直接替代品。它构建在 npm 之上，比其前身更快、更高效。它具有很高的磁盘效率，并解决了 npm
-        中的固有问题。</p>
-    </TabsContent>
-    <TabsContent value={"yarn"}>
-      <p>Yarn 是一个包管理器，同时也是项目管理器。无论您从事简单项目还是行业单一存储库，无论您是开源开发人员还是企业用户，Yarn
-        都会为您提供支持。</p>
-    </TabsContent>
-    <TabsContent value={"npm"}>
-      <p>NPM 是 Node JavaScript 平台的包管理器。它将模块放置到位，以便节点可以找到它们，并智能地管理依赖冲突。</p>
-    </TabsContent>
-  </Tabs>
-  ```
+```jsx
+<Tabs defaultValue={"pnpm"}>
+  <TabsList>
+    <TabsTrigger value={"pnpm"}>PNPM</TabsTrigger>
+    <TabsTrigger value={"yarn"} disabled>
+      YARN
+    </TabsTrigger>
+    <TabsTrigger value={"npm"}>NPM</TabsTrigger>
+  </TabsList>
+  <TabsContent value={"pnpm"}>
+    <p>
+      PNPM 是 npm 的直接替代品。它构建在 npm 之上，比其前身更快、更高效。它具有很高的磁盘效率，并解决了 npm
+      中的固有问题。
+    </p>
+  </TabsContent>
+  <TabsContent value={"yarn"}>
+    <p>
+      Yarn
+      是一个包管理器，同时也是项目管理器。无论您从事简单项目还是行业单一存储库，无论您是开源开发人员还是企业用户，Yarn
+      都会为您提供支持。
+    </p>
+  </TabsContent>
+  <TabsContent value={"npm"}>
+    <p>NPM 是 Node JavaScript 平台的包管理器。它将模块放置到位，以便节点可以找到它们，并智能地管理依赖冲突。</p>
+  </TabsContent>
+</Tabs>
+```
+
 </section>
 
 ## 垂直
@@ -141,26 +155,32 @@ import { Tabs, TabsList, TabsIndicator, TabsTrigger, TabsContent } from "@resoli
     </Tabs>
   </ComponentExample>
 
-  ```jsx
-  <Tabs defaultValue={"pnpm"} orientation={"vertical"}>
-    <TabsList>
-      <TabsTrigger value={"pnpm"}>PNPM</TabsTrigger>
-      <TabsTrigger value={"yarn"}>YARN</TabsTrigger>
-      <TabsTrigger value={"npm"}>NPM</TabsTrigger>
-    </TabsList>
-    <TabsContent value={"pnpm"}>
-      <p>PNPM 是 npm 的直接替代品。它构建在 npm 之上，比其前身更快、更高效。它具有很高的磁盘效率，并解决了 npm
-        中的固有问题。</p>
-    </TabsContent>
-    <TabsContent value={"yarn"}>
-      <p>Yarn 是一个包管理器，同时也是项目管理器。无论您从事简单项目还是行业单一存储库，无论您是开源开发人员还是企业用户，Yarn
-        都会为您提供支持。</p>
-    </TabsContent>
-    <TabsContent value={"npm"}>
-      <p>NPM 是 Node JavaScript 平台的包管理器。它将模块放置到位，以便节点可以找到它们，并智能地管理依赖冲突。</p>
-    </TabsContent>
-  </Tabs>
-  ```
+```jsx
+<Tabs defaultValue={"pnpm"} orientation={"vertical"}>
+  <TabsList>
+    <TabsTrigger value={"pnpm"}>PNPM</TabsTrigger>
+    <TabsTrigger value={"yarn"}>YARN</TabsTrigger>
+    <TabsTrigger value={"npm"}>NPM</TabsTrigger>
+  </TabsList>
+  <TabsContent value={"pnpm"}>
+    <p>
+      PNPM 是 npm 的直接替代品。它构建在 npm 之上，比其前身更快、更高效。它具有很高的磁盘效率，并解决了 npm
+      中的固有问题。
+    </p>
+  </TabsContent>
+  <TabsContent value={"yarn"}>
+    <p>
+      Yarn
+      是一个包管理器，同时也是项目管理器。无论您从事简单项目还是行业单一存储库，无论您是开源开发人员还是企业用户，Yarn
+      都会为您提供支持。
+    </p>
+  </TabsContent>
+  <TabsContent value={"npm"}>
+    <p>NPM 是 Node JavaScript 平台的包管理器。它将模块放置到位，以便节点可以找到它们，并智能地管理依赖冲突。</p>
+  </TabsContent>
+</Tabs>
+```
+
 </section>
 
 ## 属性

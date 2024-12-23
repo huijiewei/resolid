@@ -22,10 +22,10 @@ export const Drawer = (props: PropsWithChildren<DrawerProps>) => {
   );
 };
 
-export { ModalHeader as DrawerHeader } from "../modal/modal-header";
-export { ModalTitle as DrawerTitle } from "../modal/modal-title";
-export { ModalCloseButton as DrawerCloseButton } from "../modal/modal-close-button";
 export { ModalBody as DrawerBody } from "../modal/modal-body";
+export { ModalCloseButton as DrawerCloseButton } from "../modal/modal-close-button";
 export { ModalFooter as DrawerFooter } from "../modal/modal-footer";
+export { ModalHeader as DrawerHeader } from "../modal/modal-header";
 export { ModalOverlay as DrawerOverlay } from "../modal/modal-overlay";
+export { ModalTitle as DrawerTitle } from "../modal/modal-title";
 export { DrawerContent } from "./drawer-content";

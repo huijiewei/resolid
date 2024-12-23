@@ -34,8 +34,8 @@ import { NumberInput } from "@resolid/react-ui";
     "leading",
     "leadingWidth",
     "leadingPointer",
-    'format',
-    'parse'
+    "format",
+    "parse",
   ]}
 />
 
@@ -48,11 +48,12 @@ import { NumberInput } from "@resolid/react-ui";
     <NumberInput min={10} max={20} />
   </ComponentExample>
 
-  ```jsx
-  <NumberInput max={10} />
-  <NumberInput min={10} />
-  <NumberInput min={10} max={20} />
-  ```
+```jsx
+<NumberInput max={10} />
+<NumberInput min={10} />
+<NumberInput min={10} max={20} />
+```
+
 </section>
 
 ## 格式化
@@ -65,12 +66,13 @@ import { NumberInput } from "@resolid/react-ui";
     />
   </ComponentExample>
 
-  ```jsx
-  <NumberInput
-    parse={(value) => value.replace(/\$\s?|(,*)/g, '')}
-    format={(value) => (!Number.isNaN(value) ? `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '$ ')}
-  />
-  ```
+```jsx
+<NumberInput
+  parse={(value) => value.replace(/\$\s?|(,*)/g, "")}
+  format={(value) => (!Number.isNaN(value) ? `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "$ ")}
+/>
+```
+
 </section>
 
 ## 可控
@@ -90,16 +92,17 @@ import { NumberInput } from "@resolid/react-ui";
 
   </ComponentExample>
 
-  ```jsx
-  const [value, setValue] = useState(0);
+```jsx
+const [value, setValue] = useState(0);
 
-  return (
-    <div className={"flex flex-col gap-2"}>
-      <div>值: {value}</div>
-      <NumberInput value={value} onChange={(value) => setValue(value)} placeholder="数字输入框" />
-    </div>
-  );
-  ```
+return (
+  <div className={"flex flex-col gap-2"}>
+    <div>值: {value}</div>
+    <NumberInput value={value} onChange={(value) => setValue(value)} placeholder="数字输入框" />
+  </div>
+);
+```
+
 </section>
 
 ## 大小
@@ -113,22 +116,22 @@ import { NumberInput } from "@resolid/react-ui";
     <NumberInput size={"xl"} placeholder={"XL 超大"} />
   </ComponentExample>
 
-  ```jsx
-  <NumberInput size={"xs"} placeholder={"XS 超小"} />
-  <NumberInput size={"sm"} placeholder={"SM 小型"} />
-  <NumberInput placeholder={"默认大小"} />
-  <NumberInput size={"lg"} placeholder={"LG 大型"} />
-  <NumberInput size={"xl"} placeholder={"XL 超大"} />
-  ```
+```jsx
+<NumberInput size={"xs"} placeholder={"XS 超小"} />
+<NumberInput size={"sm"} placeholder={"SM 小型"} />
+<NumberInput placeholder={"默认大小"} />
+<NumberInput size={"lg"} placeholder={"LG 大型"} />
+<NumberInput size={"xl"} placeholder={"XL 超大"} />
+```
+
 </section>
 
 ## 前置元素
 
-<section className={'example group'}>
+<section className={"example group"}>
   <ComponentExample className={"flex"}>
     <NumberInput leading={<SpriteIcon size={"sm"} name={"github"} />} placeholder={"仓库数量"} />
   </ComponentExample>
-  
   ```jsx
   <NumberInput leading={<SpriteIcon size={"sm"} name={"github"} />} placeholder={"仓库数量"} />
   ```
@@ -141,9 +144,10 @@ import { NumberInput } from "@resolid/react-ui";
     <NumberInput mouseWheel placeholder={""} />
   </ComponentExample>
 
-  ```jsx
-  <NumberInput leading={<SpriteIcon size={"sm"} name={"github"} />} placeholder={"仓库数量"} />
-  ```
+```jsx
+<NumberInput leading={<SpriteIcon size={"sm"} name={"github"} />} placeholder={"仓库数量"} />
+```
+
 </section>
 
 ## 属性

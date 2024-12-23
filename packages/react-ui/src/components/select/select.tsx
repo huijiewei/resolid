@@ -418,6 +418,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
           const bottom = top + offsetHeight * 3;
 
           if (top < scrollElement.scrollTop) {
+            // eslint-disable-next-line react-compiler/react-compiler
             scrollElement.scrollTop -= scrollElement.scrollTop - top + 6;
           } else if (bottom > scrollHeight + scrollElement.scrollTop) {
             scrollElement.scrollTop += bottom - scrollHeight - scrollElement.scrollTop + 6;
@@ -425,7 +426,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
         }
       }
     }
-  }, [openedState, scrollState, virtual, prevActiveIndex, activeIndex, minSelectedIndex]);
+  }, [openedState, scrollState, virtual, prevActiveIndex, activeIndex, minSelectedIndex, rowVirtual, refs.floating]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useIsomorphicEffect(() => {
@@ -451,7 +452,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
         }
       }
     });
-  }, [openedState, closeOnSelect, virtual, minSelectedIndex]);
+  }, [openedState, closeOnSelect, virtual, minSelectedIndex, rowVirtual, refs.floating]);
 
   return (
     <>
@@ -465,14 +466,14 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
         aria-readonly={ariaAttr(readOnly)}
         ref={refs.setReference}
         className={clsx(
-          "relative inline-flex items-center rounded border outline-none transition-colors",
+          "relative items-center rounded border outline-none transition-colors",
           focusInputStyles,
           invalid && "border-bd-invalid",
           disabled
             ? "pointer-events-none cursor-not-allowed bg-bg-subtle opacity-60"
             : "active:border-bg-primary-emphasis active:ring-1 active:ring-bg-primary-emphasis",
           !invalid && !disabled && !openedState && "hover:border-bd-hovered",
-          block && "w-full",
+          block ? "w-full" : "inline-flex",
           textStyle,
           sizeStyle.select,
           className,
@@ -642,6 +643,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
   );
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const Select = forwardRef(SelectImpl) as <Option extends OptionBase>(
   props: Overwrite<Omit<ComponentPropsWithoutRef<"input">, "children">, SelectProps<Option>> & {
     ref?: ForwardedRef<HTMLInputElement>;

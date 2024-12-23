@@ -1,15 +1,7 @@
-import {
-  Link,
-  type LinkProps,
-  NavLink,
-  type NavLinkProps,
-  type Path,
-  useLocation,
-  useNavigate,
-} from "@remix-run/react";
-import { type BaseProps, Button, type ButtonProps } from "@resolid/react-ui";
+import { Button, type BaseProps, type ButtonProps } from "@resolid/react-ui";
 import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
+import { Link, NavLink, useLocation, useNavigate, type LinkProps, type NavLinkProps, type Path } from "react-router";
 
 export const HistoryLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   const { state, to, ...rest } = props;

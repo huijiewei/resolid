@@ -4,7 +4,7 @@ export const dataAttr = (condition: boolean | null | undefined) => (condition ? 
 
 export const ariaAttr = (condition: boolean | null | undefined) => (condition ? true : undefined);
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const isInputEvent = (value: any): value is { target: HTMLInputElement } => {
   return value && isObject(value) && isObject(value.target);
 };

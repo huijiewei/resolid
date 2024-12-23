@@ -5,7 +5,8 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "lefthook install",
-    "check": "pnpm run -r --if-present check",
+    "lint": "pnpm run -r --if-present lint",
+    "format": "prettier --write .",
     "test": "pnpm test -r --if-present",
     "website:dev": "pnpm --filter website run dev",
     "website:build": "pnpm --filter website... run build",
@@ -14,19 +15,19 @@
     "drizzle": "pnpm --filter website exec -- pnpm --silent drizzle"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@resolid/config": "^2.1.2",
+    "@resolid/config": "^3.0.3",
     "@types/node": "^20.17.10",
     "lefthook": "^1.10.0",
+    "prettier": "^3.4.2",
     "typescript": "^5.7.2"
   },
   "engines": {
     "node": "22.x",
     "pnpm": "9.x"
   },
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "pnpm@9.15.1",
   "homepage": "https://www.resolid.tech",
   "repository": {
     "type": "git",
@@ -35,8 +36,7 @@
   "pnpm": {
     "overrides": {
       "@mdx-js/mdx": "^3.1.0",
-      "esbuild": "^0.21.5",
-      "minimatch": "^10.0.1",
+      "esbuild": "^0.24.2",
       "react": "^19.0.0",
       "react-dom": "^19.0.0",
       "react-is": "^19.0.0",
@@ -50,7 +50,21 @@
       "is-core-module": "npm:@nolyfill/is-core-module@^1",
       "array-flatten": "npm:@nolyfill/array-flatten@^1",
       "safe-buffer": "npm:@nolyfill/safe-buffer@^1",
-      "safer-buffer": "npm:@nolyfill/safer-buffer@^1"
+      "safer-buffer": "npm:@nolyfill/safer-buffer@^1",
+      "array-includes": "npm:@nolyfill/array-includes@^1",
+      "array.prototype.findlast": "npm:@nolyfill/array.prototype.findlast@^1",
+      "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@^1",
+      "array.prototype.flatmap": "npm:@nolyfill/array.prototype.flatmap@^1",
+      "array.prototype.tosorted": "npm:@nolyfill/array.prototype.tosorted@^1",
+      "es-iterator-helpers": "npm:@nolyfill/es-iterator-helpers@^1",
+      "object.assign": "npm:@nolyfill/object.assign@^1",
+      "object.entries": "npm:@nolyfill/object.entries@^1",
+      "object.fromentries": "npm:@nolyfill/object.fromentries@^1",
+      "object.values": "npm:@nolyfill/object.values@^1",
+      "safe-regex-test": "npm:@nolyfill/safe-regex-test@^1",
+      "string.prototype.includes": "npm:@nolyfill/string.prototype.includes@^1",
+      "string.prototype.matchall": "npm:@nolyfill/string.prototype.matchall@^1",
+      "string.prototype.repeat": "npm:@nolyfill/string.prototype.repeat@^1"
     }
   }
 }

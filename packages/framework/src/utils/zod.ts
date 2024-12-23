@@ -51,6 +51,9 @@ const validations = {
   duration: "期间",
   base64: "base64",
   nanoid: "nanoid",
+  cidr: "cidr",
+  jwt: "jwt",
+  base64url: "base64url",
 };
 
 const zodErrorMap: ZodErrorMap = (issue, _ctx) => {

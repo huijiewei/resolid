@@ -1,4 +1,3 @@
-import { env } from "node:process";
 import { format } from "@formkit/tempo";
 import { eq } from "@resolid/framework/drizzle";
 import { authUtils } from "@resolid/framework/modules";
@@ -11,6 +10,7 @@ import {
   createAuthSignupService,
 } from "@resolid/framework/modules.server";
 import { omit } from "@resolid/utils";
+import { env } from "node:process";
 import { UAParser } from "ua-parser-js";
 import { passwordForgotRender } from "~/extensions/email/passwordForgotEmail.server";
 import { db } from "~/foundation/db.server";

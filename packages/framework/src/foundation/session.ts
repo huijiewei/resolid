@@ -1,4 +1,4 @@
-import { type SessionIdStorageStrategy, createSessionStorage } from "@remix-run/node";
+import { createSessionStorage, type SessionIdStorageStrategy } from "react-router";
 import type { IntRange } from "type-fest";
 import type { AuthSessionData, AuthSessionService } from "../modules/auth/service";
 

@@ -1,5 +1,5 @@
-import { data } from "@remix-run/node";
 import type { FieldErrors } from "react-hook-form";
+import { data } from "react-router";
 
 export const httpProblem = (errors: FieldErrors) => {
   return data({ errors: errors }, 422);

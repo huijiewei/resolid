@@ -1,0 +1,20 @@
+# vercel
+.vercel/
+
+# vite
+.vite-inspect/
+
+# env files
+.env
+.env.dev
+.env.test
+.env.prod
+
+# resolid
+.resolid/
+
+# react-router
+.react-router/
+
+build/
+

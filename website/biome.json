@@ -1,3 +1,0 @@
-{
-  "extends": ["@resolid/config/biome", "@resolid/config/biome.react", "@resolid/config/biome.tailwind"]
-}

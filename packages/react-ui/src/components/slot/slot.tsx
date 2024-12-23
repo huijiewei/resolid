@@ -2,7 +2,6 @@ import { type Overwrite, __DEV__, hasOwn, isFunction } from "@resolid/utils";
 import {
   Children,
   type ComponentPropsWithoutRef,
-  type FunctionComponentElement,
   type HTMLAttributes,
   type JSX,
   type ReactNode,
@@ -41,10 +40,10 @@ export const Slot = forwardRef<unknown, SlotProps>((props, ref) => {
 
   if (isValidElement(children)) {
     return cloneElement(children, {
-      ...mergeProps(rest, children.props),
-      ref: ref
-        ? mergeRefs(ref, (children as FunctionComponentElement<unknown>).ref)
-        : (children as FunctionComponentElement<unknown>).ref,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ...mergeProps(rest, (children as any).props),
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ref: ref ? mergeRefs(ref, (children as any).ref) : (children as any).ref,
     });
   }
 

@@ -34,6 +34,7 @@ export {
 } from "drizzle-orm";
 
 export {
+  MySqlDialect,
   bigint,
   boolean,
   char,
@@ -44,18 +45,17 @@ export {
   index,
   int,
   json,
+  longtext,
+  mediumtext,
   mysqlEnum,
+  mysqlTable,
+  mysqlTableCreator,
   real,
   smallint,
   text,
-  mediumtext,
-  longtext,
   time,
   timestamp,
   union,
   uniqueIndex,
   varchar,
-  mysqlTable,
-  mysqlTableCreator,
-  MySqlDialect,
 } from "drizzle-orm/mysql-core";

@@ -21,7 +21,7 @@ export const debounce = (fn: () => void, delay: number): (() => void) => {
 
     if (!invoked) {
       fn();
-      // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
+      // eslint-disable-next-line no-constant-binary-expression,@typescript-eslint/no-unused-expressions
       (invoked = true) && setTimeout(() => (invoked = false), delay);
     } else {
       timeoutId = setTimeout(fn, delay);

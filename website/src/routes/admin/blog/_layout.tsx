@@ -1,5 +1,5 @@
-import { Outlet } from "@remix-run/react";
 import { mergeMeta } from "@resolid/framework/utils";
+import { Outlet } from "react-router";
 
 export const meta = mergeMeta(() => {
   return [{ title: "博客管理" }];

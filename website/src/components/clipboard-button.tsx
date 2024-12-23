@@ -1,6 +1,6 @@
 import { Button, Tooltip, TooltipArrow, TooltipContent, TooltipTrigger, useClipboard } from "@resolid/react-ui";
 import { isNumber, isString } from "@resolid/utils";
-import { type ReactNode, isValidElement, useMemo } from "react";
+import { isValidElement, type ReactNode, useMemo } from "react";
 import { SpriteIcon } from "~/components/base/sprite-icon";
 
 export const ClipboardButton = ({ content }: { content: ReactNode }) => {
@@ -49,7 +49,8 @@ const reactNodeToString = (reactNode: ReactNode): string => {
       strings.push(reactNodeToString(child));
     }
   } else if (isValidElement(reactNode)) {
-    strings.push(reactNodeToString(reactNode.props.children));
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    strings.push(reactNodeToString((reactNode.props as any).children));
   }
 
   return strings.join("");

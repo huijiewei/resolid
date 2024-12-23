@@ -1,20 +1,21 @@
-import type { ActionFunctionArgs } from "@remix-run/node";
-import { Form, useActionData } from "@remix-run/react";
 import { isSuccess, mergeMeta } from "@resolid/framework/utils";
 import { httpProblem } from "@resolid/framework/utils.server";
 import { Button, Input } from "@resolid/react-ui";
 import { useEffect, useState } from "react";
 import { Controller } from "react-hook-form";
+import { Form, useActionData } from "react-router";
 import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/form-error";
 import { userPasswordResetService } from "~/modules/user/service.server";
 import { type UserPasswordResetFormData, userPasswordResetResolver } from "~/modules/user/validator";
+import type { Route } from "./+types/password-reset";
 
+// noinspection JSUnusedGlobalSymbols
 export const meta = mergeMeta(() => {
   return [{ title: "密码重置" }];
 });
 
-export const action = async ({ request }: ActionFunctionArgs) => {
+export const action = async ({ request }: Route.ActionArgs) => {
   const data = await parseFormData<UserPasswordResetFormData>(request);
 
   const [errors] = await userPasswordResetService(data, new URL(request.url).searchParams.get("token"));
@@ -26,6 +27,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   return { success: true };
 };
 
+// noinspection JSUnusedGlobalSymbols
 export default function PasswordReset() {
   const {
     handleSubmit,

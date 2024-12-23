@@ -1,9 +1,11 @@
 import { mergeMeta } from "@resolid/framework/utils";
 
+// noinspection JSUnusedGlobalSymbols
 export const meta = mergeMeta(() => {
   return [{ title: "服务协议" }];
 });
 
+// noinspection JSUnusedGlobalSymbols
 export default function TermsService() {
   return (
     <div className={"prose dark:prose-invert mx-auto max-w-3xl px-4 py-8"}>

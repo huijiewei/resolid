@@ -1,17 +1,18 @@
-import type { ActionFunctionArgs } from "@remix-run/node";
-import { Form } from "@remix-run/react";
 import { getCookieExpires } from "@resolid/framework";
 import { mergeMeta } from "@resolid/framework/utils";
 import { httpProblem, httpRedirect } from "@resolid/framework/utils.server";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
 import { Controller } from "react-hook-form";
+import { Form } from "react-router";
 import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/form-error";
 import { commitAdminSession, setSessionAdmin } from "~/foundation/session.admin.server";
 import { adminLoginService } from "~/modules/admin/service.server";
 import { type AdminLoginFormData, adminLoginResolver } from "~/modules/admin/validator";
+import type { Route } from "./+types/login";
 
-export const action = async ({ request, context }: ActionFunctionArgs) => {
+// noinspection JSUnusedGlobalSymbols
+export const action = async ({ request, context }: Route.ActionArgs) => {
   const data = await parseFormData<AdminLoginFormData>(request);
 
   const [errors, admin] = await adminLoginService(data);
@@ -30,10 +31,12 @@ export const action = async ({ request, context }: ActionFunctionArgs) => {
   );
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const meta = mergeMeta(() => {
   return [{ title: "登陆" }];
 });
 
+// noinspection JSUnusedGlobalSymbols
 export default function Login() {
   const {
     handleSubmit,

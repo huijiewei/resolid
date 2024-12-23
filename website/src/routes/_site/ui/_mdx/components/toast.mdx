@@ -53,26 +53,31 @@ import { useToast, Toast, ToastTitle, ToastDescription, ToastCloseButton } from 
     }}
   </ComponentExample>
 
-  ```jsx
-  const { create } = useToast();
+```jsx
+const { create } = useToast();
 
-  return (
-    <Button
-      onClick={() => {
-        create(<Toast className={"flex gap-2"}>
-            <span className={"shrink-0 pt-1"}><SpriteIcon name={"info"} /></span>
-            <div className={"flex flex-col gap-1"}>
-              <ToastTitle>通知提醒</ToastTitle>
-              <ToastDescription className={"text-sm"}>全局展示通知提醒，将信息及时有效的传达给用户。</ToastDescription>
-            </div>
-            <ToastCloseButton />
-          </Toast>);
-      }}
-    >
-      显示通知提醒
-    </Button>
-  );
-  ```
+return (
+  <Button
+    onClick={() => {
+      create(
+        <Toast className={"flex gap-2"}>
+          <span className={"shrink-0 pt-1"}>
+            <SpriteIcon name={"info"} />
+          </span>
+          <div className={"flex flex-col gap-1"}>
+            <ToastTitle>通知提醒</ToastTitle>
+            <ToastDescription className={"text-sm"}>全局展示通知提醒，将信息及时有效的传达给用户。</ToastDescription>
+          </div>
+          <ToastCloseButton />
+        </Toast>,
+      );
+    }}
+  >
+    显示通知提醒
+  </Button>
+);
+```
+
 </section>
 
 ## 更新
@@ -117,46 +122,57 @@ import { useToast, Toast, ToastTitle, ToastDescription, ToastCloseButton } from 
         </>
       );
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const { create, update } = useToast();
-  const toastId = useRef();
+```jsx
+const { create, update } = useToast();
+const toastId = useRef();
 
-  return (
-    <>
-      <Button
-        onClick={() => {
-          toastId.current = create(<Toast className={"flex gap-2"}>
-            <span className={"shrink-0 pt-1"}><SpriteIcon name={"info"} /></span>
+return (
+  <>
+    <Button
+      onClick={() => {
+        toastId.current = create(
+          <Toast className={"flex gap-2"}>
+            <span className={"shrink-0 pt-1"}>
+              <SpriteIcon name={"info"} />
+            </span>
             <div className={"flex flex-col gap-1"}>
               <ToastTitle>通知提醒</ToastTitle>
               <ToastDescription className={"text-sm"}>全局展示通知提醒，将信息及时有效的传达给用户。</ToastDescription>
             </div>
             <ToastCloseButton />
-          </Toast>);
-        }}
-      >
-        显示通知提醒
-      </Button>
-      <Button
-        color={'neutral'}
-        onClick={() => {
-          update(toastId.current, <Toast color={"success"} className={"flex gap-2"}>
-            <span className={"shrink pt-1"}><SpriteIcon name={"info"} /></span>
+          </Toast>,
+        );
+      }}
+    >
+      显示通知提醒
+    </Button>
+    <Button
+      color={"neutral"}
+      onClick={() => {
+        update(
+          toastId.current,
+          <Toast color={"success"} className={"flex gap-2"}>
+            <span className={"shrink pt-1"}>
+              <SpriteIcon name={"info"} />
+            </span>
             <div className={"flex flex-col gap-1"}>
               <ToastTitle>通知提醒</ToastTitle>
               <ToastDescription className={"text-sm"}>更新通知提醒内容。</ToastDescription>
             </div>
             <ToastCloseButton />
-          </Toast>);
-        }}
-      >
-        更新通知提醒
-      </Button>
-    </>
-  );
-  ```
+          </Toast>,
+        );
+      }}
+    >
+      更新通知提醒
+    </Button>
+  </>
+);
+```
+
 </section>
 
 ## 持续时间
@@ -199,44 +215,56 @@ import { useToast, Toast, ToastTitle, ToastDescription, ToastCloseButton } from 
         </>
       );
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const { create } = useToast();
-  
-  return (
-    <>
-      <Button
-        onClick={() => {
-          create(<Toast className={"flex gap-2"}>
-            <span className={"shrink-0 pt-1"}><SpriteIcon name={"info"} /></span>
+```jsx
+const { create } = useToast();
+
+return (
+  <>
+    <Button
+      onClick={() => {
+        create(
+          <Toast className={"flex gap-2"}>
+            <span className={"shrink-0 pt-1"}>
+              <SpriteIcon name={"info"} />
+            </span>
             <div className={"flex flex-col gap-1"}>
               <ToastTitle>通知提醒</ToastTitle>
               <ToastDescription className={"text-sm"}>全局展示通知提醒，将信息及时有效的传达给用户。</ToastDescription>
             </div>
             <ToastCloseButton />
-          </Toast>, { duration: 10000 });
-        }}
-      >
-        通知提醒持续 10 秒
-      </Button>
-      <Button
-        onClick={() => {
-          create(<Toast className={"flex gap-2"}>
-            <span className={"shrink-0 pt-1"}><SpriteIcon name={"info"} /></span>
+          </Toast>,
+          { duration: 10000 },
+        );
+      }}
+    >
+      通知提醒持续 10 秒
+    </Button>
+    <Button
+      onClick={() => {
+        create(
+          <Toast className={"flex gap-2"}>
+            <span className={"shrink-0 pt-1"}>
+              <SpriteIcon name={"info"} />
+            </span>
             <div className={"flex flex-col gap-1"}>
               <ToastTitle>通知提醒</ToastTitle>
               <ToastDescription className={"text-sm"}>全局展示通知提醒，将信息及时有效的传达给用户。</ToastDescription>
             </div>
             <ToastCloseButton />
-          </Toast>, { duration: null });
-        }}
-      >
-        通知提醒不会自动关闭
-      </Button>
-    </>
-  );
-  ```
+          </Toast>,
+          { duration: null },
+        );
+      }}
+    >
+      通知提醒不会自动关闭
+    </Button>
+  </>
+);
+```
+
 </section>
 
 ## 关闭回调
@@ -263,28 +291,34 @@ import { useToast, Toast, ToastTitle, ToastDescription, ToastCloseButton } from 
         </Button>
       )
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const { create } = useToast();
+```jsx
+const { create } = useToast();
 
-  return (
-    <Button
-      onClick={() => {
-        create(<Toast onDismiss={() => alert("通知提醒关闭回调")} className={"flex gap-2"}>
-          <span className={"shrink-0 pt-1"}><SpriteIcon name={"info"} /></span>
+return (
+  <Button
+    onClick={() => {
+      create(
+        <Toast onDismiss={() => alert("通知提醒关闭回调")} className={"flex gap-2"}>
+          <span className={"shrink-0 pt-1"}>
+            <SpriteIcon name={"info"} />
+          </span>
           <div className={"flex flex-col gap-1"}>
             <ToastTitle>通知提醒</ToastTitle>
             <ToastDescription className={"text-sm"}>全局展示通知提醒，将信息及时有效的传达给用户。</ToastDescription>
           </div>
           <ToastCloseButton />
-        </Toast>);
-      }}
-    >
-      显示通知提醒
-    </Button>
-  );
-  ```
+        </Toast>,
+      );
+    }}
+  >
+    显示通知提醒
+  </Button>
+);
+```
+
 </section>
 
 ## 处理承诺
@@ -334,51 +368,56 @@ import { useToast, Toast, ToastTitle, ToastDescription, ToastCloseButton } from 
         </>
       )
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const { promise } = useToast();
+```jsx
+const { promise } = useToast();
 
-  const promiseFn = (state) => {
-    return state == 'success'
-    ? new Promise((resolve) => setTimeout(() => resolve({message:'处理承诺成功'}), 3000))
+const promiseFn = (state) => {
+  return state == "success"
+    ? new Promise((resolve) => setTimeout(() => resolve({ message: "处理承诺成功" }), 3000))
     : new Promise((resolve, reject) => setTimeout(reject, 3000));
-  }
+};
 
-  const handleClick = (state) => {
-    promise(promiseFn(state),({ state, data, error }) => {
-      return (
-        <Toast className={"flex gap-2"} color={state == "success" ? "success" : state == "failure" ? "danger" : undefined}>
-          <span className={"shrink-0 pt-1 w-5"}>
-            {state == "success" && <SpriteIcon name={"check"} />}
-            {state == "failure" && <SpriteIcon name={"info"} />}
-            {state == "pending" && <Spinner />}
-          </span>
-          <div className={"flex flex-col gap-1"}>
-            <ToastTitle>通知提醒</ToastTitle>
-            <ToastDescription className={"text-sm"}>
-              {state == "success" && data?.message}
-              {state == "failure" && "处理承诺失败"}
-              {state == "pending" && "开始处理承诺..."}
-            </ToastDescription>
-          </div>
-          {state != "pending" && <ToastCloseButton />}
-        </Toast>
-      )
-    });
-  };
+const handleClick = (state) => {
+  promise(promiseFn(state), ({ state, data, error }) => {
+    return (
+      <Toast
+        className={"flex gap-2"}
+        color={state == "success" ? "success" : state == "failure" ? "danger" : undefined}
+      >
+        <span className={"shrink-0 pt-1 w-5"}>
+          {state == "success" && <SpriteIcon name={"check"} />}
+          {state == "failure" && <SpriteIcon name={"info"} />}
+          {state == "pending" && <Spinner />}
+        </span>
+        <div className={"flex flex-col gap-1"}>
+          <ToastTitle>通知提醒</ToastTitle>
+          <ToastDescription className={"text-sm"}>
+            {state == "success" && data?.message}
+            {state == "failure" && "处理承诺失败"}
+            {state == "pending" && "开始处理承诺..."}
+          </ToastDescription>
+        </div>
+        {state != "pending" && <ToastCloseButton />}
+      </Toast>
+    );
+  });
+};
 
-  return (
-    <>
-      <Button color={"success"} onClick={() => handleClick('success')}>
-        处理承诺成功
-      </Button>
-      <Button color={"danger"} onClick={() => handleClick('failure')}>
-        处理承诺失败
-      </Button>
-    </>
-  )
-  ```
+return (
+  <>
+    <Button color={"success"} onClick={() => handleClick("success")}>
+      处理承诺成功
+    </Button>
+    <Button color={"danger"} onClick={() => handleClick("failure")}>
+      处理承诺失败
+    </Button>
+  </>
+);
+```
+
 </section>
 
 ## 颜色
@@ -409,32 +448,38 @@ import { useToast, Toast, ToastTitle, ToastDescription, ToastCloseButton } from 
         )
       });
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const { create } = useToast();
+```jsx
+const { create } = useToast();
 
-  return ['primary', 'neutral', 'success', 'warning', 'danger'].map((color) => {
-    return (
-      <Button
-        key={color}
-        color={color}
-        onClick={() => {
-          create(<Toast color={color} className={"flex gap-2"}>
-              <span className={"shrink-0 pt-1"}><SpriteIcon name={"info"} /></span>
-              <div className={"flex flex-col gap-1"}>
-                <ToastTitle>通知提醒</ToastTitle>
-                <ToastDescription className={"text-sm"}>全局展示通知提醒，将信息及时有效的传达给用户。</ToastDescription>
-              </div>
-              <ToastCloseButton />
-            </Toast>);
-        }}
-      >
-        <span className={"first-letter:uppercase"}>{color}</span>
-      </Button>
-    )
-  });
-  ```
+return ["primary", "neutral", "success", "warning", "danger"].map((color) => {
+  return (
+    <Button
+      key={color}
+      color={color}
+      onClick={() => {
+        create(
+          <Toast color={color} className={"flex gap-2"}>
+            <span className={"shrink-0 pt-1"}>
+              <SpriteIcon name={"info"} />
+            </span>
+            <div className={"flex flex-col gap-1"}>
+              <ToastTitle>通知提醒</ToastTitle>
+              <ToastDescription className={"text-sm"}>全局展示通知提醒，将信息及时有效的传达给用户。</ToastDescription>
+            </div>
+            <ToastCloseButton />
+          </Toast>,
+        );
+      }}
+    >
+      <span className={"first-letter:uppercase"}>{color}</span>
+    </Button>
+  );
+});
+```
+
 </section>
 
 ## 外观
@@ -465,32 +510,38 @@ import { useToast, Toast, ToastTitle, ToastDescription, ToastCloseButton } from 
         )
       });
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const { create } = useToast();
+```jsx
+const { create } = useToast();
 
-  return ['solid', 'outline', 'soft', 'subtle'].map((variant)=>{
-    return (
-      <Button
-        key={variant}
-        variant={variant}
-        onClick={() => {
-          create(<Toast variant={variant} className={"flex gap-2"}>
-              <span className={"shrink-0 pt-1"}><SpriteIcon name={"info"} /></span>
-              <div className={"flex flex-col gap-1"}>
-                <ToastTitle>通知提醒</ToastTitle>
-                <ToastDescription className={"text-sm"}>全局展示通知提醒，将信息及时有效的传达给用户。</ToastDescription>
-              </div>
-              <ToastCloseButton />
-            </Toast>);
-        }}
-      >
-        <span className={"first-letter:uppercase"}>{variant}</span>
-      </Button>
-    )
-  });
+return ["solid", "outline", "soft", "subtle"].map((variant) => {
+  return (
+    <Button
+      key={variant}
+      variant={variant}
+      onClick={() => {
+        create(
+          <Toast variant={variant} className={"flex gap-2"}>
+            <span className={"shrink-0 pt-1"}>
+              <SpriteIcon name={"info"} />
+            </span>
+            <div className={"flex flex-col gap-1"}>
+              <ToastTitle>通知提醒</ToastTitle>
+              <ToastDescription className={"text-sm"}>全局展示通知提醒，将信息及时有效的传达给用户。</ToastDescription>
+            </div>
+            <ToastCloseButton />
+          </Toast>,
+        );
+      }}
+    >
+      <span className={"first-letter:uppercase"}>{variant}</span>
+    </Button>
+  );
+});
 ```
+
 </section>
 
 ## 位置
@@ -548,66 +599,75 @@ import { useToast, Toast, ToastTitle, ToastDescription, ToastCloseButton } from 
         </div>
       );
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const { create, clear } = useToast();
+```jsx
+const { create, clear } = useToast();
 
-  return (
-    <div
-      className={'mx-auto grid w-fit gap-2'}
-      style={{
-        gridTemplateAreas:
-          '"top-start     top         top-end"' +
-          '".            center       ."' +
-          '"bottom-start  bottom      bottom-end"'
-      }}
-    >
-      {[
-        ['top-start', '上左'],
-        ['top', '上'],
-        ['top-end', '上右'],
-        ['center', '关闭全部'],
-        ['bottom-start', '下左'],
-        ['bottom', '下'],
-        ['bottom-end', '下右']
-      ].map(([placement, name]) => {
-        return (
-          <button
-            key={placement}
-            style={{ gridArea: placement }}
-            className={
-              'flex h-10 w-24 text-center leading-tight text-sm cursor-default items-center justify-center rounded bg-bg-subtle hover:bg-bg-subtlest active:bg-bg-muted'
-            }
-            onClick={() => {
-              placement === 'center'
-                ? clear()
-                : create(<Toast className={"flex gap-2"}>
-                    <span className={"shrink-0 pt-1"}><SpriteIcon name={"info"} /></span>
+return (
+  <div
+    className={"mx-auto grid w-fit gap-2"}
+    style={{
+      gridTemplateAreas:
+        '"top-start     top         top-end"' +
+        '".            center       ."' +
+        '"bottom-start  bottom      bottom-end"',
+    }}
+  >
+    {[
+      ["top-start", "上左"],
+      ["top", "上"],
+      ["top-end", "上右"],
+      ["center", "关闭全部"],
+      ["bottom-start", "下左"],
+      ["bottom", "下"],
+      ["bottom-end", "下右"],
+    ].map(([placement, name]) => {
+      return (
+        <button
+          key={placement}
+          style={{ gridArea: placement }}
+          className={
+            "flex h-10 w-24 text-center leading-tight text-sm cursor-default items-center justify-center rounded bg-bg-subtle hover:bg-bg-subtlest active:bg-bg-muted"
+          }
+          onClick={() => {
+            placement === "center"
+              ? clear()
+              : create(
+                  <Toast className={"flex gap-2"}>
+                    <span className={"shrink-0 pt-1"}>
+                      <SpriteIcon name={"info"} />
+                    </span>
                     <div className={"flex flex-col gap-1"}>
                       <ToastTitle>通知提醒</ToastTitle>
-                      <ToastDescription className={"text-sm"}>全局展示通知提醒，将信息及时有效的传达给用户。</ToastDescription>
+                      <ToastDescription className={"text-sm"}>
+                        全局展示通知提醒，将信息及时有效的传达给用户。
+                      </ToastDescription>
                     </div>
                     <ToastCloseButton />
-                  </Toast>, {
-                  placement: placement
-                });
-            }}
-          >
-            {name}
-          </button>
-        );
-      })}
-    </div>
-  );
-  ```
+                  </Toast>,
+                  {
+                    placement: placement,
+                  },
+                );
+          }}
+        >
+          {name}
+        </button>
+      );
+    })}
+  </div>
+);
+```
+
 </section>
 
 ## 全局配置
 
 您可以通过将 `toastOptions` 属性传递给 `ResolidProvider` 组件来全局配置 `toast`。拥有以下几个属性
 
-- `duration`  自动关闭延时, 设置为 `null` 时不自动关闭, 默认值 `5000`
+- `duration` 自动关闭延时, 设置为 `null` 时不自动关闭, 默认值 `5000`
 - `placement` 放置位置, 默认值 `bottom`
 - `spacing` Toast 之间的间隔, 默认值 `0.75rem`
 
@@ -621,9 +681,9 @@ const { create, update, promise, dismiss, clear } = useToast();
 
 `ToastOptions` 拥有 3 个选项
 
-- `id` toast 不可重复的 id; *可选*
-- `duration` 自动关闭延时, 默认使用 `ResolidProvider` 提供的值; *可选*
-- `placement` 显示位置, 默认使用 `ResolidProvider` 提供的值; *可选*
+- `id` toast 不可重复的 id; _可选_
+- `duration` 自动关闭延时, 默认使用 `ResolidProvider` 提供的值; _可选_
+- `placement` 显示位置, 默认使用 `ResolidProvider` 提供的值; _可选_
 
 ### create
 

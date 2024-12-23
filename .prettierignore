@@ -1,0 +1,9 @@
+.idea
+.vscode
+.resolid
+.vercel
+.react-router
+build
+dist
+pnpm-lock.yaml
+

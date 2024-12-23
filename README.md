@@ -1,6 +1,6 @@
 # ![Resolid](.github/assets/resolid.svg)
 
-使用 [Remix](https://remix.run) 驱动的全栈网站，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。
+使用 [React Router](https://reactrouter.com/) 驱动的全栈网站，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。
 
 [![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://react.dev)
 [![Remix](https://img.shields.io/badge/Remix-000000?style=flat&logo=remix&logoColor=white)](https://remix.run)
@@ -16,15 +16,13 @@
 
 ## 子项目
 
-| 包名                                                 | 介绍              |
-|----------------------------------------------------|-----------------|
-| [@resolid/config](./packages/config)               | 通用配置包           |
-| [@resolid/framework](./packages/framework)         | 核心框架包           |
-| [@resolid/react-ui](./packages/react-ui)           | React UI 组件包    |
-| [@resolid/mdx-plugins](./packages/mdx-plugins)     | MDX 插件扩展包       |
-| [@resolid/remix-plugins](./packages/remix-plugins) | Remix 插件扩展包     |
-| [@resolid/tailwind](./packages/tailwind)           | TailwindCSS 预设包 |
-| [@resolid/utils](./packages/utils)                 | 基础工具包           |
+| 包名                                           | 介绍               |
+| ---------------------------------------------- | ------------------ |
+| [@resolid/framework](./packages/framework)     | 核心框架包         |
+| [@resolid/react-ui](./packages/react-ui)       | React UI 组件包    |
+| [@resolid/mdx-plugins](./packages/mdx-plugins) | MDX 插件扩展包     |
+| [@resolid/tailwind](./packages/tailwind)       | TailwindCSS 预设包 |
+| [@resolid/utils](./packages/utils)             | 基础工具包         |
 
 ## 贡献指南
 

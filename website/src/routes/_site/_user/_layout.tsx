@@ -1,4 +1,4 @@
-import { Outlet } from "@remix-run/react";
+import { Outlet } from "react-router";
 import { ErrorComponent } from "~/components/base/error-component";
 
 export default function UsersLayout() {

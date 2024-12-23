@@ -6,14 +6,19 @@
   "description": "Resolid 核心框架",
   "author": "Huijie Wei",
   "license": "MIT",
-  "keywords": ["resolid"],
+  "keywords": [
+    "resolid"
+  ],
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
-  "files": ["cli", "src"],
+  "files": [
+    "cli",
+    "src"
+  ],
   "scripts": {
-    "check": "biome check --write ."
+    "lint": "eslint ."
   },
   "exports": {
     ".": "./src/index.ts",
@@ -27,19 +32,17 @@
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@node-rs/bcrypt": "^1.10.7",
-    "@remix-run/node": "^2.15.1",
-    "@remix-run/react": "^2.15.1",
-    "@remix-run/server-runtime": "^2.15.1",
     "@resolid/utils": "workspace:^",
-    "drizzle-orm": "^0.37.0",
+    "drizzle-orm": "^0.38.2",
     "mysql2": "^3.11.5",
     "nodemailer": "^6.9.16",
-    "react-hook-form": "^7.54.1",
+    "react-hook-form": "^7.54.2",
+    "react-router": "^7.1.0",
     "type-fest": "^4.30.2",
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@resolid/config": "^2.1.2",
+    "@resolid/config": "^3.0.3",
     "@types/nodemailer": "^6.4.17",
     "commander": "^12.1.0"
   },

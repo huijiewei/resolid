@@ -1,5 +1,5 @@
-import { clamp, isNumber } from "@resolid/utils";
-import { type FocusEvent, type KeyboardEvent, forwardRef, useCallback, useRef, useState } from "react";
+import { __DEV__, clamp, isNumber } from "@resolid/utils";
+import { type FocusEvent, forwardRef, type KeyboardEvent, useCallback, useRef, useState } from "react";
 import { useControllableState, useEventListener, useMergeRefs } from "../../hooks";
 import { Input, type InputProps } from "../input/input";
 import type { BaseProps } from "../slot/slot";
@@ -303,3 +303,7 @@ export const NumberInput = forwardRef<
     />
   );
 });
+
+if (__DEV__) {
+  NumberInput.displayName = "NumberInput";
+}

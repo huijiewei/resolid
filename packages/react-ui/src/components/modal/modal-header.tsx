@@ -1,5 +1,5 @@
 import { clsx } from "../../utils/classed";
-import type { BaseProps, EmptyProps } from "../slot/slot";
+import type { BaseProps } from "../slot/slot";
 
 export const ModalHeader = (props: BaseProps<"header">) => {
   const { children, className, ...rest } = props;

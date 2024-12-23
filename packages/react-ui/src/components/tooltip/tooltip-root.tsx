@@ -88,6 +88,7 @@ export const TooltipRoot = (props: PropsWithChildren<TooltipRootProps>) => {
       offset(8),
       placement == "auto" ? autoPlacement() : flip(),
       shift({ padding: 8 }),
+      // eslint-disable-next-line react-compiler/react-compiler
       arrow({
         element: arrowRef,
         padding: 4,
@@ -95,7 +96,11 @@ export const TooltipRoot = (props: PropsWithChildren<TooltipRootProps>) => {
     ],
     open: openedState,
     onOpenChange: (opened) => {
-      opened ? open() : close();
+      if (opened) {
+        open();
+      } else {
+        close();
+      }
     },
     placement: placement == "auto" ? undefined : placement,
     whileElementsMounted: autoUpdate,

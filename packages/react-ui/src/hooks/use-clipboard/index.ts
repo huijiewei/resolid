@@ -17,7 +17,9 @@ export const useClipboard = (timeout = 2000, onError: (error: Error) => void = (
     const id = copied ? setTimeout(() => setCopied(false), timeout) : null;
 
     return () => {
-      id && clearTimeout(id);
+      if (id) {
+        clearTimeout(id);
+      }
     };
   }, [timeout, copied]);
 

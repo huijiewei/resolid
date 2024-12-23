@@ -1,19 +1,9 @@
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
-import {
-  Form,
-  Link,
-  type Location,
-  type MetaArgs,
-  Outlet,
-  createPath,
-  useLoaderData,
-  useLocation,
-} from "@remix-run/react";
 import { authUtils } from "@resolid/framework/modules";
 import {
   Avatar,
   Badge,
   Button,
+  clsx,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuDivider,
@@ -24,10 +14,19 @@ import {
   TooltipArrow,
   TooltipContent,
   TooltipTrigger,
-  clsx,
 } from "@resolid/react-ui";
 import { omit, trimEnd } from "@resolid/utils";
 import { type MouseEventHandler, useState } from "react";
+import {
+  createPath,
+  Form,
+  Link,
+  type LinksFunction,
+  type Location,
+  Outlet,
+  useLoaderData,
+  useLocation,
+} from "react-router";
 import { AuthProvider, useAuth } from "~/components/base/auth-provider";
 import { ColorModeToggle } from "~/components/base/color-mode-toggle";
 import { HistoryLink, HistoryNavLink } from "~/components/base/history-link";
@@ -35,9 +34,11 @@ import { ResolidLogo } from "~/components/base/resolid-logo";
 import { SpriteIcon } from "~/components/base/sprite-icon";
 import { getSessionUser } from "~/foundation/session.user.server";
 import type { UserIdentity } from "~/modules/user/schema.server";
+import type { Route } from "./+types/_layout";
 
 import styles from "~/root.site.css?url";
 
+// noinspection JSUnusedGlobalSymbols
 export const links: LinksFunction = () => {
   return [
     {
@@ -48,20 +49,21 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export const loader = async ({ request, context }: LoaderFunctionArgs) => {
+export const loader = async ({ request, context }: Route.LoaderArgs) => {
   return {
     user: await getSessionUser(request),
     requestOrigin: context.requestOrigin ?? request.url,
   };
 };
 
-export const meta = ({ data }: MetaArgs<typeof loader>) => {
+// noinspection JSUnusedGlobalSymbols
+export const meta = ({ data }: Route.MetaArgs) => {
   const ogImage = new URL("/images/og-image-v1.png", data?.requestOrigin).toString();
   const ogUrl = trimEnd(new URL("", data?.requestOrigin).toString(), "/");
   const siteName = "Resolid";
   const title = siteName;
   const description =
-    "使用 Remix 驱动的全栈网站，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。";
+    "使用 React Router 驱动的全栈网站，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。";
 
   return [
     { title: title },
@@ -116,6 +118,7 @@ export const meta = ({ data }: MetaArgs<typeof loader>) => {
   ].filter(Boolean);
 };
 
+// noinspection JSUnusedGlobalSymbols
 export default function SiteLayout() {
   const { user } = useLoaderData<typeof loader>();
 

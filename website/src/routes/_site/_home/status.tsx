@@ -1,12 +1,12 @@
 import { format } from "@formkit/tempo";
-import type { LoaderFunctionArgs } from "@remix-run/node";
-import { Await, useLoaderData } from "@remix-run/react";
 import { mergeMeta } from "@resolid/framework/utils";
 import { Alert, AlertDescription, AlertTitle } from "@resolid/react-ui";
 import { Suspense } from "react";
+import { Await, useLoaderData } from "react-router";
 import { statusService } from "~/modules/system/service.server";
+import type { Route } from "./+types/status";
 
-export const loader = ({ context }: LoaderFunctionArgs) => {
+export const loader = ({ context }: Route.LoaderArgs) => {
   return {
     ssr: {
       message: "服务器渲染正常",
@@ -29,6 +29,7 @@ export const meta = mergeMeta(() => {
   ];
 });
 
+// noinspection JSUnusedGlobalSymbols
 export default function Status() {
   const { ssr, db } = useLoaderData<typeof loader>();
 

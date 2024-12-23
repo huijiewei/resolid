@@ -1,9 +1,9 @@
-import "@remix-run/node";
-
-declare module "@remix-run/node" {
+declare module "react-router" {
   interface AppLoadContext {
     readonly requestId?: string;
     readonly remoteAddress?: string;
     readonly requestOrigin?: string;
   }
 }
+
+export {};

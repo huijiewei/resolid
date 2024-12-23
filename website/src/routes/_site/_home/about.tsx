@@ -1,10 +1,12 @@
 import { mergeMeta } from "@resolid/framework/utils";
 import { SpriteIcon } from "~/components/base/sprite-icon";
 
+// noinspection JSUnusedGlobalSymbols
 export const meta = mergeMeta(() => {
   return [{ title: "关于" }];
 });
 
+// noinspection JSUnusedGlobalSymbols
 export default function About() {
   return (
     <div className={"prose dark:prose-invert mx-auto max-w-3xl px-4 py-8"}>

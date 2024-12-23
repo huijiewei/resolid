@@ -1,5 +1,3 @@
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
-import { Outlet, type UIMatch, useLoaderData, useMatches } from "@remix-run/react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,15 +7,18 @@ import {
   noScrollbarsClassName,
 } from "@resolid/react-ui";
 import type { ReactNode } from "react";
+import { type LinksFunction, Outlet, type UIMatch, useLoaderData, useMatches } from "react-router";
 import { AuthProvider } from "~/components/base/auth-provider";
 import { ColorModeToggle } from "~/components/base/color-mode-toggle";
 import { HistoryLink } from "~/components/base/history-link";
 import { ResolidLogo } from "~/components/base/resolid-logo";
 import { SpriteIcon } from "~/components/base/sprite-icon";
 import { getSessionAdmin } from "~/foundation/session.admin.server";
+import type { Route } from "./+types/_layout";
 
 import styles from "~/root.admin.css?url";
 
+// noinspection JSUnusedGlobalSymbols
 export const links: LinksFunction = () => {
   return [
     {
@@ -28,16 +29,18 @@ export const links: LinksFunction = () => {
   ];
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const meta = () => {
   return [{ title: "Resolid 后台管理" }];
 };
 
-export const loader = async ({ request }: LoaderFunctionArgs) => {
+export const loader = async ({ request }: Route.LoaderArgs) => {
   return {
     admin: await getSessionAdmin(request),
   };
 };
 
+// noinspection JSUnusedGlobalSymbols
 export default function AdminLayout() {
   const { admin } = useLoaderData<typeof loader>();
 

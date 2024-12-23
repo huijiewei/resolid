@@ -1,10 +1,11 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 import { ColorModeScript, ResolidProvider } from "@resolid/react-ui";
-import { Analytics } from "@vercel/analytics/remix";
-import { SpeedInsights } from "@vercel/speed-insights/remix";
 import type { PropsWithChildren } from "react";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { RouteProcessBar } from "~/components/base/route-process-bar";
+import { VercelAnalytics } from "~/extensions/vercel/VercelAnalytics";
+import { VercelSpeedInsights } from "~/extensions/vercel/VercelSpeedInsights";
 
+// noinspection JSUnusedGlobalSymbols
 export const Layout = ({ children }: PropsWithChildren) => {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
@@ -35,8 +36,8 @@ export default function Root() {
     <>
       {!!import.meta.env.VITE_VERCEL_URL && (
         <>
-          <Analytics endpoint={"/growth"} scriptSrc={"/growth/script.js"} />
-          <SpeedInsights endpoint={"/speed-growth/vitals"} scriptSrc={"/speed-growth/script.js"} />
+          <VercelAnalytics endpoint={"/growth"} scriptSrc={"/growth/script.js"} />
+          <VercelSpeedInsights endpoint={"/speed-growth/vitals"} scriptSrc={"/speed-growth/script.js"} />
         </>
       )}
       <Outlet />

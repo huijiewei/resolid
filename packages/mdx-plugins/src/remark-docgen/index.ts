@@ -1,8 +1,8 @@
+import { fromJs } from "esast-util-from-js";
+import type { MdxJsxAttribute, MdxJsxFlowElement } from "mdast-util-mdx-jsx";
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join, parse } from "node:path";
 import { cwd } from "node:process";
-import { fromJs } from "esast-util-from-js";
-import type { MdxJsxAttribute, MdxJsxFlowElement } from "mdast-util-mdx-jsx";
 import { type PropItem, withCustomConfig } from "react-docgen-typescript";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";

@@ -1,10 +1,10 @@
 import {
-  type Placement,
   arrow,
   autoPlacement,
   autoUpdate,
   flip,
   offset,
+  type Placement,
   safePolygon,
   shift,
   useClick,
@@ -118,6 +118,7 @@ export const PopoverRoot = (props: PopoverRootProps) => {
       offset(8),
       placement == "auto" ? autoPlacement() : flip(),
       shift({ padding: 8 }),
+      // eslint-disable-next-line react-compiler/react-compiler
       arrow({
         element: arrowRef,
         padding: 4,
@@ -125,7 +126,11 @@ export const PopoverRoot = (props: PopoverRootProps) => {
     ],
     open: openedState,
     onOpenChange: (opened) => {
-      opened ? open() : close();
+      if (opened) {
+        open();
+      } else {
+        close();
+      }
     },
     placement: placement == "auto" ? undefined : placement,
     whileElementsMounted: autoUpdate,

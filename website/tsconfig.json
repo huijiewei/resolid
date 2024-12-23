@@ -1,17 +1,20 @@
 {
   "extends": "@resolid/config/tsconfig.react",
   "include": [
+    ".react-router/types/**/*",
     "src/**/*",
     "cli/**/*",
-    "env.d.ts",
     "app.d.ts",
+    "env.d.ts",
     "drizzle.config.ts",
     "tailwind.config.ts",
     "tailwind.admin.config.ts",
     "tailwind-ide.config.ts",
-    "vite.config.ts"
+    "vite.config.ts",
+    "react-router.config.ts"
   ],
   "compilerOptions": {
+    "rootDirs": [".", "./.react-router/types"],
     "paths": {
       "~/*": ["./src/*"],
       "@resolid/react-ui": ["../packages/react-ui/src"],

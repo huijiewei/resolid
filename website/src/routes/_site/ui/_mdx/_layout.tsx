@@ -1,8 +1,8 @@
 import { MDXProvider } from "@mdx-js/react";
-import { Outlet, useLocation } from "@remix-run/react";
 import { clsx } from "@resolid/react-ui";
 import { debounce, isBrowser, isExternalUrl } from "@resolid/utils";
 import { type ComponentPropsWithoutRef, useEffect, useMemo, useRef, useState } from "react";
+import { Outlet, useLocation } from "react-router";
 import { SpriteIcon } from "~/components/base/sprite-icon";
 import { ClipboardButton } from "~/components/clipboard-button";
 
@@ -93,7 +93,6 @@ const Toc = () => {
 
   const { pathname, hash } = useLocation();
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (!isBrowser()) {
       return;
@@ -241,6 +240,7 @@ const Toc = () => {
   ));
 };
 
+// noinspection JSUnusedGlobalSymbols
 export default function Layout() {
   return (
     <>

@@ -46,23 +46,24 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     />
   </ComponentExample>
 
-  ```jsx
-  <Select
-    className={"w-36"}
-    options={Array(10)
-      .fill(null)
-      .map((_, idx) => idx + 1)
-      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
-  />
-  <Select
-    multiple
-    className={"min-w-56"}
-    options={Array(10)
-      .fill(null)
-      .map((_, idx) => idx + 1)
-      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
-  />
-  ```
+```jsx
+<Select
+  className={"w-36"}
+  options={Array(10)
+    .fill(null)
+    .map((_, idx) => idx + 1)
+    .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+/>
+<Select
+  multiple
+  className={"min-w-56"}
+  options={Array(10)
+    .fill(null)
+    .map((_, idx) => idx + 1)
+    .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+/>
+```
+
 </section>
 
 ## 可控
@@ -114,49 +115,50 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     }}
   </ComponentExample>
 
-  ```jsx
-  const [value, setValue] = useState('');
-  const [values, setValues] = useState([]);
+```jsx
+const [value, setValue] = useState("");
+const [values, setValues] = useState([]);
 
-  return (
-    <>
-      <div className={"flex w-full md:w-1/3 flex-col gap-2"}>
-        <p>你最常用的库: {value}</p>
-        <Select
-          className={'w-36'}
-          value={value}
-          onChange={(value) => setValue(value)}
-          options={[
-            { value: 'react', label: 'React' },
-            { value: 'angular', label: 'Angular' },
-            { value: 'svelte', label: 'Svelte' },
-            { value: 'vue', label: 'Vue' },
-            { value: 'solid', label: 'Solid' },
-            { value: 'preact', label: 'Preact' }
-          ]}
-        />
-      </div>
-      <div className={"flex w-full md:w-2/3 flex-col gap-2"}>
-        <p>你曾学习的库: {values.join(', ')}</p>
-        <Select
-          multiple
-          closeOnSelect={false}
-          className={'min-w-36'}
-          value={values}
-          onChange={(values) => setValues(values)}
-          options={[
-            { value: 'react', label: 'React' },
-            { value: 'angular', label: 'Angular' },
-            { value: 'svelte', label: 'Svelte' },
-            { value: 'vue', label: 'Vue' },
-            { value: 'solid', label: 'Solid' },
-            { value: 'preact', label: 'Preact' }
-          ]}
-        />
-      </div>
-    </>
-  );
-  ```
+return (
+  <>
+    <div className={"flex w-full md:w-1/3 flex-col gap-2"}>
+      <p>你最常用的库: {value}</p>
+      <Select
+        className={"w-36"}
+        value={value}
+        onChange={(value) => setValue(value)}
+        options={[
+          { value: "react", label: "React" },
+          { value: "angular", label: "Angular" },
+          { value: "svelte", label: "Svelte" },
+          { value: "vue", label: "Vue" },
+          { value: "solid", label: "Solid" },
+          { value: "preact", label: "Preact" },
+        ]}
+      />
+    </div>
+    <div className={"flex w-full md:w-2/3 flex-col gap-2"}>
+      <p>你曾学习的库: {values.join(", ")}</p>
+      <Select
+        multiple
+        closeOnSelect={false}
+        className={"min-w-36"}
+        value={values}
+        onChange={(values) => setValues(values)}
+        options={[
+          { value: "react", label: "React" },
+          { value: "angular", label: "Angular" },
+          { value: "svelte", label: "Svelte" },
+          { value: "vue", label: "Vue" },
+          { value: "solid", label: "Solid" },
+          { value: "preact", label: "Preact" },
+        ]}
+      />
+    </div>
+  </>
+);
+```
+
 </section>
 
 ## 状态
@@ -189,32 +191,33 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     />
   </ComponentExample>
 
-  ```jsx
-  <Select
-    disabled
-    className={"w-36"}
-    options={Array(10)
-      .fill(null)
-      .map((_, idx) => idx + 1)
-      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
-  />
-  <Select
-    invalid
-    className={"w-36"}
-    options={Array(10)
-      .fill(null)
-      .map((_, idx) => idx + 1)
-      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
-  />
-  <Select
-    readOnly
-    className={"w-36"}
-    options={Array(10)
-      .fill(null)
-      .map((_, idx) => idx + 1)
-      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
-  />
-  ```
+```jsx
+<Select
+  disabled
+  className={"w-36"}
+  options={Array(10)
+    .fill(null)
+    .map((_, idx) => idx + 1)
+    .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+/>
+<Select
+  invalid
+  className={"w-36"}
+  options={Array(10)
+    .fill(null)
+    .map((_, idx) => idx + 1)
+    .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+/>
+<Select
+  readOnly
+  className={"w-36"}
+  options={Array(10)
+    .fill(null)
+    .map((_, idx) => idx + 1)
+    .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+/>
+```
+
 </section>
 
 ## 大小
@@ -265,50 +268,51 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     />
   </ComponentExample>
 
-  ```jsx
-  <Select
-    className={"w-28"}
-    options={Array(10)
-      .fill(null)
-      .map((_, idx) => idx + 1)
-      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
-    size={'xs'}
-  />
-  <Select
-    multiple
-    className={"w-28"}
-    options={Array(10)
-      .fill(null)
-      .map((_, idx) => idx + 1)
-      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
-    size={'sm'}
-  />
-  <Select
-    className={"w-28"}
-    options={Array(10)
-      .fill(null)
-      .map((_, idx) => idx + 1)
-      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
-    size={'md'}
-  />
-  <Select
-    multiple
-    className={"w-36"}
-    options={Array(10)
-      .fill(null)
-      .map((_, idx) => idx + 1)
-      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
-    size={'lg'}
-  />
-  <Select
-    className={"w-36"}
-    options={Array(10)
-      .fill(null)
-      .map((_, idx) => idx + 1)
-      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
-    size={'xl'}
-  />
-  ```
+```jsx
+<Select
+  className={"w-28"}
+  options={Array(10)
+    .fill(null)
+    .map((_, idx) => idx + 1)
+    .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+  size={'xs'}
+/>
+<Select
+  multiple
+  className={"w-28"}
+  options={Array(10)
+    .fill(null)
+    .map((_, idx) => idx + 1)
+    .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+  size={'sm'}
+/>
+<Select
+  className={"w-28"}
+  options={Array(10)
+    .fill(null)
+    .map((_, idx) => idx + 1)
+    .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+  size={'md'}
+/>
+<Select
+  multiple
+  className={"w-36"}
+  options={Array(10)
+    .fill(null)
+    .map((_, idx) => idx + 1)
+    .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+  size={'lg'}
+/>
+<Select
+  className={"w-36"}
+  options={Array(10)
+    .fill(null)
+    .map((_, idx) => idx + 1)
+    .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+  size={'xl'}
+/>
+```
+
 </section>
 
 ## 选项组
@@ -376,37 +380,38 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     />
   </ComponentExample>
 
-  ```jsx
-  <Select
-    className={"w-52"}
-    options={[
-      {
-        label: '前端',
-        options: [
-          { label: 'React', value: 'react' },
-          { label: 'Vue', value: 'vue' },
-          { label: 'Angular', value: 'angular' }
-        ]
-      },
-      {
-        label: '后端',
-        options: [
-          { label: 'Express', value: 'express' },
-          { label: 'Koa', value: 'koa' },
-          { label: 'Laravel', value: 'laravel' }
-        ]
-      },
-      {
-        label: '数据库',
-        options: [
-          { label: 'Mysql', value: 'mysql', disabled: true },
-          { label: 'Postgres', value: 'postgres' },
-          { label: 'SQLite', value: 'sqlite' }
-        ]
-      }
-    ]}
-  />
-  ```
+```jsx
+<Select
+  className={"w-52"}
+  options={[
+    {
+      label: "前端",
+      options: [
+        { label: "React", value: "react" },
+        { label: "Vue", value: "vue" },
+        { label: "Angular", value: "angular" },
+      ],
+    },
+    {
+      label: "后端",
+      options: [
+        { label: "Express", value: "express" },
+        { label: "Koa", value: "koa" },
+        { label: "Laravel", value: "laravel" },
+      ],
+    },
+    {
+      label: "数据库",
+      options: [
+        { label: "Mysql", value: "mysql", disabled: true },
+        { label: "Postgres", value: "postgres" },
+        { label: "SQLite", value: "sqlite" },
+      ],
+    },
+  ]}
+/>
+```
+
 </section>
 
 ## 自定义渲染
@@ -505,96 +510,97 @@ import { Select, NativeSelect } from "@resolid/react-ui";
         </>
       );
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const browsers = [
-    {
-      value: 'chrome',
-      name: 'Google Chrome',
-      icon: <BrowserIcon name={'chrome'} />,
-      description: 'Google Chrome 是一款快速、易于使用且安全的网络浏览器。',
-    },
-    {
-      value: 'firefox',
-      name: 'Firefox',
-      icon: <BrowserIcon name={'firefox'} />,
-      description: 'Firefox 是由 Mozilla 支持的免费网络浏览器。',
-    },
-    {
-      value: 'safari',
-      name: 'Safari',
-      icon: <BrowserIcon name={'safari'} />,
-      description: 'Safari 是在所有 Apple 设备上体验互联网的最佳方式。',
-    },
-    {
-      value: 'edge',
-      name: 'Microsoft Edge',
-      icon: <BrowserIcon name={'edge'} />,
-      description: 'Microsoft Edge 是新 Bing 体验的最佳浏览器。',
-    },
-    {
-      value: 'opera',
-      name: 'Opera',
-      icon: <BrowserIcon name={'opera'} />,
-      description:
-    '比默认浏览器更快、更安全、更智能。 功能齐全，可保护隐私、安全等。',
-    },
-    {
-      value: 'brave',
-      name: 'Brave',
-      icon: <BrowserIcon name={'brave'} />,
-      description: 'Brave 浏览器是一款超快速、私密且安全的网络浏览器，带有 Adblock。',
-    },
-    {
-      value: 'vivaldi',
-      name: 'Vivaldi',
-      icon: <BrowserIcon name={'vivaldi'} />,
-      description: "我们正在构建一个快速、高度可定制的浏览器，优先考虑您的隐私。",
-    },
-  ];
-  
-  const renderOption = (browser) => {
-    return (
-      <div className={'flex items-center gap-3'}>
-        {browser.icon}
-        <div>
-          <div>{browser.name}</div>
-          <div className={'text-fg-subtle text-sm'}>{browser.description}</div>
-        </div>
-      </div>
-    );
-  };
-  
-  const renderLabel = (browser) => {
-    return (
-      <div className={'flex flex-row items-center gap-2'}>
-        {browser.icon}
-        {browser.name}
-      </div>
-    );
-  };
-  
+```jsx
+const browsers = [
+  {
+    value: "chrome",
+    name: "Google Chrome",
+    icon: <BrowserIcon name={"chrome"} />,
+    description: "Google Chrome 是一款快速、易于使用且安全的网络浏览器。",
+  },
+  {
+    value: "firefox",
+    name: "Firefox",
+    icon: <BrowserIcon name={"firefox"} />,
+    description: "Firefox 是由 Mozilla 支持的免费网络浏览器。",
+  },
+  {
+    value: "safari",
+    name: "Safari",
+    icon: <BrowserIcon name={"safari"} />,
+    description: "Safari 是在所有 Apple 设备上体验互联网的最佳方式。",
+  },
+  {
+    value: "edge",
+    name: "Microsoft Edge",
+    icon: <BrowserIcon name={"edge"} />,
+    description: "Microsoft Edge 是新 Bing 体验的最佳浏览器。",
+  },
+  {
+    value: "opera",
+    name: "Opera",
+    icon: <BrowserIcon name={"opera"} />,
+    description: "比默认浏览器更快、更安全、更智能。 功能齐全，可保护隐私、安全等。",
+  },
+  {
+    value: "brave",
+    name: "Brave",
+    icon: <BrowserIcon name={"brave"} />,
+    description: "Brave 浏览器是一款超快速、私密且安全的网络浏览器，带有 Adblock。",
+  },
+  {
+    value: "vivaldi",
+    name: "Vivaldi",
+    icon: <BrowserIcon name={"vivaldi"} />,
+    description: "我们正在构建一个快速、高度可定制的浏览器，优先考虑您的隐私。",
+  },
+];
+
+const renderOption = (browser) => {
   return (
-    <>
-      <Select
-        className={'w-56'}
-        defaultValue={"chrome"}
-        options={browsers}
-        renderLabel={renderLabel}
-        renderOption={renderOption}
-      />
-      <Select
-        className={'w-96'}
-        defaultValue={["firefox", "chrome"]}
-        options={browsers}
-        multiple
-        renderLabel={renderLabel}
-        renderOption={renderOption}
-      />
-    </>
+    <div className={"flex items-center gap-3"}>
+      {browser.icon}
+      <div>
+        <div>{browser.name}</div>
+        <div className={"text-fg-subtle text-sm"}>{browser.description}</div>
+      </div>
+    </div>
   );
-  ```
+};
+
+const renderLabel = (browser) => {
+  return (
+    <div className={"flex flex-row items-center gap-2"}>
+      {browser.icon}
+      {browser.name}
+    </div>
+  );
+};
+
+return (
+  <>
+    <Select
+      className={"w-56"}
+      defaultValue={"chrome"}
+      options={browsers}
+      renderLabel={renderLabel}
+      renderOption={renderOption}
+    />
+    <Select
+      className={"w-96"}
+      defaultValue={["firefox", "chrome"]}
+      options={browsers}
+      multiple
+      renderLabel={renderLabel}
+      renderOption={renderOption}
+    />
+  </>
+);
+```
+
 </section>
 
 ## 虚拟滚动
@@ -629,32 +635,33 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     />
   </ComponentExample>
 
-  ```jsx
-  <Select
-    className={"w-36"}
-    options={Array(1000)
-      .fill(null)
-      .map((_, idx) => idx + 1)
-      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
-  />
-  <Select
-    className={"w-36"}
-    defaultValue={102}
-    options={Array(1000)
-      .fill(null)
-      .map((_, idx) => idx + 1)
-      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
-  />
-  <Select
-    multiple
-    className={"min-w-56"}
-    defaultValue={[102,252]}
-    options={Array(1000)
-      .fill(null)
-      .map((_, idx) => idx + 1)
-      .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
-  />
-  ```
+```jsx
+<Select
+  className={"w-36"}
+  options={Array(1000)
+    .fill(null)
+    .map((_, idx) => idx + 1)
+    .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+/>
+<Select
+  className={"w-36"}
+  defaultValue={102}
+  options={Array(1000)
+    .fill(null)
+    .map((_, idx) => idx + 1)
+    .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+/>
+<Select
+  multiple
+  className={"min-w-56"}
+  defaultValue={[102,252]}
+  options={Array(1000)
+    .fill(null)
+    .map((_, idx) => idx + 1)
+    .map((eve) => ({ value: eve, label: `选项 ${eve}` }))}
+/>
+```
+
 </section>
 
 ## 原生选择器
@@ -703,45 +710,45 @@ import { Select, NativeSelect } from "@resolid/react-ui";
     </NativeSelect>
   </ComponentExample>
 
-  ```jsx
-  <NativeSelect size={'xs'} placeholder={'选择框架'}>
-    <option value={'react'}>React</option>
-    <option value={'vue'}>Vue</option>
-    <option value={'angular'} disabled>Angular</option>
-    <option value={'solid'}>Solid</option>
-    <option value={'svelte'}>Svelte</option>
-  </NativeSelect>
-  <NativeSelect size={'sm'} placeholder={'选择框架'}>
-    <option value={'react'}>React</option>
-    <option value={'vue'}>Vue</option>
-    <option value={'angular'}>Angular</option>
-    <option value={'solid'}>Solid</option>
-    <option value={'svelte'}>Svelte</option>
-  </NativeSelect>
-  <NativeSelect defaultValue={'solid'} placeholder={'选择框架'}>
-    <option value={'react'}>React</option>
-    <option value={'vue'}>Vue</option>
-    <option value={'angular'}>Angular</option>
-    <option value={'solid'}>Solid</option>
-    <option value={'svelte'}>Svelte</option>
-  </NativeSelect>
-  <NativeSelect size={'lg'} placeholder={'选择框架'}>
-    <option value={'react'}>React</option>
-    <option value={'vue'}>Vue</option>
-    <option value={'angular'}>Angular</option>
-    <option value={'solid'}>Solid</option>
-    <option value={'svelte'}>Svelte</option>
-  </NativeSelect>
-  <NativeSelect size={'xl'} placeholder={'选择框架'}>
-    <option value={'react'}>React</option>
-    <option value={'vue'}>Vue</option>
-    <option value={'angular'}>Angular</option>
-    <option value={'solid'}>Solid</option>
-    <option value={'svelte'}>Svelte</option>
-  </NativeSelect>
-  ```
-</section>
+```jsx
+<NativeSelect size={'xs'} placeholder={'选择框架'}>
+  <option value={'react'}>React</option>
+  <option value={'vue'}>Vue</option>
+  <option value={'angular'} disabled>Angular</option>
+  <option value={'solid'}>Solid</option>
+  <option value={'svelte'}>Svelte</option>
+</NativeSelect>
+<NativeSelect size={'sm'} placeholder={'选择框架'}>
+  <option value={'react'}>React</option>
+  <option value={'vue'}>Vue</option>
+  <option value={'angular'}>Angular</option>
+  <option value={'solid'}>Solid</option>
+  <option value={'svelte'}>Svelte</option>
+</NativeSelect>
+<NativeSelect defaultValue={'solid'} placeholder={'选择框架'}>
+  <option value={'react'}>React</option>
+  <option value={'vue'}>Vue</option>
+  <option value={'angular'}>Angular</option>
+  <option value={'solid'}>Solid</option>
+  <option value={'svelte'}>Svelte</option>
+</NativeSelect>
+<NativeSelect size={'lg'} placeholder={'选择框架'}>
+  <option value={'react'}>React</option>
+  <option value={'vue'}>Vue</option>
+  <option value={'angular'}>Angular</option>
+  <option value={'solid'}>Solid</option>
+  <option value={'svelte'}>Svelte</option>
+</NativeSelect>
+<NativeSelect size={'xl'} placeholder={'选择框架'}>
+  <option value={'react'}>React</option>
+  <option value={'vue'}>Vue</option>
+  <option value={'angular'}>Angular</option>
+  <option value={'solid'}>Solid</option>
+  <option value={'svelte'}>Svelte</option>
+</NativeSelect>
+```
 
+</section>
 
 ## 属性
 

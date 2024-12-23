@@ -9,7 +9,9 @@ export const authColumns = {
   username: varchar({ length: 32 }).notNull().default(""),
   nickname: varchar({ length: 32 }).notNull().default(""),
   avatar: varchar({ length: 512 }).notNull().default(""),
-  createdAt: timestamp().notNull().default(sql`CURRENT_TIMESTAMP`),
+  createdAt: timestamp()
+    .notNull()
+    .default(sql`CURRENT_TIMESTAMP`),
   updatedAt: timestamp().onUpdateNow(),
   deletedAt: timestamp(),
 };
@@ -27,7 +29,9 @@ export const authGroupColumns = {
 export const authSessionColumns = {
   id: varchar({ length: 32 }).primaryKey(),
   identityId: int().notNull().default(0),
-  createdAt: timestamp().notNull().default(sql`CURRENT_TIMESTAMP`),
+  createdAt: timestamp()
+    .notNull()
+    .default(sql`CURRENT_TIMESTAMP`),
   updatedAt: timestamp().onUpdateNow(),
   expiredAt: timestamp().notNull(),
   remoteAddr: varchar({ length: 60 }).notNull().default(""),
@@ -38,7 +42,9 @@ export const authPasswordResetColumns = {
   id: varchar({ length: 32 }).primaryKey(),
   identityId: int().notNull().default(0),
   redeemed: boolean().default(false),
-  createdAt: timestamp().notNull().default(sql`CURRENT_TIMESTAMP`),
+  createdAt: timestamp()
+    .notNull()
+    .default(sql`CURRENT_TIMESTAMP`),
   expiredAt: timestamp(),
   remoteAddr: varchar({ length: 60 }).notNull().default(""),
   userAgent: varchar({ length: 512 }).notNull().default(""),

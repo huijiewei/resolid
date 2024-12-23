@@ -1,9 +1,7 @@
-import { createHonoVercelServer } from "@resolid/remix-plugins/vercel-server";
+import { createHonoVercelServer } from "@resolid/react-router-hono/vercel-server";
 import { getLoadContext, honoConfigure } from "~/server.base";
 
-export const server = await createHonoVercelServer({
+export default await createHonoVercelServer({
   configure: honoConfigure,
   getLoadContext: getLoadContext,
 });
-
-export default server;

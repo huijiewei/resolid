@@ -6,14 +6,21 @@
   "description": "Resolid React UI 组件",
   "author": "Huijie Wei",
   "license": "MIT",
-  "keywords": ["resolid", "react", "react-hook", "tailwindcss"],
+  "keywords": [
+    "resolid",
+    "react",
+    "react-hook",
+    "tailwindcss"
+  ],
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "check": "biome check --write .",
+    "lint": "eslint .",
     "test": "vitest --run",
     "build": "tsup"
   },
@@ -24,7 +31,7 @@
     }
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.28",
+    "@floating-ui/react": "^0.27.2",
     "@resolid/utils": "workspace:^",
     "@tanstack/react-virtual": "^3.11.2",
     "@tw-classed/core": "^1.7.0",
@@ -32,22 +39,22 @@
     "react-remove-scroll-bar": "^2.3.8"
   },
   "devDependencies": {
-    "@resolid/config": "^2.1.2",
+    "@resolid/config": "^3.0.3",
     "@resolid/tailwind": "workspace:^",
     "@testing-library/react": "^16.1.0",
-    "@types/react": "^18.3.17",
-    "@types/react-dom": "^18.3.5",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
     "jsdom": "^25.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tsup": "^8.3.5",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^2.1.8"
+    "vitest": "3.0.0-beta.3"
   },
   "peerDependencies": {
     "@resolid/tailwind": "workspace:^",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "homepage": "https://www.resolid.tech",
   "repository": {

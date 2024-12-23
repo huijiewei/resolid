@@ -13,8 +13,12 @@ export function useDisclosure(options: UseDisclosureProps) {
   const [openedState, setOpenedState] = useControllableState({
     value: opened,
     defaultValue: defaultOpened,
-    onChange: (value) => {
-      value ? onOpen?.() : onClose?.();
+    onChange: (opened) => {
+      if (opened) {
+        onOpen?.();
+      } else {
+        onClose?.();
+      }
     },
   });
 

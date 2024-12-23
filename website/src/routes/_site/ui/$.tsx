@@ -2,10 +2,12 @@ import { mergeMeta } from "@resolid/framework/utils";
 import { httpNotFound } from "@resolid/framework/utils.server";
 import { ErrorComponent } from "~/components/base/error-component";
 
+// noinspection JSUnusedGlobalSymbols
 export const loader = async () => {
   httpNotFound();
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const meta = mergeMeta(() => {
   return [
     {
@@ -14,10 +16,12 @@ export const meta = mergeMeta(() => {
   ];
 });
 
+// noinspection JSUnusedGlobalSymbols
 export default function Catchall() {
   return null;
 }
 
+// noinspection JSUnusedGlobalSymbols
 export const ErrorBoundary = () => {
   return <ErrorComponent />;
 };

@@ -6,14 +6,19 @@
   "description": "Resolid TailwindCSS 预设",
   "author": "Huijie Wei",
   "license": "MIT",
-  "keywords": ["resolid", "tailwindcss"],
+  "keywords": [
+    "resolid",
+    "tailwindcss"
+  ],
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "check": "biome check --write .",
+    "lint": "eslint .",
     "build": "tsup"
   },
   "exports": {
@@ -23,12 +28,12 @@
     }
   },
   "devDependencies": {
-    "@resolid/config": "^2.1.2",
+    "@resolid/config": "^3.0.3",
     "tailwindcss": "^3.4.17",
     "tsup": "^8.3.5"
   },
   "peerDependencies": {
-    "tailwindcss": "^3.4.15"
+    "tailwindcss": "^3.4.17"
   },
   "homepage": "https://www.resolid.tech",
   "repository": {

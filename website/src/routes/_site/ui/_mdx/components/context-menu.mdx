@@ -15,7 +15,7 @@ import {
   ContextMenuItemTrigger,
   ContextMenuRadioGroup,
   ContextMenuRadioItem,
-  ContextMenuTrigger
+  ContextMenuTrigger,
 } from "@resolid/react-ui";
 import { mergeFrontmatter } from "../__utils";
 import { SpriteIcon } from "~/components/base/sprite-icon";
@@ -83,31 +83,32 @@ import {
     </ContextMenu>
   </ComponentExample>
 
-  ```jsx
-  <ContextMenu>
-    <ContextMenuTrigger className={"flex h-32 items-center rounded border border-dashed p-6"}>
-      右键点击显示菜单
-    </ContextMenuTrigger>
-    <ContextMenuContent className={"text-sm"}>
-      <ContextMenuItem>
-        新标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+T</span>
-      </ContextMenuItem>
-      <ContextMenuItem>
-        打开新窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+N</span>
-      </ContextMenuItem>
-      <ContextMenuItem disabled>
-        打开新的无痕式窗口<span className={"ml-auto pl-5 text-xs tracking-widest"}>⇧+⌘+N</span>
-      </ContextMenuItem>
-      <ContextMenuDivider />
-      <ContextMenuItem>
-        关闭窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⇧+⌘+W</span>
-      </ContextMenuItem>
-      <ContextMenuItem>
-        关闭标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+W</span>
-      </ContextMenuItem>
-    </ContextMenuContent>
-  </ContextMenu>
-  ```
+```jsx
+<ContextMenu>
+  <ContextMenuTrigger className={"flex h-32 items-center rounded border border-dashed p-6"}>
+    右键点击显示菜单
+  </ContextMenuTrigger>
+  <ContextMenuContent className={"text-sm"}>
+    <ContextMenuItem>
+      新标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+T</span>
+    </ContextMenuItem>
+    <ContextMenuItem>
+      打开新窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+N</span>
+    </ContextMenuItem>
+    <ContextMenuItem disabled>
+      打开新的无痕式窗口<span className={"ml-auto pl-5 text-xs tracking-widest"}>⇧+⌘+N</span>
+    </ContextMenuItem>
+    <ContextMenuDivider />
+    <ContextMenuItem>
+      关闭窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⇧+⌘+W</span>
+    </ContextMenuItem>
+    <ContextMenuItem>
+      关闭标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+W</span>
+    </ContextMenuItem>
+  </ContextMenuContent>
+</ContextMenu>
+```
+
 </section>
 
 ## 多级菜单
@@ -147,40 +148,41 @@ import {
     </ContextMenu>
   </ComponentExample>
 
-  ```jsx
-  <ContextMenu>
-    <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
-      右键点击显示菜单
-    </ContextMenuTrigger>
-    <ContextMenuContent className={"text-sm"}>
-      <ContextMenuItem>新建</ContextMenuItem>
-      <ContextMenuItem>打开</ContextMenuItem>
-      <ContextMenuDivider />
-      <ContextMenu>
-        <ContextMenuItemTrigger>分享</ContextMenuItemTrigger>
-        <ContextMenuContent className={"text-sm"}>
-          <ContextMenuItem>邮件</ContextMenuItem>
-          <ContextMenuItem>短信</ContextMenuItem>
-          <ContextMenu>
-            <ContextMenuItemTrigger>社交媒体</ContextMenuItemTrigger>
-            <ContextMenuContent className={"text-sm"}>
-              <ContextMenu>
-                <ContextMenuItemTrigger>微信</ContextMenuItemTrigger>
-                <ContextMenuContent className={"text-sm"}>
-                  <ContextMenuItem>聊天</ContextMenuItem>
-                  <ContextMenuItem>朋友圈</ContextMenuItem>
-                </ContextMenuContent>
-              </ContextMenu>
-              <ContextMenuItem>微博</ContextMenuItem>
-              <ContextMenuItem>抖音</ContextMenuItem>
-              <ContextMenuItem>知乎</ContextMenuItem>
-            </ContextMenuContent>
-          </ContextMenu>
-        </ContextMenuContent>
-      </ContextMenu>
-    </ContextMenuContent>
-  </ContextMenu>
-  ```
+```jsx
+<ContextMenu>
+  <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
+    右键点击显示菜单
+  </ContextMenuTrigger>
+  <ContextMenuContent className={"text-sm"}>
+    <ContextMenuItem>新建</ContextMenuItem>
+    <ContextMenuItem>打开</ContextMenuItem>
+    <ContextMenuDivider />
+    <ContextMenu>
+      <ContextMenuItemTrigger>分享</ContextMenuItemTrigger>
+      <ContextMenuContent className={"text-sm"}>
+        <ContextMenuItem>邮件</ContextMenuItem>
+        <ContextMenuItem>短信</ContextMenuItem>
+        <ContextMenu>
+          <ContextMenuItemTrigger>社交媒体</ContextMenuItemTrigger>
+          <ContextMenuContent className={"text-sm"}>
+            <ContextMenu>
+              <ContextMenuItemTrigger>微信</ContextMenuItemTrigger>
+              <ContextMenuContent className={"text-sm"}>
+                <ContextMenuItem>聊天</ContextMenuItem>
+                <ContextMenuItem>朋友圈</ContextMenuItem>
+              </ContextMenuContent>
+            </ContextMenu>
+            <ContextMenuItem>微博</ContextMenuItem>
+            <ContextMenuItem>抖音</ContextMenuItem>
+            <ContextMenuItem>知乎</ContextMenuItem>
+          </ContextMenuContent>
+        </ContextMenu>
+      </ContextMenuContent>
+    </ContextMenu>
+  </ContextMenuContent>
+</ContextMenu>
+```
+
 </section>
 
 ## 复选组菜单
@@ -213,13 +215,14 @@ import {
         </ContextMenu>
       );
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
-  const [urlsChecked, setUrlsChecked] = React.useState(false);
+```jsx
+const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
+const [urlsChecked, setUrlsChecked] = React.useState(false);
 
-  return (
+return (
   <ContextMenu closeOnSelect={false}>
     <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
       右键点击显示菜单
@@ -243,8 +246,9 @@ import {
       </ContextMenuGroup>
     </ContextMenuContent>
   </ContextMenu>
-  );
-  ```
+);
+```
+
 </section>
 
 ## 单选组菜单
@@ -278,13 +282,14 @@ import {
         </ContextMenu>
       );
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
-  const [urlsChecked, setUrlsChecked] = React.useState(false);
+```jsx
+const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
+const [urlsChecked, setUrlsChecked] = React.useState(false);
 
-  return (
+return (
   <ContextMenu>
     <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
       右键点击显示菜单
@@ -308,8 +313,9 @@ import {
       </ContextMenuGroup>
     </ContextMenuContent>
   </ContextMenu>
-  );
-  ```
+);
+```
+
 </section>
 
 ## 访问内部状态
@@ -331,21 +337,22 @@ import {
     </ContextMenu>
   </ComponentExample>
 
-  ```jsx
-  <ContextMenu>
-    {({ opened }) => (
-      <>
-        <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
-          {opened ? '已经打开右键菜单' : '右键点击显示菜单'}
-        </ContextMenuTrigger>
-        <ContextMenuContent className={"text-sm min-w-32"}>
-          <ContextMenuItem>新建</ContextMenuItem>
-          <ContextMenuItem>打开</ContextMenuItem>
-        </ContextMenuContent>
-      </>
-    )}
-  </ContextMenu>
-  ```
+```jsx
+<ContextMenu>
+  {({ opened }) => (
+    <>
+      <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
+        {opened ? "已经打开右键菜单" : "右键点击显示菜单"}
+      </ContextMenuTrigger>
+      <ContextMenuContent className={"text-sm min-w-32"}>
+        <ContextMenuItem>新建</ContextMenuItem>
+        <ContextMenuItem>打开</ContextMenuItem>
+      </ContextMenuContent>
+    </>
+  )}
+</ContextMenu>
+```
+
 </section>
 
 ## 复杂菜单
@@ -423,14 +430,15 @@ import {
         </ContextMenu>
       );
     }}
+
   </ComponentExample>
 
-  ```jsx
-  const [bookmarksChecked, setBookmarksChecked] = useState(true);
-  const [urlsChecked, setUrlsChecked] = useState(false);
-  const [account, setAccount] = useState("张三");
+```jsx
+const [bookmarksChecked, setBookmarksChecked] = useState(true);
+const [urlsChecked, setUrlsChecked] = useState(false);
+const [account, setAccount] = useState("张三");
 
-  return (
+return (
   <ContextMenu>
     <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
       右键点击显示菜单
@@ -502,8 +510,9 @@ import {
       <ContextMenuItem>其他操作</ContextMenuItem>
     </ContextMenuContent>
   </ContextMenu>
-  );
-  ```
+);
+```
+
 </section>
 
 ## 属性

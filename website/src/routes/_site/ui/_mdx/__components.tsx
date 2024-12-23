@@ -12,7 +12,7 @@ import {
   clsx,
 } from "@resolid/react-ui";
 import { isFunction } from "@resolid/utils";
-import { type FunctionComponent, type ReactNode, useMemo, useState } from "react";
+import { type ReactNode, useMemo, useState } from "react";
 import { SpriteIcon } from "~/components/base/sprite-icon";
 
 export const ComponentUsage = ({
@@ -20,7 +20,7 @@ export const ComponentUsage = ({
   componentProps = [],
   ignoreProps = [],
 }: {
-  preview: FunctionComponent;
+  preview: (props: Record<string, string | number | boolean | undefined>) => ReactNode;
   componentFile: string;
   componentProps?: ComponentProp[];
   ignoreProps?: string[];

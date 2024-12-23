@@ -24,25 +24,27 @@ export const meta = mergeFrontmatter(frontmatter);
 import resolidTailwind from "@resolid/tailwind";
 
 export default {
-  presets: [resolidTailwind.preset({
-    themes: {
-      // 这里可以定义自己的主题颜色或者覆盖 light 和 dark 主题颜色
-    }
-  })],
+  presets: [
+    resolidTailwind.preset({
+      themes: {
+        // 这里可以定义自己的主题颜色或者覆盖 light 和 dark 主题颜色
+      },
+    }),
+  ],
   content: ["./node_modules/@resolid/react-ui/dist/*.{js,cjs}", "./src/**/*.{html,js,jsx,ts,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
         // 这里你可以向默认调色板添加全新的颜色
-      }
-    }
-  }
+      },
+    },
+  },
 };
 ```
 
 ### 默认颜色
 
-import { colorsPalette } from '../../../../../../packages/tailwind/src/tokens/colors-palette';
+import { colorsPalette } from "../../../../../../packages/tailwind/src/tokens/colors-palette";
 
 <div className={'flex flex-col gap-5'}>
   {Object.keys(colorsPalette)
@@ -93,6 +95,7 @@ import { colorsPalette } from '../../../../../../packages/tailwind/src/tokens/co
         )}
       </div>)
     })}
+
 </div>
 
 ## 深色模式
@@ -115,14 +118,21 @@ import { colorsPalette } from '../../../../../../packages/tailwind/src/tokens/co
     }}
   </ComponentExample>
 
-  ```jsx
-  const colorMode = useColorModeState();
-  const setColorMode = useColorModeDispatch();
+```jsx
+const colorMode = useColorModeState();
+const setColorMode = useColorModeDispatch();
 
-  return (<Button variant={"soft"} onClick={()=> setColorMode(colorMode == 'dark' ? 'light' : 'dark')} color={"neutral"} square>
-    <SpriteIcon name={colorMode == 'dark' ? 'sun' : 'moon'} />
-  </Button>)
-  ```
+return (
+  <Button
+    variant={"soft"}
+    onClick={() => setColorMode(colorMode == "dark" ? "light" : "dark")}
+    color={"neutral"}
+    square
+  >
+    <SpriteIcon name={colorMode == "dark" ? "sun" : "moon"} />
+  </Button>
+);
+```
 
 </section>
 
@@ -135,15 +145,12 @@ import { colorsPalette } from '../../../../../../packages/tailwind/src/tokens/co
 我们需要在 HTML `Body` 的头部添加一个 `ColorModeScript` 组件。组件是阻塞的，因此它将在渲染正文的其余部分之前运行。我们可以用它来确保我们最初的水合前状态与水合后状态相匹配。
 
 ```jsx
-import { ColorModeScript } from '@resolid/react-ui';
+import { ColorModeScript } from "@resolid/react-ui";
 
 function App() {
-
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* ... */}
-      </head>
+      <head>{/* ... */}</head>
       <body>
         <ColorModeScript />
         {/* ... */}
@@ -152,5 +159,3 @@ function App() {
   );
 }
 ```
-
-

@@ -83,73 +83,37 @@ import {
   ```jsx
   const [opened, setOpened] = useState(false);
 
-  return (
-    <>
-      <Button onClick={() => setOpened(true)}>打开抽屉</Button>
-      <Drawer opened={opened} onClose={() => setOpened(false)}>
-        <DrawerOverlay />
-        <DrawerContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-          <DrawerHeader className={"p-4"}>
-            <DrawerTitle>抽屉标题</DrawerTitle>
-            <DrawerCloseButton />
-          </DrawerHeader>
-          <DrawerBody className={'p-1 px-4'}>抽屉内容</DrawerBody>
-          <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
-            <Button onClick={() => setOpened(false)}>关闭</Button>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
-    </>
-  );
-  ````
+return (
+
+<>
+  <Button onClick={() => setOpened(true)}>打开抽屉</Button>
+  <Drawer opened={opened} onClose={() => setOpened(false)}>
+    <DrawerOverlay />
+    <DrawerContent className={"w-11/12 md:w-3/5 lg:w-1/3"}>
+      <DrawerHeader className={"p-4"}>
+        <DrawerTitle>抽屉标题</DrawerTitle>
+        <DrawerCloseButton />
+      </DrawerHeader>
+      <DrawerBody className={"p-1 px-4"}>抽屉内容</DrawerBody>
+      <DrawerFooter className={"p-4 flex items-center justify-center gap-5"}>
+        <Button onClick={() => setOpened(false)}>关闭</Button>
+      </DrawerFooter>
+    </DrawerContent>
+  </Drawer>
+</>
+);
+
+````
 </section>
 
 ## 打开位置
 
 <section className={'example group'}>
 <ComponentExample className={"flex flex-row gap-5 items-center"}>
-  {() => {
-    const [opened, setOpened] = useState(false);
-    const [placement, setPlacement] = useState('right');
-
-    return (
-      <>
-        <RadioGroup name="placement" value={placement} onChange={setPlacement}>
-          <div className={'flex flex-row gap-5'}>
-            <Radio value="top">顶部</Radio>
-            <Radio value="bottom">底部</Radio>
-            <Radio value="left">左边</Radio>
-            <Radio value="right">右边</Radio>
-          </div>
-        </RadioGroup>
-        <Button onClick={() => setOpened(true)}>打开抽屉</Button>
-        <Drawer opened={opened} placement={placement} onClose={() => setOpened(false)}>
-          <DrawerOverlay />
-          <DrawerContent
-            className={
-              placement == 'left' || placement == 'right'
-                ? 'w-11/12 md:w-3/5 lg:w-1/3'
-                : 'h-11/12 md:h-3/5 lg:h-1/3'
-            }
-          >
-            <DrawerHeader className={"p-4"}>
-              <DrawerTitle>抽屉标题</DrawerTitle>
-              <DrawerCloseButton />
-            </DrawerHeader>
-            <DrawerBody className={'p-1 px-4'}>抽屉内容</DrawerBody>
-            <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
-              <Button onClick={() => setOpened(false)}>关闭</Button>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
-      </>
-    );
-  }}
-</ComponentExample>
-
-  ```jsx
+{() => {
   const [opened, setOpened] = useState(false);
-  
+  const [placement, setPlacement] = useState('right');
+
   return (
     <>
       <RadioGroup name="placement" value={placement} onChange={setPlacement}>
@@ -182,7 +146,46 @@ import {
       </Drawer>
     </>
   );
-  ````
+}}
+</ComponentExample>
+
+```jsx
+const [opened, setOpened] = useState(false);
+
+return (
+  <>
+    <RadioGroup name="placement" value={placement} onChange={setPlacement}>
+      <div className={'flex flex-row gap-5'}>
+        <Radio value="top">顶部</Radio>
+        <Radio value="bottom">底部</Radio>
+        <Radio value="left">左边</Radio>
+        <Radio value="right">右边</Radio>
+      </div>
+    </RadioGroup>
+    <Button onClick={() => setOpened(true)}>打开抽屉</Button>
+    <Drawer opened={opened} placement={placement} onClose={() => setOpened(false)}>
+      <DrawerOverlay />
+      <DrawerContent
+        className={
+          placement == 'left' || placement == 'right'
+            ? 'w-11/12 md:w-3/5 lg:w-1/3'
+            : 'h-11/12 md:h-3/5 lg:h-1/3'
+        }
+      >
+        <DrawerHeader className={"p-4"}>
+          <DrawerTitle>抽屉标题</DrawerTitle>
+          <DrawerCloseButton />
+        </DrawerHeader>
+        <DrawerBody className={'p-1 px-4'}>抽屉内容</DrawerBody>
+        <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
+          <Button onClick={() => setOpened(false)}>关闭</Button>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  </>
+);
+````
+
 </section>
 
 ## 内部滚动条
@@ -282,27 +285,26 @@ import {
 const [opened, setOpened] = useState(false);
 const [scrollBehavior, setScrollBehavior] = useState("inside");
 
-  return (
-    <>
-      <Button onClick={() => setOpened(true)}>打开抽屉</Button>
-      <Drawer opened={opened} onClose={() => setOpened(false)}>
-        <DrawerOverlay />
-        <DrawerContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-          <DrawerHeader className={"p-4"}>
-            <DrawerTitle>抽屉标题</DrawerTitle>
-            <DrawerCloseButton />
-          </DrawerHeader>
-          <DrawerBody className={'p-1 px-4'}>
-            内部大量内容
-          </DrawerBody>
-          <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
-            <Button onClick={() => setOpened(false)}>关闭</Button>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
-    </>
-  );
+return (
+  <>
+    <Button onClick={() => setOpened(true)}>打开抽屉</Button>
+    <Drawer opened={opened} onClose={() => setOpened(false)}>
+      <DrawerOverlay />
+      <DrawerContent className={"w-11/12 md:w-3/5 lg:w-1/3"}>
+        <DrawerHeader className={"p-4"}>
+          <DrawerTitle>抽屉标题</DrawerTitle>
+          <DrawerCloseButton />
+        </DrawerHeader>
+        <DrawerBody className={"p-1 px-4"}>内部大量内容</DrawerBody>
+        <DrawerFooter className={"p-4 flex items-center justify-center gap-5"}>
+          <Button onClick={() => setOpened(false)}>关闭</Button>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  </>
+);
 ```
+
 </section>
 
 ## 焦点管理
@@ -354,46 +356,47 @@ const [scrollBehavior, setScrollBehavior] = useState("inside");
 
   </ComponentExample>
 
-  ```jsx
-    const [opened, setOpened] = useState(false);
-    const initialRef = useRef(null);
-    const finalRef = useRef(null);
-  
-    return (
-      <>
-        <Button onClick={() => setOpened(true)}>打开抽屉</Button>
-        <Button color={'neutral'} ref={finalRef}>
-          键盘关闭抽屉后获得焦点
-        </Button>
-        <Drawer initialFocus={initialRef} finalFocus={finalRef} opened={opened} onClose={() => setOpened(false)}>
-          <DrawerOverlay />
-          <DrawerContent className={'w-fit'}>
-            <DrawerHeader className={"p-4"}>
-              <DrawerTitle>抽屉标题</DrawerTitle>
-              <DrawerCloseButton />
-            </DrawerHeader>
-            <DrawerBody className={'p-1 px-4 flex flex-col gap-3'}>
-              <div className={'flex flex-row items-center'}>
-                <label htmlFor={'username'} className={'w-28'}>
-                  用户名 <span className={'text-red-500'}>*</span>
-                </label>
-                <Input ref={initialRef} placeholder={'用户名'} id={'username'} />
-              </div>
-              <div className={'flex flex-row items-center'}>
-                <label htmlFor={'email'} className={'w-28'}>
-                  电子邮箱 <span className={'text-red-500'}>*</span>
-                </label>
-                <Input placeholder={'电子邮箱'} id={'email'} />
-              </div>
-            </DrawerBody>
-            <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
-              <Button onClick={() => setOpened(false)}>关闭</Button>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
-      </>
-    );
-  ```
+```jsx
+const [opened, setOpened] = useState(false);
+const initialRef = useRef(null);
+const finalRef = useRef(null);
+
+return (
+  <>
+    <Button onClick={() => setOpened(true)}>打开抽屉</Button>
+    <Button color={"neutral"} ref={finalRef}>
+      键盘关闭抽屉后获得焦点
+    </Button>
+    <Drawer initialFocus={initialRef} finalFocus={finalRef} opened={opened} onClose={() => setOpened(false)}>
+      <DrawerOverlay />
+      <DrawerContent className={"w-fit"}>
+        <DrawerHeader className={"p-4"}>
+          <DrawerTitle>抽屉标题</DrawerTitle>
+          <DrawerCloseButton />
+        </DrawerHeader>
+        <DrawerBody className={"p-1 px-4 flex flex-col gap-3"}>
+          <div className={"flex flex-row items-center"}>
+            <label htmlFor={"username"} className={"w-28"}>
+              用户名 <span className={"text-red-500"}>*</span>
+            </label>
+            <Input ref={initialRef} placeholder={"用户名"} id={"username"} />
+          </div>
+          <div className={"flex flex-row items-center"}>
+            <label htmlFor={"email"} className={"w-28"}>
+              电子邮箱 <span className={"text-red-500"}>*</span>
+            </label>
+            <Input placeholder={"电子邮箱"} id={"email"} />
+          </div>
+        </DrawerBody>
+        <DrawerFooter className={"p-4 flex items-center justify-center gap-5"}>
+          <Button onClick={() => setOpened(false)}>关闭</Button>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  </>
+);
+```
+
 </section>
 
 ## 自定义背景样式
@@ -434,37 +437,48 @@ const [scrollBehavior, setScrollBehavior] = useState("inside");
 
   </ComponentExample>
 
-  ```jsx
-    const OverlayBlur = () => <DrawerOverlay className="backdrop-blur-sm" />;
-    const OverlayHueRotate = () => <DrawerOverlay className="backdrop-hue-rotate-30" />;
-  
-    const [opened, setOpened] = useState(false);
-    const [overlay, setOverlay] = useState(<OverlayBlur />);
-  
-    return (
-      <>
-        <Button onClick={() => { setOverlay(<OverlayBlur />); setOpened(true); }}>
-          模糊样式
-        </Button>
-        <Button onClick={() => { setOverlay(<OverlayHueRotate />); setOpened(true); }}>
-          调色样式
-        </Button>
-        <Drawer opened={opened} onClose={() => setOpened(false)}>
-          {overlay}
-          <DrawerContent className={'w-11/12 md:w-3/5 lg:w-1/3'}>
-            <DrawerHeader className={"p-4"}>
-              <DrawerTitle>抽屉标题</DrawerTitle>
-              <DrawerCloseButton />
-            </DrawerHeader>
-            <DrawerBody className={'p-1 px-4'}>抽屉内容</DrawerBody>
-            <DrawerFooter className={'p-4 flex items-center justify-center gap-5'}>
-              <Button onClick={() => setOpened(false)}>关闭</Button>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
-      </>
-    );
-  ```
+```jsx
+const OverlayBlur = () => <DrawerOverlay className="backdrop-blur-sm" />;
+const OverlayHueRotate = () => <DrawerOverlay className="backdrop-hue-rotate-30" />;
+
+const [opened, setOpened] = useState(false);
+const [overlay, setOverlay] = useState(<OverlayBlur />);
+
+return (
+  <>
+    <Button
+      onClick={() => {
+        setOverlay(<OverlayBlur />);
+        setOpened(true);
+      }}
+    >
+      模糊样式
+    </Button>
+    <Button
+      onClick={() => {
+        setOverlay(<OverlayHueRotate />);
+        setOpened(true);
+      }}
+    >
+      调色样式
+    </Button>
+    <Drawer opened={opened} onClose={() => setOpened(false)}>
+      {overlay}
+      <DrawerContent className={"w-11/12 md:w-3/5 lg:w-1/3"}>
+        <DrawerHeader className={"p-4"}>
+          <DrawerTitle>抽屉标题</DrawerTitle>
+          <DrawerCloseButton />
+        </DrawerHeader>
+        <DrawerBody className={"p-1 px-4"}>抽屉内容</DrawerBody>
+        <DrawerFooter className={"p-4 flex items-center justify-center gap-5"}>
+          <Button onClick={() => setOpened(false)}>关闭</Button>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  </>
+);
+```
+
 </section>
 
 ## 属性

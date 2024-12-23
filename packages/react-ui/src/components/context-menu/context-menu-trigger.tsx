@@ -61,7 +61,8 @@ export const ContextMenuTrigger = forwardRef<HTMLDivElement, AsChildProps<"div",
         onContextMenu={
           disabled
             ? onContextMenu
-            : composeEventHandlers(onContextMenu, (e) => {
+            : // eslint-disable-next-line react-compiler/react-compiler
+              composeEventHandlers(onContextMenu, (e) => {
                 clearLongPress();
                 handleOpen(e);
                 e.preventDefault();
@@ -72,16 +73,20 @@ export const ContextMenuTrigger = forwardRef<HTMLDivElement, AsChildProps<"div",
             ? onPointerDown
             : composeEventHandlers(
                 onPointerDown,
+                /* eslint-disable-next-line react-compiler/react-compiler */
                 whenTouchOrPen((e) => {
                   clearLongPress();
                   longPressTimerRef.current = window.setTimeout(() => handleOpen(e), 700);
                 }),
               )
         }
+        /* eslint-disable-next-line react-compiler/react-compiler */
         onPointerMove={disabled ? onPointerMove : composeEventHandlers(onPointerMove, whenTouchOrPen(clearLongPress))}
         onPointerCancel={
+          /* eslint-disable-next-line react-compiler/react-compiler */
           disabled ? onPointerCancel : composeEventHandlers(onPointerCancel, whenTouchOrPen(clearLongPress))
         }
+        /* eslint-disable-next-line react-compiler/react-compiler */
         onPointerUp={disabled ? onPointerUp : composeEventHandlers(onPointerUp, whenTouchOrPen(clearLongPress))}
         {...rest}
       >

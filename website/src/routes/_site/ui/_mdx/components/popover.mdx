@@ -168,43 +168,44 @@ import {
     }}
   </ComponentExample>
 
-  ```jsx
-  const focusRef = useRef();
-  
-  return (
-    <Popover initialFocus={focusRef} closeOnBlur={false}>
-      {({ opened, close }) => (
-        <>
-          <PopoverTrigger asChild>
-            <Button>{opened ? "关闭" : "打开"}弹出框</Button>
-          </PopoverTrigger>
-          <PopoverContent>
-            <PopoverCloseButton />
-            <PopoverHeader>表单弹出框</PopoverHeader>
-            <form>
-              <PopoverBody className={"flex flex-col gap-2"}>
-                <div className={"flex items-center justify-between gap-5"}>
-                  <label htmlFor={"username"}>用户名</label>
-                  <Input ref={focusRef} id={"username"} />
-                </div>
-                <div className={"flex items-center justify-between gap-5"}>
-                  <label htmlFor={"email"}>电子邮件</label>
-                  <Input id={"email"} />
-                </div>
-              </PopoverBody>
-              <PopoverFooter className={"flex flex-row justify-end gap-5"}>
-                <Button variant={"soft"} color={"neutral"} onClick={close}>
-                  关闭
-                </Button>
-                <Button>确定</Button>
-              </PopoverFooter>
-            </form>
-          </PopoverContent>
-        </>
-      )}
-    </Popover>
-  );
-  ```
+```jsx
+const focusRef = useRef();
+
+return (
+  <Popover initialFocus={focusRef} closeOnBlur={false}>
+    {({ opened, close }) => (
+      <>
+        <PopoverTrigger asChild>
+          <Button>{opened ? "关闭" : "打开"}弹出框</Button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <PopoverCloseButton />
+          <PopoverHeader>表单弹出框</PopoverHeader>
+          <form>
+            <PopoverBody className={"flex flex-col gap-2"}>
+              <div className={"flex items-center justify-between gap-5"}>
+                <label htmlFor={"username"}>用户名</label>
+                <Input ref={focusRef} id={"username"} />
+              </div>
+              <div className={"flex items-center justify-between gap-5"}>
+                <label htmlFor={"email"}>电子邮件</label>
+                <Input id={"email"} />
+              </div>
+            </PopoverBody>
+            <PopoverFooter className={"flex flex-row justify-end gap-5"}>
+              <Button variant={"soft"} color={"neutral"} onClick={close}>
+                关闭
+              </Button>
+              <Button>确定</Button>
+            </PopoverFooter>
+          </form>
+        </PopoverContent>
+      </>
+    )}
+  </Popover>
+);
+```
+
 </section>
 
 ## 访问内部状态
@@ -232,25 +233,26 @@ import {
     </Popover>
   </ComponentExample>
 
-  ```jsx
-  <Popover closeOnBlur={false}>
-    {({ opened, close }) => (
-      <>
-        <PopoverTrigger asChild>
-          <Button>{opened ? "关闭" : "打开"}弹出框</Button>
-        </PopoverTrigger>
-        <PopoverContent>
-          <PopoverBody>弹出框内容</PopoverBody>
-          <PopoverFooter className={"flex justify-center"}>
-            <Button variant={"soft"} color={"neutral"} onClick={close}>
-              关闭
-            </Button>
-          </PopoverFooter>
-        </PopoverContent>
-      </>
-    )}
-  </Popover>
-  ```
+```jsx
+<Popover closeOnBlur={false}>
+  {({ opened, close }) => (
+    <>
+      <PopoverTrigger asChild>
+        <Button>{opened ? "关闭" : "打开"}弹出框</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <PopoverBody>弹出框内容</PopoverBody>
+        <PopoverFooter className={"flex justify-center"}>
+          <Button variant={"soft"} color={"neutral"} onClick={close}>
+            关闭
+          </Button>
+        </PopoverFooter>
+      </PopoverContent>
+    </>
+  )}
+</Popover>
+```
+
 </section>
 
 ## 触发方式
@@ -268,17 +270,17 @@ import {
     </Popover>
   </ComponentExample>
 
-  ```jsx
-  <Popover trigger={'hover'}>
-    <PopoverTrigger asChild>
-      <Button>悬停触发</Button>
-    </PopoverTrigger>
-    <PopoverContent>
-      <PopoverArrow />
-      <PopoverBody>悬停弹出框</PopoverBody>
-    </PopoverContent>
-  </Popover>
-  ```
+```jsx
+<Popover trigger={"hover"}>
+  <PopoverTrigger asChild>
+    <Button>悬停触发</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverArrow />
+    <PopoverBody>悬停弹出框</PopoverBody>
+  </PopoverContent>
+</Popover>
+```
 
 </section>
 
@@ -311,28 +313,28 @@ import {
   </ComponentExample>
 
 ```jsx
-  <Popover>
-    <PopoverTrigger asChild>
-      <Button>打开第一层</Button>
-    </PopoverTrigger>
-    <PopoverContent>
-      <PopoverBody className={"flex flex-col gap-2"}>
-        <p>第一层内容</p>
-        <div className={"text-center"}>
-          <Popover placement={"bottom"}>
-            <PopoverTrigger asChild>
-              <Button>打开第二层</Button>
-            </PopoverTrigger>
-            <PopoverContent>
-              <PopoverBody>
-                <p>第二层内容</p>
-              </PopoverBody>
-            </PopoverContent>
-          </Popover>
-        </div>
-      </PopoverBody>
-    </PopoverContent>
-  </Popover>
+<Popover>
+  <PopoverTrigger asChild>
+    <Button>打开第一层</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverBody className={"flex flex-col gap-2"}>
+      <p>第一层内容</p>
+      <div className={"text-center"}>
+        <Popover placement={"bottom"}>
+          <PopoverTrigger asChild>
+            <Button>打开第二层</Button>
+          </PopoverTrigger>
+          <PopoverContent>
+            <PopoverBody>
+              <p>第二层内容</p>
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
+      </div>
+    </PopoverBody>
+  </PopoverContent>
+</Popover>
 ```
 
 </section>

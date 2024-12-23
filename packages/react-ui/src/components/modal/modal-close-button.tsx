@@ -1,3 +1,4 @@
+import { __DEV__ } from "@resolid/utils";
 import { forwardRef } from "react";
 import { clsx } from "../../utils/classed";
 import { CloseButton } from "../close-button/close-button";
@@ -21,3 +22,7 @@ export const ModalCloseButton = forwardRef<HTMLButtonElement, BaseProps<"button"
     </CloseButton>
   );
 });
+
+if (__DEV__) {
+  ModalCloseButton.displayName = "ModalCloseButton";
+}

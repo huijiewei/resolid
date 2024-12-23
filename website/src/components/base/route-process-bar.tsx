@@ -1,6 +1,6 @@
-import { useNavigation } from "@remix-run/react";
 import { clsx } from "@resolid/react-ui";
 import { useEffect, useRef, useState } from "react";
+import { useNavigation } from "react-router";
 
 export function RouteProcessBar() {
   const transition = useNavigation();

@@ -23,6 +23,7 @@ export type PasswordForgotEmailProps = {
   uaBrowser: string;
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 const PasswordForgotTemplate = ({
   baseUrl,
   resetUrl,

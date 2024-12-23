@@ -4,7 +4,7 @@ import { createContext } from "../../utils/context";
 
 export type FloatingArrowContext = {
   context: FloatingContext;
-  setArrow: RefObject<SVGSVGElement>;
+  setArrow: RefObject<SVGSVGElement | null>;
   className?: string;
 };
 

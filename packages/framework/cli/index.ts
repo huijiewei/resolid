@@ -1,5 +1,5 @@
-import { argv } from "node:process";
 import { Command } from "commander";
+import { argv } from "node:process";
 import { setup } from "../src";
 
 const normalizeCommand = (command: Command) => {

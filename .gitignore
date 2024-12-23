@@ -82,27 +82,10 @@ Temporary Items
 # Built Visual Studio Code Extensions
 *.vsix
 
-# vercel
-.vercel
-
-# vite
-.vite-inspect
-
-# env files
-.env
-.env.dev
-.env.test
-.env.prod
-
-# resolid
-.resolid
-
 # Optional eslint cache
 .eslintcache
 
 # Dependency directories
 node_modules
 
-build
-dist
-
+dist/

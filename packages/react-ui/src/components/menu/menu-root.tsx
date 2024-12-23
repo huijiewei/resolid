@@ -1,11 +1,11 @@
 import {
-  FloatingNode,
-  FloatingTree,
-  type Placement,
   arrow,
   autoUpdate,
   flip,
+  FloatingNode,
+  FloatingTree,
   offset,
+  type Placement,
   safePolygon,
   shift,
   size,
@@ -134,6 +134,7 @@ const MenuTree = (props: MenuRootProps) => {
       offset({ mainAxis: nested ? 0 : 8, alignmentAxis: nested ? -5 : 0 }),
       flip(),
       shift({ padding: 8 }),
+      // eslint-disable-next-line react-compiler/react-compiler
       arrow({
         element: arrowRef,
         padding: 4,
@@ -150,7 +151,11 @@ const MenuTree = (props: MenuRootProps) => {
     ].filter(Boolean),
     open: openedState,
     onOpenChange: (opened) => {
-      opened ? open() : close();
+      if (opened) {
+        open();
+      } else {
+        close();
+      }
     },
     nodeId,
     placement: nested ? "right-start" : placement,

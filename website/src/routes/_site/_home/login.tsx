@@ -1,16 +1,16 @@
-import type { ActionFunctionArgs } from "@remix-run/node";
-import { Form, useSearchParams } from "@remix-run/react";
 import { getCookieExpires } from "@resolid/framework";
 import { mergeMeta } from "@resolid/framework/utils";
 import { httpProblem, httpRedirect } from "@resolid/framework/utils.server";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
 import { Controller } from "react-hook-form";
+import { Form, useSearchParams } from "react-router";
 import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/form-error";
 import { HistoryLink } from "~/components/base/history-link";
 import { commitUserSession, setSessionUser } from "~/foundation/session.user.server";
 import { userLoginService } from "~/modules/user/service.server";
 import { type UserLoginFormData, userLoginResolver } from "~/modules/user/validator";
+import type { Route } from "./+types/login";
 
 // noinspection JSUnusedGlobalSymbols
 export const meta = mergeMeta(() => {
@@ -18,7 +18,7 @@ export const meta = mergeMeta(() => {
 });
 
 // noinspection JSUnusedGlobalSymbols
-export const action = async ({ request, context }: ActionFunctionArgs) => {
+export const action = async ({ request, context }: Route.ActionArgs) => {
   const data = await parseFormData<UserLoginFormData>(request);
 
   const [errors, user] = await userLoginService(data);
@@ -35,6 +35,7 @@ export const action = async ({ request, context }: ActionFunctionArgs) => {
   );
 };
 
+// noinspection JSUnusedGlobalSymbols
 export default function Login() {
   const [params] = useSearchParams();
 

@@ -1,9 +1,9 @@
-import type { HTMLProps, MutableRefObject, ReactNode } from "react";
+import type { HTMLProps, ReactNode, RefObject } from "react";
 import { createContext } from "../../utils/context";
 
 export type OptionBase = {
   disabled?: boolean;
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 };
 
@@ -22,7 +22,7 @@ export type OptionFieldNames = {
 export type SelectContext = {
   activeIndex: number | null;
   selectedIndex: number[];
-  elementsRef: MutableRefObject<(HTMLDivElement | null)[]>;
+  elementsRef: RefObject<(HTMLDivElement | null)[]>;
   getItemProps: (userProps?: HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
 };
 

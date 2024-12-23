@@ -1,38 +1,41 @@
-import type { LoaderFunction, MetaDescriptor } from "@remix-run/node";
-import type { MetaArgs } from "@remix-run/react";
+import type { MetaDescriptor } from "react-router";
 
-export const mergeMeta = <
-  L extends LoaderFunction | unknown = unknown,
-  MatchLoaders extends Record<string, LoaderFunction | unknown> = Record<string, unknown>,
->(
-  metaFn: (arg: MetaArgs<L, MatchLoaders>) => MetaDescriptor[],
-  titleJoin = " - ",
-): ((arg: MetaArgs<L, MatchLoaders>) => MetaDescriptor[]) => {
-  return (arg) => {
+type MetaArgs = {
+  matches: Array<
+    { pathname: string; meta: MetaDescriptor[]; data: unknown; handle?: unknown; error?: unknown } | undefined
+  >;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const mergeMeta = (metaFn: (arg: any) => MetaDescriptor[], titleJoin = " - ") => {
+  return (arg: MetaArgs) => {
     const leafMeta = metaFn(arg);
 
     const mergedMeta = arg.matches.reduceRight((acc, match) => {
-      for (const parentMeta of match.meta) {
-        const index = acc.findIndex((meta) => {
-          if ("name" in meta && "name" in parentMeta) {
-            return meta.name === parentMeta.name;
+      if (match) {
+        for (const parentMeta of match.meta) {
+          const index = acc.findIndex((meta) => {
+            if ("name" in meta && "name" in parentMeta) {
+              return meta.name === parentMeta.name;
+            }
+
+            if ("property" in meta && "property" in parentMeta) {
+              return meta.property === parentMeta.property;
+            }
+
+            if ("title" in meta && "title" in parentMeta) {
+              return meta.title === parentMeta.title;
+            }
+
+            return false;
+          });
+
+          if (index == -1) {
+            acc.push(parentMeta);
           }
-
-          if ("property" in meta && "property" in parentMeta) {
-            return meta.property === parentMeta.property;
-          }
-
-          if ("title" in meta && "title" in parentMeta) {
-            return meta.title === parentMeta.title;
-          }
-
-          return false;
-        });
-
-        if (index == -1) {
-          acc.push(parentMeta);
         }
       }
+
       return acc;
     }, leafMeta);
 

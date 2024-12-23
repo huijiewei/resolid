@@ -6,14 +6,18 @@
   "description": "Resolid 基础工具",
   "author": "Huijie Wei",
   "license": "MIT",
-  "keywords": ["resolid"],
+  "keywords": [
+    "resolid"
+  ],
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "check": "biome check --write .",
+    "lint": "eslint .",
     "test": "vitest --run",
     "build": "tsup"
   },
@@ -27,10 +31,9 @@
     "nanoid": "^5.0.9"
   },
   "devDependencies": {
-    "@resolid/config": "^2.1.2",
-    "jsdom": "^24.1.3",
-    "tsup": "^8.3.5",
-    "vitest": "^2.1.8"
+    "@resolid/config": "^3.0.3",
+    "jsdom": "^25.0.1",
+    "tsup": "^8.3.5"
   },
   "homepage": "https://www.resolid.tech",
   "repository": {

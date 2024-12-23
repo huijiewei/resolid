@@ -14,11 +14,12 @@ export const CollapsibleContent = (props: BaseProps<"div", EmptyProps, "id">) =>
   const refs = useMergeRefs(elemRef, setElement);
 
   const heightRef = useRef<number | undefined>(0);
+  // eslint-disable-next-line react-compiler/react-compiler
   const height = heightRef.current;
   const widthRef = useRef<number | undefined>(0);
+  // eslint-disable-next-line react-compiler/react-compiler
   const width = widthRef.current;
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useLayoutEffect(() => {
     const node = elemRef.current;
 

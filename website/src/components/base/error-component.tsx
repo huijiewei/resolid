@@ -1,4 +1,4 @@
-import { isRouteErrorResponse, useRouteError } from "@remix-run/react";
+import { isRouteErrorResponse, useRouteError } from "react-router";
 import { HistoryBack } from "~/components/base/history-link";
 
 export const ErrorComponent = () => {

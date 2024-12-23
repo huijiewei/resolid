@@ -5,6 +5,7 @@ export const meta = mergeMeta(() => {
   return [{ title: "隐私政策" }];
 });
 
+// noinspection JSUnusedGlobalSymbols
 export default function PrivacyPolicy() {
   return (
     <div className={"prose dark:prose-invert mx-auto max-w-3xl px-4 py-8"}>

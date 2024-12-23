@@ -1,5 +1,5 @@
-import type { MetaDescriptor, MetaFunction } from "@remix-run/node";
 import { mergeMeta } from "@resolid/framework/utils";
+import type { MetaDescriptor, MetaFunction } from "react-router";
 
 export const mergeFrontmatter = (frontmatter: { title: string; description?: string }): MetaFunction => {
   return mergeMeta(() => {

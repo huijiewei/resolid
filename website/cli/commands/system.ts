@@ -1,9 +1,9 @@
-import { exit } from "node:process";
 import { format } from "@formkit/tempo";
 import { hashSync } from "@node-rs/bcrypt";
 import { Command, type CreateCommand } from "@resolid/framework/cli";
 import { MySqlDialect, sql } from "@resolid/framework/drizzle";
-import { RX_DEFAULT_AUTH_GROUP_ID } from "@resolid/framework/modules";
+import { RX_DEFAULT_AUTH_GROUP_ID } from "@resolid/framework/modules.server";
+import { exit } from "node:process";
 import { db } from "~/foundation/db.server";
 import { adminGroupTable, adminTable } from "~/modules/admin/schema.server";
 import { statusTable } from "~/modules/system/schema.server";

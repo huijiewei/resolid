@@ -1,15 +1,11 @@
-import { extname, join } from "node:path";
-import { cwd, env } from "node:process";
-import { fileURLToPath } from "node:url";
 import mdx from "@mdx-js/rollup";
-import { vitePlugin as remix } from "@remix-run/dev";
-import { installGlobals } from "@remix-run/node";
+import { reactRouter } from "@react-router/dev/vite";
 import { remarkDocgen } from "@resolid/mdx-plugins";
-import { devServer } from "@resolid/remix-plugins/dev-server";
-import remixFlexRoutes from "@resolid/remix-plugins/flex-routes";
-import { nodePreset } from "@resolid/remix-plugins/node-preset";
-import { vercelPreset } from "@resolid/remix-plugins/vercel-preset";
+import { reactRouterHonoServer } from "@resolid/react-router-hono/dev";
 import rehypeShiki from "@shikijs/rehype";
+import { extname, join } from "node:path";
+import { cwd } from "node:process";
+import { fileURLToPath } from "node:url";
 import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
@@ -18,15 +14,7 @@ import { type AliasOptions, loadEnv } from "vite";
 import babel from "vite-plugin-babel";
 import viteInspect from "vite-plugin-inspect";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { type ViteUserConfig, defineConfig } from "vitest/config";
-
-installGlobals({ nativeFetch: true });
-
-declare module "@remix-run/node" {
-  interface Future {
-    v3_singleFetch: true;
-  }
-}
+import { defineConfig, type ViteUserConfig } from "vitest/config";
 
 const ReactCompilerConfig = {
   target: "19", // '17' | '18' | '19'
@@ -64,46 +52,10 @@ export default defineConfig(({ command, isSsrBuild }) => {
           [remarkDocgen, { sourceRoot: join(__dirname, "../packages/react-ui/src/components") }],
         ],
       }),
-      devServer({
-        appDirectory: appDirectory,
+      reactRouterHonoServer({
         entryFile: "server.node.ts",
       }),
-      remix({
-        appDirectory: appDirectory,
-        presets: [
-          env.VERCEL == "1"
-            ? vercelPreset({
-                regions: "sin1",
-                copyParentModules: ["@node-rs/bcrypt"],
-                entryFile: "server.vercel.ts",
-              })
-            : nodePreset({
-                entryFile: "server.node.ts",
-              }),
-        ],
-        future: {
-          v3_fetcherPersist: true,
-          v3_relativeSplatPath: true,
-          v3_throwAbortReason: true,
-          v3_singleFetch: true,
-          v3_lazyRouteDiscovery: true,
-          unstable_optimizeDeps: true,
-        },
-        serverBundles: ({ branch }) => {
-          return branch.some((route) => {
-            return route.id.startsWith("routes/admin");
-          })
-            ? "admin"
-            : "site";
-        },
-        ignoredRouteFiles: ["**/*"],
-        routes: async () => {
-          return await remixFlexRoutes({
-            appDir: appDirectory,
-            ignoredRouteFiles: ["**/.*", "**/__*/*", "**/__*.*"],
-          });
-        },
-      }),
+      reactRouter(),
       babel({
         babelConfig: {
           compact: false,
@@ -137,9 +89,8 @@ export default defineConfig(({ command, isSsrBuild }) => {
                 }
 
                 if (
-                  id.includes("/node_modules/@remix-run/") ||
+                  id.includes("/node_modules/@react-router/") ||
                   id.includes("/node_modules/react-router/") ||
-                  id.includes("/node_modules/react-router-dom/") ||
                   id.includes("/node_modules/turbo-stream/")
                 ) {
                   return "react-router";

@@ -1,7 +1,7 @@
-import { createHonoNodeServer } from "@resolid/remix-plugins/node-server";
+import { createHonoNodeServer } from "@resolid/react-router-hono/node-server";
 import { getLoadContext, honoConfigure } from "~/server.base";
 
-export const server = await createHonoNodeServer({
+export default await createHonoNodeServer({
   configure: honoConfigure,
   getLoadContext: getLoadContext,
 });

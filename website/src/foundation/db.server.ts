@@ -1,6 +1,6 @@
-import { env } from "node:process";
 import { defineDatabase } from "@resolid/framework";
 import { __DEV__ } from "@resolid/utils";
+import { env } from "node:process";
 
 export const db = await defineDatabase({
   dbUri: env.RX_DB_URI,

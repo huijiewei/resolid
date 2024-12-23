@@ -48,26 +48,33 @@ import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@resolid/re
     </Collapsible>
   </div>
 
-  ```jsx
-  <Collapsible className={"w-80 mx-auto border rounded"}>
-    {({ opened }) => (<>
+```jsx
+<Collapsible className={"w-80 mx-auto border rounded"}>
+  {({ opened }) => (
+    <>
       <CollapsibleTrigger className={"p-3 w-full flex flex-row justify-between items-center"}>
         <h6 className={"font-medium"}>Resolid Remix 是什么?</h6>
-        <span className={`transition-transform duration-[250] ${opened ? 'rotate-180' : ''}`}>
-            <svg width={'1.5em'} height={'1.5em'} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-	<path fill="currentColor" d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71L8.46 9.17a1 1 0 0 0-1.41 0a1 1 0 0 0 0 1.42l4.24 4.24a1 1 0 0 0 1.42 0L17 10.59a1 1 0 0 0 0-1.42" />
-</svg>
-          </span>
+        <span className={`transition-transform duration-[250] ${opened ? "rotate-180" : ""}`}>
+          <svg width={"1.5em"} height={"1.5em"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71L8.46 9.17a1 1 0 0 0-1.41 0a1 1 0 0 0 0 1.42l4.24 4.24a1 1 0 0 0 1.42 0L17 10.59a1 1 0 0 0 0-1.42"
+            />
+          </svg>
+        </span>
       </CollapsibleTrigger>
       <CollapsibleContent className={"border-t"}>
         <p className={"p-3"}>
           Resolid Remix 是使用 Remix 驱动的全栈网站，旨在展示使用 Remix、React、Tailwind CSS、Vite、Drizzle
-        ORM、PostgreSQL、Hono、Node.js 和 Vercel 等现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。
+          ORM、PostgreSQL、Hono、Node.js 和 Vercel 等现代 Web 技术构建高性能、可扩展和用户友好的 Web
+          应用程序的最佳实践。
         </p>
       </CollapsibleContent>
-    </>)}
-  </Collapsible>
-  ```
+    </>
+  )}
+</Collapsible>
+```
+
 </section>
 
 ## 复杂
@@ -103,37 +110,42 @@ import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@resolid/re
     </Collapsible>
   </div>
 
-  ```jsx
-  <Collapsible className={"w-80 mx-auto flex flex-col gap-2"}>
-    {({opened})=> (
-      <>
-        <div className={"flex justify-between items-center"}>
-          <h4 className="font-bold">
-            Resolid 项目拥有 7 个子项目
-          </h4>
-          <CollapsibleTrigger asChild>
-            <Button size={'xs'} square color={"neutral"} variant={'ghost'}>
-              {opened?(<SpriteIcon size={"1.25rem"} name={"close"} />):(<svg width={'1.5em'} height={'1.5em'} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71L8.46 9.17a1 1 0 0 0-1.41 0a1 1 0 0 0 0 1.42l4.24 4.24a1 1 0 0 0 1.42 0L17 10.59a1 1 0 0 0 0-1.42" />
-              </svg>)}
-            </Button>
-          </CollapsibleTrigger>
-        </div>
-        <div className={"rounded border px-3 py-2"}>@resolid/config - 通用配置</div>
-        <div className={"rounded border px-3 py-2"}>@resolid/framework - 核心框架</div>
-        <CollapsibleContent className={"flex flex-col gap-2"}>
-          <div className={"rounded border px-3 py-2"}>@resolid/react-ui - UI 组件</div>
-          <div className={"rounded border px-3 py-2"}>@resolid/mdx-plugins - MDX 插件</div>
-          <div className={"rounded border px-3 py-2"}>@resolid/remix-plugins - Remix 插件</div>
-          <div className={"rounded border px-3 py-2"}>@resolid/tailwind - TailwindCSS 预设</div>
-          <div className={"rounded border px-3 py-2"}>@resolid/utils - 基础工具</div>
-        </CollapsibleContent>
-      </>
-    )}
-  </Collapsible>
-  ```
-</section>
+```jsx
+<Collapsible className={"w-80 mx-auto flex flex-col gap-2"}>
+  {({ opened }) => (
+    <>
+      <div className={"flex justify-between items-center"}>
+        <h4 className="font-bold">Resolid 项目拥有 7 个子项目</h4>
+        <CollapsibleTrigger asChild>
+          <Button size={"xs"} square color={"neutral"} variant={"ghost"}>
+            {opened ? (
+              <SpriteIcon size={"1.25rem"} name={"close"} />
+            ) : (
+              <svg width={"1.5em"} height={"1.5em"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71L8.46 9.17a1 1 0 0 0-1.41 0a1 1 0 0 0 0 1.42l4.24 4.24a1 1 0 0 0 1.42 0L17 10.59a1 1 0 0 0 0-1.42"
+                />
+              </svg>
+            )}
+          </Button>
+        </CollapsibleTrigger>
+      </div>
+      <div className={"rounded border px-3 py-2"}>@resolid/config - 通用配置</div>
+      <div className={"rounded border px-3 py-2"}>@resolid/framework - 核心框架</div>
+      <CollapsibleContent className={"flex flex-col gap-2"}>
+        <div className={"rounded border px-3 py-2"}>@resolid/react-ui - UI 组件</div>
+        <div className={"rounded border px-3 py-2"}>@resolid/mdx-plugins - MDX 插件</div>
+        <div className={"rounded border px-3 py-2"}>@resolid/remix-plugins - Remix 插件</div>
+        <div className={"rounded border px-3 py-2"}>@resolid/tailwind - TailwindCSS 预设</div>
+        <div className={"rounded border px-3 py-2"}>@resolid/utils - 基础工具</div>
+      </CollapsibleContent>
+    </>
+  )}
+</Collapsible>
+```
 
+</section>
 
 ## 属性
 

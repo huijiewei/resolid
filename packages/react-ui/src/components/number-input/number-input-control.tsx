@@ -1,4 +1,3 @@
-import { peerFocusRingStyles } from "../../shared/styles";
 import { clsx } from "../../utils/classed";
 import type { BaseProps } from "../slot/slot";
 

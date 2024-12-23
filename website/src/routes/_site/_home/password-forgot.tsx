@@ -1,12 +1,11 @@
 import { addDay } from "@formkit/tempo";
 import type { TurnstileInstance } from "@marsidev/react-turnstile";
-import type { ActionFunctionArgs } from "@remix-run/node";
-import { Form, useActionData, useSearchParams } from "@remix-run/react";
 import { createFieldErrors, isSuccess, mergeMeta } from "@resolid/framework/utils";
 import { httpProblem } from "@resolid/framework/utils.server";
 import { Button, Input } from "@resolid/react-ui";
 import { useEffect, useRef, useState } from "react";
 import { Controller } from "react-hook-form";
+import { Form, useActionData, useSearchParams } from "react-router";
 import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/form-error";
 import { HistoryLink } from "~/components/base/history-link";
@@ -14,13 +13,14 @@ import { trunstileVerify } from "~/extensions/turnstile/trunstile.server";
 import { TurnstileWidget } from "~/extensions/turnstile/turnstile-widget";
 import { userPasswordForgotService, userPasswordResetEmailService } from "~/modules/user/service.server";
 import { type UserPasswordForgotFormData, userPasswordForgotResolver } from "~/modules/user/validator";
+import type { Route } from "./+types/password-forgot";
 
 // noinspection JSUnusedGlobalSymbols
 export const meta = mergeMeta(() => {
   return [{ title: "忘记密码" }];
 });
 
-export const action = async ({ request, context }: ActionFunctionArgs) => {
+export const action = async ({ request, context }: Route.ActionArgs) => {
   const data = await parseFormData<UserPasswordForgotFormData>(request);
 
   const captcha = await trunstileVerify(data.token);
@@ -56,6 +56,7 @@ export const action = async ({ request, context }: ActionFunctionArgs) => {
   return { success: true };
 };
 
+// noinspection JSUnusedGlobalSymbols
 export default function PasswordForgot() {
   const [params] = useSearchParams();
 
