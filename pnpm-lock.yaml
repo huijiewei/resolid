@@ -304,8 +304,8 @@ importers:
         specifier: workspace:^
         version: link:../packages/mdx-plugins
       '@resolid/react-router-hono':
-        specifier: ^1.1.0
-        version: 1.1.0(@react-router/dev@7.1.0(@types/node@22.10.2)(jiti@2.4.2)(react-router@7.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(tsx@4.19.2)(typescript@5.7.2)(vite@6.0.5(@types/node@22.10.2)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.6.1))(yaml@2.6.1))(react-router@7.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(rollup@4.29.1)(vite@6.0.5(@types/node@22.10.2)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.6.1))
+        specifier: ^1.1.1
+        version: 1.1.1(@react-router/dev@7.1.0(@types/node@22.10.2)(jiti@2.4.2)(react-router@7.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(tsx@4.19.2)(typescript@5.7.2)(vite@6.0.5(@types/node@22.10.2)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.6.1))(yaml@2.6.1))(react-router@7.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(rollup@4.29.1)(vite@6.0.5(@types/node@22.10.2)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.6.1))
       '@resolid/tailwind':
         specifier: workspace:^
         version: link:../packages/tailwind
@@ -1303,8 +1303,8 @@ packages:
     peerDependencies:
       '@react-router/dev': ^7.1.0
 
-  '@resolid/react-router-hono@1.1.0':
-    resolution: {integrity: sha512-laRiIt+6gP75KgW7fC3tZH9IBMqrmJ0dGLIMoo5ZJ34tuyQFg2Og7J9utMVPOB8UNcrOFvoLysZb0QE74ue48A==}
+  '@resolid/react-router-hono@1.1.1':
+    resolution: {integrity: sha512-h2me/0WlYOHjBTbD/bW7t2FRyCku4c+47zvcxnQkFaKW5aznJWdwsFkyE2WDEGUV3CFLVoP7OscKGmhNhO8w9w==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       '@react-router/dev': ^7.1.0
@@ -5379,7 +5379,7 @@ snapshots:
       '@react-router/dev': 7.1.0(@types/node@22.10.2)(jiti@2.4.2)(react-router@7.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(tsx@4.19.2)(typescript@5.7.2)(vite@6.0.5(@types/node@22.10.2)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.6.1))(yaml@2.6.1)
       minimatch: 10.0.1
 
-  '@resolid/react-router-hono@1.1.0(@react-router/dev@7.1.0(@types/node@22.10.2)(jiti@2.4.2)(react-router@7.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(tsx@4.19.2)(typescript@5.7.2)(vite@6.0.5(@types/node@22.10.2)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.6.1))(yaml@2.6.1))(react-router@7.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(rollup@4.29.1)(vite@6.0.5(@types/node@22.10.2)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.6.1))':
+  '@resolid/react-router-hono@1.1.1(@react-router/dev@7.1.0(@types/node@22.10.2)(jiti@2.4.2)(react-router@7.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(tsx@4.19.2)(typescript@5.7.2)(vite@6.0.5(@types/node@22.10.2)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.6.1))(yaml@2.6.1))(react-router@7.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(rollup@4.29.1)(vite@6.0.5(@types/node@22.10.2)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.6.1))':
     dependencies:
       '@hono/node-server': 1.13.7(hono@4.6.14)
       '@react-router/dev': 7.1.0(@types/node@22.10.2)(jiti@2.4.2)(react-router@7.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(tsx@4.19.2)(typescript@5.7.2)(vite@6.0.5(@types/node@22.10.2)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.6.1))(yaml@2.6.1)

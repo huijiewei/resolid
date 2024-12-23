@@ -44,7 +44,7 @@
     "@resolid/config": "^3.0.3",
     "@resolid/flex-routes": "^1.1.2",
     "@resolid/mdx-plugins": "workspace:^",
-    "@resolid/react-router-hono": "^1.1.0",
+    "@resolid/react-router-hono": "^1.1.1",
     "@resolid/tailwind": "workspace:^",
     "@shikijs/rehype": "^1.24.4",
     "@tailwindcss/typography": "^0.5.15",
