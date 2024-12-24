@@ -12,14 +12,14 @@ export default function About() {
     <div className={"prose dark:prose-invert mx-auto max-w-3xl px-4 py-8"}>
       <h1 className={"text-center"}>关于</h1>
       <p>
-        Resolid Remix 是使用 Remix 驱动的全栈网站，旨在展示使用 Remix、React、Tailwind CSS、Vite、Drizzle
+        Resolid 是使用 React Router 驱动的全栈网站，旨在展示使用 React Router、React、Tailwind CSS、Vite、Drizzle
         ORM、MySQL、Hono、Node.js 和 Vercel 等现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。
       </p>
       <h2>技术栈</h2>
       <div className={"flex justify-center"}>
         <div className={"inline-flex flex-wrap items-center justify-center gap-5"}>
           <SpriteIcon name={"react"} size={"3rem"} />
-          <SpriteIcon name={"remix"} size={"3rem"} />
+          <SpriteIcon name={"react-router"} size={"3rem"} />
           <SpriteIcon name={"tailwindcss"} size={"3rem"} />
           <SpriteIcon name={"typescript"} size={"3rem"} />
           <SpriteIcon name={"vite"} size={"3rem"} />
@@ -35,10 +35,10 @@ export default function About() {
         React 可以改变你对所查看的设计和构建的应用的思考方式。当你使用 React
         构建用户界面时，首先会将其分解为称为组件的部分。接下来，你将描述每个组件的不同视觉状态。最后，你将连接这些组件，使数据通过它们流动。
       </p>
-      <h3>Remix</h3>
+      <h3>React Router</h3>
       <p>
-        Remix 是一个全栈网络框架，它允许你专注于用户界面，并通过 Web
-        标准逆向工作，以提供快速、流畅且弹性的用户体验。使用你的工具的人们将会喜欢它。
+        React Router 是 React 的多策略路由器，弥补了 React 18 到 React 19 的差距。您可以最大程度地将其用作 React
+        框架，也可以最小程度地将其用作具有您自己的架构的库。
       </p>
       <h3>Tailwind CSS</h3>
       <p>
