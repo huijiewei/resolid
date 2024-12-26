@@ -28,7 +28,6 @@
     }
   },
   "devDependencies": {
-    "@resolid/config": "^3.0.3",
     "tailwindcss": "^3.4.17",
     "tsup": "^8.3.5"
   },

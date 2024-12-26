@@ -6,7 +6,7 @@ export const PopoverFooter = (props: BaseProps<"footer">) => {
   const { children, className, ...rest } = props;
 
   return (
-    <footer className={clsx("border-t border-t-bg-subtle p-4", className)} {...rest}>
+    <footer className={clsx("border-t-bg-subtle border-t p-4", className)} {...rest}>
       {children}
     </footer>
   );

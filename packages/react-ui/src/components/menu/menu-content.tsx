@@ -36,7 +36,7 @@ export const MenuContent = (props: BaseProps<"div">) => {
           <FloatingFocusManager modal={false} initialFocus={nested ? -1 : 0} returnFocus={!nested} context={context}>
             <div
               className={clsx(
-                "z-popup rounded border border-bd-normal bg-bg-normal p-1 shadow outline-none",
+                "z-popup border-bd-normal bg-bg-normal rounded border p-1 shadow outline-none",
                 "transition-opacity duration-[--duration-var]",
                 status == "open" ? "opacity-100" : "opacity-0",
                 className,

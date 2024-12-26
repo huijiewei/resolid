@@ -46,7 +46,7 @@ export default function AdminLayout() {
 
   return (
     <AuthProvider value={{ identity: admin }}>
-      <aside className={"fixed top-0 bottom-0 w-56 border-r"}>
+      <aside className={"fixed bottom-0 top-0 w-56 border-r"}>
         <div className={"flex h-12 items-center justify-center"}>
           <ResolidLogo />
         </div>
@@ -95,12 +95,12 @@ export default function AdminLayout() {
           <p>菜单1111</p>
         </div>
       </aside>
-      <header className={clsx("fixed top-0 right-0 left-56 z-nav border-b bg-bg-normal", noScrollbarsClassName)}>
+      <header className={clsx("z-nav bg-bg-normal fixed left-56 right-0 top-0 border-b", noScrollbarsClassName)}>
         <NavBar />
       </header>
-      <div className={"relative ml-56 bg-bg-subtlest"}>
+      <div className={"bg-bg-subtlest relative ml-56"}>
         <main className={"flex-row p-4 pt-16"}>
-          <div className={"min-h-[calc(100vh-theme(space.20)-53px)] rounded bg-bg-normal p-4"}>
+          <div className={"bg-bg-normal min-h-[calc(100vh-theme(space.20)-53px)] rounded p-4"}>
             <Outlet />
           </div>
         </main>
@@ -159,7 +159,7 @@ const NavBar = () => {
       <div className={"flex flex-row"}>
         <NavBreadcrumb />
       </div>
-      <div className={"inline-flex items-center gap-1 text-fg-muted"}>
+      <div className={"text-fg-muted inline-flex items-center gap-1"}>
         <ColorModeToggle />
       </div>
     </nav>

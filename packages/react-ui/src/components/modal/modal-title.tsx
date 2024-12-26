@@ -8,7 +8,7 @@ export const ModalTitle = (props: BaseProps<"h2", EmptyProps, "id">) => {
   const { labelId } = useFloatingAria();
 
   return (
-    <h2 id={labelId} className={clsx("font-bold text-lg", className)} {...rest}>
+    <h2 id={labelId} className={clsx("text-lg font-bold", className)} {...rest}>
       {children}
     </h2>
   );

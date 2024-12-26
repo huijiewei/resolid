@@ -1,5 +1,5 @@
 {
-  "extends": "@resolid/config/tsconfig.base",
+  "extends": "@resolid/config/tsconfig/base",
   "include": ["src/**/*", "cli/**/*"],
   "compilerOptions": {
     "paths": {

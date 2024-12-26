@@ -194,7 +194,7 @@ export const ToastProvider = ({
               aria-live="polite"
               style={{ "--spacing-var": spacing } as CSSProperties}
               className={clsx(
-                "pointer-events-none fixed z-toast m-[--spacing-var] flex flex-col gap-[--spacing-var]",
+                "z-toast pointer-events-none fixed m-[--spacing-var] flex flex-col gap-[--spacing-var]",
                 getToastListStyles(placement as ToastPlacement),
               )}
             >

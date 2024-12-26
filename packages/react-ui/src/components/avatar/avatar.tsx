@@ -87,7 +87,7 @@ export const Avatar = forwardRef<HTMLDivElement, BaseProps<"div", AvatarProps>>(
         colored.style,
         sized?.style,
         rounded?.style,
-        group && "border-2 border-bg-normal [&:not(:first-child)]:mr-[--spacing-var]",
+        group && "border-bg-normal border-2 [&:not(:first-child)]:mr-[--spacing-var]",
         className,
       )}
       {...rest}

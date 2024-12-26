@@ -300,7 +300,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
       <div className={clsx("flex flex-wrap gap-1", sizeStyle.multipleWrap)}>
         {options.map((option) => (
           <div
-            className={clsx("flex items-center gap-1 rounded bg-bg-subtle", sizeStyle.multipleItem)}
+            className={clsx("bg-bg-subtle flex items-center gap-1 rounded", sizeStyle.multipleItem)}
             key={option[mergedFieldNames.value]}
           >
             {renderLabelRef(option)}
@@ -470,8 +470,8 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
           focusInputStyles,
           invalid && "border-bd-invalid",
           disabled
-            ? "pointer-events-none cursor-not-allowed bg-bg-subtle opacity-60"
-            : "active:border-bg-primary-emphasis active:ring-1 active:ring-bg-primary-emphasis",
+            ? "bg-bg-subtle pointer-events-none cursor-not-allowed opacity-60"
+            : "active:border-bg-primary-emphasis active:ring-bg-primary-emphasis active:ring-1",
           !invalid && !disabled && !openedState && "hover:border-bd-hovered",
           block ? "w-full" : "inline-flex",
           textStyle,
@@ -524,7 +524,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
         </div>
         <span
           className={clsx(
-            "pointer-events-none absolute top-0 right-0 bottom-0 flex items-center justify-center",
+            "pointer-events-none absolute bottom-0 right-0 top-0 flex items-center justify-center",
             sizeStyle.chevron,
           )}
         >
@@ -561,7 +561,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
             tabIndex={-1}
             ref={refs.setFloating}
             className={clsx(
-              "z-popup rounded border bg-bg-normal shadow outline-none",
+              "z-popup bg-bg-normal rounded border shadow outline-none",
               "scrollbar scrollbar-thin max-h-[calc(var(--option-height)*9+10px)] overflow-y-auto overscroll-contain",
               virtual ? "px-1" : "p-1",
               "transition-opacity duration-[--duration-var]",
@@ -613,7 +613,7 @@ const SelectImpl = <Option extends OptionBase = OptionDefault>(
                           role={"separator"}
                           tabIndex={-1}
                           aria-disabled
-                          className={clsx("text-[0.875em] text-fg-subtle", sizeStyle.option)}
+                          className={clsx("text-fg-subtle text-[0.875em]", sizeStyle.option)}
                         >
                           {option[mergedFieldNames.label]}
                         </div>

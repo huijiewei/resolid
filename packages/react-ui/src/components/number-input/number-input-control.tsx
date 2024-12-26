@@ -28,7 +28,7 @@ export const NumberInputControl = (
       tabIndex={-1}
       disabled={disabled}
       className={clsx(
-        "flex h-full select-none appearance-none items-center justify-center bg-bg-subtle transition-colors",
+        "bg-bg-subtle flex h-full select-none appearance-none items-center justify-center transition-colors",
         disabled ? "cursor-not-allowed opacity-60" : "hover:bg-bg-muted active:bg-bg-muted",
         stepper == "increment" && "rounded-tr",
         stepper == "decrement" && "rounded-br",

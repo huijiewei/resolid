@@ -31,7 +31,7 @@ export const ModalContent = (props: BaseProps<"div">) => {
   return (
     <div
       className={clsx(
-        "fixed top-0 left-0 z-modal flex w-screen justify-center",
+        "z-modal fixed left-0 top-0 flex w-screen justify-center",
         centered ? "items-center" : "items-start",
         scrollBehavior == "inside" ? "h-screen" : "h-full overflow-y-auto",
       )}
@@ -39,7 +39,7 @@ export const ModalContent = (props: BaseProps<"div">) => {
       <FloatingFocusManager initialFocus={initialFocus} returnFocus={finalFocus == undefined} context={context}>
         <section
           className={clsx(
-            "flex flex-col rounded border border-bd-normal bg-bg-normal shadow outline-none",
+            "border-bd-normal bg-bg-normal flex flex-col rounded border shadow outline-none",
             centered ? "my-6" : "my-16",
             scrollBehavior == "inside" && (centered ? "max-h-[calc(100%-2rem)]" : "max-h-[calc(100%-7rem)]"),
             "transition-opacity duration-[--duration-var]",

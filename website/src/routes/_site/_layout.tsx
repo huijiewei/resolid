@@ -124,14 +124,14 @@ export default function SiteLayout() {
 
   return (
     <AuthProvider value={{ identity: user }}>
-      <header className={"sticky top-0 z-nav w-full border-b bg-bg-normal"}>
+      <header className={"z-nav bg-bg-normal sticky top-0 w-full border-b"}>
         <NavBar />
       </header>
       <div className={"min-h-[calc(100vh-theme(space.16)-108px)]"}>
         <Outlet />
       </div>
       <footer className={"border-t"}>
-        <div className={"mx-auto flex max-w-6xl flex-col gap-1 p-4 text-center text-fg-muted text-sm"}>
+        <div className={"text-fg-muted mx-auto flex max-w-6xl flex-col gap-1 p-4 text-center text-sm"}>
           <p>Released under the MIT License</p>
           <p>Copyright Ⓒ 2022-present Resolid Tech</p>
           <p className={"inline-flex items-center justify-center gap-2"}>
@@ -161,14 +161,14 @@ const NavBar = () => {
       </Link>
       <div
         className={clsx(
-          "absolute inset-x-0 top-[calc(theme(spacing.16)+1px)] z-nav h-screen bg-bg-normal p-0",
+          "z-nav bg-bg-normal absolute inset-x-0 top-[calc(theme(spacing.16)+1px)] h-screen p-0",
           "md:relative md:top-0 md:block md:h-auto md:bg-inherit",
           opened ? "block" : "hidden",
         )}
       >
         <NavMenu onClick={() => setOpened(false)} />
       </div>
-      <div className={"inline-flex items-center gap-1 text-fg-muted"}>
+      <div className={"text-fg-muted inline-flex items-center gap-1"}>
         <NavUser />
         <ColorModeToggle />
         <Tooltip placement={"bottom"}>
@@ -219,7 +219,7 @@ const NavMenu = ({ onClick }: { onClick?: MouseEventHandler<HTMLAnchorElement> }
         return (
           <li className={"p-2.5 md:px-4"} key={menu.name}>
             <HistoryNavLink
-              className={({ isActive }) => clsx("block hover:text-link-hovered", isActive && "text-link-pressed")}
+              className={({ isActive }) => clsx("hover:text-link-hovered block", isActive && "text-link-pressed")}
               onClick={onClick}
               to={menu.href}
               end={menu.end}
@@ -248,7 +248,7 @@ const NavUser = () => {
         <DropdownMenuLabel className={"gap-2"}>
           <Avatar radius={"lg"} size={42} src={user.avatar} name={authUtils.getDisplayName(user)} />
           <div className={"flex flex-col text-left"}>
-            <span className={"font-medium text-base"}>{authUtils.getDisplayName(user)}</span>
+            <span className={"text-base font-medium"}>{authUtils.getDisplayName(user)}</span>
             <span className={"text-fg-muted"}>{user.email}</span>
           </div>
         </DropdownMenuLabel>

@@ -90,20 +90,20 @@ import {
   </ContextMenuTrigger>
   <ContextMenuContent className={"text-sm"}>
     <ContextMenuItem>
-      新标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+T</span>
+      新标签页<span className={"text-fg-subtle ml-auto pl-5 text-xs tracking-widest"}>⌘+T</span>
     </ContextMenuItem>
     <ContextMenuItem>
-      打开新窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+N</span>
+      打开新窗口<span className={"text-fg-subtle ml-auto pl-5 text-xs tracking-widest"}>⌘+N</span>
     </ContextMenuItem>
     <ContextMenuItem disabled>
       打开新的无痕式窗口<span className={"ml-auto pl-5 text-xs tracking-widest"}>⇧+⌘+N</span>
     </ContextMenuItem>
     <ContextMenuDivider />
     <ContextMenuItem>
-      关闭窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⇧+⌘+W</span>
+      关闭窗口<span className={"text-fg-subtle ml-auto pl-5 text-xs tracking-widest"}>⇧+⌘+W</span>
     </ContextMenuItem>
     <ContextMenuItem>
-      关闭标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+W</span>
+      关闭标签页<span className={"text-fg-subtle ml-auto pl-5 text-xs tracking-widest"}>⌘+W</span>
     </ContextMenuItem>
   </ContextMenuContent>
 </ContextMenu>
@@ -235,7 +235,7 @@ return (
             <SpriteIcon size={"1rem"} name={"check"} />
           </ContextMenuItemIndicator>
           显示书签栏
-          <div className="ml-auto pl-5 text-sm text-fg-muted">⌘+B</div>
+          <div className="text-fg-muted ml-auto pl-5 text-sm">⌘+B</div>
         </ContextMenuCheckboxItem>
         <ContextMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
           <ContextMenuItemIndicator>
@@ -302,7 +302,7 @@ return (
             <SpriteIcon size={"1rem"} name={"check"} />
           </ContextMenuItemIndicator>
           显示书签栏
-          <div className="ml-auto pl-5 text-sm text-fg-muted">⌘+B</div>
+          <div className="text-fg-muted ml-auto pl-5 text-sm">⌘+B</div>
         </ContextMenuCheckboxItem>
         <ContextMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
           <ContextMenuItemIndicator>
@@ -344,7 +344,7 @@ return (
       <ContextMenuTrigger className={"flex h-32 select-none items-center rounded border border-dashed p-6"}>
         {opened ? "已经打开右键菜单" : "右键点击显示菜单"}
       </ContextMenuTrigger>
-      <ContextMenuContent className={"text-sm min-w-32"}>
+      <ContextMenuContent className={"min-w-32 text-sm"}>
         <ContextMenuItem>新建</ContextMenuItem>
         <ContextMenuItem>打开</ContextMenuItem>
       </ContextMenuContent>
@@ -445,23 +445,23 @@ return (
     </ContextMenuTrigger>
     <ContextMenuContent className={"text-sm"}>
       <ContextMenuItem>
-        新标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+T</span>
+        新标签页<span className={"text-fg-subtle ml-auto pl-5 text-xs tracking-widest"}>⌘+T</span>
       </ContextMenuItem>
       <ContextMenuItem>
-        打开新窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+N</span>
+        打开新窗口<span className={"text-fg-subtle ml-auto pl-5 text-xs tracking-widest"}>⌘+N</span>
       </ContextMenuItem>
       <ContextMenuItem disabled>
         打开新的无痕式窗口<span className={"ml-auto pl-5 text-xs tracking-widest"}>⇧+⌘+N</span>
       </ContextMenuItem>
       <ContextMenuDivider />
       <ContextMenuItem>
-        关闭窗口<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⇧+⌘+W</span>
+        关闭窗口<span className={"text-fg-subtle ml-auto pl-5 text-xs tracking-widest"}>⇧+⌘+W</span>
       </ContextMenuItem>
       <ContextMenuItem>
-        关闭标签页<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+W</span>
+        关闭标签页<span className={"text-fg-subtle ml-auto pl-5 text-xs tracking-widest"}>⌘+W</span>
       </ContextMenuItem>
       <ContextMenuItem>
-        页面存储为...<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+S</span>
+        页面存储为...<span className={"text-fg-subtle ml-auto pl-5 text-xs tracking-widest"}>⌘+S</span>
       </ContextMenuItem>
       <ContextMenuDivider />
       <ContextMenu>
@@ -474,7 +474,7 @@ return (
       </ContextMenu>
       <ContextMenuDivider />
       <ContextMenuItem>
-        打印<span className={"ml-auto pl-5 text-xs tracking-widest text-fg-subtle"}>⌘+P</span>
+        打印<span className={"text-fg-subtle ml-auto pl-5 text-xs tracking-widest"}>⌘+P</span>
       </ContextMenuItem>
       <ContextMenuDivider />
       <ContextMenuCheckboxItem checked={bookmarksChecked} onChange={setBookmarksChecked}>
@@ -482,7 +482,7 @@ return (
           <SpriteIcon size={"1rem"} name={"check"} />
         </ContextMenuItemIndicator>
         显示书签栏
-        <div className="ml-auto pl-5 text-xs tracking-widest text-fg-subtle">⌘+B</div>
+        <div className="text-fg-subtle ml-auto pl-5 text-xs tracking-widest">⌘+B</div>
       </ContextMenuCheckboxItem>
       <ContextMenuCheckboxItem checked={urlsChecked} onChange={setUrlsChecked}>
         <ContextMenuItemIndicator>

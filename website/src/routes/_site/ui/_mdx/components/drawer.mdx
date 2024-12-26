@@ -95,7 +95,7 @@ return (
         <DrawerCloseButton />
       </DrawerHeader>
       <DrawerBody className={"p-1 px-4"}>抽屉内容</DrawerBody>
-      <DrawerFooter className={"p-4 flex items-center justify-center gap-5"}>
+      <DrawerFooter className={"flex items-center justify-center gap-5 p-4"}>
         <Button onClick={() => setOpened(false)}>关闭</Button>
       </DrawerFooter>
     </DrawerContent>
@@ -296,7 +296,7 @@ return (
           <DrawerCloseButton />
         </DrawerHeader>
         <DrawerBody className={"p-1 px-4"}>内部大量内容</DrawerBody>
-        <DrawerFooter className={"p-4 flex items-center justify-center gap-5"}>
+        <DrawerFooter className={"flex items-center justify-center gap-5 p-4"}>
           <Button onClick={() => setOpened(false)}>关闭</Button>
         </DrawerFooter>
       </DrawerContent>
@@ -374,7 +374,7 @@ return (
           <DrawerTitle>抽屉标题</DrawerTitle>
           <DrawerCloseButton />
         </DrawerHeader>
-        <DrawerBody className={"p-1 px-4 flex flex-col gap-3"}>
+        <DrawerBody className={"flex flex-col gap-3 p-1 px-4"}>
           <div className={"flex flex-row items-center"}>
             <label htmlFor={"username"} className={"w-28"}>
               用户名 <span className={"text-red-500"}>*</span>
@@ -388,7 +388,7 @@ return (
             <Input placeholder={"电子邮箱"} id={"email"} />
           </div>
         </DrawerBody>
-        <DrawerFooter className={"p-4 flex items-center justify-center gap-5"}>
+        <DrawerFooter className={"flex items-center justify-center gap-5 p-4"}>
           <Button onClick={() => setOpened(false)}>关闭</Button>
         </DrawerFooter>
       </DrawerContent>
@@ -470,7 +470,7 @@ return (
           <DrawerCloseButton />
         </DrawerHeader>
         <DrawerBody className={"p-1 px-4"}>抽屉内容</DrawerBody>
-        <DrawerFooter className={"p-4 flex items-center justify-center gap-5"}>
+        <DrawerFooter className={"flex items-center justify-center gap-5 p-4"}>
           <Button onClick={() => setOpened(false)}>关闭</Button>
         </DrawerFooter>
       </DrawerContent>

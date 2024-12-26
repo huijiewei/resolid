@@ -49,10 +49,10 @@ import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@resolid/re
   </div>
 
 ```jsx
-<Collapsible className={"w-80 mx-auto border rounded"}>
+<Collapsible className={"mx-auto w-80 rounded border"}>
   {({ opened }) => (
     <>
-      <CollapsibleTrigger className={"p-3 w-full flex flex-row justify-between items-center"}>
+      <CollapsibleTrigger className={"flex w-full flex-row items-center justify-between p-3"}>
         <h6 className={"font-medium"}>Resolid Remix 是什么?</h6>
         <span className={`transition-transform duration-[250] ${opened ? "rotate-180" : ""}`}>
           <svg width={"1.5em"} height={"1.5em"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -111,10 +111,10 @@ import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@resolid/re
   </div>
 
 ```jsx
-<Collapsible className={"w-80 mx-auto flex flex-col gap-2"}>
+<Collapsible className={"mx-auto flex w-80 flex-col gap-2"}>
   {({ opened }) => (
     <>
-      <div className={"flex justify-between items-center"}>
+      <div className={"flex items-center justify-between"}>
         <h4 className="font-bold">Resolid 项目拥有 7 个子项目</h4>
         <CollapsibleTrigger asChild>
           <Button size={"xs"} square color={"neutral"} variant={"ghost"}>

@@ -31,7 +31,6 @@
     "nanoid": "^5.0.9"
   },
   "devDependencies": {
-    "@resolid/config": "^3.0.3",
     "jsdom": "^25.0.1",
     "tsup": "^8.3.5"
   },

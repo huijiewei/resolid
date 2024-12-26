@@ -387,7 +387,7 @@ const handleClick = (state) => {
         className={"flex gap-2"}
         color={state == "success" ? "success" : state == "failure" ? "danger" : undefined}
       >
-        <span className={"shrink-0 pt-1 w-5"}>
+        <span className={"w-5 shrink-0 pt-1"}>
           {state == "success" && <SpriteIcon name={"check"} />}
           {state == "failure" && <SpriteIcon name={"info"} />}
           {state == "pending" && <Spinner />}
@@ -629,7 +629,7 @@ return (
           key={placement}
           style={{ gridArea: placement }}
           className={
-            "flex h-10 w-24 text-center leading-tight text-sm cursor-default items-center justify-center rounded bg-bg-subtle hover:bg-bg-subtlest active:bg-bg-muted"
+            "bg-bg-subtle hover:bg-bg-subtlest active:bg-bg-muted flex h-10 w-24 cursor-default items-center justify-center rounded text-center text-sm leading-tight"
           }
           onClick={() => {
             placement === "center"

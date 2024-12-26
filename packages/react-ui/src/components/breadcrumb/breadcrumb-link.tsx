@@ -14,7 +14,7 @@ export const BreadcrumbLink = (props: AsChildProps<"a", BreadcrumbLinkProps>) =>
 
   if (current) {
     return (
-      <span className={clsx("inline-flex items-center text-fg-muted", className)} aria-current="page" {...rest}>
+      <span className={clsx("text-fg-muted inline-flex items-center", className)} aria-current="page" {...rest}>
         {children}
       </span>
     );
@@ -25,7 +25,7 @@ export const BreadcrumbLink = (props: AsChildProps<"a", BreadcrumbLinkProps>) =>
   return (
     <Comp
       href={href}
-      className={clsx("inline-flex cursor-pointer items-center hover:text-link-hovered", className)}
+      className={clsx("hover:text-link-hovered inline-flex cursor-pointer items-center", className)}
       {...rest}
     >
       {children}

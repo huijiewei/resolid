@@ -50,9 +50,9 @@ export default function PasswordReset() {
 
   return (
     <div className={"mx-auto flex max-w-96 flex-col gap-5 py-10"}>
-      <h3 className={"text-center font-bold text-xl"}>密码重置</h3>
+      <h3 className={"text-center text-xl font-bold"}>密码重置</h3>
       {errors.token?.message && (
-        <div className={"rounded bg-bg-danger p-4 text-fg-danger"}>{errors.token?.message}</div>
+        <div className={"bg-bg-danger text-fg-danger rounded p-4"}>{errors.token?.message}</div>
       )}
       <Form method={"post"} className={"flex flex-col gap-7"} onSubmit={handleSubmit} noValidate>
         <div className={"relative flex flex-col gap-1"}>

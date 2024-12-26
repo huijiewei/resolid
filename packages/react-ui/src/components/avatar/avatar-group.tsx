@@ -48,7 +48,7 @@ export const AvatarGroup = (props: BaseProps<"div", AvatarGroupProps>) => {
       {excess > 0 && (
         <span
           className={clsx(
-            "relative inline-flex shrink-0 items-center justify-center bg-bg-subtle text-center font-medium text-fg-normal uppercase",
+            "bg-bg-subtle text-fg-normal relative inline-flex shrink-0 items-center justify-center text-center font-medium uppercase",
             sized.style,
             rounded.style,
           )}

@@ -61,7 +61,7 @@ const mdxComponents = {
         >
           {children}
         </pre>
-        <div className={"absolute top-1.5 right-1.5 z-base"}>
+        <div className={"z-base absolute right-1.5 top-1.5"}>
           <ClipboardButton content={children} />
         </div>
       </div>
@@ -74,7 +74,7 @@ const mdxComponents = {
       <a
         href={href}
         className={clsx(
-          "inline-flex items-center text-link no-underline hover:text-link-hovered hover:underline active:text-link-pressed",
+          "text-link hover:text-link-hovered active:text-link-pressed inline-flex items-center no-underline hover:underline",
           className,
         )}
         {...(external ? { target: "_blank", rel: "noreferrer" } : {})}

@@ -41,7 +41,7 @@ const SelectOptionImpl = <Option extends OptionBase = OptionDefault>(
       className={clsx(
         "w-full select-none rounded outline-none transition-colors",
         option.disabled ? "text-fg-subtlest" : "active:bg-bg-subtle",
-        isSelect && "font-medium text-fg-primary",
+        isSelect && "text-fg-primary font-medium",
         className,
       )}
       {...getItemProps({

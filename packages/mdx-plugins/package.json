@@ -35,7 +35,6 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@resolid/config": "^3.0.3",
     "@types/mdast": "^4.0.4",
     "tsup": "^8.3.5"
   },

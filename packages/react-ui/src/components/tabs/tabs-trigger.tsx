@@ -41,7 +41,7 @@ export const TabsTrigger = (props: AsChildProps<"button", TabsTriggerProps, "typ
       className={clsx(
         orientation == "horizontal" ? "-mb-px border-b" : "-mr-px border-r",
         "px-4 py-2 transition-colors",
-        disabled ? "cursor-not-allowed text-fg-subtle" : "active:border-fg-primary active:text-fg-primary",
+        disabled ? "text-fg-subtle cursor-not-allowed" : "active:border-fg-primary active:text-fg-primary",
         className,
       )}
       onClick={handleClick}

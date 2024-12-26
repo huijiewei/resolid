@@ -25,7 +25,7 @@ export default function Layout() {
         <div className={"mx-auto flex xl:max-w-6xl"}>
           <div
             className={
-              "fixed z-aside flex h-9 w-full items-center justify-between border-b bg-bg-normal px-2 text-sm md:hidden"
+              "z-aside bg-bg-normal fixed flex h-9 w-full items-center justify-between border-b px-2 text-sm md:hidden"
             }
           >
             <button type={"button"} onClick={() => setOpened(true)} className={"flex items-center gap-1 p-2"}>
@@ -35,7 +35,7 @@ export default function Layout() {
           </div>
           <aside
             className={clsx(
-              "fixed z-aside w-48 border-r bg-bg-normal md:z-none md:block md:border-none",
+              "z-aside bg-bg-normal md:z-none fixed w-48 border-r md:block md:border-none",
               "scrollbar scrollbar-base overflow-y-auto",
               "max-h-[calc(100vh-theme(spacing.16))] md:sticky md:top-16",
               opened ? "block" : "hidden",

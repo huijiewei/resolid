@@ -23,7 +23,7 @@ export const MenuItemTrigger = forwardRef<HTMLDivElement, AsChildProps<"div", Me
         ref={refs}
         asChild={asChild}
         data-opened={dataAttr(opened)}
-        className={clsx("justify-between pe-0.5 opened:[&:not([data-active])]:bg-bg-subtlest", className)}
+        className={clsx("opened:[&:not([data-active])]:bg-bg-subtlest justify-between pe-0.5", className)}
         {...getReferenceProps(rest)}
       >
         {children}

@@ -8,7 +8,7 @@ export const ErrorComponent = () => {
     return (
       <div className={"relative mx-auto flex max-w-xl justify-center px-4 py-8"}>
         <svg
-          className={"absolute inset-x-4 top-20 fill-fg-normal/5"}
+          className={"fill-fg-normal/5 absolute inset-x-4 top-20"}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 362 145"
         >

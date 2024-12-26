@@ -127,7 +127,7 @@ export const Switch = forwardRef<HTMLInputElement, BaseProps<"input", SwitchProp
       >
         <span
           className={clsx(
-            "aspect-square h-full rounded-[inherit] bg-bg-normal transition-transform",
+            "bg-bg-normal aspect-square h-full rounded-[inherit] transition-transform",
             state && sizeStyle.thumb,
           )}
         />

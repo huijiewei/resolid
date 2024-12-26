@@ -1,5 +1,5 @@
 {
-  "extends": "@resolid/config/tsconfig.react",
+  "extends": "@resolid/config/tsconfig/react",
   "include": [
     ".react-router/types/**/*",
     "src/**/*",
