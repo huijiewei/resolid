@@ -212,6 +212,7 @@ const NavBar = () => {
               render={(props) => (
                 <Button
                   {...props}
+                  aria-label="Resolid UI"
                   color={"neutral"}
                   variant={"ghost"}
                   size={"sm"}
