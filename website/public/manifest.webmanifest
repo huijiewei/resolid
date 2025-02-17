@@ -32,15 +32,15 @@
   ],
   "screenshots": [
     {
-      "src": "/images/s-desktop-v1.webp",
-      "sizes": "1503x1080",
+      "src": "/images/s-desktop-v2.webp",
+      "sizes": "1525x1080",
       "type": "image/webp",
       "form_factor": "wide",
       "label": "Resolid 主页"
     },
     {
-      "src": "/images/s-mobile-v1.webp",
-      "sizes": "577x1080",
+      "src": "/images/s-mobile-v2.webp",
+      "sizes": "521x1080",
       "type": "image/webp",
       "form_factor": "narrow",
       "label": "Resolid 移动主页"

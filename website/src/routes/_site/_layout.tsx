@@ -61,7 +61,7 @@ export const loader = async ({ request, context }: Route.LoaderArgs) => {
 
 // noinspection JSUnusedGlobalSymbols
 export const meta = ({ data }: Route.MetaArgs) => {
-  const ogImage = new URL("/images/og-image-v1.png", data?.requestOrigin).toString();
+  const ogImage = new URL("/images/og-image-v2.png", data?.requestOrigin).toString();
   const ogUrl = trimEnd(new URL("", data?.requestOrigin).toString(), "/");
   const siteName = "Resolid";
   const title = siteName;
