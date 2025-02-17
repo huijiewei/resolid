@@ -20,7 +20,7 @@ export default function SiteIndex() {
           size={"xl"}
           render={(props) => (
             <a {...props} href={"https://github.com/huijiewei/resolid"} target={"_blank"} rel={"noreferrer"}>
-              <SpriteIcon className={"me-2"} name={"github"} />
+              <SpriteIcon size={"1.5em"} className={"me-2"} name={"github"} />
               Github
             </a>
           )}

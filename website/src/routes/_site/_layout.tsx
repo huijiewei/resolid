@@ -139,7 +139,7 @@ export default function SiteLayout() {
           <p>Copyright Ⓒ 2022-present Resolid Tech</p>
           <p className={"inline-flex items-center justify-center gap-2"}>
             <Badge color={"success"} render={(props) => <HistoryLink {...props} to={"status"} />}>
-              <SpriteIcon className={"me-1"} size={"xs"} name={"status"} />
+              <SpriteIcon className={"me-1"} name={"status"} />
               运行状态
             </Badge>
             <Badge className={"pointer-events-none"} color={"neutral"}>
@@ -156,13 +156,13 @@ const NavBar = () => {
   const [opened, setOpened] = useState(false);
 
   return (
-    <nav className={"xl:max-w-288 mx-auto flex h-16 items-center justify-between gap-3 px-4"}>
+    <nav className={"xl:max-w-288 mx-auto flex h-16 items-center justify-between gap-4 px-4"}>
       <Link to={"/"} aria-label={"Resolid"}>
         <ResolidLogo />
       </Link>
       <div
         className={tx(
-          "bg-bg-normal absolute inset-x-0 top-[calc(var(--spacing)*16+1px)] z-20 h-screen p-0",
+          "bg-bg-normal absolute inset-x-0 top-[calc(var(--spacing)*16+1px)] z-20 h-screen grow p-0",
           "md:relative md:top-0 md:block md:h-auto md:bg-inherit",
           opened ? "block" : "hidden",
         )}
@@ -184,12 +184,12 @@ const NavBar = () => {
                 iconOnly
                 render={(props) => (
                   <a {...props} href={"https://github.com/huijiewei/resolid"} target={"_blank"} rel={"noreferrer"}>
-                    <SpriteIcon name={"github"} />
+                    <SpriteIcon size={"1.5em"} name={"github"} />
                   </a>
                 )}
               />
             )}
-          ></TooltipTrigger>
+          />
           <TooltipContent>
             <TooltipArrow />
             Github 上的 Resolid
@@ -204,32 +204,28 @@ const NavBar = () => {
           className={"md:hidden"}
           onClick={() => setOpened((prev) => !prev)}
         >
-          {opened ? <SpriteIcon name={"close"} /> : <SpriteIcon name={"menu"} />}
+          {opened ? <SpriteIcon size={"1.5em"} name={"close"} /> : <SpriteIcon size={"1.5em"} name={"menu"} />}
         </Button>
-        <div className={"hidden md:block"}>
-          <Tooltip placement={"bottom"}>
-            <TooltipTrigger
-              render={(props) => (
-                <Button
-                  {...props}
-                  aria-label="Resolid UI"
-                  color={"neutral"}
-                  variant={"ghost"}
-                  size={"sm"}
-                  render={(props) => (
-                    <a {...props} href={"https://ui.resolid.tech"} target={"_blank"} rel={"noreferrer"}>
-                      <ResolidUiLogo height={16} />
-                    </a>
-                  )}
-                />
-              )}
-            />
-            <TooltipContent>
-              <TooltipArrow />
-              访问 Resolid UI
-            </TooltipContent>
-          </Tooltip>
-        </div>
+        <Tooltip placement={"bottom"}>
+          <TooltipTrigger
+            render={(props) => (
+              <a
+                {...props}
+                className={"hover:text-fg-primary ms-3 hidden md:block"}
+                aria-label="Resolid UI"
+                href={"https://ui.resolid.tech"}
+                target={"_blank"}
+                rel={"noreferrer"}
+              >
+                <ResolidUiLogo height={16} />
+              </a>
+            )}
+          />
+          <TooltipContent>
+            <TooltipArrow />
+            访问 Resolid UI
+          </TooltipContent>
+        </Tooltip>
       </div>
     </nav>
   );
@@ -239,7 +235,7 @@ const NavMenu = ({ onClick }: { onClick?: MouseEventHandler<HTMLAnchorElement> }
   return (
     <ul
       className={tx(
-        "mx-auto flex max-w-80 list-none flex-col p-4 text-center font-medium tracking-widest",
+        "mx-auto flex max-w-80 list-none flex-col justify-end p-4 text-center font-medium tracking-widest",
         "md:max-w-none md:flex-row md:p-0 md:tracking-normal",
       )}
     >
@@ -327,7 +323,7 @@ const NavUser = () => {
         )}
         aria-label={"用户登录"}
       >
-        <SpriteIcon name={"user"} />
+        <SpriteIcon size={"1.5em"} name={"user"} />
       </TooltipTrigger>
       <TooltipContent>
         <TooltipArrow />

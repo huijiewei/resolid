@@ -35,7 +35,7 @@ export const ColorModeToggle = () => {
         aria-label={"颜色模式"}
         render={(props) => <Button {...props} color={"neutral"} variant={"ghost"} size={"sm"} iconOnly />}
       >
-        <SpriteIcon name={colorModes[colorMode]?.icon} />
+        <SpriteIcon size={"1.5em"} name={colorModes[colorMode]?.icon} />
       </DropdownMenuTrigger>
       <DropdownMenuContent className={"text-sm"}>
         {Object.keys(colorModes).map((key) => {
@@ -49,7 +49,7 @@ export const ColorModeToggle = () => {
                 setColorMode(key as ColorMode);
               }}
             >
-              <SpriteIcon size={"xs"} name={mode.icon} className={"me-1.5"} />
+              <SpriteIcon name={mode.icon} className={"me-1.5"} />
               {mode.label}
             </DropdownMenuItem>
           );
