@@ -1,9 +1,11 @@
 # ![Resolid](.github/assets/resolid.svg)
 
-使用 [React Router](https://reactrouter.com/) 驱动的全栈网站，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。
+使用 [React Router](https://reactrouter.com/) 驱动的全栈网站，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web
+应用程序的最佳实践。
 
 [![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://react.dev)
-[![Remix](https://img.shields.io/badge/Remix-000000?style=flat&logo=remix&logoColor=white)](https://remix.run)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat&logo=react-router&logoColor=white)](https://reactrouter.com)
 [![Vite](https://img.shields.io/badge/Vite-B73BFE?style=flat&logo=vite&logoColor=FFD62E)](https://vitejs.dev)
 [![NodeJS](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)](https://nodejs.org)
 [![MySQL](https://img.shields.io/badge/MySQL-005C84?style=flat&logo=mysql&logoColor=white)](https://www.mysql.com/)
@@ -14,15 +16,9 @@
 
 访问 [resolid.tech](https://www.resolid.tech).
 
-## 子项目
+## 贡献者公约
 
-| 包名                                           | 介绍               |
-| ---------------------------------------------- | ------------------ |
-| [@resolid/framework](./packages/framework)     | 核心框架包         |
-| [@resolid/react-ui](./packages/react-ui)       | React UI 组件包    |
-| [@resolid/mdx-plugins](./packages/mdx-plugins) | MDX 插件扩展包     |
-| [@resolid/tailwind](./packages/tailwind)       | TailwindCSS 预设包 |
-| [@resolid/utils](./packages/utils)             | 基础工具包         |
+查看 [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 
 ## 贡献指南
 
