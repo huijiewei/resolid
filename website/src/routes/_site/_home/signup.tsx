@@ -71,7 +71,7 @@ export default function Signup() {
                 name={name}
                 invalid={Boolean(errors.email?.message)}
                 type={"email"}
-                block
+                fullWidth
                 placeholder={"电子邮箱"}
                 onChange={onChange}
                 onBlur={onBlur}
@@ -92,7 +92,7 @@ export default function Signup() {
                 id={name}
                 name={name}
                 invalid={Boolean(errors.username?.message)}
-                block
+                fullWidth
                 placeholder={"用户名"}
                 onChange={onChange}
                 onBlur={onBlur}
@@ -114,7 +114,7 @@ export default function Signup() {
                 name={name}
                 invalid={Boolean(errors.password?.message)}
                 type={"password"}
-                block
+                fullWidth
                 placeholder={"密码"}
                 onChange={onChange}
                 onBlur={onBlur}
@@ -136,7 +136,7 @@ export default function Signup() {
                 name={name}
                 invalid={Boolean(errors.confirmPassword?.message)}
                 type={"password"}
-                block
+                fullWidth
                 placeholder={"确认密码"}
                 autoComplete={"new-password"}
                 onChange={onChange}
@@ -175,7 +175,7 @@ export default function Signup() {
             )}
           />
         </div>
-        <Button size={"lg"} className={"tracking-widest"} block loading={isSubmitting} type={"submit"}>
+        <Button size={"lg"} className={"tracking-widest"} fullWidth loading={isSubmitting} type={"submit"}>
           注册
         </Button>
       </Form>

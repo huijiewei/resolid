@@ -2,13 +2,9 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/packages/mdx-plugins/dist" />
-      <excludeFolder url="file://$MODULE_DIR$/packages/react-ui/dist" />
-      <excludeFolder url="file://$MODULE_DIR$/packages/tailwind/dist" />
-      <excludeFolder url="file://$MODULE_DIR$/packages/utils/dist" />
-      <excludeFolder url="file://$MODULE_DIR$/website/.resolid" />
       <excludeFolder url="file://$MODULE_DIR$/website/.vercel" />
       <excludeFolder url="file://$MODULE_DIR$/website/build" />
+      <excludeFolder url="file://$MODULE_DIR$/website/.react-router" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

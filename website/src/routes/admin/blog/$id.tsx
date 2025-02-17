@@ -37,6 +37,4 @@ export default function BlogView() {
 }
 
 // noinspection JSUnusedGlobalSymbols
-export const ErrorBoundary = () => {
-  return <ErrorComponent />;
-};
+export const ErrorBoundary = ErrorComponent;

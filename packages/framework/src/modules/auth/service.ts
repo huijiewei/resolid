@@ -1,7 +1,8 @@
 import { hash, verify } from "@node-rs/bcrypt";
-import { isEmpty, omit, randomId } from "@resolid/utils";
+import { isEmpty, omit } from "@resolid/utils";
 import { type InferSelectModel, type Simplify, and, eq, getTableColumns, gt, inArray, isNull } from "drizzle-orm";
 import type { MySql2Database } from "drizzle-orm/mysql2";
+import { nanoid } from "nanoid";
 import type { ServiceResult } from "../../utils/service";
 import type { DefineTable } from "../../utils/types";
 import { createFieldErrors, validateData } from "../../utils/zod";
@@ -202,7 +203,7 @@ export const createAuthSessionService = <T extends AuthSelectWithGroup>(
   };
 
   const createSession: AuthSessionService<AuthIdentity<T>>["createSession"] = async (sessionData, expiredAt) => {
-    const sessionId = randomId();
+    const sessionId = nanoid(12);
 
     await database.insert(authSessionTable).values({
       id: sessionId,
@@ -278,7 +279,7 @@ export const createAuthPasswordForgotService = <T extends AuthSelect>(
       return [createFieldErrors({ email: "电子邮箱并未注册" }), undefined];
     }
 
-    const resetId = randomId();
+    const resetId = nanoid(12);
 
     await database.insert(authPasswordResetTable).values({
       id: resetId,

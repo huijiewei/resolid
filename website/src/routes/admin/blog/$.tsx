@@ -24,6 +24,4 @@ export default function Catchall() {
   return null;
 }
 
-export const ErrorBoundary = () => {
-  return <ErrorComponent />;
-};
+export const ErrorBoundary = ErrorComponent;

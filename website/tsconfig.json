@@ -7,18 +7,13 @@
     "app.d.ts",
     "env.d.ts",
     "drizzle.config.ts",
-    "tailwind.config.ts",
-    "tailwind.admin.config.ts",
-    "tailwind-ide.config.ts",
     "vite.config.ts",
     "react-router.config.ts"
   ],
   "compilerOptions": {
     "rootDirs": [".", "./.react-router/types"],
     "paths": {
-      "~/*": ["./src/*"],
-      "@resolid/react-ui": ["../packages/react-ui/src"],
-      "@resolid/utils": ["../packages/utils/src"]
+      "~/*": ["./src/*"]
     }
   }
 }

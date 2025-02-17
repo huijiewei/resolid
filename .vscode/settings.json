@@ -1,17 +1,39 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "tailwindCSS.experimental.classRegex": [
-    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
-    ["classed(?:\\.\\w*)?\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ],
+  "eslint.useFlatConfig": true,
+  "eslint.useESLintClass": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.requireConfig": true,
+  "prettier.printWidth": 120,
   "editor.formatOnSave": true,
-  "tailwindCSS.experimental.configFile": "./website/tailwind-ide.config.ts",
-  "editor.codeActionsOnSave": {
-    "quickfix.biome": "explicit",
-    "source.organizeImports.biome": "explicit"
+  "files.associations": {
+    "*.css": "tailwindcss"
   },
-  "editor.defaultFormatter": "biomejs.biome",
-  "prettier.enable": false,
-  "eslint.enable": false,
-  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "textClassName", "statusClassName"]
+  "editor.quickSuggestions": {
+      "strings": "on"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["tv\\(((?:[^()]|\\([^()]*\\))*)\\)", "[\"'`]?([^\"'`]+)[\"'`]?"],
+    ["tx\\(((?:[^()]|\\([^()]*\\))*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "tailwindCSS.experimental.configFile": "./website/tailwind.css",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "npm.enableRunFromFolder": true,
+  "npm.exclude": [
+    "**/build/**",
+    "**/.vercel/**"
+  ],
+  "files.watcherExclude": {
+    "**/.vercel/**": true,
+    "**/build/**": true,
+    "**/node_modules/**": true
+  },
+  "search.exclude": {
+    "**/.vercel/**": true,
+    "**/build/**": true
+  },
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Use conventional commit message format. Use english. Use docs for website folder changes. If it's a component update, the component name should use an uppercase first letter. Length less than 100"
+    }
+  ]
 }

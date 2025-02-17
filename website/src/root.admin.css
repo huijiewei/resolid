@@ -1,5 +1,9 @@
-@config "../tailwind.admin.config.ts";
+@import "tailwindcss" source(none);
+@import "@resolid/react-ui/tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@plugin "@tailwindcss/typography";
+
+@source "../src/root.tsx";
+@source "../src/components";
+@source "../src/extensions";
+@source "../src/routes/admin";

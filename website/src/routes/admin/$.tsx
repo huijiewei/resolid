@@ -30,6 +30,4 @@ export default function Catchall() {
 }
 
 // noinspection JSUnusedGlobalSymbols
-export const ErrorBoundary = () => {
-  return <ErrorComponent />;
-};
+export const ErrorBoundary = ErrorComponent;

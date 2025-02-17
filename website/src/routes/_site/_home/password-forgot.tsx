@@ -101,7 +101,7 @@ export default function PasswordForgot() {
                 name={name}
                 invalid={Boolean(errors.email?.message)}
                 type={"email"}
-                block
+                fullWidth
                 placeholder={"电子邮箱"}
                 onChange={onChange}
                 onBlur={onBlur}
@@ -132,7 +132,7 @@ export default function PasswordForgot() {
           size={"lg"}
           className={"tracking-widest"}
           disabled={!captchaVerified || sendSucceed}
-          block
+          fullWidth
           loading={isSubmitting}
           color={sendSucceed ? "success" : "primary"}
           type={"submit"}

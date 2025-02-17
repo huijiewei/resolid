@@ -1,4 +1,4 @@
-import { ColorModeScript, ResolidProvider } from "@resolid/react-ui";
+import { ResolidProvider } from "@resolid/react-ui";
 import type { PropsWithChildren } from "react";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { RouteProcessBar } from "~/components/base/route-process-bar";
@@ -21,28 +21,21 @@ export const Layout = ({ children }: PropsWithChildren) => {
         <Links />
       </head>
       <body className={"min-h-screen overflow-y-scroll antialiased"}>
-        <ColorModeScript />
         <RouteProcessBar />
         <ResolidProvider>{children}</ResolidProvider>
         <ScrollRestoration />
         <Scripts />
+        {!!import.meta.env.VITE_VERCEL_URL && (
+          <>
+            <VercelAnalytics endpoint={"/growth"} scriptSrc={"/growth/script.js"} />
+            <VercelSpeedInsights endpoint={"/speed-growth/vitals"} scriptSrc={"/speed-growth/script.js"} />
+          </>
+        )}
       </body>
     </html>
   );
 };
 
 export default function Root() {
-  return (
-    <>
-      {!!import.meta.env.VITE_VERCEL_URL && (
-        <>
-          <VercelAnalytics endpoint={"/growth"} scriptSrc={"/growth/script.js"} />
-          <VercelSpeedInsights endpoint={"/speed-growth/vitals"} scriptSrc={"/speed-growth/script.js"} />
-        </>
-      )}
-      <Outlet />
-    </>
-  );
+  return <Outlet />;
 }
-
-export const HydrateFallback = () => <p className={"p-20 text-center"}>正在加载</p>;

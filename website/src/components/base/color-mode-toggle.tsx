@@ -8,7 +8,6 @@ import {
   useColorModeDispatch,
   useColorModeState,
 } from "@resolid/react-ui";
-import { useEffect, useState } from "react";
 import { SpriteIcon } from "~/components/base/sprite-icon";
 
 const colorModes = {
@@ -20,7 +19,7 @@ const colorModes = {
     label: "暗色模式",
     icon: "moon",
   },
-  system: {
+  auto: {
     label: "跟随系统",
     icon: "auto",
   },
@@ -30,18 +29,13 @@ export const ColorModeToggle = () => {
   const colorMode = useColorModeState();
   const setColorMode = useColorModeDispatch();
 
-  const [colorModeIcon, setColorModeIcon] = useState(colorModes.system.icon);
-
-  useEffect(() => {
-    setColorModeIcon(colorModes[colorMode].icon);
-  }, [colorMode]);
-
   return (
     <DropdownMenu placement={"bottom"}>
-      <DropdownMenuTrigger asChild>
-        <Button active={true} aria-label={"颜色模式"} color={"neutral"} variant={"ghost"} size={"sm"} square>
-          <SpriteIcon name={colorModeIcon} />
-        </Button>
+      <DropdownMenuTrigger
+        aria-label={"颜色模式"}
+        render={(props) => <Button {...props} color={"neutral"} variant={"ghost"} size={"sm"} iconOnly />}
+      >
+        <SpriteIcon name={colorModes[colorMode]?.icon} />
       </DropdownMenuTrigger>
       <DropdownMenuContent className={"text-sm"}>
         {Object.keys(colorModes).map((key) => {
@@ -56,7 +50,7 @@ export const ColorModeToggle = () => {
               }}
             >
               <SpriteIcon size={"xs"} name={mode.icon} className={"me-1.5"} />
-              <span>{mode.label}</span>
+              {mode.label}
             </DropdownMenuItem>
           );
         })}

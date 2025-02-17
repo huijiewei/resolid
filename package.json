@@ -7,7 +7,7 @@
     "postinstall": "lefthook install",
     "lint": "pnpm run -r --if-present lint",
     "format": "prettier --write .",
-    "test": "pnpm test -r --if-present",
+    "test": "pnpm run -r --if-present test",
     "website:dev": "pnpm --filter website run dev",
     "website:build": "pnpm --filter website... run build",
     "website:vercel": "VERCEL=1 pnpm --filter website... run build",
@@ -15,20 +15,21 @@
     "drizzle": "pnpm --filter website exec -- pnpm --silent drizzle"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
-    "@resolid/config": "^3.1.0",
-    "@types/node": "^20.17.10",
-    "lefthook": "^1.10.0",
-    "prettier": "^3.4.2",
-    "prettier-plugin-tailwindcss": "^0.6.9",
-    "typescript": "^5.7.2"
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@resolid/config": "^3.2.3",
+    "@types/node": "^20.17.19",
+    "lefthook": "^1.10.10",
+    "prettier": "^3.5.1",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "typescript": "^5.7.3"
   },
   "engines": {
     "node": "22.x",
-    "pnpm": "9.x"
+    "pnpm": "10.x"
   },
-  "packageManager": "pnpm@9.15.1",
+  "packageManager": "pnpm@10.4.1",
   "homepage": "https://www.resolid.tech",
   "repository": {
     "type": "git",
@@ -36,10 +37,6 @@
   },
   "pnpm": {
     "overrides": {
-      "@mdx-js/mdx": "^3.1.0",
-      "esbuild": "^0.24.2",
-      "react": "^19.0.0",
-      "react-dom": "^19.0.0",
       "react-is": "^19.0.0",
       "hasown": "npm:@nolyfill/hasown@^1",
       "is-arguments": "npm:@nolyfill/is-arguments@^1",
@@ -65,7 +62,8 @@
       "safe-regex-test": "npm:@nolyfill/safe-regex-test@^1",
       "string.prototype.includes": "npm:@nolyfill/string.prototype.includes@^1",
       "string.prototype.matchall": "npm:@nolyfill/string.prototype.matchall@^1",
-      "string.prototype.repeat": "npm:@nolyfill/string.prototype.repeat@^1"
+      "string.prototype.repeat": "npm:@nolyfill/string.prototype.repeat@^1",
+      "es-set-tostringtag": "npm:@nolyfill/es-set-tostringtag@^1"
     }
   }
 }

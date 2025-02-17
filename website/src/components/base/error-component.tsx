@@ -1,12 +1,12 @@
-import { isRouteErrorResponse, useRouteError } from "react-router";
+import { isRouteErrorResponse } from "react-router";
 import { HistoryBack } from "~/components/base/history-link";
 
-export const ErrorComponent = () => {
-  const error = useRouteError();
+export type ErrorComponentProps = { error: unknown };
 
+export const ErrorComponent = ({ error }: ErrorComponentProps) => {
   if (isRouteErrorResponse(error) && error.status == 404) {
     return (
-      <div className={"relative mx-auto flex max-w-xl justify-center px-4 py-8"}>
+      <div className={"max-w-144 relative mx-auto flex justify-center px-4 py-8"}>
         <svg
           className={"fill-fg-normal/5 absolute inset-x-4 top-20"}
           xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +14,7 @@ export const ErrorComponent = () => {
         >
           <path d="M62.6 142c-2.133 0-3.2-1.067-3.2-3.2V118h-56c-2 0-3-1-3-3V92.8c0-1.333.4-2.733 1.2-4.2L58.2 4c.8-1.333 2.067-2 3.8-2h28c2 0 3 1 3 3v85.4h11.2c.933 0 1.733.333 2.4 1 .667.533 1 1.267 1 2.2v21.2c0 .933-.333 1.733-1 2.4-.667.533-1.467.8-2.4.8H93v20.8c0 2.133-1.067 3.2-3.2 3.2H62.6zM33 90.4h26.4V51.2L33 90.4zm148.67 54.2c-7.333 0-14.333-1.333-21-4-6.666-2.667-12.866-6.733-18.6-12.2-5.733-5.467-10.266-13-13.6-22.6-3.333-9.6-5-20.667-5-33.2 0-12.533 1.667-23.6 5-33.2 3.334-9.6 7.867-17.133 13.6-22.6 5.734-5.467 11.934-9.533 18.6-12.2 6.667-2.8 13.667-4.2 21-4.2 7.467 0 14.534 1.4 21.2 4.2 6.667 2.667 12.8 6.733 18.4 12.2 5.734 5.467 10.267 13 13.6 22.6 3.334 9.6 5 20.667 5 33.2 0 12.533-1.666 23.6-5 33.2-3.333 9.6-7.866 17.133-13.6 22.6-5.6 5.467-11.733 9.533-18.4 12.2-6.666 2.667-13.733 4-21.2 4zm0-31c9.067 0 15.6-3.733 19.6-11.2 4.134-7.6 6.2-17.533 6.2-29.8s-2.066-22.2-6.2-29.8c-4.133-7.6-10.666-11.4-19.6-11.4-8.933 0-15.466 3.8-19.6 11.4-4 7.6-6 17.533-6 29.8s2 22.2 6 29.8c4.134 7.467 10.667 11.2 19.6 11.2zM316.116 142c-2.134 0-3.2-1.067-3.2-3.2V118h-56c-2 0-3-1-3-3V92.8c0-1.333.4-2.733 1.2-4.2l56.6-84.6c.8-1.333 2.066-2 3.8-2h28c2 0 3 1 3 3v85.4h11.2c.933 0 1.733.333 2.4 1 .666.533 1 1.267 1 2.2v21.2c0 .933-.334 1.733-1 2.4-.667.533-1.467.8-2.4.8h-11.2v20.8c0 2.133-1.067 3.2-3.2 3.2h-27.2zm-29.6-51.6h26.4V51.2l-26.4 39.2z" />
         </svg>
-        <div className={"prose dark:prose-invert z-base mt-32 max-w-xl text-center"}>
+        <div className={"prose dark:prose-invert z-10 mt-32 text-center"}>
           <h1>{error.data}</h1>
           <p>
             您尝试打开的页面不存在。您可能输入了错误的地址，或该页面已被移动到另一个
@@ -30,7 +30,7 @@ export const ErrorComponent = () => {
 
   if (error instanceof Error) {
     return (
-      <div className={"prose dark:prose-invert mx-auto max-w-2xl px-4 py-8"}>
+      <div className={"prose dark:prose-invert max-w-144 mx-auto px-4 py-8"}>
         <h1 className={"text-center"}>发生了错误</h1>
         <p>{error.message}</p>
         <p>堆栈跟踪:</p>
@@ -43,7 +43,7 @@ export const ErrorComponent = () => {
   }
 
   return (
-    <div className={"prose dark:prose-invert mx-auto max-w-2xl px-4 py-8"}>
+    <div className={"prose dark:prose-invert max-w-144 mx-auto px-4 py-8"}>
       <h1 className={"text-center"}>未知错误</h1>
       <p className={"text-center"}>您尝试打开的页面发生了未知的错误，请联系支持。</p>
       <div className={"not-prose mt-12 text-center"}>

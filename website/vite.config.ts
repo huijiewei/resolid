@@ -1,73 +1,41 @@
-import mdx from "@mdx-js/rollup";
 import { reactRouter } from "@react-router/dev/vite";
-import { remarkDocgen } from "@resolid/mdx-plugins";
 import { reactRouterHonoServer } from "@resolid/react-router-hono/dev";
-import rehypeShiki from "@shikijs/rehype";
-import { extname, join } from "node:path";
-import { cwd } from "node:process";
-import { fileURLToPath } from "node:url";
-import rehypeSlug from "rehype-slug";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkGfm from "remark-gfm";
-import remarkMdxFrontmatter from "remark-mdx-frontmatter";
-import { type AliasOptions, loadEnv } from "vite";
+import tailwindcss from "@tailwindcss/vite";
+import { extname } from "node:path";
+import { defineConfig, type UserConfig } from "vite";
 import babel from "vite-plugin-babel";
 import viteInspect from "vite-plugin-inspect";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { defineConfig, type ViteUserConfig } from "vitest/config";
-
-const ReactCompilerConfig = {
-  target: "19", // '17' | '18' | '19'
-};
 
 export default defineConfig(({ command, isSsrBuild }) => {
   const isBuild = command == "build";
 
-  const __dirname = fileURLToPath(new URL(".", import.meta.url));
-  const appDirectory = "src";
-
-  const config: ViteUserConfig = {
-    test: {
-      env: loadEnv("test", cwd(), ""),
-    },
+  const config: UserConfig = {
     plugins: [
-      mdx({
-        providerImportSource: "@mdx-js/react",
-        rehypePlugins: [
-          rehypeSlug,
-          [
-            rehypeShiki,
-            {
-              themes: {
-                light: "github-light",
-                dark: "github-dark",
-              },
-            },
-          ],
-        ],
-        remarkPlugins: [
-          remarkFrontmatter,
-          remarkMdxFrontmatter,
-          remarkGfm,
-          [remarkDocgen, { sourceRoot: join(__dirname, "../packages/react-ui/src/components") }],
-        ],
-      }),
       reactRouterHonoServer({
         entryFile: "server.node.ts",
       }),
       reactRouter(),
+      tailwindcss(),
       babel({
+        filter: /\.[jt]sx?$/,
         babelConfig: {
           compact: false,
           presets: ["@babel/preset-typescript"],
-          plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
+          plugins: [
+            [
+              "babel-plugin-react-compiler",
+              {
+                target: "19",
+              },
+            ],
+          ],
         },
-        filter: /\.[jt]sx?$/,
         loader: (path) => {
           return extname(path).substring(1) as "js" | "jsx";
         },
       }),
-      !isBuild && tsconfigPaths(),
+      tsconfigPaths(),
       !isBuild && viteInspect(),
     ].filter(Boolean),
     build: {
@@ -91,7 +59,8 @@ export default defineConfig(({ command, isSsrBuild }) => {
                 if (
                   id.includes("/node_modules/@react-router/") ||
                   id.includes("/node_modules/react-router/") ||
-                  id.includes("/node_modules/turbo-stream/")
+                  id.includes("/node_modules/turbo-stream/") ||
+                  id.includes("react-router/with-props")
                 ) {
                   return "react-router";
                 }
@@ -104,11 +73,6 @@ export default defineConfig(({ command, isSsrBuild }) => {
       },
     },
     esbuild: { legalComments: "none" },
-    resolve: {
-      alias: [isBuild && { find: "~", replacement: join(__dirname, `./${appDirectory}`) }].filter(
-        Boolean,
-      ) as AliasOptions,
-    },
     ssr: {
       external: ["@node-rs/bcrypt"],
     },

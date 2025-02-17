@@ -52,7 +52,7 @@ export default function PasswordReset() {
     <div className={"mx-auto flex max-w-96 flex-col gap-5 py-10"}>
       <h3 className={"text-center text-xl font-bold"}>密码重置</h3>
       {errors.token?.message && (
-        <div className={"bg-bg-danger text-fg-danger rounded p-4"}>{errors.token?.message}</div>
+        <div className={"bg-bg-danger text-fg-danger rounded-md p-4"}>{errors.token?.message}</div>
       )}
       <Form method={"post"} className={"flex flex-col gap-7"} onSubmit={handleSubmit} noValidate>
         <div className={"relative flex flex-col gap-1"}>
@@ -66,7 +66,7 @@ export default function PasswordReset() {
                 name={name}
                 invalid={Boolean(errors.password?.message)}
                 type={"password"}
-                block
+                fullWidth
                 placeholder={"密码"}
                 onChange={onChange}
                 onBlur={onBlur}
@@ -88,7 +88,7 @@ export default function PasswordReset() {
                 name={name}
                 invalid={Boolean(errors.confirmPassword?.message)}
                 type={"password"}
-                block
+                fullWidth
                 placeholder={"确认密码"}
                 autoComplete={"new-password"}
                 onChange={onChange}
@@ -105,7 +105,7 @@ export default function PasswordReset() {
           color={resetSucceed ? "success" : "primary"}
           size={"lg"}
           className={"tracking-widest"}
-          block
+          fullWidth
           loading={isSubmitting}
           type={"submit"}
         >

@@ -1,13 +1,8 @@
 import { Turnstile, type TurnstileInstance, type TurnstileProps } from "@marsidev/react-turnstile";
-import { __DEV__ } from "@resolid/utils";
-import { forwardRef } from "react";
+import type { RefObject } from "react";
 
-export const TurnstileWidget = forwardRef<TurnstileInstance, Omit<TurnstileProps, "siteKey">>((props, ref) => {
-  const { ...rest } = props;
+type TurnstileWidgetProps = Omit<TurnstileProps, "siteKey"> & { ref?: RefObject<TurnstileInstance | null> };
 
+export const TurnstileWidget = ({ ref, ...rest }: TurnstileWidgetProps) => {
   return <Turnstile ref={ref} siteKey={import.meta.env.VITE_TURNSTILE_KEY} {...rest} />;
-});
-
-if (__DEV__) {
-  TurnstileWidget.displayName = "TurnstileWidget";
-}
+};

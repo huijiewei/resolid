@@ -1,14 +1,7 @@
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbSeparator,
-  clsx,
-  noScrollbarsClassName,
-} from "@resolid/react-ui";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, tx } from "@resolid/react-ui";
 import type { ReactNode } from "react";
 import { type LinksFunction, Outlet, type UIMatch, useLoaderData, useMatches } from "react-router";
-import { AuthProvider } from "~/components/base/auth-provider";
+import { AuthContext } from "~/components/base/auth-provider";
 import { ColorModeToggle } from "~/components/base/color-mode-toggle";
 import { HistoryLink } from "~/components/base/history-link";
 import { ResolidLogo } from "~/components/base/resolid-logo";
@@ -45,7 +38,7 @@ export default function AdminLayout() {
   const { admin } = useLoaderData<typeof loader>();
 
   return (
-    <AuthProvider value={{ identity: admin }}>
+    <AuthContext value={{ identity: admin }}>
       <aside className={"fixed bottom-0 top-0 w-56 border-r"}>
         <div className={"flex h-12 items-center justify-center"}>
           <ResolidLogo />
@@ -95,12 +88,12 @@ export default function AdminLayout() {
           <p>菜单1111</p>
         </div>
       </aside>
-      <header className={clsx("z-nav bg-bg-normal fixed left-56 right-0 top-0 border-b", noScrollbarsClassName)}>
+      <header className={tx("bg-bg-normal fixed left-56 right-0 top-0 z-20 border-b")}>
         <NavBar />
       </header>
       <div className={"bg-bg-subtlest relative ml-56"}>
         <main className={"flex-row p-4 pt-16"}>
-          <div className={"bg-bg-normal min-h-[calc(100vh-theme(space.20)-53px)] rounded p-4"}>
+          <div className={"bg-bg-normal min-h-[calc(100vh-theme(space.20)-53px)] rounded-md p-4"}>
             <Outlet />
           </div>
         </main>
@@ -109,7 +102,7 @@ export default function AdminLayout() {
           <div>Copyright Ⓒ 2022-present Resolid Tech</div>
         </footer>
       </div>
-    </AuthProvider>
+    </AuthContext>
   );
 }
 
@@ -124,11 +117,9 @@ const NavBreadcrumb = () => {
   return (
     <Breadcrumb className={"gap-1 text-sm"}>
       <BreadcrumbItem className={"gap-1"}>
-        <BreadcrumbLink className={"gap-0.5"} asChild>
-          <HistoryLink to="/admin">
-            <SpriteIcon size={"1em"} name={"home"} />
-            后台管理
-          </HistoryLink>
+        <BreadcrumbLink className={"gap-0.5"} render={(props) => <HistoryLink {...props} to="/admin" />}>
+          <SpriteIcon size={"1em"} name={"home"} />
+          后台管理
         </BreadcrumbLink>
         <BreadcrumbSeparator />
       </BreadcrumbItem>
@@ -142,8 +133,8 @@ const NavBreadcrumb = () => {
 
         return (
           <BreadcrumbItem key={key} className={"gap-1"}>
-            <BreadcrumbLink className={"gap-0.5"} asChild>
-              <HistoryLink to={breadcrumb.link}>{breadcrumb.label}</HistoryLink>
+            <BreadcrumbLink className={"gap-0.5"} render={(props) => <HistoryLink {...props} to={breadcrumb.link} />}>
+              {breadcrumb.label}
             </BreadcrumbLink>
             <BreadcrumbSeparator />
           </BreadcrumbItem>

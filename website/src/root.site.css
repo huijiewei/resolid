@@ -1,11 +1,9 @@
-@config "../tailwind.config.ts";
+@import "tailwindcss" source(none);
+@import "@resolid/react-ui/tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@plugin "@tailwindcss/typography";
 
-html.dark .shiki,
-html.dark .shiki span {
-  color: var(--shiki-dark) !important;
-  background-color: var(--shiki-dark-bg) !important;
-}
+@source "../src/root.tsx";
+@source "../src/components";
+@source "../src/extensions";
+@source "../src/routes/_site";

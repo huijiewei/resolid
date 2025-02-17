@@ -1,16 +1,13 @@
-import { createContext } from "@resolid/react-ui";
+import { createSafeContext } from "@resolid/react-ui";
 
-type AuthContext<T = unknown> = {
+type AuthContextValue<T = unknown> = {
   identity: T | undefined;
 };
 
-const [AuthProvider, useAuthContext] = createContext<AuthContext>({
-  strict: true,
+export const [AuthContext, useAuthContext] = createSafeContext<AuthContextValue>({
   name: "AuthContext",
 });
 
-export { AuthProvider };
-
 export const useAuth = <T>() => {
-  return useAuthContext() as AuthContext<T>;
+  return useAuthContext() as AuthContextValue<T>;
 };

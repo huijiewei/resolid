@@ -1,8 +1,8 @@
-import { clsx } from "@resolid/react-ui";
+import { tx } from "@resolid/react-ui";
 import { useEffect, useRef, useState } from "react";
 import { useNavigation } from "react-router";
 
-export function RouteProcessBar() {
+export const RouteProcessBar = () => {
   const transition = useNavigation();
   const active = transition.state !== "idle";
 
@@ -31,11 +31,11 @@ export function RouteProcessBar() {
     <div
       aria-hidden={!active}
       aria-valuetext={active ? "正在加载" : undefined}
-      className="z-spotlight pointer-events-none fixed inset-x-0 top-0 h-1 animate-pulse"
+      className="z-99 pointer-events-none fixed inset-x-0 top-0 h-1 animate-pulse"
     >
       <div
         ref={ref}
-        className={clsx(
+        className={tx(
           "h-full transition-[width,background-image] duration-500",
           "from-bg-primary-emphasis to-bg-primary-pressed bg-gradient-to-r",
           transition.state === "idle" && (animating ? "w-full" : "w-0 opacity-0 transition-none"),
@@ -45,4 +45,4 @@ export function RouteProcessBar() {
       />
     </div>
   );
-}
+};

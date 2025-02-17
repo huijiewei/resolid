@@ -9,7 +9,7 @@ export const meta = mergeMeta(() => {
 // noinspection JSUnusedGlobalSymbols
 export default function About() {
   return (
-    <div className={"prose dark:prose-invert mx-auto max-w-3xl px-4 py-8"}>
+    <div className={"prose dark:prose-invert max-w-192 mx-auto px-4 py-8"}>
       <h1 className={"text-center"}>关于</h1>
       <p>
         Resolid 是使用 React Router 驱动的全栈网站，旨在展示使用 React Router、React、Tailwind CSS、Vite、Drizzle
