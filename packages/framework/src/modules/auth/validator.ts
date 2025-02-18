@@ -1,6 +1,4 @@
-import type { Resolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { zodLocaleResolver } from "../../utils/zod";
 
 export const usernameValidator = z
   .string()
@@ -35,21 +33,7 @@ export const emailValidator = z.string().min(1).max(100).email();
 
 export const passwordValidator = z.string().min(6).max(32);
 
-export const authBaseRawShape = {
-  email: emailValidator,
-  username: usernameValidator,
-  nickname: z.string().max(32).optional(),
-  password: passwordValidator,
-  confirmPassword: passwordValidator,
-};
-
-export const authSignupSchema = z.object(authBaseRawShape);
-
-export type AuthSignupFormData = z.infer<typeof authSignupSchema>;
-
-export type AuthSignupResolver = ReturnType<Resolver>;
-
-export const isEqualPasswordAndConfirm: z.RefinementEffect<{
+export const passwordConfirmRefinement: z.RefinementEffect<{
   password: string;
   confirmPassword: string;
 }>["refinement"] = (value, ctx) => {
@@ -62,24 +46,24 @@ export const isEqualPasswordAndConfirm: z.RefinementEffect<{
   }
 };
 
-const authLoginSchema = z.object({
+export const authSignupSchema = z.object({
+  email: emailValidator,
+  username: usernameValidator,
+  nickname: z.string().max(32).optional(),
+  password: passwordValidator,
+  confirmPassword: passwordValidator,
+});
+
+export const authLoginSchema = z.object({
   email: emailValidator,
   password: z.string().min(1),
   rememberMe: z.boolean().default(false),
 });
 
-export type AuthLoginFormData = z.infer<typeof authLoginSchema>;
-
-export const authLoginResolver = zodLocaleResolver(authLoginSchema);
-
 export const authPasswordForgotSchema = z.object({
   email: z.string().min(1).email(),
   token: z.string().min(1),
 });
-
-export type AuthPasswordForgotFormData = z.infer<typeof authPasswordForgotSchema>;
-
-export const authPasswordForgotResolver = zodLocaleResolver(authPasswordForgotSchema);
 
 export const authPasswordResetSchema = z
   .object({
@@ -87,8 +71,4 @@ export const authPasswordResetSchema = z
     confirmPassword: passwordValidator,
     token: z.string().optional(),
   })
-  .superRefine(isEqualPasswordAndConfirm);
-
-export type AuthPasswordResetFormData = z.infer<typeof authPasswordResetSchema>;
-
-export const authPasswordResetResolver = zodLocaleResolver(authPasswordResetSchema);
+  .superRefine(passwordConfirmRefinement);

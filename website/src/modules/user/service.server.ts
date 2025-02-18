@@ -16,35 +16,29 @@ import { passwordForgotRender } from "~/extensions/email/passwordForgotEmail.ser
 import { db } from "~/foundation/db.server";
 import { mailer } from "~/foundation/mail.server";
 import {
-  type UserSelect,
-  type UserSelectWithGroup,
   userGroupTable,
   userPasswordResetTable,
+  type UserSelect,
+  type UserSelectWithGroup,
   userSessionTable,
   userTable,
 } from "~/modules/user/schema.server";
-import { userSignupResolver } from "~/modules/user/validator";
-
-export const userLoginService = createAuthLoginService<UserSelectWithGroup>(db, userTable, userGroupTable);
-
-export const userSignupService = createAuthSignupService<UserSelectWithGroup>(
-  db,
-  userTable,
-  userGroupTable,
+import {
+  type UserLoginFormData,
+  userLoginResolver,
+  type UserPasswordForgotFormData,
+  userPasswordForgotResolver,
+  type UserPasswordResetFormData,
+  userPasswordResetResolver,
+  type UserSignupFormData,
   userSignupResolver,
-);
+} from "~/modules/user/validator";
 
 export const userSessionService = createAuthSessionService<UserSelectWithGroup>(
   db,
   userTable,
   userGroupTable,
   userSessionTable,
-);
-
-export const userPasswordForgotService = createAuthPasswordForgotService<UserSelect>(
-  db,
-  userTable,
-  userPasswordResetTable,
 );
 
 export const userPasswordResetEmailService = async (
@@ -78,9 +72,7 @@ export const userPasswordResetEmailService = async (
   });
 };
 
-export const userPasswordResetService = createAuthPasswordResetService(db, userTable, userPasswordResetTable);
-
-export const userServices = {
+export const userService = {
   getByUsername: async (username: string) => {
     const users = await db.select().from(userTable).where(eq(userTable.username, username)).limit(1);
 
@@ -100,4 +92,28 @@ export const userServices = {
       "groupId",
     ]);
   },
+  login: createAuthLoginService<UserLoginFormData, UserSelectWithGroup>(
+    db,
+    userTable,
+    userGroupTable,
+    userLoginResolver,
+  ),
+  signup: createAuthSignupService<UserSignupFormData, UserSelectWithGroup>(
+    db,
+    userTable,
+    userGroupTable,
+    userSignupResolver,
+  ),
+  passwordForgot: createAuthPasswordForgotService<UserPasswordForgotFormData, UserSelect>(
+    db,
+    userTable,
+    userPasswordResetTable,
+    userPasswordForgotResolver,
+  ),
+  passwordReset: createAuthPasswordResetService<UserPasswordResetFormData>(
+    db,
+    userTable,
+    userPasswordResetTable,
+    userPasswordResetResolver,
+  ),
 };

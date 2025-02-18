@@ -9,7 +9,7 @@ import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/form-error";
 import { HistoryLink } from "~/components/base/history-link";
 import { commitUserSession, setSessionUser } from "~/foundation/session.user.server";
-import { userSignupService } from "~/modules/user/service.server";
+import { userService } from "~/modules/user/service.server";
 import { type UserSignupFormData, userSignupResolver } from "~/modules/user/validator";
 import type { Route } from "./+types/signup";
 
@@ -26,7 +26,7 @@ export const action = async ({ request, context }: Route.ActionArgs) => {
   data.createdIp = remoteAddr;
   data.createdFrom = "WEB";
 
-  const [errors, user] = await userSignupService(data, RX_DEFAULT_AUTH_GROUP_ID);
+  const [errors, user] = await userService.signup(data, RX_DEFAULT_AUTH_GROUP_ID);
 
   if (errors) {
     return httpProblem(errors);

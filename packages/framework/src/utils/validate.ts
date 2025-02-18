@@ -1,18 +1,25 @@
-import { type Resolver, zodResolver } from "@hookform/resolvers/zod";
-import type { FieldError, FieldErrors, FieldValues } from "react-hook-form";
-import { util, type ZodErrorMap, ZodIssueCode, ZodParsedType } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
+import { util, z } from "zod";
 
-export const zodLocaleResolver: Resolver = (schema, schemaOptions, factoryOptions = {}) => {
-  return zodResolver(schema, { ...schemaOptions, errorMap: zodErrorMap }, factoryOptions);
+export const createResolver: typeof zodResolver = (schema, schemaOptions, resolverOptions = {}) => {
+  return zodResolver(
+    schema,
+    {
+      ...schemaOptions,
+      errorMap: zodErrorMap,
+    },
+    resolverOptions,
+  );
 };
 
-type ValidateDataResult<T extends FieldValues> =
+export type ValidateDataResult<T extends FieldValues> =
   | { errors: FieldErrors<T>; values: undefined }
   | { errors: undefined; values: T };
 
 export const validateData = async <T extends FieldValues>(
   data: T,
-  resolver: ReturnType<Resolver>,
+  resolver: Resolver<T>,
 ): Promise<ValidateDataResult<T>> => {
   const { errors, values } = await resolver(data, {}, { shouldUseNativeValidation: false, fields: {} });
 
@@ -23,8 +30,8 @@ export const validateData = async <T extends FieldValues>(
   return { errors: undefined, values: values as T };
 };
 
-export const createFieldErrors = (errors: Record<string, string>) => {
-  const fieldErrors: Record<string, FieldError> = {};
+export const createFieldErrors = <T extends FieldValues = FieldValues>(errors: Record<string, string>) => {
+  const fieldErrors: FieldErrors = {};
 
   for (const error in errors) {
     fieldErrors[error] = {
@@ -33,7 +40,7 @@ export const createFieldErrors = (errors: Record<string, string>) => {
     };
   }
 
-  return fieldErrors;
+  return fieldErrors as unknown as FieldErrors<T>;
 };
 
 const validations = {
@@ -56,42 +63,42 @@ const validations = {
   base64url: "base64url",
 };
 
-const zodErrorMap: ZodErrorMap = (issue, _ctx) => {
+const zodErrorMap: z.ZodErrorMap = (issue, _ctx) => {
   let message: string;
 
   switch (issue.code) {
-    case ZodIssueCode.invalid_type:
-      if (issue.received === ZodParsedType.undefined) {
+    case z.ZodIssueCode.invalid_type:
+      if (issue.received === z.ZodParsedType.undefined) {
         message = "必填";
       } else {
         message = `预期输入为 ${issue.expected}, 而输入为 ${issue.received}`;
       }
       break;
-    case ZodIssueCode.invalid_literal:
+    case z.ZodIssueCode.invalid_literal:
       message = `错误的字面量值，请输入 ${JSON.stringify(issue.expected, util.jsonStringifyReplacer)}`;
       break;
-    case ZodIssueCode.unrecognized_keys:
+    case z.ZodIssueCode.unrecognized_keys:
       message = `对象中的键无法识别: ${util.joinValues(issue.keys, ", ")}`;
       break;
-    case ZodIssueCode.invalid_union:
+    case z.ZodIssueCode.invalid_union:
       message = "不满足联合类型中的选项";
       break;
-    case ZodIssueCode.invalid_union_discriminator:
+    case z.ZodIssueCode.invalid_union_discriminator:
       message = `标识值无法被区分。请输入 ${util.joinValues(issue.options)}`;
       break;
-    case ZodIssueCode.invalid_enum_value:
+    case z.ZodIssueCode.invalid_enum_value:
       message = `错误的枚举值. 预期输入为 ${util.joinValues(issue.options)}, 而输入为 '${issue.received}'`;
       break;
-    case ZodIssueCode.invalid_arguments:
+    case z.ZodIssueCode.invalid_arguments:
       message = "错误的函数参数格式";
       break;
-    case ZodIssueCode.invalid_return_type:
+    case z.ZodIssueCode.invalid_return_type:
       message = "错误的函数返回值格式";
       break;
-    case ZodIssueCode.invalid_date:
+    case z.ZodIssueCode.invalid_date:
       message = "错误的日期格式";
       break;
-    case ZodIssueCode.invalid_string:
+    case z.ZodIssueCode.invalid_string:
       if (typeof issue.validation === "object") {
         if ("includes" in issue.validation) {
           message = `必须包含 "${issue.validation.includes}"`;
@@ -112,7 +119,7 @@ const zodErrorMap: ZodErrorMap = (issue, _ctx) => {
         message = "错误的输入格式";
       }
       break;
-    case ZodIssueCode.too_small:
+    case z.ZodIssueCode.too_small:
       if (issue.type === "array") {
         message = `数组元素${issue.exact ? "必须为" : issue.inclusive ? "至少为" : "须多于"} ${issue.minimum} 个`;
       } else if (issue.type === "string") {
@@ -127,7 +134,7 @@ const zodErrorMap: ZodErrorMap = (issue, _ctx) => {
         message = "错误的输入格式";
       }
       break;
-    case ZodIssueCode.too_big:
+    case z.ZodIssueCode.too_big:
       if (issue.type === "array") {
         message = `数组元素${issue.exact ? "必须为" : issue.inclusive ? "最多为" : "须少于"} ${issue.maximum} 个`;
       } else if (issue.type === "string") {
@@ -142,16 +149,16 @@ const zodErrorMap: ZodErrorMap = (issue, _ctx) => {
         message = "错误的输入格式";
       }
       break;
-    case ZodIssueCode.custom:
+    case z.ZodIssueCode.custom:
       message = "错误的输入格式";
       break;
-    case ZodIssueCode.invalid_intersection_types:
+    case z.ZodIssueCode.invalid_intersection_types:
       message = "交叉类型结果无法被合并";
       break;
-    case ZodIssueCode.not_multiple_of:
+    case z.ZodIssueCode.not_multiple_of:
       message = `数值必须是 ${issue.multipleOf} 的倍数`;
       break;
-    case ZodIssueCode.not_finite:
+    case z.ZodIssueCode.not_finite:
       message = "数值必须有限";
       break;
     default:

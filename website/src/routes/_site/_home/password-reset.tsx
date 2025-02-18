@@ -6,7 +6,7 @@ import { Controller } from "react-hook-form";
 import { Form, useActionData } from "react-router";
 import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/form-error";
-import { userPasswordResetService } from "~/modules/user/service.server";
+import { userService } from "~/modules/user/service.server";
 import { type UserPasswordResetFormData, userPasswordResetResolver } from "~/modules/user/validator";
 import type { Route } from "./+types/password-reset";
 
@@ -18,7 +18,7 @@ export const meta = mergeMeta(() => {
 export const action = async ({ request }: Route.ActionArgs) => {
   const data = await parseFormData<UserPasswordResetFormData>(request);
 
-  const [errors] = await userPasswordResetService(data, new URL(request.url).searchParams.get("token"));
+  const [errors] = await userService.passwordReset(data, new URL(request.url).searchParams.get("token"));
 
   if (errors) {
     return httpProblem(errors);

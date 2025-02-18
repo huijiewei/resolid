@@ -8,7 +8,7 @@ import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/form-error";
 import { HistoryLink } from "~/components/base/history-link";
 import { commitUserSession, setSessionUser } from "~/foundation/session.user.server";
-import { userLoginService } from "~/modules/user/service.server";
+import { userService } from "~/modules/user/service.server";
 import { type UserLoginFormData, userLoginResolver } from "~/modules/user/validator";
 import type { Route } from "./+types/login";
 
@@ -21,7 +21,7 @@ export const meta = mergeMeta(() => {
 export const action = async ({ request, context }: Route.ActionArgs) => {
   const data = await parseFormData<UserLoginFormData>(request);
 
-  const [errors, user] = await userLoginService(data);
+  const [errors, user] = await userService.login(data);
 
   if (errors) {
     return httpProblem(errors);

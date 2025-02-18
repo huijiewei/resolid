@@ -2,11 +2,11 @@ import { authUtils } from "@resolid/framework/modules";
 import { mergeMeta } from "@resolid/framework/utils";
 import { httpNotFound } from "@resolid/framework/utils.server";
 import { useLoaderData } from "react-router";
-import { userServices } from "~/modules/user/service.server";
+import { userService } from "~/modules/user/service.server";
 import type { Route } from "./+types/user.$name";
 
 export const loader = async ({ params }: Route.LoaderArgs) => {
-  const user = await userServices.getByUsername(params.name!);
+  const user = await userService.getByUsername(params.name!);
 
   if (!user) {
     httpNotFound("用户不存在");

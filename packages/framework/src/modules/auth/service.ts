@@ -1,22 +1,13 @@
 import { hash, verify } from "@node-rs/bcrypt";
 import { isEmpty, omit } from "@resolid/utils";
-import { type InferSelectModel, type Simplify, and, eq, getTableColumns, gt, inArray, isNull } from "drizzle-orm";
+import { and, eq, getTableColumns, gt, inArray, isNull, type InferSelectModel, type Simplify } from "drizzle-orm";
 import type { MySql2Database } from "drizzle-orm/mysql2";
 import { nanoid } from "nanoid";
+import type { FieldValues, Resolver } from "react-hook-form";
 import type { ServiceResult } from "../../utils/service";
 import type { DefineTable } from "../../utils/types";
-import { createFieldErrors, validateData } from "../../utils/zod";
+import { createFieldErrors, validateData } from "../../utils/validate";
 import type { authColumns, authGroupColumns, authPasswordResetColumns, authSessionColumns } from "./schema";
-import {
-  type AuthLoginFormData,
-  type AuthPasswordForgotFormData,
-  type AuthPasswordResetFormData,
-  type AuthSignupFormData,
-  type AuthSignupResolver,
-  authLoginResolver,
-  authPasswordForgotResolver,
-  authPasswordResetResolver,
-} from "./validator";
 
 export type AuthSessionData<T> = {
   identity: T;
@@ -50,40 +41,38 @@ const omitIdentity = <T extends AuthSelectWithGroup | AuthSelect>(identity: T): 
   return omit(identity, ["password", "createdAt", "updatedAt", "deletedAt"]);
 };
 
-// noinspection JSUnusedGlobalSymbols
-export const createAuthLoginService = <T extends AuthSelectWithGroup>(
+export const createAuthLoginService = <T extends FieldValues, R extends AuthSelectWithGroup>(
   database: DatabaseInstance,
   authTable: AuthTable,
   authGroupTable: AuthGroupTable,
+  authLoginResolver: Resolver<T>,
 ) => {
-  return async (data: AuthLoginFormData): Promise<ServiceResult<AuthLoginFormData, AuthIdentity<T>>> => {
-    const { errors, values } = await validateData(data, authLoginResolver);
+  return async (data: T): Promise<ServiceResult<T, AuthIdentity<R>>> => {
+    const { errors, values } = await validateData<T>(data, authLoginResolver);
 
     if (errors) {
       return [errors, undefined];
     }
 
-    const result = await database
+    const identities = await database
       .select({
         ...getTableColumns(authTable),
         group: getTableColumns(authGroupTable),
       })
       .from(authTable)
-      .where(and(eq(authTable.email, values.email), isNull(authTable.deletedAt)))
+      .where(and(eq(authTable.email, values!.email), isNull(authTable.deletedAt)))
       .leftJoin(authGroupTable, eq(authGroupTable.id, authTable.groupId))
       .limit(1);
 
-    if (result.length == 0) {
-      return [createFieldErrors({ email: "用户不存在" }), undefined];
+    if (identities.length == 0) {
+      return [createFieldErrors<T>({ email: "用户不存在" }), undefined];
     }
 
-    const identity = result[0] as T;
-
-    if (!(await verify(values.password, identity.password))) {
-      return [createFieldErrors({ password: "密码错误" }), undefined];
+    if (!(await verify(values!.password, identities[0].password))) {
+      return [createFieldErrors<T>({ password: "密码错误" }), undefined];
     }
 
-    return [undefined, omitIdentity(identity)];
+    return [undefined, omitIdentity(identities[0] as R)];
   };
 };
 
@@ -119,16 +108,13 @@ export const createAuthBaseService = (
 };
 
 // noinspection JSUnusedGlobalSymbols
-export const createAuthSignupService = <T extends AuthSelectWithGroup>(
+export const createAuthSignupService = <T extends FieldValues, R extends AuthSelectWithGroup>(
   database: DatabaseInstance,
   authTable: AuthTable,
   authGroupTable: AuthGroupTable,
-  authSignupResolver: AuthSignupResolver,
+  authSignupResolver: Resolver<T>,
 ) => {
-  return async (
-    data: AuthSignupFormData,
-    defaultGroupId: number,
-  ): Promise<ServiceResult<AuthSignupFormData, AuthIdentity<T>>> => {
+  return async (data: T, defaultGroupId: number): Promise<ServiceResult<T, AuthIdentity<R>>> => {
     const { errors, values } = await validateData(data, authSignupResolver);
 
     if (errors) {
@@ -137,30 +123,30 @@ export const createAuthSignupService = <T extends AuthSelectWithGroup>(
 
     const authService = createAuthBaseService(database, authTable, authGroupTable);
 
-    if (values.email && (await authService.emailExists(values.email))) {
-      return [createFieldErrors({ email: "邮箱已存在" }), undefined];
+    if (values!.email && (await authService.emailExists(values!.email))) {
+      return [createFieldErrors<T>({ email: "邮箱已存在" }), undefined];
     }
 
-    if (values.username && (await authService.usernameExists(values.username))) {
-      return [createFieldErrors({ username: "用户名已存在" }), undefined];
+    if (values!.username && (await authService.usernameExists(values!.username))) {
+      return [createFieldErrors<T>({ username: "用户名已存在" }), undefined];
     }
 
-    if (values.nickname && (await authService.nicknameExists(values.nickname))) {
-      return [createFieldErrors({ nickname: "昵称已存在" }), undefined];
+    if (values!.nickname && (await authService.nicknameExists(values!.nickname))) {
+      return [createFieldErrors<T>({ nickname: "昵称已存在" }), undefined];
     }
 
     const group = await authService.getGroupById(defaultGroupId);
 
     if (!group) {
-      return [createFieldErrors({ groupId: "组不存在" }), undefined];
+      return [createFieldErrors<T>({ groupId: "组不存在" }), undefined];
     }
 
     const identities = await database
       .insert(authTable)
-      .values({ ...values, password: await hash(values.password), groupId: defaultGroupId })
+      .values({ ...values, password: await hash(values!.password), groupId: defaultGroupId })
       .$returningId();
 
-    const identity = { id: identities[0].id, ...omit(values, ["confirmPassword"]), group: group } as unknown as T;
+    const identity = { id: identities[0].id, ...omit(values!, ["confirmPassword"]), group: group } as unknown as R;
 
     return [undefined, omitIdentity(identity)];
   };
@@ -174,7 +160,7 @@ export const createAuthSessionService = <T extends AuthSelectWithGroup>(
   authSessionTable: AuthSessionTable,
 ): AuthSessionService<AuthIdentity<T>> => {
   const getIdentity: AuthSessionService<AuthIdentity<T>>["getIdentity"] = async (sessionId) => {
-    const result = await database
+    const identities = await database
       .select({
         ...getTableColumns(authTable),
         group: getTableColumns(authGroupTable),
@@ -195,11 +181,11 @@ export const createAuthSessionService = <T extends AuthSelectWithGroup>(
       .leftJoin(authGroupTable, eq(authGroupTable.id, authTable.groupId))
       .limit(1);
 
-    if (result.length == 0) {
+    if (identities.length == 0) {
       return undefined;
     }
 
-    return omitIdentity(result[0] as T);
+    return omitIdentity(identities[0] as T);
   };
 
   const createSession: AuthSessionService<AuthIdentity<T>>["createSession"] = async (sessionData, expiredAt) => {
@@ -252,18 +238,19 @@ export const createAuthSessionService = <T extends AuthSelectWithGroup>(
 };
 
 // noinspection JSUnusedGlobalSymbols
-export const createAuthPasswordForgotService = <T extends AuthSelect>(
+export const createAuthPasswordForgotService = <T extends FieldValues, R extends AuthSelect>(
   database: DatabaseInstance,
   authTable: AuthTable,
   authPasswordResetTable: AuthPasswordResetTable,
+  authPasswordForgotResolver: Resolver<T>,
 ) => {
   return async (
-    data: AuthPasswordForgotFormData,
+    data: T,
     expiredAt: Date,
     remoteAddr: string,
     userAgent: string,
-  ): Promise<ServiceResult<AuthPasswordForgotFormData, { identity: AuthIdentity<T>; resetId: string }>> => {
-    const { errors, values } = await validateData(data, authPasswordForgotResolver);
+  ): Promise<ServiceResult<T, { identity: AuthIdentity<R>; resetId: string }>> => {
+    const { errors, values } = await validateData<T>(data, authPasswordForgotResolver);
 
     if (errors) {
       return [errors, undefined];
@@ -272,11 +259,11 @@ export const createAuthPasswordForgotService = <T extends AuthSelect>(
     const identities = await database
       .select()
       .from(authTable)
-      .where(and(eq(authTable.email, values.email), isNull(authTable.deletedAt)))
+      .where(and(eq(authTable.email, values!.email), isNull(authTable.deletedAt)))
       .limit(1);
 
     if (identities.length == 0) {
-      return [createFieldErrors({ email: "电子邮箱并未注册" }), undefined];
+      return [createFieldErrors<T>({ email: "电子邮箱并未注册" }), undefined];
     }
 
     const resetId = nanoid(12);
@@ -289,22 +276,20 @@ export const createAuthPasswordForgotService = <T extends AuthSelect>(
       userAgent: userAgent,
     });
 
-    return [undefined, { identity: omitIdentity(identities[0] as T), resetId }];
+    return [undefined, { identity: omitIdentity(identities[0] as R), resetId }];
   };
 };
 
 // noinspection JSUnusedGlobalSymbols
-export const createAuthPasswordResetService = (
+export const createAuthPasswordResetService = <T extends FieldValues>(
   database: DatabaseInstance,
   authTable: AuthTable,
   authPasswordResetTable: AuthPasswordResetTable,
+  authPasswordResetResolver: Resolver<T>,
 ) => {
-  return async (
-    data: AuthPasswordResetFormData,
-    token: string | null,
-  ): Promise<ServiceResult<AuthPasswordResetFormData, boolean>> => {
+  return async (data: T, token: string | null): Promise<ServiceResult<T, boolean>> => {
     if (isEmpty(token)) {
-      return [createFieldErrors({ token: "无效的密码重置链接" }), undefined];
+      return [createFieldErrors<T>({ token: "无效的密码重置链接" }), undefined];
     }
 
     const { errors, values } = await validateData(data, authPasswordResetResolver);
@@ -326,13 +311,13 @@ export const createAuthPasswordResetService = (
       .limit(1);
 
     if (resets.length == 0) {
-      return [createFieldErrors({ token: "无效的密码重置链接" }), undefined];
+      return [createFieldErrors<T>({ token: "无效的密码重置链接" }), undefined];
     }
 
     await database
       .update(authTable)
       .set({
-        password: await hash(values.password),
+        password: await hash(values!.password),
       })
       .where(eq(authTable.id, resets[0].identityId));
 

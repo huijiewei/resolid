@@ -1,5 +1,9 @@
-import { type AuthLoginFormData, authLoginResolver } from "@resolid/framework/modules";
+import { authLoginSchema } from "@resolid/framework/modules";
+import { createResolver } from "@resolid/framework/utils";
+import type { z } from "zod";
 
-export type AdminLoginFormData = AuthLoginFormData;
+const adminLoginSchema = authLoginSchema;
 
-export const adminLoginResolver = authLoginResolver;
+export type AdminLoginFormData = z.infer<typeof adminLoginSchema>;
+
+export const adminLoginResolver = createResolver(adminLoginSchema);

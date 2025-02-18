@@ -11,7 +11,7 @@ import { FormError } from "~/components/base/form-error";
 import { HistoryLink } from "~/components/base/history-link";
 import { trunstileVerify } from "~/extensions/turnstile/trunstile.server";
 import { TurnstileWidget } from "~/extensions/turnstile/turnstile-widget";
-import { userPasswordForgotService, userPasswordResetEmailService } from "~/modules/user/service.server";
+import { userPasswordResetEmailService, userService } from "~/modules/user/service.server";
 import { type UserPasswordForgotFormData, userPasswordForgotResolver } from "~/modules/user/validator";
 import type { Route } from "./+types/password-forgot";
 
@@ -32,7 +32,7 @@ export const action = async ({ request, context }: Route.ActionArgs) => {
   const expiredAt = addDay(new Date(), 1);
   const userAgent = request.headers.get("user-agent") ?? "";
 
-  const [errors, result] = await userPasswordForgotService(data, expiredAt, context.remoteAddress ?? "", userAgent);
+  const [errors, result] = await userService.passwordForgot(data, expiredAt, context.remoteAddress ?? "", userAgent);
 
   if (errors) {
     return httpProblem(errors);

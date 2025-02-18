@@ -5,6 +5,7 @@
   "scripts": {
     "lint": "eslint .",
     "typegen": "react-router typegen",
+    "typecheck": "tsc --noEmit",
     "dev": "react-router dev",
     "build": "react-router build",
     "serve": "NODE_ENV=production SERVER_PORT=3001 node --env-file=.env ./build/server/site/server.mjs",

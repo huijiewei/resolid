@@ -20,7 +20,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
         <Meta />
         <Links />
       </head>
-      <body className={"min-h-screen overflow-y-scroll antialiased"}>
+      <body className={"min-h-screen overflow-y-scroll"}>
         <RouteProcessBar />
         <ResolidProvider>{children}</ResolidProvider>
         <ScrollRestoration />

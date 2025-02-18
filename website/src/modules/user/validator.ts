@@ -1,19 +1,16 @@
 import {
-  type AuthLoginFormData,
-  type AuthPasswordForgotFormData,
-  type AuthPasswordResetFormData,
-  authLoginResolver,
-  authPasswordForgotResolver,
-  authPasswordResetResolver,
+  authLoginSchema,
+  authPasswordForgotSchema,
+  authPasswordResetSchema,
   authSignupSchema,
-  isEqualPasswordAndConfirm,
+  passwordConfirmRefinement,
 } from "@resolid/framework/modules";
-import { zodLocaleResolver } from "@resolid/framework/utils";
+import { createResolver } from "@resolid/framework/utils";
 import { z } from "zod";
 
-export type UserLoginFormData = AuthLoginFormData;
+export type UserLoginFormData = z.infer<typeof authLoginSchema>;
 
-export const userLoginResolver = authLoginResolver;
+export const userLoginResolver = createResolver<UserLoginFormData>(authLoginSchema);
 
 const userSignupSchema = authSignupSchema
   .extend({
@@ -22,16 +19,16 @@ const userSignupSchema = authSignupSchema
     createdIp: z.string().optional(),
     createdFrom: z.string().optional(),
   })
-  .superRefine(isEqualPasswordAndConfirm);
+  .superRefine(passwordConfirmRefinement);
 
 export type UserSignupFormData = z.infer<typeof userSignupSchema>;
 
-export const userSignupResolver = zodLocaleResolver(userSignupSchema);
+export const userSignupResolver = createResolver<UserSignupFormData>(userSignupSchema);
 
-export type UserPasswordForgotFormData = AuthPasswordForgotFormData;
+export type UserPasswordForgotFormData = z.infer<typeof authPasswordForgotSchema>;
 
-export const userPasswordForgotResolver = authPasswordForgotResolver;
+export const userPasswordForgotResolver = createResolver<UserPasswordForgotFormData>(authPasswordForgotSchema);
 
-export type UserPasswordResetFormData = AuthPasswordResetFormData;
+export type UserPasswordResetFormData = z.infer<typeof authPasswordResetSchema>;
 
-export const userPasswordResetResolver = authPasswordResetResolver;
+export const userPasswordResetResolver = createResolver<UserPasswordResetFormData>(authPasswordResetSchema);
