@@ -14,8 +14,8 @@ export const createResolver: typeof zodResolver = (schema, schemaOptions, resolv
 };
 
 export type ValidateDataResult<T extends FieldValues> =
-  | { errors: FieldErrors<T>; values: undefined }
-  | { errors: undefined; values: T };
+  | { success: true; values: T }
+  | { success: false; errors: FieldErrors<T> };
 
 export const validateData = async <T extends FieldValues>(
   data: T,
@@ -24,10 +24,10 @@ export const validateData = async <T extends FieldValues>(
   const { errors, values } = await resolver(data, {}, { shouldUseNativeValidation: false, fields: {} });
 
   if (Object.keys(errors).length > 0) {
-    return { errors: errors as FieldErrors<T>, values: undefined };
+    return { success: false, errors: errors as FieldErrors<T> };
   }
 
-  return { errors: undefined, values: values as T };
+  return { success: true, values: values as T };
 };
 
 export const createFieldErrors = <T extends FieldValues = FieldValues>(errors: Record<string, string>) => {

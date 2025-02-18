@@ -54,16 +54,22 @@ export const authSignupSchema = z.object({
   confirmPassword: passwordValidator,
 });
 
+export type AuthSignupFormData = z.infer<typeof authSignupSchema>;
+
 export const authLoginSchema = z.object({
   email: emailValidator,
   password: z.string().min(1),
   rememberMe: z.boolean().default(false),
 });
 
+export type AuthLoginFormData = z.infer<typeof authLoginSchema>;
+
 export const authPasswordForgotSchema = z.object({
   email: z.string().min(1).email(),
   token: z.string().min(1),
 });
+
+export type AuthPasswordForgotFormData = z.infer<typeof authPasswordForgotSchema>;
 
 export const authPasswordResetSchema = z
   .object({
@@ -72,3 +78,5 @@ export const authPasswordResetSchema = z
     token: z.string().optional(),
   })
   .superRefine(passwordConfirmRefinement);
+
+export type AuthPasswordResetFormData = z.infer<typeof authPasswordResetSchema>;
