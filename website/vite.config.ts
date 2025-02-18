@@ -77,6 +77,7 @@ export default defineConfig(({ command, isSsrBuild }) => {
       external: ["@node-rs/bcrypt"],
     },
     optimizeDeps: {
+      include: ["react-hook-form", "remix-hook-form"],
       exclude: ["@node-rs/bcrypt"],
     },
   };

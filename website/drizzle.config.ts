@@ -2,8 +2,8 @@ import { defineConfig } from "drizzle-kit";
 import { env } from "node:process";
 
 export default defineConfig({
-  schema: ["./src/modules/*/schema.server.ts"],
   dialect: "mysql",
+  schema: ["./src/modules/*/schema.server.ts"],
   dbCredentials: {
     url: env.RX_DB_URI,
     ssl: {

@@ -89,17 +89,13 @@ export const createAuthBaseService = (
 ) => {
   return {
     emailExists: async (email: string): Promise<boolean> => {
-      return (await database.select({ id: authTable.id }).from(authTable).where(eq(authTable.email, email))).length > 0;
+      return (await database.$count(authTable, eq(authTable.email, email))) > 0;
     },
     usernameExists: async (username: string): Promise<boolean> => {
-      return (
-        (await database.select({ id: authTable.id }).from(authTable).where(eq(authTable.username, username))).length > 0
-      );
+      return (await database.$count(authTable, eq(authTable.username, username))) > 0;
     },
     nicknameExists: async (nickname: string): Promise<boolean> => {
-      return (
-        (await database.select({ id: authTable.id }).from(authTable).where(eq(authTable.nickname, nickname))).length > 0
-      );
+      return (await database.$count(authTable, eq(authTable.nickname, nickname))) > 0;
     },
     getGroupById: async <T extends AuthGroupSelect>(groupId: number): Promise<T | undefined> => {
       const groups = await database.select().from(authGroupTable).where(eq(authGroupTable.id, groupId)).limit(1);
