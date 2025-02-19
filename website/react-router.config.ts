@@ -27,4 +27,8 @@ export default {
       ? "admin"
       : "site";
   },
+  future: {
+    unstable_optimizeDeps: true,
+    unstable_splitRouteModules: true,
+  },
 } satisfies Config;
