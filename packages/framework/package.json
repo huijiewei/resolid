@@ -35,12 +35,12 @@
     "@node-rs/bcrypt": "^1.10.7",
     "@resolid/utils": "^0.3.3",
     "drizzle-orm": "^0.40.0",
-    "mysql2": "^3.12.0",
+    "mysql2": "^3.13.0",
     "nanoid": "^5.1.2",
     "nodemailer": "^6.10.0",
     "react-hook-form": "^7.54.2",
-    "react-router": "^7.2.0",
-    "type-fest": "^4.36.0",
+    "react-router": "^7.3.0",
+    "type-fest": "^4.37.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
