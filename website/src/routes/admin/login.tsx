@@ -65,7 +65,7 @@ export default function Login() {
                 name={name}
                 invalid={Boolean(errors.email?.message)}
                 type={"email"}
-                fullWidth
+                className={"w-full"}
                 placeholder={"电子邮箱"}
                 onChange={onChange}
                 onBlur={onBlur}
@@ -87,7 +87,7 @@ export default function Login() {
                 name={name}
                 invalid={Boolean(errors.password?.message)}
                 type={"password"}
-                fullWidth
+                className={"w-full"}
                 placeholder={"密码"}
                 onChange={onChange}
                 onBlur={onBlur}
@@ -109,7 +109,7 @@ export default function Login() {
             )}
           />
         </div>
-        <Button size={"lg"} className={"tracking-widest"} fullWidth loading={isSubmitting} type={"submit"}>
+        <Button size={"lg"} className={"tracking-widest"} loading={isSubmitting} type={"submit"}>
           登录
         </Button>
       </Form>

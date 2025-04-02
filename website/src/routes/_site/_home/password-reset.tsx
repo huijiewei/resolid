@@ -66,7 +66,7 @@ export default function PasswordReset() {
                 name={name}
                 invalid={Boolean(errors.password?.message)}
                 type={"password"}
-                fullWidth
+                className={"w-full"}
                 placeholder={"密码"}
                 onChange={onChange}
                 onBlur={onBlur}
@@ -88,7 +88,7 @@ export default function PasswordReset() {
                 name={name}
                 invalid={Boolean(errors.confirmPassword?.message)}
                 type={"password"}
-                fullWidth
+                className={"w-full"}
                 placeholder={"确认密码"}
                 autoComplete={"new-password"}
                 onChange={onChange}
@@ -104,8 +104,7 @@ export default function PasswordReset() {
           disabled={resetSucceed}
           color={resetSucceed ? "success" : "primary"}
           size={"lg"}
-          className={"tracking-widest"}
-          fullWidth
+          className={"w-full tracking-widest"}
           loading={isSubmitting}
           type={"submit"}
         >
