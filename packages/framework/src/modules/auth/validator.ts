@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "zod/v4";
 
 export const usernameValidator = z
   .string()
@@ -25,21 +25,22 @@ export const usernameValidator = z
         "resolid",
       ].includes(value),
     {
-      message: "用户名为保留字",
+      error: "用户名为保留字",
     },
   );
 
-export const emailValidator = z.string().min(1).max(100).email();
+export const emailValidator = z.email().min(1).max(100);
 
 export const passwordValidator = z.string().min(6).max(32);
 
-export const passwordConfirmRefinement: z.RefinementEffect<{
+export const passwordConfirmCheck: z.core.CheckFn<{
   password: string;
   confirmPassword: string;
-}>["refinement"] = (value, ctx) => {
-  if (value.password != value.confirmPassword) {
-    ctx.addIssue({
+}> = (ctx) => {
+  if (ctx.value.password != ctx.value.confirmPassword) {
+    ctx.issues.push({
       code: "custom",
+      input: ctx.value,
       message: "密码与确认密码必须相同",
       path: ["confirmPassword"],
     });
@@ -59,13 +60,13 @@ export type AuthSignupFormData = z.infer<typeof authSignupSchema>;
 export const authLoginSchema = z.object({
   email: emailValidator,
   password: z.string().min(1),
-  rememberMe: z.boolean().default(false),
+  rememberMe: z.boolean(),
 });
 
 export type AuthLoginFormData = z.infer<typeof authLoginSchema>;
 
 export const authPasswordForgotSchema = z.object({
-  email: z.string().min(1).email(),
+  email: emailValidator,
   token: z.string().min(1),
 });
 
@@ -77,6 +78,6 @@ export const authPasswordResetSchema = z
     confirmPassword: passwordValidator,
     token: z.string().optional(),
   })
-  .superRefine(passwordConfirmRefinement);
+  .check(passwordConfirmCheck);
 
 export type AuthPasswordResetFormData = z.infer<typeof authPasswordResetSchema>;

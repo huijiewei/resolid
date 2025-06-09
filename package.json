@@ -15,22 +15,22 @@
     "drizzle": "pnpm --filter website exec -- pnpm --silent drizzle"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@resolid/config": "^3.3.3",
-    "@types/node": "^22.13.17",
-    "eslint": "^9.23.0",
-    "lefthook": "^1.11.6",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@resolid/config": "^3.4.0",
+    "@types/node": "^22.15.30",
+    "eslint": "^9.28.0",
+    "lefthook": "^1.11.13",
     "prettier": "^3.5.3",
     "prettier-plugin-organize-imports": "^4.1.0",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "typescript": "^5.8.2"
+    "prettier-plugin-tailwindcss": "^0.6.12",
+    "typescript": "^5.8.3"
   },
   "engines": {
     "node": "22.x",
     "pnpm": "10.x"
   },
-  "packageManager": "pnpm@10.7.1",
+  "packageManager": "pnpm@10.12.1",
   "homepage": "https://www.resolid.tech",
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
   },
   "pnpm": {
     "overrides": {
-      "react-is": "^19.0.0",
+      "react-is": "^19.1.0",
       "hasown": "npm:@nolyfill/hasown@^1",
       "is-arguments": "npm:@nolyfill/is-arguments@^1",
       "is-generator-function": "npm:@nolyfill/is-generator-function@^1",
