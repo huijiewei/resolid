@@ -1,4 +1,4 @@
-import nodemailer, { type SentMessageInfo, type Transport } from "nodemailer";
+import nodemailer, { type Transport } from "nodemailer";
 import type { Attachment, Options } from "nodemailer/lib/mailer";
 
 export type MailOptions = Options & {
@@ -14,7 +14,7 @@ export type MailSendResult = {
 export type DefineMailerOptions = {
   dsn: string;
   from: string;
-  transport?: Transport<SentMessageInfo>;
+  transport?: Transport;
 };
 
 export const defineMailer = ({ dsn, from, transport }: DefineMailerOptions) => {
@@ -32,7 +32,7 @@ export const defineMailer = ({ dsn, from, transport }: DefineMailerOptions) => {
   };
 };
 
-const getTransporter = (dsn: string, from: string, defaultTransport?: Transport<SentMessageInfo>) => {
+const getTransporter = (dsn: string, from: string, defaultTransport?: Transport) => {
   if (defaultTransport) {
     return nodemailer.createTransport(defaultTransport, { from: from });
   }

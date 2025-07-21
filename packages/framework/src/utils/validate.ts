@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
-import { z } from "zod/v4";
-import { zhCN } from "zod/v4/locales";
+import { z } from "zod";
+import { zhCN } from "zod/locales";
 
 z.config(zhCN());
 
