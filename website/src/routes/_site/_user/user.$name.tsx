@@ -1,10 +1,10 @@
 import { authUtils } from "@resolid/framework/modules";
 import { mergeMeta } from "@resolid/framework/utils";
 import { httpNotFound } from "@resolid/framework/utils.server";
-import { useLoaderData } from "react-router";
 import { userService } from "~/modules/user/service.server";
 import type { Route } from "./+types/user.$name";
 
+// noinspection JSUnusedGlobalSymbols
 export const loader = async ({ params }: Route.LoaderArgs) => {
   const user = await userService.getByUsername(params.name!);
 
@@ -16,17 +16,15 @@ export const loader = async ({ params }: Route.LoaderArgs) => {
 };
 
 // noinspection JSUnusedGlobalSymbols
-export const meta = mergeMeta(({ data }: Route.MetaArgs) => {
+export const meta = mergeMeta(({ loaderData }: Route.MetaArgs) => {
   return [
     {
-      title: data ? authUtils.getDisplayName(data) : "用户不存在",
+      title: loaderData ? authUtils.getDisplayName(loaderData) : "用户不存在",
     },
   ];
 });
 
 // noinspection JSUnusedGlobalSymbols
-export default function UserPage() {
-  const user = useLoaderData<typeof loader>();
-
-  return <div>{authUtils.getDisplayName(user!)}</div>;
+export default function UserPage({ loaderData }: Route.ComponentProps) {
+  return <div>{authUtils.getDisplayName(loaderData!)}</div>;
 }

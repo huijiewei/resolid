@@ -7,6 +7,7 @@ import { VercelSpeedInsights } from "~/extensions/vercel/VercelSpeedInsights";
 
 // noinspection JSUnusedGlobalSymbols
 export const Layout = ({ children }: PropsWithChildren) => {
+  // noinspection HtmlRequiredTitleElement
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
@@ -36,6 +37,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
   );
 };
 
+// noinspection JSUnusedGlobalSymbols
 export default function Root() {
   return <Outlet />;
 }

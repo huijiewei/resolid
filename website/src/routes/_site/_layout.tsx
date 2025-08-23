@@ -19,26 +19,18 @@ import {
 } from "@resolid/react-ui";
 import { omit, trimEnd } from "@resolid/utils";
 import { type MouseEventHandler, useState } from "react";
-import {
-  createPath,
-  Form,
-  Link,
-  type LinksFunction,
-  type Location,
-  Outlet,
-  useLoaderData,
-  useLocation,
-} from "react-router";
+import { createPath, Form, Link, type LinksFunction, type Location, Outlet, useLocation } from "react-router";
 import { AuthContext, useAuth } from "~/components/base/auth-provider";
 import { ColorModeToggle } from "~/components/base/color-mode-toggle";
 import { HistoryLink, HistoryNavLink } from "~/components/base/history-link";
 import { ResolidLogo } from "~/components/base/resolid-logo";
+import { ResolidUiLogo } from "~/components/base/resolid-ui-logo";
 import { SpriteIcon } from "~/components/base/sprite-icon";
-import { getSessionUser } from "~/foundation/session.user.server";
 import type { UserIdentity } from "~/modules/user/schema.server";
+import { getUserIdentity } from "~/modules/user/session.server";
+import { reqContext } from "~/server.base";
 import type { Route } from "./+types/_layout";
 
-import { ResolidUiLogo } from "~/components/base/resolid-ui-logo";
 import styles from "~/root.site.css?url";
 
 // noinspection JSUnusedGlobalSymbols
@@ -51,17 +43,20 @@ export const links: LinksFunction = () => {
   ];
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const loader = async ({ request, context }: Route.LoaderArgs) => {
+  const req = context.get(reqContext);
+
   return {
-    user: await getSessionUser(request),
-    requestOrigin: context.requestOrigin ?? request.url,
+    user: await getUserIdentity(request),
+    requestOrigin: req.requestOrigin ?? request.url,
   };
 };
 
 // noinspection JSUnusedGlobalSymbols
-export const meta = ({ data }: Route.MetaArgs) => {
-  const ogImage = new URL("/images/og-image-v2.png", data?.requestOrigin).toString();
-  const ogUrl = trimEnd(new URL("", data?.requestOrigin).toString(), "/");
+export const meta = ({ loaderData }: Route.MetaArgs) => {
+  const ogImage = new URL("/images/og-image-v2.png", loaderData.requestOrigin).toString();
+  const ogUrl = trimEnd(new URL("", loaderData.requestOrigin).toString(), "/");
   const siteName = "Resolid";
   const title = siteName;
   const description =
@@ -121,8 +116,8 @@ export const meta = ({ data }: Route.MetaArgs) => {
 };
 
 // noinspection JSUnusedGlobalSymbols
-export default function SiteLayout() {
-  const { user } = useLoaderData<typeof loader>();
+export default function SiteLayout({ loaderData }: Route.ComponentProps) {
+  const { user } = loaderData;
 
   return (
     <AuthContext value={{ identity: user }}>

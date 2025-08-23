@@ -15,19 +15,30 @@ export default function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  reactRouterContext: EntryContext,
+  routerContext: EntryContext,
 ) {
-  const ready = isbot(request.headers.get("user-agent")) ? "onAllReady" : "onShellReady";
+  const readyOption = isbot(request.headers.get("user-agent")) ? "onAllReady" : "onShellReady";
 
   return new Promise((resolve, reject) => {
     let shellRendered = false;
-    const { pipe, abort } = renderToPipeableStream(<ServerRouter context={reactRouterContext} url={request.url} />, {
-      [ready]() {
+
+    let timeoutId: ReturnType<typeof setTimeout> | undefined = setTimeout(() => abort(), streamTimeout + 1000);
+
+    const { pipe, abort } = renderToPipeableStream(<ServerRouter context={routerContext} url={request.url} />, {
+      [readyOption]() {
         shellRendered = true;
-        const body = new PassThrough();
+        const body = new PassThrough({
+          final(callback) {
+            clearTimeout(timeoutId);
+            timeoutId = undefined;
+            callback();
+          },
+        });
         const stream = createReadableStreamFromReadable(body);
 
         responseHeaders.set("Content-Type", "text/html");
+
+        pipe(body);
 
         resolve(
           new Response(stream, {
@@ -35,8 +46,6 @@ export default function handleRequest(
             status: responseStatusCode,
           }),
         );
-
-        pipe(body);
       },
       onShellError(error: unknown) {
         reject(error);

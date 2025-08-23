@@ -1,4 +1,3 @@
-import { getCookieExpires } from "@resolid/framework";
 import { mergeMeta } from "@resolid/framework/utils";
 import { httpProblem, httpRedirect } from "@resolid/framework/utils.server";
 import { Button, Checkbox, Input } from "@resolid/react-ui";
@@ -6,9 +5,10 @@ import { Controller } from "react-hook-form";
 import { Form } from "react-router";
 import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/form-error";
-import { commitAdminSession, setSessionAdmin } from "~/foundation/session.admin.server";
 import { adminLoginService } from "~/modules/admin/service.server";
+import { commitAdminSession } from "~/modules/admin/session.server";
 import { type AdminLoginFormData, adminLoginResolver } from "~/modules/admin/validator";
+import { reqContext } from "~/server.base";
 import type { Route } from "./+types/login";
 
 // noinspection JSUnusedGlobalSymbols
@@ -21,13 +21,9 @@ export const action = async ({ request, context }: Route.ActionArgs) => {
     return httpProblem(errors);
   }
 
-  const session = await setSessionAdmin(request, admin, context.remoteAddress ?? "");
-
   httpRedirect(
     new URL(request.url).searchParams.get("redirect") ?? "",
-    await commitAdminSession(session, {
-      expires: getCookieExpires(data?.rememberMe ? 365 : undefined),
-    }),
+    await commitAdminSession(request, admin, context.get(reqContext).remoteAddress ?? "", data.rememberMe),
   );
 };
 

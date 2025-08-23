@@ -1,4 +1,3 @@
-import { getCookieExpires } from "@resolid/framework";
 import { RX_DEFAULT_AUTH_GROUP_ID } from "@resolid/framework/modules.server";
 import { mergeMeta } from "@resolid/framework/utils";
 import { httpProblem, httpRedirect } from "@resolid/framework/utils.server";
@@ -8,9 +7,10 @@ import { Form, useSearchParams } from "react-router";
 import { parseFormData, useRemixForm } from "remix-hook-form";
 import { FormError } from "~/components/base/form-error";
 import { HistoryLink } from "~/components/base/history-link";
-import { commitUserSession, setSessionUser } from "~/foundation/session.user.server";
 import { userService } from "~/modules/user/service.server";
+import { commitUserSession } from "~/modules/user/session.server";
 import { type UserSignupFormData, userSignupResolver } from "~/modules/user/validator";
+import { reqContext } from "~/server.base";
 import type { Route } from "./+types/signup";
 
 // noinspection JSUnusedGlobalSymbols
@@ -22,7 +22,8 @@ export const meta = mergeMeta(() => {
 export const action = async ({ request, context }: Route.ActionArgs) => {
   const data = await parseFormData<UserSignupFormData>(request);
 
-  const remoteAddr = context.remoteAddress ?? "";
+  const remoteAddr = context.get(reqContext).remoteAddress ?? "";
+
   data.createdIp = remoteAddr;
   data.createdFrom = "WEB";
 
@@ -32,11 +33,9 @@ export const action = async ({ request, context }: Route.ActionArgs) => {
     return httpProblem(errors);
   }
 
-  const session = await setSessionUser(request, user, remoteAddr);
-
   httpRedirect(
     new URL(request.url).searchParams.get("redirect") ?? "",
-    await commitUserSession(session, { expires: getCookieExpires(data.rememberMe ? 365 : undefined) }),
+    await commitUserSession(request, user, remoteAddr, data.rememberMe),
   );
 };
 

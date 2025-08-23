@@ -44,6 +44,7 @@ export const mergeMeta = (metaFn: (arg: any) => MetaDescriptor[], titleJoin = " 
 
     for (const meta of mergedMeta) {
       if ("title" in meta) {
+        // noinspection SuspiciousTypeOfGuard
         if (typeof meta.title === "string" && meta.title.length > 0) {
           titles.push(...meta.title.split(titleJoin));
         }

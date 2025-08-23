@@ -1,5 +1,6 @@
 import { HistoryLink } from "~/components/base/history-link";
 
+// noinspection JSUnusedGlobalSymbols
 export const handle = {
   breadcrumb: () => ({
     link: "/admin/blog",
@@ -7,6 +8,7 @@ export const handle = {
   }),
 };
 
+// noinspection JSUnusedGlobalSymbols
 export default function BlogIndex() {
   return (
     <div>

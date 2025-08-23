@@ -2,16 +2,20 @@ import { format } from "@formkit/tempo";
 import { mergeMeta } from "@resolid/framework/utils";
 import { Alert, AlertDescription, AlertTitle } from "@resolid/react-ui";
 import { Suspense } from "react";
-import { Await, useLoaderData } from "react-router";
+import { Await } from "react-router";
 import { statusService } from "~/modules/system/service.server";
+import { reqContext } from "~/server.base";
 import type { Route } from "./+types/status";
 
+// noinspection JSUnusedGlobalSymbols
 export const loader = ({ context }: Route.LoaderArgs) => {
+  const req = context.get(reqContext);
+
   return {
     ssr: {
       message: "服务器渲染正常",
       datetime: format(new Date(), "YYYY-MM-DD HH:mm Z"),
-      remoteAddress: context.remoteAddress ?? "",
+      remoteAddress: req.remoteAddress ?? "",
     },
     db: statusService
       .getFirst()
@@ -30,8 +34,8 @@ export const meta = mergeMeta(() => {
 });
 
 // noinspection JSUnusedGlobalSymbols
-export default function Status() {
-  const { ssr, db } = useLoaderData<typeof loader>();
+export default function Status({ loaderData }: Route.ComponentProps) {
+  const { ssr, db } = loaderData;
 
   return (
     <div className={"prose dark:prose-invert mx-auto px-4 py-8"}>

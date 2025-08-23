@@ -1,12 +1,11 @@
 import { mergeMeta } from "@resolid/framework/utils";
 import { httpNotFound } from "@resolid/framework/utils.server";
-import { useLoaderData } from "react-router";
 import { ErrorComponent } from "~/components/base/error-component";
 import type { Route } from "./+types/$id";
 
 // noinspection JSUnusedGlobalSymbols
-export const meta = mergeMeta(({ data }: Route.MetaArgs) => {
-  return [{ title: data ? data.title : "记录不存在" }];
+export const meta = mergeMeta(({ loaderData }: Route.MetaArgs) => {
+  return [{ title: loaderData ? loaderData.title : "记录不存在" }];
 });
 
 // noinspection JSUnusedGlobalSymbols
@@ -19,6 +18,7 @@ export const handle = {
   },
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const loader = ({ params }: Route.LoaderArgs) => {
   const id = params.id as string;
 
@@ -30,10 +30,8 @@ export const loader = ({ params }: Route.LoaderArgs) => {
 };
 
 // noinspection JSUnusedGlobalSymbols
-export default function BlogView() {
-  const blog = useLoaderData<typeof loader>();
-
-  return <div>{blog.title}</div>;
+export default function BlogView({ loaderData }: Route.ComponentProps) {
+  return <div>{loaderData.title}</div>;
 }
 
 // noinspection JSUnusedGlobalSymbols

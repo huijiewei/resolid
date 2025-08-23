@@ -1,12 +1,12 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, tx } from "@resolid/react-ui";
 import type { ReactNode } from "react";
-import { type LinksFunction, Outlet, type UIMatch, useLoaderData, useMatches } from "react-router";
+import { type LinksFunction, Outlet, type UIMatch, useMatches } from "react-router";
 import { AuthContext } from "~/components/base/auth-provider";
 import { ColorModeToggle } from "~/components/base/color-mode-toggle";
 import { HistoryLink } from "~/components/base/history-link";
 import { ResolidLogo } from "~/components/base/resolid-logo";
 import { SpriteIcon } from "~/components/base/sprite-icon";
-import { getSessionAdmin } from "~/foundation/session.admin.server";
+import { getAdminIdentity } from "~/modules/admin/session.server";
 import type { Route } from "./+types/_layout";
 
 import styles from "~/root.admin.css?url";
@@ -26,15 +26,16 @@ export const meta = () => {
   return [{ title: "Resolid 后台管理" }];
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const loader = async ({ request }: Route.LoaderArgs) => {
   return {
-    admin: await getSessionAdmin(request),
+    admin: await getAdminIdentity(request),
   };
 };
 
 // noinspection JSUnusedGlobalSymbols
-export default function AdminLayout() {
-  const { admin } = useLoaderData<typeof loader>();
+export default function AdminLayout({ loaderData }: Route.ComponentProps) {
+  const { admin } = loaderData;
 
   return (
     <AuthContext value={{ identity: admin }}>
@@ -123,7 +124,7 @@ const NavBreadcrumb = () => {
         <BreadcrumbSeparator />
       </BreadcrumbItem>
       {matches.map((match, index) => {
-        const breadcrumb = match.handle.breadcrumb(match.data);
+        const breadcrumb = match.handle.breadcrumb(match.loaderData);
         const key = `b-${index}`;
 
         if (index == matches.length - 1) {
