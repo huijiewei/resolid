@@ -9,7 +9,6 @@ import { HistoryLink } from "~/components/base/history-link";
 import { userService } from "~/modules/user/service.server";
 import { commitUserSession } from "~/modules/user/session.server";
 import { type UserLoginFormData, userLoginResolver } from "~/modules/user/validator";
-import { reqContext } from "~/server.base";
 import type { Route } from "./+types/login";
 
 // noinspection JSUnusedGlobalSymbols
@@ -29,7 +28,7 @@ export const action = async ({ request, context }: Route.ActionArgs) => {
 
   httpRedirect(
     new URL(request.url).searchParams.get("redirect") ?? "",
-    await commitUserSession(request, user, context.get(reqContext).remoteAddress, data.rememberMe),
+    await commitUserSession(request, user, context.remoteAddress ?? "", data.rememberMe),
   );
 };
 

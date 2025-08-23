@@ -8,7 +8,6 @@ import { FormError } from "~/components/base/form-error";
 import { adminLoginService } from "~/modules/admin/service.server";
 import { commitAdminSession } from "~/modules/admin/session.server";
 import { type AdminLoginFormData, adminLoginResolver } from "~/modules/admin/validator";
-import { reqContext } from "~/server.base";
 import type { Route } from "./+types/login";
 
 // noinspection JSUnusedGlobalSymbols
@@ -23,7 +22,7 @@ export const action = async ({ request, context }: Route.ActionArgs) => {
 
   httpRedirect(
     new URL(request.url).searchParams.get("redirect") ?? "",
-    await commitAdminSession(request, admin, context.get(reqContext).remoteAddress ?? "", data.rememberMe),
+    await commitAdminSession(request, admin, context.remoteAddress ?? "", data.rememberMe),
   );
 };
 

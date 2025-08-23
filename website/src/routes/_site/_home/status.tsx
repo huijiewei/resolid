@@ -4,18 +4,15 @@ import { Alert, AlertDescription, AlertTitle } from "@resolid/react-ui";
 import { Suspense } from "react";
 import { Await } from "react-router";
 import { statusService } from "~/modules/system/service.server";
-import { reqContext } from "~/server.base";
 import type { Route } from "./+types/status";
 
 // noinspection JSUnusedGlobalSymbols
 export const loader = ({ context }: Route.LoaderArgs) => {
-  const req = context.get(reqContext);
-
   return {
     ssr: {
       message: "服务器渲染正常",
       datetime: format(new Date(), "YYYY-MM-DD HH:mm Z"),
-      remoteAddress: req.remoteAddress ?? "",
+      remoteAddress: context.remoteAddress ?? "",
     },
     db: statusService
       .getFirst()

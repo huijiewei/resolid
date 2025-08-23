@@ -4,6 +4,7 @@
     ".react-router/types/**/*",
     "src/**/*",
     "cli/**/*",
+    "app.d.ts",
     "env.d.ts",
     "drizzle.config.ts",
     "vite.config.ts",

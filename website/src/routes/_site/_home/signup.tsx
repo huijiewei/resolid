@@ -10,7 +10,6 @@ import { HistoryLink } from "~/components/base/history-link";
 import { userService } from "~/modules/user/service.server";
 import { commitUserSession } from "~/modules/user/session.server";
 import { type UserSignupFormData, userSignupResolver } from "~/modules/user/validator";
-import { reqContext } from "~/server.base";
 import type { Route } from "./+types/signup";
 
 // noinspection JSUnusedGlobalSymbols
@@ -22,7 +21,7 @@ export const meta = mergeMeta(() => {
 export const action = async ({ request, context }: Route.ActionArgs) => {
   const data = await parseFormData<UserSignupFormData>(request);
 
-  const remoteAddr = context.get(reqContext).remoteAddress ?? "";
+  const remoteAddr = context.remoteAddress ?? "";
 
   data.createdIp = remoteAddr;
   data.createdFrom = "WEB";

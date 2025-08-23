@@ -28,7 +28,6 @@ import { ResolidUiLogo } from "~/components/base/resolid-ui-logo";
 import { SpriteIcon } from "~/components/base/sprite-icon";
 import type { UserIdentity } from "~/modules/user/schema.server";
 import { getUserIdentity } from "~/modules/user/session.server";
-import { reqContext } from "~/server.base";
 import type { Route } from "./+types/_layout";
 
 import styles from "~/root.site.css?url";
@@ -45,11 +44,9 @@ export const links: LinksFunction = () => {
 
 // noinspection JSUnusedGlobalSymbols
 export const loader = async ({ request, context }: Route.LoaderArgs) => {
-  const req = context.get(reqContext);
-
   return {
     user: await getUserIdentity(request),
-    requestOrigin: req.requestOrigin ?? request.url,
+    requestOrigin: context.requestOrigin ?? request.url,
   };
 };
 

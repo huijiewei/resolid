@@ -13,7 +13,6 @@ import { trunstileVerify } from "~/extensions/turnstile/trunstile.server";
 import { TurnstileWidget } from "~/extensions/turnstile/turnstile-widget";
 import { userPasswordResetEmailService, userService } from "~/modules/user/service.server";
 import { type UserPasswordForgotFormData, userPasswordForgotResolver } from "~/modules/user/validator";
-import { reqContext } from "~/server.base";
 import type { Route } from "./+types/password-forgot";
 
 // noinspection JSUnusedGlobalSymbols
@@ -30,23 +29,21 @@ export const action = async ({ request, context }: Route.ActionArgs) => {
     return httpProblem(createFieldErrors({ captcha: "验证失败" }));
   }
 
-  const req = context.get(reqContext);
-
   const expiredAt = addDay(new Date(), 1);
   const userAgent = request.headers.get("user-agent") ?? "";
 
-  const [errors, result] = await userService.passwordForgot(data, expiredAt, req.remoteAddress ?? "", userAgent);
+  const [errors, result] = await userService.passwordForgot(data, expiredAt, context.remoteAddress ?? "", userAgent);
 
   if (errors) {
     return httpProblem(errors);
   }
 
-  const baseUrl = req.requestOrigin ?? request.url;
+  const baseUrl = context.requestOrigin ?? request.url;
   const resetUrl = new URL(`/password-reset?token=${result.resetId}`, baseUrl).toString();
 
   const send = await userPasswordResetEmailService(
     result.identity,
-    req.requestOrigin ?? request.url,
+    context.requestOrigin ?? request.url,
     resetUrl,
     expiredAt,
     userAgent,
