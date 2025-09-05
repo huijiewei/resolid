@@ -41,13 +41,7 @@ export const action = async ({ request, context }: Route.ActionArgs) => {
   const baseUrl = context.requestOrigin ?? request.url;
   const resetUrl = new URL(`/password-reset?token=${result.resetId}`, baseUrl).toString();
 
-  const send = await userPasswordResetEmailService(
-    result.identity,
-    context.requestOrigin ?? request.url,
-    resetUrl,
-    expiredAt,
-    userAgent,
-  );
+  const send = await userPasswordResetEmailService(result.identity, baseUrl, resetUrl, expiredAt, userAgent);
 
   if (!send.success) {
     return httpProblem(createFieldErrors({ email: "邮件发送失败" }));

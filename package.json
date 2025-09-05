@@ -17,9 +17,9 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@resolid/config": "^3.5.0",
-    "@types/node": "^22.17.2",
-    "eslint": "^9.34.0",
+    "@resolid/config": "^3.6.0",
+    "@types/node": "^22.18.1",
+    "eslint": "^9.35.0",
     "lefthook": "^1.12.3",
     "prettier": "^3.6.2",
     "prettier-plugin-organize-imports": "^4.2.0",
@@ -30,7 +30,7 @@
     "node": "22.x",
     "pnpm": "10.x"
   },
-  "packageManager": "pnpm@10.15.0",
+  "packageManager": "pnpm@10.15.1",
   "homepage": "https://www.resolid.tech",
   "repository": {
     "type": "git",
