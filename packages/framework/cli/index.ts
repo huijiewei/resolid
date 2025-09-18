@@ -1,6 +1,5 @@
 import { Command } from "commander";
 import { argv } from "node:process";
-import { setup } from "../src";
 
 const normalizeCommand = (command: Command) => {
   return command
@@ -15,8 +14,6 @@ const normalizeCommand = (command: Command) => {
 export { Command };
 
 export type CreateCommand = () => Command;
-
-setup();
 
 export const createCli = ({ commands }: { commands: CreateCommand[] }) => {
   const program = new Command();

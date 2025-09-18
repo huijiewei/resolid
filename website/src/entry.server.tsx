@@ -5,8 +5,14 @@ import { PassThrough } from "node:stream";
 import { renderToPipeableStream } from "react-dom/server";
 import type { EntryContext } from "react-router";
 import { ServerRouter } from "react-router";
+import { zhCN } from "zod/locales";
 
-setup();
+setup({
+  timezone: "UTC",
+  zodConfig: {
+    localeError: zhCN().localeError,
+  },
+});
 
 export const streamTimeout = 10_000;
 
@@ -24,9 +30,11 @@ export default function handleRequest(
 
     let timeoutId: ReturnType<typeof setTimeout> | undefined = setTimeout(() => abort(), streamTimeout + 1000);
 
+    // noinspection JSUnusedGlobalSymbols
     const { pipe, abort } = renderToPipeableStream(<ServerRouter context={routerContext} url={request.url} />, {
       [readyOption]() {
         shellRendered = true;
+        // noinspection JSUnusedGlobalSymbols
         const body = new PassThrough({
           final(callback) {
             clearTimeout(timeoutId);

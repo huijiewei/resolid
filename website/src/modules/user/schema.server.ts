@@ -1,4 +1,3 @@
-import { index, timestamp, uniqueIndex, varchar } from "@resolid/framework/drizzle";
 import {
   type AuthIdentity,
   authColumns,
@@ -6,6 +5,7 @@ import {
   authPasswordResetColumns,
   authSessionColumns,
 } from "@resolid/framework/modules.server";
+import { index, timestamp, uniqueIndex, varchar } from "drizzle-orm/mysql-core";
 import { defineTable } from "~/foundation/schema.server";
 
 export type UserSelect = typeof userTable.$inferSelect;

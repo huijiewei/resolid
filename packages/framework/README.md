@@ -2,6 +2,8 @@
 
 Resolid 核心框架
 
+- [安装](#安装)
+- [设置](#设置)
 - [数据库](#数据库设置)
   - [设置数据库](#设置数据库)
   - [定义数据架构](#定义数据架构)
@@ -17,6 +19,28 @@ Resolid 核心框架
   - [Drizzle Kit 配置](#Drizzle-Kit-配置)
 - [单元测试](#单元测试)
 
+## 安装
+
+```bash
+pnpm add @resolid/framework drizzle-orm react-hook-form react-router zod
+```
+
+## 设置
+
+在应用的入口进行框架基础设置
+
+```ts
+import { setup } from "@resolid/framework";
+import { zhCN } from "zod/locales";
+
+setup({
+  timezone: "UTC",
+  zodConfig: {
+    localeError: zhCN().localeError,
+  },
+});
+```
+
 ## 数据库
 
 ### 设置数据库
@@ -28,7 +52,7 @@ import { defineDatabase } from "@resolid/framework";
 import { env } from "node:process";
 
 export const db = defineDatabase({
-  dbUrl: "postgres://user:password@host/database?sslmode=require", // 数据库链接
+  dbUrl: "mysql://user:password@host/database", // 数据库链接
   drizzleOptions: {
     logger: process.env.NODE_ENV == "development",
   },
@@ -40,46 +64,48 @@ export const db = defineDatabase({
 新建文件 `src/schema.server.ts`
 
 ```ts
-import { pgTableCreator } from "@resolid/framework/drizzle";
+import { mysqlTableCreator } from "drizzle-orm/mysql-core";
 
-export const defineTable = pgTableCreator((name) => "pre_" + name);
+export const defineTable = mysqlTableCreator((name) => "pre_" + name);
 ```
 
 ### 定义数据架构
 
 ```js
-import { serial, text, integer, relations, pgTable } from "@resolid/framework/drizzle";
+import { int, varchar, int, timestamp, index, uniqueIndex } from "drizzle-orm/mysql-core";
 import { authColumns } from "@resolid/framework/modules";
 
-export const userTable = pgTable(
+export const userTable = defineTable(
   "user",
   {
     ...authColumns,
   },
-  (table) => ({
-    emailIndex: uniqueIndex().on(table.email),
-    usernameIndex: uniqueIndex().on(table.username),
-    nicknameIndex: index().on(table.nickname),
-    groupIdIndex: index().on(table.groupId),
-    deletedAtIndex: index().on(table.deletedAt),
-  }),
+  (table) => [
+    uniqueIndex("email").on(table.email),
+    uniqueIndex("username").on(table.username),
+    index("nickname").on(table.nickname),
+    index("groupId").on(table.groupId),
+    index("deletedAt").on(table.deletedAt),
+  ],
 );
 
-export const blogPostTable = pgTable(
+export const blogPostTable = defineTable(
   "blog_post",
   {
-    id: serial("id").primaryKey(),
-    userId: integer("userId").notNull().default(0),
-    slug: text("slug").notNull().default(""),
-    title: text("title").notNull().default(""),
-    content: text("content").notNull().default(""),
-    createdAt: timestamp("createdAt").notNull().defaultNow(),
+    id: int().primaryKey().autoincrement(),
+    userId: int().notNull().default(0),
+    slug: varchar().notNull().default(""),
+    title: varchar().notNull().default(""),
+    content: text(),
+    createdAt: timestamp()
+      .notNull()
+      .default(sql`CURRENT_TIMESTAMP`),
   },
-  (blogPostTable) => ({
-    slugIndex: uniqueIndex("slugIndex").on(blogPostTable.slug),
-    userIdIndex: index("userIdIndex").on(blogPostTable.userId),
-    createdAtIndex: index("createdAtIndex").on(blogPostTable.createdAt),
-  }),
+  (table) => [
+    uniqueIndex("slug").on(table.slug),
+    index("userId").on(table.userId),
+    index("createdAt").on(table.createdAt),
+  ],
 );
 
 // 建立关联
@@ -91,12 +117,12 @@ export const blogPostRelations = relations(blogPostTable, ({ one }) => ({
 }));
 ```
 
-> 更多内容可以查看 https://orm.drizzle.team/docs/column-types/pg
+> 更多内容可以查看 https://orm.drizzle.team/docs/column-types/mysql
 
 ### 查询数据
 
 ```js
-import { eq, desc, getTableColumns } from "@resolid/framework/drizzle";
+import { eq, desc, getTableColumns } from "drizzle-orm/mysql-core";
 
 const posts = db
   .select({
@@ -168,7 +194,12 @@ pnpm add -D tsx
 新建 `cli/index.ts` 脚本文件
 
 ```ts
+import { setup } from "@resolid/framework";
 import { createCli } from "@resolid/framework/cli";
+
+setup({
+  timezone: "UTC",
+});
 
 createCli({
   commands: [],

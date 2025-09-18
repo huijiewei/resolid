@@ -1,8 +1,9 @@
 import { format } from "@formkit/tempo";
 import { hashSync } from "@node-rs/bcrypt";
 import { Command, type CreateCommand } from "@resolid/framework/cli";
-import { MySqlDialect, sql } from "@resolid/framework/drizzle";
 import { RX_DEFAULT_AUTH_GROUP_ID } from "@resolid/framework/modules.server";
+import { sql } from "drizzle-orm";
+import { MySqlDialect } from "drizzle-orm/mysql-core";
 import { exit } from "node:process";
 import { db } from "~/foundation/db.server";
 import { adminGroupTable, adminTable } from "~/modules/admin/schema.server";
