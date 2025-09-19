@@ -1,6 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
 
+import { z } from "zod";
+import { zhCN } from "zod/locales";
+
+z.config(zhCN());
+
 export const createResolver = zodResolver;
 
 export type ValidateDataResult<T extends FieldValues> =
@@ -11,7 +16,7 @@ export const validateData = async <T extends FieldValues>(
   data: T,
   resolver: Resolver<T>,
 ): Promise<ValidateDataResult<T>> => {
-  const { errors, values } = await resolver(data, {}, { shouldUseNativeValidation: false, fields: {} });
+  const { errors, values } = await resolver(data, {}, { shouldUseNativeValidation: undefined, fields: {} });
 
   if (Object.keys(errors).length > 0) {
     return { success: false, errors: errors as FieldErrors<T> };

@@ -77,6 +77,9 @@ export default function PasswordForgot() {
   } = useRemixForm<UserPasswordForgotFormData>({
     mode: "onSubmit",
     resolver: userPasswordForgotResolver,
+    defaultValues: {
+      email: "",
+    },
   });
 
   return (

@@ -44,6 +44,8 @@ export default function Login() {
     mode: "onBlur",
     resolver: userLoginResolver,
     defaultValues: {
+      email: "",
+      password: "",
       rememberMe: true,
     },
   });
@@ -65,6 +67,7 @@ export default function Login() {
                 type={"email"}
                 className={"w-full"}
                 placeholder={"电子邮箱"}
+                autoComplete={"email"}
                 onChange={onChange}
                 onBlur={onBlur}
                 value={value}
@@ -87,6 +90,7 @@ export default function Login() {
                 type={"password"}
                 className={"w-full"}
                 placeholder={"密码"}
+                autoComplete={"current-password"}
                 onChange={onChange}
                 onBlur={onBlur}
                 value={value}

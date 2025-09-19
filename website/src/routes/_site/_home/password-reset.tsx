@@ -36,6 +36,10 @@ export default function PasswordReset() {
   } = useRemixForm<UserPasswordResetFormData>({
     mode: "onSubmit",
     resolver: userPasswordResetResolver,
+    defaultValues: {
+      password: "",
+      confirmPassword: "",
+    },
   });
 
   const [resetSucceed, setResetSucceed] = useState(false);

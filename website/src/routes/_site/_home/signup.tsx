@@ -49,7 +49,12 @@ export default function Signup() {
   } = useRemixForm<UserSignupFormData>({
     mode: "onBlur",
     resolver: userSignupResolver,
+    shouldUseNativeValidation: false,
     defaultValues: {
+      email: "",
+      username: "",
+      password: "",
+      confirmPassword: "",
       rememberMe: true,
     },
   });
@@ -92,6 +97,7 @@ export default function Signup() {
                 invalid={Boolean(errors.username?.message)}
                 className={"w-full"}
                 placeholder={"用户名"}
+                autoComplete={"username"}
                 onChange={onChange}
                 onBlur={onBlur}
                 value={value}
@@ -114,6 +120,7 @@ export default function Signup() {
                 type={"password"}
                 className={"w-full"}
                 placeholder={"密码"}
+                autoComplete={"new-password"}
                 onChange={onChange}
                 onBlur={onBlur}
                 value={value}

@@ -12,8 +12,9 @@ export type UserLoginFormData = z.infer<typeof authLoginSchema>;
 
 export const userLoginResolver = createResolver(authLoginSchema);
 
-const userSignupSchema = authSignupSchema
-  .extend({
+const userSignupSchema = z
+  .object({
+    ...authSignupSchema.shape,
     agreeTerms: z.literal<boolean>(true),
     rememberMe: z.boolean(),
     createdIp: z.string().optional(),

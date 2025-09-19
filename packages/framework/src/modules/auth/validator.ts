@@ -2,9 +2,10 @@ import { z } from "zod";
 
 export const usernameValidator = z
   .string()
-  .min(4)
-  .max(32)
-  .regex(/^[a-z][a-z0-9_\\.]*$/)
+  .nonempty("用户名不能为空")
+  .min(4, "用户名不能少于4个字符")
+  .max(32, "用户名不能超过32个字符")
+  .regex(/^[a-z][a-z0-9_\\.]*$/, "用户名必须以字母开头不能包含特殊字符")
   .refine(
     (value) =>
       ![
@@ -25,13 +26,17 @@ export const usernameValidator = z
         "resolid",
       ].includes(value),
     {
-      error: "用户名为保留字",
+      error: "用户名不能为保留字",
     },
   );
 
-export const emailValidator = z.email().min(1).max(100);
+export const emailValidator = z.email().max(100, "电子邮箱不能超过100个字符");
 
-export const passwordValidator = z.string().min(6).max(32);
+export const passwordValidator = z
+  .string()
+  .nonempty("密码不能为空")
+  .min(6, "密码不能少于6个字符")
+  .max(32, "密码不能多于32个字符");
 
 export const passwordConfirmCheck: z.core.CheckFn<{
   password: string;
@@ -59,7 +64,7 @@ export type AuthSignupFormData = z.infer<typeof authSignupSchema>;
 
 export const authLoginSchema = z.object({
   email: emailValidator,
-  password: z.string().min(1),
+  password: z.string().nonempty("密码不能为空"),
   rememberMe: z.boolean(),
 });
 
@@ -67,7 +72,7 @@ export type AuthLoginFormData = z.infer<typeof authLoginSchema>;
 
 export const authPasswordForgotSchema = z.object({
   email: emailValidator,
-  token: z.string().min(1),
+  token: z.string().nonempty(),
 });
 
 export type AuthPasswordForgotFormData = z.infer<typeof authPasswordForgotSchema>;

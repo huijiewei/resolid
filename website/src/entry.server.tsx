@@ -5,13 +5,9 @@ import { PassThrough } from "node:stream";
 import { renderToPipeableStream } from "react-dom/server";
 import type { EntryContext } from "react-router";
 import { ServerRouter } from "react-router";
-import { zhCN } from "zod/locales";
 
 setup({
   timezone: "UTC",
-  zodConfig: {
-    localeError: zhCN().localeError,
-  },
 });
 
 export const streamTimeout = 10_000;

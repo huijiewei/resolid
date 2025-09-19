@@ -4,7 +4,7 @@ Resolid 核心框架
 
 - [安装](#安装)
 - [设置](#设置)
-- [数据库](#数据库设置)
+- [数据库](#数据库)
   - [设置数据库](#设置数据库)
   - [定义数据架构](#定义数据架构)
   - [查询数据](#查询数据)
@@ -16,8 +16,6 @@ Resolid 核心框架
   - [增加脚本](#增加脚本)
   - [运行命令](#运行命令)
   - [创建命令](#创建命令)
-  - [Drizzle Kit 配置](#Drizzle-Kit-配置)
-- [单元测试](#单元测试)
 
 ## 安装
 
@@ -31,13 +29,9 @@ pnpm add @resolid/framework drizzle-orm react-hook-form react-router zod
 
 ```ts
 import { setup } from "@resolid/framework";
-import { zhCN } from "zod/locales";
 
 setup({
   timezone: "UTC",
-  zodConfig: {
-    localeError: zhCN().localeError,
-  },
 });
 ```
 
