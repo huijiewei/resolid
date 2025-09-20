@@ -28,6 +28,7 @@ export default {
       : "site";
   },
   future: {
+    v8_middleware: true,
     unstable_optimizeDeps: true,
     unstable_splitRouteModules: true,
     unstable_viteEnvironmentApi: true,
