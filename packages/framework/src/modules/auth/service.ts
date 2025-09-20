@@ -193,7 +193,7 @@ export const createAuthSessionService = <T extends AuthSelectWithGroup>(
   };
 
   const createSession: AuthSessionService<AuthIdentity<T>>["createSession"] = async (sessionData, expiredAt) => {
-    const sessionId = nanoid(12);
+    const sessionId = nanoid(16);
 
     await database.insert(authSessionTable).values({
       id: sessionId,
@@ -269,7 +269,7 @@ export const createAuthPasswordForgotService = <T extends AuthPasswordForgotForm
       return [createFieldErrors<T>({ email: "电子邮箱并未注册" }), undefined];
     }
 
-    const resetId = nanoid(12);
+    const resetId = nanoid(16);
 
     await database.insert(authPasswordResetTable).values({
       id: resetId,

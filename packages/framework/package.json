@@ -24,6 +24,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./cli": "./cli/index.ts",
+    "./middlewares.server": "./src/middlewares.server.ts",
     "./modules": "./src/modules.ts",
     "./modules.server": "./src/modules.server.ts",
     "./utils": "./src/utils.ts",

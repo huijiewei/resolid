@@ -4,6 +4,10 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { RouteProcessBar } from "~/components/base/route-process-bar";
 import { VercelAnalytics } from "~/extensions/vercel/VercelAnalytics";
 import { VercelSpeedInsights } from "~/extensions/vercel/VercelSpeedInsights";
+import { requestIdMiddleware } from "~/middlewares/request-id.server";
+
+// noinspection JSUnusedGlobalSymbols
+export const middleware = [requestIdMiddleware];
 
 // noinspection JSUnusedGlobalSymbols
 export const Layout = ({ children }: PropsWithChildren) => {
