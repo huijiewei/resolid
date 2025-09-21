@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "../../utils/validate";
 
 export const usernameValidator = z
   .string()

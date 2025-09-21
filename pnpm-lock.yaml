@@ -149,8 +149,8 @@ importers:
         specifier: workspace:^
         version: link:../packages/framework
       '@resolid/react-ui':
-        specifier: https://pkg.pr.new/huijiewei/resolid-react-ui/@resolid/react-ui@cfacbf6
-        version: https://pkg.pr.new/huijiewei/resolid-react-ui/@resolid/react-ui@cfacbf6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(tailwind-merge@3.3.1)(tailwindcss@4.1.13)(typescript@5.9.2)
+        specifier: https://pkg.pr.new/huijiewei/resolid-react-ui/@resolid/react-ui@98747b1
+        version: https://pkg.pr.new/huijiewei/resolid-react-ui/@resolid/react-ui@98747b1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(tailwind-merge@3.3.1)(tailwindcss@4.1.13)(typescript@5.9.2)
       '@resolid/utils':
         specifier: ^0.3.4
         version: 0.3.4(typescript@5.9.2)
@@ -1395,8 +1395,8 @@ packages:
       react-router: ^7.9.0
       vite: ^7.1.5
 
-  '@resolid/react-ui@https://pkg.pr.new/huijiewei/resolid-react-ui/@resolid/react-ui@cfacbf6':
-    resolution: {tarball: https://pkg.pr.new/huijiewei/resolid-react-ui/@resolid/react-ui@cfacbf6}
+  '@resolid/react-ui@https://pkg.pr.new/huijiewei/resolid-react-ui/@resolid/react-ui@98747b1':
+    resolution: {tarball: https://pkg.pr.new/huijiewei/resolid-react-ui/@resolid/react-ui@98747b1}
     version: 0.0.0
     peerDependencies:
       react: ^19.1.1
@@ -2124,10 +2124,6 @@ packages:
   cliui@8.0.1:
     resolution: {integrity: sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==}
     engines: {node: '>=12'}
-
-  clsx@2.1.1:
-    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
-    engines: {node: '>=6'}
 
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
@@ -3541,8 +3537,8 @@ packages:
   tailwind-merge@3.3.1:
     resolution: {integrity: sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g==}
 
-  tailwind-variants@2.1.0:
-    resolution: {integrity: sha512-82m0eRex0z6A3GpvfoTCpHr+wWJmbecfVZfP3mqLoDxeya5tN4mYJQZwa5Aw1hRZTedwpu1D2JizYenoEdyD8w==}
+  tailwind-variants@3.1.1:
+    resolution: {integrity: sha512-ftLXe3krnqkMHsuBTEmaVUXYovXtPyTK7ckEfDRXS8PBZx0bAUas+A0jYxuKA5b8qg++wvQ3d2MQ7l/xeZxbZQ==}
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwind-merge: '>=3.0.0'
@@ -5247,15 +5243,14 @@ snapshots:
       - rollup
       - supports-color
 
-  '@resolid/react-ui@https://pkg.pr.new/huijiewei/resolid-react-ui/@resolid/react-ui@cfacbf6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(tailwind-merge@3.3.1)(tailwindcss@4.1.13)(typescript@5.9.2)':
+  '@resolid/react-ui@https://pkg.pr.new/huijiewei/resolid-react-ui/@resolid/react-ui@98747b1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(tailwind-merge@3.3.1)(tailwindcss@4.1.13)(typescript@5.9.2)':
     dependencies:
       '@floating-ui/react': 0.27.16(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@resolid/utils': 0.3.4(typescript@5.9.2)
       '@tanstack/react-virtual': 3.13.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      clsx: 2.1.1
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
-      tailwind-variants: 2.1.0(tailwind-merge@3.3.1)(tailwindcss@4.1.13)
+      tailwind-variants: 3.1.1(tailwind-merge@3.3.1)(tailwindcss@4.1.13)
       tailwindcss: 4.1.13
     transitivePeerDependencies:
       - tailwind-merge
@@ -6011,8 +6006,6 @@ snapshots:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
-
-  clsx@2.1.1: {}
 
   color-convert@2.0.1:
     dependencies:
@@ -7229,7 +7222,7 @@ snapshots:
   tailwind-merge@3.3.1:
     optional: true
 
-  tailwind-variants@2.1.0(tailwind-merge@3.3.1)(tailwindcss@4.1.13):
+  tailwind-variants@3.1.1(tailwind-merge@3.3.1)(tailwindcss@4.1.13):
     dependencies:
       tailwindcss: 4.1.13
     optionalDependencies:

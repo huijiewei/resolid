@@ -5,8 +5,7 @@ import {
   authSignupSchema,
   passwordConfirmCheck,
 } from "@resolid/framework/modules";
-import { createResolver } from "@resolid/framework/utils";
-import { z } from "zod";
+import { createResolver, z } from "@resolid/framework/utils";
 
 export type UserLoginFormData = z.infer<typeof authLoginSchema>;
 

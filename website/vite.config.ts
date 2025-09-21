@@ -73,7 +73,7 @@ export default defineConfig(({ command }) => {
               return "react-router";
             }
 
-            if (id.includes("/src/components/base/")) {
+            if (id.includes("/packages/framework/src/components") || id.includes("/src/components/base/")) {
               return "components";
             }
           },

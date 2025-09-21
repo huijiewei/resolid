@@ -22,7 +22,7 @@
     "@react-email/render": "^1.2.3",
     "@react-router/node": "^7.9.1",
     "@resolid/framework": "workspace:^",
-    "@resolid/react-ui": "https://pkg.pr.new/huijiewei/resolid-react-ui/@resolid/react-ui@cfacbf6",
+    "@resolid/react-ui": "https://pkg.pr.new/huijiewei/resolid-react-ui/@resolid/react-ui@98747b1",
     "@resolid/utils": "^0.3.4",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",

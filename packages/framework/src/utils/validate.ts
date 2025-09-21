@@ -1,10 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { FieldErrors, FieldValues, Resolver } from "react-hook-form";
-
-import { z } from "zod";
+import * as z from "zod";
 import { zhCN } from "zod/locales";
 
 z.config(zhCN());
+
+export { z };
 
 export const createResolver = zodResolver;
 
