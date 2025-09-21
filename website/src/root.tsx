@@ -5,9 +5,11 @@ import { RouteProcessBar } from "~/components/base/route-process-bar";
 import { VercelAnalytics } from "~/extensions/vercel/VercelAnalytics";
 import { VercelSpeedInsights } from "~/extensions/vercel/VercelSpeedInsights";
 import { requestIdMiddleware } from "~/middlewares/request-id.server";
+import { timezoneScript } from "~/middlewares/timezone";
+import { timezoneMiddleware } from "~/middlewares/timezone.server";
 
 // noinspection JSUnusedGlobalSymbols
-export const middleware = [requestIdMiddleware];
+export const middleware = [requestIdMiddleware, timezoneMiddleware];
 
 // noinspection JSUnusedGlobalSymbols
 export const Layout = ({ children }: PropsWithChildren) => {
@@ -36,6 +38,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
             <VercelSpeedInsights endpoint={"/speed-growth/vitals"} scriptSrc={"/speed-growth/script.js"} />
           </>
         )}
+        {timezoneScript()}
       </body>
     </html>
   );

@@ -1,17 +1,25 @@
-import { format, parse } from "@formkit/tempo";
+import { format } from "@formkit/tempo";
 import { mergeMeta } from "@resolid/framework/utils";
 import { Alert, AlertDescription, AlertTitle } from "@resolid/react-ui";
 import { SuspenseComponent } from "~/components/base/suspense-component";
 import { getRequestId } from "~/middlewares/request-id.server";
+import { getTimezone } from "~/middlewares/timezone.server";
 import { statusService } from "~/modules/system/service.server";
 import type { Route } from "./+types/status";
 
 // noinspection JSUnusedGlobalSymbols
 export const loader = async ({ context }: Route.LoaderArgs) => {
+  const timezone = getTimezone(context);
+
   return {
     ssr: {
       message: "服务器渲染正常",
-      datetime: format(new Date(), "YYYY-MM-DD HH:mm Z"),
+      timezone: timezone,
+      datetime: format({
+        date: new Date(),
+        format: "YYYY-MM-DD HH:mm",
+        tz: timezone,
+      }),
       remoteAddress: context.remoteAddress ?? "",
       requestId: getRequestId(context),
     },
@@ -62,8 +70,10 @@ export default function Status({ loaderData }: Route.ComponentProps) {
           <dl className={""}>
             <dt className={"float-left w-1/5"}>客户端地址：</dt>
             <dd className={"font-mono"}>{ssr.remoteAddress}</dd>
+            <dt className={"float-left w-1/5"}>客户端时区：</dt>
+            <dd className={"font-mono"}>{ssr.timezone}</dd>
             <dt className={"float-left w-1/5"}>服务器时间：</dt>
-            <dd className={"font-mono"}>{format(parse(ssr.datetime, "YYYY-MM-DD HH:mm Z"), "YYYY-MM-DD HH:mm")}</dd>
+            <dd className={"font-mono"}>{ssr.datetime}</dd>
             <dt className={"float-left w-1/5"}>请求 Id：</dt>
             <dd className={"font-mono"}>{ssr.requestId}</dd>
           </dl>

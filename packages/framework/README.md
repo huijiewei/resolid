@@ -249,3 +249,6 @@ createCli({
 ```
 
 ## 感谢
+
+- [remix-utils](https://github.com/sergiodxa/remix-utils)
+- [@epic-web/client-hints](https://github.com/epicweb-dev/client-hints)

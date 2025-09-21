@@ -1,4 +1,4 @@
 {
-  "extends": "@resolid/config/tsconfig/base",
+  "extends": "@resolid/config/tsconfig/react",
   "include": ["src/**/*", "cli/**/*"]
 }
