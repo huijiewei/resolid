@@ -24,6 +24,7 @@
   "exports": {
     ".": "./src/foundation.ts",
     "./cli": "./cli/index.ts",
+    "./components": "./src/components.ts",
     "./middlewares": "./src/middlewares.ts",
     "./middlewares.server": "./src/middlewares.server.ts",
     "./modules": "./src/modules.ts",

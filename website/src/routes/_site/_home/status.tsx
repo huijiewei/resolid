@@ -1,7 +1,7 @@
 import { format } from "@formkit/tempo";
+import { SuspenseComponent } from "@resolid/framework/components";
 import { mergeMeta } from "@resolid/framework/utils";
 import { Alert, AlertDescription, AlertTitle } from "@resolid/react-ui";
-import { SuspenseComponent } from "~/components/base/suspense-component";
 import { getRequestId } from "~/middlewares/request-id.server";
 import { getTimezone } from "~/middlewares/timezone.server";
 import { statusService } from "~/modules/system/service.server";
