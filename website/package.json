@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@react-router/dev": "^7.9.1",
-    "@resolid/config": "^3.6.1",
+    "@resolid/config": "^3.6.2",
     "@resolid/flex-routes": "^1.5.0",
     "@resolid/react-router-hono": "^1.7.0",
     "@tailwindcss/typography": "^0.5.18",

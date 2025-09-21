@@ -10,7 +10,7 @@ export type DatabaseSessionStorageOptions<T> = {
 type DateOption<T extends IntRange<1, 366> | undefined = undefined> = T extends undefined ? undefined : Date;
 
 export const getCookieExpires = <T extends IntRange<1, 366> | undefined>(days?: T): DateOption<T> => {
-  return days ? <DateOption<T>>new Date(Date.now() + 1000 * 60 * 60 * 24 * days) : <DateOption<T>>undefined;
+  return days ? (new Date(Date.now() + 1000 * 60 * 60 * 24 * days) as DateOption<T>) : (undefined as DateOption<T>);
 };
 
 export const createDatabaseSessionStorage = <T>({ cookie, service }: DatabaseSessionStorageOptions<T>) => {
