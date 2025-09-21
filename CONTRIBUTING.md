@@ -16,38 +16,31 @@
    pnpm install
    ```
 
-3. 构建插件包
-
-   ```shell
-   pnpm run --parallel --filter @resolid/remix-plugins --filter @resolid/mdx-plugins build
-   ```
-
-4. 环境变量
-
+3. 环境变量
    - 复制 `website/.env.test.example` 为 `.env.test`, 并修改变量
    - 复制 `website/.env.example` 为 `.env`, 并修改变量
 
    > 建议测试环境和开发环境使用不同的数据库连接, 测试环境的数据库在单元测试后都进行清空
 
-5. 本地开发
+4. 本地开发
 
    ```shell
    pnpm run website:dev
    ```
 
-6. 运行测试
+5. 运行测试
 
    ```shell
    pnpm test
    ```
 
-7. 本地构建
+6. 本地构建
 
    ```shell
    pnpm run website:build
    ```
 
-8. 本地运行
+7. 本地运行
 
    ```shell
    pnpm run --filter website serve
@@ -85,13 +78,7 @@ Resolid 使用 `commitlint` 工具对提交消息格式进行规范
 
 范围应该是受影响的包的名称，下面是支持的范围列表：
 
-- `config`
 - `framework`
-- `mdx-plugins`
-- `react-ui`
-- `remix-plugins`
-- `tailwind`
-- `utils`
 - `website`
 
 目前“使用包名称”规则有一些例外：

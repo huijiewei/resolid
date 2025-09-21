@@ -36,7 +36,7 @@
     "remix-hook-form": "^7.1.0",
     "tailwindcss": "^4.1.13",
     "ua-parser-js": "^2.0.5",
-    "zod": "^4.1.9"
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "@react-router/dev": "^7.9.1",

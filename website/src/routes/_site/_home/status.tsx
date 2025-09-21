@@ -1,14 +1,13 @@
 import { format, parse } from "@formkit/tempo";
 import { mergeMeta } from "@resolid/framework/utils";
 import { Alert, AlertDescription, AlertTitle } from "@resolid/react-ui";
-import { Suspense } from "react";
-import { Await } from "react-router";
+import { SuspenseComponent } from "~/components/base/suspense-component";
 import { getRequestId } from "~/middlewares/request-id.server";
 import { statusService } from "~/modules/system/service.server";
 import type { Route } from "./+types/status";
 
 // noinspection JSUnusedGlobalSymbols
-export const loader = ({ context }: Route.LoaderArgs) => {
+export const loader = async ({ context }: Route.LoaderArgs) => {
   return {
     ssr: {
       message: "服务器渲染正常",
@@ -45,21 +44,19 @@ export default function Status({ loaderData }: Route.ComponentProps) {
       <Alert color={"success"} className={"my-5"}>
         <AlertTitle>{ssr.message}</AlertTitle>
       </Alert>
-      <Suspense
+      <SuspenseComponent
+        data={db}
+        render={(db) => (
+          <Alert color={db.success ? "success" : "danger"} className={"my-5"}>
+            <AlertTitle>{db.message}</AlertTitle>
+          </Alert>
+        )}
         fallback={
           <Alert color={"warning"} className={"my-5"}>
             <AlertTitle>正在查询数据库状态</AlertTitle>
           </Alert>
         }
-      >
-        <Await resolve={db}>
-          {(db) => (
-            <Alert color={db.success ? "success" : "danger"} className={"my-5"}>
-              <AlertTitle>{db.message}</AlertTitle>
-            </Alert>
-          )}
-        </Await>
-      </Suspense>
+      />
       <Alert color={"primary"} className={"not-prose my-5"}>
         <AlertDescription>
           <dl className={""}>
