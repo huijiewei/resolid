@@ -22,7 +22,7 @@
     "typecheck": "tsc --noEmit"
   },
   "exports": {
-    ".": "./src/index.ts",
+    ".": "./src/foundation.ts",
     "./cli": "./cli/index.ts",
     "./middlewares.server": "./src/middlewares.server.ts",
     "./modules": "./src/modules.ts",
