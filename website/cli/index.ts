@@ -3,9 +3,7 @@ import { createCli } from "@resolid/framework/cli";
 import { mailCommand } from "./commands/mail";
 import { systemCommand } from "./commands/system";
 
-setup({
-  timezone: "UTC",
-});
+setup();
 
 createCli({
   commands: [mailCommand, systemCommand],

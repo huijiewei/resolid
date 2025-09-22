@@ -6,9 +6,7 @@ import { renderToPipeableStream } from "react-dom/server";
 import type { EntryContext } from "react-router";
 import { ServerRouter } from "react-router";
 
-setup({
-  timezone: "UTC",
-});
+setup();
 
 export const streamTimeout = 10_000;
 
