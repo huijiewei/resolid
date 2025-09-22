@@ -1,6 +1,5 @@
 import { authLoginSchema } from "@resolid/framework/modules";
-import { createResolver } from "@resolid/framework/utils";
-import type * as z from "zod";
+import { createResolver, type z } from "@resolid/framework/utils";
 
 export type AdminLoginFormData = z.infer<typeof authLoginSchema>;
 

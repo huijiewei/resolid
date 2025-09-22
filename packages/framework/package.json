@@ -41,7 +41,8 @@
     "mysql2": "^3.15.0",
     "nodemailer": "^7.0.6",
     "nanoid": "^5.1.5",
-    "type-fest": "^4.41.0"
+    "type-fest": "^4.41.0",
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "@types/nodemailer": "^7.0.1",
@@ -50,9 +51,8 @@
   "peerDependencies": {
     "drizzle-orm": "^0.44.5",
     "react": "^19.1.1",
-    "react-hook-form": "^7.62.0",
-    "react-router": "^7.9.1",
-    "zod": "^4.1.9"
+    "react-hook-form": "^7.63.0",
+    "react-router": "^7.9.1"
   },
   "homepage": "https://www.resolid.tech",
   "repository": {
