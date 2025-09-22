@@ -4,6 +4,7 @@ import { env } from "node:process";
 
 export const db = await defineDatabase({
   dbUri: env.RX_DB_URI,
+  vercelPool: !!env.VERCEL_URL,
   mysqlOptions: {
     ssl: {
       rejectUnauthorized: true,

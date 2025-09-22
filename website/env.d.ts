@@ -19,6 +19,8 @@ declare namespace NodeJS {
 
     readonly RX_COOKIE_SECRET: string;
     readonly RX_TURNSTILE_SECRET: string;
+
+    readonly VERCEL_URL: string;
   }
 }
 
