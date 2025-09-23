@@ -18,11 +18,11 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@resolid/config": "^3.6.2",
+    "@resolid/config": "^3.6.3",
     "@tailwindcss/language-server": "^0.14.26",
     "@types/node": "^22.18.6",
     "eslint": "^9.36.0",
-    "lefthook": "^1.13.1",
+    "lefthook": "^1.13.2",
     "prettier": "^3.6.2",
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-tailwindcss": "^0.6.14",
@@ -32,7 +32,7 @@
     "node": "22.x",
     "pnpm": "10.x"
   },
-  "packageManager": "pnpm@10.17.0",
+  "packageManager": "pnpm@10.17.1",
   "homepage": "https://www.resolid.tech",
   "repository": {
     "type": "git",
