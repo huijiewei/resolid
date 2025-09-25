@@ -22,7 +22,7 @@
     "@tailwindcss/language-server": "^0.14.26",
     "@types/node": "^22.18.6",
     "eslint": "^9.36.0",
-    "lefthook": "^1.13.2",
+    "lefthook": "^1.13.4",
     "prettier": "^3.6.2",
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-tailwindcss": "^0.6.14",
