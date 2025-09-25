@@ -67,14 +67,14 @@ export default function Status({ loaderData }: Route.ComponentProps) {
       />
       <Alert color={"primary"} className={"not-prose my-5"}>
         <AlertDescription>
-          <dl className={""}>
-            <dt className={"float-left w-1/5"}>客户端地址：</dt>
+          <dl>
+            <dt className={"float-left w-1/3 md:w-1/5"}>客户端地址：</dt>
             <dd className={"font-mono"}>{ssr.remoteAddress}</dd>
-            <dt className={"float-left w-1/5"}>客户端时区：</dt>
+            <dt className={"float-left w-1/3 md:w-1/5"}>客户端时区：</dt>
             <dd className={"font-mono"}>{ssr.timezone}</dd>
-            <dt className={"float-left w-1/5"}>服务器时间：</dt>
+            <dt className={"float-left w-1/3 md:w-1/5"}>服务器时间：</dt>
             <dd className={"font-mono"}>{ssr.datetime}</dd>
-            <dt className={"float-left w-1/5"}>请求 Id：</dt>
+            <dt className={"float-left w-1/3 md:w-1/5"}>请求 Id：</dt>
             <dd className={"font-mono"}>{ssr.requestId}</dd>
           </dl>
         </AlertDescription>

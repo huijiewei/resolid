@@ -4,8 +4,8 @@ import {
   authGroupColumns,
   authSessionColumns,
 } from "@resolid/framework/modules.server";
-import { defineTable } from "~/foundation/schema.server";
 import { index, uniqueIndex } from "drizzle-orm/mysql-core";
+import { defineTable } from "~/foundation/schema.server";
 
 export type AdminSelect = typeof adminTable.$inferSelect;
 export type AdminGroupSelect = typeof adminGroupTable.$inferSelect;

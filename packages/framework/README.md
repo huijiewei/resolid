@@ -30,9 +30,7 @@ pnpm add @resolid/framework drizzle-orm react-hook-form react-router zod
 ```ts
 import { setup } from "@resolid/framework";
 
-setup({
-  timezone: "UTC",
-});
+setup();
 ```
 
 ## 数据库
