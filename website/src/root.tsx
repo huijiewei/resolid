@@ -1,3 +1,4 @@
+import { TimezoneScript } from "@resolid/framework/components";
 import { ResolidProvider } from "@resolid/react-ui";
 import type { PropsWithChildren } from "react";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
@@ -5,7 +6,6 @@ import { RouteProcessBar } from "~/components/base/route-process-bar";
 import { VercelAnalytics } from "~/extensions/vercel/VercelAnalytics";
 import { VercelSpeedInsights } from "~/extensions/vercel/VercelSpeedInsights";
 import { requestIdMiddleware } from "~/middlewares/request-id.server";
-import { timezoneScript } from "~/middlewares/timezone";
 import { timezoneMiddleware } from "~/middlewares/timezone.server";
 
 // noinspection JSUnusedGlobalSymbols
@@ -38,7 +38,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
             <VercelSpeedInsights endpoint={"/speed-growth/vitals"} scriptSrc={"/speed-growth/script.js"} />
           </>
         )}
-        {timezoneScript()}
+        <TimezoneScript cookieName={"rx-timezone"} />
       </body>
     </html>
   );
