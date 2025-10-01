@@ -1,4 +1,5 @@
-# vercel
+# serverless
+.netlify/
 .vercel/
 
 # vite

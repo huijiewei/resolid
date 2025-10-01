@@ -133,9 +133,16 @@ export default function SiteLayout({ loaderData }: Route.ComponentProps) {
               <SpriteIcon className={"me-1"} name={"status"} />
               运行状态
             </Badge>
-            <Badge className={"pointer-events-none"} color={"neutral"}>
-              部署于 Vercel
-            </Badge>
+            {!!import.meta.env.VITE_VERCEL_URL && (
+              <Badge className={"pointer-events-none"} color={"neutral"}>
+                部署于 Vercel
+              </Badge>
+            )}
+            {import.meta.env.VITE_NETLIFY && (
+              <Badge className={"pointer-events-none"} color={"neutral"}>
+                部署于 Netlify
+              </Badge>
+            )}
           </p>
         </div>
       </footer>

@@ -20,11 +20,13 @@ declare namespace NodeJS {
     readonly RX_COOKIE_SECRET: string;
     readonly RX_TURNSTILE_SECRET: string;
 
+    readonly NETLIFY: boolean;
     readonly VERCEL_URL: string;
   }
 }
 
 interface ImportMetaEnv {
+  readonly VITE_NETLIFY?: boolean;
   readonly VITE_VERCEL_URL?: string;
   readonly VITE_TURNSTILE_KEY: string;
 }

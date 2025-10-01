@@ -5,6 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/website/.vercel" />
       <excludeFolder url="file://$MODULE_DIR$/website/build" />
       <excludeFolder url="file://$MODULE_DIR$/website/.react-router" />
+      <excludeFolder url="file://$MODULE_DIR$/website/.netlify" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
