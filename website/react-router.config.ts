@@ -9,13 +9,13 @@ export default {
   appDirectory: "src",
   ssr: true,
   presets: [
-    env.NETLIFY == "1"
+    env.NETLIFY
       ? netlifyPreset({
           entryFile: "server.netlify.ts",
           nodeVersion: 22,
           copyParentModules: ["@node-rs/bcrypt"],
         })
-      : env.VERCEL == "1"
+      : env.VERCEL
         ? vercelPreset({
             regions: ["sin1"],
             entryFile: "server.vercel.ts",

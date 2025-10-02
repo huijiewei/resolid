@@ -11,7 +11,4 @@ export default [
   ...eslintBrowser,
   ...eslintNode,
   reactYouMightNotNeedAnEffect.configs.recommended,
-  {
-    ignores: [".react-router/*"],
-  },
 ];

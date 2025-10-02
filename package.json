@@ -11,15 +11,15 @@
     "typecheck": "pnpm run -r --if-present typecheck",
     "website:dev": "pnpm --filter website run dev",
     "website:build": "pnpm --filter website... run build",
-    "website:netlify": "NETLIFY=1 pnpm --filter website... run build",
-    "website:vercel": "VERCEL=1 pnpm --filter website... run build",
+    "website:netlify": "NETLIFY=true pnpm --filter website... run build",
+    "website:vercel": "VERCEL=true pnpm --filter website... run build",
     "resolid": "pnpm --filter website exec -- pnpm --silent resolid",
     "drizzle": "pnpm --filter website exec -- pnpm --silent drizzle"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
-    "@resolid/config": "^3.6.3",
+    "@resolid/config": "^3.7.2",
     "@tailwindcss/language-server": "^0.14.26",
     "@types/node": "^22.18.8",
     "eslint": "^9.36.0",
@@ -42,9 +42,9 @@
   },
   "pnpm": {
     "overrides": {
-      "react": "^19.1.1",
-      "react-dom": "^19.1.1",
-      "react-is": "^19.1.1",
+      "react": "^19.2.0",
+      "react-dom": "^19.2.0",
+      "react-is": "^19.2.0",
       "hasown": "npm:@nolyfill/hasown@^1",
       "is-arguments": "npm:@nolyfill/is-arguments@^1",
       "is-generator-function": "npm:@nolyfill/is-generator-function@^1",
