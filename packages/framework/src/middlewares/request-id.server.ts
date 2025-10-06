@@ -35,7 +35,7 @@ export const createRequestIdMiddleware = ({
   const requestIdContext = createContext<string>();
 
   return [
-    ({ request, context }, next) => {
+    ({ request, context }) => {
       let requestId = request.headers.get(header);
 
       if (!requestId || requestId.length > limitLength || /[^\w-]/.test(requestId)) {
@@ -43,8 +43,6 @@ export const createRequestIdMiddleware = ({
       }
 
       context.set(requestIdContext, requestId);
-
-      return next();
     },
     (context) => context.get(requestIdContext),
   ];

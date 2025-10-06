@@ -1,25 +1,18 @@
 import { format } from "@formkit/tempo";
 import { SuspenseComponent } from "@resolid/framework/components";
 import { mergeMeta } from "@resolid/framework/utils";
-import { Alert, AlertDescription, AlertTitle } from "@resolid/react-ui";
+import { Alert, AlertDescription, AlertTitle, ClientOnly } from "@resolid/react-ui";
+import { useMemo } from "react";
 import { getRequestId } from "~/middlewares/request-id.server";
-import { getTimezone } from "~/middlewares/timezone.server";
 import { statusService } from "~/modules/system/service.server";
 import type { Route } from "./+types/status";
 
 // noinspection JSUnusedGlobalSymbols
 export const loader = async ({ context }: Route.LoaderArgs) => {
-  const timezone = getTimezone(context);
-
   return {
     ssr: {
       message: "服务器渲染正常",
-      timezone: timezone,
-      datetime: format({
-        date: new Date(),
-        format: "YYYY-MM-DD HH:mm",
-        tz: timezone,
-      }),
+      datetime: new Date().toISOString(),
       remoteAddress: context.remoteAddress ?? "",
       requestId: getRequestId(context),
     },
@@ -42,6 +35,13 @@ export const meta = mergeMeta(() => {
 // noinspection JSUnusedGlobalSymbols
 export default function Status({ loaderData }: Route.ComponentProps) {
   const { ssr, db } = loaderData;
+
+  const clientTimeZone = useMemo(() => {
+    if (typeof window !== "undefined") {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone;
+    }
+    return "";
+  }, []);
 
   return (
     <div className={"prose dark:prose-invert mx-auto px-4 py-8"}>
@@ -70,10 +70,34 @@ export default function Status({ loaderData }: Route.ComponentProps) {
           <dl>
             <dt className={"float-left w-1/3 md:w-1/5"}>客户端地址：</dt>
             <dd className={"font-mono"}>{ssr.remoteAddress}</dd>
-            <dt className={"float-left w-1/3 md:w-1/5"}>客户端时区：</dt>
-            <dd className={"font-mono"}>{ssr.timezone}</dd>
             <dt className={"float-left w-1/3 md:w-1/5"}>服务器时间：</dt>
-            <dd className={"font-mono"}>{ssr.datetime}</dd>
+            <dd className={"font-mono"}>
+              <ClientOnly fallback={"正在获取..."}>
+                {() =>
+                  format({
+                    date: ssr.datetime,
+                    format: "YYYY-MM-DD HH:mm",
+                    tz: clientTimeZone,
+                  })
+                }
+              </ClientOnly>
+            </dd>
+            <dt className={"float-left w-1/3 md:w-1/5"}>客户端时间：</dt>
+            <dd className={"font-mono"}>
+              <ClientOnly fallback={"正在获取..."}>
+                {() =>
+                  format({
+                    date: new Date(),
+                    format: "YYYY-MM-DD HH:mm",
+                    tz: clientTimeZone,
+                  })
+                }
+              </ClientOnly>
+            </dd>
+            <dt className={"float-left w-1/3 md:w-1/5"}>客户端时区：</dt>
+            <dd className={"font-mono"}>
+              <ClientOnly fallback={"正在获取..."}>{clientTimeZone}</ClientOnly>
+            </dd>
             <dt className={"float-left w-1/3 md:w-1/5"}>请求 Id：</dt>
             <dd className={"font-mono"}>{ssr.requestId}</dd>
           </dl>
