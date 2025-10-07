@@ -82,7 +82,7 @@ export default defineConfig(({ command }) => {
     },
     esbuild: { legalComments: "none" },
     ssr: {
-      external: ["@node-rs/bcrypt"],
+      external: ["@node-rs/bcrypt", "mysql2"],
     },
     optimizeDeps: {
       include: ["react-hook-form", "remix-hook-form"],

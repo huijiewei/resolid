@@ -13,14 +13,12 @@ export default {
       ? netlifyPreset({
           entryFile: "server.netlify.ts",
           nodeVersion: 22,
-          copyParentModules: ["@node-rs/bcrypt"],
         })
       : env.VERCEL
         ? vercelPreset({
             regions: ["sin1"],
             entryFile: "server.vercel.ts",
             nodeVersion: 22,
-            copyParentModules: ["@node-rs/bcrypt"],
           })
         : nodePreset({
             entryFile: "server.node.ts",
