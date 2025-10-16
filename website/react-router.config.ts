@@ -16,7 +16,6 @@ export default {
         })
       : env.VERCEL
         ? vercelPreset({
-            regions: ["sin1"],
             entryFile: "server.vercel.ts",
             nodeVersion: 22,
           })

@@ -1,7 +1,6 @@
-import type { HttpBindings } from "@hono/node-server";
 import { setup } from "@resolid/framework";
 import { getClientIp, getRequestOrigin } from "@resolid/framework/utils.server";
-import type { Context } from "hono";
+import type { HonoContext, NodeEnv } from "@resolid/react-router-hono";
 import { env } from "node:process";
 import { RouterContextProvider } from "react-router";
 
@@ -14,7 +13,7 @@ declare module "react-router" {
 
 setup();
 
-export const getLoadContext = (c: Context<{ Bindings: HttpBindings }>) => {
+export const getLoadContext = (c: HonoContext<NodeEnv>) => {
   const proxy = env.RX_PROXY == 1;
 
   const context = new RouterContextProvider();

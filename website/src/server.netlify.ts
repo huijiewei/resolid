@@ -1,15 +1,11 @@
 import { setup } from "@resolid/framework";
-import { createHonoNetlifyServer, type NetlifyContext } from "@resolid/react-router-hono/netlify-server";
+import { createHonoNetlifyServer } from "@resolid/react-router-hono/netlify-server";
 import { RouterContextProvider } from "react-router";
 
 setup();
 
 // noinspection JSUnusedGlobalSymbols
-export default await createHonoNetlifyServer<{
-  Bindings: {
-    context: NetlifyContext;
-  };
-}>({
+export default await createHonoNetlifyServer({
   getLoadContext: (c) => {
     const context = new RouterContextProvider();
 
